@@ -1641,9 +1641,9 @@ public enum FILE_ID_TYPE : int32
 #region Function Pointers
 public function uint32 MAXMEDIALABEL(uint32* pMaxSize);
 
-public function uint32 CLAIMMEDIALABEL(uint8* pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo);
+public function uint32 CLAIMMEDIALABEL(in uint8 pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo);
 
-public function uint32 CLAIMMEDIALABELEX(uint8* pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo, ref Guid LabelGuid);
+public function uint32 CLAIMMEDIALABELEX(in uint8 pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo, Guid* LabelGuid);
 
 public function void* CLFS_BLOCK_ALLOCATION(uint32 cbBufferLength, void* pvUserContext);
 
@@ -1657,7 +1657,7 @@ public function void PLOG_FULL_HANDLER_CALLBACK(HANDLE hLogFile, uint32 dwError,
 
 public function void PLOG_UNPINNED_CALLBACK(HANDLE hLogFile, void* pvClientContext);
 
-public function BOOL WofEnumEntryProc(void* EntryInfo, void* UserData);
+public function BOOL WofEnumEntryProc(in void EntryInfo, void* UserData);
 
 public function BOOL WofEnumFilesProc(PWSTR FilePath, void* ExternalFileInfo, void* UserData);
 
@@ -4600,11 +4600,11 @@ public static
 	public static extern uint32 VerLanguageNameW(uint32 wLang, char16* szLang, uint32 cchLang);
 
 	[Import("VERSION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL VerQueryValueA(void* pBlock, PSTR lpSubBlock, void** lplpBuffer, uint32* puLen);
-	public static BOOL VerQueryValue(void* pBlock, PSTR lpSubBlock, void** lplpBuffer, uint32* puLen) => VerQueryValueA(pBlock, lpSubBlock, lplpBuffer, puLen);
+	public static extern BOOL VerQueryValueA(in void pBlock, PSTR lpSubBlock, void** lplpBuffer, uint32* puLen);
+	public static BOOL VerQueryValue(in void pBlock, PSTR lpSubBlock, void** lplpBuffer, uint32* puLen) => VerQueryValueA(pBlock, lpSubBlock, lplpBuffer, puLen);
 
 	[Import("VERSION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL VerQueryValueW(void* pBlock, PWSTR lpSubBlock, void** lplpBuffer, uint32* puLen);
+	public static extern BOOL VerQueryValueW(in void pBlock, PWSTR lpSubBlock, void** lplpBuffer, uint32* puLen);
 
 	[Import("clfsw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN LsnEqual(CLS_LSN* plsn1, CLS_LSN* plsn2);
@@ -4903,7 +4903,7 @@ public static
 	public static extern BOOL TxfLogReadRecords(void* TxfLogContext, uint32 BufferLength, void* Buffer, uint32* BytesUsed, uint32* RecordCount);
 
 	[Import("txfw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL TxfReadMetadataInfo(HANDLE FileHandle, TXF_ID* TxfFileId, CLS_LSN* LastLsn, uint32* TransactionState, ref Guid LockingTransaction);
+	public static extern BOOL TxfReadMetadataInfo(HANDLE FileHandle, TXF_ID* TxfFileId, CLS_LSN* LastLsn, uint32* TransactionState, Guid* LockingTransaction);
 
 	[Import("txfw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL TxfLogRecordGetFileName(void* RecordBuffer, uint32 RecordBufferLengthInBytes, PWSTR NameBuffer, uint32* NameBufferLengthInBytes, TXF_ID* TxfId);
@@ -4918,10 +4918,10 @@ public static
 	public static extern void TxfGetThreadMiniVersionForCreate(uint16* MiniVersion);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE CreateTransaction(SECURITY_ATTRIBUTES* lpTransactionAttributes, ref Guid UOW, uint32 CreateOptions, uint32 IsolationLevel, uint32 IsolationFlags, uint32 Timeout, PWSTR Description);
+	public static extern HANDLE CreateTransaction(SECURITY_ATTRIBUTES* lpTransactionAttributes, Guid* UOW, uint32 CreateOptions, uint32 IsolationLevel, uint32 IsolationFlags, uint32 Timeout, PWSTR Description);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenTransaction(uint32 dwDesiredAccess, ref Guid TransactionId);
+	public static extern HANDLE OpenTransaction(uint32 dwDesiredAccess, Guid* TransactionId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CommitTransaction(HANDLE TransactionHandle);
@@ -4936,7 +4936,7 @@ public static
 	public static extern BOOL RollbackTransactionAsync(HANDLE TransactionHandle);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTransactionId(HANDLE TransactionHandle, ref Guid TransactionId);
+	public static extern BOOL GetTransactionId(HANDLE TransactionHandle, Guid* TransactionId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetTransactionInformation(HANDLE TransactionHandle, uint32* Outcome, uint32* IsolationLevel, uint32* IsolationFlags, uint32* Timeout, uint32 BufferLength, char16* Description);
@@ -4951,10 +4951,10 @@ public static
 	public static extern HANDLE OpenTransactionManager(PWSTR LogFileName, uint32 DesiredAccess, uint32 OpenOptions);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenTransactionManagerById(ref Guid TransactionManagerId, uint32 DesiredAccess, uint32 OpenOptions);
+	public static extern HANDLE OpenTransactionManagerById(Guid* TransactionManagerId, uint32 DesiredAccess, uint32 OpenOptions);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL RenameTransactionManager(PWSTR LogFileName, ref Guid ExistingTransactionManagerGuid);
+	public static extern BOOL RenameTransactionManager(PWSTR LogFileName, Guid* ExistingTransactionManagerGuid);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RollforwardTransactionManager(HANDLE TransactionManagerHandle, LARGE_INTEGER* TmVirtualClock);
@@ -4966,13 +4966,13 @@ public static
 	public static extern BOOL GetCurrentClockTransactionManager(HANDLE TransactionManagerHandle, LARGE_INTEGER* TmVirtualClock);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetTransactionManagerId(HANDLE TransactionManagerHandle, ref Guid TransactionManagerId);
+	public static extern BOOL GetTransactionManagerId(HANDLE TransactionManagerHandle, Guid* TransactionManagerId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE CreateResourceManager(SECURITY_ATTRIBUTES* lpResourceManagerAttributes, ref Guid ResourceManagerId, uint32 CreateOptions, HANDLE TmHandle, PWSTR Description);
+	public static extern HANDLE CreateResourceManager(SECURITY_ATTRIBUTES* lpResourceManagerAttributes, Guid* ResourceManagerId, uint32 CreateOptions, HANDLE TmHandle, PWSTR Description);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenResourceManager(uint32 dwDesiredAccess, HANDLE TmHandle, ref Guid ResourceManagerId);
+	public static extern HANDLE OpenResourceManager(uint32 dwDesiredAccess, HANDLE TmHandle, Guid* ResourceManagerId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RecoverResourceManager(HANDLE ResourceManagerHandle);
@@ -4990,7 +4990,7 @@ public static
 	public static extern HANDLE CreateEnlistment(SECURITY_ATTRIBUTES* lpEnlistmentAttributes, HANDLE ResourceManagerHandle, HANDLE TransactionHandle, uint32 NotificationMask, uint32 CreateOptions, void* EnlistmentKey);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenEnlistment(uint32 dwDesiredAccess, HANDLE ResourceManagerHandle, ref Guid EnlistmentId);
+	public static extern HANDLE OpenEnlistment(uint32 dwDesiredAccess, HANDLE ResourceManagerHandle, Guid* EnlistmentId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RecoverEnlistment(HANDLE EnlistmentHandle, void* EnlistmentKey);
@@ -4999,7 +4999,7 @@ public static
 	public static extern BOOL GetEnlistmentRecoveryInformation(HANDLE EnlistmentHandle, uint32 BufferSize, void* Buffer, uint32* BufferUsed);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetEnlistmentId(HANDLE EnlistmentHandle, ref Guid EnlistmentId);
+	public static extern BOOL GetEnlistmentId(HANDLE EnlistmentHandle, Guid* EnlistmentId);
 
 	[Import("ktmw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetEnlistmentRecoveryInformation(HANDLE EnlistmentHandle, uint32 BufferSize, void* Buffer);

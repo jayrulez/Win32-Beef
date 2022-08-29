@@ -1665,11 +1665,11 @@ public function HRESULT WS_VALIDATE_SAML_CALLBACK(void* samlValidatorCallbackSta
 
 public function HRESULT WS_DURATION_COMPARISON_CALLBACK(WS_DURATION* duration1, WS_DURATION* duration2, int32* result, WS_ERROR* error);
 
-public function HRESULT WS_READ_TYPE_CALLBACK(WS_XML_READER* reader, WS_TYPE_MAPPING typeMapping, void* descriptionData, WS_HEAP* heap, void* value, uint32 valueSize, WS_ERROR* error);
+public function HRESULT WS_READ_TYPE_CALLBACK(WS_XML_READER* reader, WS_TYPE_MAPPING typeMapping, in void descriptionData, WS_HEAP* heap, void* value, uint32 valueSize, WS_ERROR* error);
 
-public function HRESULT WS_WRITE_TYPE_CALLBACK(WS_XML_WRITER* writer, WS_TYPE_MAPPING typeMapping, void* descriptionData, void* value, uint32 valueSize, WS_ERROR* error);
+public function HRESULT WS_WRITE_TYPE_CALLBACK(WS_XML_WRITER* writer, WS_TYPE_MAPPING typeMapping, in void descriptionData, void* value, uint32 valueSize, WS_ERROR* error);
 
-public function HRESULT WS_IS_DEFAULT_VALUE_CALLBACK(void* descriptionData, void* value, void* defaultValue, uint32 valueSize, BOOL* isDefault, WS_ERROR* error);
+public function HRESULT WS_IS_DEFAULT_VALUE_CALLBACK(in void descriptionData, void* value, void* defaultValue, uint32 valueSize, BOOL* isDefault, WS_ERROR* error);
 
 public function HRESULT WS_SERVICE_MESSAGE_RECEIVE_CALLBACK(WS_OPERATION_CONTEXT* context, WS_ASYNC_CONTEXT* asyncContext, WS_ERROR* error);
 
@@ -1677,7 +1677,7 @@ public function void WS_OPERATION_CANCEL_CALLBACK(WS_SERVICE_CANCEL_REASON reaso
 
 public function void WS_OPERATION_FREE_STATE_CALLBACK(void* state);
 
-public function HRESULT WS_SERVICE_STUB_CALLBACK(WS_OPERATION_CONTEXT* context, void* frame, void* callback, WS_ASYNC_CONTEXT* asyncContext, WS_ERROR* error);
+public function HRESULT WS_SERVICE_STUB_CALLBACK(WS_OPERATION_CONTEXT* context, void* frame, in void callback, WS_ASYNC_CONTEXT* asyncContext, WS_ERROR* error);
 
 public function HRESULT WS_SERVICE_ACCEPT_CHANNEL_CALLBACK(WS_OPERATION_CONTEXT* context, void** channelState, WS_ASYNC_CONTEXT* asyncContext, WS_ERROR* error);
 
@@ -4661,10 +4661,10 @@ public static
 	public static extern HRESULT WsGetPolicyAlternativeCount(WS_POLICY* policy, uint32* count, WS_ERROR* error);
 
 	[Import("webservices.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WsCreateServiceProxyFromTemplate(WS_CHANNEL_TYPE channelType, WS_PROXY_PROPERTY* properties, uint32 propertyCount, WS_BINDING_TEMPLATE_TYPE templateType, void* templateValue, uint32 templateSize, void* templateDescription, uint32 templateDescriptionSize, WS_SERVICE_PROXY** serviceProxy, WS_ERROR* error);
+	public static extern HRESULT WsCreateServiceProxyFromTemplate(WS_CHANNEL_TYPE channelType, WS_PROXY_PROPERTY* properties, uint32 propertyCount, WS_BINDING_TEMPLATE_TYPE templateType, void* templateValue, uint32 templateSize, in void templateDescription, uint32 templateDescriptionSize, WS_SERVICE_PROXY** serviceProxy, WS_ERROR* error);
 
 	[Import("webservices.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WsCreateServiceEndpointFromTemplate(WS_CHANNEL_TYPE channelType, WS_SERVICE_ENDPOINT_PROPERTY* properties, uint32 propertyCount, WS_STRING* addressUrl, WS_SERVICE_CONTRACT* contract, WS_SERVICE_SECURITY_CALLBACK authorizationCallback, WS_HEAP* heap, WS_BINDING_TEMPLATE_TYPE templateType, void* templateValue, uint32 templateSize, void* templateDescription, uint32 templateDescriptionSize, WS_SERVICE_ENDPOINT** serviceEndpoint, WS_ERROR* error);
+	public static extern HRESULT WsCreateServiceEndpointFromTemplate(WS_CHANNEL_TYPE channelType, WS_SERVICE_ENDPOINT_PROPERTY* properties, uint32 propertyCount, WS_STRING* addressUrl, WS_SERVICE_CONTRACT* contract, WS_SERVICE_SECURITY_CALLBACK authorizationCallback, WS_HEAP* heap, WS_BINDING_TEMPLATE_TYPE templateType, void* templateValue, uint32 templateSize, in void templateDescription, uint32 templateDescriptionSize, WS_SERVICE_ENDPOINT** serviceEndpoint, WS_ERROR* error);
 
 	[Import("webauthn.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WebAuthNGetApiVersionNumber();
@@ -4685,10 +4685,10 @@ public static
 	public static extern void WebAuthNFreeAssertion(WEBAUTHN_ASSERTION* pWebAuthNAssertion);
 
 	[Import("webauthn.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WebAuthNGetCancellationId(ref Guid pCancellationId);
+	public static extern HRESULT WebAuthNGetCancellationId(Guid* pCancellationId);
 
 	[Import("webauthn.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WebAuthNCancelCurrentOperation(ref Guid pCancellationId);
+	public static extern HRESULT WebAuthNCancelCurrentOperation(in Guid pCancellationId);
 
 	[Import("webauthn.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR WebAuthNGetErrorName(HRESULT hr);

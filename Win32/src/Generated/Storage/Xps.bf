@@ -704,7 +704,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) SetGlyphMappings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* prohibitedCaretStopCount) GetProhibitedCaretStopCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count, uint32* prohibitedCaretStops) GetProhibitedCaretStops;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, uint32* prohibitedCaretStops) SetProhibitedCaretStops;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, in uint32 prohibitedCaretStops) SetProhibitedCaretStops;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* bidiLevel) GetBidiLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 bidiLevel) SetBidiLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isSideways) GetIsSideways;
@@ -736,7 +736,7 @@ public static
 
 	public HRESULT GetProhibitedCaretStops(uint32* count, uint32* prohibitedCaretStops) mut => VT.[Friend]GetProhibitedCaretStops(&this, count, prohibitedCaretStops);
 
-	public HRESULT SetProhibitedCaretStops(uint32 count, uint32* prohibitedCaretStops) mut => VT.[Friend]SetProhibitedCaretStops(&this, count, prohibitedCaretStops);
+	public HRESULT SetProhibitedCaretStops(uint32 count, in uint32 prohibitedCaretStops) mut => VT.[Friend]SetProhibitedCaretStops(&this, count, prohibitedCaretStops);
 
 	public HRESULT GetBidiLevel(uint32* bidiLevel) mut => VT.[Friend]GetBidiLevel(&this, bidiLevel);
 
@@ -946,7 +946,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dataCount, float* segmentData) GetSegmentData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentCount, XPS_SEGMENT_TYPE* segmentTypes) GetSegmentTypes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentCount, BOOL* segmentStrokes) GetSegmentStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, float* segmentData, BOOL* segmentStrokes) SetSegments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, in float segmentData, BOOL* segmentStrokes) SetSegments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* startPoint) GetStartPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* startPoint) SetStartPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isClosed) GetIsClosed;
@@ -968,7 +968,7 @@ public static
 
 	public HRESULT GetSegmentStrokes(uint32* segmentCount, BOOL* segmentStrokes) mut => VT.[Friend]GetSegmentStrokes(&this, segmentCount, segmentStrokes);
 
-	public HRESULT SetSegments(uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, float* segmentData, BOOL* segmentStrokes) mut => VT.[Friend]SetSegments(&this, segmentCount, segmentDataCount, segmentTypes, segmentData, segmentStrokes);
+	public HRESULT SetSegments(uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, in float segmentData, BOOL* segmentStrokes) mut => VT.[Friend]SetSegments(&this, segmentCount, segmentDataCount, segmentTypes, segmentData, segmentStrokes);
 
 	public HRESULT GetStartPoint(XPS_POINT* startPoint) mut => VT.[Friend]GetStartPoint(&this, startPoint);
 

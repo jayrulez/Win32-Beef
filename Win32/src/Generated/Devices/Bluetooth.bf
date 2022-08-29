@@ -1353,7 +1353,7 @@ public static
 	public static extern uint32 BluetoothAuthenticateMultipleDevices(HWND hwndParent, HANDLE hRadio, uint32 cDevices, BLUETOOTH_DEVICE_INFO* rgbtdi);
 
 	[Import("BluetoothApis.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 BluetoothSetServiceState(HANDLE hRadio, BLUETOOTH_DEVICE_INFO* pbtdi, ref Guid pGuidService, uint32 dwServiceFlags);
+	public static extern uint32 BluetoothSetServiceState(HANDLE hRadio, BLUETOOTH_DEVICE_INFO* pbtdi, in Guid pGuidService, uint32 dwServiceFlags);
 
 	[Import("BluetoothApis.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 BluetoothEnumerateInstalledServices(HANDLE hRadio, BLUETOOTH_DEVICE_INFO* pbtdi, uint32* pcServiceInout, Guid* pGuidServices);
@@ -1401,7 +1401,7 @@ public static
 	public static extern BOOL BluetoothSdpEnumAttributes(uint8* pSDPStream, uint32 cbStreamSize, PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK pfnCallback, void* pvParam);
 
 	[Import("BluetoothApis.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 BluetoothSetLocalServiceInfo(HANDLE hRadioIn, ref Guid pClassGuid, uint32 ulInstance, BLUETOOTH_LOCAL_SERVICE_INFO* pServiceInfoIn);
+	public static extern uint32 BluetoothSetLocalServiceInfo(HANDLE hRadioIn, in Guid pClassGuid, uint32 ulInstance, BLUETOOTH_LOCAL_SERVICE_INFO* pServiceInfoIn);
 
 	[Import("BluetoothApis.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BluetoothIsVersionAvailable(uint8 MajorVersion, uint8 MinorVersion);

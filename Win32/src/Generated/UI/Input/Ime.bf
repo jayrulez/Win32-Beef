@@ -826,7 +826,7 @@ public function BOOL PFNLOG(IMEDP* param0, HRESULT param1);
 
 public function HRESULT fpCreateIFECommonInstanceType(void** ppvObj);
 
-public function HRESULT fpCreateIFELanguageInstanceType(ref Guid clsid, void** ppvObj);
+public function HRESULT fpCreateIFELanguageInstanceType(in Guid clsid, void** ppvObj);
 
 public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 
@@ -1514,11 +1514,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refiid, APPLETIDLIST* lpIIDList) GetAppletIIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refiid, APPLETIDLIST* lpIIDList) GetAppletIIDList;
 	}
 
 
-	public HRESULT GetAppletIIDList(ref Guid refiid, APPLETIDLIST* lpIIDList) mut => VT.[Friend]GetAppletIIDList(&this, ref refiid, lpIIDList);
+	public HRESULT GetAppletIIDList(in Guid refiid, APPLETIDLIST* lpIIDList) mut => VT.[Friend]GetAppletIIDList(&this, refiid, lpIIDList);
 }
 
 [CRepr]struct IImePadApplet : IUnknown
@@ -1661,14 +1661,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) RegisterIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid) UnregisterIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) RegisterIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rclsid) UnregisterIME;
 	}
 
 
-	public HRESULT RegisterIME(ref Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) mut => VT.[Friend]RegisterIME(&this, ref rclsid, lgid, pszIconFile, pszDesc);
+	public HRESULT RegisterIME(in Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) mut => VT.[Friend]RegisterIME(&this, rclsid, lgid, pszIconFile, pszDesc);
 
-	public HRESULT UnregisterIME(ref Guid rclsid) mut => VT.[Friend]UnregisterIME(&this, ref rclsid);
+	public HRESULT UnregisterIME(in Guid rclsid) mut => VT.[Friend]UnregisterIME(&this, rclsid);
 }
 
 [CRepr]struct IActiveIMMMessagePumpOwner : IUnknown

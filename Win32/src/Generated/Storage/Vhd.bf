@@ -940,13 +940,13 @@ public static
 	public static extern uint32 EnumerateVirtualDiskMetadata(HANDLE VirtualDiskHandle, uint32* NumberOfItems, Guid* Items);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetVirtualDiskMetadata(HANDLE VirtualDiskHandle, ref Guid Item, uint32* MetaDataSize, void* MetaData);
+	public static extern uint32 GetVirtualDiskMetadata(HANDLE VirtualDiskHandle, in Guid Item, uint32* MetaDataSize, void* MetaData);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetVirtualDiskMetadata(HANDLE VirtualDiskHandle, ref Guid Item, uint32 MetaDataSize, void* MetaData);
+	public static extern uint32 SetVirtualDiskMetadata(HANDLE VirtualDiskHandle, in Guid Item, uint32 MetaDataSize, void* MetaData);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DeleteVirtualDiskMetadata(HANDLE VirtualDiskHandle, ref Guid Item);
+	public static extern uint32 DeleteVirtualDiskMetadata(HANDLE VirtualDiskHandle, in Guid Item);
 
 	[Import("VirtDisk.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetVirtualDiskOperationProgress(HANDLE VirtualDiskHandle, OVERLAPPED* Overlapped, VIRTUAL_DISK_PROGRESS* Progress);

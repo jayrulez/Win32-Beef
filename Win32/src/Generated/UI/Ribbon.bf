@@ -274,7 +274,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND frameWnd, IUIApplication* application) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Destroy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE instance, PWSTR resourceName) LoadUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 viewId, ref Guid riid, void** ppv) GetView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 viewId, in Guid riid, void** ppv) GetView;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 commandId, PROPERTYKEY* key, PROPVARIANT* value) GetUICommandProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 commandId, PROPERTYKEY* key, PROPVARIANT* value) SetUICommandProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 commandId, UI_INVALIDATIONS flags, PROPERTYKEY* key) InvalidateUICommand;
@@ -289,7 +289,7 @@ public static
 
 	public HRESULT LoadUI(HINSTANCE instance, PWSTR resourceName) mut => VT.[Friend]LoadUI(&this, instance, resourceName);
 
-	public HRESULT GetView(uint32 viewId, ref Guid riid, void** ppv) mut => VT.[Friend]GetView(&this, viewId, ref riid, ppv);
+	public HRESULT GetView(uint32 viewId, in Guid riid, void** ppv) mut => VT.[Friend]GetView(&this, viewId, riid, ppv);
 
 	public HRESULT GetUICommandProperty(uint32 commandId, PROPERTYKEY* key, PROPVARIANT* value) mut => VT.[Friend]GetUICommandProperty(&this, commandId, key, value);
 

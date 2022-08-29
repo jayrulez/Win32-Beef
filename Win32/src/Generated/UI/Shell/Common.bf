@@ -157,13 +157,13 @@ public struct COMDLG_FILTERSPEC
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcObjects) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiIndex, ref Guid riid, void** ppv) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiIndex, in Guid riid, void** ppv) GetAt;
 	}
 
 
 	public HRESULT GetCount(uint32* pcObjects) mut => VT.[Friend]GetCount(&this, pcObjects);
 
-	public HRESULT GetAt(uint32 uiIndex, ref Guid riid, void** ppv) mut => VT.[Friend]GetAt(&this, uiIndex, ref riid, ppv);
+	public HRESULT GetAt(uint32 uiIndex, in Guid riid, void** ppv) mut => VT.[Friend]GetAt(&this, uiIndex, riid, ppv);
 }
 
 [CRepr]struct IObjectCollection : IObjectArray

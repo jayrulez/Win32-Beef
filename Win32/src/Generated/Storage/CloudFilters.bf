@@ -1005,7 +1005,7 @@ public static
 	public static extern CF_PLACEHOLDER_STATE CfGetPlaceholderStateFromAttributeTag(uint32 FileAttributes, uint32 ReparseTag);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CF_PLACEHOLDER_STATE CfGetPlaceholderStateFromFileInfo(void* InfoBuffer, FILE_INFO_BY_HANDLE_CLASS InfoClass);
+	public static extern CF_PLACEHOLDER_STATE CfGetPlaceholderStateFromFileInfo(in void InfoBuffer, FILE_INFO_BY_HANDLE_CLASS InfoClass);
 
 	[Import("cldapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CF_PLACEHOLDER_STATE CfGetPlaceholderStateFromFindData(WIN32_FIND_DATAA* FindData);

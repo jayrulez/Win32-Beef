@@ -103,7 +103,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 timeout) Wait;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** deviceAccess) GetResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** deviceAccess) GetResult;
 	}
 
 
@@ -113,7 +113,7 @@ public static
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT GetResult(ref Guid riid, void** deviceAccess) mut => VT.[Friend]GetResult(&this, ref riid, deviceAccess);
+	public HRESULT GetResult(in Guid riid, void** deviceAccess) mut => VT.[Friend]GetResult(&this, riid, deviceAccess);
 }
 
 #endregion

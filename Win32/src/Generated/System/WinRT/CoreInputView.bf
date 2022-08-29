@@ -13,11 +13,11 @@ namespace Win32.System.WinRT.CoreInputView;
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** coreFrameworkInputView) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, in Guid riid, void** coreFrameworkInputView) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND appWindow, ref Guid riid, void** coreFrameworkInputView) mut => VT.[Friend]GetForWindow(&this, appWindow, ref riid, coreFrameworkInputView);
+	public HRESULT GetForWindow(HWND appWindow, in Guid riid, void** coreFrameworkInputView) mut => VT.[Friend]GetForWindow(&this, appWindow, riid, coreFrameworkInputView);
 }
 
 #endregion

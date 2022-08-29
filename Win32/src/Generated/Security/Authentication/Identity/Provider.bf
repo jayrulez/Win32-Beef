@@ -374,9 +374,9 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwProviders) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProvider, ref Guid pProvGuid, IUnknown** ppIdentityProvider) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID) AddToCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID, uint16 cbSid, uint8* pSid, uint16* pcbRequiredSid) ConvertToSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProvider, Guid* pProvGuid, IUnknown** ppIdentityProvider) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, in Guid ProviderGUID) AddToCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, in Guid ProviderGUID, uint16 cbSid, uint8* pSid, uint16* pcbRequiredSid) ConvertToSid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue, IEnumUnknown** ppIdentityEnum) EnumerateIdentities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 	}
@@ -384,11 +384,11 @@ public static
 
 	public HRESULT GetCount(uint32* pdwProviders) mut => VT.[Friend]GetCount(&this, pdwProviders);
 
-	public HRESULT GetAt(uint32 dwProvider, ref Guid pProvGuid, IUnknown** ppIdentityProvider) mut => VT.[Friend]GetAt(&this, dwProvider, ref pProvGuid, ppIdentityProvider);
+	public HRESULT GetAt(uint32 dwProvider, Guid* pProvGuid, IUnknown** ppIdentityProvider) mut => VT.[Friend]GetAt(&this, dwProvider, pProvGuid, ppIdentityProvider);
 
-	public HRESULT AddToCache(PWSTR lpszUniqueID, ref Guid ProviderGUID) mut => VT.[Friend]AddToCache(&this, lpszUniqueID, ref ProviderGUID);
+	public HRESULT AddToCache(PWSTR lpszUniqueID, in Guid ProviderGUID) mut => VT.[Friend]AddToCache(&this, lpszUniqueID, ProviderGUID);
 
-	public HRESULT ConvertToSid(PWSTR lpszUniqueID, ref Guid ProviderGUID, uint16 cbSid, uint8* pSid, uint16* pcbRequiredSid) mut => VT.[Friend]ConvertToSid(&this, lpszUniqueID, ref ProviderGUID, cbSid, pSid, pcbRequiredSid);
+	public HRESULT ConvertToSid(PWSTR lpszUniqueID, in Guid ProviderGUID, uint16 cbSid, uint8* pSid, uint16* pcbRequiredSid) mut => VT.[Friend]ConvertToSid(&this, lpszUniqueID, ProviderGUID, cbSid, pSid, pcbRequiredSid);
 
 	public HRESULT EnumerateIdentities(IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue, IEnumUnknown** ppIdentityEnum) mut => VT.[Friend]EnumerateIdentities(&this, eIdentityType, pFilterkey, pFilterPropVarValue, ppIdentityEnum);
 
@@ -405,11 +405,11 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Begin_GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwProviders) Finish_GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProvider, ref Guid pProvGuid) Begin_GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProvGuid, IUnknown** ppIdentityProvider) Finish_GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID) Begin_AddToCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProvider, Guid* pProvGuid) Begin_GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pProvGuid, IUnknown** ppIdentityProvider) Finish_GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, in Guid ProviderGUID) Begin_AddToCache;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_AddToCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID, uint16 cbSid, uint8* pSid) Begin_ConvertToSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, in Guid ProviderGUID, uint16 cbSid, uint8* pSid) Begin_ConvertToSid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pSid, uint16* pcbRequiredSid) Finish_ConvertToSid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue) Begin_EnumerateIdentities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumUnknown** ppIdentityEnum) Finish_EnumerateIdentities;
@@ -422,15 +422,15 @@ public static
 
 	public HRESULT Finish_GetCount(uint32* pdwProviders) mut => VT.[Friend]Finish_GetCount(&this, pdwProviders);
 
-	public HRESULT Begin_GetAt(uint32 dwProvider, ref Guid pProvGuid) mut => VT.[Friend]Begin_GetAt(&this, dwProvider, ref pProvGuid);
+	public HRESULT Begin_GetAt(uint32 dwProvider, Guid* pProvGuid) mut => VT.[Friend]Begin_GetAt(&this, dwProvider, pProvGuid);
 
-	public HRESULT Finish_GetAt(ref Guid pProvGuid, IUnknown** ppIdentityProvider) mut => VT.[Friend]Finish_GetAt(&this, ref pProvGuid, ppIdentityProvider);
+	public HRESULT Finish_GetAt(Guid* pProvGuid, IUnknown** ppIdentityProvider) mut => VT.[Friend]Finish_GetAt(&this, pProvGuid, ppIdentityProvider);
 
-	public HRESULT Begin_AddToCache(PWSTR lpszUniqueID, ref Guid ProviderGUID) mut => VT.[Friend]Begin_AddToCache(&this, lpszUniqueID, ref ProviderGUID);
+	public HRESULT Begin_AddToCache(PWSTR lpszUniqueID, in Guid ProviderGUID) mut => VT.[Friend]Begin_AddToCache(&this, lpszUniqueID, ProviderGUID);
 
 	public HRESULT Finish_AddToCache() mut => VT.[Friend]Finish_AddToCache(&this);
 
-	public HRESULT Begin_ConvertToSid(PWSTR lpszUniqueID, ref Guid ProviderGUID, uint16 cbSid, uint8* pSid) mut => VT.[Friend]Begin_ConvertToSid(&this, lpszUniqueID, ref ProviderGUID, cbSid, pSid);
+	public HRESULT Begin_ConvertToSid(PWSTR lpszUniqueID, in Guid ProviderGUID, uint16 cbSid, uint8* pSid) mut => VT.[Friend]Begin_ConvertToSid(&this, lpszUniqueID, ProviderGUID, cbSid, pSid);
 
 	public HRESULT Finish_ConvertToSid(uint8* pSid, uint16* pcbRequiredSid) mut => VT.[Friend]Finish_ConvertToSid(&this, pSid, pcbRequiredSid);
 
@@ -451,14 +451,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR LocalName, PWSTR ConnectedName, ref Guid ProviderGUID) CreateConnectedIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ConnectedName, ref Guid ProviderGUID) DeleteConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR LocalName, PWSTR ConnectedName, in Guid ProviderGUID) CreateConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ConnectedName, in Guid ProviderGUID) DeleteConnectedIdentity;
 	}
 
 
-	public HRESULT CreateConnectedIdentity(PWSTR LocalName, PWSTR ConnectedName, ref Guid ProviderGUID) mut => VT.[Friend]CreateConnectedIdentity(&this, LocalName, ConnectedName, ref ProviderGUID);
+	public HRESULT CreateConnectedIdentity(PWSTR LocalName, PWSTR ConnectedName, in Guid ProviderGUID) mut => VT.[Friend]CreateConnectedIdentity(&this, LocalName, ConnectedName, ProviderGUID);
 
-	public HRESULT DeleteConnectedIdentity(PWSTR ConnectedName, ref Guid ProviderGUID) mut => VT.[Friend]DeleteConnectedIdentity(&this, ConnectedName, ref ProviderGUID);
+	public HRESULT DeleteConnectedIdentity(PWSTR ConnectedName, in Guid ProviderGUID) mut => VT.[Friend]DeleteConnectedIdentity(&this, ConnectedName, ProviderGUID);
 }
 
 [CRepr]struct AsyncIIdentityStoreEx : IUnknown
@@ -469,18 +469,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR LocalName, PWSTR ConnectedName, ref Guid ProviderGUID) Begin_CreateConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR LocalName, PWSTR ConnectedName, in Guid ProviderGUID) Begin_CreateConnectedIdentity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_CreateConnectedIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ConnectedName, ref Guid ProviderGUID) Begin_DeleteConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ConnectedName, in Guid ProviderGUID) Begin_DeleteConnectedIdentity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_DeleteConnectedIdentity;
 	}
 
 
-	public HRESULT Begin_CreateConnectedIdentity(PWSTR LocalName, PWSTR ConnectedName, ref Guid ProviderGUID) mut => VT.[Friend]Begin_CreateConnectedIdentity(&this, LocalName, ConnectedName, ref ProviderGUID);
+	public HRESULT Begin_CreateConnectedIdentity(PWSTR LocalName, PWSTR ConnectedName, in Guid ProviderGUID) mut => VT.[Friend]Begin_CreateConnectedIdentity(&this, LocalName, ConnectedName, ProviderGUID);
 
 	public HRESULT Finish_CreateConnectedIdentity() mut => VT.[Friend]Finish_CreateConnectedIdentity(&this);
 
-	public HRESULT Begin_DeleteConnectedIdentity(PWSTR ConnectedName, ref Guid ProviderGUID) mut => VT.[Friend]Begin_DeleteConnectedIdentity(&this, ConnectedName, ref ProviderGUID);
+	public HRESULT Begin_DeleteConnectedIdentity(PWSTR ConnectedName, in Guid ProviderGUID) mut => VT.[Friend]Begin_DeleteConnectedIdentity(&this, ConnectedName, ProviderGUID);
 
 	public HRESULT Finish_DeleteConnectedIdentity() mut => VT.[Friend]Finish_DeleteConnectedIdentity(&this);
 }

@@ -642,7 +642,7 @@ public struct CRYPTUI_WIZ_IMPORT_SRC_INFO
 public static
 {
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptUIDlgViewContext(uint32 dwContextType, void* pvContext, HWND hwnd, PWSTR pwszTitle, uint32 dwFlags, void* pvReserved);
+	public static extern BOOL CryptUIDlgViewContext(uint32 dwContextType, in void pvContext, HWND hwnd, PWSTR pwszTitle, uint32 dwFlags, void* pvReserved);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CERT_CONTEXT* CryptUIDlgSelectCertificateFromStore(void* hCertStore, HWND hwnd, PWSTR pwszTitle, PWSTR pwszDisplayString, uint32 dwDontUseColumn, uint32 dwFlags, void* pvReserved);

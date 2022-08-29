@@ -172,7 +172,7 @@ public struct CompositionFrameDisplayInstance
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SystemInterruptTime preferredDuration, SystemInterruptTime deviationTolerance) SetPreferredPresentDuration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 forceVsyncInterrupt) ForceVSyncInterrupt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Present;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** fence) GetPresentRetiringFence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** fence) GetPresentRetiringFence;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 presentIdToCancelFrom) CancelPresentsFrom;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* lostEventHandle) GetLostEvent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* presentStatisticsAvailableEventHandle) GetPresentStatisticsAvailableEvent;
@@ -195,7 +195,7 @@ public struct CompositionFrameDisplayInstance
 
 	public HRESULT Present() mut => VT.[Friend]Present(&this);
 
-	public HRESULT GetPresentRetiringFence(ref Guid riid, void** fence) mut => VT.[Friend]GetPresentRetiringFence(&this, ref riid, fence);
+	public HRESULT GetPresentRetiringFence(in Guid riid, void** fence) mut => VT.[Friend]GetPresentRetiringFence(&this, riid, fence);
 
 	public HRESULT CancelPresentsFrom(uint64 presentIdToCancelFrom) mut => VT.[Friend]CancelPresentsFrom(&this, presentIdToCancelFrom);
 
@@ -301,7 +301,7 @@ public struct CompositionFrameDisplayInstance
 public static
 {
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreatePresentationFactory(IUnknown* d3dDevice, ref Guid riid, void** presentationFactory);
+	public static extern HRESULT CreatePresentationFactory(IUnknown* d3dDevice, in Guid riid, void** presentationFactory);
 
 }
 #endregion

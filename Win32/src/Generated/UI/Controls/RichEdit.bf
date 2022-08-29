@@ -2207,8 +2207,8 @@ public struct REOBJECT
 		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self) GetLinkCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iob, REOBJECT* lpreobject, RICH_EDIT_GET_OBJECT_FLAGS dwFlags) GetObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, REOBJECT* lpreobject) InsertObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iob, ref Guid rclsidNew, PSTR lpstrUserTypeNew) ConvertObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid, ref Guid rclsidAs) ActivateAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iob, in Guid rclsidNew, PSTR lpstrUserTypeNew) ConvertObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rclsid, in Guid rclsidAs) ActivateAs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR lpstrContainerApp, PSTR lpstrContainerObj) SetHostNames;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iob, BOOL fAvailable) SetLinkAvailable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iob, uint32 dvaspect) SetDvaspect;
@@ -2231,9 +2231,9 @@ public struct REOBJECT
 
 	public HRESULT InsertObject(REOBJECT* lpreobject) mut => VT.[Friend]InsertObject(&this, lpreobject);
 
-	public HRESULT ConvertObject(int32 iob, ref Guid rclsidNew, PSTR lpstrUserTypeNew) mut => VT.[Friend]ConvertObject(&this, iob, ref rclsidNew, lpstrUserTypeNew);
+	public HRESULT ConvertObject(int32 iob, in Guid rclsidNew, PSTR lpstrUserTypeNew) mut => VT.[Friend]ConvertObject(&this, iob, rclsidNew, lpstrUserTypeNew);
 
-	public HRESULT ActivateAs(ref Guid rclsid, ref Guid rclsidAs) mut => VT.[Friend]ActivateAs(&this, ref rclsid, ref rclsidAs);
+	public HRESULT ActivateAs(in Guid rclsid, in Guid rclsidAs) mut => VT.[Friend]ActivateAs(&this, rclsid, rclsidAs);
 
 	public HRESULT SetHostNames(PSTR lpstrContainerApp, PSTR lpstrContainerObj) mut => VT.[Friend]SetHostNames(&this, lpstrContainerApp, lpstrContainerObj);
 
@@ -2265,7 +2265,7 @@ public struct REOBJECT
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStorage** lplpstg) GetNewStorage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleInPlaceFrame** lplpFrame, IOleInPlaceUIWindow** lplpDoc, OIFI* lpFrameInfo) GetInPlaceContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fShow) ShowContainerUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid lpclsid, IStorage* lpstg, int32 cp) QueryInsertObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* lpclsid, IStorage* lpstg, int32 cp) QueryInsertObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleObject* lpoleobj) DeleteObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* lpdataobj, uint16* lpcfFormat, uint32 reco, BOOL fReally, int hMetaPict) QueryAcceptData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnterMode) ContextSensitiveHelp;
@@ -2281,7 +2281,7 @@ public struct REOBJECT
 
 	public HRESULT ShowContainerUI(BOOL fShow) mut => VT.[Friend]ShowContainerUI(&this, fShow);
 
-	public HRESULT QueryInsertObject(ref Guid lpclsid, IStorage* lpstg, int32 cp) mut => VT.[Friend]QueryInsertObject(&this, ref lpclsid, lpstg, cp);
+	public HRESULT QueryInsertObject(Guid* lpclsid, IStorage* lpstg, int32 cp) mut => VT.[Friend]QueryInsertObject(&this, lpclsid, lpstg, cp);
 
 	public HRESULT DeleteObject(IOleObject* lpoleobj) mut => VT.[Friend]DeleteObject(&this, lpoleobj);
 

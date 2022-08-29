@@ -1009,7 +1009,7 @@ public struct PROTOCOL_ARGUMENT
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pClassID) GetClassID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pClassID) GetClassID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsDirty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fFullyAvailable, IMoniker* pimkName, IBindCtx* pibc, uint32 grfMode) Load;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMoniker* pimkName, IBindCtx* pbc, BOOL fRemember) Save;
@@ -1018,7 +1018,7 @@ public struct PROTOCOL_ARGUMENT
 	}
 
 
-	public HRESULT GetClassID(ref Guid pClassID) mut => VT.[Friend]GetClassID(&this, ref pClassID);
+	public HRESULT GetClassID(Guid* pClassID) mut => VT.[Friend]GetClassID(&this, pClassID);
 
 	public HRESULT IsDirty() mut => VT.[Friend]IsDirty(&this);
 
@@ -1135,11 +1135,11 @@ public struct PROTOCOL_ARGUMENT
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rguidReason, HWND* phwnd) GetWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rguidReason, HWND* phwnd) GetWindow;
 	}
 
 
-	public HRESULT GetWindow(ref Guid rguidReason, HWND* phwnd) mut => VT.[Friend]GetWindow(&this, ref rguidReason, phwnd);
+	public HRESULT GetWindow(in Guid rguidReason, HWND* phwnd) mut => VT.[Friend]GetWindow(&this, rguidReason, phwnd);
 }
 
 [CRepr]struct ICodeInstall : IWindowForBindingUI
@@ -1447,9 +1447,9 @@ public struct PROTOCOL_ARGUMENT
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IClassFactory* pCF, ref Guid rclsid, PWSTR pwzProtocol, uint32 cPatterns, PWSTR* ppwzPatterns, uint32 dwReserved) RegisterNameSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IClassFactory* pCF, in Guid rclsid, PWSTR pwzProtocol, uint32 cPatterns, PWSTR* ppwzPatterns, uint32 dwReserved) RegisterNameSpace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IClassFactory* pCF, PWSTR pszProtocol) UnregisterNameSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IClassFactory* pCF, ref Guid rclsid, PWSTR pwzType) RegisterMimeFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IClassFactory* pCF, in Guid rclsid, PWSTR pwzType) RegisterMimeFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IClassFactory* pCF, PWSTR pwzType) UnregisterMimeFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IBindCtx* pBC, PWSTR szUrl, IUnknown* pUnkOuter, IUnknown** ppUnk, IInternetProtocol** ppOInetProt, uint32 dwOption) CreateBinding;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOption, void* pBuffer, uint32 dwBufferLength, uint32 dwReserved) SetSessionOption;
@@ -1457,11 +1457,11 @@ public struct PROTOCOL_ARGUMENT
 	}
 
 
-	public HRESULT RegisterNameSpace(IClassFactory* pCF, ref Guid rclsid, PWSTR pwzProtocol, uint32 cPatterns, PWSTR* ppwzPatterns, uint32 dwReserved) mut => VT.[Friend]RegisterNameSpace(&this, pCF, ref rclsid, pwzProtocol, cPatterns, ppwzPatterns, dwReserved);
+	public HRESULT RegisterNameSpace(IClassFactory* pCF, in Guid rclsid, PWSTR pwzProtocol, uint32 cPatterns, PWSTR* ppwzPatterns, uint32 dwReserved) mut => VT.[Friend]RegisterNameSpace(&this, pCF, rclsid, pwzProtocol, cPatterns, ppwzPatterns, dwReserved);
 
 	public HRESULT UnregisterNameSpace(IClassFactory* pCF, PWSTR pszProtocol) mut => VT.[Friend]UnregisterNameSpace(&this, pCF, pszProtocol);
 
-	public HRESULT RegisterMimeFilter(IClassFactory* pCF, ref Guid rclsid, PWSTR pwzType) mut => VT.[Friend]RegisterMimeFilter(&this, pCF, ref rclsid, pwzType);
+	public HRESULT RegisterMimeFilter(IClassFactory* pCF, in Guid rclsid, PWSTR pwzType) mut => VT.[Friend]RegisterMimeFilter(&this, pCF, rclsid, pwzType);
 
 	public HRESULT UnregisterMimeFilter(IClassFactory* pCF, PWSTR pwzType) mut => VT.[Friend]UnregisterMimeFilter(&this, pCF, pwzType);
 
@@ -1563,7 +1563,7 @@ public struct PROTOCOL_ARGUMENT
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszUrl, uint32* pdwZone, uint32 dwFlags) MapUrlToZone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszUrl, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) GetSecurityId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) ProcessUrlAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszUrl, ref Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) QueryCustomPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszUrl, in Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) QueryCustomPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, PWSTR lpszPattern, uint32 dwFlags) SetZoneMapping;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, IEnumString** ppenumString, uint32 dwFlags) GetZoneMappings;
 	}
@@ -1579,7 +1579,7 @@ public struct PROTOCOL_ARGUMENT
 
 	public HRESULT ProcessUrlAction(PWSTR pwszUrl, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) mut => VT.[Friend]ProcessUrlAction(&this, pwszUrl, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved);
 
-	public HRESULT QueryCustomPolicy(PWSTR pwszUrl, ref Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) mut => VT.[Friend]QueryCustomPolicy(&this, pwszUrl, ref guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
+	public HRESULT QueryCustomPolicy(PWSTR pwszUrl, in Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) mut => VT.[Friend]QueryCustomPolicy(&this, pwszUrl, guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
 
 	public HRESULT SetZoneMapping(uint32 dwZone, PWSTR lpszPattern, uint32 dwFlags) mut => VT.[Friend]SetZoneMapping(&this, dwZone, lpszPattern, dwFlags);
 
@@ -1612,7 +1612,7 @@ public struct PROTOCOL_ARGUMENT
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri* pUri, uint32* pdwZone, uint32 dwFlags, PWSTR* ppwszMappedUrl, uint32* pdwOutFlags) MapUrlToZoneEx2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri* pUri, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint dwReserved, uint32* pdwOutFlags) ProcessUrlActionEx2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri* pUri, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) GetSecurityIdEx2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri* pUri, ref Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint dwReserved) QueryCustomPolicyEx2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri* pUri, in Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint dwReserved) QueryCustomPolicyEx2;
 	}
 
 
@@ -1622,7 +1622,7 @@ public struct PROTOCOL_ARGUMENT
 
 	public HRESULT GetSecurityIdEx2(IUri* pUri, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) mut => VT.[Friend]GetSecurityIdEx2(&this, pUri, pbSecurityId, pcbSecurityId, dwReserved);
 
-	public HRESULT QueryCustomPolicyEx2(IUri* pUri, ref Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint dwReserved) mut => VT.[Friend]QueryCustomPolicyEx2(&this, pUri, ref guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
+	public HRESULT QueryCustomPolicyEx2(IUri* pUri, in Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint dwReserved) mut => VT.[Friend]QueryCustomPolicyEx2(&this, pUri, guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
 }
 
 [CRepr]struct IZoneIdentifier : IUnknown
@@ -1686,7 +1686,7 @@ public struct PROTOCOL_ARGUMENT
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbSecurityId, uint32* pcbSecurityId, uint dwReserved) GetSecurityId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) ProcessUrlAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) QueryCustomPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) QueryCustomPolicy;
 	}
 
 
@@ -1694,7 +1694,7 @@ public struct PROTOCOL_ARGUMENT
 
 	public HRESULT ProcessUrlAction(uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, uint8* pContext, uint32 cbContext, uint32 dwFlags, uint32 dwReserved) mut => VT.[Friend]ProcessUrlAction(&this, dwAction, pPolicy, cbPolicy, pContext, cbContext, dwFlags, dwReserved);
 
-	public HRESULT QueryCustomPolicy(ref Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) mut => VT.[Friend]QueryCustomPolicy(&this, ref guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
+	public HRESULT QueryCustomPolicy(in Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, uint8* pContext, uint32 cbContext, uint32 dwReserved) mut => VT.[Friend]QueryCustomPolicy(&this, guidKey, ppPolicy, pcbPolicy, pContext, cbContext, dwReserved);
 }
 
 [CRepr]struct IInternetZoneManager : IUnknown
@@ -1707,8 +1707,8 @@ public struct PROTOCOL_ARGUMENT
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, ZONEATTRIBUTES* pZoneAttributes) GetZoneAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, ZONEATTRIBUTES* pZoneAttributes) SetZoneAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, ref Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, URLZONEREG urlZoneReg) GetZoneCustomPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, ref Guid guidKey, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) SetZoneCustomPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, in Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, URLZONEREG urlZoneReg) GetZoneCustomPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, in Guid guidKey, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) SetZoneCustomPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) GetZoneActionPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwZone, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) SetZoneActionPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAction, HWND hwndParent, PWSTR pwszUrl, PWSTR pwszText, uint32 dwPromptFlags) PromptAction;
@@ -1724,9 +1724,9 @@ public struct PROTOCOL_ARGUMENT
 
 	public HRESULT SetZoneAttributes(uint32 dwZone, ZONEATTRIBUTES* pZoneAttributes) mut => VT.[Friend]SetZoneAttributes(&this, dwZone, pZoneAttributes);
 
-	public HRESULT GetZoneCustomPolicy(uint32 dwZone, ref Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, URLZONEREG urlZoneReg) mut => VT.[Friend]GetZoneCustomPolicy(&this, dwZone, ref guidKey, ppPolicy, pcbPolicy, urlZoneReg);
+	public HRESULT GetZoneCustomPolicy(uint32 dwZone, in Guid guidKey, uint8** ppPolicy, uint32* pcbPolicy, URLZONEREG urlZoneReg) mut => VT.[Friend]GetZoneCustomPolicy(&this, dwZone, guidKey, ppPolicy, pcbPolicy, urlZoneReg);
 
-	public HRESULT SetZoneCustomPolicy(uint32 dwZone, ref Guid guidKey, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) mut => VT.[Friend]SetZoneCustomPolicy(&this, dwZone, ref guidKey, pPolicy, cbPolicy, urlZoneReg);
+	public HRESULT SetZoneCustomPolicy(uint32 dwZone, in Guid guidKey, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) mut => VT.[Friend]SetZoneCustomPolicy(&this, dwZone, guidKey, pPolicy, cbPolicy, urlZoneReg);
 
 	public HRESULT GetZoneActionPolicy(uint32 dwZone, uint32 dwAction, uint8* pPolicy, uint32 cbPolicy, URLZONEREG urlZoneReg) mut => VT.[Friend]GetZoneActionPolicy(&this, dwZone, dwAction, pPolicy, cbPolicy, urlZoneReg);
 
@@ -1940,7 +1940,7 @@ public static
 	public static extern HRESULT CreateURLMonikerEx(IMoniker* pMkCtx, PWSTR szURL, IMoniker** ppmk, uint32 dwFlags);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetClassURL(PWSTR szURL, ref Guid pClsID);
+	public static extern HRESULT GetClassURL(PWSTR szURL, Guid* pClsID);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateAsyncBindCtx(uint32 reserved, IBindStatusCallback* pBSCb, IEnumFORMATETC* pEFetc, IBindCtx** ppBC);
@@ -1961,13 +1961,13 @@ public static
 	public static extern HRESULT RevokeBindStatusCallback(IBindCtx* pBC, IBindStatusCallback* pBSCb);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetClassFileOrMime(IBindCtx* pBC, PWSTR szFilename, void* pBuffer, uint32 cbSize, PWSTR szMime, uint32 dwReserved, ref Guid pclsid);
+	public static extern HRESULT GetClassFileOrMime(IBindCtx* pBC, PWSTR szFilename, void* pBuffer, uint32 cbSize, PWSTR szMime, uint32 dwReserved, Guid* pclsid);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IsValidURL(IBindCtx* pBC, PWSTR szURL, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetClassObjectFromURL(ref Guid rCLASSID, PWSTR szCODE, uint32 dwFileVersionMS, uint32 dwFileVersionLS, PWSTR szTYPE, IBindCtx* pBindCtx, CLSCTX dwClsContext, void* pvReserved, ref Guid riid, void** ppv);
+	public static extern HRESULT CoGetClassObjectFromURL(in Guid rCLASSID, PWSTR szCODE, uint32 dwFileVersionMS, uint32 dwFileVersionLS, PWSTR szTYPE, IBindCtx* pBindCtx, CLSCTX dwClsContext, void* pvReserved, in Guid riid, void** ppv);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT IEInstallScope(uint32* pdwScope);
@@ -2000,7 +2000,7 @@ public static
 	public static extern HRESULT RegisterMediaTypeClass(IBindCtx* pBC, uint32 ctypes, PSTR* rgszTypes, Guid* rgclsID, uint32 reserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FindMediaTypeClass(IBindCtx* pBC, PSTR szType, ref Guid pclsID, uint32 reserved);
+	public static extern HRESULT FindMediaTypeClass(IBindCtx* pBC, PSTR szType, Guid* pclsID, uint32 reserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlMkSetSessionOption(uint32 dwOption, void* pBuffer, uint32 dwBufferLength, uint32 dwReserved);
@@ -2018,7 +2018,7 @@ public static
 	public static extern HRESULT CompareSecurityIds(uint8* pbSecurityId1, uint32 dwLen1, uint8* pbSecurityId2, uint32 dwLen2, uint32 dwReserved);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CompatFlagsFromClsid(ref Guid pclsid, uint32* pdwCompatFlags, uint32* pdwMiscStatusFlags);
+	public static extern HRESULT CompatFlagsFromClsid(Guid* pclsid, uint32* pdwCompatFlags, uint32* pdwMiscStatusFlags);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SetAccessForIEAppContainer(HANDLE hObject, IEObjectType ieObjectType, uint32 dwAccessMask);

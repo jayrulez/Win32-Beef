@@ -601,7 +601,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Complete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pVal) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pVal) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BG_JOB_TYPE* pVal) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BG_JOB_PROGRESS* pVal) GetProgress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BG_JOB_TIMES* pVal) GetTimes;
@@ -643,7 +643,7 @@ public static
 
 	public HRESULT Complete() mut => VT.[Friend]Complete(&this);
 
-	public HRESULT GetId(ref Guid pVal) mut => VT.[Friend]GetId(&this, ref pVal);
+	public HRESULT GetId(Guid* pVal) mut => VT.[Friend]GetId(&this, pVal);
 
 	public HRESULT GetType(BG_JOB_TYPE* pVal) mut => VT.[Friend]COM_GetType(&this, pVal);
 
@@ -780,16 +780,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR DisplayName, BG_JOB_TYPE Type, ref Guid pJobId, IBackgroundCopyJob** ppJob) CreateJob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid jobID, IBackgroundCopyJob** ppJob) GetJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR DisplayName, BG_JOB_TYPE Type, Guid* pJobId, IBackgroundCopyJob** ppJob) CreateJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid jobID, IBackgroundCopyJob** ppJob) GetJob;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, IEnumBackgroundCopyJobs** ppEnum) EnumJobs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hResult, uint32 LanguageId, PWSTR* pErrorDescription) GetErrorDescription;
 	}
 
 
-	public HRESULT CreateJob(PWSTR DisplayName, BG_JOB_TYPE Type, ref Guid pJobId, IBackgroundCopyJob** ppJob) mut => VT.[Friend]CreateJob(&this, DisplayName, Type, ref pJobId, ppJob);
+	public HRESULT CreateJob(PWSTR DisplayName, BG_JOB_TYPE Type, Guid* pJobId, IBackgroundCopyJob** ppJob) mut => VT.[Friend]CreateJob(&this, DisplayName, Type, pJobId, ppJob);
 
-	public HRESULT GetJob(ref Guid jobID, IBackgroundCopyJob** ppJob) mut => VT.[Friend]GetJob(&this, ref jobID, ppJob);
+	public HRESULT GetJob(in Guid jobID, IBackgroundCopyJob** ppJob) mut => VT.[Friend]GetJob(&this, jobID, ppJob);
 
 	public HRESULT EnumJobs(uint32 dwFlags, IEnumBackgroundCopyJobs** ppEnum) mut => VT.[Friend]EnumJobs(&this, dwFlags, ppEnum);
 
@@ -918,7 +918,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pVal) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pVal) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pVal) GetOriginUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pVal) GetFileSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pVal) GetFileModificationTime;
@@ -928,7 +928,7 @@ public static
 	}
 
 
-	public HRESULT GetId(ref Guid pVal) mut => VT.[Friend]GetId(&this, ref pVal);
+	public HRESULT GetId(Guid* pVal) mut => VT.[Friend]GetId(&this, pVal);
 
 	public HRESULT GetOriginUrl(PWSTR* pVal) mut => VT.[Friend]GetOriginUrl(&this, pVal);
 
@@ -1033,9 +1033,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pFlags) GetConfigurationFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Flags) SetConfigurationFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumBitsPeerCacheRecords** ppEnum) EnumRecords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid id, IBitsPeerCacheRecord** ppRecord) GetRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid id, IBitsPeerCacheRecord** ppRecord) GetRecord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearRecords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid id) DeleteRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid id) DeleteRecord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR url) DeleteUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumBitsPeers** ppEnum) EnumPeers;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearPeers;
@@ -1057,11 +1057,11 @@ public static
 
 	public HRESULT EnumRecords(IEnumBitsPeerCacheRecords** ppEnum) mut => VT.[Friend]EnumRecords(&this, ppEnum);
 
-	public HRESULT GetRecord(ref Guid id, IBitsPeerCacheRecord** ppRecord) mut => VT.[Friend]GetRecord(&this, ref id, ppRecord);
+	public HRESULT GetRecord(in Guid id, IBitsPeerCacheRecord** ppRecord) mut => VT.[Friend]GetRecord(&this, id, ppRecord);
 
 	public HRESULT ClearRecords() mut => VT.[Friend]ClearRecords(&this);
 
-	public HRESULT DeleteRecord(ref Guid id) mut => VT.[Friend]DeleteRecord(&this, ref id);
+	public HRESULT DeleteRecord(in Guid id) mut => VT.[Friend]DeleteRecord(&this, id);
 
 	public HRESULT DeleteUrl(PWSTR url) mut => VT.[Friend]DeleteUrl(&this, url);
 
@@ -1317,7 +1317,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EnableBITSUploads;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisableBITSUploads;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskName) GetCleanupTaskName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, IUnknown** ppUnk) GetCleanupTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, IUnknown** ppUnk) GetCleanupTask;
 	}
 
 
@@ -1327,7 +1327,7 @@ public static
 
 	public HRESULT GetCleanupTaskName(BSTR* pTaskName) mut => VT.[Friend]GetCleanupTaskName(&this, pTaskName);
 
-	public HRESULT GetCleanupTask(ref Guid riid, IUnknown** ppUnk) mut => VT.[Friend]GetCleanupTask(&this, ref riid, ppUnk);
+	public HRESULT GetCleanupTask(in Guid riid, IUnknown** ppUnk) mut => VT.[Friend]GetCleanupTask(&this, riid, ppUnk);
 }
 
 [CRepr]struct IBITSExtensionSetupFactory : IDispatch
@@ -1360,7 +1360,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFileIndex, FILESETINFO* pFileInfo) GetFile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFileCount) GetFileCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SwitchToForeground;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidJobID) get_JobID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidJobID) get_JobID;
 	}
 
 
@@ -1378,7 +1378,7 @@ public static
 
 	public HRESULT SwitchToForeground() mut => VT.[Friend]SwitchToForeground(&this);
 
-	public HRESULT get_JobID(ref Guid pguidJobID) mut => VT.[Friend]get_JobID(&this, ref pguidJobID);
+	public HRESULT get_JobID(Guid* pguidJobID) mut => VT.[Friend]get_JobID(&this, pguidJobID);
 }
 
 [CRepr]struct IEnumBackgroundCopyJobs1 : IUnknown
@@ -1425,12 +1425,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResumeGroup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelGroup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwSize) get_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidGroupID) get_GroupID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidGroupID) get_GroupID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidJobID, IBackgroundCopyJob1** ppJob) CreateJob;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, IEnumBackgroundCopyJobs1** ppEnumJobs) EnumJobs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SwitchToForeground;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, IUnknown** pUnk) QueryNewJobInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, IUnknown* pUnk) SetNotificationPointer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid, IUnknown** pUnk) QueryNewJobInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid, IUnknown* pUnk) SetNotificationPointer;
 	}
 
 
@@ -1452,7 +1452,7 @@ public static
 
 	public HRESULT get_Size(uint32* pdwSize) mut => VT.[Friend]get_Size(&this, pdwSize);
 
-	public HRESULT get_GroupID(ref Guid pguidGroupID) mut => VT.[Friend]get_GroupID(&this, ref pguidGroupID);
+	public HRESULT get_GroupID(Guid* pguidGroupID) mut => VT.[Friend]get_GroupID(&this, pguidGroupID);
 
 	public HRESULT CreateJob(Guid guidJobID, IBackgroundCopyJob1** ppJob) mut => VT.[Friend]CreateJob(&this, guidJobID, ppJob);
 
@@ -1460,9 +1460,9 @@ public static
 
 	public HRESULT SwitchToForeground() mut => VT.[Friend]SwitchToForeground(&this);
 
-	public HRESULT QueryNewJobInterface(ref Guid iid, IUnknown** pUnk) mut => VT.[Friend]QueryNewJobInterface(&this, ref iid, pUnk);
+	public HRESULT QueryNewJobInterface(in Guid iid, IUnknown** pUnk) mut => VT.[Friend]QueryNewJobInterface(&this, iid, pUnk);
 
-	public HRESULT SetNotificationPointer(ref Guid iid, IUnknown* pUnk) mut => VT.[Friend]SetNotificationPointer(&this, ref iid, pUnk);
+	public HRESULT SetNotificationPointer(in Guid iid, IUnknown* pUnk) mut => VT.[Friend]SetNotificationPointer(&this, iid, pUnk);
 }
 
 [CRepr]struct IEnumBackgroundCopyGroups : IUnknown

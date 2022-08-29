@@ -576,8 +576,8 @@ public struct COLUMNSTATUS
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszHost, PWSTR lpszMoniker, uint32 dwFlags) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid, uint32* pdwObjInstance) CreateObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObjInstance, ref Guid riid, void** ppvObj) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rclsid, uint32* pdwObjInstance) CreateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObjInstance, in Guid riid, void** ppvObj) GetObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpwszObject, uint32 dwObjInstance, void** ppvPersistence, BOOL fStream) GetObjectPersistence;
 	}
 
@@ -586,9 +586,9 @@ public struct COLUMNSTATUS
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
-	public HRESULT CreateObject(ref Guid rclsid, uint32* pdwObjInstance) mut => VT.[Friend]CreateObject(&this, ref rclsid, pdwObjInstance);
+	public HRESULT CreateObject(in Guid rclsid, uint32* pdwObjInstance) mut => VT.[Friend]CreateObject(&this, rclsid, pdwObjInstance);
 
-	public HRESULT GetObject(uint32 dwObjInstance, ref Guid riid, void** ppvObj) mut => VT.[Friend]GetObject(&this, dwObjInstance, ref riid, ppvObj);
+	public HRESULT GetObject(uint32 dwObjInstance, in Guid riid, void** ppvObj) mut => VT.[Friend]GetObject(&this, dwObjInstance, riid, ppvObj);
 
 	public HRESULT GetObjectPersistence(PWSTR lpwszObject, uint32 dwObjInstance, void** ppvPersistence, BOOL fStream) mut => VT.[Friend]GetObjectPersistence(&this, lpwszObject, dwObjInstance, ppvPersistence, fStream);
 }
@@ -606,7 +606,7 @@ public struct COLUMNSTATUS
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCodePageID, uint32* plcid) GetLocaleInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwObjInstance) GetSorterInstance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcEntries) Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpcvPrefix, BOOL fExactMatch, int32* plEntry) Lookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void lpcvPrefix, BOOL fExactMatch, int32* plEntry) Lookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEntry, IITResultSet* lpITResult, int32 cEntries) Lookup0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEntry, void* lpvKeyBuf, uint32 cbKeyBuf) Lookup1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IITGroup* piitGroup) SetGroup;
@@ -627,7 +627,7 @@ public struct COLUMNSTATUS
 
 	public HRESULT Count(int32* pcEntries) mut => VT.[Friend]Count(&this, pcEntries);
 
-	public HRESULT Lookup(void* lpcvPrefix, BOOL fExactMatch, int32* plEntry) mut => VT.[Friend]Lookup(&this, lpcvPrefix, fExactMatch, plEntry);
+	public HRESULT Lookup(in void lpcvPrefix, BOOL fExactMatch, int32* plEntry) mut => VT.[Friend]Lookup(&this, lpcvPrefix, fExactMatch, plEntry);
 
 	public HRESULT Lookup(int32 lEntry, IITResultSet* lpITResult, int32 cEntries) mut => VT.[Friend]Lookup0(&this, lEntry, lpITResult, cEntries);
 
@@ -704,7 +704,7 @@ public struct COLUMNSTATUS
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfBreakFlags, uint32 dwReserved) SetControlInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pgrfBreakFlags, uint32* pdwReserved) GetControlInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, uint32 dwExtDataType) LoadExternalBreakerData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid, IStemmer* pStemmer) SetWordStemmer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rclsid, IStemmer* pStemmer) SetWordStemmer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStemmer** ppStemmer) GetWordStemmer;
 	}
 
@@ -723,7 +723,7 @@ public struct COLUMNSTATUS
 
 	public HRESULT LoadExternalBreakerData(IStream* pStream, uint32 dwExtDataType) mut => VT.[Friend]LoadExternalBreakerData(&this, pStream, dwExtDataType);
 
-	public HRESULT SetWordStemmer(ref Guid rclsid, IStemmer* pStemmer) mut => VT.[Friend]SetWordStemmer(&this, ref rclsid, pStemmer);
+	public HRESULT SetWordStemmer(in Guid rclsid, IStemmer* pStemmer) mut => VT.[Friend]SetWordStemmer(&this, rclsid, pStemmer);
 
 	public HRESULT GetWordStemmer(IStemmer** ppStemmer) mut => VT.[Friend]GetWordStemmer(&this, ppStemmer);
 }

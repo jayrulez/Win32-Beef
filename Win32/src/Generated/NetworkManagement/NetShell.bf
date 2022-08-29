@@ -92,15 +92,15 @@ public function uint32 PNS_CONTEXT_COMMIT_FN(uint32 dwAction);
 
 public function uint32 PNS_CONTEXT_CONNECT_FN(PWSTR pwszMachine);
 
-public function uint32 PNS_CONTEXT_DUMP_FN(PWSTR pwszRouter, PWSTR* ppwcArguments, uint32 dwArgCount, void* pvData);
+public function uint32 PNS_CONTEXT_DUMP_FN(PWSTR pwszRouter, PWSTR* ppwcArguments, uint32 dwArgCount, in void pvData);
 
 public function uint32 PNS_DLL_STOP_FN(uint32 dwReserved);
 
-public function uint32 PNS_HELPER_START_FN(ref Guid pguidParent, uint32 dwVersion);
+public function uint32 PNS_HELPER_START_FN(in Guid pguidParent, uint32 dwVersion);
 
 public function uint32 PNS_HELPER_STOP_FN(uint32 dwReserved);
 
-public function uint32 PFN_HANDLE_CMD(PWSTR pwszMachine, PWSTR* ppwcArguments, uint32 dwCurrentIndex, uint32 dwArgCount, uint32 dwFlags, void* pvData, BOOL* pbDone);
+public function uint32 PFN_HANDLE_CMD(PWSTR pwszMachine, PWSTR* ppwcArguments, uint32 dwCurrentIndex, uint32 dwArgCount, uint32 dwFlags, in void pvData, BOOL* pbDone);
 
 public function BOOL PNS_OSVERSIONCHECK(uint32 CIMOSType, uint32 CIMOSProductSuite, PWSTR CIMOSVersion, PWSTR CIMOSBuildNumber, PWSTR CIMServicePackMajorVersion, PWSTR CIMServicePackMinorVersion, uint32 uiReserved, uint32 dwReserved);
 
@@ -225,7 +225,7 @@ public static
 	public static extern uint32 RegisterContext(NS_CONTEXT_ATTRIBUTES* pChildContext);
 
 	[Import("NETSH.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterHelper(ref Guid pguidParentContext, NS_HELPER_ATTRIBUTES* pfnRegisterSubContext);
+	public static extern uint32 RegisterHelper(in Guid pguidParentContext, NS_HELPER_ATTRIBUTES* pfnRegisterSubContext);
 
 }
 #endregion

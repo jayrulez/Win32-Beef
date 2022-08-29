@@ -2437,7 +2437,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float* dpiX, float* dpiY) GetDpi;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D_POINT_2U* destPoint, ID2D1Bitmap* bitmap, D2D_RECT_U* srcRect) CopyFromBitmap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D_POINT_2U* destPoint, ID2D1RenderTarget* renderTarget, D2D_RECT_U* srcRect) CopyFromRenderTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D_RECT_U* dstRect, void* srcData, uint32 pitch) CopyFromMemory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D_RECT_U* dstRect, in void srcData, uint32 pitch) CopyFromMemory;
 	}
 
 
@@ -2453,7 +2453,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	public HRESULT CopyFromRenderTarget(D2D_POINT_2U* destPoint, ID2D1RenderTarget* renderTarget, D2D_RECT_U* srcRect) mut => VT.[Friend]CopyFromRenderTarget(&this, destPoint, renderTarget, srcRect);
 
-	public HRESULT CopyFromMemory(D2D_RECT_U* dstRect, void* srcData, uint32 pitch) mut => VT.[Friend]CopyFromMemory(&this, dstRect, srcData, pitch);
+	public HRESULT CopyFromMemory(D2D_RECT_U* dstRect, in void srcData, uint32 pitch) mut => VT.[Friend]CopyFromMemory(&this, dstRect, srcData, pitch);
 }
 
 [CRepr]struct ID2D1GradientStopCollection : ID2D1Resource
@@ -2931,7 +2931,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D_SIZE_U size, void* srcData, uint32 pitch, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) CreateBitmap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) CreateBitmapFromWicBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void* data, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) CreateSharedBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void* data, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) CreateSharedBitmap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES* bitmapBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1BitmapBrush** bitmapBrush) CreateBitmapBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_COLOR_F* color, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1SolidColorBrush** solidColorBrush) CreateSolidColorBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_GRADIENT_STOP* gradientStops, uint32 gradientStopsCount, D2D1_GAMMA colorInterpolationGamma, D2D1_EXTEND_MODE extendMode, ID2D1GradientStopCollection** gradientStopCollection) CreateGradientStopCollection;
@@ -2989,7 +2989,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	public HRESULT CreateBitmapFromWicBitmap(IWICBitmapSource* wicBitmapSource, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) mut => VT.[Friend]CreateBitmapFromWicBitmap(&this, wicBitmapSource, bitmapProperties, bitmap);
 
-	public HRESULT CreateSharedBitmap(ref Guid riid, void* data, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) mut => VT.[Friend]CreateSharedBitmap(&this, ref riid, data, bitmapProperties, bitmap);
+	public HRESULT CreateSharedBitmap(in Guid riid, void* data, D2D1_BITMAP_PROPERTIES* bitmapProperties, ID2D1Bitmap** bitmap) mut => VT.[Friend]CreateSharedBitmap(&this, riid, data, bitmapProperties, bitmap);
 
 	public HRESULT CreateBitmapBrush(ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES* bitmapBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1BitmapBrush** bitmapBrush) mut => VT.[Friend]CreateBitmapBrush(&this, bitmap, bitmapBrushProperties, brushProperties, bitmapBrush);
 
@@ -3640,7 +3640,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR filename, ID2D1ColorContext** colorContext) CreateColorContextFromFilename;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICColorContext* wicColorContext, ID2D1ColorContext** colorContext) CreateColorContextFromWicColorContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDXGISurface* surface, D2D1_BITMAP_PROPERTIES1* bitmapProperties, ID2D1Bitmap1** bitmap) CreateBitmapFromDxgiSurface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid effectId, ID2D1Effect** effect) CreateEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid effectId, ID2D1Effect** effect) CreateEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_GRADIENT_STOP* straightAlphaGradientStops, uint32 straightAlphaGradientStopsCount, D2D1_COLOR_SPACE preInterpolationSpace, D2D1_COLOR_SPACE postInterpolationSpace, D2D1_BUFFER_PRECISION bufferPrecision, D2D1_EXTEND_MODE extendMode, D2D1_COLOR_INTERPOLATION_MODE colorInterpolationMode, ID2D1GradientStopCollection1** gradientStopCollection1) CreateGradientStopCollection;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1Image* image, D2D1_IMAGE_BRUSH_PROPERTIES* imageBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1ImageBrush** imageBrush) CreateImageBrush;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1Bitmap* bitmap, D2D1_BITMAP_BRUSH_PROPERTIES1* bitmapBrushProperties, D2D1_BRUSH_PROPERTIES* brushProperties, ID2D1BitmapBrush1** bitmapBrush) CreateBitmapBrush;
@@ -3684,7 +3684,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	public HRESULT CreateBitmapFromDxgiSurface(IDXGISurface* surface, D2D1_BITMAP_PROPERTIES1* bitmapProperties, ID2D1Bitmap1** bitmap) mut => VT.[Friend]CreateBitmapFromDxgiSurface(&this, surface, bitmapProperties, bitmap);
 
-	public HRESULT CreateEffect(ref Guid effectId, ID2D1Effect** effect) mut => VT.[Friend]CreateEffect(&this, ref effectId, effect);
+	public HRESULT CreateEffect(in Guid effectId, ID2D1Effect** effect) mut => VT.[Friend]CreateEffect(&this, effectId, effect);
 
 	public HRESULT CreateGradientStopCollection(D2D1_GRADIENT_STOP* straightAlphaGradientStops, uint32 straightAlphaGradientStopsCount, D2D1_COLOR_SPACE preInterpolationSpace, D2D1_COLOR_SPACE postInterpolationSpace, D2D1_BUFFER_PRECISION bufferPrecision, D2D1_EXTEND_MODE extendMode, D2D1_COLOR_INTERPOLATION_MODE colorInterpolationMode, ID2D1GradientStopCollection1** gradientStopCollection1) mut => VT.[Friend]CreateGradientStopCollection(&this, straightAlphaGradientStops, straightAlphaGradientStopsCount, preInterpolationSpace, postInterpolationSpace, bufferPrecision, extendMode, colorInterpolationMode, gradientStopCollection1);
 
@@ -3783,11 +3783,11 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1PathGeometry1** pathGeometry) CreatePathGeometry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_DRAWING_STATE_DESCRIPTION1* drawingStateDescription, IDWriteRenderingParams* textRenderingParams, ID2D1DrawingStateBlock1** drawingStateBlock) CreateDrawingStateBlock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* metafileStream, ID2D1GdiMetafile** metafile) CreateGdiMetafile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid classId, IStream* propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) RegisterEffectFromStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid classId, PWSTR propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) RegisterEffectFromString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid classId) UnregisterEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid classId, IStream* propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) RegisterEffectFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid classId, PWSTR propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) RegisterEffectFromString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid classId) UnregisterEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* effects, uint32 effectsCount, uint32* effectsReturned, uint32* effectsRegistered) GetRegisteredEffects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid effectId, ID2D1Properties** properties) GetEffectProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid effectId, ID2D1Properties** properties) GetEffectProperties;
 	}
 
 
@@ -3801,15 +3801,15 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	public HRESULT CreateGdiMetafile(IStream* metafileStream, ID2D1GdiMetafile** metafile) mut => VT.[Friend]CreateGdiMetafile(&this, metafileStream, metafile);
 
-	public HRESULT RegisterEffectFromStream(ref Guid classId, IStream* propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) mut => VT.[Friend]RegisterEffectFromStream(&this, ref classId, propertyXml, bindings, bindingsCount, effectFactory);
+	public HRESULT RegisterEffectFromStream(in Guid classId, IStream* propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) mut => VT.[Friend]RegisterEffectFromStream(&this, classId, propertyXml, bindings, bindingsCount, effectFactory);
 
-	public HRESULT RegisterEffectFromString(ref Guid classId, PWSTR propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) mut => VT.[Friend]RegisterEffectFromString(&this, ref classId, propertyXml, bindings, bindingsCount, effectFactory);
+	public HRESULT RegisterEffectFromString(in Guid classId, PWSTR propertyXml, D2D1_PROPERTY_BINDING* bindings, uint32 bindingsCount, PD2D1_EFFECT_FACTORY effectFactory) mut => VT.[Friend]RegisterEffectFromString(&this, classId, propertyXml, bindings, bindingsCount, effectFactory);
 
-	public HRESULT UnregisterEffect(ref Guid classId) mut => VT.[Friend]UnregisterEffect(&this, ref classId);
+	public HRESULT UnregisterEffect(in Guid classId) mut => VT.[Friend]UnregisterEffect(&this, classId);
 
 	public HRESULT GetRegisteredEffects(Guid* effects, uint32 effectsCount, uint32* effectsReturned, uint32* effectsRegistered) mut => VT.[Friend]GetRegisteredEffects(&this, effects, effectsCount, effectsReturned, effectsRegistered);
 
-	public HRESULT GetEffectProperties(ref Guid effectId, ID2D1Properties** properties) mut => VT.[Friend]GetEffectProperties(&this, ref effectId, properties);
+	public HRESULT GetEffectProperties(in Guid effectId, ID2D1Properties** properties) mut => VT.[Friend]GetEffectProperties(&this, effectId, properties);
 }
 
 [CRepr]struct ID2D1Multithread : IUnknown
@@ -3901,8 +3901,8 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* buffer, uint32 bufferCount) SetPixelShaderConstantBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 textureIndex, ID2D1ResourceTexture* resourceTexture) SetResourceTexture;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* buffer, uint32 bufferCount) SetVertexShaderConstantBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid shaderId, D2D1_PIXEL_OPTIONS pixelOptions) SetPixelShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1VertexBuffer* vertexBuffer, D2D1_VERTEX_OPTIONS vertexOptions, D2D1_BLEND_DESCRIPTION* blendDescription, D2D1_VERTEX_RANGE* vertexRange, ref Guid vertexShader) SetVertexProcessing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid shaderId, D2D1_PIXEL_OPTIONS pixelOptions) SetPixelShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1VertexBuffer* vertexBuffer, D2D1_VERTEX_OPTIONS vertexOptions, D2D1_BLEND_DESCRIPTION* blendDescription, D2D1_VERTEX_RANGE* vertexRange, Guid* vertexShader) SetVertexProcessing;
 	}
 
 
@@ -3912,9 +3912,9 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	public HRESULT SetVertexShaderConstantBuffer(uint8* buffer, uint32 bufferCount) mut => VT.[Friend]SetVertexShaderConstantBuffer(&this, buffer, bufferCount);
 
-	public HRESULT SetPixelShader(ref Guid shaderId, D2D1_PIXEL_OPTIONS pixelOptions) mut => VT.[Friend]SetPixelShader(&this, ref shaderId, pixelOptions);
+	public HRESULT SetPixelShader(in Guid shaderId, D2D1_PIXEL_OPTIONS pixelOptions) mut => VT.[Friend]SetPixelShader(&this, shaderId, pixelOptions);
 
-	public HRESULT SetVertexProcessing(ID2D1VertexBuffer* vertexBuffer, D2D1_VERTEX_OPTIONS vertexOptions, D2D1_BLEND_DESCRIPTION* blendDescription, D2D1_VERTEX_RANGE* vertexRange, ref Guid vertexShader) mut => VT.[Friend]SetVertexProcessing(&this, vertexBuffer, vertexOptions, blendDescription, vertexRange, ref vertexShader);
+	public HRESULT SetVertexProcessing(ID2D1VertexBuffer* vertexBuffer, D2D1_VERTEX_OPTIONS vertexOptions, D2D1_BLEND_DESCRIPTION* blendDescription, D2D1_VERTEX_RANGE* vertexRange, Guid* vertexShader) mut => VT.[Friend]SetVertexProcessing(&this, vertexBuffer, vertexOptions, blendDescription, vertexRange, vertexShader);
 }
 
 [CRepr]struct ID2D1ComputeInfo : ID2D1RenderInfo
@@ -3926,14 +3926,14 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 	[CRepr]public struct VTable : ID2D1RenderInfo.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* buffer, uint32 bufferCount) SetComputeShaderConstantBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid shaderId) SetComputeShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid shaderId) SetComputeShader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 textureIndex, ID2D1ResourceTexture* resourceTexture) SetResourceTexture;
 	}
 
 
 	public HRESULT SetComputeShaderConstantBuffer(uint8* buffer, uint32 bufferCount) mut => VT.[Friend]SetComputeShaderConstantBuffer(&this, buffer, bufferCount);
 
-	public HRESULT SetComputeShader(ref Guid shaderId) mut => VT.[Friend]SetComputeShader(&this, ref shaderId);
+	public HRESULT SetComputeShader(in Guid shaderId) mut => VT.[Friend]SetComputeShader(&this, shaderId);
 
 	public HRESULT SetResourceTexture(uint32 textureIndex, ID2D1ResourceTexture* resourceTexture) mut => VT.[Friend]SetResourceTexture(&this, textureIndex, resourceTexture);
 }
@@ -4205,21 +4205,21 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float* dpiX, float* dpiY) GetDpi;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid effectId, ID2D1Effect** effect) CreateEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid effectId, ID2D1Effect** effect) CreateEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D_FEATURE_LEVEL* featureLevels, uint32 featureLevelsCount, D3D_FEATURE_LEVEL* maximumSupportedFeatureLevel) GetMaximumSupportedFeatureLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1Effect* effect, ID2D1TransformNode** transformNode) CreateTransformNodeFromEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 numInputs, D2D1_BLEND_DESCRIPTION* blendDescription, ID2D1BlendTransform** transform) CreateBlendTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_EXTEND_MODE extendModeX, D2D1_EXTEND_MODE extendModeY, ID2D1BorderTransform** transform) CreateBorderTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POINT offset, ID2D1OffsetTransform** transform) CreateOffsetTransform;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* outputRectangle, ID2D1BoundsAdjustmentTransform** transform) CreateBoundsAdjustmentTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid shaderId, uint8* shaderBuffer, uint32 shaderBufferCount) LoadPixelShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) LoadVertexShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) LoadComputeShader;
-		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, ref Guid shaderId) IsShaderLoaded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid resourceId, D2D1_RESOURCE_TEXTURE_PROPERTIES* resourceTextureProperties, uint8* data, uint32* strides, uint32 dataSize, ID2D1ResourceTexture** resourceTexture) CreateResourceTexture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid resourceId, ID2D1ResourceTexture** resourceTexture) FindResourceTexture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_VERTEX_BUFFER_PROPERTIES* vertexBufferProperties, ref Guid resourceId, D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES* customVertexBufferProperties, ID2D1VertexBuffer** buffer) CreateVertexBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid resourceId, ID2D1VertexBuffer** buffer) FindVertexBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid shaderId, uint8* shaderBuffer, uint32 shaderBufferCount) LoadPixelShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) LoadVertexShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) LoadComputeShader;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, in Guid shaderId) IsShaderLoaded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* resourceId, D2D1_RESOURCE_TEXTURE_PROPERTIES* resourceTextureProperties, uint8* data, uint32* strides, uint32 dataSize, ID2D1ResourceTexture** resourceTexture) CreateResourceTexture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid resourceId, ID2D1ResourceTexture** resourceTexture) FindResourceTexture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_VERTEX_BUFFER_PROPERTIES* vertexBufferProperties, Guid* resourceId, D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES* customVertexBufferProperties, ID2D1VertexBuffer** buffer) CreateVertexBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid resourceId, ID2D1VertexBuffer** buffer) FindVertexBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext** colorContext) CreateColorContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR filename, ID2D1ColorContext** colorContext) CreateColorContextFromFilename;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICColorContext* wicColorContext, ID2D1ColorContext** colorContext) CreateColorContextFromWicColorContext;
@@ -4230,7 +4230,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	public void GetDpi(float* dpiX, float* dpiY) mut => VT.[Friend]GetDpi(&this, dpiX, dpiY);
 
-	public HRESULT CreateEffect(ref Guid effectId, ID2D1Effect** effect) mut => VT.[Friend]CreateEffect(&this, ref effectId, effect);
+	public HRESULT CreateEffect(in Guid effectId, ID2D1Effect** effect) mut => VT.[Friend]CreateEffect(&this, effectId, effect);
 
 	public HRESULT GetMaximumSupportedFeatureLevel(D3D_FEATURE_LEVEL* featureLevels, uint32 featureLevelsCount, D3D_FEATURE_LEVEL* maximumSupportedFeatureLevel) mut => VT.[Friend]GetMaximumSupportedFeatureLevel(&this, featureLevels, featureLevelsCount, maximumSupportedFeatureLevel);
 
@@ -4244,21 +4244,21 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	public HRESULT CreateBoundsAdjustmentTransform(RECT* outputRectangle, ID2D1BoundsAdjustmentTransform** transform) mut => VT.[Friend]CreateBoundsAdjustmentTransform(&this, outputRectangle, transform);
 
-	public HRESULT LoadPixelShader(ref Guid shaderId, uint8* shaderBuffer, uint32 shaderBufferCount) mut => VT.[Friend]LoadPixelShader(&this, ref shaderId, shaderBuffer, shaderBufferCount);
+	public HRESULT LoadPixelShader(in Guid shaderId, uint8* shaderBuffer, uint32 shaderBufferCount) mut => VT.[Friend]LoadPixelShader(&this, shaderId, shaderBuffer, shaderBufferCount);
 
-	public HRESULT LoadVertexShader(ref Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) mut => VT.[Friend]LoadVertexShader(&this, ref resourceId, shaderBuffer, shaderBufferCount);
+	public HRESULT LoadVertexShader(in Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) mut => VT.[Friend]LoadVertexShader(&this, resourceId, shaderBuffer, shaderBufferCount);
 
-	public HRESULT LoadComputeShader(ref Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) mut => VT.[Friend]LoadComputeShader(&this, ref resourceId, shaderBuffer, shaderBufferCount);
+	public HRESULT LoadComputeShader(in Guid resourceId, uint8* shaderBuffer, uint32 shaderBufferCount) mut => VT.[Friend]LoadComputeShader(&this, resourceId, shaderBuffer, shaderBufferCount);
 
-	public BOOL IsShaderLoaded(ref Guid shaderId) mut => VT.[Friend]IsShaderLoaded(&this, ref shaderId);
+	public BOOL IsShaderLoaded(in Guid shaderId) mut => VT.[Friend]IsShaderLoaded(&this, shaderId);
 
-	public HRESULT CreateResourceTexture(ref Guid resourceId, D2D1_RESOURCE_TEXTURE_PROPERTIES* resourceTextureProperties, uint8* data, uint32* strides, uint32 dataSize, ID2D1ResourceTexture** resourceTexture) mut => VT.[Friend]CreateResourceTexture(&this, ref resourceId, resourceTextureProperties, data, strides, dataSize, resourceTexture);
+	public HRESULT CreateResourceTexture(Guid* resourceId, D2D1_RESOURCE_TEXTURE_PROPERTIES* resourceTextureProperties, uint8* data, uint32* strides, uint32 dataSize, ID2D1ResourceTexture** resourceTexture) mut => VT.[Friend]CreateResourceTexture(&this, resourceId, resourceTextureProperties, data, strides, dataSize, resourceTexture);
 
-	public HRESULT FindResourceTexture(ref Guid resourceId, ID2D1ResourceTexture** resourceTexture) mut => VT.[Friend]FindResourceTexture(&this, ref resourceId, resourceTexture);
+	public HRESULT FindResourceTexture(in Guid resourceId, ID2D1ResourceTexture** resourceTexture) mut => VT.[Friend]FindResourceTexture(&this, resourceId, resourceTexture);
 
-	public HRESULT CreateVertexBuffer(D2D1_VERTEX_BUFFER_PROPERTIES* vertexBufferProperties, ref Guid resourceId, D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES* customVertexBufferProperties, ID2D1VertexBuffer** buffer) mut => VT.[Friend]CreateVertexBuffer(&this, vertexBufferProperties, ref resourceId, customVertexBufferProperties, buffer);
+	public HRESULT CreateVertexBuffer(D2D1_VERTEX_BUFFER_PROPERTIES* vertexBufferProperties, Guid* resourceId, D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES* customVertexBufferProperties, ID2D1VertexBuffer** buffer) mut => VT.[Friend]CreateVertexBuffer(&this, vertexBufferProperties, resourceId, customVertexBufferProperties, buffer);
 
-	public HRESULT FindVertexBuffer(ref Guid resourceId, ID2D1VertexBuffer** buffer) mut => VT.[Friend]FindVertexBuffer(&this, ref resourceId, buffer);
+	public HRESULT FindVertexBuffer(in Guid resourceId, ID2D1VertexBuffer** buffer) mut => VT.[Friend]FindVertexBuffer(&this, resourceId, buffer);
 
 	public HRESULT CreateColorContext(D2D1_COLOR_SPACE space, uint8* profile, uint32 profileSize, ID2D1ColorContext** colorContext) mut => VT.[Friend]CreateColorContext(&this, space, profile, profileSize, colorContext);
 
@@ -4533,7 +4533,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, ID2D1SvgAttribute* value) SetAttributeValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) SetAttributeValue0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, PWSTR value) SetAttributeValue1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, ref Guid riid, void** value) GetAttributeValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, in Guid riid, void** value) GetAttributeValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) GetAttributeValue0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, char16* value, uint32 valueCount) GetAttributeValue1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, uint32* valueLength) GetAttributeValueLength;
@@ -4592,7 +4592,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	public HRESULT SetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_STRING_TYPE type, PWSTR value) mut => VT.[Friend]SetAttributeValue1(&this, name, type, value);
 
-	public HRESULT GetAttributeValue(PWSTR name, ref Guid riid, void** value) mut => VT.[Friend]GetAttributeValue(&this, name, ref riid, value);
+	public HRESULT GetAttributeValue(PWSTR name, in Guid riid, void** value) mut => VT.[Friend]GetAttributeValue(&this, name, riid, value);
 
 	public HRESULT GetAttributeValue(PWSTR name, D2D1_SVG_ATTRIBUTE_POD_TYPE type, void* value, uint32 valueSizeInBytes) mut => VT.[Friend]GetAttributeValue0(&this, name, type, value, valueSizeInBytes);
 
@@ -5309,7 +5309,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 public static
 {
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT D2D1CreateFactory(D2D1_FACTORY_TYPE factoryType, ref Guid riid, D2D1_FACTORY_OPTIONS* pFactoryOptions, void** ppIFactory);
+	public static extern HRESULT D2D1CreateFactory(D2D1_FACTORY_TYPE factoryType, in Guid riid, D2D1_FACTORY_OPTIONS* pFactoryOptions, void** ppIFactory);
 
 	[Import("d2d1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void D2D1MakeRotateMatrix(float angle, D2D_POINT_2F center, D2D_MATRIX_3X2_F* matrix);

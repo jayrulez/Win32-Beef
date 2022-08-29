@@ -14,14 +14,14 @@ namespace Win32.System.WinRT.Graphics.Capture;
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND window, ref Guid riid, void** result) CreateForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMONITOR monitor, ref Guid riid, void** result) CreateForMonitor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND window, in Guid riid, void** result) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMONITOR monitor, in Guid riid, void** result) CreateForMonitor;
 	}
 
 
-	public HRESULT CreateForWindow(HWND window, ref Guid riid, void** result) mut => VT.[Friend]CreateForWindow(&this, window, ref riid, result);
+	public HRESULT CreateForWindow(HWND window, in Guid riid, void** result) mut => VT.[Friend]CreateForWindow(&this, window, riid, result);
 
-	public HRESULT CreateForMonitor(HMONITOR monitor, ref Guid riid, void** result) mut => VT.[Friend]CreateForMonitor(&this, monitor, ref riid, result);
+	public HRESULT CreateForMonitor(HMONITOR monitor, in Guid riid, void** result) mut => VT.[Friend]CreateForMonitor(&this, monitor, riid, result);
 }
 
 #endregion

@@ -35,7 +35,7 @@ public enum GRAPHICS_EFFECT_PROPERTY_MAPPING : int32
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid id) GetEffectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* id) GetEffectId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, uint32* index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) GetNamedPropertyMapping;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetPropertyCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, void** value) GetProperty;
@@ -44,7 +44,7 @@ public enum GRAPHICS_EFFECT_PROPERTY_MAPPING : int32
 	}
 
 
-	public HRESULT GetEffectId(ref Guid id) mut => VT.[Friend]GetEffectId(&this, ref id);
+	public HRESULT GetEffectId(Guid* id) mut => VT.[Friend]GetEffectId(&this, id);
 
 	public HRESULT GetNamedPropertyMapping(PWSTR name, uint32* index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) mut => VT.[Friend]GetNamedPropertyMapping(&this, name, index, mapping);
 

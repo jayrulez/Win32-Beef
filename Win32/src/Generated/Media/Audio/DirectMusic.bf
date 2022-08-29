@@ -818,12 +818,12 @@ public struct MIDIOPENDESC
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, DMUS_PORTCAPS* pPortCaps) EnumPort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMUS_BUFFERDESC* pBufferDesc, IDirectMusicBuffer** ppBuffer, IUnknown* pUnkOuter) CreateMusicBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsidPort, DMUS_PORTPARAMS8* pPortParams, IDirectMusicPort** ppPort, IUnknown* pUnkOuter) CreatePort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rclsidPort, DMUS_PORTPARAMS8* pPortParams, IDirectMusicPort** ppPort, IUnknown* pUnkOuter) CreatePort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, DMUS_CLOCKINFO8* lpClockInfo) EnumMasterClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidClock, IReferenceClock** ppReferenceClock) GetMasterClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rguidClock) SetMasterClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidClock, IReferenceClock** ppReferenceClock) GetMasterClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rguidClock) SetMasterClock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidPort) GetDefaultPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidPort) GetDefaultPort;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectSound* pDirectSound, HWND hWnd) SetDirectSound;
 	}
 
@@ -832,17 +832,17 @@ public struct MIDIOPENDESC
 
 	public HRESULT CreateMusicBuffer(DMUS_BUFFERDESC* pBufferDesc, IDirectMusicBuffer** ppBuffer, IUnknown* pUnkOuter) mut => VT.[Friend]CreateMusicBuffer(&this, pBufferDesc, ppBuffer, pUnkOuter);
 
-	public HRESULT CreatePort(ref Guid rclsidPort, DMUS_PORTPARAMS8* pPortParams, IDirectMusicPort** ppPort, IUnknown* pUnkOuter) mut => VT.[Friend]CreatePort(&this, ref rclsidPort, pPortParams, ppPort, pUnkOuter);
+	public HRESULT CreatePort(in Guid rclsidPort, DMUS_PORTPARAMS8* pPortParams, IDirectMusicPort** ppPort, IUnknown* pUnkOuter) mut => VT.[Friend]CreatePort(&this, rclsidPort, pPortParams, ppPort, pUnkOuter);
 
 	public HRESULT EnumMasterClock(uint32 dwIndex, DMUS_CLOCKINFO8* lpClockInfo) mut => VT.[Friend]EnumMasterClock(&this, dwIndex, lpClockInfo);
 
-	public HRESULT GetMasterClock(ref Guid pguidClock, IReferenceClock** ppReferenceClock) mut => VT.[Friend]GetMasterClock(&this, ref pguidClock, ppReferenceClock);
+	public HRESULT GetMasterClock(Guid* pguidClock, IReferenceClock** ppReferenceClock) mut => VT.[Friend]GetMasterClock(&this, pguidClock, ppReferenceClock);
 
-	public HRESULT SetMasterClock(ref Guid rguidClock) mut => VT.[Friend]SetMasterClock(&this, ref rguidClock);
+	public HRESULT SetMasterClock(in Guid rguidClock) mut => VT.[Friend]SetMasterClock(&this, rguidClock);
 
 	public HRESULT Activate(BOOL fEnable) mut => VT.[Friend]Activate(&this, fEnable);
 
-	public HRESULT GetDefaultPort(ref Guid pguidPort) mut => VT.[Friend]GetDefaultPort(&this, ref pguidPort);
+	public HRESULT GetDefaultPort(Guid* pguidPort) mut => VT.[Friend]GetDefaultPort(&this, pguidPort);
 
 	public HRESULT SetDirectSound(IDirectSound* pDirectSound, HWND hWnd) mut => VT.[Friend]SetDirectSound(&this, pDirectSound, hWnd);
 }
@@ -880,7 +880,7 @@ public struct MIDIOPENDESC
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* prt) GetStartTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcb) GetUsedBytes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcb) GetMaxBytes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuidFormat) GetBufferFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pGuidFormat) GetBufferFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 rt) SetStartTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cb) SetUsedBytes;
 	}
@@ -906,7 +906,7 @@ public struct MIDIOPENDESC
 
 	public HRESULT GetMaxBytes(uint32* pcb) mut => VT.[Friend]GetMaxBytes(&this, pcb);
 
-	public HRESULT GetBufferFormat(ref Guid pGuidFormat) mut => VT.[Friend]GetBufferFormat(&this, ref pGuidFormat);
+	public HRESULT GetBufferFormat(Guid* pGuidFormat) mut => VT.[Friend]GetBufferFormat(&this, pGuidFormat);
 
 	public HRESULT SetStartTime(int64 rt) mut => VT.[Friend]SetStartTime(&this, rt);
 

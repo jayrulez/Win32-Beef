@@ -1285,35 +1285,35 @@ public enum tag_WBEM_LOGIN_TYPE : int32
 #endregion
 
 #region Function Pointers
-public function void MI_MethodDecl_Invoke(void* self, MI_Context* context, uint16* nameSpace, uint16* className, uint16* methodName, MI_Instance* instanceName, MI_Instance* parameters);
+public function void MI_MethodDecl_Invoke(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, in uint16 methodName, MI_Instance* instanceName, MI_Instance* parameters);
 
 public function void MI_ProviderFT_Load(void** self, MI_Module_Self* selfModule, MI_Context* context);
 
 public function void MI_ProviderFT_Unload(void* self, MI_Context* context);
 
-public function void MI_ProviderFT_GetInstance(void* self, MI_Context* context, uint16* nameSpace, uint16* className, MI_Instance* instanceName, MI_PropertySet* propertySet);
+public function void MI_ProviderFT_GetInstance(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, MI_Instance* instanceName, MI_PropertySet* propertySet);
 
-public function void MI_ProviderFT_EnumerateInstances(void* self, MI_Context* context, uint16* nameSpace, uint16* className, MI_PropertySet* propertySet, uint8 keysOnly, MI_Filter* filter);
+public function void MI_ProviderFT_EnumerateInstances(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, MI_PropertySet* propertySet, uint8 keysOnly, MI_Filter* filter);
 
-public function void MI_ProviderFT_CreateInstance(void* self, MI_Context* context, uint16* nameSpace, uint16* className, MI_Instance* newInstance);
+public function void MI_ProviderFT_CreateInstance(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, MI_Instance* newInstance);
 
-public function void MI_ProviderFT_ModifyInstance(void* self, MI_Context* context, uint16* nameSpace, uint16* className, MI_Instance* modifiedInstance, MI_PropertySet* propertySet);
+public function void MI_ProviderFT_ModifyInstance(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, MI_Instance* modifiedInstance, MI_PropertySet* propertySet);
 
-public function void MI_ProviderFT_DeleteInstance(void* self, MI_Context* context, uint16* nameSpace, uint16* className, MI_Instance* instanceName);
+public function void MI_ProviderFT_DeleteInstance(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, MI_Instance* instanceName);
 
-public function void MI_ProviderFT_AssociatorInstances(void* self, MI_Context* context, uint16* nameSpace, uint16* className, MI_Instance* instanceName, uint16* resultClass, uint16* role, uint16* resultRole, MI_PropertySet* propertySet, uint8 keysOnly, MI_Filter* filter);
+public function void MI_ProviderFT_AssociatorInstances(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, MI_Instance* instanceName, uint16* resultClass, uint16* role, uint16* resultRole, MI_PropertySet* propertySet, uint8 keysOnly, MI_Filter* filter);
 
-public function void MI_ProviderFT_ReferenceInstances(void* self, MI_Context* context, uint16* nameSpace, uint16* className, MI_Instance* instanceName, uint16* role, MI_PropertySet* propertySet, uint8 keysOnly, MI_Filter* filter);
+public function void MI_ProviderFT_ReferenceInstances(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, MI_Instance* instanceName, uint16* role, MI_PropertySet* propertySet, uint8 keysOnly, MI_Filter* filter);
 
-public function void MI_ProviderFT_EnableIndications(void* self, MI_Context* indicationsContext, uint16* nameSpace, uint16* className);
+public function void MI_ProviderFT_EnableIndications(void* self, MI_Context* indicationsContext, in uint16 nameSpace, in uint16 className);
 
-public function void MI_ProviderFT_DisableIndications(void* self, MI_Context* indicationsContext, uint16* nameSpace, uint16* className);
+public function void MI_ProviderFT_DisableIndications(void* self, MI_Context* indicationsContext, in uint16 nameSpace, in uint16 className);
 
-public function void MI_ProviderFT_Subscribe(void* self, MI_Context* context, uint16* nameSpace, uint16* className, MI_Filter* filter, uint16* bookmark, uint64 subscriptionID, void** subscriptionSelf);
+public function void MI_ProviderFT_Subscribe(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, MI_Filter* filter, uint16* bookmark, uint64 subscriptionID, void** subscriptionSelf);
 
-public function void MI_ProviderFT_Unsubscribe(void* self, MI_Context* context, uint16* nameSpace, uint16* className, uint64 subscriptionID, void* subscriptionSelf);
+public function void MI_ProviderFT_Unsubscribe(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, uint64 subscriptionID, void* subscriptionSelf);
 
-public function void MI_ProviderFT_Invoke(void* self, MI_Context* context, uint16* nameSpace, uint16* className, uint16* methodName, MI_Instance* instanceName, MI_Instance* inputParameters);
+public function void MI_ProviderFT_Invoke(void* self, MI_Context* context, in uint16 nameSpace, in uint16 className, in uint16 methodName, MI_Instance* instanceName, MI_Instance* inputParameters);
 
 public function void MI_Module_Load(MI_Module_Self** self, MI_Context* context);
 
@@ -1323,23 +1323,23 @@ public function void MI_CancelCallback(MI_CancellationReason reason, void* callb
 
 public function MI_Module* MI_MainFunction(MI_Server* server);
 
-public function void MI_OperationCallback_PromptUser(MI_Operation* operation, void* callbackContext, uint16* message, MI_PromptType promptType, int promptUserResult);
+public function void MI_OperationCallback_PromptUser(MI_Operation* operation, void* callbackContext, in uint16 message, MI_PromptType promptType, int promptUserResult);
 
 public function void MI_OperationCallback_WriteError(MI_Operation* operation, void* callbackContext, MI_Instance* instance, int writeErrorResult);
 
-public function void MI_OperationCallback_WriteMessage(MI_Operation* operation, void* callbackContext, uint32 channel, uint16* message);
+public function void MI_OperationCallback_WriteMessage(MI_Operation* operation, void* callbackContext, uint32 channel, in uint16 message);
 
-public function void MI_OperationCallback_WriteProgress(MI_Operation* operation, void* callbackContext, uint16* activity, uint16* currentOperation, uint16* statusDescription, uint32 percentageComplete, uint32 secondsRemaining);
+public function void MI_OperationCallback_WriteProgress(MI_Operation* operation, void* callbackContext, in uint16 activity, in uint16 currentOperation, in uint16 statusDescription, uint32 percentageComplete, uint32 secondsRemaining);
 
 public function void MI_OperationCallback_Instance(MI_Operation* operation, void* callbackContext, MI_Instance* instance, uint8 moreResults, MI_Result resultCode, uint16* errorString, MI_Instance* errorDetails, int resultAcknowledgement);
 
-public function void MI_OperationCallback_StreamedParameter(MI_Operation* operation, void* callbackContext, uint16* parameterName, MI_Type resultType, MI_Value* result, int resultAcknowledgement);
+public function void MI_OperationCallback_StreamedParameter(MI_Operation* operation, void* callbackContext, in uint16 parameterName, MI_Type resultType, MI_Value* result, int resultAcknowledgement);
 
 public function void MI_OperationCallback_Indication(MI_Operation* operation, void* callbackContext, MI_Instance* instance, uint16* bookmark, uint16* machineID, uint8 moreResults, MI_Result resultCode, uint16* errorString, MI_Instance* errorDetails, int resultAcknowledgement);
 
 public function void MI_OperationCallback_Class(MI_Operation* operation, void* callbackContext, MI_Class* classResult, uint8 moreResults, MI_Result resultCode, uint16* errorString, MI_Instance* errorDetails, int resultAcknowledgement);
 
-public function MI_Result MI_Deserializer_ClassObjectNeeded(void* context, uint16* serverName, uint16* namespaceName, uint16* className, MI_Class** requestedClassObject);
+public function MI_Result MI_Deserializer_ClassObjectNeeded(void* context, uint16* serverName, uint16* namespaceName, in uint16 className, MI_Class** requestedClassObject);
 
 #endregion
 
@@ -5025,11 +5025,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, void** pInterface) ConnectorLogin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, in Guid riid, void** pInterface) ConnectorLogin;
 	}
 
 
-	public HRESULT ConnectorLogin(PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, void** pInterface) mut => VT.[Friend]ConnectorLogin(&this, wszNetworkResource, wszPreferredLocale, lFlags, pCtx, ref riid, pInterface);
+	public HRESULT ConnectorLogin(PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, in Guid riid, void** pInterface) mut => VT.[Friend]ConnectorLogin(&this, wszNetworkResource, wszPreferredLocale, lFlags, pCtx, riid, pInterface);
 }
 
 [CRepr]struct IWbemAddressResolution : IUnknown
@@ -5070,15 +5070,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, void** pInterface, IWbemCallResult** pCallRes) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, IWbemObjectSink* pResponseHandler) OpenAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, in Guid riid, void** pInterface, IWbemCallResult** pCallRes) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, in Guid riid, IWbemObjectSink* pResponseHandler) OpenAsync;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, IWbemObjectSink* pHandler) Cancel;
 	}
 
 
-	public HRESULT Open(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, void** pInterface, IWbemCallResult** pCallRes) mut => VT.[Friend]Open(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, ref riid, pInterface, pCallRes);
+	public HRESULT Open(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, in Guid riid, void** pInterface, IWbemCallResult** pCallRes) mut => VT.[Friend]Open(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, riid, pInterface, pCallRes);
 
-	public HRESULT OpenAsync(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, ref Guid riid, IWbemObjectSink* pResponseHandler) mut => VT.[Friend]OpenAsync(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, ref riid, pResponseHandler);
+	public HRESULT OpenAsync(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, in Guid riid, IWbemObjectSink* pResponseHandler) mut => VT.[Friend]OpenAsync(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, riid, pResponseHandler);
 
 	public HRESULT Cancel(int32 lFlags, IWbemObjectSink* pHandler) mut => VT.[Friend]Cancel(&this, lFlags, pHandler);
 }

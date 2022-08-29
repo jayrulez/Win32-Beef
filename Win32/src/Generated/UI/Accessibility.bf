@@ -1614,15 +1614,15 @@ public enum AsyncContentLoadedState : int32
 #endregion
 
 #region Function Pointers
-public function LRESULT LPFNLRESULTFROMOBJECT(ref Guid riid, WPARAM wParam, IUnknown* punk);
+public function LRESULT LPFNLRESULTFROMOBJECT(in Guid riid, WPARAM wParam, IUnknown* punk);
 
-public function HRESULT LPFNOBJECTFROMLRESULT(LRESULT lResult, ref Guid riid, WPARAM wParam, void** ppvObject);
+public function HRESULT LPFNOBJECTFROMLRESULT(LRESULT lResult, in Guid riid, WPARAM wParam, void** ppvObject);
 
-public function HRESULT LPFNACCESSIBLEOBJECTFROMWINDOW(HWND hwnd, uint32 dwId, ref Guid riid, void** ppvObject);
+public function HRESULT LPFNACCESSIBLEOBJECTFROMWINDOW(HWND hwnd, uint32 dwId, in Guid riid, void** ppvObject);
 
 public function HRESULT LPFNACCESSIBLEOBJECTFROMPOINT(POINT ptScreen, IAccessible** ppacc, VARIANT* pvarChild);
 
-public function HRESULT LPFNCREATESTDACCESSIBLEOBJECT(HWND hwnd, int32 idObject, ref Guid riid, void** ppvObject);
+public function HRESULT LPFNCREATESTDACCESSIBLEOBJECT(HWND hwnd, int32 idObject, in Guid riid, void** ppvObject);
 
 public function HRESULT LPFNACCESSIBLECHILDREN(IAccessible* paccContainer, int32 iChildStart, int32 cChildren, VARIANT* rgvarChildren, int32* pcObtained);
 
@@ -3423,8 +3423,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 propertyId, BOOL ignoreDefaultValue, VARIANT* retVal) GetCurrentPropertyValueEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 propertyId, VARIANT* retVal) GetCachedPropertyValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 propertyId, BOOL ignoreDefaultValue, VARIANT* retVal) GetCachedPropertyValueEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 patternId, ref Guid riid, void** patternObject) GetCurrentPatternAs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 patternId, ref Guid riid, void** patternObject) GetCachedPatternAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 patternId, in Guid riid, void** patternObject) GetCurrentPatternAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 patternId, in Guid riid, void** patternObject) GetCachedPatternAs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 patternId, IUnknown** patternObject) GetCurrentPattern;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 patternId, IUnknown** patternObject) GetCachedPattern;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUIAutomationElement** parent) GetCachedParent;
@@ -3519,9 +3519,9 @@ public static
 
 	public HRESULT GetCachedPropertyValueEx(int32 propertyId, BOOL ignoreDefaultValue, VARIANT* retVal) mut => VT.[Friend]GetCachedPropertyValueEx(&this, propertyId, ignoreDefaultValue, retVal);
 
-	public HRESULT GetCurrentPatternAs(int32 patternId, ref Guid riid, void** patternObject) mut => VT.[Friend]GetCurrentPatternAs(&this, patternId, ref riid, patternObject);
+	public HRESULT GetCurrentPatternAs(int32 patternId, in Guid riid, void** patternObject) mut => VT.[Friend]GetCurrentPatternAs(&this, patternId, riid, patternObject);
 
-	public HRESULT GetCachedPatternAs(int32 patternId, ref Guid riid, void** patternObject) mut => VT.[Friend]GetCachedPatternAs(&this, patternId, ref riid, patternObject);
+	public HRESULT GetCachedPatternAs(int32 patternId, in Guid riid, void** patternObject) mut => VT.[Friend]GetCachedPatternAs(&this, patternId, riid, patternObject);
 
 	public HRESULT GetCurrentPattern(int32 patternId, IUnknown** patternObject) mut => VT.[Friend]GetCurrentPattern(&this, patternId, patternObject);
 
@@ -5831,16 +5831,16 @@ public static
 public static
 {
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LRESULT LresultFromObject(ref Guid riid, WPARAM wParam, IUnknown* punk);
+	public static extern LRESULT LresultFromObject(in Guid riid, WPARAM wParam, IUnknown* punk);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ObjectFromLresult(LRESULT lResult, ref Guid riid, WPARAM wParam, void** ppvObject);
+	public static extern HRESULT ObjectFromLresult(LRESULT lResult, in Guid riid, WPARAM wParam, void** ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WindowFromAccessibleObject(IAccessible* param0, HWND* phwnd);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT AccessibleObjectFromWindow(HWND hwnd, uint32 dwId, ref Guid riid, void** ppvObject);
+	public static extern HRESULT AccessibleObjectFromWindow(HWND hwnd, uint32 dwId, in Guid riid, void** ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AccessibleObjectFromEvent(HWND hwnd, uint32 dwId, uint32 dwChildId, IAccessible** ppacc, VARIANT* pvarChild);
@@ -5869,14 +5869,14 @@ public static
 	public static extern void GetOleaccVersionInfo(uint32* pVer, uint32* pBuild);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateStdAccessibleObject(HWND hwnd, int32 idObject, ref Guid riid, void** ppvObject);
+	public static extern HRESULT CreateStdAccessibleObject(HWND hwnd, int32 idObject, in Guid riid, void** ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateStdAccessibleProxyA(HWND hwnd, PSTR pClassName, int32 idObject, ref Guid riid, void** ppvObject);
-	public static HRESULT CreateStdAccessibleProxy(HWND hwnd, PSTR pClassName, int32 idObject, ref Guid riid, void** ppvObject) => CreateStdAccessibleProxyA(hwnd, pClassName, idObject, ref riid, ppvObject);
+	public static extern HRESULT CreateStdAccessibleProxyA(HWND hwnd, PSTR pClassName, int32 idObject, in Guid riid, void** ppvObject);
+	public static HRESULT CreateStdAccessibleProxy(HWND hwnd, PSTR pClassName, int32 idObject, in Guid riid, void** ppvObject) => CreateStdAccessibleProxyA(hwnd, pClassName, idObject, riid, ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateStdAccessibleProxyW(HWND hwnd, PWSTR pClassName, int32 idObject, ref Guid riid, void** ppvObject);
+	public static extern HRESULT CreateStdAccessibleProxyW(HWND hwnd, PWSTR pClassName, int32 idObject, in Guid riid, void** ppvObject);
 
 	[Import("OLEACC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AccSetRunningUtilityState(HWND hwndApp, uint32 dwUtilityStateMask, ACC_UTILITY_STATE_FLAGS dwUtilityState);
@@ -5939,7 +5939,7 @@ public static
 	public static extern void UiaRegisterProviderCallback(UiaProviderCallback* pCallback);
 
 	[Import("UIAutomationCore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 UiaLookupId(AutomationIdentifierType type, ref Guid pGuid);
+	public static extern int32 UiaLookupId(AutomationIdentifierType type, in Guid pGuid);
 
 	[Import("UIAutomationCore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UiaGetReservedNotSupportedValue(IUnknown** punkNotSupportedValue);

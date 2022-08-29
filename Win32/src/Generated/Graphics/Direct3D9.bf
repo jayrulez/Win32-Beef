@@ -2226,7 +2226,7 @@ public struct D3DAES_CTR_IV
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, D3DLIGHT9* param1) GetLight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, BOOL Enable) LightEnable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, BOOL* pEnable) GetLightEnable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, float* pPlane) SetClipPlane;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, in float pPlane) SetClipPlane;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, float* pPlane) GetClipPlane;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DRENDERSTATETYPE State, uint32 Value) SetRenderState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DRENDERSTATETYPE State, uint32* pValue) GetRenderState;
@@ -2254,20 +2254,20 @@ public struct D3DAES_CTR_IV
 		protected new function [CallingConvention(.Stdcall)] float(SelfOuter* self) GetNPatchMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 StartVertex, uint32 PrimitiveCount) DrawPrimitive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE param0, int32 BaseVertexIndex, uint32 MinVertexIndex, uint32 NumVertices, uint32 startIndex, uint32 primCount) DrawIndexedPrimitive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 PrimitiveCount, void* pVertexStreamZeroData, uint32 VertexStreamZeroStride) DrawPrimitiveUP;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 MinVertexIndex, uint32 NumVertices, uint32 PrimitiveCount, void* pIndexData, D3DFORMAT IndexDataFormat, void* pVertexStreamZeroData, uint32 VertexStreamZeroStride) DrawIndexedPrimitiveUP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 PrimitiveCount, in void pVertexStreamZeroData, uint32 VertexStreamZeroStride) DrawPrimitiveUP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 MinVertexIndex, uint32 NumVertices, uint32 PrimitiveCount, in void pIndexData, D3DFORMAT IndexDataFormat, in void pVertexStreamZeroData, uint32 VertexStreamZeroStride) DrawIndexedPrimitiveUP;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 SrcStartIndex, uint32 DestIndex, uint32 VertexCount, IDirect3DVertexBuffer9* pDestBuffer, IDirect3DVertexDeclaration9* pVertexDecl, uint32 Flags) ProcessVertices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DVERTEXELEMENT9* pVertexElements, IDirect3DVertexDeclaration9** ppDecl) CreateVertexDeclaration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DVertexDeclaration9* pDecl) SetVertexDeclaration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DVertexDeclaration9** ppDecl) GetVertexDeclaration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 FVF) SetFVF;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pFVF) GetFVF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pFunction, IDirect3DVertexShader9** ppShader) CreateVertexShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in uint32 pFunction, IDirect3DVertexShader9** ppShader) CreateVertexShader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DVertexShader9* pShader) SetVertexShader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DVertexShader9** ppShader) GetVertexShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, float* pConstantData, uint32 Vector4fCount) SetVertexShaderConstantF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, in float pConstantData, uint32 Vector4fCount) SetVertexShaderConstantF;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, float* pConstantData, uint32 Vector4fCount) GetVertexShaderConstantF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, int32* pConstantData, uint32 Vector4iCount) SetVertexShaderConstantI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, in int32 pConstantData, uint32 Vector4iCount) SetVertexShaderConstantI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, int32* pConstantData, uint32 Vector4iCount) GetVertexShaderConstantI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, BOOL* pConstantData, uint32 BoolCount) SetVertexShaderConstantB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, BOOL* pConstantData, uint32 BoolCount) GetVertexShaderConstantB;
@@ -2277,17 +2277,17 @@ public struct D3DAES_CTR_IV
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StreamNumber, uint32* pSetting) GetStreamSourceFreq;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DIndexBuffer9* pIndexData) SetIndices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DIndexBuffer9** ppIndexData) GetIndices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pFunction, IDirect3DPixelShader9** ppShader) CreatePixelShader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in uint32 pFunction, IDirect3DPixelShader9** ppShader) CreatePixelShader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DPixelShader9* pShader) SetPixelShader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DPixelShader9** ppShader) GetPixelShader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, float* pConstantData, uint32 Vector4fCount) SetPixelShaderConstantF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, in float pConstantData, uint32 Vector4fCount) SetPixelShaderConstantF;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, float* pConstantData, uint32 Vector4fCount) GetPixelShaderConstantF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, int32* pConstantData, uint32 Vector4iCount) SetPixelShaderConstantI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, in int32 pConstantData, uint32 Vector4iCount) SetPixelShaderConstantI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, int32* pConstantData, uint32 Vector4iCount) GetPixelShaderConstantI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, BOOL* pConstantData, uint32 BoolCount) SetPixelShaderConstantB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StartRegister, BOOL* pConstantData, uint32 BoolCount) GetPixelShaderConstantB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Handle, float* pNumSegs, D3DRECTPATCH_INFO* pRectPatchInfo) DrawRectPatch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Handle, float* pNumSegs, D3DTRIPATCH_INFO* pTriPatchInfo) DrawTriPatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Handle, in float pNumSegs, D3DRECTPATCH_INFO* pRectPatchInfo) DrawRectPatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Handle, in float pNumSegs, D3DTRIPATCH_INFO* pTriPatchInfo) DrawTriPatch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Handle) DeletePatch;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DQUERYTYPE Type, IDirect3DQuery9** ppQuery) CreateQuery;
 	}
@@ -2397,7 +2397,7 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT GetLightEnable(uint32 Index, BOOL* pEnable) mut => VT.[Friend]GetLightEnable(&this, Index, pEnable);
 
-	public HRESULT SetClipPlane(uint32 Index, float* pPlane) mut => VT.[Friend]SetClipPlane(&this, Index, pPlane);
+	public HRESULT SetClipPlane(uint32 Index, in float pPlane) mut => VT.[Friend]SetClipPlane(&this, Index, pPlane);
 
 	public HRESULT GetClipPlane(uint32 Index, float* pPlane) mut => VT.[Friend]GetClipPlane(&this, Index, pPlane);
 
@@ -2453,9 +2453,9 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT DrawIndexedPrimitive(D3DPRIMITIVETYPE param0, int32 BaseVertexIndex, uint32 MinVertexIndex, uint32 NumVertices, uint32 startIndex, uint32 primCount) mut => VT.[Friend]DrawIndexedPrimitive(&this, param0, BaseVertexIndex, MinVertexIndex, NumVertices, startIndex, primCount);
 
-	public HRESULT DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, uint32 PrimitiveCount, void* pVertexStreamZeroData, uint32 VertexStreamZeroStride) mut => VT.[Friend]DrawPrimitiveUP(&this, PrimitiveType, PrimitiveCount, pVertexStreamZeroData, VertexStreamZeroStride);
+	public HRESULT DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, uint32 PrimitiveCount, in void pVertexStreamZeroData, uint32 VertexStreamZeroStride) mut => VT.[Friend]DrawPrimitiveUP(&this, PrimitiveType, PrimitiveCount, pVertexStreamZeroData, VertexStreamZeroStride);
 
-	public HRESULT DrawIndexedPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, uint32 MinVertexIndex, uint32 NumVertices, uint32 PrimitiveCount, void* pIndexData, D3DFORMAT IndexDataFormat, void* pVertexStreamZeroData, uint32 VertexStreamZeroStride) mut => VT.[Friend]DrawIndexedPrimitiveUP(&this, PrimitiveType, MinVertexIndex, NumVertices, PrimitiveCount, pIndexData, IndexDataFormat, pVertexStreamZeroData, VertexStreamZeroStride);
+	public HRESULT DrawIndexedPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, uint32 MinVertexIndex, uint32 NumVertices, uint32 PrimitiveCount, in void pIndexData, D3DFORMAT IndexDataFormat, in void pVertexStreamZeroData, uint32 VertexStreamZeroStride) mut => VT.[Friend]DrawIndexedPrimitiveUP(&this, PrimitiveType, MinVertexIndex, NumVertices, PrimitiveCount, pIndexData, IndexDataFormat, pVertexStreamZeroData, VertexStreamZeroStride);
 
 	public HRESULT ProcessVertices(uint32 SrcStartIndex, uint32 DestIndex, uint32 VertexCount, IDirect3DVertexBuffer9* pDestBuffer, IDirect3DVertexDeclaration9* pVertexDecl, uint32 Flags) mut => VT.[Friend]ProcessVertices(&this, SrcStartIndex, DestIndex, VertexCount, pDestBuffer, pVertexDecl, Flags);
 
@@ -2469,17 +2469,17 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT GetFVF(uint32* pFVF) mut => VT.[Friend]GetFVF(&this, pFVF);
 
-	public HRESULT CreateVertexShader(uint32* pFunction, IDirect3DVertexShader9** ppShader) mut => VT.[Friend]CreateVertexShader(&this, pFunction, ppShader);
+	public HRESULT CreateVertexShader(in uint32 pFunction, IDirect3DVertexShader9** ppShader) mut => VT.[Friend]CreateVertexShader(&this, pFunction, ppShader);
 
 	public HRESULT SetVertexShader(IDirect3DVertexShader9* pShader) mut => VT.[Friend]SetVertexShader(&this, pShader);
 
 	public HRESULT GetVertexShader(IDirect3DVertexShader9** ppShader) mut => VT.[Friend]GetVertexShader(&this, ppShader);
 
-	public HRESULT SetVertexShaderConstantF(uint32 StartRegister, float* pConstantData, uint32 Vector4fCount) mut => VT.[Friend]SetVertexShaderConstantF(&this, StartRegister, pConstantData, Vector4fCount);
+	public HRESULT SetVertexShaderConstantF(uint32 StartRegister, in float pConstantData, uint32 Vector4fCount) mut => VT.[Friend]SetVertexShaderConstantF(&this, StartRegister, pConstantData, Vector4fCount);
 
 	public HRESULT GetVertexShaderConstantF(uint32 StartRegister, float* pConstantData, uint32 Vector4fCount) mut => VT.[Friend]GetVertexShaderConstantF(&this, StartRegister, pConstantData, Vector4fCount);
 
-	public HRESULT SetVertexShaderConstantI(uint32 StartRegister, int32* pConstantData, uint32 Vector4iCount) mut => VT.[Friend]SetVertexShaderConstantI(&this, StartRegister, pConstantData, Vector4iCount);
+	public HRESULT SetVertexShaderConstantI(uint32 StartRegister, in int32 pConstantData, uint32 Vector4iCount) mut => VT.[Friend]SetVertexShaderConstantI(&this, StartRegister, pConstantData, Vector4iCount);
 
 	public HRESULT GetVertexShaderConstantI(uint32 StartRegister, int32* pConstantData, uint32 Vector4iCount) mut => VT.[Friend]GetVertexShaderConstantI(&this, StartRegister, pConstantData, Vector4iCount);
 
@@ -2499,17 +2499,17 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT GetIndices(IDirect3DIndexBuffer9** ppIndexData) mut => VT.[Friend]GetIndices(&this, ppIndexData);
 
-	public HRESULT CreatePixelShader(uint32* pFunction, IDirect3DPixelShader9** ppShader) mut => VT.[Friend]CreatePixelShader(&this, pFunction, ppShader);
+	public HRESULT CreatePixelShader(in uint32 pFunction, IDirect3DPixelShader9** ppShader) mut => VT.[Friend]CreatePixelShader(&this, pFunction, ppShader);
 
 	public HRESULT SetPixelShader(IDirect3DPixelShader9* pShader) mut => VT.[Friend]SetPixelShader(&this, pShader);
 
 	public HRESULT GetPixelShader(IDirect3DPixelShader9** ppShader) mut => VT.[Friend]GetPixelShader(&this, ppShader);
 
-	public HRESULT SetPixelShaderConstantF(uint32 StartRegister, float* pConstantData, uint32 Vector4fCount) mut => VT.[Friend]SetPixelShaderConstantF(&this, StartRegister, pConstantData, Vector4fCount);
+	public HRESULT SetPixelShaderConstantF(uint32 StartRegister, in float pConstantData, uint32 Vector4fCount) mut => VT.[Friend]SetPixelShaderConstantF(&this, StartRegister, pConstantData, Vector4fCount);
 
 	public HRESULT GetPixelShaderConstantF(uint32 StartRegister, float* pConstantData, uint32 Vector4fCount) mut => VT.[Friend]GetPixelShaderConstantF(&this, StartRegister, pConstantData, Vector4fCount);
 
-	public HRESULT SetPixelShaderConstantI(uint32 StartRegister, int32* pConstantData, uint32 Vector4iCount) mut => VT.[Friend]SetPixelShaderConstantI(&this, StartRegister, pConstantData, Vector4iCount);
+	public HRESULT SetPixelShaderConstantI(uint32 StartRegister, in int32 pConstantData, uint32 Vector4iCount) mut => VT.[Friend]SetPixelShaderConstantI(&this, StartRegister, pConstantData, Vector4iCount);
 
 	public HRESULT GetPixelShaderConstantI(uint32 StartRegister, int32* pConstantData, uint32 Vector4iCount) mut => VT.[Friend]GetPixelShaderConstantI(&this, StartRegister, pConstantData, Vector4iCount);
 
@@ -2517,9 +2517,9 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT GetPixelShaderConstantB(uint32 StartRegister, BOOL* pConstantData, uint32 BoolCount) mut => VT.[Friend]GetPixelShaderConstantB(&this, StartRegister, pConstantData, BoolCount);
 
-	public HRESULT DrawRectPatch(uint32 Handle, float* pNumSegs, D3DRECTPATCH_INFO* pRectPatchInfo) mut => VT.[Friend]DrawRectPatch(&this, Handle, pNumSegs, pRectPatchInfo);
+	public HRESULT DrawRectPatch(uint32 Handle, in float pNumSegs, D3DRECTPATCH_INFO* pRectPatchInfo) mut => VT.[Friend]DrawRectPatch(&this, Handle, pNumSegs, pRectPatchInfo);
 
-	public HRESULT DrawTriPatch(uint32 Handle, float* pNumSegs, D3DTRIPATCH_INFO* pTriPatchInfo) mut => VT.[Friend]DrawTriPatch(&this, Handle, pNumSegs, pTriPatchInfo);
+	public HRESULT DrawTriPatch(uint32 Handle, in float pNumSegs, D3DTRIPATCH_INFO* pTriPatchInfo) mut => VT.[Friend]DrawTriPatch(&this, Handle, pNumSegs, pTriPatchInfo);
 
 	public HRESULT DeletePatch(uint32 Handle) mut => VT.[Friend]DeletePatch(&this, Handle);
 
@@ -2589,9 +2589,9 @@ public struct D3DAES_CTR_IV
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DDevice9** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refguid) FreePrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, in void pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid) FreePrivateData;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self, uint32 PriorityNew) SetPriority;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetPriority;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) PreLoad;
@@ -2601,11 +2601,11 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT GetDevice(IDirect3DDevice9** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT SetPrivateData(ref Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, ref refguid, pData, SizeOfData, Flags);
+	public HRESULT SetPrivateData(in Guid refguid, in void pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, refguid, pData, SizeOfData, Flags);
 
-	public HRESULT GetPrivateData(ref Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, ref refguid, pData, pSizeOfData);
+	public HRESULT GetPrivateData(in Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, refguid, pData, pSizeOfData);
 
-	public HRESULT FreePrivateData(ref Guid refguid) mut => VT.[Friend]FreePrivateData(&this, ref refguid);
+	public HRESULT FreePrivateData(in Guid refguid) mut => VT.[Friend]FreePrivateData(&this, refguid);
 
 	public uint32 SetPriority(uint32 PriorityNew) mut => VT.[Friend]SetPriority(&this, PriorityNew);
 
@@ -2831,7 +2831,7 @@ public struct D3DAES_CTR_IV
 
 	[CRepr]public struct VTable : IDirect3DResource9.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppContainer) GetContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppContainer) GetContainer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DSURFACE_DESC* pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DLOCKED_RECT* pLockedRect, RECT* pRect, uint32 Flags) LockRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockRect;
@@ -2840,7 +2840,7 @@ public struct D3DAES_CTR_IV
 	}
 
 
-	public HRESULT GetContainer(ref Guid riid, void** ppContainer) mut => VT.[Friend]GetContainer(&this, ref riid, ppContainer);
+	public HRESULT GetContainer(in Guid riid, void** ppContainer) mut => VT.[Friend]GetContainer(&this, riid, ppContainer);
 
 	public HRESULT GetDesc(D3DSURFACE_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 
@@ -2862,10 +2862,10 @@ public struct D3DAES_CTR_IV
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DDevice9** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refguid) FreePrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppContainer) GetContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, in void pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid) FreePrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppContainer) GetContainer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DVOLUME_DESC* pDesc) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DLOCKED_BOX* pLockedVolume, D3DBOX* pBox, uint32 Flags) LockBox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockBox;
@@ -2874,13 +2874,13 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT GetDevice(IDirect3DDevice9** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT SetPrivateData(ref Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, ref refguid, pData, SizeOfData, Flags);
+	public HRESULT SetPrivateData(in Guid refguid, in void pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, refguid, pData, SizeOfData, Flags);
 
-	public HRESULT GetPrivateData(ref Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, ref refguid, pData, pSizeOfData);
+	public HRESULT GetPrivateData(in Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, refguid, pData, pSizeOfData);
 
-	public HRESULT FreePrivateData(ref Guid refguid) mut => VT.[Friend]FreePrivateData(&this, ref refguid);
+	public HRESULT FreePrivateData(in Guid refguid) mut => VT.[Friend]FreePrivateData(&this, refguid);
 
-	public HRESULT GetContainer(ref Guid riid, void** ppContainer) mut => VT.[Friend]GetContainer(&this, ref riid, ppContainer);
+	public HRESULT GetContainer(in Guid riid, void** ppContainer) mut => VT.[Friend]GetContainer(&this, riid, ppContainer);
 
 	public HRESULT GetDesc(D3DVOLUME_DESC* pDesc) mut => VT.[Friend]GetDesc(&this, pDesc);
 

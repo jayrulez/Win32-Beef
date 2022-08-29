@@ -740,7 +740,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float* pVolume) GetVolume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Channels, float* pVolumes, uint32 OperationSet) SetChannelVolumes;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 Channels, float* pVolumes) GetChannelVolumes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXAudio2Voice* pDestinationVoice, uint32 SourceChannels, uint32 DestinationChannels, float* pLevelMatrix, uint32 OperationSet) SetOutputMatrix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXAudio2Voice* pDestinationVoice, uint32 SourceChannels, uint32 DestinationChannels, in float pLevelMatrix, uint32 OperationSet) SetOutputMatrix;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, IXAudio2Voice* pDestinationVoice, uint32 SourceChannels, uint32 DestinationChannels, float* pLevelMatrix) GetOutputMatrix;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) DestroyVoice;
 	}
@@ -778,7 +778,7 @@ public static
 
 	public void GetChannelVolumes(uint32 Channels, float* pVolumes) mut => VT.[Friend]GetChannelVolumes(&this, Channels, pVolumes);
 
-	public HRESULT SetOutputMatrix(IXAudio2Voice* pDestinationVoice, uint32 SourceChannels, uint32 DestinationChannels, float* pLevelMatrix, uint32 OperationSet) mut => VT.[Friend]SetOutputMatrix(&this, pDestinationVoice, SourceChannels, DestinationChannels, pLevelMatrix, OperationSet);
+	public HRESULT SetOutputMatrix(IXAudio2Voice* pDestinationVoice, uint32 SourceChannels, uint32 DestinationChannels, in float pLevelMatrix, uint32 OperationSet) mut => VT.[Friend]SetOutputMatrix(&this, pDestinationVoice, SourceChannels, DestinationChannels, pLevelMatrix, OperationSet);
 
 	public void GetOutputMatrix(IXAudio2Voice* pDestinationVoice, uint32 SourceChannels, uint32 DestinationChannels, float* pLevelMatrix) mut => VT.[Friend]GetOutputMatrix(&this, pDestinationVoice, SourceChannels, DestinationChannels, pLevelMatrix);
 
@@ -932,7 +932,7 @@ public static
 public static
 {
 	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateFX(ref Guid clsid, IUnknown** pEffect, void* pInitDat, uint32 InitDataByteSize);
+	public static extern HRESULT CreateFX(in Guid clsid, IUnknown** pEffect, void* pInitDat, uint32 InitDataByteSize);
 
 	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT XAudio2CreateWithVersionInfo(IXAudio2** ppXAudio2, uint32 Flags, uint32 XAudio2Processor, uint32 ntddiVersion);

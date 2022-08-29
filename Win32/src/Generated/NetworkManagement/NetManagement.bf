@@ -5091,9 +5091,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Uninitialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Apply;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwInfId, INetCfgComponent** pComponent) FindComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidClass, ref Guid riid, void** ppvObject) QueryNetCfgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pguidClass, in Guid riid, void** ppvObject) QueryNetCfgClass;
 	}
 
 
@@ -5105,11 +5105,11 @@ public static
 
 	public HRESULT Cancel() mut => VT.[Friend]Cancel(&this);
 
-	public HRESULT EnumComponents(ref Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) mut => VT.[Friend]EnumComponents(&this, ref pguidClass, ppenumComponent);
+	public HRESULT EnumComponents(in Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) mut => VT.[Friend]EnumComponents(&this, pguidClass, ppenumComponent);
 
 	public HRESULT FindComponent(PWSTR pszwInfId, INetCfgComponent** pComponent) mut => VT.[Friend]FindComponent(&this, pszwInfId, pComponent);
 
-	public HRESULT QueryNetCfgClass(ref Guid pguidClass, ref Guid riid, void** ppvObject) mut => VT.[Friend]QueryNetCfgClass(&this, ref pguidClass, ref riid, ppvObject);
+	public HRESULT QueryNetCfgClass(in Guid pguidClass, in Guid riid, void** ppvObject) mut => VT.[Friend]QueryNetCfgClass(&this, pguidClass, riid, ppvObject);
 }
 
 [CRepr]struct INetCfgLock : IUnknown
@@ -5257,9 +5257,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pszwHelpText) GetHelpText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwId) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCharacteristics) GetCharacteristics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuid) GetInstanceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pGuid) GetInstanceGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwDevNodeId) GetPnpDevNodeId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuid) GetClassGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pGuid) GetClassGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwBindName) GetBindName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulStatus) GetDeviceStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY* phkey) OpenParamKey;
@@ -5277,11 +5277,11 @@ public static
 
 	public HRESULT GetCharacteristics(uint32* pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
 
-	public HRESULT GetInstanceGuid(ref Guid pGuid) mut => VT.[Friend]GetInstanceGuid(&this, ref pGuid);
+	public HRESULT GetInstanceGuid(Guid* pGuid) mut => VT.[Friend]GetInstanceGuid(&this, pGuid);
 
 	public HRESULT GetPnpDevNodeId(PWSTR* ppszwDevNodeId) mut => VT.[Friend]GetPnpDevNodeId(&this, ppszwDevNodeId);
 
-	public HRESULT GetClassGuid(ref Guid pGuid) mut => VT.[Friend]GetClassGuid(&this, ref pGuid);
+	public HRESULT GetClassGuid(Guid* pGuid) mut => VT.[Friend]GetClassGuid(&this, pGuid);
 
 	public HRESULT GetBindName(PWSTR* ppszwBindName) mut => VT.[Friend]GetBindName(&this, ppszwBindName);
 
@@ -5516,11 +5516,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguid) GetDeviceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguid) GetDeviceGuid;
 	}
 
 
-	public HRESULT GetDeviceGuid(ref Guid pguid) mut => VT.[Friend]GetDeviceGuid(&this, ref pguid);
+	public HRESULT GetDeviceGuid(Guid* pguid) mut => VT.[Friend]GetDeviceGuid(&this, pguid);
 }
 
 [CRepr]struct INetRasConnectionIpUiInfo : IUnknown
@@ -5546,14 +5546,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) SaveAdapterParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) RestoreAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid* pAdapterInstanceGuid) SaveAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid* pAdapterInstanceGuid) RestoreAdapterParameters;
 	}
 
 
-	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, ref pAdapterInstanceGuid);
+	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid* pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, pAdapterInstanceGuid);
 
-	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, ref pAdapterInstanceGuid);
+	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid* pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, pAdapterInstanceGuid);
 }
 
 [CRepr]struct IProvisioningDomain : IUnknown
@@ -5582,11 +5582,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) CreateProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid* pAdapterInstanceGuid, uint32* pulStatus) CreateProfile;
 	}
 
 
-	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, ref pAdapterInstanceGuid, pulStatus);
+	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid* pAdapterInstanceGuid, uint32* pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, pAdapterInstanceGuid, pulStatus);
 }
 
 #endregion
@@ -5772,10 +5772,10 @@ public static
 	public static extern uint32 NetReplGetInfo(PWSTR servername, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplSetInfo(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
+	public static extern uint32 NetReplSetInfo(PWSTR servername, uint32 level, in uint8 buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplExportDirAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
+	public static extern uint32 NetReplExportDirAdd(PWSTR servername, uint32 level, in uint8 buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplExportDirDel(PWSTR servername, PWSTR dirname);
@@ -5787,7 +5787,7 @@ public static
 	public static extern uint32 NetReplExportDirGetInfo(PWSTR servername, PWSTR dirname, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplExportDirSetInfo(PWSTR servername, PWSTR dirname, uint32 level, uint8* buf, uint32* parm_err);
+	public static extern uint32 NetReplExportDirSetInfo(PWSTR servername, PWSTR dirname, uint32 level, in uint8 buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplExportDirLock(PWSTR servername, PWSTR dirname);
@@ -5796,7 +5796,7 @@ public static
 	public static extern uint32 NetReplExportDirUnlock(PWSTR servername, PWSTR dirname, uint32 unlockforce);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplImportDirAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
+	public static extern uint32 NetReplImportDirAdd(PWSTR servername, uint32 level, in uint8 buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplImportDirDel(PWSTR servername, PWSTR dirname);

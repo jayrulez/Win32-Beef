@@ -3690,11 +3690,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pszChannelName, uint32 uFlags, IWTSListenerCallback* pListenerCallback, IWTSListener** ppListener) CreateListener;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in uint8 pszChannelName, uint32 uFlags, IWTSListenerCallback* pListenerCallback, IWTSListener** ppListener) CreateListener;
 	}
 
 
-	public HRESULT CreateListener(uint8* pszChannelName, uint32 uFlags, IWTSListenerCallback* pListenerCallback, IWTSListener** ppListener) mut => VT.[Friend]CreateListener(&this, pszChannelName, uFlags, pListenerCallback, ppListener);
+	public HRESULT CreateListener(in uint8 pszChannelName, uint32 uFlags, IWTSListenerCallback* pListenerCallback, IWTSListener** ppListener) mut => VT.[Friend]CreateListener(&this, pszChannelName, uFlags, pListenerCallback, ppListener);
 }
 
 [CRepr]struct IWTSVirtualChannel : IUnknown
@@ -3837,11 +3837,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pszChannelName, WRdsGraphicsChannelType channelType, IWRdsGraphicsChannel** ppVirtualChannel) CreateChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in uint8 pszChannelName, WRdsGraphicsChannelType channelType, IWRdsGraphicsChannel** ppVirtualChannel) CreateChannel;
 	}
 
 
-	public HRESULT CreateChannel(uint8* pszChannelName, WRdsGraphicsChannelType channelType, IWRdsGraphicsChannel** ppVirtualChannel) mut => VT.[Friend]CreateChannel(&this, pszChannelName, channelType, ppVirtualChannel);
+	public HRESULT CreateChannel(in uint8 pszChannelName, WRdsGraphicsChannelType channelType, IWRdsGraphicsChannel** ppVirtualChannel) mut => VT.[Friend]CreateChannel(&this, pszChannelName, channelType, ppVirtualChannel);
 }
 
 [CRepr]struct IWTSProtocolManager : IUnknown
@@ -4572,11 +4572,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HSTRING* deduplicationId, ref Guid riid, void** mapView) GetAdditionalInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HSTRING* deduplicationId, in Guid riid, void** mapView) GetAdditionalInfo;
 	}
 
 
-	public HRESULT GetAdditionalInfo(HSTRING* deduplicationId, ref Guid riid, void** mapView) mut => VT.[Friend]GetAdditionalInfo(&this, deduplicationId, ref riid, mapView);
+	public HRESULT GetAdditionalInfo(HSTRING* deduplicationId, in Guid riid, void** mapView) mut => VT.[Friend]GetAdditionalInfo(&this, deduplicationId, riid, mapView);
 }
 
 #endregion

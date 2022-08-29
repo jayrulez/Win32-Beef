@@ -1214,13 +1214,13 @@ public struct DRM_COPY_OPL
 	[CRepr]public struct VTable : INSSBuffer3.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcBufferProperties) GetPropertyCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwBufferPropertyIndex, ref Guid pguidBufferProperty, void* pvBufferProperty, uint32* pdwBufferPropertySize) GetPropertyByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwBufferPropertyIndex, Guid* pguidBufferProperty, void* pvBufferProperty, uint32* pdwBufferPropertySize) GetPropertyByIndex;
 	}
 
 
 	public HRESULT GetPropertyCount(uint32* pcBufferProperties) mut => VT.[Friend]GetPropertyCount(&this, pcBufferProperties);
 
-	public HRESULT GetPropertyByIndex(uint32 dwBufferPropertyIndex, ref Guid pguidBufferProperty, void* pvBufferProperty, uint32* pdwBufferPropertySize) mut => VT.[Friend]GetPropertyByIndex(&this, dwBufferPropertyIndex, ref pguidBufferProperty, pvBufferProperty, pdwBufferPropertySize);
+	public HRESULT GetPropertyByIndex(uint32 dwBufferPropertyIndex, Guid* pguidBufferProperty, void* pvBufferProperty, uint32* pdwBufferPropertySize) mut => VT.[Friend]GetPropertyByIndex(&this, dwBufferPropertyIndex, pguidBufferProperty, pvBufferProperty, pdwBufferPropertySize);
 }
 
 [CRepr]struct IWMSBufferAllocator : IUnknown
@@ -1249,13 +1249,13 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WM_MEDIA_TYPE* pType, uint32* pcbType) GetMediaType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WM_MEDIA_TYPE* pType) SetMediaType;
 	}
 
 
-	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, ref pguidType);
+	public HRESULT GetType(Guid* pguidType) mut => VT.[Friend]COM_GetType(&this, pguidType);
 
 	public HRESULT GetMediaType(WM_MEDIA_TYPE* pType, uint32* pcbType) mut => VT.[Friend]GetMediaType(&this, pType, pcbType);
 
@@ -1294,7 +1294,7 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidProfile) SetProfileByID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidProfile) SetProfileByID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMProfile* pProfile) SetProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszFilename) SetOutputFilename;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcInputs) GetInputCount;
@@ -1310,7 +1310,7 @@ public struct DRM_COPY_OPL
 	}
 
 
-	public HRESULT SetProfileByID(ref Guid guidProfile) mut => VT.[Friend]SetProfileByID(&this, ref guidProfile);
+	public HRESULT SetProfileByID(in Guid guidProfile) mut => VT.[Friend]SetProfileByID(&this, guidProfile);
 
 	public HRESULT SetProfile(IWMProfile* pProfile) mut => VT.[Friend]SetProfile(&this, pProfile);
 
@@ -1826,7 +1826,7 @@ public struct DRM_COPY_OPL
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMT_VERSION dwVersion, IWMProfile** ppProfile) CreateEmptyProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidProfile, IWMProfile** ppProfile) LoadProfileByID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidProfile, IWMProfile** ppProfile) LoadProfileByID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszProfile, IWMProfile** ppProfile) LoadProfileByData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMProfile* pIWMProfile, PWSTR pwszProfile, uint32* pdwLength) SaveProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcProfiles) GetSystemProfileCount;
@@ -1836,7 +1836,7 @@ public struct DRM_COPY_OPL
 
 	public HRESULT CreateEmptyProfile(WMT_VERSION dwVersion, IWMProfile** ppProfile) mut => VT.[Friend]CreateEmptyProfile(&this, dwVersion, ppProfile);
 
-	public HRESULT LoadProfileByID(ref Guid guidProfile, IWMProfile** ppProfile) mut => VT.[Friend]LoadProfileByID(&this, ref guidProfile, ppProfile);
+	public HRESULT LoadProfileByID(in Guid guidProfile, IWMProfile** ppProfile) mut => VT.[Friend]LoadProfileByID(&this, guidProfile, ppProfile);
 
 	public HRESULT LoadProfileByData(PWSTR pwszProfile, IWMProfile** ppProfile) mut => VT.[Friend]LoadProfileByData(&this, pwszProfile, ppProfile);
 
@@ -1903,7 +1903,7 @@ public struct DRM_COPY_OPL
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNum) RemoveStreamByNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMStreamConfig* pConfig) AddStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMStreamConfig* pConfig) ReconfigStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidStreamType, IWMStreamConfig** ppConfig) CreateNewStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidStreamType, IWMStreamConfig** ppConfig) CreateNewStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcME) GetMutualExclusionCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMEIndex, IWMMutualExclusion** ppME) GetMutualExclusion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMMutualExclusion* pME) RemoveMutualExclusion;
@@ -1936,7 +1936,7 @@ public struct DRM_COPY_OPL
 
 	public HRESULT ReconfigStream(IWMStreamConfig* pConfig) mut => VT.[Friend]ReconfigStream(&this, pConfig);
 
-	public HRESULT CreateNewStream(ref Guid guidStreamType, IWMStreamConfig** ppConfig) mut => VT.[Friend]CreateNewStream(&this, ref guidStreamType, ppConfig);
+	public HRESULT CreateNewStream(in Guid guidStreamType, IWMStreamConfig** ppConfig) mut => VT.[Friend]CreateNewStream(&this, guidStreamType, ppConfig);
 
 	public HRESULT GetMutualExclusionCount(uint32* pcME) mut => VT.[Friend]GetMutualExclusionCount(&this, pcME);
 
@@ -1957,11 +1957,11 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IWMProfile.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidID) GetProfileID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidID) GetProfileID;
 	}
 
 
-	public HRESULT GetProfileID(ref Guid pguidID) mut => VT.[Friend]GetProfileID(&this, ref pguidID);
+	public HRESULT GetProfileID(Guid* pguidID) mut => VT.[Friend]GetProfileID(&this, pguidID);
 }
 
 [CRepr]struct IWMProfile3 : IWMProfile2
@@ -2020,7 +2020,7 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidStreamType) GetStreamType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidStreamType) GetStreamType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwStreamNum) GetStreamNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wStreamNum) SetStreamNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszStreamName, uint16* pcchStreamName) GetStreamName;
@@ -2034,7 +2034,7 @@ public struct DRM_COPY_OPL
 	}
 
 
-	public HRESULT GetStreamType(ref Guid pguidStreamType) mut => VT.[Friend]GetStreamType(&this, ref pguidStreamType);
+	public HRESULT GetStreamType(Guid* pguidStreamType) mut => VT.[Friend]GetStreamType(&this, pguidStreamType);
 
 	public HRESULT GetStreamNumber(uint16* pwStreamNum) mut => VT.[Friend]GetStreamNumber(&this, pwStreamNum);
 
@@ -2069,7 +2069,7 @@ public struct DRM_COPY_OPL
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMT_TRANSPORT_TYPE nTransportType) SetTransportType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidExtensionSystemID, uint16 cbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32 cbExtensionSystemInfo) AddDataUnitExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pcDataUnitExtensions) GetDataUnitExtensionCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wDataUnitExtensionNumber, ref Guid pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) GetDataUnitExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wDataUnitExtensionNumber, Guid* pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) GetDataUnitExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllDataUnitExtensions;
 	}
 
@@ -2082,7 +2082,7 @@ public struct DRM_COPY_OPL
 
 	public HRESULT GetDataUnitExtensionCount(uint16* pcDataUnitExtensions) mut => VT.[Friend]GetDataUnitExtensionCount(&this, pcDataUnitExtensions);
 
-	public HRESULT GetDataUnitExtension(uint16 wDataUnitExtensionNumber, ref Guid pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) mut => VT.[Friend]GetDataUnitExtension(&this, wDataUnitExtensionNumber, ref pguidExtensionSystemID, pcbExtensionDataSize, pbExtensionSystemInfo, pcbExtensionSystemInfo);
+	public HRESULT GetDataUnitExtension(uint16 wDataUnitExtensionNumber, Guid* pguidExtensionSystemID, uint16* pcbExtensionDataSize, uint8* pbExtensionSystemInfo, uint32* pcbExtensionSystemInfo) mut => VT.[Friend]GetDataUnitExtension(&this, wDataUnitExtensionNumber, pguidExtensionSystemID, pcbExtensionDataSize, pbExtensionSystemInfo, pcbExtensionSystemInfo);
 
 	public HRESULT RemoveAllDataUnitExtensions() mut => VT.[Friend]RemoveAllDataUnitExtensions(&this);
 }
@@ -2170,14 +2170,14 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IWMStreamList.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType) SetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType) SetType;
 	}
 
 
-	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, ref pguidType);
+	public HRESULT GetType(Guid* pguidType) mut => VT.[Friend]COM_GetType(&this, pguidType);
 
-	public HRESULT SetType(ref Guid guidType) mut => VT.[Friend]SetType(&this, ref guidType);
+	public HRESULT SetType(in Guid guidType) mut => VT.[Friend]SetType(&this, guidType);
 }
 
 [CRepr]struct IWMMutualExclusion2 : IWMMutualExclusion
@@ -2230,16 +2230,16 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IWMStreamList.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType) SetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType) SetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwBitrate, uint32* pmsBufferWindow) GetBandwidth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwBitrate, uint32 msBufferWindow) SetBandwidth;
 	}
 
 
-	public HRESULT GetType(ref Guid pguidType) mut => VT.[Friend]COM_GetType(&this, ref pguidType);
+	public HRESULT GetType(Guid* pguidType) mut => VT.[Friend]COM_GetType(&this, pguidType);
 
-	public HRESULT SetType(ref Guid guidType) mut => VT.[Friend]SetType(&this, ref guidType);
+	public HRESULT SetType(in Guid guidType) mut => VT.[Friend]SetType(&this, guidType);
 
 	public HRESULT GetBandwidth(uint32* pdwBitrate, uint32* pmsBufferWindow) mut => VT.[Friend]GetBandwidth(&this, pdwBitrate, pmsBufferWindow);
 
@@ -3310,17 +3310,17 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType, uint32* pcCodecs) GetCodecInfoCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType, uint32 dwCodecIndex, uint32* pcFormat) GetCodecFormatCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, IWMStreamConfig** ppIStreamConfig) GetCodecFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType, uint32* pcCodecs) GetCodecInfoCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType, uint32 dwCodecIndex, uint32* pcFormat) GetCodecFormatCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, IWMStreamConfig** ppIStreamConfig) GetCodecFormat;
 	}
 
 
-	public HRESULT GetCodecInfoCount(ref Guid guidType, uint32* pcCodecs) mut => VT.[Friend]GetCodecInfoCount(&this, ref guidType, pcCodecs);
+	public HRESULT GetCodecInfoCount(in Guid guidType, uint32* pcCodecs) mut => VT.[Friend]GetCodecInfoCount(&this, guidType, pcCodecs);
 
-	public HRESULT GetCodecFormatCount(ref Guid guidType, uint32 dwCodecIndex, uint32* pcFormat) mut => VT.[Friend]GetCodecFormatCount(&this, ref guidType, dwCodecIndex, pcFormat);
+	public HRESULT GetCodecFormatCount(in Guid guidType, uint32 dwCodecIndex, uint32* pcFormat) mut => VT.[Friend]GetCodecFormatCount(&this, guidType, dwCodecIndex, pcFormat);
 
-	public HRESULT GetCodecFormat(ref Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, IWMStreamConfig** ppIStreamConfig) mut => VT.[Friend]GetCodecFormat(&this, ref guidType, dwCodecIndex, dwFormatIndex, ppIStreamConfig);
+	public HRESULT GetCodecFormat(in Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, IWMStreamConfig** ppIStreamConfig) mut => VT.[Friend]GetCodecFormat(&this, guidType, dwCodecIndex, dwFormatIndex, ppIStreamConfig);
 }
 
 [CRepr]struct IWMCodecInfo2 : IWMCodecInfo
@@ -3331,14 +3331,14 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IWMCodecInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType, uint32 dwCodecIndex, char16* wszName, uint32* pcchName) GetCodecName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, IWMStreamConfig** ppIStreamConfig, char16* wszDesc, uint32* pcchDesc) GetCodecFormatDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType, uint32 dwCodecIndex, char16* wszName, uint32* pcchName) GetCodecName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, IWMStreamConfig** ppIStreamConfig, char16* wszDesc, uint32* pcchDesc) GetCodecFormatDesc;
 	}
 
 
-	public HRESULT GetCodecName(ref Guid guidType, uint32 dwCodecIndex, char16* wszName, uint32* pcchName) mut => VT.[Friend]GetCodecName(&this, ref guidType, dwCodecIndex, wszName, pcchName);
+	public HRESULT GetCodecName(in Guid guidType, uint32 dwCodecIndex, char16* wszName, uint32* pcchName) mut => VT.[Friend]GetCodecName(&this, guidType, dwCodecIndex, wszName, pcchName);
 
-	public HRESULT GetCodecFormatDesc(ref Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, IWMStreamConfig** ppIStreamConfig, char16* wszDesc, uint32* pcchDesc) mut => VT.[Friend]GetCodecFormatDesc(&this, ref guidType, dwCodecIndex, dwFormatIndex, ppIStreamConfig, wszDesc, pcchDesc);
+	public HRESULT GetCodecFormatDesc(in Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, IWMStreamConfig** ppIStreamConfig, char16* wszDesc, uint32* pcchDesc) mut => VT.[Friend]GetCodecFormatDesc(&this, guidType, dwCodecIndex, dwFormatIndex, ppIStreamConfig, wszDesc, pcchDesc);
 }
 
 [CRepr]struct IWMCodecInfo3 : IWMCodecInfo2
@@ -3349,20 +3349,20 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IWMCodecInfo2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) GetCodecFormatProp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) GetCodecProp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE Type, uint8* pValue, uint32 dwSize) SetCodecEnumerationSetting;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) GetCodecEnumerationSetting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) GetCodecFormatProp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) GetCodecProp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE Type, uint8* pValue, uint32 dwSize) SetCodecEnumerationSetting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) GetCodecEnumerationSetting;
 	}
 
 
-	public HRESULT GetCodecFormatProp(ref Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) mut => VT.[Friend]GetCodecFormatProp(&this, ref guidType, dwCodecIndex, dwFormatIndex, pszName, pType, pValue, pdwSize);
+	public HRESULT GetCodecFormatProp(in Guid guidType, uint32 dwCodecIndex, uint32 dwFormatIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) mut => VT.[Friend]GetCodecFormatProp(&this, guidType, dwCodecIndex, dwFormatIndex, pszName, pType, pValue, pdwSize);
 
-	public HRESULT GetCodecProp(ref Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) mut => VT.[Friend]GetCodecProp(&this, ref guidType, dwCodecIndex, pszName, pType, pValue, pdwSize);
+	public HRESULT GetCodecProp(in Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) mut => VT.[Friend]GetCodecProp(&this, guidType, dwCodecIndex, pszName, pType, pValue, pdwSize);
 
-	public HRESULT SetCodecEnumerationSetting(ref Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE Type, uint8* pValue, uint32 dwSize) mut => VT.[Friend]SetCodecEnumerationSetting(&this, ref guidType, dwCodecIndex, pszName, Type, pValue, dwSize);
+	public HRESULT SetCodecEnumerationSetting(in Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE Type, uint8* pValue, uint32 dwSize) mut => VT.[Friend]SetCodecEnumerationSetting(&this, guidType, dwCodecIndex, pszName, Type, pValue, dwSize);
 
-	public HRESULT GetCodecEnumerationSetting(ref Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) mut => VT.[Friend]GetCodecEnumerationSetting(&this, ref guidType, dwCodecIndex, pszName, pType, pValue, pdwSize);
+	public HRESULT GetCodecEnumerationSetting(in Guid guidType, uint32 dwCodecIndex, PWSTR pszName, WMT_ATTR_DATATYPE* pType, uint8* pValue, uint32* pdwSize) mut => VT.[Friend]GetCodecEnumerationSetting(&this, guidType, dwCodecIndex, pszName, pType, pValue, pdwSize);
 }
 
 [CRepr]struct IWMLanguageList : IUnknown
@@ -3613,12 +3613,12 @@ public struct DRM_COPY_OPL
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, ref Guid riid, void** ppvCodecInterface) GetCodecInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, in Guid riid, void** ppvCodecInterface) GetCodecInterface;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputNum, WM_MEDIA_TYPE* pSubtype) Notify;
 	}
 
 
-	public HRESULT GetCodecInterface(uint32 dwOutputNum, ref Guid riid, void** ppvCodecInterface) mut => VT.[Friend]GetCodecInterface(&this, dwOutputNum, ref riid, ppvCodecInterface);
+	public HRESULT GetCodecInterface(uint32 dwOutputNum, in Guid riid, void** ppvCodecInterface) mut => VT.[Friend]GetCodecInterface(&this, dwOutputNum, riid, ppvCodecInterface);
 
 	public HRESULT Notify(uint32 dwOutputNum, WM_MEDIA_TYPE* pSubtype) mut => VT.[Friend]Notify(&this, dwOutputNum, pSubtype);
 }
@@ -3729,7 +3729,7 @@ public struct DRM_COPY_OPL
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcCerts) GetCertCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, uint8** ppbCertData) GetCert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCertIndex, uint8* pbSharedData, uint8* pbCert, uint8** ppbSharedData) GetSharedData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCertIndex, in uint8 pbSharedData, uint8* pbCert, uint8** ppbSharedData) GetSharedData;
 	}
 
 
@@ -3737,7 +3737,7 @@ public struct DRM_COPY_OPL
 
 	public HRESULT GetCert(uint32 dwIndex, uint8** ppbCertData) mut => VT.[Friend]GetCert(&this, dwIndex, ppbCertData);
 
-	public HRESULT GetSharedData(uint32 dwCertIndex, uint8* pbSharedData, uint8* pbCert, uint8** ppbSharedData) mut => VT.[Friend]GetSharedData(&this, dwCertIndex, pbSharedData, pbCert, ppbSharedData);
+	public HRESULT GetSharedData(uint32 dwCertIndex, in uint8 pbSharedData, uint8* pbCert, uint8** ppbSharedData) mut => VT.[Friend]GetSharedData(&this, dwCertIndex, pbSharedData, pbCert, ppbSharedData);
 }
 
 [CRepr]struct IWMSecureChannel : IWMAuthorizer
@@ -3758,7 +3758,7 @@ public struct DRM_COPY_OPL
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32 cbData) WMSC_Decrypt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) WMSC_Lock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) WMSC_Unlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCertIndex, uint8* pbSharedData) WMSC_SetSharedData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCertIndex, in uint8 pbSharedData) WMSC_SetSharedData;
 	}
 
 
@@ -3782,7 +3782,7 @@ public struct DRM_COPY_OPL
 
 	public HRESULT WMSC_Unlock() mut => VT.[Friend]WMSC_Unlock(&this);
 
-	public HRESULT WMSC_SetSharedData(uint32 dwCertIndex, uint8* pbSharedData) mut => VT.[Friend]WMSC_SetSharedData(&this, dwCertIndex, pbSharedData);
+	public HRESULT WMSC_SetSharedData(uint32 dwCertIndex, in uint8 pbSharedData) mut => VT.[Friend]WMSC_SetSharedData(&this, dwCertIndex, pbSharedData);
 }
 
 [CRepr]struct IWMGetSecureChannel : IUnknown

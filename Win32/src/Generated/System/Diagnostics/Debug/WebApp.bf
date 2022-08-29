@@ -105,7 +105,7 @@ public function HRESULT UnregisterAuthoringClientFunctionType(IWebApplicationHos
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* hwnd) get_HWND;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHTMLDocument2** htmlDocument) get_Document;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid interfaceId, IUnknown* callback, uint32* cookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid interfaceId, IUnknown* callback, uint32* cookie) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cookie) Unadvise;
 	}
 
@@ -116,7 +116,7 @@ public function HRESULT UnregisterAuthoringClientFunctionType(IWebApplicationHos
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT Advise(ref Guid interfaceId, IUnknown* callback, uint32* cookie) mut => VT.[Friend]Advise(&this, ref interfaceId, callback, cookie);
+	public HRESULT Advise(in Guid interfaceId, IUnknown* callback, uint32* cookie) mut => VT.[Friend]Advise(&this, interfaceId, callback, cookie);
 
 	public HRESULT Unadvise(uint32 cookie) mut => VT.[Friend]Unadvise(&this, cookie);
 }

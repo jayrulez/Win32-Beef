@@ -329,7 +329,7 @@ public struct DBID
 		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, STAT_CHUNK* pStat) GetChunk;
 		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, uint32* pcwcBuffer, char16* awcBuffer) GetText;
 		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, PROPVARIANT** ppPropValue) GetValue;
-		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, FILTERREGION origPos, ref Guid riid, void** ppunk) BindRegion;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, FILTERREGION origPos, in Guid riid, void** ppunk) BindRegion;
 	}
 
 
@@ -341,7 +341,7 @@ public struct DBID
 
 	public int32 GetValue(PROPVARIANT** ppPropValue) mut => VT.[Friend]GetValue(&this, ppPropValue);
 
-	public int32 BindRegion(FILTERREGION origPos, ref Guid riid, void** ppunk) mut => VT.[Friend]BindRegion(&this, origPos, ref riid, ppunk);
+	public int32 BindRegion(FILTERREGION origPos, in Guid riid, void** ppunk) mut => VT.[Friend]BindRegion(&this, origPos, riid, ppunk);
 }
 
 [CRepr]struct IPhraseSink : IUnknown
@@ -371,7 +371,7 @@ public static
 	public static extern HRESULT LoadIFilter(PWSTR pwcsPath, IUnknown* pUnkOuter, void** ppIUnk);
 
 	[Import("query.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT LoadIFilterEx(PWSTR pwcsPath, uint32 dwFlags, ref Guid riid, void** ppIUnk);
+	public static extern HRESULT LoadIFilterEx(PWSTR pwcsPath, uint32 dwFlags, in Guid riid, void** ppIUnk);
 
 	[Import("query.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT BindIFilterFromStorage(IStorage* pStg, IUnknown* pUnkOuter, void** ppIUnk);

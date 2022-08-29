@@ -849,8 +849,8 @@ public struct WSD_EVENT
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDUdpMessageType* pMessageType) GetMessageType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTTL) SetTTL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwTTL) GetTTL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pAlias) SetAlias;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pAlias) GetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pAlias) SetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pAlias) GetAlias;
 	}
 
 
@@ -870,9 +870,9 @@ public struct WSD_EVENT
 
 	public HRESULT GetTTL(uint32* pdwTTL) mut => VT.[Friend]GetTTL(&this, pdwTTL);
 
-	public HRESULT SetAlias(ref Guid pAlias) mut => VT.[Friend]SetAlias(&this, ref pAlias);
+	public HRESULT SetAlias(in Guid pAlias) mut => VT.[Friend]SetAlias(&this, pAlias);
 
-	public HRESULT GetAlias(ref Guid pAlias) mut => VT.[Friend]GetAlias(&this, ref pAlias);
+	public HRESULT GetAlias(Guid* pAlias) mut => VT.[Friend]GetAlias(&this, pAlias);
 }
 
 [CRepr]struct IWSDHttpMessageParameters : IWSDMessageParameters
@@ -1150,7 +1150,7 @@ public struct WSD_EVENT
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszTag) GetProbeResolveTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszRemoteTransportAddress) GetRemoteTransportAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszLocalTransportAddress) GetLocalTransportAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuid) GetLocalInterfaceGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pGuid) GetLocalInterfaceGUID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullInstanceId) GetInstanceId;
 	}
 
@@ -1173,7 +1173,7 @@ public struct WSD_EVENT
 
 	public HRESULT GetLocalTransportAddress(PWSTR* ppszLocalTransportAddress) mut => VT.[Friend]GetLocalTransportAddress(&this, ppszLocalTransportAddress);
 
-	public HRESULT GetLocalInterfaceGUID(ref Guid pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, ref pGuid);
+	public HRESULT GetLocalInterfaceGUID(Guid* pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, pGuid);
 
 	public HRESULT GetInstanceId(uint64* pullInstanceId) mut => VT.[Friend]GetInstanceId(&this, pullInstanceId);
 }
@@ -1273,9 +1273,9 @@ public struct WSD_EVENT
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation) SendOneWayRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) SendTwoWayRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) SendTwoWayRequestAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void pBody, WSD_OPERATION* pOperation) SendOneWayRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) SendTwoWayRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) SendTwoWayRequestAsync;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAsyncResult* pAsyncResult) AbortAsyncOperation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_FAULT* pFault) ProcessFault;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszErrorInfo) GetErrorInfo;
@@ -1283,11 +1283,11 @@ public struct WSD_EVENT
 	}
 
 
-	public HRESULT SendOneWayRequest(void* pBody, WSD_OPERATION* pOperation) mut => VT.[Friend]SendOneWayRequest(&this, pBody, pOperation);
+	public HRESULT SendOneWayRequest(in void pBody, WSD_OPERATION* pOperation) mut => VT.[Friend]SendOneWayRequest(&this, pBody, pOperation);
 
-	public HRESULT SendTwoWayRequest(void* pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) mut => VT.[Friend]SendTwoWayRequest(&this, pBody, pOperation, pResponseContext);
+	public HRESULT SendTwoWayRequest(in void pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) mut => VT.[Friend]SendTwoWayRequest(&this, pBody, pOperation, pResponseContext);
 
-	public HRESULT SendTwoWayRequestAsync(void* pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) mut => VT.[Friend]SendTwoWayRequestAsync(&this, pBody, pOperation, pAsyncState, pCallback, pResult);
+	public HRESULT SendTwoWayRequestAsync(in void pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) mut => VT.[Friend]SendTwoWayRequestAsync(&this, pBody, pOperation, pAsyncState, pCallback, pResult);
 
 	public HRESULT AbortAsyncOperation(IWSDAsyncResult* pAsyncResult) mut => VT.[Friend]AbortAsyncOperation(&this, pAsyncResult);
 

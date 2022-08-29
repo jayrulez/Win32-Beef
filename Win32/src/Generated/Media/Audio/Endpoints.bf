@@ -216,19 +216,19 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioEndpointVolumeCallback* pNotify) RegisterControlChangeNotify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioEndpointVolumeCallback* pNotify) UnregisterControlChangeNotify;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pnChannelCount) GetChannelCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fLevelDB, ref Guid pguidEventContext) SetMasterVolumeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fLevel, ref Guid pguidEventContext) SetMasterVolumeLevelScalar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fLevelDB, in Guid pguidEventContext) SetMasterVolumeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fLevel, in Guid pguidEventContext) SetMasterVolumeLevelScalar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pfLevelDB) GetMasterVolumeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pfLevel) GetMasterVolumeLevelScalar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float fLevelDB, ref Guid pguidEventContext) SetChannelVolumeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float fLevel, ref Guid pguidEventContext) SetChannelVolumeLevelScalar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float fLevelDB, in Guid pguidEventContext) SetChannelVolumeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float fLevel, in Guid pguidEventContext) SetChannelVolumeLevelScalar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float* pfLevelDB) GetChannelVolumeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float* pfLevel) GetChannelVolumeLevelScalar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMute, ref Guid pguidEventContext) SetMute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMute, in Guid pguidEventContext) SetMute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbMute) GetMute;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pnStep, uint32* pnStepCount) GetVolumeStepInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidEventContext) VolumeStepUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidEventContext) VolumeStepDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pguidEventContext) VolumeStepUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pguidEventContext) VolumeStepDown;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwHardwareSupportMask) QueryHardwareSupport;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pflVolumeMindB, float* pflVolumeMaxdB, float* pflVolumeIncrementdB) GetVolumeRange;
 	}
@@ -240,31 +240,31 @@ public static
 
 	public HRESULT GetChannelCount(uint32* pnChannelCount) mut => VT.[Friend]GetChannelCount(&this, pnChannelCount);
 
-	public HRESULT SetMasterVolumeLevel(float fLevelDB, ref Guid pguidEventContext) mut => VT.[Friend]SetMasterVolumeLevel(&this, fLevelDB, ref pguidEventContext);
+	public HRESULT SetMasterVolumeLevel(float fLevelDB, in Guid pguidEventContext) mut => VT.[Friend]SetMasterVolumeLevel(&this, fLevelDB, pguidEventContext);
 
-	public HRESULT SetMasterVolumeLevelScalar(float fLevel, ref Guid pguidEventContext) mut => VT.[Friend]SetMasterVolumeLevelScalar(&this, fLevel, ref pguidEventContext);
+	public HRESULT SetMasterVolumeLevelScalar(float fLevel, in Guid pguidEventContext) mut => VT.[Friend]SetMasterVolumeLevelScalar(&this, fLevel, pguidEventContext);
 
 	public HRESULT GetMasterVolumeLevel(float* pfLevelDB) mut => VT.[Friend]GetMasterVolumeLevel(&this, pfLevelDB);
 
 	public HRESULT GetMasterVolumeLevelScalar(float* pfLevel) mut => VT.[Friend]GetMasterVolumeLevelScalar(&this, pfLevel);
 
-	public HRESULT SetChannelVolumeLevel(uint32 nChannel, float fLevelDB, ref Guid pguidEventContext) mut => VT.[Friend]SetChannelVolumeLevel(&this, nChannel, fLevelDB, ref pguidEventContext);
+	public HRESULT SetChannelVolumeLevel(uint32 nChannel, float fLevelDB, in Guid pguidEventContext) mut => VT.[Friend]SetChannelVolumeLevel(&this, nChannel, fLevelDB, pguidEventContext);
 
-	public HRESULT SetChannelVolumeLevelScalar(uint32 nChannel, float fLevel, ref Guid pguidEventContext) mut => VT.[Friend]SetChannelVolumeLevelScalar(&this, nChannel, fLevel, ref pguidEventContext);
+	public HRESULT SetChannelVolumeLevelScalar(uint32 nChannel, float fLevel, in Guid pguidEventContext) mut => VT.[Friend]SetChannelVolumeLevelScalar(&this, nChannel, fLevel, pguidEventContext);
 
 	public HRESULT GetChannelVolumeLevel(uint32 nChannel, float* pfLevelDB) mut => VT.[Friend]GetChannelVolumeLevel(&this, nChannel, pfLevelDB);
 
 	public HRESULT GetChannelVolumeLevelScalar(uint32 nChannel, float* pfLevel) mut => VT.[Friend]GetChannelVolumeLevelScalar(&this, nChannel, pfLevel);
 
-	public HRESULT SetMute(BOOL bMute, ref Guid pguidEventContext) mut => VT.[Friend]SetMute(&this, bMute, ref pguidEventContext);
+	public HRESULT SetMute(BOOL bMute, in Guid pguidEventContext) mut => VT.[Friend]SetMute(&this, bMute, pguidEventContext);
 
 	public HRESULT GetMute(BOOL* pbMute) mut => VT.[Friend]GetMute(&this, pbMute);
 
 	public HRESULT GetVolumeStepInfo(uint32* pnStep, uint32* pnStepCount) mut => VT.[Friend]GetVolumeStepInfo(&this, pnStep, pnStepCount);
 
-	public HRESULT VolumeStepUp(ref Guid pguidEventContext) mut => VT.[Friend]VolumeStepUp(&this, ref pguidEventContext);
+	public HRESULT VolumeStepUp(in Guid pguidEventContext) mut => VT.[Friend]VolumeStepUp(&this, pguidEventContext);
 
-	public HRESULT VolumeStepDown(ref Guid pguidEventContext) mut => VT.[Friend]VolumeStepDown(&this, ref pguidEventContext);
+	public HRESULT VolumeStepDown(in Guid pguidEventContext) mut => VT.[Friend]VolumeStepDown(&this, pguidEventContext);
 
 	public HRESULT QueryHardwareSupport(uint32* pdwHardwareSupportMask) mut => VT.[Friend]QueryHardwareSupport(&this, pdwHardwareSupportMask);
 

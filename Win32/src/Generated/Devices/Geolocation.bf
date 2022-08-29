@@ -919,13 +919,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSensorID) GetSensorID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pSensorID) GetSensorID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pCreationTime) GetTimestamp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* pKey, PROPVARIANT* pValue) GetValue;
 	}
 
 
-	public HRESULT GetSensorID(ref Guid pSensorID) mut => VT.[Friend]GetSensorID(&this, ref pSensorID);
+	public HRESULT GetSensorID(Guid* pSensorID) mut => VT.[Friend]GetSensorID(&this, pSensorID);
 
 	public HRESULT GetTimestamp(SYSTEMTIME* pCreationTime) mut => VT.[Friend]GetTimestamp(&this, pCreationTime);
 
@@ -1000,33 +1000,33 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ILocationEvents* pEvents, ref Guid reportType, uint32 dwRequestedReportInterval) RegisterForReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType) UnregisterForReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, ILocationReport** ppLocationReport) GetReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, LOCATION_REPORT_STATUS* pStatus) GetReportStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, uint32* pMilliseconds) GetReportInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, uint32 millisecondsRequested) SetReportInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, LOCATION_DESIRED_ACCURACY* pDesiredAccuracy) GetDesiredAccuracy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, LOCATION_DESIRED_ACCURACY desiredAccuracy) SetDesiredAccuracy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ILocationEvents* pEvents, in Guid reportType, uint32 dwRequestedReportInterval) RegisterForReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType) UnregisterForReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, ILocationReport** ppLocationReport) GetReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, LOCATION_REPORT_STATUS* pStatus) GetReportStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, uint32* pMilliseconds) GetReportInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, uint32 millisecondsRequested) SetReportInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, LOCATION_DESIRED_ACCURACY* pDesiredAccuracy) GetDesiredAccuracy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, LOCATION_DESIRED_ACCURACY desiredAccuracy) SetDesiredAccuracy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hParent, Guid* pReportTypes, uint32 count, BOOL fModal) RequestPermissions;
 	}
 
 
-	public HRESULT RegisterForReport(ILocationEvents* pEvents, ref Guid reportType, uint32 dwRequestedReportInterval) mut => VT.[Friend]RegisterForReport(&this, pEvents, ref reportType, dwRequestedReportInterval);
+	public HRESULT RegisterForReport(ILocationEvents* pEvents, in Guid reportType, uint32 dwRequestedReportInterval) mut => VT.[Friend]RegisterForReport(&this, pEvents, reportType, dwRequestedReportInterval);
 
-	public HRESULT UnregisterForReport(ref Guid reportType) mut => VT.[Friend]UnregisterForReport(&this, ref reportType);
+	public HRESULT UnregisterForReport(in Guid reportType) mut => VT.[Friend]UnregisterForReport(&this, reportType);
 
-	public HRESULT GetReport(ref Guid reportType, ILocationReport** ppLocationReport) mut => VT.[Friend]GetReport(&this, ref reportType, ppLocationReport);
+	public HRESULT GetReport(in Guid reportType, ILocationReport** ppLocationReport) mut => VT.[Friend]GetReport(&this, reportType, ppLocationReport);
 
-	public HRESULT GetReportStatus(ref Guid reportType, LOCATION_REPORT_STATUS* pStatus) mut => VT.[Friend]GetReportStatus(&this, ref reportType, pStatus);
+	public HRESULT GetReportStatus(in Guid reportType, LOCATION_REPORT_STATUS* pStatus) mut => VT.[Friend]GetReportStatus(&this, reportType, pStatus);
 
-	public HRESULT GetReportInterval(ref Guid reportType, uint32* pMilliseconds) mut => VT.[Friend]GetReportInterval(&this, ref reportType, pMilliseconds);
+	public HRESULT GetReportInterval(in Guid reportType, uint32* pMilliseconds) mut => VT.[Friend]GetReportInterval(&this, reportType, pMilliseconds);
 
-	public HRESULT SetReportInterval(ref Guid reportType, uint32 millisecondsRequested) mut => VT.[Friend]SetReportInterval(&this, ref reportType, millisecondsRequested);
+	public HRESULT SetReportInterval(in Guid reportType, uint32 millisecondsRequested) mut => VT.[Friend]SetReportInterval(&this, reportType, millisecondsRequested);
 
-	public HRESULT GetDesiredAccuracy(ref Guid reportType, LOCATION_DESIRED_ACCURACY* pDesiredAccuracy) mut => VT.[Friend]GetDesiredAccuracy(&this, ref reportType, pDesiredAccuracy);
+	public HRESULT GetDesiredAccuracy(in Guid reportType, LOCATION_DESIRED_ACCURACY* pDesiredAccuracy) mut => VT.[Friend]GetDesiredAccuracy(&this, reportType, pDesiredAccuracy);
 
-	public HRESULT SetDesiredAccuracy(ref Guid reportType, LOCATION_DESIRED_ACCURACY desiredAccuracy) mut => VT.[Friend]SetDesiredAccuracy(&this, ref reportType, desiredAccuracy);
+	public HRESULT SetDesiredAccuracy(in Guid reportType, LOCATION_DESIRED_ACCURACY desiredAccuracy) mut => VT.[Friend]SetDesiredAccuracy(&this, reportType, desiredAccuracy);
 
 	public HRESULT RequestPermissions(HWND hParent, Guid* pReportTypes, uint32 count, BOOL fModal) mut => VT.[Friend]RequestPermissions(&this, hParent, pReportTypes, count, fModal);
 }
@@ -1057,14 +1057,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, ILocationReport* pLocationReport) SetReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, ILocationReport** ppLocationReport) GetReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, ILocationReport* pLocationReport) SetReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, ILocationReport** ppLocationReport) GetReport;
 	}
 
 
-	public HRESULT SetReport(ref Guid reportType, ILocationReport* pLocationReport) mut => VT.[Friend]SetReport(&this, ref reportType, pLocationReport);
+	public HRESULT SetReport(in Guid reportType, ILocationReport* pLocationReport) mut => VT.[Friend]SetReport(&this, reportType, pLocationReport);
 
-	public HRESULT GetReport(ref Guid reportType, ILocationReport** ppLocationReport) mut => VT.[Friend]GetReport(&this, ref reportType, ppLocationReport);
+	public HRESULT GetReport(in Guid reportType, ILocationReport** ppLocationReport) mut => VT.[Friend]GetReport(&this, reportType, ppLocationReport);
 }
 
 [CRepr]struct ILocationEvents : IUnknown
@@ -1075,14 +1075,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, ILocationReport* pLocationReport) OnLocationChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, LOCATION_REPORT_STATUS newStatus) OnStatusChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, ILocationReport* pLocationReport) OnLocationChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid reportType, LOCATION_REPORT_STATUS newStatus) OnStatusChanged;
 	}
 
 
-	public HRESULT OnLocationChanged(ref Guid reportType, ILocationReport* pLocationReport) mut => VT.[Friend]OnLocationChanged(&this, ref reportType, pLocationReport);
+	public HRESULT OnLocationChanged(in Guid reportType, ILocationReport* pLocationReport) mut => VT.[Friend]OnLocationChanged(&this, reportType, pLocationReport);
 
-	public HRESULT OnStatusChanged(ref Guid reportType, LOCATION_REPORT_STATUS newStatus) mut => VT.[Friend]OnStatusChanged(&this, ref reportType, newStatus);
+	public HRESULT OnStatusChanged(in Guid reportType, LOCATION_REPORT_STATUS newStatus) mut => VT.[Friend]OnStatusChanged(&this, reportType, newStatus);
 }
 
 [CRepr]struct IDispLatLongReport : IDispatch

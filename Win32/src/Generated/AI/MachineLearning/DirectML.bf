@@ -2025,18 +2025,18 @@ public struct DML_GRAPH_DESC
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32* dataSize, void* data) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32 dataSize, void* data) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, IUnknown* data) SetPrivateDataInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, uint32* dataSize, void* data) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, uint32 dataSize, void* data) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, IUnknown* data) SetPrivateDataInterface;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name) SetName;
 	}
 
 
-	public HRESULT GetPrivateData(ref Guid guid, uint32* dataSize, void* data) mut => VT.[Friend]GetPrivateData(&this, ref guid, dataSize, data);
+	public HRESULT GetPrivateData(in Guid guid, uint32* dataSize, void* data) mut => VT.[Friend]GetPrivateData(&this, guid, dataSize, data);
 
-	public HRESULT SetPrivateData(ref Guid guid, uint32 dataSize, void* data) mut => VT.[Friend]SetPrivateData(&this, ref guid, dataSize, data);
+	public HRESULT SetPrivateData(in Guid guid, uint32 dataSize, void* data) mut => VT.[Friend]SetPrivateData(&this, guid, dataSize, data);
 
-	public HRESULT SetPrivateDataInterface(ref Guid guid, IUnknown* data) mut => VT.[Friend]SetPrivateDataInterface(&this, ref guid, data);
+	public HRESULT SetPrivateDataInterface(in Guid guid, IUnknown* data) mut => VT.[Friend]SetPrivateDataInterface(&this, guid, data);
 
 	public HRESULT SetName(PWSTR name) mut => VT.[Friend]SetName(&this, name);
 }
@@ -2050,29 +2050,29 @@ public struct DML_GRAPH_DESC
 	[CRepr]public struct VTable : IDMLObject.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_FEATURE feature, uint32 featureQueryDataSize, void* featureQueryData, uint32 featureSupportDataSize, void* featureSupportData) CheckFeatureSupport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_OPERATOR_DESC* desc, ref Guid riid, void** ppv) CreateOperator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDMLOperator* op, DML_EXECUTION_FLAGS flags, ref Guid riid, void** ppv) CompileOperator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 operatorCount, IDMLCompiledOperator** operators, ref Guid riid, void** ppv) CreateOperatorInitializer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) CreateCommandRecorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_BINDING_TABLE_DESC* desc, ref Guid riid, void** ppv) CreateBindingTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_OPERATOR_DESC* desc, in Guid riid, void** ppv) CreateOperator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDMLOperator* op, DML_EXECUTION_FLAGS flags, in Guid riid, void** ppv) CompileOperator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 operatorCount, IDMLCompiledOperator** operators, in Guid riid, void** ppv) CreateOperatorInitializer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) CreateCommandRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_BINDING_TABLE_DESC* desc, in Guid riid, void** ppv) CreateBindingTable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, IDMLPageable** ppObjects) Evict;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, IDMLPageable** ppObjects) MakeResident;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) GetDeviceRemovedReason;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetParentDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) GetParentDevice;
 	}
 
 
 	public HRESULT CheckFeatureSupport(DML_FEATURE feature, uint32 featureQueryDataSize, void* featureQueryData, uint32 featureSupportDataSize, void* featureSupportData) mut => VT.[Friend]CheckFeatureSupport(&this, feature, featureQueryDataSize, featureQueryData, featureSupportDataSize, featureSupportData);
 
-	public HRESULT CreateOperator(DML_OPERATOR_DESC* desc, ref Guid riid, void** ppv) mut => VT.[Friend]CreateOperator(&this, desc, ref riid, ppv);
+	public HRESULT CreateOperator(DML_OPERATOR_DESC* desc, in Guid riid, void** ppv) mut => VT.[Friend]CreateOperator(&this, desc, riid, ppv);
 
-	public HRESULT CompileOperator(IDMLOperator* op, DML_EXECUTION_FLAGS flags, ref Guid riid, void** ppv) mut => VT.[Friend]CompileOperator(&this, op, flags, ref riid, ppv);
+	public HRESULT CompileOperator(IDMLOperator* op, DML_EXECUTION_FLAGS flags, in Guid riid, void** ppv) mut => VT.[Friend]CompileOperator(&this, op, flags, riid, ppv);
 
-	public HRESULT CreateOperatorInitializer(uint32 operatorCount, IDMLCompiledOperator** operators, ref Guid riid, void** ppv) mut => VT.[Friend]CreateOperatorInitializer(&this, operatorCount, operators, ref riid, ppv);
+	public HRESULT CreateOperatorInitializer(uint32 operatorCount, IDMLCompiledOperator** operators, in Guid riid, void** ppv) mut => VT.[Friend]CreateOperatorInitializer(&this, operatorCount, operators, riid, ppv);
 
-	public HRESULT CreateCommandRecorder(ref Guid riid, void** ppv) mut => VT.[Friend]CreateCommandRecorder(&this, ref riid, ppv);
+	public HRESULT CreateCommandRecorder(in Guid riid, void** ppv) mut => VT.[Friend]CreateCommandRecorder(&this, riid, ppv);
 
-	public HRESULT CreateBindingTable(DML_BINDING_TABLE_DESC* desc, ref Guid riid, void** ppv) mut => VT.[Friend]CreateBindingTable(&this, desc, ref riid, ppv);
+	public HRESULT CreateBindingTable(DML_BINDING_TABLE_DESC* desc, in Guid riid, void** ppv) mut => VT.[Friend]CreateBindingTable(&this, desc, riid, ppv);
 
 	public HRESULT Evict(uint32 count, IDMLPageable** ppObjects) mut => VT.[Friend]Evict(&this, count, ppObjects);
 
@@ -2080,7 +2080,7 @@ public struct DML_GRAPH_DESC
 
 	public HRESULT GetDeviceRemovedReason() mut => VT.[Friend]GetDeviceRemovedReason(&this);
 
-	public HRESULT GetParentDevice(ref Guid riid, void** ppv) mut => VT.[Friend]GetParentDevice(&this, ref riid, ppv);
+	public HRESULT GetParentDevice(in Guid riid, void** ppv) mut => VT.[Friend]GetParentDevice(&this, riid, ppv);
 }
 
 [CRepr]struct IDMLDeviceChild : IDMLObject
@@ -2091,11 +2091,11 @@ public struct DML_GRAPH_DESC
 
 	[CRepr]public struct VTable : IDMLObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) GetDevice;
 	}
 
 
-	public HRESULT GetDevice(ref Guid riid, void** ppv) mut => VT.[Friend]GetDevice(&this, ref riid, ppv);
+	public HRESULT GetDevice(in Guid riid, void** ppv) mut => VT.[Friend]GetDevice(&this, riid, ppv);
 }
 
 [CRepr]struct IDMLPageable : IDMLDeviceChild
@@ -2229,11 +2229,11 @@ public struct DML_GRAPH_DESC
 
 	[CRepr]public struct VTable : IDMLDevice.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_GRAPH_DESC* desc, DML_EXECUTION_FLAGS flags, ref Guid riid, void** ppv) CompileGraph;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_GRAPH_DESC* desc, DML_EXECUTION_FLAGS flags, in Guid riid, void** ppv) CompileGraph;
 	}
 
 
-	public HRESULT CompileGraph(DML_GRAPH_DESC* desc, DML_EXECUTION_FLAGS flags, ref Guid riid, void** ppv) mut => VT.[Friend]CompileGraph(&this, desc, flags, ref riid, ppv);
+	public HRESULT CompileGraph(DML_GRAPH_DESC* desc, DML_EXECUTION_FLAGS flags, in Guid riid, void** ppv) mut => VT.[Friend]CompileGraph(&this, desc, flags, riid, ppv);
 }
 
 #endregion
@@ -2242,10 +2242,10 @@ public struct DML_GRAPH_DESC
 public static
 {
 	[Import("DirectML.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMLCreateDevice(ID3D12Device* d3d12Device, DML_CREATE_DEVICE_FLAGS flags, ref Guid riid, void** ppv);
+	public static extern HRESULT DMLCreateDevice(ID3D12Device* d3d12Device, DML_CREATE_DEVICE_FLAGS flags, in Guid riid, void** ppv);
 
 	[Import("DirectML.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMLCreateDevice1(ID3D12Device* d3d12Device, DML_CREATE_DEVICE_FLAGS flags, DML_FEATURE_LEVEL minimumFeatureLevel, ref Guid riid, void** ppv);
+	public static extern HRESULT DMLCreateDevice1(ID3D12Device* d3d12Device, DML_CREATE_DEVICE_FLAGS flags, DML_FEATURE_LEVEL minimumFeatureLevel, in Guid riid, void** ppv);
 
 }
 #endregion

@@ -430,7 +430,7 @@ public static
 	public static extern BOOL HeapFree(HeapHandle hHeap, HEAP_FLAGS dwFlags, void* lpMem);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint HeapSize(HeapHandle hHeap, HEAP_FLAGS dwFlags, void* lpMem);
+	public static extern uint HeapSize(HeapHandle hHeap, HEAP_FLAGS dwFlags, in void lpMem);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HeapHandle GetProcessHeap();
@@ -499,10 +499,10 @@ public static
 	public static extern BOOL VirtualFreeEx(HANDLE hProcess, void* lpAddress, uint dwSize, VIRTUAL_FREE_TYPE dwFreeType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FlushViewOfFile(void* lpBaseAddress, uint dwNumberOfBytesToFlush);
+	public static extern BOOL FlushViewOfFile(in void lpBaseAddress, uint dwNumberOfBytesToFlush);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL UnmapViewOfFile(void* lpBaseAddress);
+	public static extern BOOL UnmapViewOfFile(in void lpBaseAddress);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint GetLargePageMinimum();
@@ -601,7 +601,7 @@ public static
 	public static extern HANDLE OpenFileMappingFromApp(uint32 DesiredAccess, BOOL InheritHandle, PWSTR Name);
 
 	[Import("api-ms-win-core-memory-l1-1-4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryVirtualMemoryInformation(HANDLE Process, void* VirtualAddress, WIN32_MEMORY_INFORMATION_CLASS MemoryInformationClass, void* MemoryInformation, uint MemoryInformationSize, uint* ReturnSize);
+	public static extern BOOL QueryVirtualMemoryInformation(HANDLE Process, in void VirtualAddress, WIN32_MEMORY_INFORMATION_CLASS MemoryInformationClass, void* MemoryInformation, uint MemoryInformationSize, uint* ReturnSize);
 
 	[Import("api-ms-win-core-memory-l1-1-5.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* MapViewOfFileNuma2(HANDLE FileMappingHandle, HANDLE ProcessHandle, uint64 Offset, void* BaseAddress, uint ViewSize, uint32 AllocationType, uint32 PageProtection, uint32 PreferredNode);
@@ -637,7 +637,7 @@ public static
 	public static extern BOOL QueryPartitionInformation(HANDLE Partition, WIN32_MEMORY_PARTITION_INFORMATION_CLASS PartitionInformationClass, void* PartitionInformation, uint32 PartitionInformationLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint RtlCompareMemory(void* Source1, void* Source2, uint Length);
+	public static extern uint RtlCompareMemory(in void Source1, in void Source2, uint Length);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtlCrc32(void* Buffer, uint Size, uint32 InitialCrc);
@@ -667,7 +667,7 @@ public static
 	public static extern uint32 GlobalFlags(int hMem);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int GlobalHandle(void* pMem);
+	public static extern int GlobalHandle(in void pMem);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int GlobalFree(int hMem);
@@ -682,7 +682,7 @@ public static
 	public static extern void* LocalLock(int hMem);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int LocalHandle(void* pMem);
+	public static extern int LocalHandle(in void pMem);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LocalUnlock(int hMem);

@@ -721,7 +721,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwDuplicateName, INetConnection** ppCon) Duplicate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, NETCON_PROPERTIES** ppProps) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pclsid) GetUiObjectClassId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pclsid) GetUiObjectClassId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwNewName) Rename;
 	}
 
@@ -736,7 +736,7 @@ public static
 
 	public HRESULT GetProperties(NETCON_PROPERTIES** ppProps) mut => VT.[Friend]GetProperties(&this, ppProps);
 
-	public HRESULT GetUiObjectClassId(ref Guid pclsid) mut => VT.[Friend]GetUiObjectClassId(&this, ref pclsid);
+	public HRESULT GetUiObjectClassId(Guid* pclsid) mut => VT.[Friend]GetUiObjectClassId(&this, pclsid);
 
 	public HRESULT Rename(PWSTR pszwNewName) mut => VT.[Friend]Rename(&this, pszwNewName);
 }

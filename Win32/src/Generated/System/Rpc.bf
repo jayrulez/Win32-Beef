@@ -643,7 +643,7 @@ public enum EXPR_TOKEN : int32
 #endregion
 
 #region Function Pointers
-public function void RPC_OBJECT_INQ_FN(ref Guid ObjectUuid, ref Guid TypeUuid, RPC_STATUS* Status);
+public function void RPC_OBJECT_INQ_FN(Guid* ObjectUuid, Guid* TypeUuid, RPC_STATUS* Status);
 
 public function RPC_STATUS RPC_IF_CALLBACK_FN(void* InterfaceUuid, void* Context);
 
@@ -659,7 +659,7 @@ public function int32 RPC_MGMT_AUTHORIZATION_FN(void* ClientBinding, uint32 Requ
 
 public function void RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN(void* IfGroup, void* IdleCallbackContext, uint32 IsGroupIdle);
 
-public function RPC_STATUS RPC_FORWARD_FUNCTION(ref Guid InterfaceId, RPC_VERSION* InterfaceVersion, ref Guid ObjectId, uint8* Rpcpro, void** ppDestEndpoint);
+public function RPC_STATUS RPC_FORWARD_FUNCTION(Guid* InterfaceId, RPC_VERSION* InterfaceVersion, Guid* ObjectId, uint8* Rpcpro, void** ppDestEndpoint);
 
 public function void RPC_ADDRESS_CHANGE_FN(void* arg);
 
@@ -683,9 +683,9 @@ public function RPC_STATUS I_RpcPerformCalloutFn(void* Context, RDR_CALLOUT_STAT
 
 public function void I_RpcFreeCalloutStateFn(RDR_CALLOUT_STATE* CallOutState);
 
-public function RPC_STATUS I_RpcProxyGetClientSessionAndResourceUUID(void* Context, int32* SessionIdPresent, ref Guid SessionId, int32* ResourceIdPresent, ref Guid ResourceId);
+public function RPC_STATUS I_RpcProxyGetClientSessionAndResourceUUID(void* Context, int32* SessionIdPresent, Guid* SessionId, int32* ResourceIdPresent, Guid* ResourceId);
 
-public function RPC_STATUS I_RpcProxyFilterIfFn(void* Context, ref Guid IfUuid, uint16 IfMajorVersion, int32* fAllow);
+public function RPC_STATUS I_RpcProxyFilterIfFn(void* Context, Guid* IfUuid, uint16 IfMajorVersion, int32* fAllow);
 
 public function void I_RpcProxyUpdatePerfCounterFn(RpcProxyPerfCounters Counter, int32 ModifyTrend, uint32 Size);
 
@@ -2504,7 +2504,7 @@ public struct NDR64_TYPE_STRICT_CONTEXT_HANDLE
 public static
 {
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IUnknown_QueryInterface_Proxy(IUnknown* This, ref Guid riid, void** ppvObject);
+	public static extern HRESULT IUnknown_QueryInterface_Proxy(IUnknown* This, in Guid riid, void** ppvObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 IUnknown_AddRef_Proxy(IUnknown* This);
@@ -2538,13 +2538,13 @@ public static
 	public static extern RPC_STATUS RpcBindingInqMaxCalls(void* Binding, uint32* MaxCalls);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcBindingInqObject(void* Binding, ref Guid ObjectUuid);
+	public static extern RPC_STATUS RpcBindingInqObject(void* Binding, Guid* ObjectUuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcBindingReset(void* Binding);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcBindingSetObject(void* Binding, ref Guid ObjectUuid);
+	public static extern RPC_STATUS RpcBindingSetObject(void* Binding, Guid* ObjectUuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcMgmtInqDefaultProtectLevel(uint32 AuthnSvc, uint32* AuthnLevel);
@@ -2607,13 +2607,13 @@ public static
 	public static extern RPC_STATUS RpcNetworkInqProtseqsW(RPC_PROTSEQ_VECTORW** ProtseqVector);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcObjectInqType(ref Guid ObjUuid, ref Guid TypeUuid);
+	public static extern RPC_STATUS RpcObjectInqType(Guid* ObjUuid, Guid* TypeUuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcObjectSetInqFn(RPC_OBJECT_INQ_FN InquiryFn);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcObjectSetType(ref Guid ObjUuid, ref Guid TypeUuid);
+	public static extern RPC_STATUS RpcObjectSetType(Guid* ObjUuid, Guid* TypeUuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcProtseqVectorFreeA(RPC_PROTSEQ_VECTORA** ProtseqVector);
@@ -2629,28 +2629,28 @@ public static
 	public static extern RPC_STATUS RpcServerInqBindingsEx(void* SecurityDescriptor, RPC_BINDING_VECTOR** BindingVector);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcServerInqIf(void* IfSpec, ref Guid MgrTypeUuid, void** MgrEpv);
+	public static extern RPC_STATUS RpcServerInqIf(void* IfSpec, Guid* MgrTypeUuid, void** MgrEpv);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcServerListen(uint32 MinimumCallThreads, uint32 MaxCalls, uint32 DontWait);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcServerRegisterIf(void* IfSpec, ref Guid MgrTypeUuid, void* MgrEpv);
+	public static extern RPC_STATUS RpcServerRegisterIf(void* IfSpec, Guid* MgrTypeUuid, void* MgrEpv);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcServerRegisterIfEx(void* IfSpec, ref Guid MgrTypeUuid, void* MgrEpv, uint32 Flags, uint32 MaxCalls, RPC_IF_CALLBACK_FN IfCallback);
+	public static extern RPC_STATUS RpcServerRegisterIfEx(void* IfSpec, Guid* MgrTypeUuid, void* MgrEpv, uint32 Flags, uint32 MaxCalls, RPC_IF_CALLBACK_FN IfCallback);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcServerRegisterIf2(void* IfSpec, ref Guid MgrTypeUuid, void* MgrEpv, uint32 Flags, uint32 MaxCalls, uint32 MaxRpcSize, RPC_IF_CALLBACK_FN IfCallbackFn);
+	public static extern RPC_STATUS RpcServerRegisterIf2(void* IfSpec, Guid* MgrTypeUuid, void* MgrEpv, uint32 Flags, uint32 MaxCalls, uint32 MaxRpcSize, RPC_IF_CALLBACK_FN IfCallbackFn);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcServerRegisterIf3(void* IfSpec, ref Guid MgrTypeUuid, void* MgrEpv, uint32 Flags, uint32 MaxCalls, uint32 MaxRpcSize, RPC_IF_CALLBACK_FN IfCallback, void* SecurityDescriptor);
+	public static extern RPC_STATUS RpcServerRegisterIf3(void* IfSpec, Guid* MgrTypeUuid, void* MgrEpv, uint32 Flags, uint32 MaxCalls, uint32 MaxRpcSize, RPC_IF_CALLBACK_FN IfCallback, void* SecurityDescriptor);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcServerUnregisterIf(void* IfSpec, ref Guid MgrTypeUuid, uint32 WaitForCallsToComplete);
+	public static extern RPC_STATUS RpcServerUnregisterIf(void* IfSpec, Guid* MgrTypeUuid, uint32 WaitForCallsToComplete);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcServerUnregisterIfEx(void* IfSpec, ref Guid MgrTypeUuid, int32 RundownContextHandles);
+	public static extern RPC_STATUS RpcServerUnregisterIfEx(void* IfSpec, Guid* MgrTypeUuid, int32 RundownContextHandles);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcServerUseAllProtseqs(uint32 MaxCalls, void* SecurityDescriptor);
@@ -2862,39 +2862,39 @@ public static
 	public static extern RPC_STATUS RpcCancelThreadEx(void* Thread, int32 Timeout);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS UuidCreate(ref Guid Uuid);
+	public static extern RPC_STATUS UuidCreate(Guid* Uuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS UuidCreateSequential(ref Guid Uuid);
+	public static extern RPC_STATUS UuidCreateSequential(Guid* Uuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS UuidToStringA(ref Guid Uuid, uint8** StringUuid);
-	public static RPC_STATUS UuidToString(ref Guid Uuid, uint8** StringUuid) => UuidToStringA(ref Uuid, StringUuid);
+	public static extern RPC_STATUS UuidToStringA(in Guid Uuid, uint8** StringUuid);
+	public static RPC_STATUS UuidToString(in Guid Uuid, uint8** StringUuid) => UuidToStringA(Uuid, StringUuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS UuidFromStringA(uint8* StringUuid, ref Guid Uuid);
-	public static RPC_STATUS UuidFromString(uint8* StringUuid, ref Guid Uuid) => UuidFromStringA(StringUuid, ref Uuid);
+	public static extern RPC_STATUS UuidFromStringA(uint8* StringUuid, Guid* Uuid);
+	public static RPC_STATUS UuidFromString(uint8* StringUuid, Guid* Uuid) => UuidFromStringA(StringUuid, Uuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS UuidToStringW(ref Guid Uuid, uint16** StringUuid);
+	public static extern RPC_STATUS UuidToStringW(in Guid Uuid, uint16** StringUuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS UuidFromStringW(uint16* StringUuid, ref Guid Uuid);
+	public static extern RPC_STATUS UuidFromStringW(uint16* StringUuid, Guid* Uuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 UuidCompare(ref Guid Uuid1, ref Guid Uuid2, RPC_STATUS* Status);
+	public static extern int32 UuidCompare(Guid* Uuid1, Guid* Uuid2, RPC_STATUS* Status);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS UuidCreateNil(ref Guid NilUuid);
+	public static extern RPC_STATUS UuidCreateNil(Guid* NilUuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 UuidEqual(ref Guid Uuid1, ref Guid Uuid2, RPC_STATUS* Status);
+	public static extern int32 UuidEqual(Guid* Uuid1, Guid* Uuid2, RPC_STATUS* Status);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 UuidHash(ref Guid Uuid, RPC_STATUS* Status);
+	public static extern uint16 UuidHash(Guid* Uuid, RPC_STATUS* Status);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 UuidIsNil(ref Guid Uuid, RPC_STATUS* Status);
+	public static extern int32 UuidIsNil(Guid* Uuid, RPC_STATUS* Status);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcEpRegisterNoReplaceA(void* IfSpec, RPC_BINDING_VECTOR* BindingVector, UUID_VECTOR* UuidVector, uint8* Annotation);
@@ -2921,20 +2921,20 @@ public static
 	public static extern RPC_STATUS DceErrorInqTextW(RPC_STATUS RpcStatus, uint16* ErrorText);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcMgmtEpEltInqBegin(void* EpBinding, uint32 InquiryType, RPC_IF_ID* IfId, uint32 VersOption, ref Guid ObjectUuid, void*** InquiryContext);
+	public static extern RPC_STATUS RpcMgmtEpEltInqBegin(void* EpBinding, uint32 InquiryType, RPC_IF_ID* IfId, uint32 VersOption, Guid* ObjectUuid, void*** InquiryContext);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcMgmtEpEltInqDone(void*** InquiryContext);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcMgmtEpEltInqNextA(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, ref Guid ObjectUuid, uint8** Annotation);
-	public static RPC_STATUS RpcMgmtEpEltInqNext(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, ref Guid ObjectUuid, uint8** Annotation) => RpcMgmtEpEltInqNextA(InquiryContext, IfId, Binding, ref ObjectUuid, Annotation);
+	public static extern RPC_STATUS RpcMgmtEpEltInqNextA(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, Guid* ObjectUuid, uint8** Annotation);
+	public static RPC_STATUS RpcMgmtEpEltInqNext(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, Guid* ObjectUuid, uint8** Annotation) => RpcMgmtEpEltInqNextA(InquiryContext, IfId, Binding, ObjectUuid, Annotation);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcMgmtEpEltInqNextW(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, ref Guid ObjectUuid, uint16** Annotation);
+	public static extern RPC_STATUS RpcMgmtEpEltInqNextW(void** InquiryContext, RPC_IF_ID* IfId, void** Binding, Guid* ObjectUuid, uint16** Annotation);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcMgmtEpUnregister(void* EpBinding, RPC_IF_ID* IfId, void* Binding, ref Guid ObjectUuid);
+	public static extern RPC_STATUS RpcMgmtEpUnregister(void* EpBinding, RPC_IF_ID* IfId, void* Binding, Guid* ObjectUuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcMgmtSetAuthorizationFn(RPC_MGMT_AUTHORIZATION_FN AuthorizationFn);
@@ -2968,7 +2968,7 @@ public static
 	public static extern RPC_STATUS I_RpcGetBuffer(RPC_MESSAGE* Message);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS I_RpcGetBufferWithObject(RPC_MESSAGE* Message, ref Guid ObjectUuid);
+	public static extern RPC_STATUS I_RpcGetBufferWithObject(RPC_MESSAGE* Message, Guid* ObjectUuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS I_RpcSendReceive(RPC_MESSAGE* Message);
@@ -3083,7 +3083,7 @@ public static
 	public static extern RPC_STATUS I_RpcIfInqTransferSyntaxes(void* RpcIfHandle, RPC_TRANSFER_SYNTAX* TransferSyntaxes, uint32 TransferSyntaxSize, uint32* TransferSyntaxCount);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS I_UuidCreate(ref Guid Uuid);
+	public static extern RPC_STATUS I_UuidCreate(Guid* Uuid);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS I_RpcBindingCopy(void* SourceBinding, void** DestinationBinding);
@@ -3152,7 +3152,7 @@ public static
 	public static extern int32 I_RpcServerDisableExceptionFilter();
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS I_RpcServerSubscribeForDisconnectNotification2(void* Binding, void* hEvent, ref Guid SubscriptionId);
+	public static extern RPC_STATUS I_RpcServerSubscribeForDisconnectNotification2(void* Binding, void* hEvent, Guid* SubscriptionId);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS I_RpcServerUnsubscribeForDisconnectNotification(void* Binding, Guid SubscriptionId);
@@ -3186,11 +3186,11 @@ public static
 	public static extern RPC_STATUS RpcNsBindingUnexportPnPW(uint32 EntryNameSyntax, uint16* EntryName, void* IfSpec, UUID_VECTOR* ObjectVector);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcNsBindingLookupBeginA(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, uint32 BindingMaxCount, void** LookupContext);
-	public static RPC_STATUS RpcNsBindingLookupBegin(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, uint32 BindingMaxCount, void** LookupContext) => RpcNsBindingLookupBeginA(EntryNameSyntax, EntryName, IfSpec, ref ObjUuid, BindingMaxCount, LookupContext);
+	public static extern RPC_STATUS RpcNsBindingLookupBeginA(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, Guid* ObjUuid, uint32 BindingMaxCount, void** LookupContext);
+	public static RPC_STATUS RpcNsBindingLookupBegin(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, Guid* ObjUuid, uint32 BindingMaxCount, void** LookupContext) => RpcNsBindingLookupBeginA(EntryNameSyntax, EntryName, IfSpec, ObjUuid, BindingMaxCount, LookupContext);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcNsBindingLookupBeginW(uint32 EntryNameSyntax, uint16* EntryName, void* IfSpec, ref Guid ObjUuid, uint32 BindingMaxCount, void** LookupContext);
+	public static extern RPC_STATUS RpcNsBindingLookupBeginW(uint32 EntryNameSyntax, uint16* EntryName, void* IfSpec, Guid* ObjUuid, uint32 BindingMaxCount, void** LookupContext);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcNsBindingLookupNext(void* LookupContext, RPC_BINDING_VECTOR** BindingVec);
@@ -3282,7 +3282,7 @@ public static
 	public static extern RPC_STATUS RpcNsEntryObjectInqBeginW(uint32 EntryNameSyntax, uint16* EntryName, void** InquiryContext);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcNsEntryObjectInqNext(void* InquiryContext, ref Guid ObjUuid);
+	public static extern RPC_STATUS RpcNsEntryObjectInqNext(void* InquiryContext, Guid* ObjUuid);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcNsEntryObjectInqDone(void** InquiryContext);
@@ -3332,11 +3332,11 @@ public static
 	public static extern RPC_STATUS RpcNsMgmtEntryInqIfIdsW(uint32 EntryNameSyntax, uint16* EntryName, RPC_IF_ID_VECTOR** IfIdVec);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcNsBindingImportBeginA(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, void** ImportContext);
-	public static RPC_STATUS RpcNsBindingImportBegin(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, ref Guid ObjUuid, void** ImportContext) => RpcNsBindingImportBeginA(EntryNameSyntax, EntryName, IfSpec, ref ObjUuid, ImportContext);
+	public static extern RPC_STATUS RpcNsBindingImportBeginA(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, Guid* ObjUuid, void** ImportContext);
+	public static RPC_STATUS RpcNsBindingImportBegin(uint32 EntryNameSyntax, uint8* EntryName, void* IfSpec, Guid* ObjUuid, void** ImportContext) => RpcNsBindingImportBeginA(EntryNameSyntax, EntryName, IfSpec, ObjUuid, ImportContext);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern RPC_STATUS RpcNsBindingImportBeginW(uint32 EntryNameSyntax, uint16* EntryName, void* IfSpec, ref Guid ObjUuid, void** ImportContext);
+	public static extern RPC_STATUS RpcNsBindingImportBeginW(uint32 EntryNameSyntax, uint16* EntryName, void* IfSpec, Guid* ObjUuid, void** ImportContext);
 
 	[Import("RPCNS4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern RPC_STATUS RpcNsBindingImportNext(void* ImportContext, void** Binding);
@@ -4027,22 +4027,22 @@ public static
 	public static extern void NdrMesSimpleTypeDecode(void* Handle, void* pObject, int16 Size);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesSimpleTypeEncode(void* Handle, MIDL_STUB_DESC* pStubDesc, void* pObject, int16 Size);
+	public static extern void NdrMesSimpleTypeEncode(void* Handle, MIDL_STUB_DESC* pStubDesc, in void pObject, int16 Size);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint NdrMesTypeAlignSize(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
+	public static extern uint NdrMesTypeAlignSize(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, in void pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesTypeEncode(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
+	public static extern void NdrMesTypeEncode(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, in void pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void NdrMesTypeDecode(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint NdrMesTypeAlignSize2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
+	public static extern uint NdrMesTypeAlignSize2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, in void pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesTypeEncode2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
+	public static extern void NdrMesTypeEncode2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, in void pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void NdrMesTypeDecode2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
@@ -4057,10 +4057,10 @@ public static
 	public static extern CLIENT_CALL_RETURN NdrMesProcEncodeDecode2(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint NdrMesTypeAlignSize3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, void* pObject);
+	public static extern uint NdrMesTypeAlignSize3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, in void pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesTypeEncode3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, void* pObject);
+	public static extern void NdrMesTypeEncode3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, in void pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void NdrMesTypeDecode3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, void* pObject);
@@ -4075,7 +4075,7 @@ public static
 	public static extern void NdrMesSimpleTypeDecodeAll(void* Handle, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, void* pObject, int16 Size);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesSimpleTypeEncodeAll(void* Handle, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, void* pObject, int16 Size);
+	public static extern void NdrMesSimpleTypeEncodeAll(void* Handle, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, in void pObject, int16 Size);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint NdrMesSimpleTypeAlignSizeAll(void* Handle, MIDL_STUBLESS_PROXY_INFO* pProxyInfo);

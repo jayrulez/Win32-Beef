@@ -15,7 +15,7 @@ namespace Win32.System.WinRT.Composition;
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updateRect, ref Guid iid, void** updateObject, POINT* updateOffset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updateRect, in Guid iid, void** updateObject, POINT* updateOffset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SIZE sizePixels) Resize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* scrollRect, RECT* clipRect, int32 offsetX, int32 offsetY) Scroll;
@@ -24,7 +24,7 @@ namespace Win32.System.WinRT.Composition;
 	}
 
 
-	public HRESULT BeginDraw(RECT* updateRect, ref Guid iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, ref iid, updateObject, updateOffset);
+	public HRESULT BeginDraw(RECT* updateRect, in Guid iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 

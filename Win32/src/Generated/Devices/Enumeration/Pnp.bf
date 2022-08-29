@@ -543,11 +543,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFindData, IUPnPDevice* pDevice, ref Guid pguidInterface) DeviceAddedWithInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFindData, IUPnPDevice* pDevice, Guid* pguidInterface) DeviceAddedWithInterface;
 	}
 
 
-	public HRESULT DeviceAddedWithInterface(int32 lFindData, IUPnPDevice* pDevice, ref Guid pguidInterface) mut => VT.[Friend]DeviceAddedWithInterface(&this, lFindData, pDevice, ref pguidInterface);
+	public HRESULT DeviceAddedWithInterface(int32 lFindData, IUPnPDevice* pDevice, Guid* pguidInterface) mut => VT.[Friend]DeviceAddedWithInterface(&this, lFindData, pDevice, pguidInterface);
 }
 
 [CRepr]struct IUPnPDescriptionDocumentCallback : IUnknown
@@ -710,7 +710,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrValueName, uint32* pdwValue) GetDwordValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrValueName, BSTR* pbstrValue) GetStringValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrValueName, ref Guid pguidValue) GetGuidValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrValueName, Guid* pguidValue) GetGuidValue;
 	}
 
 
@@ -718,7 +718,7 @@ public static
 
 	public HRESULT GetStringValue(BSTR bstrValueName, BSTR* pbstrValue) mut => VT.[Friend]GetStringValue(&this, bstrValueName, pbstrValue);
 
-	public HRESULT GetGuidValue(BSTR bstrValueName, ref Guid pguidValue) mut => VT.[Friend]GetGuidValue(&this, bstrValueName, ref pguidValue);
+	public HRESULT GetGuidValue(BSTR bstrValueName, Guid* pguidValue) mut => VT.[Friend]GetGuidValue(&this, bstrValueName, pguidValue);
 }
 
 #endregion
@@ -742,7 +742,7 @@ public static
 	public static extern HRESULT SwDevicePropertySet(HSWDEVICE hSwDevice, uint32 cPropertyCount, DEVPROPERTY* pProperties);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SwDeviceInterfaceRegister(HSWDEVICE hSwDevice, ref Guid pInterfaceClassGuid, PWSTR pszReferenceString, uint32 cPropertyCount, DEVPROPERTY* pProperties, BOOL fEnabled, PWSTR* ppszDeviceInterfaceId);
+	public static extern HRESULT SwDeviceInterfaceRegister(HSWDEVICE hSwDevice, in Guid pInterfaceClassGuid, PWSTR pszReferenceString, uint32 cPropertyCount, DEVPROPERTY* pProperties, BOOL fEnabled, PWSTR* ppszDeviceInterfaceId);
 
 	[Import("CFGMGR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SwMemFree(void* pMem);

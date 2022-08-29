@@ -1159,7 +1159,7 @@ public function BOOL FREEOBJPROC(DRIVEROBJ* pDriverObj);
 
 public function void WNDOBJCHANGEPROC(WNDOBJ* pwo, uint32 fl);
 
-public function int32 SORTCOMP(void* pv1, void* pv2);
+public function int32 SORTCOMP(in void pv1, in void pv2);
 
 public function BOOL PFN_DrvEnableDriver(uint32 param0, uint32 param1, DRVENABLEDATA* param2);
 

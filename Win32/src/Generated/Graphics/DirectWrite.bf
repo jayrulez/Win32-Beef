@@ -3371,7 +3371,7 @@ public struct DWRITE_FONT_AXIS_RANGE
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* localFileSize) GetLocalFileSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 fileOffset, uint64 fragmentSize, BOOL* isLocal, uint64* partialSize) GetFileFragmentLocality;
 		protected new function [CallingConvention(.Stdcall)] DWRITE_LOCALITY(SelfOuter* self) GetLocality;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid downloadOperationID, DWRITE_FILE_FRAGMENT* fileFragments, uint32 fragmentCount, IDWriteAsyncResult** asyncResult) BeginDownload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid downloadOperationID, DWRITE_FILE_FRAGMENT* fileFragments, uint32 fragmentCount, IDWriteAsyncResult** asyncResult) BeginDownload;
 	}
 
 
@@ -3381,7 +3381,7 @@ public struct DWRITE_FONT_AXIS_RANGE
 
 	public DWRITE_LOCALITY GetLocality() mut => VT.[Friend]GetLocality(&this);
 
-	public HRESULT BeginDownload(ref Guid downloadOperationID, DWRITE_FILE_FRAGMENT* fileFragments, uint32 fragmentCount, IDWriteAsyncResult** asyncResult) mut => VT.[Friend]BeginDownload(&this, ref downloadOperationID, fileFragments, fragmentCount, asyncResult);
+	public HRESULT BeginDownload(in Guid downloadOperationID, DWRITE_FILE_FRAGMENT* fileFragments, uint32 fragmentCount, IDWriteAsyncResult** asyncResult) mut => VT.[Friend]BeginDownload(&this, downloadOperationID, fileFragments, fragmentCount, asyncResult);
 }
 
 [CRepr]struct IDWriteRemoteFontFileLoader : IDWriteFontFileLoader
@@ -3867,7 +3867,7 @@ public struct DWRITE_FONT_AXIS_RANGE
 public static
 {
 	[Import("DWrite.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DWriteCreateFactory(DWRITE_FACTORY_TYPE factoryType, ref Guid iid, IUnknown** factory);
+	public static extern HRESULT DWriteCreateFactory(DWRITE_FACTORY_TYPE factoryType, in Guid iid, IUnknown** factory);
 
 }
 #endregion

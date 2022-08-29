@@ -139,14 +139,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, ref Guid pguidInstanceID) AddGame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, Guid* pguidInstanceID) AddGame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidInstanceID) RemoveGame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidInstanceID) UpdateGame;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGDFBinaryPath, BOOL* pfHasAccess) VerifyAccess;
 	}
 
 
-	public HRESULT AddGame(BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, ref Guid pguidInstanceID) mut => VT.[Friend]AddGame(&this, bstrGDFBinaryPath, bstrGameInstallDirectory, installScope, ref pguidInstanceID);
+	public HRESULT AddGame(BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, Guid* pguidInstanceID) mut => VT.[Friend]AddGame(&this, bstrGDFBinaryPath, bstrGameInstallDirectory, installScope, pguidInstanceID);
 
 	public HRESULT RemoveGame(Guid guidInstanceID) mut => VT.[Friend]RemoveGame(&this, guidInstanceID);
 

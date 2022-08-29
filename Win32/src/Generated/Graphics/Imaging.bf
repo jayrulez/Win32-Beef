@@ -1160,7 +1160,7 @@ public struct WICMetadataHeader
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiWidth, uint32* puiHeight) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pPixelFormat) GetPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pPixelFormat) GetPixelFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pDpiX, double* pDpiY) GetResolution;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICPalette* pIPalette) CopyPalette;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WICRect* prc, uint32 cbStride, uint32 cbBufferSize, uint8* pbBuffer) CopyPixels;
@@ -1169,7 +1169,7 @@ public struct WICMetadataHeader
 
 	public HRESULT GetSize(uint32* puiWidth, uint32* puiHeight) mut => VT.[Friend]GetSize(&this, puiWidth, puiHeight);
 
-	public HRESULT GetPixelFormat(ref Guid pPixelFormat) mut => VT.[Friend]GetPixelFormat(&this, ref pPixelFormat);
+	public HRESULT GetPixelFormat(Guid* pPixelFormat) mut => VT.[Friend]GetPixelFormat(&this, pPixelFormat);
 
 	public HRESULT GetResolution(double* pDpiX, double* pDpiY) mut => VT.[Friend]GetResolution(&this, pDpiX, pDpiY);
 
@@ -1186,14 +1186,14 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IWICBitmapSource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource* pISource, ref Guid dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid srcPixelFormat, ref Guid dstPixelFormat, BOOL* pfCanConvert) CanConvert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource* pISource, Guid* dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* srcPixelFormat, Guid* dstPixelFormat, BOOL* pfCanConvert) CanConvert;
 	}
 
 
-	public HRESULT Initialize(IWICBitmapSource* pISource, ref Guid dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) mut => VT.[Friend]Initialize(&this, pISource, ref dstFormat, dither, pIPalette, alphaThresholdPercent, paletteTranslate);
+	public HRESULT Initialize(IWICBitmapSource* pISource, Guid* dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) mut => VT.[Friend]Initialize(&this, pISource, dstFormat, dither, pIPalette, alphaThresholdPercent, paletteTranslate);
 
-	public HRESULT CanConvert(ref Guid srcPixelFormat, ref Guid dstPixelFormat, BOOL* pfCanConvert) mut => VT.[Friend]CanConvert(&this, ref srcPixelFormat, ref dstPixelFormat, pfCanConvert);
+	public HRESULT CanConvert(Guid* srcPixelFormat, Guid* dstPixelFormat, BOOL* pfCanConvert) mut => VT.[Friend]CanConvert(&this, srcPixelFormat, dstPixelFormat, pfCanConvert);
 }
 
 [CRepr]struct IWICPlanarFormatConverter : IWICBitmapSource
@@ -1204,14 +1204,14 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IWICBitmapSource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource** ppPlanes, uint32 cPlanes, ref Guid dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pSrcPixelFormats, uint32 cSrcPlanes, ref Guid dstPixelFormat, BOOL* pfCanConvert) CanConvert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource** ppPlanes, uint32 cPlanes, Guid* dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pSrcPixelFormats, uint32 cSrcPlanes, Guid* dstPixelFormat, BOOL* pfCanConvert) CanConvert;
 	}
 
 
-	public HRESULT Initialize(IWICBitmapSource** ppPlanes, uint32 cPlanes, ref Guid dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) mut => VT.[Friend]Initialize(&this, ppPlanes, cPlanes, ref dstFormat, dither, pIPalette, alphaThresholdPercent, paletteTranslate);
+	public HRESULT Initialize(IWICBitmapSource** ppPlanes, uint32 cPlanes, Guid* dstFormat, WICBitmapDitherType dither, IWICPalette* pIPalette, double alphaThresholdPercent, WICBitmapPaletteType paletteTranslate) mut => VT.[Friend]Initialize(&this, ppPlanes, cPlanes, dstFormat, dither, pIPalette, alphaThresholdPercent, paletteTranslate);
 
-	public HRESULT CanConvert(Guid* pSrcPixelFormats, uint32 cSrcPlanes, ref Guid dstPixelFormat, BOOL* pfCanConvert) mut => VT.[Friend]CanConvert(&this, pSrcPixelFormats, cSrcPlanes, ref dstPixelFormat, pfCanConvert);
+	public HRESULT CanConvert(Guid* pSrcPixelFormats, uint32 cSrcPlanes, Guid* dstPixelFormat, BOOL* pfCanConvert) mut => VT.[Friend]CanConvert(&this, pSrcPixelFormats, cSrcPlanes, dstPixelFormat, pfCanConvert);
 }
 
 [CRepr]struct IWICBitmapScaler : IWICBitmapSource
@@ -1270,7 +1270,7 @@ public struct WICMetadataHeader
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiWidth, uint32* puiHeight) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbStride) GetStride;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbBufferSize, uint8** ppbData) GetDataPointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pPixelFormat) GetPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pPixelFormat) GetPixelFormat;
 	}
 
 
@@ -1280,7 +1280,7 @@ public struct WICMetadataHeader
 
 	public HRESULT GetDataPointer(uint32* pcbBufferSize, uint8** ppbData) mut => VT.[Friend]GetDataPointer(&this, pcbBufferSize, ppbData);
 
-	public HRESULT GetPixelFormat(ref Guid pPixelFormat) mut => VT.[Friend]GetPixelFormat(&this, ref pPixelFormat);
+	public HRESULT GetPixelFormat(Guid* pPixelFormat) mut => VT.[Friend]GetPixelFormat(&this, pPixelFormat);
 }
 
 [CRepr]struct IWICBitmap : IWICBitmapSource
@@ -1342,11 +1342,11 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IWICBitmapSource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource* pIBitmapSource, IWICColorContext* pIContextSource, IWICColorContext* pIContextDest, ref Guid pixelFmtDest) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource* pIBitmapSource, IWICColorContext* pIContextSource, IWICColorContext* pIContextDest, Guid* pixelFmtDest) Initialize;
 	}
 
 
-	public HRESULT Initialize(IWICBitmapSource* pIBitmapSource, IWICColorContext* pIContextSource, IWICColorContext* pIContextDest, ref Guid pixelFmtDest) mut => VT.[Friend]Initialize(&this, pIBitmapSource, pIContextSource, pIContextDest, ref pixelFmtDest);
+	public HRESULT Initialize(IWICBitmapSource* pIBitmapSource, IWICColorContext* pIContextSource, IWICColorContext* pIContextDest, Guid* pixelFmtDest) mut => VT.[Friend]Initialize(&this, pIBitmapSource, pIContextSource, pIContextDest, pixelFmtDest);
 }
 
 [CRepr]struct IWICFastMetadataEncoder : IUnknown
@@ -1423,14 +1423,14 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidContainerFormat) GetContainerFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidContainerFormat) GetContainerFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchMaxLength, char16* wzNamespace, uint32* pcchActualLength) GetLocation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wzName, PROPVARIANT* pvarValue) GetMetadataByName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumString** ppIEnumString) GetEnumerator;
 	}
 
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
+	public HRESULT GetContainerFormat(Guid* pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
 
 	public HRESULT GetLocation(uint32 cchMaxLength, char16* wzNamespace, uint32* pcchActualLength) mut => VT.[Friend]GetLocation(&this, cchMaxLength, wzNamespace, pcchActualLength);
 
@@ -1466,7 +1466,7 @@ public struct WICMetadataHeader
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pIStream, WICBitmapEncoderCacheOption cacheOption) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidContainerFormat) GetContainerFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidContainerFormat) GetContainerFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapEncoderInfo** ppIEncoderInfo) GetEncoderInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cCount, IWICColorContext** ppIColorContext) SetColorContexts;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICPalette* pIPalette) SetPalette;
@@ -1480,7 +1480,7 @@ public struct WICMetadataHeader
 
 	public HRESULT Initialize(IStream* pIStream, WICBitmapEncoderCacheOption cacheOption) mut => VT.[Friend]Initialize(&this, pIStream, cacheOption);
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
+	public HRESULT GetContainerFormat(Guid* pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
 
 	public HRESULT GetEncoderInfo(IWICBitmapEncoderInfo** ppIEncoderInfo) mut => VT.[Friend]GetEncoderInfo(&this, ppIEncoderInfo);
 
@@ -1510,7 +1510,7 @@ public struct WICMetadataHeader
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyBag2* pIEncoderOptions) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiWidth, uint32 uiHeight) SetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double dpiX, double dpiY) SetResolution;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pPixelFormat) SetPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pPixelFormat) SetPixelFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cCount, IWICColorContext** ppIColorContext) SetColorContexts;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICPalette* pIPalette) SetPalette;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource* pIThumbnail) SetThumbnail;
@@ -1527,7 +1527,7 @@ public struct WICMetadataHeader
 
 	public HRESULT SetResolution(double dpiX, double dpiY) mut => VT.[Friend]SetResolution(&this, dpiX, dpiY);
 
-	public HRESULT SetPixelFormat(ref Guid pPixelFormat) mut => VT.[Friend]SetPixelFormat(&this, ref pPixelFormat);
+	public HRESULT SetPixelFormat(Guid* pPixelFormat) mut => VT.[Friend]SetPixelFormat(&this, pPixelFormat);
 
 	public HRESULT SetColorContexts(uint32 cCount, IWICColorContext** ppIColorContext) mut => VT.[Friend]SetColorContexts(&this, cCount, ppIColorContext);
 
@@ -1572,7 +1572,7 @@ public struct WICMetadataHeader
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pIStream, uint32* pdwCapability) QueryCapability;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pIStream, WICDecodeOptions cacheOptions) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidContainerFormat) GetContainerFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidContainerFormat) GetContainerFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapDecoderInfo** ppIDecoderInfo) GetDecoderInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICPalette* pIPalette) CopyPalette;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataQueryReader** ppIMetadataQueryReader) GetMetadataQueryReader;
@@ -1588,7 +1588,7 @@ public struct WICMetadataHeader
 
 	public HRESULT Initialize(IStream* pIStream, WICDecodeOptions cacheOptions) mut => VT.[Friend]Initialize(&this, pIStream, cacheOptions);
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
+	public HRESULT GetContainerFormat(Guid* pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
 
 	public HRESULT GetDecoderInfo(IWICBitmapDecoderInfo** ppIDecoderInfo) mut => VT.[Friend]GetDecoderInfo(&this, ppIDecoderInfo);
 
@@ -1615,18 +1615,18 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WICRect* prc, uint32 uiWidth, uint32 uiHeight, ref Guid pguidDstFormat, WICBitmapTransformOptions dstTransform, uint32 nStride, uint32 cbBufferSize, uint8* pbBuffer) CopyPixels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WICRect* prc, uint32 uiWidth, uint32 uiHeight, Guid* pguidDstFormat, WICBitmapTransformOptions dstTransform, uint32 nStride, uint32 cbBufferSize, uint8* pbBuffer) CopyPixels;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiWidth, uint32* puiHeight) GetClosestSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidDstFormat) GetClosestPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidDstFormat) GetClosestPixelFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WICBitmapTransformOptions dstTransform, BOOL* pfIsSupported) DoesSupportTransform;
 	}
 
 
-	public HRESULT CopyPixels(WICRect* prc, uint32 uiWidth, uint32 uiHeight, ref Guid pguidDstFormat, WICBitmapTransformOptions dstTransform, uint32 nStride, uint32 cbBufferSize, uint8* pbBuffer) mut => VT.[Friend]CopyPixels(&this, prc, uiWidth, uiHeight, ref pguidDstFormat, dstTransform, nStride, cbBufferSize, pbBuffer);
+	public HRESULT CopyPixels(WICRect* prc, uint32 uiWidth, uint32 uiHeight, Guid* pguidDstFormat, WICBitmapTransformOptions dstTransform, uint32 nStride, uint32 cbBufferSize, uint8* pbBuffer) mut => VT.[Friend]CopyPixels(&this, prc, uiWidth, uiHeight, pguidDstFormat, dstTransform, nStride, cbBufferSize, pbBuffer);
 
 	public HRESULT GetClosestSize(uint32* puiWidth, uint32* puiHeight) mut => VT.[Friend]GetClosestSize(&this, puiWidth, puiHeight);
 
-	public HRESULT GetClosestPixelFormat(ref Guid pguidDstFormat) mut => VT.[Friend]GetClosestPixelFormat(&this, ref pguidDstFormat);
+	public HRESULT GetClosestPixelFormat(Guid* pguidDstFormat) mut => VT.[Friend]GetClosestPixelFormat(&this, pguidDstFormat);
 
 	public HRESULT DoesSupportTransform(WICBitmapTransformOptions dstTransform, BOOL* pfIsSupported) mut => VT.[Friend]DoesSupportTransform(&this, dstTransform, pfIsSupported);
 }
@@ -1730,10 +1730,10 @@ public struct WICMetadataHeader
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WICComponentType* pType) GetComponentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pclsid) GetCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pclsid) GetCLSID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pStatus) GetSigningStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchAuthor, char16* wzAuthor, uint32* pcchActual) GetAuthor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidVendor) GetVendorGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidVendor) GetVendorGUID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchVersion, char16* wzVersion, uint32* pcchActual) GetVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchSpecVersion, char16* wzSpecVersion, uint32* pcchActual) GetSpecVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchFriendlyName, char16* wzFriendlyName, uint32* pcchActual) GetFriendlyName;
@@ -1742,13 +1742,13 @@ public struct WICMetadataHeader
 
 	public HRESULT GetComponentType(WICComponentType* pType) mut => VT.[Friend]GetComponentType(&this, pType);
 
-	public HRESULT GetCLSID(ref Guid pclsid) mut => VT.[Friend]GetCLSID(&this, ref pclsid);
+	public HRESULT GetCLSID(Guid* pclsid) mut => VT.[Friend]GetCLSID(&this, pclsid);
 
 	public HRESULT GetSigningStatus(uint32* pStatus) mut => VT.[Friend]GetSigningStatus(&this, pStatus);
 
 	public HRESULT GetAuthor(uint32 cchAuthor, char16* wzAuthor, uint32* pcchActual) mut => VT.[Friend]GetAuthor(&this, cchAuthor, wzAuthor, pcchActual);
 
-	public HRESULT GetVendorGUID(ref Guid pguidVendor) mut => VT.[Friend]GetVendorGUID(&this, ref pguidVendor);
+	public HRESULT GetVendorGUID(Guid* pguidVendor) mut => VT.[Friend]GetVendorGUID(&this, pguidVendor);
 
 	public HRESULT GetVersion(uint32 cchVersion, char16* wzVersion, uint32* pcchActual) mut => VT.[Friend]GetVersion(&this, cchVersion, wzVersion, pcchActual);
 
@@ -1783,7 +1783,7 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IWICComponentInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidContainerFormat) GetContainerFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidContainerFormat) GetContainerFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFormats, Guid* pguidPixelFormats, uint32* pcActual) GetPixelFormats;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchColorManagementVersion, char16* wzColorManagementVersion, uint32* pcchActual) GetColorManagementVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchDeviceManufacturer, char16* wzDeviceManufacturer, uint32* pcchActual) GetDeviceManufacturer;
@@ -1798,7 +1798,7 @@ public struct WICMetadataHeader
 	}
 
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
+	public HRESULT GetContainerFormat(Guid* pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
 
 	public HRESULT GetPixelFormats(uint32 cFormats, Guid* pguidPixelFormats, uint32* pcActual) mut => VT.[Friend]GetPixelFormats(&this, cFormats, pguidPixelFormats, pcActual);
 
@@ -1867,7 +1867,7 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IWICComponentInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pFormat) GetFormatGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pFormat) GetFormatGUID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICColorContext** ppIColorContext) GetColorContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiBitsPerPixel) GetBitsPerPixel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiChannelCount) GetChannelCount;
@@ -1875,7 +1875,7 @@ public struct WICMetadataHeader
 	}
 
 
-	public HRESULT GetFormatGUID(ref Guid pFormat) mut => VT.[Friend]GetFormatGUID(&this, ref pFormat);
+	public HRESULT GetFormatGUID(Guid* pFormat) mut => VT.[Friend]GetFormatGUID(&this, pFormat);
 
 	public HRESULT GetColorContext(IWICColorContext** ppIColorContext) mut => VT.[Friend]GetColorContext(&this, ppIColorContext);
 
@@ -1912,12 +1912,12 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wzFilename, ref Guid pguidVendor, uint32 dwDesiredAccess, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) CreateDecoderFromFilename;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pIStream, ref Guid pguidVendor, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) CreateDecoderFromStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hFile, ref Guid pguidVendor, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) CreateDecoderFromFileHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsidComponent, IWICComponentInfo** ppIInfo) CreateComponentInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidContainerFormat, ref Guid pguidVendor, IWICBitmapDecoder** ppIDecoder) CreateDecoder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidContainerFormat, ref Guid pguidVendor, IWICBitmapEncoder** ppIEncoder) CreateEncoder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wzFilename, in Guid pguidVendor, uint32 dwDesiredAccess, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) CreateDecoderFromFilename;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pIStream, in Guid pguidVendor, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) CreateDecoderFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hFile, in Guid pguidVendor, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) CreateDecoderFromFileHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid clsidComponent, IWICComponentInfo** ppIInfo) CreateComponentInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidContainerFormat, in Guid pguidVendor, IWICBitmapDecoder** ppIDecoder) CreateDecoder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidContainerFormat, in Guid pguidVendor, IWICBitmapEncoder** ppIEncoder) CreateEncoder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICPalette** ppIPalette) CreatePalette;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICFormatConverter** ppIFormatConverter) CreateFormatConverter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapScaler** ppIBitmapScaler) CreateBitmapScaler;
@@ -1926,31 +1926,31 @@ public struct WICMetadataHeader
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICStream** ppIWICStream) CreateStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICColorContext** ppIWICColorContext) CreateColorContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICColorTransform** ppIWICColorTransform) CreateColorTransformer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiWidth, uint32 uiHeight, ref Guid pixelFormat, WICBitmapCreateCacheOption option, IWICBitmap** ppIBitmap) CreateBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiWidth, uint32 uiHeight, Guid* pixelFormat, WICBitmapCreateCacheOption option, IWICBitmap** ppIBitmap) CreateBitmap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource* pIBitmapSource, WICBitmapCreateCacheOption option, IWICBitmap** ppIBitmap) CreateBitmapFromSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapSource* pIBitmapSource, uint32 x, uint32 y, uint32 width, uint32 height, IWICBitmap** ppIBitmap) CreateBitmapFromSourceRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiWidth, uint32 uiHeight, ref Guid pixelFormat, uint32 cbStride, uint32 cbBufferSize, uint8* pbBuffer, IWICBitmap** ppIBitmap) CreateBitmapFromMemory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiWidth, uint32 uiHeight, Guid* pixelFormat, uint32 cbStride, uint32 cbBufferSize, uint8* pbBuffer, IWICBitmap** ppIBitmap) CreateBitmapFromMemory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hBitmap, HPALETTE hPalette, WICBitmapAlphaChannelOption options, IWICBitmap** ppIBitmap) CreateBitmapFromHBITMAP;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HICON hIcon, IWICBitmap** ppIBitmap) CreateBitmapFromHICON;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 componentTypes, uint32 options, IEnumUnknown** ppIEnumUnknown) CreateComponentEnumerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapDecoder* pIDecoder, IWICFastMetadataEncoder** ppIFastEncoder) CreateFastMetadataEncoderFromDecoder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmapFrameDecode* pIFrameDecoder, IWICFastMetadataEncoder** ppIFastEncoder) CreateFastMetadataEncoderFromFrameDecode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidMetadataFormat, ref Guid pguidVendor, IWICMetadataQueryWriter** ppIQueryWriter) CreateQueryWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataQueryReader* pIQueryReader, ref Guid pguidVendor, IWICMetadataQueryWriter** ppIQueryWriter) CreateQueryWriterFromReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidMetadataFormat, in Guid pguidVendor, IWICMetadataQueryWriter** ppIQueryWriter) CreateQueryWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataQueryReader* pIQueryReader, in Guid pguidVendor, IWICMetadataQueryWriter** ppIQueryWriter) CreateQueryWriterFromReader;
 	}
 
 
-	public HRESULT CreateDecoderFromFilename(PWSTR wzFilename, ref Guid pguidVendor, uint32 dwDesiredAccess, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) mut => VT.[Friend]CreateDecoderFromFilename(&this, wzFilename, ref pguidVendor, dwDesiredAccess, metadataOptions, ppIDecoder);
+	public HRESULT CreateDecoderFromFilename(PWSTR wzFilename, in Guid pguidVendor, uint32 dwDesiredAccess, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) mut => VT.[Friend]CreateDecoderFromFilename(&this, wzFilename, pguidVendor, dwDesiredAccess, metadataOptions, ppIDecoder);
 
-	public HRESULT CreateDecoderFromStream(IStream* pIStream, ref Guid pguidVendor, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) mut => VT.[Friend]CreateDecoderFromStream(&this, pIStream, ref pguidVendor, metadataOptions, ppIDecoder);
+	public HRESULT CreateDecoderFromStream(IStream* pIStream, in Guid pguidVendor, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) mut => VT.[Friend]CreateDecoderFromStream(&this, pIStream, pguidVendor, metadataOptions, ppIDecoder);
 
-	public HRESULT CreateDecoderFromFileHandle(uint hFile, ref Guid pguidVendor, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) mut => VT.[Friend]CreateDecoderFromFileHandle(&this, hFile, ref pguidVendor, metadataOptions, ppIDecoder);
+	public HRESULT CreateDecoderFromFileHandle(uint hFile, in Guid pguidVendor, WICDecodeOptions metadataOptions, IWICBitmapDecoder** ppIDecoder) mut => VT.[Friend]CreateDecoderFromFileHandle(&this, hFile, pguidVendor, metadataOptions, ppIDecoder);
 
-	public HRESULT CreateComponentInfo(ref Guid clsidComponent, IWICComponentInfo** ppIInfo) mut => VT.[Friend]CreateComponentInfo(&this, ref clsidComponent, ppIInfo);
+	public HRESULT CreateComponentInfo(in Guid clsidComponent, IWICComponentInfo** ppIInfo) mut => VT.[Friend]CreateComponentInfo(&this, clsidComponent, ppIInfo);
 
-	public HRESULT CreateDecoder(ref Guid guidContainerFormat, ref Guid pguidVendor, IWICBitmapDecoder** ppIDecoder) mut => VT.[Friend]CreateDecoder(&this, ref guidContainerFormat, ref pguidVendor, ppIDecoder);
+	public HRESULT CreateDecoder(in Guid guidContainerFormat, in Guid pguidVendor, IWICBitmapDecoder** ppIDecoder) mut => VT.[Friend]CreateDecoder(&this, guidContainerFormat, pguidVendor, ppIDecoder);
 
-	public HRESULT CreateEncoder(ref Guid guidContainerFormat, ref Guid pguidVendor, IWICBitmapEncoder** ppIEncoder) mut => VT.[Friend]CreateEncoder(&this, ref guidContainerFormat, ref pguidVendor, ppIEncoder);
+	public HRESULT CreateEncoder(in Guid guidContainerFormat, in Guid pguidVendor, IWICBitmapEncoder** ppIEncoder) mut => VT.[Friend]CreateEncoder(&this, guidContainerFormat, pguidVendor, ppIEncoder);
 
 	public HRESULT CreatePalette(IWICPalette** ppIPalette) mut => VT.[Friend]CreatePalette(&this, ppIPalette);
 
@@ -1968,13 +1968,13 @@ public struct WICMetadataHeader
 
 	public HRESULT CreateColorTransformer(IWICColorTransform** ppIWICColorTransform) mut => VT.[Friend]CreateColorTransformer(&this, ppIWICColorTransform);
 
-	public HRESULT CreateBitmap(uint32 uiWidth, uint32 uiHeight, ref Guid pixelFormat, WICBitmapCreateCacheOption option, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmap(&this, uiWidth, uiHeight, ref pixelFormat, option, ppIBitmap);
+	public HRESULT CreateBitmap(uint32 uiWidth, uint32 uiHeight, Guid* pixelFormat, WICBitmapCreateCacheOption option, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmap(&this, uiWidth, uiHeight, pixelFormat, option, ppIBitmap);
 
 	public HRESULT CreateBitmapFromSource(IWICBitmapSource* pIBitmapSource, WICBitmapCreateCacheOption option, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromSource(&this, pIBitmapSource, option, ppIBitmap);
 
 	public HRESULT CreateBitmapFromSourceRect(IWICBitmapSource* pIBitmapSource, uint32 x, uint32 y, uint32 width, uint32 height, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromSourceRect(&this, pIBitmapSource, x, y, width, height, ppIBitmap);
 
-	public HRESULT CreateBitmapFromMemory(uint32 uiWidth, uint32 uiHeight, ref Guid pixelFormat, uint32 cbStride, uint32 cbBufferSize, uint8* pbBuffer, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromMemory(&this, uiWidth, uiHeight, ref pixelFormat, cbStride, cbBufferSize, pbBuffer, ppIBitmap);
+	public HRESULT CreateBitmapFromMemory(uint32 uiWidth, uint32 uiHeight, Guid* pixelFormat, uint32 cbStride, uint32 cbBufferSize, uint8* pbBuffer, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromMemory(&this, uiWidth, uiHeight, pixelFormat, cbStride, cbBufferSize, pbBuffer, ppIBitmap);
 
 	public HRESULT CreateBitmapFromHBITMAP(HBITMAP hBitmap, HPALETTE hPalette, WICBitmapAlphaChannelOption options, IWICBitmap** ppIBitmap) mut => VT.[Friend]CreateBitmapFromHBITMAP(&this, hBitmap, hPalette, options, ppIBitmap);
 
@@ -1986,9 +1986,9 @@ public struct WICMetadataHeader
 
 	public HRESULT CreateFastMetadataEncoderFromFrameDecode(IWICBitmapFrameDecode* pIFrameDecoder, IWICFastMetadataEncoder** ppIFastEncoder) mut => VT.[Friend]CreateFastMetadataEncoderFromFrameDecode(&this, pIFrameDecoder, ppIFastEncoder);
 
-	public HRESULT CreateQueryWriter(ref Guid guidMetadataFormat, ref Guid pguidVendor, IWICMetadataQueryWriter** ppIQueryWriter) mut => VT.[Friend]CreateQueryWriter(&this, ref guidMetadataFormat, ref pguidVendor, ppIQueryWriter);
+	public HRESULT CreateQueryWriter(in Guid guidMetadataFormat, in Guid pguidVendor, IWICMetadataQueryWriter** ppIQueryWriter) mut => VT.[Friend]CreateQueryWriter(&this, guidMetadataFormat, pguidVendor, ppIQueryWriter);
 
-	public HRESULT CreateQueryWriterFromReader(IWICMetadataQueryReader* pIQueryReader, ref Guid pguidVendor, IWICMetadataQueryWriter** ppIQueryWriter) mut => VT.[Friend]CreateQueryWriterFromReader(&this, pIQueryReader, ref pguidVendor, ppIQueryWriter);
+	public HRESULT CreateQueryWriterFromReader(IWICMetadataQueryReader* pIQueryReader, in Guid pguidVendor, IWICMetadataQueryWriter** ppIQueryWriter) mut => VT.[Friend]CreateQueryWriterFromReader(&this, pIQueryReader, pguidVendor, ppIQueryWriter);
 }
 
 [CRepr]struct IWICDevelopRawNotificationCallback : IUnknown
@@ -2248,14 +2248,14 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidContainerFormat) GetContainerFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidContainerFormat) GetContainerFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcCount) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nIndex, IWICMetadataReader** ppIMetadataReader) GetReaderByIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumUnknown** ppIEnumMetadata) GetEnumerator;
 	}
 
 
-	public HRESULT GetContainerFormat(ref Guid pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, ref pguidContainerFormat);
+	public HRESULT GetContainerFormat(Guid* pguidContainerFormat) mut => VT.[Friend]GetContainerFormat(&this, pguidContainerFormat);
 
 	public HRESULT GetCount(uint32* pcCount) mut => VT.[Friend]GetCount(&this, pcCount);
 
@@ -2299,7 +2299,7 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidMetadataFormat) GetMetadataFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidMetadataFormat) GetMetadataFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataHandlerInfo** ppIHandler) GetMetadataHandlerInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcCount) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nIndex, PROPVARIANT* pvarSchema, PROPVARIANT* pvarId, PROPVARIANT* pvarValue) GetValueByIndex;
@@ -2308,7 +2308,7 @@ public struct WICMetadataHeader
 	}
 
 
-	public HRESULT GetMetadataFormat(ref Guid pguidMetadataFormat) mut => VT.[Friend]GetMetadataFormat(&this, ref pguidMetadataFormat);
+	public HRESULT GetMetadataFormat(Guid* pguidMetadataFormat) mut => VT.[Friend]GetMetadataFormat(&this, pguidMetadataFormat);
 
 	public HRESULT GetMetadataHandlerInfo(IWICMetadataHandlerInfo** ppIHandler) mut => VT.[Friend]GetMetadataHandlerInfo(&this, ppIHandler);
 
@@ -2355,7 +2355,7 @@ public struct WICMetadataHeader
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** ppIStream) GetStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwPersistOptions) GetPersistOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidPreferredVendor) GetPreferredVendorGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidPreferredVendor) GetPreferredVendorGUID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RefreshStream;
 	}
 
@@ -2364,7 +2364,7 @@ public struct WICMetadataHeader
 
 	public HRESULT GetPersistOptions(uint32* pdwPersistOptions) mut => VT.[Friend]GetPersistOptions(&this, pdwPersistOptions);
 
-	public HRESULT GetPreferredVendorGUID(ref Guid pguidPreferredVendor) mut => VT.[Friend]GetPreferredVendorGUID(&this, ref pguidPreferredVendor);
+	public HRESULT GetPreferredVendorGUID(Guid* pguidPreferredVendor) mut => VT.[Friend]GetPreferredVendorGUID(&this, pguidPreferredVendor);
 
 	public HRESULT RefreshStream() mut => VT.[Friend]RefreshStream(&this);
 }
@@ -2377,12 +2377,12 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IPersistStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pIStream, ref Guid pguidPreferredVendor, uint32 dwPersistOptions) LoadEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pIStream, in Guid pguidPreferredVendor, uint32 dwPersistOptions) LoadEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pIStream, uint32 dwPersistOptions, BOOL fClearDirty) SaveEx;
 	}
 
 
-	public HRESULT LoadEx(IStream* pIStream, ref Guid pguidPreferredVendor, uint32 dwPersistOptions) mut => VT.[Friend]LoadEx(&this, pIStream, ref pguidPreferredVendor, dwPersistOptions);
+	public HRESULT LoadEx(IStream* pIStream, in Guid pguidPreferredVendor, uint32 dwPersistOptions) mut => VT.[Friend]LoadEx(&this, pIStream, pguidPreferredVendor, dwPersistOptions);
 
 	public HRESULT SaveEx(IStream* pIStream, uint32 dwPersistOptions, BOOL fClearDirty) mut => VT.[Friend]SaveEx(&this, pIStream, dwPersistOptions, fClearDirty);
 }
@@ -2395,7 +2395,7 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IWICComponentInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidMetadataFormat) GetMetadataFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidMetadataFormat) GetMetadataFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cContainerFormats, Guid* pguidContainerFormats, uint32* pcchActual) GetContainerFormats;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchDeviceManufacturer, char16* wzDeviceManufacturer, uint32* pcchActual) GetDeviceManufacturer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchDeviceModels, char16* wzDeviceModels, uint32* pcchActual) GetDeviceModels;
@@ -2405,7 +2405,7 @@ public struct WICMetadataHeader
 	}
 
 
-	public HRESULT GetMetadataFormat(ref Guid pguidMetadataFormat) mut => VT.[Friend]GetMetadataFormat(&this, ref pguidMetadataFormat);
+	public HRESULT GetMetadataFormat(Guid* pguidMetadataFormat) mut => VT.[Friend]GetMetadataFormat(&this, pguidMetadataFormat);
 
 	public HRESULT GetContainerFormats(uint32 cContainerFormats, Guid* pguidContainerFormats, uint32* pcchActual) mut => VT.[Friend]GetContainerFormats(&this, cContainerFormats, pguidContainerFormats, pcchActual);
 
@@ -2428,15 +2428,15 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IWICMetadataHandlerInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidContainerFormat, uint32 cbSize, WICMetadataPattern* pPattern, uint32* pcCount, uint32* pcbActual) GetPatterns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidContainerFormat, IStream* pIStream, BOOL* pfMatches) MatchesPattern;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidContainerFormat, uint32 cbSize, WICMetadataPattern* pPattern, uint32* pcCount, uint32* pcbActual) GetPatterns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidContainerFormat, IStream* pIStream, BOOL* pfMatches) MatchesPattern;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataReader** ppIReader) CreateInstance;
 	}
 
 
-	public HRESULT GetPatterns(ref Guid guidContainerFormat, uint32 cbSize, WICMetadataPattern* pPattern, uint32* pcCount, uint32* pcbActual) mut => VT.[Friend]GetPatterns(&this, ref guidContainerFormat, cbSize, pPattern, pcCount, pcbActual);
+	public HRESULT GetPatterns(in Guid guidContainerFormat, uint32 cbSize, WICMetadataPattern* pPattern, uint32* pcCount, uint32* pcbActual) mut => VT.[Friend]GetPatterns(&this, guidContainerFormat, cbSize, pPattern, pcCount, pcbActual);
 
-	public HRESULT MatchesPattern(ref Guid guidContainerFormat, IStream* pIStream, BOOL* pfMatches) mut => VT.[Friend]MatchesPattern(&this, ref guidContainerFormat, pIStream, pfMatches);
+	public HRESULT MatchesPattern(in Guid guidContainerFormat, IStream* pIStream, BOOL* pfMatches) mut => VT.[Friend]MatchesPattern(&this, guidContainerFormat, pIStream, pfMatches);
 
 	public HRESULT CreateInstance(IWICMetadataReader** ppIReader) mut => VT.[Friend]CreateInstance(&this, ppIReader);
 }
@@ -2449,12 +2449,12 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IWICMetadataHandlerInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidContainerFormat, uint32 cbSize, WICMetadataHeader* pHeader, uint32* pcbActual) GetHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidContainerFormat, uint32 cbSize, WICMetadataHeader* pHeader, uint32* pcbActual) GetHeader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataWriter** ppIWriter) CreateInstance;
 	}
 
 
-	public HRESULT GetHeader(ref Guid guidContainerFormat, uint32 cbSize, WICMetadataHeader* pHeader, uint32* pcbActual) mut => VT.[Friend]GetHeader(&this, ref guidContainerFormat, cbSize, pHeader, pcbActual);
+	public HRESULT GetHeader(in Guid guidContainerFormat, uint32 cbSize, WICMetadataHeader* pHeader, uint32* pcbActual) mut => VT.[Friend]GetHeader(&this, guidContainerFormat, cbSize, pHeader, pcbActual);
 
 	public HRESULT CreateInstance(IWICMetadataWriter** ppIWriter) mut => VT.[Friend]CreateInstance(&this, ppIWriter);
 }
@@ -2467,23 +2467,23 @@ public struct WICMetadataHeader
 
 	[CRepr]public struct VTable : IWICImagingFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidMetadataFormat, ref Guid pguidVendor, uint32 dwOptions, IStream* pIStream, IWICMetadataReader** ppIReader) CreateMetadataReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidContainerFormat, ref Guid pguidVendor, uint32 dwOptions, IStream* pIStream, IWICMetadataReader** ppIReader) CreateMetadataReaderFromContainer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidMetadataFormat, ref Guid pguidVendor, uint32 dwMetadataOptions, IWICMetadataWriter** ppIWriter) CreateMetadataWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataReader* pIReader, ref Guid pguidVendor, IWICMetadataWriter** ppIWriter) CreateMetadataWriterFromReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidMetadataFormat, in Guid pguidVendor, uint32 dwOptions, IStream* pIStream, IWICMetadataReader** ppIReader) CreateMetadataReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidContainerFormat, in Guid pguidVendor, uint32 dwOptions, IStream* pIStream, IWICMetadataReader** ppIReader) CreateMetadataReaderFromContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guidMetadataFormat, in Guid pguidVendor, uint32 dwMetadataOptions, IWICMetadataWriter** ppIWriter) CreateMetadataWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataReader* pIReader, in Guid pguidVendor, IWICMetadataWriter** ppIWriter) CreateMetadataWriterFromReader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataBlockReader* pIBlockReader, IWICMetadataQueryReader** ppIQueryReader) CreateQueryReaderFromBlockReader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICMetadataBlockWriter* pIBlockWriter, IWICMetadataQueryWriter** ppIQueryWriter) CreateQueryWriterFromBlockWriter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPBAG2* ppropOptions, uint32 cCount, IPropertyBag2** ppIPropertyBag) CreateEncoderPropertyBag;
 	}
 
 
-	public HRESULT CreateMetadataReader(ref Guid guidMetadataFormat, ref Guid pguidVendor, uint32 dwOptions, IStream* pIStream, IWICMetadataReader** ppIReader) mut => VT.[Friend]CreateMetadataReader(&this, ref guidMetadataFormat, ref pguidVendor, dwOptions, pIStream, ppIReader);
+	public HRESULT CreateMetadataReader(in Guid guidMetadataFormat, in Guid pguidVendor, uint32 dwOptions, IStream* pIStream, IWICMetadataReader** ppIReader) mut => VT.[Friend]CreateMetadataReader(&this, guidMetadataFormat, pguidVendor, dwOptions, pIStream, ppIReader);
 
-	public HRESULT CreateMetadataReaderFromContainer(ref Guid guidContainerFormat, ref Guid pguidVendor, uint32 dwOptions, IStream* pIStream, IWICMetadataReader** ppIReader) mut => VT.[Friend]CreateMetadataReaderFromContainer(&this, ref guidContainerFormat, ref pguidVendor, dwOptions, pIStream, ppIReader);
+	public HRESULT CreateMetadataReaderFromContainer(in Guid guidContainerFormat, in Guid pguidVendor, uint32 dwOptions, IStream* pIStream, IWICMetadataReader** ppIReader) mut => VT.[Friend]CreateMetadataReaderFromContainer(&this, guidContainerFormat, pguidVendor, dwOptions, pIStream, ppIReader);
 
-	public HRESULT CreateMetadataWriter(ref Guid guidMetadataFormat, ref Guid pguidVendor, uint32 dwMetadataOptions, IWICMetadataWriter** ppIWriter) mut => VT.[Friend]CreateMetadataWriter(&this, ref guidMetadataFormat, ref pguidVendor, dwMetadataOptions, ppIWriter);
+	public HRESULT CreateMetadataWriter(in Guid guidMetadataFormat, in Guid pguidVendor, uint32 dwMetadataOptions, IWICMetadataWriter** ppIWriter) mut => VT.[Friend]CreateMetadataWriter(&this, guidMetadataFormat, pguidVendor, dwMetadataOptions, ppIWriter);
 
-	public HRESULT CreateMetadataWriterFromReader(IWICMetadataReader* pIReader, ref Guid pguidVendor, IWICMetadataWriter** ppIWriter) mut => VT.[Friend]CreateMetadataWriterFromReader(&this, pIReader, ref pguidVendor, ppIWriter);
+	public HRESULT CreateMetadataWriterFromReader(IWICMetadataReader* pIReader, in Guid pguidVendor, IWICMetadataWriter** ppIWriter) mut => VT.[Friend]CreateMetadataWriterFromReader(&this, pIReader, pguidVendor, ppIWriter);
 
 	public HRESULT CreateQueryReaderFromBlockReader(IWICMetadataBlockReader* pIBlockReader, IWICMetadataQueryReader** ppIQueryReader) mut => VT.[Friend]CreateQueryReaderFromBlockReader(&this, pIBlockReader, ppIQueryReader);
 
@@ -2498,31 +2498,31 @@ public struct WICMetadataHeader
 public static
 {
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICConvertBitmapSource(ref Guid dstFormat, IWICBitmapSource* pISrc, IWICBitmapSource** ppIDst);
+	public static extern HRESULT WICConvertBitmapSource(Guid* dstFormat, IWICBitmapSource* pISrc, IWICBitmapSource** ppIDst);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICCreateBitmapFromSection(uint32 width, uint32 height, ref Guid pixelFormat, HANDLE hSection, uint32 stride, uint32 offset, IWICBitmap** ppIBitmap);
+	public static extern HRESULT WICCreateBitmapFromSection(uint32 width, uint32 height, Guid* pixelFormat, HANDLE hSection, uint32 stride, uint32 offset, IWICBitmap** ppIBitmap);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICCreateBitmapFromSectionEx(uint32 width, uint32 height, ref Guid pixelFormat, HANDLE hSection, uint32 stride, uint32 offset, WICSectionAccessLevel desiredAccessLevel, IWICBitmap** ppIBitmap);
+	public static extern HRESULT WICCreateBitmapFromSectionEx(uint32 width, uint32 height, Guid* pixelFormat, HANDLE hSection, uint32 stride, uint32 offset, WICSectionAccessLevel desiredAccessLevel, IWICBitmap** ppIBitmap);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICMapGuidToShortName(ref Guid guid, uint32 cchName, char16* wzName, uint32* pcchActual);
+	public static extern HRESULT WICMapGuidToShortName(in Guid guid, uint32 cchName, char16* wzName, uint32* pcchActual);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICMapShortNameToGuid(PWSTR wzName, ref Guid pguid);
+	public static extern HRESULT WICMapShortNameToGuid(PWSTR wzName, Guid* pguid);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICMapSchemaToName(ref Guid guidMetadataFormat, PWSTR pwzSchema, uint32 cchName, char16* wzName, uint32* pcchActual);
+	public static extern HRESULT WICMapSchemaToName(in Guid guidMetadataFormat, PWSTR pwzSchema, uint32 cchName, char16* wzName, uint32* pcchActual);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICMatchMetadataContent(ref Guid guidContainerFormat, ref Guid pguidVendor, IStream* pIStream, ref Guid pguidMetadataFormat);
+	public static extern HRESULT WICMatchMetadataContent(in Guid guidContainerFormat, Guid* pguidVendor, IStream* pIStream, Guid* pguidMetadataFormat);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICSerializeMetadataContent(ref Guid guidContainerFormat, IWICMetadataWriter* pIWriter, uint32 dwPersistOptions, IStream* pIStream);
+	public static extern HRESULT WICSerializeMetadataContent(in Guid guidContainerFormat, IWICMetadataWriter* pIWriter, uint32 dwPersistOptions, IStream* pIStream);
 
 	[Import("WindowsCodecs.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WICGetMetadataContentSize(ref Guid guidContainerFormat, IWICMetadataWriter* pIWriter, ULARGE_INTEGER* pcbSize);
+	public static extern HRESULT WICGetMetadataContentSize(in Guid guidContainerFormat, IWICMetadataWriter* pIWriter, ULARGE_INTEGER* pcbSize);
 
 }
 #endregion

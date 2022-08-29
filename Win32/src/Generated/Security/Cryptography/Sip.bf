@@ -40,9 +40,9 @@ public function BOOL pCryptSIPVerifyIndirectData(SIP_SUBJECTINFO* pSubjectInfo, 
 
 public function BOOL pCryptSIPRemoveSignedDataMsg(SIP_SUBJECTINFO* pSubjectInfo, uint32 dwIndex);
 
-public function BOOL pfnIsFileSupported(HANDLE hFile, ref Guid pgSubject);
+public function BOOL pfnIsFileSupported(HANDLE hFile, Guid* pgSubject);
 
-public function BOOL pfnIsFileSupportedName(PWSTR pwszFileName, ref Guid pgSubject);
+public function BOOL pfnIsFileSupportedName(PWSTR pwszFileName, Guid* pgSubject);
 
 public function BOOL pCryptSIPGetCaps(SIP_SUBJECTINFO* pSubjInfo, SIP_CAP_SET_V3* pCaps);
 
@@ -188,19 +188,19 @@ public static
 	public static extern BOOL CryptSIPRemoveSignedDataMsg(SIP_SUBJECTINFO* pSubjectInfo, uint32 dwIndex);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPLoad(ref Guid pgSubject, uint32 dwFlags, SIP_DISPATCH_INFO* pSipDispatch);
+	public static extern BOOL CryptSIPLoad(in Guid pgSubject, uint32 dwFlags, SIP_DISPATCH_INFO* pSipDispatch);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPRetrieveSubjectGuid(PWSTR FileName, HANDLE hFileIn, ref Guid pgSubject);
+	public static extern BOOL CryptSIPRetrieveSubjectGuid(PWSTR FileName, HANDLE hFileIn, Guid* pgSubject);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPRetrieveSubjectGuidForCatalogFile(PWSTR FileName, HANDLE hFileIn, ref Guid pgSubject);
+	public static extern BOOL CryptSIPRetrieveSubjectGuidForCatalogFile(PWSTR FileName, HANDLE hFileIn, Guid* pgSubject);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSIPAddProvider(SIP_ADD_NEWPROVIDER* psNewProv);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSIPRemoveProvider(ref Guid pgProv);
+	public static extern BOOL CryptSIPRemoveProvider(Guid* pgProv);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSIPGetCaps(SIP_SUBJECTINFO* pSubjInfo, SIP_CAP_SET_V3* pCaps);

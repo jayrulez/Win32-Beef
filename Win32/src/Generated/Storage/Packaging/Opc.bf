@@ -703,7 +703,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSigningOptions** signingOptions) CreateSigningOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcDigitalSignature* signature, CERT_CONTEXT* certificate, OPC_SIGNATURE_VALIDATION_RESULT* validationResult) Validate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CERT_CONTEXT* certificate, IOpcSigningOptions* signingOptions, IOpcDigitalSignature** digitalSignature) Sign;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* signaturePartName, uint8* newSignatureXml, uint32 count, IOpcDigitalSignature** digitalSignature) ReplaceSignatureXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* signaturePartName, in uint8 newSignatureXml, uint32 count, IOpcDigitalSignature** digitalSignature) ReplaceSignatureXml;
 	}
 
 
@@ -721,7 +721,7 @@ public static
 
 	public HRESULT Sign(CERT_CONTEXT* certificate, IOpcSigningOptions* signingOptions, IOpcDigitalSignature** digitalSignature) mut => VT.[Friend]Sign(&this, certificate, signingOptions, digitalSignature);
 
-	public HRESULT ReplaceSignatureXml(IOpcPartUri* signaturePartName, uint8* newSignatureXml, uint32 count, IOpcDigitalSignature** digitalSignature) mut => VT.[Friend]ReplaceSignatureXml(&this, signaturePartName, newSignatureXml, count, digitalSignature);
+	public HRESULT ReplaceSignatureXml(IOpcPartUri* signaturePartName, in uint8 newSignatureXml, uint32 count, IOpcDigitalSignature** digitalSignature) mut => VT.[Friend]ReplaceSignatureXml(&this, signaturePartName, newSignatureXml, count, digitalSignature);
 }
 
 [CRepr]struct IOpcSignaturePartReferenceEnumerator : IUnknown

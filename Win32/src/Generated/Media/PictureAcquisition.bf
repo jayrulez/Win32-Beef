@@ -249,7 +249,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr) EndSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfDeleteAfterAcquire) GetDeleteAfterAcquire;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr, PWSTR pszErrorMessage, ERROR_ADVISE_MESSAGE_TYPE nMessageType, ERROR_ADVISE_RESULT* pnErrorAdviseResult) ErrorAdvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) GetUserInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) GetUserInput;
 	}
 
 
@@ -289,7 +289,7 @@ public static
 
 	public HRESULT ErrorAdvise(HRESULT hr, PWSTR pszErrorMessage, ERROR_ADVISE_MESSAGE_TYPE nMessageType, ERROR_ADVISE_RESULT* pnErrorAdviseResult) mut => VT.[Friend]ErrorAdvise(&this, hr, pszErrorMessage, nMessageType, pnErrorAdviseResult);
 
-	public HRESULT GetUserInput(ref Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) mut => VT.[Friend]GetUserInput(&this, ref riidType, pUnknown, pPropVarResult, pPropVarDefault);
+	public HRESULT GetUserInput(in Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) mut => VT.[Friend]GetUserInput(&this, riidType, pUnknown, pPropVarResult, pPropVarDefault);
 }
 
 [CRepr]struct IPhotoProgressActionCB : IUnknown
@@ -332,7 +332,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszCaption) SetActionLinkText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fShow) ShowActionLink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfCancelled) IsCancelled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) GetUserInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) GetUserInput;
 	}
 
 
@@ -370,7 +370,7 @@ public static
 
 	public HRESULT IsCancelled(BOOL* pfCancelled) mut => VT.[Friend]IsCancelled(&this, pfCancelled);
 
-	public HRESULT GetUserInput(ref Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) mut => VT.[Friend]GetUserInput(&this, ref riidType, pUnknown, pPropVarResult, pPropVarDefault);
+	public HRESULT GetUserInput(in Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) mut => VT.[Friend]GetUserInput(&this, riidType, pUnknown, pPropVarResult, pPropVarDefault);
 }
 
 [CRepr]struct IPhotoAcquireSource : IUnknown
@@ -388,7 +388,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nIndex, IPhotoAcquireItem** ppPhotoAcquireItem) GetItemAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPhotoAcquireSettings** ppPhotoAcquireSettings) GetPhotoAcquireSettings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDeviceId) GetDeviceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) BindToObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) BindToObject;
 	}
 
 
@@ -406,7 +406,7 @@ public static
 
 	public HRESULT GetDeviceId(BSTR* pbstrDeviceId) mut => VT.[Friend]GetDeviceId(&this, pbstrDeviceId);
 
-	public HRESULT BindToObject(ref Guid riid, void** ppv) mut => VT.[Friend]BindToObject(&this, ref riid, ppv);
+	public HRESULT BindToObject(in Guid riid, void** ppv) mut => VT.[Friend]BindToObject(&this, riid, ppv);
 }
 
 [CRepr]struct IPhotoAcquire : IUnknown

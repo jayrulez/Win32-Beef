@@ -1743,7 +1743,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 seconds) put_FlushTimer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* buffers) get_FreeBuffers;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 buffers) put_FreeBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid) get_Guid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* guid) get_Guid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guid) put_Guid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* kernel) get_IsKernelTrace;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* buffers) get_MaximumBuffers;
@@ -1802,7 +1802,7 @@ public static
 
 	public HRESULT put_FreeBuffers(uint32 buffers) mut => VT.[Friend]put_FreeBuffers(&this, buffers);
 
-	public HRESULT get_Guid(ref Guid guid) mut => VT.[Friend]get_Guid(&this, ref guid);
+	public HRESULT get_Guid(Guid* guid) mut => VT.[Friend]get_Guid(&this, guid);
 
 	public HRESULT put_Guid(Guid guid) mut => VT.[Friend]put_Guid(&this, guid);
 
@@ -2116,7 +2116,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_DisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid) get_Guid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* guid) get_Guid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guid) put_Guid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IValueMap** ppLevel) get_Level;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IValueMap** ppKeywords) get_KeywordsAny;
@@ -2140,7 +2140,7 @@ public static
 
 	public HRESULT put_DisplayName(BSTR name) mut => VT.[Friend]put_DisplayName(&this, name);
 
-	public HRESULT get_Guid(ref Guid guid) mut => VT.[Friend]get_Guid(&this, ref guid);
+	public HRESULT get_Guid(Guid* guid) mut => VT.[Friend]get_Guid(&this, guid);
 
 	public HRESULT put_Guid(Guid guid) mut => VT.[Friend]put_Guid(&this, guid);
 
@@ -3344,10 +3344,10 @@ public static
 	public static extern uint32 RestorePerfRegistryFromFileW(PWSTR szFileName, PWSTR szLangId);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PerfStartProvider(ref Guid ProviderGuid, PERFLIBREQUEST ControlCallback, PerfProviderHandle* phProvider);
+	public static extern uint32 PerfStartProvider(Guid* ProviderGuid, PERFLIBREQUEST ControlCallback, PerfProviderHandle* phProvider);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PerfStartProviderEx(ref Guid ProviderGuid, PERF_PROVIDER_CONTEXT* ProviderContext, PerfProviderHandle* Provider);
+	public static extern uint32 PerfStartProviderEx(Guid* ProviderGuid, PERF_PROVIDER_CONTEXT* ProviderContext, PerfProviderHandle* Provider);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PerfStopProvider(PerfProviderHandle ProviderHandle);
@@ -3356,13 +3356,13 @@ public static
 	public static extern uint32 PerfSetCounterSetInfo(HANDLE ProviderHandle, PERF_COUNTERSET_INFO* Template, uint32 TemplateSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PERF_COUNTERSET_INSTANCE* PerfCreateInstance(PerfProviderHandle ProviderHandle, ref Guid CounterSetGuid, PWSTR Name, uint32 Id);
+	public static extern PERF_COUNTERSET_INSTANCE* PerfCreateInstance(PerfProviderHandle ProviderHandle, in Guid CounterSetGuid, PWSTR Name, uint32 Id);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PerfDeleteInstance(PerfProviderHandle Provider, PERF_COUNTERSET_INSTANCE* InstanceBlock);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PERF_COUNTERSET_INSTANCE* PerfQueryInstance(HANDLE ProviderHandle, ref Guid CounterSetGuid, PWSTR Name, uint32 Id);
+	public static extern PERF_COUNTERSET_INSTANCE* PerfQueryInstance(HANDLE ProviderHandle, in Guid CounterSetGuid, PWSTR Name, uint32 Id);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PerfSetCounterRefValue(HANDLE Provider, PERF_COUNTERSET_INSTANCE* Instance, uint32 CounterId, void* Address);
@@ -3389,10 +3389,10 @@ public static
 	public static extern uint32 PerfEnumerateCounterSet(PWSTR szMachine, Guid* pCounterSetIds, uint32 cCounterSetIds, uint32* pcCounterSetIdsActual);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PerfEnumerateCounterSetInstances(PWSTR szMachine, ref Guid pCounterSetId, PERF_INSTANCE_HEADER* pInstances, uint32 cbInstances, uint32* pcbInstancesActual);
+	public static extern uint32 PerfEnumerateCounterSetInstances(PWSTR szMachine, in Guid pCounterSetId, PERF_INSTANCE_HEADER* pInstances, uint32 cbInstances, uint32* pcbInstancesActual);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 PerfQueryCounterSetRegistrationInfo(PWSTR szMachine, ref Guid pCounterSetId, PerfRegInfoType requestCode, uint32 requestLangId, uint8* pbRegInfo, uint32 cbRegInfo, uint32* pcbRegInfoActual);
+	public static extern uint32 PerfQueryCounterSetRegistrationInfo(PWSTR szMachine, in Guid pCounterSetId, PerfRegInfoType requestCode, uint32 requestLangId, uint8* pbRegInfo, uint32 cbRegInfo, uint32* pcbRegInfoActual);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PerfOpenQueryHandle(PWSTR szMachine, PerfQueryHandle* phQuery);
@@ -3738,7 +3738,7 @@ public static
 	public static int32 PdhEnumLogSetNames(PSTR szDataSource, PSTR mszDataSetNameList, uint32* pcchBufferLength) => PdhEnumLogSetNamesA(szDataSource, mszDataSetNameList, pcchBufferLength);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 PdhGetLogSetGUID(int hLog, ref Guid pGuid, int32* pRunId);
+	public static extern int32 PdhGetLogSetGUID(int hLog, Guid* pGuid, int32* pRunId);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhSetLogSetRunID(int hLog, int32 RunId);

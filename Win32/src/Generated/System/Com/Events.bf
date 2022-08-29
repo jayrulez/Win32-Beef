@@ -386,13 +386,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMultiInterfaceEventControl* pEIC) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, BSTR methodName, IFiringControl* firingControl) PrepareToFire;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid, BSTR methodName, IFiringControl* firingControl) PrepareToFire;
 	}
 
 
 	public HRESULT Initialize(IMultiInterfaceEventControl* pEIC) mut => VT.[Friend]Initialize(&this, pEIC);
 
-	public HRESULT PrepareToFire(ref Guid iid, BSTR methodName, IFiringControl* firingControl) mut => VT.[Friend]PrepareToFire(&this, ref iid, methodName, firingControl);
+	public HRESULT PrepareToFire(in Guid iid, BSTR methodName, IFiringControl* firingControl) mut => VT.[Friend]PrepareToFire(&this, iid, methodName, firingControl);
 }
 
 [CRepr]struct IEventObjectChange : IUnknown
@@ -548,8 +548,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMultiInterfacePublisherFilter* classFilter) SetMultiInterfacePublisherFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid eventIID, BSTR bstrMethodName, BSTR optionalCriteria, int32* optionalErrorIndex, IEventObjectCollection** ppCollection) GetSubscriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid eventIID, BSTR bstrMethodName, BSTR bstrCriteria, int32* errorIndex) SetDefaultQuery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid eventIID, BSTR bstrMethodName, BSTR optionalCriteria, int32* optionalErrorIndex, IEventObjectCollection** ppCollection) GetSubscriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid eventIID, BSTR bstrMethodName, BSTR bstrCriteria, int32* errorIndex) SetDefaultQuery;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfAllowInprocActivation) get_AllowInprocActivation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fAllowInprocActivation) put_AllowInprocActivation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfFireInParallel) get_FireInParallel;
@@ -559,9 +559,9 @@ public static
 
 	public HRESULT SetMultiInterfacePublisherFilter(IMultiInterfacePublisherFilter* classFilter) mut => VT.[Friend]SetMultiInterfacePublisherFilter(&this, classFilter);
 
-	public HRESULT GetSubscriptions(ref Guid eventIID, BSTR bstrMethodName, BSTR optionalCriteria, int32* optionalErrorIndex, IEventObjectCollection** ppCollection) mut => VT.[Friend]GetSubscriptions(&this, ref eventIID, bstrMethodName, optionalCriteria, optionalErrorIndex, ppCollection);
+	public HRESULT GetSubscriptions(in Guid eventIID, BSTR bstrMethodName, BSTR optionalCriteria, int32* optionalErrorIndex, IEventObjectCollection** ppCollection) mut => VT.[Friend]GetSubscriptions(&this, eventIID, bstrMethodName, optionalCriteria, optionalErrorIndex, ppCollection);
 
-	public HRESULT SetDefaultQuery(ref Guid eventIID, BSTR bstrMethodName, BSTR bstrCriteria, int32* errorIndex) mut => VT.[Friend]SetDefaultQuery(&this, ref eventIID, bstrMethodName, bstrCriteria, errorIndex);
+	public HRESULT SetDefaultQuery(in Guid eventIID, BSTR bstrMethodName, BSTR bstrCriteria, int32* errorIndex) mut => VT.[Friend]SetDefaultQuery(&this, eventIID, bstrMethodName, bstrCriteria, errorIndex);
 
 	public HRESULT get_AllowInprocActivation(BOOL* pfAllowInprocActivation) mut => VT.[Friend]get_AllowInprocActivation(&this, pfAllowInprocActivation);
 

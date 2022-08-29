@@ -140,7 +140,7 @@ public struct TrackerHandle__
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* device) SetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updateRect, ref Guid iid, void** updateObject, POINT* offset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updateRect, in Guid iid, void** updateObject, POINT* offset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SuspendDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResumeDraw;
@@ -149,7 +149,7 @@ public struct TrackerHandle__
 
 	public HRESULT SetDevice(IUnknown* device) mut => VT.[Friend]SetDevice(&this, device);
 
-	public HRESULT BeginDraw(RECT* updateRect, ref Guid iid, void** updateObject, POINT* offset) mut => VT.[Friend]BeginDraw(&this, updateRect, ref iid, updateObject, offset);
+	public HRESULT BeginDraw(RECT* updateRect, in Guid iid, void** updateObject, POINT* offset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, offset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 

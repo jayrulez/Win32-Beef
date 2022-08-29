@@ -3429,7 +3429,7 @@ public static
 	public static extern uint32 MprAdminUserGetInfo(PWSTR lpszServer, PWSTR lpszUser, uint32 dwLevel, uint8* lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MprAdminUserSetInfo(PWSTR lpszServer, PWSTR lpszUser, uint32 dwLevel, uint8* lpbBuffer);
+	public static extern uint32 MprAdminUserSetInfo(PWSTR lpszServer, PWSTR lpszUser, uint32 dwLevel, in uint8 lpbBuffer);
 
 	[Import("MPRAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MprAdminSendUserMessage(int hMprServer, HANDLE hConnection, PWSTR lpwszMessage);

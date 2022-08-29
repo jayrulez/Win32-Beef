@@ -1705,14 +1705,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pclsidDcom, uint32 dwEnumIndex) EnumDcomCLSIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pclsidDcom, uint32 dwEnumIndex) EnumDcomCLSIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
 	}
 
 
 	public HRESULT Initialize() mut => VT.[Friend]Initialize(&this);
 
-	public HRESULT EnumDcomCLSIDs(ref Guid pclsidDcom, uint32 dwEnumIndex) mut => VT.[Friend]EnumDcomCLSIDs(&this, ref pclsidDcom, dwEnumIndex);
+	public HRESULT EnumDcomCLSIDs(Guid* pclsidDcom, uint32 dwEnumIndex) mut => VT.[Friend]EnumDcomCLSIDs(&this, pclsidDcom, dwEnumIndex);
 
 	public HRESULT Terminate() mut => VT.[Friend]Terminate(&this);
 }

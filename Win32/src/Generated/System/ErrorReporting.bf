@@ -481,10 +481,10 @@ public static
 	public static extern HRESULT WerUnregisterMemoryBlock(void* pvAddress);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerRegisterExcludedMemoryBlock(void* address, uint32 size);
+	public static extern HRESULT WerRegisterExcludedMemoryBlock(in void address, uint32 size);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WerUnregisterExcludedMemoryBlock(void* address);
+	public static extern HRESULT WerUnregisterExcludedMemoryBlock(in void address);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WerRegisterCustomMetadata(PWSTR key, PWSTR value);

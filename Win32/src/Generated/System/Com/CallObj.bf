@@ -97,7 +97,7 @@ public struct CALLFRAME_MARSHALCONTEXT
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CALLFRAMEINFO* pInfo) GetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pIID, uint32* piMethod) GetIIDAndMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pIID, uint32* piMethod) GetIIDAndMethod;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pwszInterface, PWSTR* pwszMethod) GetNames;
 		protected new function [CallingConvention(.Stdcall)] void*(SelfOuter* self) GetStackLocation;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, void* pvStack) SetStackLocation;
@@ -120,7 +120,7 @@ public struct CALLFRAME_MARSHALCONTEXT
 
 	public HRESULT GetInfo(CALLFRAMEINFO* pInfo) mut => VT.[Friend]GetInfo(&this, pInfo);
 
-	public HRESULT GetIIDAndMethod(ref Guid pIID, uint32* piMethod) mut => VT.[Friend]GetIIDAndMethod(&this, ref pIID, piMethod);
+	public HRESULT GetIIDAndMethod(Guid* pIID, uint32* piMethod) mut => VT.[Friend]GetIIDAndMethod(&this, pIID, piMethod);
 
 	public HRESULT GetNames(PWSTR* pwszInterface, PWSTR* pwszMethod) mut => VT.[Friend]GetNames(&this, pwszInterface, pwszMethod);
 
@@ -168,7 +168,7 @@ public struct CALLFRAME_MARSHALCONTEXT
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* phrReturn, uint32 iMethod, void* pvArgs, uint32* cbArgs) CallIndirect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iMethod, CALLFRAMEINFO* pInfo, PWSTR* pwszMethod) GetMethodInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iMethod, uint32* cbArgs) GetStackSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid piid, BOOL* pfDerivesFromIDispatch, uint32* pcMethod, PWSTR* pwszInterface) GetIID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* piid, BOOL* pfDerivesFromIDispatch, uint32* pcMethod, PWSTR* pwszInterface) GetIID;
 	}
 
 
@@ -178,7 +178,7 @@ public struct CALLFRAME_MARSHALCONTEXT
 
 	public HRESULT GetStackSize(uint32 iMethod, uint32* cbArgs) mut => VT.[Friend]GetStackSize(&this, iMethod, cbArgs);
 
-	public HRESULT GetIID(ref Guid piid, BOOL* pfDerivesFromIDispatch, uint32* pcMethod, PWSTR* pwszInterface) mut => VT.[Friend]GetIID(&this, ref piid, pfDerivesFromIDispatch, pcMethod, pwszInterface);
+	public HRESULT GetIID(Guid* piid, BOOL* pfDerivesFromIDispatch, uint32* pcMethod, PWSTR* pwszInterface) mut => VT.[Friend]GetIID(&this, piid, pfDerivesFromIDispatch, pcMethod, pwszInterface);
 }
 
 [CRepr]struct ICallInterceptor : ICallIndirect
@@ -240,11 +240,11 @@ public struct CALLFRAME_MARSHALCONTEXT
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, void** ppvInterface, BOOL fIn, BOOL fOut) OnWalkInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid, void** ppvInterface, BOOL fIn, BOOL fOut) OnWalkInterface;
 	}
 
 
-	public HRESULT OnWalkInterface(ref Guid iid, void** ppvInterface, BOOL fIn, BOOL fOut) mut => VT.[Friend]OnWalkInterface(&this, ref iid, ppvInterface, fIn, fOut);
+	public HRESULT OnWalkInterface(in Guid iid, void** ppvInterface, BOOL fIn, BOOL fOut) mut => VT.[Friend]OnWalkInterface(&this, iid, ppvInterface, fIn, fOut);
 }
 
 [CRepr]struct IInterfaceRelated : IUnknown
@@ -255,14 +255,14 @@ public struct CALLFRAME_MARSHALCONTEXT
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid) SetIID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid piid) GetIID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid) SetIID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* piid) GetIID;
 	}
 
 
-	public HRESULT SetIID(ref Guid iid) mut => VT.[Friend]SetIID(&this, ref iid);
+	public HRESULT SetIID(in Guid iid) mut => VT.[Friend]SetIID(&this, iid);
 
-	public HRESULT GetIID(ref Guid piid) mut => VT.[Friend]GetIID(&this, ref piid);
+	public HRESULT GetIID(Guid* piid) mut => VT.[Friend]GetIID(&this, piid);
 }
 
 #endregion
@@ -271,10 +271,10 @@ public struct CALLFRAME_MARSHALCONTEXT
 public static
 {
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetInterceptor(ref Guid iidIntercepted, IUnknown* punkOuter, ref Guid iid, void** ppv);
+	public static extern HRESULT CoGetInterceptor(in Guid iidIntercepted, IUnknown* punkOuter, in Guid iid, void** ppv);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetInterceptorFromTypeInfo(ref Guid iidIntercepted, IUnknown* punkOuter, ITypeInfo* typeInfo, ref Guid iid, void** ppv);
+	public static extern HRESULT CoGetInterceptorFromTypeInfo(in Guid iidIntercepted, IUnknown* punkOuter, ITypeInfo* typeInfo, in Guid iid, void** ppv);
 
 }
 #endregion

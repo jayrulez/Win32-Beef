@@ -2327,7 +2327,7 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid) SetGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid) SetGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uTypeFlags) SetTypeFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pStrDoc) SetDocString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHelpContext) SetHelpContext;
@@ -2353,7 +2353,7 @@ public struct OLEUIOBJECTPROPSA
 	}
 
 
-	public HRESULT SetGuid(ref Guid guid) mut => VT.[Friend]SetGuid(&this, ref guid);
+	public HRESULT SetGuid(in Guid guid) mut => VT.[Friend]SetGuid(&this, guid);
 
 	public HRESULT SetTypeFlags(uint32 uTypeFlags) mut => VT.[Friend]SetTypeFlags(&this, uTypeFlags);
 
@@ -2413,11 +2413,11 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) DeleteVarDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 memid) DeleteVarDescByMemId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) DeleteImplType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, VARIANT* pVarVal) SetCustData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, ref Guid guid, VARIANT* pVarVal) SetFuncCustData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 indexFunc, uint32 indexParam, ref Guid guid, VARIANT* pVarVal) SetParamCustData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, ref Guid guid, VARIANT* pVarVal) SetVarCustData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, ref Guid guid, VARIANT* pVarVal) SetImplTypeCustData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, VARIANT* pVarVal) SetCustData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, in Guid guid, VARIANT* pVarVal) SetFuncCustData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 indexFunc, uint32 indexParam, in Guid guid, VARIANT* pVarVal) SetParamCustData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, in Guid guid, VARIANT* pVarVal) SetVarCustData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, in Guid guid, VARIANT* pVarVal) SetImplTypeCustData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHelpStringContext) SetHelpStringContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, uint32 dwHelpStringContext) SetFuncHelpStringContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, uint32 dwHelpStringContext) SetVarHelpStringContext;
@@ -2436,15 +2436,15 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT DeleteImplType(uint32 index) mut => VT.[Friend]DeleteImplType(&this, index);
 
-	public HRESULT SetCustData(ref Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetCustData(&this, ref guid, pVarVal);
+	public HRESULT SetCustData(in Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetCustData(&this, guid, pVarVal);
 
-	public HRESULT SetFuncCustData(uint32 index, ref Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetFuncCustData(&this, index, ref guid, pVarVal);
+	public HRESULT SetFuncCustData(uint32 index, in Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetFuncCustData(&this, index, guid, pVarVal);
 
-	public HRESULT SetParamCustData(uint32 indexFunc, uint32 indexParam, ref Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetParamCustData(&this, indexFunc, indexParam, ref guid, pVarVal);
+	public HRESULT SetParamCustData(uint32 indexFunc, uint32 indexParam, in Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetParamCustData(&this, indexFunc, indexParam, guid, pVarVal);
 
-	public HRESULT SetVarCustData(uint32 index, ref Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetVarCustData(&this, index, ref guid, pVarVal);
+	public HRESULT SetVarCustData(uint32 index, in Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetVarCustData(&this, index, guid, pVarVal);
 
-	public HRESULT SetImplTypeCustData(uint32 index, ref Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetImplTypeCustData(&this, index, ref guid, pVarVal);
+	public HRESULT SetImplTypeCustData(uint32 index, in Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetImplTypeCustData(&this, index, guid, pVarVal);
 
 	public HRESULT SetHelpStringContext(uint32 dwHelpStringContext) mut => VT.[Friend]SetHelpStringContext(&this, dwHelpStringContext);
 
@@ -2468,7 +2468,7 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szName, TYPEKIND tkind, ICreateTypeInfo** ppCTInfo) CreateTypeInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szName) SetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wMajorVerNum, uint16 wMinorVerNum) SetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid) SetGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid) SetGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szDoc) SetDocString;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szHelpFileName) SetHelpFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHelpContext) SetHelpContext;
@@ -2484,7 +2484,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT SetVersion(uint16 wMajorVerNum, uint16 wMinorVerNum) mut => VT.[Friend]SetVersion(&this, wMajorVerNum, wMinorVerNum);
 
-	public HRESULT SetGuid(ref Guid guid) mut => VT.[Friend]SetGuid(&this, ref guid);
+	public HRESULT SetGuid(in Guid guid) mut => VT.[Friend]SetGuid(&this, guid);
 
 	public HRESULT SetDocString(PWSTR szDoc) mut => VT.[Friend]SetDocString(&this, szDoc);
 
@@ -2508,7 +2508,7 @@ public struct OLEUIOBJECTPROPSA
 	[CRepr]public struct VTable : ICreateTypeLib.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szName) DeleteTypeInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, VARIANT* pVarVal) SetCustData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, VARIANT* pVarVal) SetCustData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHelpStringContext) SetHelpStringContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szFileName) SetHelpStringDll;
 	}
@@ -2516,7 +2516,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT DeleteTypeInfo(PWSTR szName) mut => VT.[Friend]DeleteTypeInfo(&this, szName);
 
-	public HRESULT SetCustData(ref Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetCustData(&this, ref guid, pVarVal);
+	public HRESULT SetCustData(in Guid guid, VARIANT* pVarVal) mut => VT.[Friend]SetCustData(&this, guid, pVarVal);
 
 	public HRESULT SetHelpStringContext(uint32 dwHelpStringContext) mut => VT.[Friend]SetHelpStringContext(&this, dwHelpStringContext);
 
@@ -2573,7 +2573,7 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rguid) SetGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rguid) SetGUID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szSource) SetSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szDescription) SetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szHelpFile) SetHelpFile;
@@ -2581,7 +2581,7 @@ public struct OLEUIOBJECTPROPSA
 	}
 
 
-	public HRESULT SetGUID(ref Guid rguid) mut => VT.[Friend]SetGUID(&this, ref rguid);
+	public HRESULT SetGUID(in Guid rguid) mut => VT.[Friend]SetGUID(&this, rguid);
 
 	public HRESULT SetSource(PWSTR szSource) mut => VT.[Friend]SetSource(&this, szSource);
 
@@ -2600,11 +2600,11 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITypeInfo* pTypeInfo, ref Guid riid, IUnknown** ppv) CreateFromTypeInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITypeInfo* pTypeInfo, in Guid riid, IUnknown** ppv) CreateFromTypeInfo;
 	}
 
 
-	public HRESULT CreateFromTypeInfo(ITypeInfo* pTypeInfo, ref Guid riid, IUnknown** ppv) mut => VT.[Friend]CreateFromTypeInfo(&this, pTypeInfo, ref riid, ppv);
+	public HRESULT CreateFromTypeInfo(ITypeInfo* pTypeInfo, in Guid riid, IUnknown** ppv) mut => VT.[Friend]CreateFromTypeInfo(&this, pTypeInfo, riid, ppv);
 }
 
 [CRepr]struct ITypeMarshal : IUnknown
@@ -2642,7 +2642,7 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvNew) RecordInit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvExisting) RecordClear;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvExisting, void* pvNew) RecordCopy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguid) GetGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguid) GetGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbSize) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITypeInfo** ppTypeInfo) GetTypeInfo;
@@ -2664,7 +2664,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT RecordCopy(void* pvExisting, void* pvNew) mut => VT.[Friend]RecordCopy(&this, pvExisting, pvNew);
 
-	public HRESULT GetGuid(ref Guid pguid) mut => VT.[Friend]GetGuid(&this, ref pguid);
+	public HRESULT GetGuid(Guid* pguid) mut => VT.[Friend]GetGuid(&this, pguid);
 
 	public HRESULT GetName(BSTR* pbstrName) mut => VT.[Friend]GetName(&this, pbstrName);
 
@@ -2867,7 +2867,7 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumOLEVERB** ppEnumOleVerb) EnumVerbs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Update;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsUpToDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pClsid) GetUserClassID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pClsid) GetUserClassID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFormOfType, PWSTR* pszUserType) GetUserType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDrawAspect, SIZE* psizel) SetExtent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDrawAspect, SIZE* psizel) GetExtent;
@@ -2903,7 +2903,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT IsUpToDate() mut => VT.[Friend]IsUpToDate(&this);
 
-	public HRESULT GetUserClassID(ref Guid pClsid) mut => VT.[Friend]GetUserClassID(&this, ref pClsid);
+	public HRESULT GetUserClassID(Guid* pClsid) mut => VT.[Friend]GetUserClassID(&this, pClsid);
 
 	public HRESULT GetUserType(uint32 dwFormOfType, PWSTR* pszUserType) mut => VT.[Friend]GetUserType(&this, dwFormOfType, pszUserType);
 
@@ -2950,7 +2950,7 @@ public struct OLEUIOBJECTPROPSA
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwUpdateOpt) SetUpdateOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwUpdateOpt) GetUpdateOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMoniker* pmk, ref Guid rclsid) SetSourceMoniker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMoniker* pmk, in Guid rclsid) SetSourceMoniker;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMoniker** ppmk) GetSourceMoniker;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStatusText) SetSourceDisplayName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszDisplayName) GetSourceDisplayName;
@@ -2966,7 +2966,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT GetUpdateOptions(uint32* pdwUpdateOpt) mut => VT.[Friend]GetUpdateOptions(&this, pdwUpdateOpt);
 
-	public HRESULT SetSourceMoniker(IMoniker* pmk, ref Guid rclsid) mut => VT.[Friend]SetSourceMoniker(&this, pmk, ref rclsid);
+	public HRESULT SetSourceMoniker(IMoniker* pmk, in Guid rclsid) mut => VT.[Friend]SetSourceMoniker(&this, pmk, rclsid);
 
 	public HRESULT GetSourceMoniker(IMoniker** ppmk) mut => VT.[Friend]GetSourceMoniker(&this, ppmk);
 
@@ -2993,15 +2993,15 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IOleContainer.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszItem, uint32 dwSpeedNeeded, IBindCtx* pbc, ref Guid riid, void** ppvObject) GetObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszItem, IBindCtx* pbc, ref Guid riid, void** ppvStorage) GetObjectStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszItem, uint32 dwSpeedNeeded, IBindCtx* pbc, in Guid riid, void** ppvObject) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszItem, IBindCtx* pbc, in Guid riid, void** ppvStorage) GetObjectStorage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszItem) IsRunning;
 	}
 
 
-	public HRESULT GetObject(PWSTR pszItem, uint32 dwSpeedNeeded, IBindCtx* pbc, ref Guid riid, void** ppvObject) mut => VT.[Friend]GetObject(&this, pszItem, dwSpeedNeeded, pbc, ref riid, ppvObject);
+	public HRESULT GetObject(PWSTR pszItem, uint32 dwSpeedNeeded, IBindCtx* pbc, in Guid riid, void** ppvObject) mut => VT.[Friend]GetObject(&this, pszItem, dwSpeedNeeded, pbc, riid, ppvObject);
 
-	public HRESULT GetObjectStorage(PWSTR pszItem, IBindCtx* pbc, ref Guid riid, void** ppvStorage) mut => VT.[Friend]GetObjectStorage(&this, pszItem, pbc, ref riid, ppvStorage);
+	public HRESULT GetObjectStorage(PWSTR pszItem, IBindCtx* pbc, in Guid riid, void** ppvStorage) mut => VT.[Friend]GetObjectStorage(&this, pszItem, pbc, riid, ppvStorage);
 
 	public HRESULT IsRunning(PWSTR pszItem) mut => VT.[Friend]IsRunning(&this, pszItem);
 }
@@ -3325,7 +3325,7 @@ public struct OLEUIOBJECTPROPSA
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LICINFO* pLicInfo) GetLicInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwReserved, BSTR* pBstrKey) RequestLicKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkOuter, IUnknown* pUnkReserved, ref Guid riid, BSTR bstrKey, void** ppvObj) CreateInstanceLic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkOuter, IUnknown* pUnkReserved, in Guid riid, BSTR bstrKey, void** ppvObj) CreateInstanceLic;
 	}
 
 
@@ -3333,7 +3333,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT RequestLicKey(uint32 dwReserved, BSTR* pBstrKey) mut => VT.[Friend]RequestLicKey(&this, dwReserved, pBstrKey);
 
-	public HRESULT CreateInstanceLic(IUnknown* pUnkOuter, IUnknown* pUnkReserved, ref Guid riid, BSTR bstrKey, void** ppvObj) mut => VT.[Friend]CreateInstanceLic(&this, pUnkOuter, pUnkReserved, ref riid, bstrKey, ppvObj);
+	public HRESULT CreateInstanceLic(IUnknown* pUnkOuter, IUnknown* pUnkReserved, in Guid riid, BSTR bstrKey, void** ppvObj) mut => VT.[Friend]CreateInstanceLic(&this, pUnkOuter, pUnkReserved, riid, bstrKey, ppvObj);
 }
 
 [CRepr]struct IProvideClassInfo : IUnknown
@@ -3359,11 +3359,11 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IProvideClassInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwGuidKind, ref Guid pGUID) GetGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwGuidKind, Guid* pGUID) GetGUID;
 	}
 
 
-	public HRESULT GetGUID(uint32 dwGuidKind, ref Guid pGUID) mut => VT.[Friend]GetGUID(&this, dwGuidKind, ref pGUID);
+	public HRESULT GetGUID(uint32 dwGuidKind, Guid* pGUID) mut => VT.[Friend]GetGUID(&this, dwGuidKind, pGUID);
 }
 
 [CRepr]struct IProvideMultipleClassInfo : IProvideClassInfo2
@@ -3375,13 +3375,13 @@ public struct OLEUIOBJECTPROPSA
 	[CRepr]public struct VTable : IProvideClassInfo2.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcti) GetMultiTypeInfoCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iti, MULTICLASSINFO_FLAGS dwFlags, ITypeInfo** pptiCoClass, uint32* pdwTIFlags, uint32* pcdispidReserved, ref Guid piidPrimary, ref Guid piidSource) GetInfoOfIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iti, MULTICLASSINFO_FLAGS dwFlags, ITypeInfo** pptiCoClass, uint32* pdwTIFlags, uint32* pcdispidReserved, Guid* piidPrimary, Guid* piidSource) GetInfoOfIndex;
 	}
 
 
 	public HRESULT GetMultiTypeInfoCount(uint32* pcti) mut => VT.[Friend]GetMultiTypeInfoCount(&this, pcti);
 
-	public HRESULT GetInfoOfIndex(uint32 iti, MULTICLASSINFO_FLAGS dwFlags, ITypeInfo** pptiCoClass, uint32* pdwTIFlags, uint32* pcdispidReserved, ref Guid piidPrimary, ref Guid piidSource) mut => VT.[Friend]GetInfoOfIndex(&this, iti, dwFlags, pptiCoClass, pdwTIFlags, pcdispidReserved, ref piidPrimary, ref piidSource);
+	public HRESULT GetInfoOfIndex(uint32 iti, MULTICLASSINFO_FLAGS dwFlags, ITypeInfo** pptiCoClass, uint32* pdwTIFlags, uint32* pcdispidReserved, Guid* piidPrimary, Guid* piidSource) mut => VT.[Friend]GetInfoOfIndex(&this, iti, dwFlags, pptiCoClass, pdwTIFlags, pcdispidReserved, piidPrimary, piidSource);
 }
 
 [CRepr]struct IOleControl : IUnknown
@@ -3949,7 +3949,7 @@ public struct OLEUIOBJECTPROPSA
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleUndoManager* pUndoManager) Do;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBstr) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pClsid, int32* plID) GetUnitType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pClsid, int32* plID) GetUnitType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnNextAdd;
 	}
 
@@ -3958,7 +3958,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT GetDescription(BSTR* pBstr) mut => VT.[Friend]GetDescription(&this, pBstr);
 
-	public HRESULT GetUnitType(ref Guid pClsid, int32* plID) mut => VT.[Friend]GetUnitType(&this, ref pClsid, plID);
+	public HRESULT GetUnitType(Guid* pClsid, int32* plID) mut => VT.[Friend]GetUnitType(&this, pClsid, plID);
 
 	public HRESULT OnNextAdd() mut => VT.[Friend]OnNextAdd(&this);
 }
@@ -4092,13 +4092,13 @@ public struct OLEUIOBJECTPROPSA
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkSite) SetSite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvSite) GetSite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppvSite) GetSite;
 	}
 
 
 	public HRESULT SetSite(IUnknown* pUnkSite) mut => VT.[Friend]SetSite(&this, pUnkSite);
 
-	public HRESULT GetSite(ref Guid riid, void** ppvSite) mut => VT.[Friend]GetSite(&this, ref riid, ppvSite);
+	public HRESULT GetSite(in Guid riid, void** ppvSite) mut => VT.[Friend]GetSite(&this, riid, ppvSite);
 }
 
 [CRepr]struct IPerPropertyBrowsing : IUnknown
@@ -4110,7 +4110,7 @@ public struct OLEUIOBJECTPROPSA
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispID, BSTR* pBstr) GetDisplayString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispID, ref Guid pClsid) MapPropertyToPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispID, Guid* pClsid) MapPropertyToPage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispID, CALPOLESTR* pCaStringsOut, CADWORD* pCaCookiesOut) GetPredefinedStrings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispID, uint32 dwCookie, VARIANT* pVarOut) GetPredefinedValue;
 	}
@@ -4118,7 +4118,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT GetDisplayString(int32 dispID, BSTR* pBstr) mut => VT.[Friend]GetDisplayString(&this, dispID, pBstr);
 
-	public HRESULT MapPropertyToPage(int32 dispID, ref Guid pClsid) mut => VT.[Friend]MapPropertyToPage(&this, dispID, ref pClsid);
+	public HRESULT MapPropertyToPage(int32 dispID, Guid* pClsid) mut => VT.[Friend]MapPropertyToPage(&this, dispID, pClsid);
 
 	public HRESULT GetPredefinedStrings(int32 dispID, CALPOLESTR* pCaStringsOut, CADWORD* pCaCookiesOut) mut => VT.[Friend]GetPredefinedStrings(&this, dispID, pCaStringsOut, pCaCookiesOut);
 
@@ -4208,11 +4208,11 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvObj) GetOleObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppvObj) GetOleObject;
 	}
 
 
-	public HRESULT GetOleObject(ref Guid riid, void** ppvObj) mut => VT.[Friend]GetOleObject(&this, ref riid, ppvObj);
+	public HRESULT GetOleObject(in Guid riid, void** ppvObj) mut => VT.[Friend]GetOleObject(&this, riid, ppvObj);
 }
 
 [CRepr]struct IVBFormat : IUnknown
@@ -4238,11 +4238,11 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvObj, uint32 dwReserved) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppvObj, uint32 dwReserved) GetObject;
 	}
 
 
-	public HRESULT GetObject(ref Guid riid, void** ppvObj, uint32 dwReserved) mut => VT.[Friend]GetObject(&this, ref riid, ppvObj, dwReserved);
+	public HRESULT GetObject(in Guid riid, void** ppvObj, uint32 dwReserved) mut => VT.[Friend]GetObject(&this, riid, ppvObj, dwReserved);
 }
 
 [CRepr]struct IOleDocument : IUnknown
@@ -4403,14 +4403,14 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidCmdGroup, uint32 cCmds, OLECMD* prgCmds, OLECMDTEXT* pCmdText) QueryStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidCmdGroup, uint32 nCmdID, uint32 nCmdexecopt, VARIANT* pvaIn, VARIANT* pvaOut) Exec;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pguidCmdGroup, uint32 cCmds, OLECMD* prgCmds, OLECMDTEXT* pCmdText) QueryStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pguidCmdGroup, uint32 nCmdID, uint32 nCmdexecopt, VARIANT* pvaIn, VARIANT* pvaOut) Exec;
 	}
 
 
-	public HRESULT QueryStatus(ref Guid pguidCmdGroup, uint32 cCmds, OLECMD* prgCmds, OLECMDTEXT* pCmdText) mut => VT.[Friend]QueryStatus(&this, ref pguidCmdGroup, cCmds, prgCmds, pCmdText);
+	public HRESULT QueryStatus(in Guid pguidCmdGroup, uint32 cCmds, OLECMD* prgCmds, OLECMDTEXT* pCmdText) mut => VT.[Friend]QueryStatus(&this, pguidCmdGroup, cCmds, prgCmds, pCmdText);
 
-	public HRESULT Exec(ref Guid pguidCmdGroup, uint32 nCmdID, uint32 nCmdexecopt, VARIANT* pvaIn, VARIANT* pvaOut) mut => VT.[Friend]Exec(&this, ref pguidCmdGroup, nCmdID, nCmdexecopt, pvaIn, pvaOut);
+	public HRESULT Exec(in Guid pguidCmdGroup, uint32 nCmdID, uint32 nCmdexecopt, VARIANT* pvaIn, VARIANT* pvaOut) mut => VT.[Friend]Exec(&this, pguidCmdGroup, nCmdID, nCmdexecopt, pvaIn, pvaOut);
 }
 
 [CRepr]struct IZoomEvents : IUnknown
@@ -4539,8 +4539,8 @@ public struct OLEUIOBJECTPROPSA
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, uint32* lpdwObjSize, PWSTR* lplpszLabel, PWSTR* lplpszType, PWSTR* lplpszShortType, PWSTR* lplpszLocation) GetObjectInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, ref Guid lpClassID, uint16* lpwFormat, ref Guid lpConvertDefaultClassID, Guid** lplpClsidExclude, uint32* lpcClsidExclude) GetConvertInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, ref Guid clsidNew) ConvertObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, Guid* lpClassID, uint16* lpwFormat, Guid* lpConvertDefaultClassID, Guid** lplpClsidExclude, uint32* lpcClsidExclude) GetConvertInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, in Guid clsidNew) ConvertObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, int* phMetaPict, uint32* pdvAspect, int32* pnCurrentScale) GetViewInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, int hMetaPict, uint32 dvAspect, int32 nCurrentScale, BOOL bRelativeToOrig) SetViewInfo;
 	}
@@ -4548,9 +4548,9 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT GetObjectInfo(uint32 dwObject, uint32* lpdwObjSize, PWSTR* lplpszLabel, PWSTR* lplpszType, PWSTR* lplpszShortType, PWSTR* lplpszLocation) mut => VT.[Friend]GetObjectInfo(&this, dwObject, lpdwObjSize, lplpszLabel, lplpszType, lplpszShortType, lplpszLocation);
 
-	public HRESULT GetConvertInfo(uint32 dwObject, ref Guid lpClassID, uint16* lpwFormat, ref Guid lpConvertDefaultClassID, Guid** lplpClsidExclude, uint32* lpcClsidExclude) mut => VT.[Friend]GetConvertInfo(&this, dwObject, ref lpClassID, lpwFormat, ref lpConvertDefaultClassID, lplpClsidExclude, lpcClsidExclude);
+	public HRESULT GetConvertInfo(uint32 dwObject, Guid* lpClassID, uint16* lpwFormat, Guid* lpConvertDefaultClassID, Guid** lplpClsidExclude, uint32* lpcClsidExclude) mut => VT.[Friend]GetConvertInfo(&this, dwObject, lpClassID, lpwFormat, lpConvertDefaultClassID, lplpClsidExclude, lpcClsidExclude);
 
-	public HRESULT ConvertObject(uint32 dwObject, ref Guid clsidNew) mut => VT.[Friend]ConvertObject(&this, dwObject, ref clsidNew);
+	public HRESULT ConvertObject(uint32 dwObject, in Guid clsidNew) mut => VT.[Friend]ConvertObject(&this, dwObject, clsidNew);
 
 	public HRESULT GetViewInfo(uint32 dwObject, int* phMetaPict, uint32* pdvAspect, int32* pnCurrentScale) mut => VT.[Friend]GetViewInfo(&this, dwObject, phMetaPict, pdvAspect, pnCurrentScale);
 
@@ -4564,8 +4564,8 @@ public struct OLEUIOBJECTPROPSA
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, uint32* lpdwObjSize, PSTR* lplpszLabel, PSTR* lplpszType, PSTR* lplpszShortType, PSTR* lplpszLocation) GetObjectInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, ref Guid lpClassID, uint16* lpwFormat, ref Guid lpConvertDefaultClassID, Guid** lplpClsidExclude, uint32* lpcClsidExclude) GetConvertInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, ref Guid clsidNew) ConvertObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, Guid* lpClassID, uint16* lpwFormat, Guid* lpConvertDefaultClassID, Guid** lplpClsidExclude, uint32* lpcClsidExclude) GetConvertInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, in Guid clsidNew) ConvertObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, int* phMetaPict, uint32* pdvAspect, int32* pnCurrentScale) GetViewInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwObject, int hMetaPict, uint32 dvAspect, int32 nCurrentScale, BOOL bRelativeToOrig) SetViewInfo;
 	}
@@ -4573,9 +4573,9 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT GetObjectInfo(uint32 dwObject, uint32* lpdwObjSize, PSTR* lplpszLabel, PSTR* lplpszType, PSTR* lplpszShortType, PSTR* lplpszLocation) mut => VT.[Friend]GetObjectInfo(&this, dwObject, lpdwObjSize, lplpszLabel, lplpszType, lplpszShortType, lplpszLocation);
 
-	public HRESULT GetConvertInfo(uint32 dwObject, ref Guid lpClassID, uint16* lpwFormat, ref Guid lpConvertDefaultClassID, Guid** lplpClsidExclude, uint32* lpcClsidExclude) mut => VT.[Friend]GetConvertInfo(&this, dwObject, ref lpClassID, lpwFormat, ref lpConvertDefaultClassID, lplpClsidExclude, lpcClsidExclude);
+	public HRESULT GetConvertInfo(uint32 dwObject, Guid* lpClassID, uint16* lpwFormat, Guid* lpConvertDefaultClassID, Guid** lplpClsidExclude, uint32* lpcClsidExclude) mut => VT.[Friend]GetConvertInfo(&this, dwObject, lpClassID, lpwFormat, lpConvertDefaultClassID, lplpClsidExclude, lpcClsidExclude);
 
-	public HRESULT ConvertObject(uint32 dwObject, ref Guid clsidNew) mut => VT.[Friend]ConvertObject(&this, dwObject, ref clsidNew);
+	public HRESULT ConvertObject(uint32 dwObject, in Guid clsidNew) mut => VT.[Friend]ConvertObject(&this, dwObject, clsidNew);
 
 	public HRESULT GetViewInfo(uint32 dwObject, int* phMetaPict, uint32* pdvAspect, int32* pnCurrentScale) mut => VT.[Friend]GetViewInfo(&this, dwObject, phMetaPict, pdvAspect, pnCurrentScale);
 
@@ -4833,10 +4833,10 @@ public static
 	public static extern HRESULT SafeArrayGetRecordInfo(SAFEARRAY* psa, IRecordInfo** prinfo);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SafeArraySetIID(SAFEARRAY* psa, ref Guid guid);
+	public static extern HRESULT SafeArraySetIID(SAFEARRAY* psa, in Guid guid);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SafeArrayGetIID(SAFEARRAY* psa, ref Guid pguid);
+	public static extern HRESULT SafeArrayGetIID(SAFEARRAY* psa, Guid* pguid);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SafeArrayGetVartype(SAFEARRAY* psa, uint16* pvt);
@@ -5742,22 +5742,22 @@ public static
 	public static extern HRESULT LoadTypeLibEx(PWSTR szFile, REGKIND regkind, ITypeLib** pptlib);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT LoadRegTypeLib(ref Guid rguid, uint16 wVerMajor, uint16 wVerMinor, uint32 lcid, ITypeLib** pptlib);
+	public static extern HRESULT LoadRegTypeLib(in Guid rguid, uint16 wVerMajor, uint16 wVerMinor, uint32 lcid, ITypeLib** pptlib);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT QueryPathOfRegTypeLib(ref Guid guid, uint16 wMaj, uint16 wMin, uint32 lcid, uint16** lpbstrPathName);
+	public static extern HRESULT QueryPathOfRegTypeLib(in Guid guid, uint16 wMaj, uint16 wMin, uint32 lcid, uint16** lpbstrPathName);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RegisterTypeLib(ITypeLib* ptlib, PWSTR szFullPath, PWSTR szHelpDir);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UnRegisterTypeLib(ref Guid libID, uint16 wVerMajor, uint16 wVerMinor, uint32 lcid, SYSKIND syskind);
+	public static extern HRESULT UnRegisterTypeLib(in Guid libID, uint16 wVerMajor, uint16 wVerMinor, uint32 lcid, SYSKIND syskind);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RegisterTypeLibForUser(ITypeLib* ptlib, PWSTR szFullPath, PWSTR szHelpDir);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UnRegisterTypeLibForUser(ref Guid libID, uint16 wMajorVerNum, uint16 wMinorVerNum, uint32 lcid, SYSKIND syskind);
+	public static extern HRESULT UnRegisterTypeLibForUser(in Guid libID, uint16 wMajorVerNum, uint16 wMinorVerNum, uint32 lcid, SYSKIND syskind);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateTypeLib(SYSKIND syskind, PWSTR szFile, ICreateTypeLib** ppctlib);
@@ -5784,13 +5784,13 @@ public static
 	public static extern HRESULT DispCallFunc(void* pvInstance, uint oVft, CALLCONV cc, uint16 vtReturn, uint32 cActuals, uint16* prgvt, VARIANT** prgpvarg, VARIANT* pvargResult);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RegisterActiveObject(IUnknown* punk, ref Guid rclsid, uint32 dwFlags, uint32* pdwRegister);
+	public static extern HRESULT RegisterActiveObject(IUnknown* punk, in Guid rclsid, uint32 dwFlags, uint32* pdwRegister);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RevokeActiveObject(uint32 dwRegister, void* pvReserved);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetActiveObject(ref Guid rclsid, void* pvReserved, IUnknown** ppunk);
+	public static extern HRESULT GetActiveObject(in Guid rclsid, void* pvReserved, IUnknown** ppunk);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateErrorInfo(ICreateErrorInfo** pperrinfo);
@@ -5799,7 +5799,7 @@ public static
 	public static extern HRESULT GetRecordInfoFromTypeInfo(ITypeInfo* pTypeInfo, IRecordInfo** ppRecInfo);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetRecordInfoFromGuids(ref Guid rGuidTypeLib, uint32 uVerMajor, uint32 uVerMinor, uint32 lcid, ref Guid rGuidTypeInfo, IRecordInfo** ppRecInfo);
+	public static extern HRESULT GetRecordInfoFromGuids(in Guid rGuidTypeLib, uint32 uVerMajor, uint32 uVerMinor, uint32 lcid, in Guid rGuidTypeInfo, IRecordInfo** ppRecInfo);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OaBuildVersion();
@@ -5826,52 +5826,52 @@ public static
 	public static extern HRESULT OleQueryCreateFromData(IDataObject* pSrcDataObject);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreate(ref Guid rclsid, ref Guid riid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreate(in Guid rclsid, in Guid riid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateEx(ref Guid rclsid, ref Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateEx(in Guid rclsid, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateFromData(IDataObject* pSrcDataObj, ref Guid riid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateFromData(IDataObject* pSrcDataObj, in Guid riid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateFromDataEx(IDataObject* pSrcDataObj, ref Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateFromDataEx(IDataObject* pSrcDataObj, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkFromData(IDataObject* pSrcDataObj, ref Guid riid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkFromData(IDataObject* pSrcDataObj, in Guid riid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkFromDataEx(IDataObject* pSrcDataObj, ref Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkFromDataEx(IDataObject* pSrcDataObj, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateStaticFromData(IDataObject* pSrcDataObj, ref Guid iid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateStaticFromData(IDataObject* pSrcDataObj, in Guid iid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLink(IMoniker* pmkLinkSrc, ref Guid riid, uint32 renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLink(IMoniker* pmkLinkSrc, in Guid riid, uint32 renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkEx(IMoniker* pmkLinkSrc, ref Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkEx(IMoniker* pmkLinkSrc, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkToFile(PWSTR lpszFileName, ref Guid riid, uint32 renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkToFile(PWSTR lpszFileName, in Guid riid, uint32 renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkToFileEx(PWSTR lpszFileName, ref Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkToFileEx(PWSTR lpszFileName, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateFromFile(ref Guid rclsid, PWSTR lpszFileName, ref Guid riid, uint32 renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateFromFile(in Guid rclsid, PWSTR lpszFileName, in Guid riid, uint32 renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateFromFileEx(ref Guid rclsid, PWSTR lpszFileName, ref Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateFromFileEx(in Guid rclsid, PWSTR lpszFileName, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleLoad(IStorage* pStg, ref Guid riid, IOleClientSite* pClientSite, void** ppvObj);
+	public static extern HRESULT OleLoad(IStorage* pStg, in Guid riid, IOleClientSite* pClientSite, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleSave(IPersistStorage* pPS, IStorage* pStg, BOOL fSameAsLoad);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleLoadFromStream(IStream* pStm, ref Guid iidInterface, void** ppvObj);
+	public static extern HRESULT OleLoadFromStream(IStream* pStm, in Guid iidInterface, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleSaveToStream(IPersistStream* pPStm, IStream* pStm);
@@ -5940,10 +5940,10 @@ public static
 	public static extern HRESULT CreateOleAdviseHolder(IOleAdviseHolder** ppOAHolder);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateDefaultHandler(ref Guid clsid, IUnknown* pUnkOuter, ref Guid riid, void** lplpObj);
+	public static extern HRESULT OleCreateDefaultHandler(in Guid clsid, IUnknown* pUnkOuter, in Guid riid, void** lplpObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateEmbeddingHelper(ref Guid clsid, IUnknown* pUnkOuter, uint32 flags, IClassFactory* pCF, ref Guid riid, void** lplpObj);
+	public static extern HRESULT OleCreateEmbeddingHelper(in Guid clsid, IUnknown* pUnkOuter, uint32 flags, IClassFactory* pCF, in Guid riid, void** lplpObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsAccelerator(HACCEL hAccel, int32 cAccelEntries, MSG* lpMsg, uint16* lpwCmd);
@@ -5952,31 +5952,31 @@ public static
 	public static extern int OleGetIconOfFile(PWSTR lpszPath, BOOL fUseFileAsLabel);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int OleGetIconOfClass(ref Guid rclsid, PWSTR lpszLabel, BOOL fUseTypeAsLabel);
+	public static extern int OleGetIconOfClass(in Guid rclsid, PWSTR lpszLabel, BOOL fUseTypeAsLabel);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int OleMetafilePictFromIconAndLabel(HICON hIcon, PWSTR lpszLabel, PWSTR lpszSourceFile, uint32 iIconIndex);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleRegGetUserType(ref Guid clsid, uint32 dwFormOfType, PWSTR* pszUserType);
+	public static extern HRESULT OleRegGetUserType(in Guid clsid, uint32 dwFormOfType, PWSTR* pszUserType);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleRegGetMiscStatus(ref Guid clsid, uint32 dwAspect, uint32* pdwStatus);
+	public static extern HRESULT OleRegGetMiscStatus(in Guid clsid, uint32 dwAspect, uint32* pdwStatus);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleRegEnumFormatEtc(ref Guid clsid, uint32 dwDirection, IEnumFORMATETC** ppenum);
+	public static extern HRESULT OleRegEnumFormatEtc(in Guid clsid, uint32 dwDirection, IEnumFORMATETC** ppenum);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleRegEnumVerbs(ref Guid clsid, IEnumOLEVERB** ppenum);
+	public static extern HRESULT OleRegEnumVerbs(in Guid clsid, IEnumOLEVERB** ppenum);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleDoAutoConvert(IStorage* pStg, ref Guid pClsidNew);
+	public static extern HRESULT OleDoAutoConvert(IStorage* pStg, Guid* pClsidNew);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleGetAutoConvert(ref Guid clsidOld, ref Guid pClsidNew);
+	public static extern HRESULT OleGetAutoConvert(in Guid clsidOld, Guid* pClsidNew);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleSetAutoConvert(ref Guid clsidOld, ref Guid clsidNew);
+	public static extern HRESULT OleSetAutoConvert(in Guid clsidOld, in Guid clsidNew);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 HRGN_UserSize(uint32* param0, uint32 param1, HRGN* param2);
@@ -6003,7 +6003,7 @@ public static
 	public static extern void HRGN_UserFree64(uint32* param0, HRGN* param1);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreatePropertyFrame(HWND hwndOwner, uint32 x, uint32 y, PWSTR lpszCaption, uint32 cObjects, IUnknown** ppUnk, uint32 cPages, ref Guid pPageClsID, uint32 lcid, uint32 dwReserved, void* pvReserved);
+	public static extern HRESULT OleCreatePropertyFrame(HWND hwndOwner, uint32 x, uint32 y, PWSTR lpszCaption, uint32 cObjects, IUnknown** ppUnk, uint32 cPages, Guid* pPageClsID, uint32 lcid, uint32 dwReserved, void* pvReserved);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleCreatePropertyFrameIndirect(OCPFIPARAMS* lpParams);
@@ -6012,19 +6012,19 @@ public static
 	public static extern HRESULT OleTranslateColor(uint32 clr, HPALETTE hpal, uint32* lpcolorref);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateFontIndirect(FONTDESC* lpFontDesc, ref Guid riid, void** lplpvObj);
+	public static extern HRESULT OleCreateFontIndirect(FONTDESC* lpFontDesc, in Guid riid, void** lplpvObj);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreatePictureIndirect(PICTDESC* lpPictDesc, ref Guid riid, BOOL fOwn, void** lplpvObj);
+	public static extern HRESULT OleCreatePictureIndirect(PICTDESC* lpPictDesc, in Guid riid, BOOL fOwn, void** lplpvObj);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleLoadPicture(IStream* lpstream, int32 lSize, BOOL fRunmode, ref Guid riid, void** lplpvObj);
+	public static extern HRESULT OleLoadPicture(IStream* lpstream, int32 lSize, BOOL fRunmode, in Guid riid, void** lplpvObj);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleLoadPictureEx(IStream* lpstream, int32 lSize, BOOL fRunmode, ref Guid riid, uint32 xSizeDesired, uint32 ySizeDesired, uint32 dwFlags, void** lplpvObj);
+	public static extern HRESULT OleLoadPictureEx(IStream* lpstream, int32 lSize, BOOL fRunmode, in Guid riid, uint32 xSizeDesired, uint32 ySizeDesired, uint32 dwFlags, void** lplpvObj);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleLoadPicturePath(PWSTR szURLorPath, IUnknown* punkCaller, uint32 dwReserved, uint32 clrReserved, ref Guid riid, void** ppvRet);
+	public static extern HRESULT OleLoadPicturePath(PWSTR szURLorPath, IUnknown* punkCaller, uint32 dwReserved, uint32 clrReserved, in Guid riid, void** ppvRet);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleLoadPictureFile(VARIANT varFileName, IDispatch** lplpdispPicture);
@@ -6081,7 +6081,7 @@ public static
 	public static uint32 OleUIConvert(OLEUICONVERTA* param0) => OleUIConvertA(param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL OleUICanConvertOrActivateAs(ref Guid rClsid, BOOL fIsLinkedObject, uint16 wFormat);
+	public static extern BOOL OleUICanConvertOrActivateAs(in Guid rClsid, BOOL fIsLinkedObject, uint16 wFormat);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIBusyW(OLEUIBUSYW* param0);

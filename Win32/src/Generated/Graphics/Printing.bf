@@ -4672,7 +4672,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszFeatureKeyword, PSTR*** pOptionList, uint32* pdwNumOptions) EnumOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTrueTypeFontName, PWSTR* ppszDevFontName) GetFontSubstitution;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTrueTypeFontName, PWSTR pszDevFontName) SetFontSubstitution;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid riid, void** ppv) CreateInstanceOfMSXMLObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, in Guid riid, void** ppv) CreateInstanceOfMSXMLObject;
 	}
 
 
@@ -4692,7 +4692,7 @@ public static
 
 	public HRESULT SetFontSubstitution(PWSTR pszTrueTypeFontName, PWSTR pszDevFontName) mut => VT.[Friend]SetFontSubstitution(&this, pszTrueTypeFontName, pszDevFontName);
 
-	public HRESULT CreateInstanceOfMSXMLObject(ref Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid riid, void** ppv) mut => VT.[Friend]CreateInstanceOfMSXMLObject(&this, ref rclsid, pUnkOuter, dwClsContext, ref riid, ppv);
+	public HRESULT CreateInstanceOfMSXMLObject(in Guid rclsid, IUnknown* pUnkOuter, uint32 dwClsContext, in Guid riid, void** ppv) mut => VT.[Friend]CreateInstanceOfMSXMLObject(&this, rclsid, pUnkOuter, dwClsContext, riid, ppv);
 }
 
 [CRepr]struct IPrintCoreHelperUni : IPrintCoreHelper
@@ -4844,17 +4844,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, void* pOEMDM, RECTL* prclImageableArea) AdjustImageableArea;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, void* pOEMDM, int32* pCompressionMode) AdjustImageCompression;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, void* pOEMDM, int32* pDPI) AdjustDPI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, in void pOEMDM, RECTL* prclImageableArea) AdjustImageableArea;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, in void pOEMDM, int32* pCompressionMode) AdjustImageCompression;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, in void pOEMDM, int32* pDPI) AdjustDPI;
 	}
 
 
-	public HRESULT AdjustImageableArea(HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, void* pOEMDM, RECTL* prclImageableArea) mut => VT.[Friend]AdjustImageableArea(&this, hPrinter, cbDevMode, pDevMode, cbOEMDM, pOEMDM, prclImageableArea);
+	public HRESULT AdjustImageableArea(HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, in void pOEMDM, RECTL* prclImageableArea) mut => VT.[Friend]AdjustImageableArea(&this, hPrinter, cbDevMode, pDevMode, cbOEMDM, pOEMDM, prclImageableArea);
 
-	public HRESULT AdjustImageCompression(HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, void* pOEMDM, int32* pCompressionMode) mut => VT.[Friend]AdjustImageCompression(&this, hPrinter, cbDevMode, pDevMode, cbOEMDM, pOEMDM, pCompressionMode);
+	public HRESULT AdjustImageCompression(HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, in void pOEMDM, int32* pCompressionMode) mut => VT.[Friend]AdjustImageCompression(&this, hPrinter, cbDevMode, pDevMode, cbOEMDM, pOEMDM, pCompressionMode);
 
-	public HRESULT AdjustDPI(HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, void* pOEMDM, int32* pDPI) mut => VT.[Friend]AdjustDPI(&this, hPrinter, cbDevMode, pDevMode, cbOEMDM, pOEMDM, pDPI);
+	public HRESULT AdjustDPI(HANDLE hPrinter, uint32 cbDevMode, DEVMODEA* pDevMode, uint32 cbOEMDM, in void pOEMDM, int32* pDPI) mut => VT.[Friend]AdjustDPI(&this, hPrinter, cbDevMode, pDevMode, cbOEMDM, pOEMDM, pDPI);
 }
 
 [CRepr]struct IPrintOemDriverUI : IUnknown
@@ -5676,10 +5676,10 @@ public static
 	[CRepr]public struct VTable : IPrinterExtensionContext.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBidiNotification) get_BidiNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pReasonId) get_ReasonId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pReasonId) get_ReasonId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPrinterExtensionRequest** ppRequest) get_Request;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrApplication) get_SourceApplication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pDetailedReasonId) get_DetailedReasonId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pDetailedReasonId) get_DetailedReasonId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbModal) get_WindowModal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* phwndParent) get_WindowParent;
 	}
@@ -5687,13 +5687,13 @@ public static
 
 	public HRESULT get_BidiNotification(BSTR* pbstrBidiNotification) mut => VT.[Friend]get_BidiNotification(&this, pbstrBidiNotification);
 
-	public HRESULT get_ReasonId(ref Guid pReasonId) mut => VT.[Friend]get_ReasonId(&this, ref pReasonId);
+	public HRESULT get_ReasonId(Guid* pReasonId) mut => VT.[Friend]get_ReasonId(&this, pReasonId);
 
 	public HRESULT get_Request(IPrinterExtensionRequest** ppRequest) mut => VT.[Friend]get_Request(&this, ppRequest);
 
 	public HRESULT get_SourceApplication(BSTR* pbstrApplication) mut => VT.[Friend]get_SourceApplication(&this, pbstrApplication);
 
-	public HRESULT get_DetailedReasonId(ref Guid pDetailedReasonId) mut => VT.[Friend]get_DetailedReasonId(&this, ref pDetailedReasonId);
+	public HRESULT get_DetailedReasonId(Guid* pDetailedReasonId) mut => VT.[Friend]get_DetailedReasonId(&this, pDetailedReasonId);
 
 	public HRESULT get_WindowModal(BOOL* pbModal) mut => VT.[Friend]get_WindowModal(&this, pbModal);
 
@@ -5858,14 +5858,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, ref Guid param1, PrintAsyncNotifyUserFilter param2, PrintAsyncNotifyConversationStyle param3, IPrintAsyncNotifyCallback* param4, IPrintAsyncNotifyChannel** param5) CreatePrintAsyncNotifyChannel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid param0, PrintAsyncNotifyUserFilter param1, PrintAsyncNotifyConversationStyle param2, IPrintAsyncNotifyCallback* param3, IPrintAsyncNotifyRegistration** param4) CreatePrintAsyncNotifyRegistration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 param0, Guid* param1, PrintAsyncNotifyUserFilter param2, PrintAsyncNotifyConversationStyle param3, IPrintAsyncNotifyCallback* param4, IPrintAsyncNotifyChannel** param5) CreatePrintAsyncNotifyChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* param0, PrintAsyncNotifyUserFilter param1, PrintAsyncNotifyConversationStyle param2, IPrintAsyncNotifyCallback* param3, IPrintAsyncNotifyRegistration** param4) CreatePrintAsyncNotifyRegistration;
 	}
 
 
-	public HRESULT CreatePrintAsyncNotifyChannel(uint32 param0, ref Guid param1, PrintAsyncNotifyUserFilter param2, PrintAsyncNotifyConversationStyle param3, IPrintAsyncNotifyCallback* param4, IPrintAsyncNotifyChannel** param5) mut => VT.[Friend]CreatePrintAsyncNotifyChannel(&this, param0, ref param1, param2, param3, param4, param5);
+	public HRESULT CreatePrintAsyncNotifyChannel(uint32 param0, Guid* param1, PrintAsyncNotifyUserFilter param2, PrintAsyncNotifyConversationStyle param3, IPrintAsyncNotifyCallback* param4, IPrintAsyncNotifyChannel** param5) mut => VT.[Friend]CreatePrintAsyncNotifyChannel(&this, param0, param1, param2, param3, param4, param5);
 
-	public HRESULT CreatePrintAsyncNotifyRegistration(ref Guid param0, PrintAsyncNotifyUserFilter param1, PrintAsyncNotifyConversationStyle param2, IPrintAsyncNotifyCallback* param3, IPrintAsyncNotifyRegistration** param4) mut => VT.[Friend]CreatePrintAsyncNotifyRegistration(&this, ref param0, param1, param2, param3, param4);
+	public HRESULT CreatePrintAsyncNotifyRegistration(Guid* param0, PrintAsyncNotifyUserFilter param1, PrintAsyncNotifyConversationStyle param2, IPrintAsyncNotifyCallback* param3, IPrintAsyncNotifyRegistration** param4) mut => VT.[Friend]CreatePrintAsyncNotifyRegistration(&this, param0, param1, param2, param3, param4);
 }
 
 [CRepr]struct IPrintAsyncCookie : IUnknown
@@ -6670,13 +6670,13 @@ public static
 	public static extern BOOL DevQueryPrintEx(DEVQUERYPRINT_INFO* pDQPInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RegisterForPrintAsyncNotifications(PWSTR pszName, ref Guid pNotificationType, PrintAsyncNotifyUserFilter eUserFilter, PrintAsyncNotifyConversationStyle eConversationStyle, IPrintAsyncNotifyCallback* pCallback, HANDLE* phNotify);
+	public static extern HRESULT RegisterForPrintAsyncNotifications(PWSTR pszName, Guid* pNotificationType, PrintAsyncNotifyUserFilter eUserFilter, PrintAsyncNotifyConversationStyle eConversationStyle, IPrintAsyncNotifyCallback* pCallback, HANDLE* phNotify);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UnRegisterForPrintAsyncNotifications(HANDLE param0);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreatePrintAsyncNotifyChannel(PWSTR pszName, ref Guid pNotificationType, PrintAsyncNotifyUserFilter eUserFilter, PrintAsyncNotifyConversationStyle eConversationStyle, IPrintAsyncNotifyCallback* pCallback, IPrintAsyncNotifyChannel** ppIAsynchNotification);
+	public static extern HRESULT CreatePrintAsyncNotifyChannel(PWSTR pszName, Guid* pNotificationType, PrintAsyncNotifyUserFilter eUserFilter, PrintAsyncNotifyConversationStyle eConversationStyle, IPrintAsyncNotifyCallback* pCallback, IPrintAsyncNotifyChannel** ppIAsynchNotification);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE GdiGetSpoolFileHandle(PWSTR pwszPrinterName, DEVMODEW* pDevmode, PWSTR pwszDocName);

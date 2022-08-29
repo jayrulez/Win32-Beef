@@ -2075,7 +2075,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwOptions) GetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GROUP_POLICY_OBJECT_TYPE* gpoType) COM_GetType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GROUP_POLICY_HINT_TYPE* gpHint) GetHint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuidSnapin) PolicyChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, Guid* pGuidExtension, Guid* pGuidSnapin) PolicyChanged;
 	}
 
 
@@ -2095,7 +2095,7 @@ public static
 
 	public HRESULT GetHint(GROUP_POLICY_HINT_TYPE* gpHint) mut => VT.[Friend]GetHint(&this, gpHint);
 
-	public HRESULT PolicyChanged(BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuidSnapin) mut => VT.[Friend]PolicyChanged(&this, bMachine, bAdd, ref pGuidExtension, ref pGuidSnapin);
+	public HRESULT PolicyChanged(BOOL bMachine, BOOL bAdd, Guid* pGuidExtension, Guid* pGuidSnapin) mut => VT.[Friend]PolicyChanged(&this, bMachine, bAdd, pGuidExtension, pGuidSnapin);
 }
 
 [CRepr]struct IGroupPolicyObject : IUnknown
@@ -2110,7 +2110,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, uint32 dwFlags) OpenDSGPO;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) OpenLocalMachineGPO;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszComputerName, uint32 dwFlags) OpenRemoteMachineGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuid) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, Guid* pGuidExtension, Guid* pGuid) Save;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetDisplayName;
@@ -2135,7 +2135,7 @@ public static
 
 	public HRESULT OpenRemoteMachineGPO(PWSTR pszComputerName, uint32 dwFlags) mut => VT.[Friend]OpenRemoteMachineGPO(&this, pszComputerName, dwFlags);
 
-	public HRESULT Save(BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuid) mut => VT.[Friend]Save(&this, bMachine, bAdd, ref pGuidExtension, ref pGuid);
+	public HRESULT Save(BOOL bMachine, BOOL bAdd, Guid* pGuidExtension, Guid* pGuid) mut => VT.[Friend]Save(&this, bMachine, bAdd, pGuidExtension, pGuid);
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
@@ -2223,17 +2223,17 @@ public static
 	public static extern BOOL FreeGPOListW(GROUP_POLICY_OBJECTW* pGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetAppliedGPOListA(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList);
-	public static uint32 GetAppliedGPOList(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList) => GetAppliedGPOListA(dwFlags, pMachineName, pSidUser, ref pGuidExtension, ppGPOList);
+	public static extern uint32 GetAppliedGPOListA(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, Guid* pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList);
+	public static uint32 GetAppliedGPOList(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, Guid* pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList) => GetAppliedGPOListA(dwFlags, pMachineName, pSidUser, pGuidExtension, ppGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetAppliedGPOListW(uint32 dwFlags, PWSTR pMachineName, PSID pSidUser, ref Guid pGuidExtension, GROUP_POLICY_OBJECTW** ppGPOList);
+	public static extern uint32 GetAppliedGPOListW(uint32 dwFlags, PWSTR pMachineName, PSID pSidUser, Guid* pGuidExtension, GROUP_POLICY_OBJECTW** ppGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ProcessGroupPolicyCompleted(ref Guid extensionId, uint pAsyncHandle, uint32 dwStatus);
+	public static extern uint32 ProcessGroupPolicyCompleted(Guid* extensionId, uint pAsyncHandle, uint32 dwStatus);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ProcessGroupPolicyCompletedEx(ref Guid extensionId, uint pAsyncHandle, uint32 dwStatus, HRESULT RsopStatus);
+	public static extern uint32 ProcessGroupPolicyCompletedEx(Guid* extensionId, uint pAsyncHandle, uint32 dwStatus, HRESULT RsopStatus);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RsopAccessCheckByType(SECURITY_DESCRIPTOR* pSecurityDescriptor, PSID pPrincipalSelfSid, void* pRsopToken, uint32 dwDesiredAccessMask, OBJECT_TYPE_LIST* pObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* pGenericMapping, PRIVILEGE_SET* pPrivilegeSet, uint32* pdwPrivilegeSetLength, uint32* pdwGrantedAccessMask, int32* pbAccessStatus);
@@ -2260,7 +2260,7 @@ public static
 	public static extern uint32 CommandLineFromMsiDescriptor(PWSTR Descriptor, char16* CommandLine, uint32* CommandLineLength);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetManagedApplications(ref Guid pCategory, uint32 dwQueryFlags, uint32 dwInfoLevel, uint32* pdwApps, MANAGEDAPPLICATION** prgManagedApps);
+	public static extern uint32 GetManagedApplications(Guid* pCategory, uint32 dwQueryFlags, uint32 dwInfoLevel, uint32* pdwApps, MANAGEDAPPLICATION** prgManagedApps);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetLocalManagedApplications(BOOL bUserApps, uint32* pdwApps, LOCALMANAGEDAPPLICATION** prgLocalApps);

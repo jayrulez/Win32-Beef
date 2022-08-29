@@ -15,11 +15,11 @@ namespace Win32.System.WinRT.Direct3D11;
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, void** p) GetInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid, void** p) GetInterface;
 	}
 
 
-	public HRESULT GetInterface(ref Guid iid, void** p) mut => VT.[Friend]GetInterface(&this, ref iid, p);
+	public HRESULT GetInterface(in Guid iid, void** p) mut => VT.[Friend]GetInterface(&this, iid, p);
 }
 
 #endregion

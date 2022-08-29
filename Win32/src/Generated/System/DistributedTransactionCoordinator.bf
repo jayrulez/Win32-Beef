@@ -331,11 +331,11 @@ public enum _DtcLu_CompareStates_Response : int32
 #endregion
 
 #region Function Pointers
-public function HRESULT DTC_GET_TRANSACTION_MANAGER(PSTR pszHost, PSTR pszTmName, ref Guid rid, uint32 dwReserved1, uint16 wcbReserved2, void* pvReserved2, void** ppvObject);
+public function HRESULT DTC_GET_TRANSACTION_MANAGER(PSTR pszHost, PSTR pszTmName, in Guid rid, uint32 dwReserved1, uint16 wcbReserved2, void* pvReserved2, void** ppvObject);
 
-public function HRESULT DTC_GET_TRANSACTION_MANAGER_EX_A(PSTR i_pszHost, PSTR i_pszTmName, ref Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);
+public function HRESULT DTC_GET_TRANSACTION_MANAGER_EX_A(PSTR i_pszHost, PSTR i_pszTmName, in Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);
 
-public function HRESULT DTC_GET_TRANSACTION_MANAGER_EX_W(PWSTR i_pwszHost, PWSTR i_pwszTmName, ref Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);
+public function HRESULT DTC_GET_TRANSACTION_MANAGER_EX_W(PWSTR i_pwszHost, PWSTR i_pwszTmName, in Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);
 
 public function HRESULT DTC_INSTALL_CLIENT(int8* i_pszRemoteTmHostName, uint32 i_dwProtocol, uint32 i_dwOverwrite);
 
@@ -706,12 +706,12 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pclsid) GetRemoteClassId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pclsid) GetRemoteClassId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbWhereabouts, uint8* rgbWhereabouts, ITransactionExport** ppExport) Create;
 	}
 
 
-	public HRESULT GetRemoteClassId(ref Guid pclsid) mut => VT.[Friend]GetRemoteClassId(&this, ref pclsid);
+	public HRESULT GetRemoteClassId(Guid* pclsid) mut => VT.[Friend]GetRemoteClassId(&this, pclsid);
 
 	public HRESULT Create(uint32 cbWhereabouts, uint8* rgbWhereabouts, ITransactionExport** ppExport) mut => VT.[Friend]Create(&this, cbWhereabouts, rgbWhereabouts, ppExport);
 }
@@ -760,11 +760,11 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbTransactionCookie, uint8* rgbTransactionCookie, ref Guid piid, void** ppvTransaction) Import;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbTransactionCookie, uint8* rgbTransactionCookie, in Guid piid, void** ppvTransaction) Import;
 	}
 
 
-	public HRESULT Import(uint32 cbTransactionCookie, uint8* rgbTransactionCookie, ref Guid piid, void** ppvTransaction) mut => VT.[Friend]Import(&this, cbTransactionCookie, rgbTransactionCookie, ref piid, ppvTransaction);
+	public HRESULT Import(uint32 cbTransactionCookie, uint8* rgbTransactionCookie, in Guid piid, void** ppvTransaction) mut => VT.[Friend]Import(&this, cbTransactionCookie, rgbTransactionCookie, piid, ppvTransaction);
 }
 
 [CRepr]struct ITipTransaction : IUnknown
@@ -952,11 +952,11 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszDSN, PSTR pszClientDllName, ref Guid pguidRm, IDtcToXaHelper** ppXaHelper) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszDSN, PSTR pszClientDllName, Guid* pguidRm, IDtcToXaHelper** ppXaHelper) Create;
 	}
 
 
-	public HRESULT Create(PSTR pszDSN, PSTR pszClientDllName, ref Guid pguidRm, IDtcToXaHelper** ppXaHelper) mut => VT.[Friend]Create(&this, pszDSN, pszClientDllName, ref pguidRm, ppXaHelper);
+	public HRESULT Create(PSTR pszDSN, PSTR pszClientDllName, Guid* pguidRm, IDtcToXaHelper** ppXaHelper) mut => VT.[Friend]Create(&this, pszDSN, pszClientDllName, pguidRm, ppXaHelper);
 }
 
 [CRepr]struct IDtcToXaHelper : IUnknown
@@ -968,13 +968,13 @@ public struct _ProxyConfigParams
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL i_fDoRecovery) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pITransaction, ref Guid pguidBqual, xid_t* pXid) TranslateTridToXid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pITransaction, Guid* pguidBqual, xid_t* pXid) TranslateTridToXid;
 	}
 
 
 	public HRESULT Close(BOOL i_fDoRecovery) mut => VT.[Friend]Close(&this, i_fDoRecovery);
 
-	public HRESULT TranslateTridToXid(ITransaction* pITransaction, ref Guid pguidBqual, xid_t* pXid) mut => VT.[Friend]TranslateTridToXid(&this, pITransaction, ref pguidBqual, pXid);
+	public HRESULT TranslateTridToXid(ITransaction* pITransaction, Guid* pguidBqual, xid_t* pXid) mut => VT.[Friend]TranslateTridToXid(&this, pITransaction, pguidBqual, pXid);
 }
 
 [CRepr]struct IDtcToXaHelperSinglePipe : IUnknown
@@ -1057,7 +1057,7 @@ public struct _ProxyConfigParams
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pTransaction, ITransactionResourceAsync* pRes, BOID* pUOW, int32* pisoLevel, ITransactionEnlistmentAsync** ppEnlist) Enlist;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pPrepInfo, uint32 cbPrepInfo, uint32 lTimeout, XACTSTAT* pXactStat) Reenlist;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReenlistmentComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, void** ppvObject) GetDistributedTransactionManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid, void** ppvObject) GetDistributedTransactionManager;
 	}
 
 
@@ -1067,7 +1067,7 @@ public struct _ProxyConfigParams
 
 	public HRESULT ReenlistmentComplete() mut => VT.[Friend]ReenlistmentComplete(&this);
 
-	public HRESULT GetDistributedTransactionManager(ref Guid iid, void** ppvObject) mut => VT.[Friend]GetDistributedTransactionManager(&this, ref iid, ppvObject);
+	public HRESULT GetDistributedTransactionManager(in Guid iid, void** ppvObject) mut => VT.[Friend]GetDistributedTransactionManager(&this, iid, ppvObject);
 }
 
 [CRepr]struct ILastResourceManager : IUnknown
@@ -1180,11 +1180,11 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, IResourceManager** ppResMgr) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, IResourceManager** ppResMgr) Create;
 	}
 
 
-	public HRESULT Create(ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, IResourceManager** ppResMgr) mut => VT.[Friend]Create(&this, ref pguidRM, pszRMName, pIResMgrSink, ppResMgr);
+	public HRESULT Create(Guid* pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, IResourceManager** ppResMgr) mut => VT.[Friend]Create(&this, pguidRM, pszRMName, pIResMgrSink, ppResMgr);
 }
 
 [CRepr]struct IResourceManagerFactory2 : IResourceManagerFactory
@@ -1195,11 +1195,11 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IResourceManagerFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, ref Guid riidRequested, void** ppvResMgr) CreateEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, in Guid riidRequested, void** ppvResMgr) CreateEx;
 	}
 
 
-	public HRESULT CreateEx(ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, ref Guid riidRequested, void** ppvResMgr) mut => VT.[Friend]CreateEx(&this, ref pguidRM, pszRMName, pIResMgrSink, ref riidRequested, ppvResMgr);
+	public HRESULT CreateEx(Guid* pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, in Guid riidRequested, void** ppvResMgr) mut => VT.[Friend]CreateEx(&this, pguidRM, pszRMName, pIResMgrSink, riidRequested, ppvResMgr);
 }
 
 [CRepr]struct IPrepareInfo : IUnknown
@@ -1246,11 +1246,11 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, void** ppvObject) GetDispenser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid, void** ppvObject) GetDispenser;
 	}
 
 
-	public HRESULT GetDispenser(ref Guid iid, void** ppvObject) mut => VT.[Friend]GetDispenser(&this, ref iid, ppvObject);
+	public HRESULT GetDispenser(in Guid iid, void** ppvObject) mut => VT.[Friend]GetDispenser(&this, iid, ppvObject);
 }
 
 [CRepr]struct ITransactionVoterBallotAsync2 : IUnknown
@@ -1790,17 +1790,17 @@ public struct _ProxyConfigParams
 public static
 {
 	[Import("XOLEHLP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DtcGetTransactionManager(PSTR i_pszHost, PSTR i_pszTmName, ref Guid i_riid, uint32 i_dwReserved1, uint16 i_wcbReserved2, void* i_pvReserved2, void** o_ppvObject);
+	public static extern HRESULT DtcGetTransactionManager(PSTR i_pszHost, PSTR i_pszTmName, in Guid i_riid, uint32 i_dwReserved1, uint16 i_wcbReserved2, void* i_pvReserved2, void** o_ppvObject);
 
 	[Import("XOLEHLP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DtcGetTransactionManagerC(PSTR i_pszHost, PSTR i_pszTmName, ref Guid i_riid, uint32 i_dwReserved1, uint16 i_wcbReserved2, void* i_pvReserved2, void** o_ppvObject);
+	public static extern HRESULT DtcGetTransactionManagerC(PSTR i_pszHost, PSTR i_pszTmName, in Guid i_riid, uint32 i_dwReserved1, uint16 i_wcbReserved2, void* i_pvReserved2, void** o_ppvObject);
 
 	[Import("XOLEHLP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DtcGetTransactionManagerExA(PSTR i_pszHost, PSTR i_pszTmName, ref Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);
-	public static HRESULT DtcGetTransactionManagerEx(PSTR i_pszHost, PSTR i_pszTmName, ref Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject) => DtcGetTransactionManagerExA(i_pszHost, i_pszTmName, ref i_riid, i_grfOptions, i_pvConfigParams, o_ppvObject);
+	public static extern HRESULT DtcGetTransactionManagerExA(PSTR i_pszHost, PSTR i_pszTmName, in Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);
+	public static HRESULT DtcGetTransactionManagerEx(PSTR i_pszHost, PSTR i_pszTmName, in Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject) => DtcGetTransactionManagerExA(i_pszHost, i_pszTmName, i_riid, i_grfOptions, i_pvConfigParams, o_ppvObject);
 
 	[Import("XOLEHLP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DtcGetTransactionManagerExW(PWSTR i_pwszHost, PWSTR i_pwszTmName, ref Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);
+	public static extern HRESULT DtcGetTransactionManagerExW(PWSTR i_pwszHost, PWSTR i_pwszTmName, in Guid i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);
 
 }
 #endregion

@@ -5064,19 +5064,19 @@ public struct D3DX11_FFT_BUFFER_INFO
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Device** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32 DataSize, void* pData) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, IUnknown* pData) SetPrivateDataInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, uint32 DataSize, void* pData) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, IUnknown* pData) SetPrivateDataInterface;
 	}
 
 
 	public void GetDevice(ID3D11Device** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT GetPrivateData(ref Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, ref guid, pDataSize, pData);
+	public HRESULT GetPrivateData(in Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, guid, pDataSize, pData);
 
-	public HRESULT SetPrivateData(ref Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, ref guid, DataSize, pData);
+	public HRESULT SetPrivateData(in Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, guid, DataSize, pData);
 
-	public HRESULT SetPrivateDataInterface(ref Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, ref guid, pData);
+	public HRESULT SetPrivateDataInterface(in Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, guid, pData);
 }
 
 [CRepr]struct ID3D11DepthStencilState : ID3D11DeviceChild
@@ -5542,11 +5542,11 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumRects, RECT* pRects) RSSetScissorRects;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox) CopySubresourceRegion;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource) CopyResource;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) UpdateSubresource;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) UpdateSubresource;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Buffer* pDstBuffer, uint32 DstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) CopyStructureCount;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11RenderTargetView* pRenderTargetView, float* ColorRGBA) ClearRenderTargetView;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11UnorderedAccessView* pUnorderedAccessView, uint32* Values) ClearUnorderedAccessViewUint;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11UnorderedAccessView* pUnorderedAccessView, float* Values) ClearUnorderedAccessViewFloat;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11RenderTargetView* pRenderTargetView, in float ColorRGBA) ClearRenderTargetView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11UnorderedAccessView* pUnorderedAccessView, in uint32 Values) ClearUnorderedAccessViewUint;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11UnorderedAccessView* pUnorderedAccessView, in float Values) ClearUnorderedAccessViewFloat;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11DepthStencilView* pDepthStencilView, uint32 ClearFlags, float Depth, uint8 Stencil) ClearDepthStencilView;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11ShaderResourceView* pShaderResourceView) GenerateMips;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pResource, float MinLOD) SetResourceMinLOD;
@@ -5694,15 +5694,15 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void CopyResource(ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource) mut => VT.[Friend]CopyResource(&this, pDstResource, pSrcResource);
 
-	public void UpdateSubresource(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]UpdateSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
+	public void UpdateSubresource(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]UpdateSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
 
 	public void CopyStructureCount(ID3D11Buffer* pDstBuffer, uint32 DstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) mut => VT.[Friend]CopyStructureCount(&this, pDstBuffer, DstAlignedByteOffset, pSrcView);
 
-	public void ClearRenderTargetView(ID3D11RenderTargetView* pRenderTargetView, float* ColorRGBA) mut => VT.[Friend]ClearRenderTargetView(&this, pRenderTargetView, ColorRGBA);
+	public void ClearRenderTargetView(ID3D11RenderTargetView* pRenderTargetView, in float ColorRGBA) mut => VT.[Friend]ClearRenderTargetView(&this, pRenderTargetView, ColorRGBA);
 
-	public void ClearUnorderedAccessViewUint(ID3D11UnorderedAccessView* pUnorderedAccessView, uint32* Values) mut => VT.[Friend]ClearUnorderedAccessViewUint(&this, pUnorderedAccessView, Values);
+	public void ClearUnorderedAccessViewUint(ID3D11UnorderedAccessView* pUnorderedAccessView, in uint32 Values) mut => VT.[Friend]ClearUnorderedAccessViewUint(&this, pUnorderedAccessView, Values);
 
-	public void ClearUnorderedAccessViewFloat(ID3D11UnorderedAccessView* pUnorderedAccessView, float* Values) mut => VT.[Friend]ClearUnorderedAccessViewFloat(&this, pUnorderedAccessView, Values);
+	public void ClearUnorderedAccessViewFloat(ID3D11UnorderedAccessView* pUnorderedAccessView, in float Values) mut => VT.[Friend]ClearUnorderedAccessViewFloat(&this, pUnorderedAccessView, Values);
 
 	public void ClearDepthStencilView(ID3D11DepthStencilView* pDepthStencilView, uint32 ClearFlags, float Depth, uint8 Stencil) mut => VT.[Friend]ClearDepthStencilView(&this, pDepthStencilView, ClearFlags, Depth, Stencil);
 
@@ -5924,17 +5924,17 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	[CRepr]public struct VTable : ID3D11DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ref Guid pCryptoType) GetCryptoType;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ref Guid pDecoderProfile) GetDecoderProfile;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, Guid* pCryptoType) GetCryptoType;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, Guid* pDecoderProfile) GetDecoderProfile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCertificateSize) GetCertificateSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 CertificateSize, uint8* pCertificate) GetCertificate;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, HANDLE* pCryptoSessionHandle) GetCryptoSessionHandle;
 	}
 
 
-	public void GetCryptoType(ref Guid pCryptoType) mut => VT.[Friend]GetCryptoType(&this, ref pCryptoType);
+	public void GetCryptoType(Guid* pCryptoType) mut => VT.[Friend]GetCryptoType(&this, pCryptoType);
 
-	public void GetDecoderProfile(ref Guid pDecoderProfile) mut => VT.[Friend]GetDecoderProfile(&this, ref pDecoderProfile);
+	public void GetDecoderProfile(Guid* pDecoderProfile) mut => VT.[Friend]GetDecoderProfile(&this, pDecoderProfile);
 
 	public HRESULT GetCertificateSize(uint32* pCertificateSize) mut => VT.[Friend]GetCertificateSize(&this, pCertificateSize);
 
@@ -6008,14 +6008,14 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE AlphaFillMode, uint32 StreamIndex) VideoProcessorSetOutputAlphaFillMode;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, BOOL Enable, SIZE Size) VideoProcessorSetOutputConstriction;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, BOOL Enable) VideoProcessorSetOutputStereoMode;
-		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, ref Guid pExtensionGuid, uint32 DataSize, void* pData) VideoProcessorSetOutputExtension;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, in Guid pExtensionGuid, uint32 DataSize, void* pData) VideoProcessorSetOutputExtension;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, BOOL* Enabled, RECT* pRect) VideoProcessorGetOutputTargetRect;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, BOOL* pYCbCr, D3D11_VIDEO_COLOR* pColor) VideoProcessorGetOutputBackgroundColor;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, D3D11_VIDEO_PROCESSOR_COLOR_SPACE* pColorSpace) VideoProcessorGetOutputColorSpace;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE* pAlphaFillMode, uint32* pStreamIndex) VideoProcessorGetOutputAlphaFillMode;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, BOOL* pEnabled, SIZE* pSize) VideoProcessorGetOutputConstriction;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, BOOL* pEnabled) VideoProcessorGetOutputStereoMode;
-		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, ref Guid pExtensionGuid, uint32 DataSize, void* pData) VideoProcessorGetOutputExtension;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, in Guid pExtensionGuid, uint32 DataSize, void* pData) VideoProcessorGetOutputExtension;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_FRAME_FORMAT FrameFormat) VideoProcessorSetStreamFrameFormat;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_PROCESSOR_COLOR_SPACE* pColorSpace) VideoProcessorSetStreamColorSpace;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_PROCESSOR_OUTPUT_RATE OutputRate, BOOL RepeatFrame, DXGI_RATIONAL* pCustomRate) VideoProcessorSetStreamOutputRate;
@@ -6028,7 +6028,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, BOOL Enable, D3D11_VIDEO_PROCESSOR_STEREO_FORMAT Format, BOOL LeftViewFrame0, BOOL BaseViewFrame0, D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE FlipMode, int32 MonoOffset) VideoProcessorSetStreamStereoFormat;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, BOOL Enable) VideoProcessorSetStreamAutoProcessingMode;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_PROCESSOR_FILTER Filter, BOOL Enable, int32 Level) VideoProcessorSetStreamFilter;
-		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, ref Guid pExtensionGuid, uint32 DataSize, void* pData) VideoProcessorSetStreamExtension;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, in Guid pExtensionGuid, uint32 DataSize, void* pData) VideoProcessorSetStreamExtension;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_FRAME_FORMAT* pFrameFormat) VideoProcessorGetStreamFrameFormat;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_PROCESSOR_COLOR_SPACE* pColorSpace) VideoProcessorGetStreamColorSpace;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_PROCESSOR_OUTPUT_RATE* pOutputRate, BOOL* pRepeatFrame, DXGI_RATIONAL* pCustomRate) VideoProcessorGetStreamOutputRate;
@@ -6041,7 +6041,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, BOOL* pEnable, D3D11_VIDEO_PROCESSOR_STEREO_FORMAT* pFormat, BOOL* pLeftViewFrame0, BOOL* pBaseViewFrame0, D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE* pFlipMode, int32* MonoOffset) VideoProcessorGetStreamStereoFormat;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, BOOL* pEnabled) VideoProcessorGetStreamAutoProcessingMode;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_PROCESSOR_FILTER Filter, BOOL* pEnabled, int32* pLevel) VideoProcessorGetStreamFilter;
-		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, ref Guid pExtensionGuid, uint32 DataSize, void* pData) VideoProcessorGetStreamExtension;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, in Guid pExtensionGuid, uint32 DataSize, void* pData) VideoProcessorGetStreamExtension;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11VideoProcessor* pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint32 OutputFrame, uint32 StreamCount, D3D11_VIDEO_PROCESSOR_STREAM* pStreams) VideoProcessorBlt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11CryptoSession* pCryptoSession, uint32 DataSize, void* pData) NegotiateCryptoSessionKeyExchange;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, uint32 IVSize, void* pIV) EncryptionBlt;
@@ -6081,7 +6081,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void VideoProcessorSetOutputStereoMode(ID3D11VideoProcessor* pVideoProcessor, BOOL Enable) mut => VT.[Friend]VideoProcessorSetOutputStereoMode(&this, pVideoProcessor, Enable);
 
-	public int32 VideoProcessorSetOutputExtension(ID3D11VideoProcessor* pVideoProcessor, ref Guid pExtensionGuid, uint32 DataSize, void* pData) mut => VT.[Friend]VideoProcessorSetOutputExtension(&this, pVideoProcessor, ref pExtensionGuid, DataSize, pData);
+	public int32 VideoProcessorSetOutputExtension(ID3D11VideoProcessor* pVideoProcessor, in Guid pExtensionGuid, uint32 DataSize, void* pData) mut => VT.[Friend]VideoProcessorSetOutputExtension(&this, pVideoProcessor, pExtensionGuid, DataSize, pData);
 
 	public void VideoProcessorGetOutputTargetRect(ID3D11VideoProcessor* pVideoProcessor, BOOL* Enabled, RECT* pRect) mut => VT.[Friend]VideoProcessorGetOutputTargetRect(&this, pVideoProcessor, Enabled, pRect);
 
@@ -6095,7 +6095,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void VideoProcessorGetOutputStereoMode(ID3D11VideoProcessor* pVideoProcessor, BOOL* pEnabled) mut => VT.[Friend]VideoProcessorGetOutputStereoMode(&this, pVideoProcessor, pEnabled);
 
-	public int32 VideoProcessorGetOutputExtension(ID3D11VideoProcessor* pVideoProcessor, ref Guid pExtensionGuid, uint32 DataSize, void* pData) mut => VT.[Friend]VideoProcessorGetOutputExtension(&this, pVideoProcessor, ref pExtensionGuid, DataSize, pData);
+	public int32 VideoProcessorGetOutputExtension(ID3D11VideoProcessor* pVideoProcessor, in Guid pExtensionGuid, uint32 DataSize, void* pData) mut => VT.[Friend]VideoProcessorGetOutputExtension(&this, pVideoProcessor, pExtensionGuid, DataSize, pData);
 
 	public void VideoProcessorSetStreamFrameFormat(ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_FRAME_FORMAT FrameFormat) mut => VT.[Friend]VideoProcessorSetStreamFrameFormat(&this, pVideoProcessor, StreamIndex, FrameFormat);
 
@@ -6121,7 +6121,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void VideoProcessorSetStreamFilter(ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_PROCESSOR_FILTER Filter, BOOL Enable, int32 Level) mut => VT.[Friend]VideoProcessorSetStreamFilter(&this, pVideoProcessor, StreamIndex, Filter, Enable, Level);
 
-	public int32 VideoProcessorSetStreamExtension(ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, ref Guid pExtensionGuid, uint32 DataSize, void* pData) mut => VT.[Friend]VideoProcessorSetStreamExtension(&this, pVideoProcessor, StreamIndex, ref pExtensionGuid, DataSize, pData);
+	public int32 VideoProcessorSetStreamExtension(ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, in Guid pExtensionGuid, uint32 DataSize, void* pData) mut => VT.[Friend]VideoProcessorSetStreamExtension(&this, pVideoProcessor, StreamIndex, pExtensionGuid, DataSize, pData);
 
 	public void VideoProcessorGetStreamFrameFormat(ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_FRAME_FORMAT* pFrameFormat) mut => VT.[Friend]VideoProcessorGetStreamFrameFormat(&this, pVideoProcessor, StreamIndex, pFrameFormat);
 
@@ -6147,7 +6147,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void VideoProcessorGetStreamFilter(ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, D3D11_VIDEO_PROCESSOR_FILTER Filter, BOOL* pEnabled, int32* pLevel) mut => VT.[Friend]VideoProcessorGetStreamFilter(&this, pVideoProcessor, StreamIndex, Filter, pEnabled, pLevel);
 
-	public int32 VideoProcessorGetStreamExtension(ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, ref Guid pExtensionGuid, uint32 DataSize, void* pData) mut => VT.[Friend]VideoProcessorGetStreamExtension(&this, pVideoProcessor, StreamIndex, ref pExtensionGuid, DataSize, pData);
+	public int32 VideoProcessorGetStreamExtension(ID3D11VideoProcessor* pVideoProcessor, uint32 StreamIndex, in Guid pExtensionGuid, uint32 DataSize, void* pData) mut => VT.[Friend]VideoProcessorGetStreamExtension(&this, pVideoProcessor, StreamIndex, pExtensionGuid, DataSize, pData);
 
 	public HRESULT VideoProcessorBlt(ID3D11VideoProcessor* pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint32 OutputFrame, uint32 StreamCount, D3D11_VIDEO_PROCESSOR_STREAM* pStreams) mut => VT.[Friend]VideoProcessorBlt(&this, pVideoProcessor, pView, OutputFrame, StreamCount, pStreams);
 
@@ -6185,20 +6185,20 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_VIDEO_DECODER_DESC* pVideoDesc, D3D11_VIDEO_DECODER_CONFIG* pConfig, ID3D11VideoDecoder** ppDecoder) CreateVideoDecoder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11VideoProcessorEnumerator* pEnum, uint32 RateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) CreateVideoProcessor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_AUTHENTICATED_CHANNEL_TYPE ChannelType, ID3D11AuthenticatedChannel** ppAuthenticatedChannel) CreateAuthenticatedChannel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) CreateCryptoSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pCryptoType, Guid* pDecoderProfile, in Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) CreateCryptoSession;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11Resource* pResource, D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) CreateVideoDecoderOutputView;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC* pDesc, ID3D11VideoProcessorInputView** ppVPIView) CreateVideoProcessorInputView;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) CreateVideoProcessorOutputView;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_VIDEO_PROCESSOR_CONTENT_DESC* pDesc, ID3D11VideoProcessorEnumerator** ppEnum) CreateVideoProcessorEnumerator;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetVideoDecoderProfileCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, ref Guid pDecoderProfile) GetVideoDecoderProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pDecoderProfile, DXGI_FORMAT Format, BOOL* pSupported) CheckVideoDecoderFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, Guid* pDecoderProfile) GetVideoDecoderProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pDecoderProfile, DXGI_FORMAT Format, BOOL* pSupported) CheckVideoDecoderFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_VIDEO_DECODER_DESC* pDesc, uint32* pCount) GetVideoDecoderConfigCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_VIDEO_DECODER_DESC* pDesc, uint32 Index, D3D11_VIDEO_DECODER_CONFIG* pConfig) GetVideoDecoderConfig;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pCryptoType, ref Guid pDecoderProfile, D3D11_VIDEO_CONTENT_PROTECTION_CAPS* pCaps) GetContentProtectionCaps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pCryptoType, ref Guid pDecoderProfile, uint32 Index, ref Guid pKeyExchangeType) CheckCryptoKeyExchange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32 DataSize, void* pData) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, IUnknown* pData) SetPrivateDataInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pCryptoType, Guid* pDecoderProfile, D3D11_VIDEO_CONTENT_PROTECTION_CAPS* pCaps) GetContentProtectionCaps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pCryptoType, Guid* pDecoderProfile, uint32 Index, Guid* pKeyExchangeType) CheckCryptoKeyExchange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, uint32 DataSize, void* pData) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, IUnknown* pData) SetPrivateDataInterface;
 	}
 
 
@@ -6208,7 +6208,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public HRESULT CreateAuthenticatedChannel(D3D11_AUTHENTICATED_CHANNEL_TYPE ChannelType, ID3D11AuthenticatedChannel** ppAuthenticatedChannel) mut => VT.[Friend]CreateAuthenticatedChannel(&this, ChannelType, ppAuthenticatedChannel);
 
-	public HRESULT CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) mut => VT.[Friend]CreateCryptoSession(&this, ref pCryptoType, ref pDecoderProfile, ref pKeyExchangeType, ppCryptoSession);
+	public HRESULT CreateCryptoSession(in Guid pCryptoType, Guid* pDecoderProfile, in Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) mut => VT.[Friend]CreateCryptoSession(&this, pCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
 
 	public HRESULT CreateVideoDecoderOutputView(ID3D11Resource* pResource, D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) mut => VT.[Friend]CreateVideoDecoderOutputView(&this, pResource, pDesc, ppVDOVView);
 
@@ -6220,21 +6220,21 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public uint32 GetVideoDecoderProfileCount() mut => VT.[Friend]GetVideoDecoderProfileCount(&this);
 
-	public HRESULT GetVideoDecoderProfile(uint32 Index, ref Guid pDecoderProfile) mut => VT.[Friend]GetVideoDecoderProfile(&this, Index, ref pDecoderProfile);
+	public HRESULT GetVideoDecoderProfile(uint32 Index, Guid* pDecoderProfile) mut => VT.[Friend]GetVideoDecoderProfile(&this, Index, pDecoderProfile);
 
-	public HRESULT CheckVideoDecoderFormat(ref Guid pDecoderProfile, DXGI_FORMAT Format, BOOL* pSupported) mut => VT.[Friend]CheckVideoDecoderFormat(&this, ref pDecoderProfile, Format, pSupported);
+	public HRESULT CheckVideoDecoderFormat(in Guid pDecoderProfile, DXGI_FORMAT Format, BOOL* pSupported) mut => VT.[Friend]CheckVideoDecoderFormat(&this, pDecoderProfile, Format, pSupported);
 
 	public HRESULT GetVideoDecoderConfigCount(D3D11_VIDEO_DECODER_DESC* pDesc, uint32* pCount) mut => VT.[Friend]GetVideoDecoderConfigCount(&this, pDesc, pCount);
 
 	public HRESULT GetVideoDecoderConfig(D3D11_VIDEO_DECODER_DESC* pDesc, uint32 Index, D3D11_VIDEO_DECODER_CONFIG* pConfig) mut => VT.[Friend]GetVideoDecoderConfig(&this, pDesc, Index, pConfig);
 
-	public HRESULT GetContentProtectionCaps(ref Guid pCryptoType, ref Guid pDecoderProfile, D3D11_VIDEO_CONTENT_PROTECTION_CAPS* pCaps) mut => VT.[Friend]GetContentProtectionCaps(&this, ref pCryptoType, ref pDecoderProfile, pCaps);
+	public HRESULT GetContentProtectionCaps(Guid* pCryptoType, Guid* pDecoderProfile, D3D11_VIDEO_CONTENT_PROTECTION_CAPS* pCaps) mut => VT.[Friend]GetContentProtectionCaps(&this, pCryptoType, pDecoderProfile, pCaps);
 
-	public HRESULT CheckCryptoKeyExchange(ref Guid pCryptoType, ref Guid pDecoderProfile, uint32 Index, ref Guid pKeyExchangeType) mut => VT.[Friend]CheckCryptoKeyExchange(&this, ref pCryptoType, ref pDecoderProfile, Index, ref pKeyExchangeType);
+	public HRESULT CheckCryptoKeyExchange(in Guid pCryptoType, Guid* pDecoderProfile, uint32 Index, Guid* pKeyExchangeType) mut => VT.[Friend]CheckCryptoKeyExchange(&this, pCryptoType, pDecoderProfile, Index, pKeyExchangeType);
 
-	public HRESULT SetPrivateData(ref Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, ref guid, DataSize, pData);
+	public HRESULT SetPrivateData(in Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, guid, DataSize, pData);
 
-	public HRESULT SetPrivateDataInterface(ref Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, ref guid, pData);
+	public HRESULT SetPrivateDataInterface(in Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, guid, pData);
 }
 
 [CRepr]struct ID3D11Device : IUnknown
@@ -6270,15 +6270,15 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_QUERY_DESC* pPredicateDesc, ID3D11Predicate** ppPredicate) CreatePredicate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_COUNTER_DESC* pCounterDesc, ID3D11Counter** ppCounter) CreateCounter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ContextFlags, ID3D11DeviceContext** ppDeferredContext) CreateDeferredContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hResource, ref Guid ReturnedInterface, void** ppResource) OpenSharedResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hResource, in Guid ReturnedInterface, void** ppResource) OpenSharedResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXGI_FORMAT Format, uint32* pFormatSupport) CheckFormatSupport;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXGI_FORMAT Format, uint32 SampleCount, uint32* pNumQualityLevels) CheckMultisampleQualityLevels;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D11_COUNTER_INFO* pCounterInfo) CheckCounterInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_COUNTER_DESC* pDesc, D3D11_COUNTER_TYPE* pType, uint32* pActiveCounters, uint8* szName, uint32* pNameLength, uint8* szUnits, uint32* pUnitsLength, uint8* szDescription, uint32* pDescriptionLength) CheckCounter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_FEATURE Feature, void* pFeatureSupportData, uint32 FeatureSupportDataSize) CheckFeatureSupport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32 DataSize, void* pData) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, IUnknown* pData) SetPrivateDataInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, uint32 DataSize, void* pData) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid guid, IUnknown* pData) SetPrivateDataInterface;
 		protected new function [CallingConvention(.Stdcall)] D3D_FEATURE_LEVEL(SelfOuter* self) GetFeatureLevel;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetCreationFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) GetDeviceRemovedReason;
@@ -6338,7 +6338,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public HRESULT CreateDeferredContext(uint32 ContextFlags, ID3D11DeviceContext** ppDeferredContext) mut => VT.[Friend]CreateDeferredContext(&this, ContextFlags, ppDeferredContext);
 
-	public HRESULT OpenSharedResource(HANDLE hResource, ref Guid ReturnedInterface, void** ppResource) mut => VT.[Friend]OpenSharedResource(&this, hResource, ref ReturnedInterface, ppResource);
+	public HRESULT OpenSharedResource(HANDLE hResource, in Guid ReturnedInterface, void** ppResource) mut => VT.[Friend]OpenSharedResource(&this, hResource, ReturnedInterface, ppResource);
 
 	public HRESULT CheckFormatSupport(DXGI_FORMAT Format, uint32* pFormatSupport) mut => VT.[Friend]CheckFormatSupport(&this, Format, pFormatSupport);
 
@@ -6350,11 +6350,11 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public HRESULT CheckFeatureSupport(D3D11_FEATURE Feature, void* pFeatureSupportData, uint32 FeatureSupportDataSize) mut => VT.[Friend]CheckFeatureSupport(&this, Feature, pFeatureSupportData, FeatureSupportDataSize);
 
-	public HRESULT GetPrivateData(ref Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, ref guid, pDataSize, pData);
+	public HRESULT GetPrivateData(in Guid guid, uint32* pDataSize, void* pData) mut => VT.[Friend]GetPrivateData(&this, guid, pDataSize, pData);
 
-	public HRESULT SetPrivateData(ref Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, ref guid, DataSize, pData);
+	public HRESULT SetPrivateData(in Guid guid, uint32 DataSize, void* pData) mut => VT.[Friend]SetPrivateData(&this, guid, DataSize, pData);
 
-	public HRESULT SetPrivateDataInterface(ref Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, ref guid, pData);
+	public HRESULT SetPrivateDataInterface(in Guid guid, IUnknown* pData) mut => VT.[Friend]SetPrivateDataInterface(&this, guid, pData);
 
 	public D3D_FEATURE_LEVEL GetFeatureLevel() mut => VT.[Friend]GetFeatureLevel(&this);
 
@@ -6642,7 +6642,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 	[CRepr]public struct VTable : ID3D11DeviceContext.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox, uint32 CopyFlags) CopySubresourceRegion1;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch, uint32 CopyFlags) UpdateSubresource1;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch, uint32 CopyFlags) UpdateSubresource1;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pResource) DiscardResource;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11View* pResourceView) DiscardView;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D11Buffer** ppConstantBuffers, uint32* pFirstConstant, uint32* pNumConstants) VSSetConstantBuffers1;
@@ -6658,14 +6658,14 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D11Buffer** ppConstantBuffers, uint32* pFirstConstant, uint32* pNumConstants) PSGetConstantBuffers1;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D11Buffer** ppConstantBuffers, uint32* pFirstConstant, uint32* pNumConstants) CSGetConstantBuffers1;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3DDeviceContextState* pState, ID3DDeviceContextState** ppPreviousState) SwapDeviceContextState;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11View* pView, float* Color, RECT* pRect, uint32 NumRects) ClearView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11View* pView, in float Color, RECT* pRect, uint32 NumRects) ClearView;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11View* pResourceView, RECT* pRects, uint32 NumRects) DiscardView1;
 	}
 
 
 	public void CopySubresourceRegion1(ID3D11Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox, uint32 CopyFlags) mut => VT.[Friend]CopySubresourceRegion1(&this, pDstResource, DstSubresource, DstX, DstY, DstZ, pSrcResource, SrcSubresource, pSrcBox, CopyFlags);
 
-	public void UpdateSubresource1(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch, uint32 CopyFlags) mut => VT.[Friend]UpdateSubresource1(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch, CopyFlags);
+	public void UpdateSubresource1(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch, uint32 CopyFlags) mut => VT.[Friend]UpdateSubresource1(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch, CopyFlags);
 
 	public void DiscardResource(ID3D11Resource* pResource) mut => VT.[Friend]DiscardResource(&this, pResource);
 
@@ -6697,7 +6697,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void SwapDeviceContextState(ID3DDeviceContextState* pState, ID3DDeviceContextState** ppPreviousState) mut => VT.[Friend]SwapDeviceContextState(&this, pState, ppPreviousState);
 
-	public void ClearView(ID3D11View* pView, float* Color, RECT* pRect, uint32 NumRects) mut => VT.[Friend]ClearView(&this, pView, Color, pRect, NumRects);
+	public void ClearView(ID3D11View* pView, in float Color, RECT* pRect, uint32 NumRects) mut => VT.[Friend]ClearView(&this, pView, Color, pRect, NumRects);
 
 	public void DiscardView1(ID3D11View* pResourceView, RECT* pRects, uint32 NumRects) mut => VT.[Friend]DiscardView1(&this, pResourceView, pRects, NumRects);
 }
@@ -6764,16 +6764,16 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	[CRepr]public struct VTable : ID3D11VideoDevice.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, uint32* pPrivateInputSize, uint32* pPrivateOutputSize) GetCryptoSessionPrivateDataSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pDecoderProfile, uint32 SampleWidth, uint32 SampleHeight, DXGI_RATIONAL* pFrameRate, uint32 BitRate, ref Guid pCryptoType, uint32* pDecoderCaps) GetVideoDecoderCaps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pCryptoType, Guid* pDecoderProfile, in Guid pKeyExchangeType, uint32* pPrivateInputSize, uint32* pPrivateOutputSize) GetCryptoSessionPrivateDataSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid pDecoderProfile, uint32 SampleWidth, uint32 SampleHeight, DXGI_RATIONAL* pFrameRate, uint32 BitRate, Guid* pCryptoType, uint32* pDecoderCaps) GetVideoDecoderCaps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_VIDEO_DECODER_DESC* pInputDesc, DXGI_COLOR_SPACE_TYPE InputColorSpace, D3D11_VIDEO_DECODER_CONFIG* pInputConfig, DXGI_RATIONAL* pFrameRate, D3D11_VIDEO_SAMPLE_DESC* pOutputDesc, BOOL* pSupported, BOOL* pRealTimeHint) CheckVideoDecoderDownsampling;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_VIDEO_DECODER_DESC* pInputDesc, DXGI_COLOR_SPACE_TYPE InputColorSpace, D3D11_VIDEO_DECODER_CONFIG* pInputConfig, DXGI_RATIONAL* pFrameRate, D3D11_VIDEO_SAMPLE_DESC* pRecommendedOutputDesc) RecommendVideoDecoderDownsampleParameters;
 	}
 
 
-	public HRESULT GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, uint32* pPrivateInputSize, uint32* pPrivateOutputSize) mut => VT.[Friend]GetCryptoSessionPrivateDataSize(&this, ref pCryptoType, ref pDecoderProfile, ref pKeyExchangeType, pPrivateInputSize, pPrivateOutputSize);
+	public HRESULT GetCryptoSessionPrivateDataSize(in Guid pCryptoType, Guid* pDecoderProfile, in Guid pKeyExchangeType, uint32* pPrivateInputSize, uint32* pPrivateOutputSize) mut => VT.[Friend]GetCryptoSessionPrivateDataSize(&this, pCryptoType, pDecoderProfile, pKeyExchangeType, pPrivateInputSize, pPrivateOutputSize);
 
-	public HRESULT GetVideoDecoderCaps(ref Guid pDecoderProfile, uint32 SampleWidth, uint32 SampleHeight, DXGI_RATIONAL* pFrameRate, uint32 BitRate, ref Guid pCryptoType, uint32* pDecoderCaps) mut => VT.[Friend]GetVideoDecoderCaps(&this, ref pDecoderProfile, SampleWidth, SampleHeight, pFrameRate, BitRate, ref pCryptoType, pDecoderCaps);
+	public HRESULT GetVideoDecoderCaps(in Guid pDecoderProfile, uint32 SampleWidth, uint32 SampleHeight, DXGI_RATIONAL* pFrameRate, uint32 BitRate, Guid* pCryptoType, uint32* pDecoderCaps) mut => VT.[Friend]GetVideoDecoderCaps(&this, pDecoderProfile, SampleWidth, SampleHeight, pFrameRate, BitRate, pCryptoType, pDecoderCaps);
 
 	public HRESULT CheckVideoDecoderDownsampling(D3D11_VIDEO_DECODER_DESC* pInputDesc, DXGI_COLOR_SPACE_TYPE InputColorSpace, D3D11_VIDEO_DECODER_CONFIG* pInputConfig, DXGI_RATIONAL* pFrameRate, D3D11_VIDEO_SAMPLE_DESC* pOutputDesc, BOOL* pSupported, BOOL* pRealTimeHint) mut => VT.[Friend]CheckVideoDecoderDownsampling(&this, pInputDesc, InputColorSpace, pInputConfig, pFrameRate, pOutputDesc, pSupported, pRealTimeHint);
 
@@ -6807,9 +6807,9 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ContextFlags, ID3D11DeviceContext1** ppDeferredContext) CreateDeferredContext1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_BLEND_DESC1* pBlendStateDesc, ID3D11BlendState1** ppBlendState) CreateBlendState1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_RASTERIZER_DESC1* pRasterizerDesc, ID3D11RasterizerState1** ppRasterizerState) CreateRasterizerState1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Flags, D3D_FEATURE_LEVEL* pFeatureLevels, uint32 FeatureLevels, uint32 SDKVersion, ref Guid EmulatedInterface, D3D_FEATURE_LEVEL* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) CreateDeviceContextState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hResource, ref Guid returnedInterface, void** ppResource) OpenSharedResource1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpName, uint32 dwDesiredAccess, ref Guid returnedInterface, void** ppResource) OpenSharedResourceByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Flags, D3D_FEATURE_LEVEL* pFeatureLevels, uint32 FeatureLevels, uint32 SDKVersion, in Guid EmulatedInterface, D3D_FEATURE_LEVEL* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) CreateDeviceContextState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hResource, in Guid returnedInterface, void** ppResource) OpenSharedResource1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpName, uint32 dwDesiredAccess, in Guid returnedInterface, void** ppResource) OpenSharedResourceByName;
 	}
 
 
@@ -6821,11 +6821,11 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public HRESULT CreateRasterizerState1(D3D11_RASTERIZER_DESC1* pRasterizerDesc, ID3D11RasterizerState1** ppRasterizerState) mut => VT.[Friend]CreateRasterizerState1(&this, pRasterizerDesc, ppRasterizerState);
 
-	public HRESULT CreateDeviceContextState(uint32 Flags, D3D_FEATURE_LEVEL* pFeatureLevels, uint32 FeatureLevels, uint32 SDKVersion, ref Guid EmulatedInterface, D3D_FEATURE_LEVEL* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) mut => VT.[Friend]CreateDeviceContextState(&this, Flags, pFeatureLevels, FeatureLevels, SDKVersion, ref EmulatedInterface, pChosenFeatureLevel, ppContextState);
+	public HRESULT CreateDeviceContextState(uint32 Flags, D3D_FEATURE_LEVEL* pFeatureLevels, uint32 FeatureLevels, uint32 SDKVersion, in Guid EmulatedInterface, D3D_FEATURE_LEVEL* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) mut => VT.[Friend]CreateDeviceContextState(&this, Flags, pFeatureLevels, FeatureLevels, SDKVersion, EmulatedInterface, pChosenFeatureLevel, ppContextState);
 
-	public HRESULT OpenSharedResource1(HANDLE hResource, ref Guid returnedInterface, void** ppResource) mut => VT.[Friend]OpenSharedResource1(&this, hResource, ref returnedInterface, ppResource);
+	public HRESULT OpenSharedResource1(HANDLE hResource, in Guid returnedInterface, void** ppResource) mut => VT.[Friend]OpenSharedResource1(&this, hResource, returnedInterface, ppResource);
 
-	public HRESULT OpenSharedResourceByName(PWSTR lpName, uint32 dwDesiredAccess, ref Guid returnedInterface, void** ppResource) mut => VT.[Friend]OpenSharedResourceByName(&this, lpName, dwDesiredAccess, ref returnedInterface, ppResource);
+	public HRESULT OpenSharedResourceByName(PWSTR lpName, uint32 dwDesiredAccess, in Guid returnedInterface, void** ppResource) mut => VT.[Friend]OpenSharedResourceByName(&this, lpName, dwDesiredAccess, returnedInterface, ppResource);
 }
 
 [CRepr]struct ID3DUserDefinedAnnotation : IUnknown
@@ -6863,7 +6863,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11Resource* pTiledResource, uint32 NumTiledResourceRegions, D3D11_TILED_RESOURCE_COORDINATE* pTiledResourceRegionStartCoordinates, D3D11_TILE_REGION_SIZE* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint32 NumRanges, uint32* pRangeFlags, uint32* pTilePoolStartOffsets, uint32* pRangeTileCounts, uint32 Flags) UpdateTileMappings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pSourceRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pTileRegionSize, uint32 Flags) CopyTileMappings;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pTileRegionSize, ID3D11Buffer* pBuffer, uint64 BufferStartOffsetInBytes, uint32 Flags) CopyTiles;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pDestTileRegionSize, void* pSourceTileData, uint32 Flags) UpdateTiles;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pDestTileRegionSize, in void pSourceTileData, uint32 Flags) UpdateTiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11Buffer* pTilePool, uint64 NewSizeInBytes) ResizeTilePool;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11DeviceChild* pTiledResourceOrViewAccessBeforeBarrier, ID3D11DeviceChild* pTiledResourceOrViewAccessAfterBarrier) TiledResourceBarrier;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsAnnotationEnabled;
@@ -6879,7 +6879,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void CopyTiles(ID3D11Resource* pTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pTileRegionSize, ID3D11Buffer* pBuffer, uint64 BufferStartOffsetInBytes, uint32 Flags) mut => VT.[Friend]CopyTiles(&this, pTiledResource, pTileRegionStartCoordinate, pTileRegionSize, pBuffer, BufferStartOffsetInBytes, Flags);
 
-	public void UpdateTiles(ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pDestTileRegionSize, void* pSourceTileData, uint32 Flags) mut => VT.[Friend]UpdateTiles(&this, pDestTiledResource, pDestTileRegionStartCoordinate, pDestTileRegionSize, pSourceTileData, Flags);
+	public void UpdateTiles(ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pDestTileRegionSize, in void pSourceTileData, uint32 Flags) mut => VT.[Friend]UpdateTiles(&this, pDestTiledResource, pDestTileRegionStartCoordinate, pDestTileRegionSize, pSourceTileData, Flags);
 
 	public HRESULT ResizeTilePool(ID3D11Buffer* pTilePool, uint64 NewSizeInBytes) mut => VT.[Friend]ResizeTilePool(&this, pTilePool, NewSizeInBytes);
 
@@ -7100,7 +7100,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_QUERY_DESC1* pQueryDesc1, ID3D11Query1** ppQuery1) CreateQuery1;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11DeviceContext3** ppImmediateContext) GetImmediateContext3;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ContextFlags, ID3D11DeviceContext3** ppDeferredContext) CreateDeferredContext3;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) WriteToSubresource;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) WriteToSubresource;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, void* pDstData, uint32 DstRowPitch, uint32 DstDepthPitch, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox) ReadFromSubresource;
 	}
 
@@ -7123,7 +7123,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public HRESULT CreateDeferredContext3(uint32 ContextFlags, ID3D11DeviceContext3** ppDeferredContext) mut => VT.[Friend]CreateDeferredContext3(&this, ContextFlags, ppDeferredContext);
 
-	public void WriteToSubresource(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]WriteToSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
+	public void WriteToSubresource(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]WriteToSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
 
 	public void ReadFromSubresource(void* pDstData, uint32 DstRowPitch, uint32 DstDepthPitch, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox) mut => VT.[Friend]ReadFromSubresource(&this, pDstData, DstRowPitch, DstDepthPitch, pSrcResource, SrcSubresource, pSrcBox);
 }
@@ -7154,14 +7154,14 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	[CRepr]public struct VTable : ID3D11Device4.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hFence, ref Guid ReturnedInterface, void** ppFence) OpenSharedFence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 InitialValue, D3D11_FENCE_FLAG Flags, ref Guid ReturnedInterface, void** ppFence) CreateFence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hFence, in Guid ReturnedInterface, void** ppFence) OpenSharedFence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 InitialValue, D3D11_FENCE_FLAG Flags, in Guid ReturnedInterface, void** ppFence) CreateFence;
 	}
 
 
-	public HRESULT OpenSharedFence(HANDLE hFence, ref Guid ReturnedInterface, void** ppFence) mut => VT.[Friend]OpenSharedFence(&this, hFence, ref ReturnedInterface, ppFence);
+	public HRESULT OpenSharedFence(HANDLE hFence, in Guid ReturnedInterface, void** ppFence) mut => VT.[Friend]OpenSharedFence(&this, hFence, ReturnedInterface, ppFence);
 
-	public HRESULT CreateFence(uint64 InitialValue, D3D11_FENCE_FLAG Flags, ref Guid ReturnedInterface, void** ppFence) mut => VT.[Friend]CreateFence(&this, InitialValue, Flags, ref ReturnedInterface, ppFence);
+	public HRESULT CreateFence(uint64 InitialValue, D3D11_FENCE_FLAG Flags, in Guid ReturnedInterface, void** ppFence) mut => VT.[Friend]CreateFence(&this, InitialValue, Flags, ReturnedInterface, ppFence);
 }
 
 [CRepr]struct ID3D11Multithread : IUnknown

@@ -13,11 +13,11 @@ namespace Win32.UI.Input.Radial;
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, in Guid riid, void** ppv) CreateForWindow;
 	}
 
 
-	public HRESULT CreateForWindow(HWND hwnd, ref Guid riid, void** ppv) mut => VT.[Friend]CreateForWindow(&this, hwnd, ref riid, ppv);
+	public HRESULT CreateForWindow(HWND hwnd, in Guid riid, void** ppv) mut => VT.[Friend]CreateForWindow(&this, hwnd, riid, ppv);
 }
 
 [CRepr]struct IRadialControllerConfigurationInterop : IInspectable
@@ -28,11 +28,11 @@ namespace Win32.UI.Input.Radial;
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, in Guid riid, void** ppv) GetForWindow;
 	}
 
 
-	public HRESULT GetForWindow(HWND hwnd, ref Guid riid, void** ppv) mut => VT.[Friend]GetForWindow(&this, hwnd, ref riid, ppv);
+	public HRESULT GetForWindow(HWND hwnd, in Guid riid, void** ppv) mut => VT.[Friend]GetForWindow(&this, hwnd, riid, ppv);
 }
 
 [CRepr]struct IRadialControllerIndependentInputSourceInterop : IInspectable
@@ -43,11 +43,11 @@ namespace Win32.UI.Input.Radial;
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, in Guid riid, void** ppv) CreateForWindow;
 	}
 
 
-	public HRESULT CreateForWindow(HWND hwnd, ref Guid riid, void** ppv) mut => VT.[Friend]CreateForWindow(&this, hwnd, ref riid, ppv);
+	public HRESULT CreateForWindow(HWND hwnd, in Guid riid, void** ppv) mut => VT.[Friend]CreateForWindow(&this, hwnd, riid, ppv);
 }
 
 #endregion

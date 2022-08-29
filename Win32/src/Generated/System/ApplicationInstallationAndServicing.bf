@@ -2369,7 +2369,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32* pcbProperty) GetProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finalize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) Reserved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) Reserved;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpcwBuffer, char16* pwzName) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwVersionHi, uint32* pdwVersionLow) GetVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAssemblyName* pName, uint32 dwCmpFlags) IsEqual;
@@ -2385,7 +2385,7 @@ public static
 
 	public HRESULT GetDisplayName(char16* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) mut => VT.[Friend]GetDisplayName(&this, szDisplayName, pccDisplayName, dwDisplayFlags);
 
-	public HRESULT Reserved(ref Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) mut => VT.[Friend]Reserved(&this, ref refIID, pUnkReserved1, pUnkReserved2, szReserved, llReserved, pvReserved, cbReserved, ppReserved);
+	public HRESULT Reserved(in Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) mut => VT.[Friend]Reserved(&this, refIID, pUnkReserved1, pUnkReserved2, szReserved, llReserved, pvReserved, cbReserved, ppReserved);
 
 	public HRESULT GetName(uint32* lpcwBuffer, char16* pwzName) mut => VT.[Friend]GetName(&this, lpcwBuffer, pwzName);
 
@@ -2452,9 +2452,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pInstanceID) get_InstanceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pOfferID) get_OfferID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pInstanceID) get_InstanceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pOfferID) get_OfferID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDefaultTask) get_DefaultTask;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAppTitle) get_AppTitle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAppIconPath) get_IconPath;
@@ -2477,7 +2477,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMajorVer) get_AppPlatMajorVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMinorVer) get_AppPlatMinorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pPublisherID) get_PublisherID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pPublisherID) get_PublisherID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsMultiCore) get_IsMultiCore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pSID) get_SID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMajorVer) get_AppPlatMajorVersionLightUp;
@@ -2497,7 +2497,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* IsUninstallable) get_EnterpriseUninstallable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsVisible) get_IsVisibleOnAppList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsInboxApp) get_IsInboxApp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pStorageID) get_StorageID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pStorageID) get_StorageID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_STARTAPPBLOB* pBlob) get_StartAppBlob;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsMovable) get_IsMovable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE* HubType) get_DeploymentAppEnumerationHubFilter;
@@ -2510,11 +2510,11 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
+	public HRESULT get_ProductID(Guid* pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
 
-	public HRESULT get_InstanceID(ref Guid pInstanceID) mut => VT.[Friend]get_InstanceID(&this, ref pInstanceID);
+	public HRESULT get_InstanceID(Guid* pInstanceID) mut => VT.[Friend]get_InstanceID(&this, pInstanceID);
 
-	public HRESULT get_OfferID(ref Guid pOfferID) mut => VT.[Friend]get_OfferID(&this, ref pOfferID);
+	public HRESULT get_OfferID(Guid* pOfferID) mut => VT.[Friend]get_OfferID(&this, pOfferID);
 
 	public HRESULT get_DefaultTask(BSTR* pDefaultTask) mut => VT.[Friend]get_DefaultTask(&this, pDefaultTask);
 
@@ -2560,7 +2560,7 @@ public static
 
 	public HRESULT get_AppPlatMinorVersion(uint8* pMinorVer) mut => VT.[Friend]get_AppPlatMinorVersion(&this, pMinorVer);
 
-	public HRESULT get_PublisherID(ref Guid pPublisherID) mut => VT.[Friend]get_PublisherID(&this, ref pPublisherID);
+	public HRESULT get_PublisherID(Guid* pPublisherID) mut => VT.[Friend]get_PublisherID(&this, pPublisherID);
 
 	public HRESULT get_IsMultiCore(BOOL* pIsMultiCore) mut => VT.[Friend]get_IsMultiCore(&this, pIsMultiCore);
 
@@ -2600,7 +2600,7 @@ public static
 
 	public HRESULT get_IsInboxApp(BOOL* pIsInboxApp) mut => VT.[Friend]get_IsInboxApp(&this, pIsInboxApp);
 
-	public HRESULT get_StorageID(ref Guid pStorageID) mut => VT.[Friend]get_StorageID(&this, ref pStorageID);
+	public HRESULT get_StorageID(Guid* pStorageID) mut => VT.[Friend]get_StorageID(&this, pStorageID);
 
 	public HRESULT get_StartAppBlob(PM_STARTAPPBLOB* pBlob) mut => VT.[Friend]get_StartAppBlob(&this, pBlob);
 
@@ -2665,7 +2665,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTileID) get_TileID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TILE_TEMPLATE_TYPE* pTemplateType) get_TemplateType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, BOOL* pPinned) get_HubPinnedState;
@@ -2692,7 +2692,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
+	public HRESULT get_ProductID(Guid* pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
 
 	public HRESULT get_TileID(BSTR* pTileID) mut => VT.[Friend]get_TileID(&this, pTileID);
 
@@ -2779,7 +2779,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTileID) get_TileID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pNextSchedule) get_NextSchedule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME ftNextSchedule) set_NextSchedule;
@@ -2806,7 +2806,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
+	public HRESULT get_ProductID(Guid* pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
 
 	public HRESULT get_TileID(BSTR* pTileID) mut => VT.[Friend]get_TileID(&this, pTileID);
 
@@ -3061,7 +3061,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pNavigationPage) get_NavigationPage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TASK_TRANSITION* pTaskTransition) get_TaskTransition;
@@ -3085,7 +3085,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
+	public HRESULT get_ProductID(Guid* pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
 
 	public HRESULT get_TaskID(BSTR* pTaskID) mut => VT.[Friend]get_TaskID(&this, pTaskID);
 
@@ -3151,7 +3151,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSupplierPID) get_SupplierPID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pSupplierPID) get_SupplierPID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pSupplierTID) get_SupplierTaskID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTitle) get_Title;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pIconPath) get_IconPath;
@@ -3160,7 +3160,7 @@ public static
 	}
 
 
-	public HRESULT get_SupplierPID(ref Guid pSupplierPID) mut => VT.[Friend]get_SupplierPID(&this, ref pSupplierPID);
+	public HRESULT get_SupplierPID(Guid* pSupplierPID) mut => VT.[Friend]get_SupplierPID(&this, pSupplierPID);
 
 	public HRESULT get_SupplierTaskID(BSTR* pSupplierTID) mut => VT.[Friend]get_SupplierTaskID(&this, pSupplierTID);
 
@@ -3334,7 +3334,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pBSAID) get_BSAID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGSpecifier) get_BGSpecifier;
@@ -3351,7 +3351,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
+	public HRESULT get_ProductID(Guid* pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
 
 	public HRESULT get_TaskID(BSTR* pTaskID) mut => VT.[Friend]get_TaskID(&this, pTaskID);
 
@@ -3388,7 +3388,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pProductID) get_ProductID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGName) get_BGName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMaxStartupLatency) get_MaxStartupLatency;
@@ -3397,7 +3397,7 @@ public static
 	}
 
 
-	public HRESULT get_ProductID(ref Guid pProductID) mut => VT.[Friend]get_ProductID(&this, ref pProductID);
+	public HRESULT get_ProductID(Guid* pProductID) mut => VT.[Friend]get_ProductID(&this, pProductID);
 
 	public HRESULT get_TaskID(BSTR* pTaskID) mut => VT.[Friend]get_TaskID(&this, pTaskID);
 
@@ -4525,14 +4525,14 @@ public static
 	public static extern BOOL GetCurrentActCtx(HANDLE* lphActCtx);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindActCtxSectionStringA(uint32 dwFlags, ref Guid lpExtensionGuid, uint32 ulSectionId, PSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
-	public static BOOL FindActCtxSectionString(uint32 dwFlags, ref Guid lpExtensionGuid, uint32 ulSectionId, PSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData) => FindActCtxSectionStringA(dwFlags, ref lpExtensionGuid, ulSectionId, lpStringToFind, ReturnedData);
+	public static extern BOOL FindActCtxSectionStringA(uint32 dwFlags, Guid* lpExtensionGuid, uint32 ulSectionId, PSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
+	public static BOOL FindActCtxSectionString(uint32 dwFlags, Guid* lpExtensionGuid, uint32 ulSectionId, PSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData) => FindActCtxSectionStringA(dwFlags, lpExtensionGuid, ulSectionId, lpStringToFind, ReturnedData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindActCtxSectionStringW(uint32 dwFlags, ref Guid lpExtensionGuid, uint32 ulSectionId, PWSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
+	public static extern BOOL FindActCtxSectionStringW(uint32 dwFlags, Guid* lpExtensionGuid, uint32 ulSectionId, PWSTR lpStringToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindActCtxSectionGuid(uint32 dwFlags, ref Guid lpExtensionGuid, uint32 ulSectionId, ref Guid lpGuidToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
+	public static extern BOOL FindActCtxSectionGuid(uint32 dwFlags, Guid* lpExtensionGuid, uint32 ulSectionId, Guid* lpGuidToFind, ACTCTX_SECTION_KEYED_DATA* ReturnedData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL QueryActCtxW(uint32 dwFlags, HANDLE hActCtx, void* pvSubInstance, uint32 ulInfoClass, void* pvBuffer, uint cbBuffer, uint* pcbWrittenOrRequired);

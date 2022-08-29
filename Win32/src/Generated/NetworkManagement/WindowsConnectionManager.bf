@@ -163,10 +163,10 @@ public struct NET_INTERFACE_CONTEXT_TABLE
 public static
 {
 	[Import("wcmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WcmQueryProperty(ref Guid pInterface, PWSTR strProfileName, WCM_PROPERTY Property, void* pReserved, uint32* pdwDataSize, uint8** ppData);
+	public static extern uint32 WcmQueryProperty(Guid* pInterface, PWSTR strProfileName, WCM_PROPERTY Property, void* pReserved, uint32* pdwDataSize, uint8** ppData);
 
 	[Import("wcmapi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WcmSetProperty(ref Guid pInterface, PWSTR strProfileName, WCM_PROPERTY Property, void* pReserved, uint32 dwDataSize, uint8* pbData);
+	public static extern uint32 WcmSetProperty(Guid* pInterface, PWSTR strProfileName, WCM_PROPERTY Property, void* pReserved, uint32 dwDataSize, uint8* pbData);
 
 	[Import("wcmapi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WcmGetProfileList(void* pReserved, WCM_PROFILE_INFO_LIST** ppProfileList);

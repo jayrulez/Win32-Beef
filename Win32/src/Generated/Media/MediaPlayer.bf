@@ -3238,7 +3238,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint dwPlaybackContext) Init;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Shutdown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGUID) GetID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pGUID) GetID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) GetCaps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMPServices* pWMPServices) AdviseWMPServices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnAdviseWMPServices;
@@ -3249,7 +3249,7 @@ public static
 
 	public HRESULT Shutdown() mut => VT.[Friend]Shutdown(&this);
 
-	public HRESULT GetID(ref Guid pGUID) mut => VT.[Friend]GetID(&this, ref pGUID);
+	public HRESULT GetID(Guid* pGUID) mut => VT.[Friend]GetID(&this, pGUID);
 
 	public HRESULT GetCaps(uint32* pdwFlags) mut => VT.[Friend]GetCaps(&this, pdwFlags);
 
@@ -3353,13 +3353,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) RootFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) RootFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUrl, BOOL* pbSubscribed) IsSubscribed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, BOOL* pbFeedExists) ExistsFeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, ref Guid riid, void** ppv) GetFeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUrl, ref Guid riid, void** ppv) GetFeedByUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, in Guid riid, void** ppv) GetFeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUrl, in Guid riid, void** ppv) GetFeedByUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, BOOL* pbFolderExists) ExistsFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, ref Guid riid, void** ppv) GetFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, in Guid riid, void** ppv) GetFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) DeleteFeed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) DeleteFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FEEDS_BACKGROUNDSYNC_ACTION fbsa) BackgroundSync;
@@ -3372,19 +3372,19 @@ public static
 	}
 
 
-	public HRESULT RootFolder(ref Guid riid, void** ppv) mut => VT.[Friend]RootFolder(&this, ref riid, ppv);
+	public HRESULT RootFolder(in Guid riid, void** ppv) mut => VT.[Friend]RootFolder(&this, riid, ppv);
 
 	public HRESULT IsSubscribed(PWSTR pszUrl, BOOL* pbSubscribed) mut => VT.[Friend]IsSubscribed(&this, pszUrl, pbSubscribed);
 
 	public HRESULT ExistsFeed(PWSTR pszPath, BOOL* pbFeedExists) mut => VT.[Friend]ExistsFeed(&this, pszPath, pbFeedExists);
 
-	public HRESULT GetFeed(PWSTR pszPath, ref Guid riid, void** ppv) mut => VT.[Friend]GetFeed(&this, pszPath, ref riid, ppv);
+	public HRESULT GetFeed(PWSTR pszPath, in Guid riid, void** ppv) mut => VT.[Friend]GetFeed(&this, pszPath, riid, ppv);
 
-	public HRESULT GetFeedByUrl(PWSTR pszUrl, ref Guid riid, void** ppv) mut => VT.[Friend]GetFeedByUrl(&this, pszUrl, ref riid, ppv);
+	public HRESULT GetFeedByUrl(PWSTR pszUrl, in Guid riid, void** ppv) mut => VT.[Friend]GetFeedByUrl(&this, pszUrl, riid, ppv);
 
 	public HRESULT ExistsFolder(PWSTR pszPath, BOOL* pbFolderExists) mut => VT.[Friend]ExistsFolder(&this, pszPath, pbFolderExists);
 
-	public HRESULT GetFolder(PWSTR pszPath, ref Guid riid, void** ppv) mut => VT.[Friend]GetFolder(&this, pszPath, ref riid, ppv);
+	public HRESULT GetFolder(PWSTR pszPath, in Guid riid, void** ppv) mut => VT.[Friend]GetFolder(&this, pszPath, riid, ppv);
 
 	public HRESULT DeleteFeed(PWSTR pszPath) mut => VT.[Friend]DeleteFeed(&this, pszPath);
 
@@ -3414,13 +3414,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiCount) Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiIndex, ref Guid riid, void** ppv) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiIndex, in Guid riid, void** ppv) Item;
 	}
 
 
 	public HRESULT Count(uint32* puiCount) mut => VT.[Friend]Count(&this, puiCount);
 
-	public HRESULT Item(uint32 uiIndex, ref Guid riid, void** ppv) mut => VT.[Friend]Item(&this, uiIndex, ref riid, ppv);
+	public HRESULT Item(uint32 uiIndex, in Guid riid, void** ppv) mut => VT.[Friend]Item(&this, uiIndex, riid, ppv);
 }
 
 [CRepr]struct IXFeedFolder : IUnknown
@@ -3433,20 +3433,20 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXFeedsEnum** ppfe) Feeds;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXFeedsEnum** ppfe) Subfolders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, PWSTR pszUrl, ref Guid riid, void** ppv) CreateFeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, ref Guid riid, void** ppv) CreateSubfolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, PWSTR pszUrl, in Guid riid, void** ppv) CreateFeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, in Guid riid, void** ppv) CreateSubfolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, BOOL* pbFeedExists) ExistsFeed;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, BOOL* pbSubfolderExists) ExistsSubfolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, ref Guid riid, void** ppv) GetFeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, ref Guid riid, void** ppv) GetSubfolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, in Guid riid, void** ppv) GetFeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, in Guid riid, void** ppv) GetSubfolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszName) Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName) Rename;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPath) Path;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) Move;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) Parent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbIsRootFeedFolder) IsRoot;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FEEDS_EVENTS_SCOPE @scope, FEEDS_EVENTS_MASK mask, ref Guid riid, void** ppv) GetWatcher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FEEDS_EVENTS_SCOPE @scope, FEEDS_EVENTS_MASK mask, in Guid riid, void** ppv) GetWatcher;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiTotalUnreadItemCount) TotalUnreadItemCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiTotalItemCount) TotalItemCount;
 	}
@@ -3456,17 +3456,17 @@ public static
 
 	public HRESULT Subfolders(IXFeedsEnum** ppfe) mut => VT.[Friend]Subfolders(&this, ppfe);
 
-	public HRESULT CreateFeed(PWSTR pszName, PWSTR pszUrl, ref Guid riid, void** ppv) mut => VT.[Friend]CreateFeed(&this, pszName, pszUrl, ref riid, ppv);
+	public HRESULT CreateFeed(PWSTR pszName, PWSTR pszUrl, in Guid riid, void** ppv) mut => VT.[Friend]CreateFeed(&this, pszName, pszUrl, riid, ppv);
 
-	public HRESULT CreateSubfolder(PWSTR pszName, ref Guid riid, void** ppv) mut => VT.[Friend]CreateSubfolder(&this, pszName, ref riid, ppv);
+	public HRESULT CreateSubfolder(PWSTR pszName, in Guid riid, void** ppv) mut => VT.[Friend]CreateSubfolder(&this, pszName, riid, ppv);
 
 	public HRESULT ExistsFeed(PWSTR pszName, BOOL* pbFeedExists) mut => VT.[Friend]ExistsFeed(&this, pszName, pbFeedExists);
 
 	public HRESULT ExistsSubfolder(PWSTR pszName, BOOL* pbSubfolderExists) mut => VT.[Friend]ExistsSubfolder(&this, pszName, pbSubfolderExists);
 
-	public HRESULT GetFeed(PWSTR pszName, ref Guid riid, void** ppv) mut => VT.[Friend]GetFeed(&this, pszName, ref riid, ppv);
+	public HRESULT GetFeed(PWSTR pszName, in Guid riid, void** ppv) mut => VT.[Friend]GetFeed(&this, pszName, riid, ppv);
 
-	public HRESULT GetSubfolder(PWSTR pszName, ref Guid riid, void** ppv) mut => VT.[Friend]GetSubfolder(&this, pszName, ref riid, ppv);
+	public HRESULT GetSubfolder(PWSTR pszName, in Guid riid, void** ppv) mut => VT.[Friend]GetSubfolder(&this, pszName, riid, ppv);
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
@@ -3478,11 +3478,11 @@ public static
 
 	public HRESULT Move(PWSTR pszPath) mut => VT.[Friend]Move(&this, pszPath);
 
-	public HRESULT Parent(ref Guid riid, void** ppv) mut => VT.[Friend]Parent(&this, ref riid, ppv);
+	public HRESULT Parent(in Guid riid, void** ppv) mut => VT.[Friend]Parent(&this, riid, ppv);
 
 	public HRESULT IsRoot(BOOL* pbIsRootFeedFolder) mut => VT.[Friend]IsRoot(&this, pbIsRootFeedFolder);
 
-	public HRESULT GetWatcher(FEEDS_EVENTS_SCOPE @scope, FEEDS_EVENTS_MASK mask, ref Guid riid, void** ppv) mut => VT.[Friend]GetWatcher(&this, @scope, mask, ref riid, ppv);
+	public HRESULT GetWatcher(FEEDS_EVENTS_SCOPE @scope, FEEDS_EVENTS_MASK mask, in Guid riid, void** ppv) mut => VT.[Friend]GetWatcher(&this, @scope, mask, riid, ppv);
 
 	public HRESULT TotalUnreadItemCount(uint32* puiTotalUnreadItemCount) mut => VT.[Friend]TotalUnreadItemCount(&this, puiTotalUnreadItemCount);
 
@@ -3562,10 +3562,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName) Rename;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszUrl) Url;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUrl) SetUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguid) LocalId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pguid) LocalId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPath) Path;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) Move;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) Parent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstLastWriteTime) LastWriteTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Download;
@@ -3578,7 +3578,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstLastDownloadTime) LastDownloadTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPath) LocalEnclosurePath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXFeedsEnum** ppfe) Items;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiId, ref Guid riid, void** ppv) GetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiId, in Guid riid, void** ppv) GetItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) MarkAllItemsRead;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiMaxItemCount) MaxItemCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiMaxItemCount) SetMaxItemCount;
@@ -3598,7 +3598,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszLanguage) Language;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszCopyright) Copyright;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbIsList) IsList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FEEDS_EVENTS_SCOPE @scope, FEEDS_EVENTS_MASK mask, ref Guid riid, void** ppv) GetWatcher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FEEDS_EVENTS_SCOPE @scope, FEEDS_EVENTS_MASK mask, in Guid riid, void** ppv) GetWatcher;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiUnreadItemCount) UnreadItemCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiItemCount) ItemCount;
 	}
@@ -3614,13 +3614,13 @@ public static
 
 	public HRESULT SetUrl(PWSTR pszUrl) mut => VT.[Friend]SetUrl(&this, pszUrl);
 
-	public HRESULT LocalId(ref Guid pguid) mut => VT.[Friend]LocalId(&this, ref pguid);
+	public HRESULT LocalId(Guid* pguid) mut => VT.[Friend]LocalId(&this, pguid);
 
 	public HRESULT Path(PWSTR* ppszPath) mut => VT.[Friend]Path(&this, ppszPath);
 
 	public HRESULT Move(PWSTR pszPath) mut => VT.[Friend]Move(&this, pszPath);
 
-	public HRESULT Parent(ref Guid riid, void** ppv) mut => VT.[Friend]Parent(&this, ref riid, ppv);
+	public HRESULT Parent(in Guid riid, void** ppv) mut => VT.[Friend]Parent(&this, riid, ppv);
 
 	public HRESULT LastWriteTime(SYSTEMTIME* pstLastWriteTime) mut => VT.[Friend]LastWriteTime(&this, pstLastWriteTime);
 
@@ -3646,7 +3646,7 @@ public static
 
 	public HRESULT Items(IXFeedsEnum** ppfe) mut => VT.[Friend]Items(&this, ppfe);
 
-	public HRESULT GetItem(uint32 uiId, ref Guid riid, void** ppv) mut => VT.[Friend]GetItem(&this, uiId, ref riid, ppv);
+	public HRESULT GetItem(uint32 uiId, in Guid riid, void** ppv) mut => VT.[Friend]GetItem(&this, uiId, riid, ppv);
 
 	public HRESULT MarkAllItemsRead() mut => VT.[Friend]MarkAllItemsRead(&this);
 
@@ -3686,7 +3686,7 @@ public static
 
 	public HRESULT IsList(BOOL* pbIsList) mut => VT.[Friend]IsList(&this, pbIsList);
 
-	public HRESULT GetWatcher(FEEDS_EVENTS_SCOPE @scope, FEEDS_EVENTS_MASK mask, ref Guid riid, void** ppv) mut => VT.[Friend]GetWatcher(&this, @scope, mask, ref riid, ppv);
+	public HRESULT GetWatcher(FEEDS_EVENTS_SCOPE @scope, FEEDS_EVENTS_MASK mask, in Guid riid, void** ppv) mut => VT.[Friend]GetWatcher(&this, @scope, mask, riid, ppv);
 
 	public HRESULT UnreadItemCount(uint32* puiUnreadItemCount) mut => VT.[Friend]UnreadItemCount(&this, puiUnreadItemCount);
 
@@ -3701,7 +3701,7 @@ public static
 
 	[CRepr]public struct VTable : IXFeed.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiEffectiveId, ref Guid riid, void** ppv) GetItemByEffectiveId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiEffectiveId, in Guid riid, void** ppv) GetItemByEffectiveId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstLastItemDownloadTime) LastItemDownloadTime;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszUsername) Username;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPassword) Password;
@@ -3710,7 +3710,7 @@ public static
 	}
 
 
-	public HRESULT GetItemByEffectiveId(uint32 uiEffectiveId, ref Guid riid, void** ppv) mut => VT.[Friend]GetItemByEffectiveId(&this, uiEffectiveId, ref riid, ppv);
+	public HRESULT GetItemByEffectiveId(uint32 uiEffectiveId, in Guid riid, void** ppv) mut => VT.[Friend]GetItemByEffectiveId(&this, uiEffectiveId, riid, ppv);
 
 	public HRESULT LastItemDownloadTime(SYSTEMTIME* pstLastItemDownloadTime) mut => VT.[Friend]LastItemDownloadTime(&this, pstLastItemDownloadTime);
 
@@ -3775,11 +3775,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstPubDate) PubDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszUrl) Comments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszAuthor) Author;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) Enclosure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) Enclosure;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbIsRead) IsRead;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bIsRead) SetIsRead;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiId) LocalId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) Parent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszUrl) DownloadUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstLastDownloadTime) LastDownloadTime;
@@ -3803,7 +3803,7 @@ public static
 
 	public HRESULT Author(PWSTR* ppszAuthor) mut => VT.[Friend]Author(&this, ppszAuthor);
 
-	public HRESULT Enclosure(ref Guid riid, void** ppv) mut => VT.[Friend]Enclosure(&this, ref riid, ppv);
+	public HRESULT Enclosure(in Guid riid, void** ppv) mut => VT.[Friend]Enclosure(&this, riid, ppv);
 
 	public HRESULT IsRead(BOOL* pbIsRead) mut => VT.[Friend]IsRead(&this, pbIsRead);
 
@@ -3811,7 +3811,7 @@ public static
 
 	public HRESULT LocalId(uint32* puiId) mut => VT.[Friend]LocalId(&this, puiId);
 
-	public HRESULT Parent(ref Guid riid, void** ppv) mut => VT.[Friend]Parent(&this, ref riid, ppv);
+	public HRESULT Parent(in Guid riid, void** ppv) mut => VT.[Friend]Parent(&this, riid, ppv);
 
 	public HRESULT Delete() mut => VT.[Friend]Delete(&this);
 
@@ -3853,7 +3853,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FEEDS_DOWNLOAD_STATUS* pfds) DownloadStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FEEDS_DOWNLOAD_ERROR* pfde) LastDownloadError;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPath) LocalPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) Parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppv) Parent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszUrl) DownloadUrl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszMimeType) DownloadMimeType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveFile;
@@ -3877,7 +3877,7 @@ public static
 
 	public HRESULT LocalPath(PWSTR* ppszPath) mut => VT.[Friend]LocalPath(&this, ppszPath);
 
-	public HRESULT Parent(ref Guid riid, void** ppv) mut => VT.[Friend]Parent(&this, ref riid, ppv);
+	public HRESULT Parent(in Guid riid, void** ppv) mut => VT.[Friend]Parent(&this, riid, ppv);
 
 	public HRESULT DownloadUrl(PWSTR* ppszUrl) mut => VT.[Friend]DownloadUrl(&this, ppszUrl);
 
