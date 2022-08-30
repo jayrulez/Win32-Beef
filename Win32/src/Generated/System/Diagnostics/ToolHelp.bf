@@ -155,7 +155,7 @@ public static
 	public static extern BOOL Heap32Next(HEAPENTRY32* lphe);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL Toolhelp32ReadProcessMemory(uint32 th32ProcessID, in void lpBaseAddress, void* lpBuffer, uint cbRead, uint* lpNumberOfBytesRead);
+	public static extern BOOL Toolhelp32ReadProcessMemory(uint32 th32ProcessID, void* lpBaseAddress, void* lpBuffer, uint cbRead, uint* lpNumberOfBytesRead);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL Process32FirstW(HANDLE hSnapshot, PROCESSENTRY32W* lppe);

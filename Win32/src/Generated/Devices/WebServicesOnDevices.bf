@@ -1273,9 +1273,9 @@ public struct WSD_EVENT
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void pBody, WSD_OPERATION* pOperation) SendOneWayRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) SendTwoWayRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) SendTwoWayRequestAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation) SendOneWayRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) SendTwoWayRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) SendTwoWayRequestAsync;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAsyncResult* pAsyncResult) AbortAsyncOperation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_FAULT* pFault) ProcessFault;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszErrorInfo) GetErrorInfo;
@@ -1283,11 +1283,11 @@ public struct WSD_EVENT
 	}
 
 
-	public HRESULT SendOneWayRequest(in void pBody, WSD_OPERATION* pOperation) mut => VT.[Friend]SendOneWayRequest(&this, pBody, pOperation);
+	public HRESULT SendOneWayRequest(void* pBody, WSD_OPERATION* pOperation) mut => VT.[Friend]SendOneWayRequest(&this, pBody, pOperation);
 
-	public HRESULT SendTwoWayRequest(in void pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) mut => VT.[Friend]SendTwoWayRequest(&this, pBody, pOperation, pResponseContext);
+	public HRESULT SendTwoWayRequest(void* pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) mut => VT.[Friend]SendTwoWayRequest(&this, pBody, pOperation, pResponseContext);
 
-	public HRESULT SendTwoWayRequestAsync(in void pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) mut => VT.[Friend]SendTwoWayRequestAsync(&this, pBody, pOperation, pAsyncState, pCallback, pResult);
+	public HRESULT SendTwoWayRequestAsync(void* pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) mut => VT.[Friend]SendTwoWayRequestAsync(&this, pBody, pOperation, pAsyncState, pCallback, pResult);
 
 	public HRESULT AbortAsyncOperation(IWSDAsyncResult* pAsyncResult) mut => VT.[Friend]AbortAsyncOperation(&this, pAsyncResult);
 

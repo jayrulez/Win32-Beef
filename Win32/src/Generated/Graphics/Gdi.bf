@@ -2047,7 +2047,7 @@ public function void CFP_FREEPROC(void* param0);
 
 public function uint32 READEMBEDPROC(void* param0, void* param1, uint32 param2);
 
-public function uint32 WRITEEMBEDPROC(void* param0, in void param1, uint32 param2);
+public function uint32 WRITEEMBEDPROC(void* param0, void* param1, uint32 param2);
 
 public function BOOL GRAYSTRINGPROC(HDC param0, LPARAM param1, int32 param2);
 
@@ -3992,7 +3992,7 @@ public static
 	public static extern HBRUSH CreateDIBPatternBrush(int h, DIB_USAGE iUsage);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HBRUSH CreateDIBPatternBrushPt(in void lpPackedDIB, DIB_USAGE iUsage);
+	public static extern HBRUSH CreateDIBPatternBrushPt(void* lpPackedDIB, DIB_USAGE iUsage);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRGN CreateEllipticRgn(int32 x1, int32 y1, int32 x2, int32 y2);
@@ -4504,10 +4504,10 @@ public static
 	public static extern uint32 SetBoundsRect(HDC hdc, RECT* lprect, SET_BOUNDS_RECT_FLAGS flags);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SetDIBits(HDC hdc, HBITMAP hbm, uint32 start, uint32 cLines, in void lpBits, BITMAPINFO* lpbmi, DIB_USAGE ColorUse);
+	public static extern int32 SetDIBits(HDC hdc, HBITMAP hbm, uint32 start, uint32 cLines, void* lpBits, BITMAPINFO* lpbmi, DIB_USAGE ColorUse);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SetDIBitsToDevice(HDC hdc, int32 xDest, int32 yDest, uint32 w, uint32 h, int32 xSrc, int32 ySrc, uint32 StartScan, uint32 cLines, in void lpvBits, BITMAPINFO* lpbmi, DIB_USAGE ColorUse);
+	public static extern int32 SetDIBitsToDevice(HDC hdc, int32 xDest, int32 yDest, uint32 w, uint32 h, int32 xSrc, int32 ySrc, uint32 StartScan, uint32 cLines, void* lpvBits, BITMAPINFO* lpbmi, DIB_USAGE ColorUse);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetMapperFlags(HDC hdc, uint32 flags);

@@ -500,10 +500,10 @@ public static
 	public static extern uint32 ldap_get_optionW(ldap* ld, int32 option, void* outvalue);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_set_option(ldap* ld, int32 option, in void invalue);
+	public static extern uint32 ldap_set_option(ldap* ld, int32 option, void* invalue);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ldap_set_optionW(ldap* ld, int32 option, in void invalue);
+	public static extern uint32 ldap_set_optionW(ldap* ld, int32 option, void* invalue);
 
 	[Import("WLDAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ldap_simple_bindW(ldap* ld, PWSTR dn, PWSTR passwd);

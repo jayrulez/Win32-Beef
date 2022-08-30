@@ -1657,7 +1657,7 @@ public function void PLOG_FULL_HANDLER_CALLBACK(HANDLE hLogFile, uint32 dwError,
 
 public function void PLOG_UNPINNED_CALLBACK(HANDLE hLogFile, void* pvClientContext);
 
-public function BOOL WofEnumEntryProc(in void EntryInfo, void* UserData);
+public function BOOL WofEnumEntryProc(void* EntryInfo, void* UserData);
 
 public function BOOL WofEnumFilesProc(PWSTR FilePath, void* ExternalFileInfo, void* UserData);
 
@@ -4600,11 +4600,11 @@ public static
 	public static extern uint32 VerLanguageNameW(uint32 wLang, char16* szLang, uint32 cchLang);
 
 	[Import("VERSION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL VerQueryValueA(in void pBlock, PSTR lpSubBlock, void** lplpBuffer, uint32* puLen);
-	public static BOOL VerQueryValue(in void pBlock, PSTR lpSubBlock, void** lplpBuffer, uint32* puLen) => VerQueryValueA(pBlock, lpSubBlock, lplpBuffer, puLen);
+	public static extern BOOL VerQueryValueA(void* pBlock, PSTR lpSubBlock, void** lplpBuffer, uint32* puLen);
+	public static BOOL VerQueryValue(void* pBlock, PSTR lpSubBlock, void** lplpBuffer, uint32* puLen) => VerQueryValueA(pBlock, lpSubBlock, lplpBuffer, puLen);
 
 	[Import("VERSION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL VerQueryValueW(in void pBlock, PWSTR lpSubBlock, void** lplpBuffer, uint32* puLen);
+	public static extern BOOL VerQueryValueW(void* pBlock, PWSTR lpSubBlock, void** lplpBuffer, uint32* puLen);
 
 	[Import("clfsw32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN LsnEqual(CLS_LSN* plsn1, CLS_LSN* plsn2);

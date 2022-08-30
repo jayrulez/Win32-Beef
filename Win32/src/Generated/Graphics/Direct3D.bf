@@ -867,14 +867,14 @@ public struct D3DMATRIX
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, in void pParentData, void** ppData, uint32* pBytes) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void pData) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32* pBytes) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pData) Close;
 	}
 
 
-	public HRESULT Open(D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, in void pParentData, void** ppData, uint32* pBytes) mut => VT.[Friend]Open(&this, IncludeType, pFileName, pParentData, ppData, pBytes);
+	public HRESULT Open(D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32* pBytes) mut => VT.[Friend]Open(&this, IncludeType, pFileName, pParentData, ppData, pBytes);
 
-	public HRESULT Close(in void pData) mut => VT.[Friend]Close(&this, pData);
+	public HRESULT Close(void* pData) mut => VT.[Friend]Close(&this, pData);
 }
 
 #endregion

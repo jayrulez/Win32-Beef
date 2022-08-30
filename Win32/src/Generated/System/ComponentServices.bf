@@ -3746,14 +3746,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void pIdentity, in Guid riid, uint32 dwMeth) SendMethodCall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void pIdentity, in Guid riid, uint32 dwMeth, HRESULT hrCall, HRESULT hrServer) SendMethodReturn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pIdentity, in Guid riid, uint32 dwMeth) SendMethodCall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pIdentity, in Guid riid, uint32 dwMeth, HRESULT hrCall, HRESULT hrServer) SendMethodReturn;
 	}
 
 
-	public HRESULT SendMethodCall(in void pIdentity, in Guid riid, uint32 dwMeth) mut => VT.[Friend]SendMethodCall(&this, pIdentity, riid, dwMeth);
+	public HRESULT SendMethodCall(void* pIdentity, in Guid riid, uint32 dwMeth) mut => VT.[Friend]SendMethodCall(&this, pIdentity, riid, dwMeth);
 
-	public HRESULT SendMethodReturn(in void pIdentity, in Guid riid, uint32 dwMeth, HRESULT hrCall, HRESULT hrServer) mut => VT.[Friend]SendMethodReturn(&this, pIdentity, riid, dwMeth, hrCall, hrServer);
+	public HRESULT SendMethodReturn(void* pIdentity, in Guid riid, uint32 dwMeth, HRESULT hrCall, HRESULT hrServer) mut => VT.[Friend]SendMethodReturn(&this, pIdentity, riid, dwMeth, hrCall, hrServer);
 }
 
 [CRepr]struct ITransactionResourcePool : IUnknown

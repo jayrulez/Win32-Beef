@@ -3391,7 +3391,7 @@ public function HRESULT PFNDPASTREAM(DPASTREAMINFO* pinfo, IStream* pstream, voi
 
 public function void* PFNDPAMERGE(DPAMM_MESSAGE uMsg, void* pvDest, void* pvSrc, LPARAM lParam);
 
-public function void* PFNDPAMERGECONST(DPAMM_MESSAGE uMsg, in void pvDest, in void pvSrc, LPARAM lParam);
+public function void* PFNDPAMERGECONST(DPAMM_MESSAGE uMsg, void* pvDest, void* pvSrc, LPARAM lParam);
 
 public function int32 DTT_CALLBACK_PROC(HDC hdc, char16* pszText, int32 cchText, RECT* prc, uint32 dwFlags, LPARAM lParam);
 
@@ -6371,7 +6371,7 @@ public static
 	public static extern void DSA_EnumCallback(HDSA hdsa, PFNDAENUMCALLBACK pfnCB, void* pData);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DSA_InsertItem(HDSA hdsa, int32 i, in void pitem);
+	public static extern int32 DSA_InsertItem(HDSA hdsa, int32 i, void* pitem);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* DSA_GetItemPtr(HDSA hdsa, int32 i);
@@ -6380,7 +6380,7 @@ public static
 	public static extern BOOL DSA_GetItem(HDSA hdsa, int32 i, void* pitem);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DSA_SetItem(HDSA hdsa, int32 i, in void pitem);
+	public static extern BOOL DSA_SetItem(HDSA hdsa, int32 i, void* pitem);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HDSA DSA_Clone(HDSA hdsa);

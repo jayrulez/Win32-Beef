@@ -621,41 +621,41 @@ public enum alljoyn_sessionlostreason : int32
 #region Function Pointers
 public function void alljoyn_applicationstatelistener_state_ptr(int8* busName, int8* publicKey, alljoyn_applicationstate applicationState, void* context);
 
-public function QStatus alljoyn_keystorelistener_loadrequest_ptr(in void context, alljoyn_keystorelistener listener, alljoyn_keystore keyStore);
+public function QStatus alljoyn_keystorelistener_loadrequest_ptr(void* context, alljoyn_keystorelistener listener, alljoyn_keystore keyStore);
 
-public function QStatus alljoyn_keystorelistener_storerequest_ptr(in void context, alljoyn_keystorelistener listener, alljoyn_keystore keyStore);
+public function QStatus alljoyn_keystorelistener_storerequest_ptr(void* context, alljoyn_keystorelistener listener, alljoyn_keystore keyStore);
 
-public function QStatus alljoyn_keystorelistener_acquireexclusivelock_ptr(in void context, alljoyn_keystorelistener listener);
+public function QStatus alljoyn_keystorelistener_acquireexclusivelock_ptr(void* context, alljoyn_keystorelistener listener);
 
-public function void alljoyn_keystorelistener_releaseexclusivelock_ptr(in void context, alljoyn_keystorelistener listener);
+public function void alljoyn_keystorelistener_releaseexclusivelock_ptr(void* context, alljoyn_keystorelistener listener);
 
-public function int32 alljoyn_authlistener_requestcredentials_ptr(in void context, PSTR authMechanism, PSTR peerName, uint16 authCount, PSTR userName, uint16 credMask, alljoyn_credentials credentials);
+public function int32 alljoyn_authlistener_requestcredentials_ptr(void* context, PSTR authMechanism, PSTR peerName, uint16 authCount, PSTR userName, uint16 credMask, alljoyn_credentials credentials);
 
-public function QStatus alljoyn_authlistener_requestcredentialsasync_ptr(in void context, alljoyn_authlistener listener, PSTR authMechanism, PSTR peerName, uint16 authCount, PSTR userName, uint16 credMask, void* authContext);
+public function QStatus alljoyn_authlistener_requestcredentialsasync_ptr(void* context, alljoyn_authlistener listener, PSTR authMechanism, PSTR peerName, uint16 authCount, PSTR userName, uint16 credMask, void* authContext);
 
-public function int32 alljoyn_authlistener_verifycredentials_ptr(in void context, PSTR authMechanism, PSTR peerName, alljoyn_credentials credentials);
+public function int32 alljoyn_authlistener_verifycredentials_ptr(void* context, PSTR authMechanism, PSTR peerName, alljoyn_credentials credentials);
 
-public function QStatus alljoyn_authlistener_verifycredentialsasync_ptr(in void context, alljoyn_authlistener listener, PSTR authMechanism, PSTR peerName, alljoyn_credentials credentials, void* authContext);
+public function QStatus alljoyn_authlistener_verifycredentialsasync_ptr(void* context, alljoyn_authlistener listener, PSTR authMechanism, PSTR peerName, alljoyn_credentials credentials, void* authContext);
 
-public function void alljoyn_authlistener_securityviolation_ptr(in void context, QStatus status, alljoyn_message msg);
+public function void alljoyn_authlistener_securityviolation_ptr(void* context, QStatus status, alljoyn_message msg);
 
-public function void alljoyn_authlistener_authenticationcomplete_ptr(in void context, PSTR authMechanism, PSTR peerName, int32 success);
+public function void alljoyn_authlistener_authenticationcomplete_ptr(void* context, PSTR authMechanism, PSTR peerName, int32 success);
 
-public function void alljoyn_buslistener_listener_registered_ptr(in void context, alljoyn_busattachment bus);
+public function void alljoyn_buslistener_listener_registered_ptr(void* context, alljoyn_busattachment bus);
 
-public function void alljoyn_buslistener_listener_unregistered_ptr(in void context);
+public function void alljoyn_buslistener_listener_unregistered_ptr(void* context);
 
-public function void alljoyn_buslistener_found_advertised_name_ptr(in void context, PSTR name, uint16 transport, PSTR namePrefix);
+public function void alljoyn_buslistener_found_advertised_name_ptr(void* context, PSTR name, uint16 transport, PSTR namePrefix);
 
-public function void alljoyn_buslistener_lost_advertised_name_ptr(in void context, PSTR name, uint16 transport, PSTR namePrefix);
+public function void alljoyn_buslistener_lost_advertised_name_ptr(void* context, PSTR name, uint16 transport, PSTR namePrefix);
 
-public function void alljoyn_buslistener_name_owner_changed_ptr(in void context, PSTR busName, PSTR previousOwner, PSTR newOwner);
+public function void alljoyn_buslistener_name_owner_changed_ptr(void* context, PSTR busName, PSTR previousOwner, PSTR newOwner);
 
-public function void alljoyn_buslistener_bus_stopping_ptr(in void context);
+public function void alljoyn_buslistener_bus_stopping_ptr(void* context);
 
-public function void alljoyn_buslistener_bus_disconnected_ptr(in void context);
+public function void alljoyn_buslistener_bus_disconnected_ptr(void* context);
 
-public function void alljoyn_buslistener_bus_prop_changed_ptr(in void context, PSTR prop_name, alljoyn_msgarg prop_value);
+public function void alljoyn_buslistener_bus_prop_changed_ptr(void* context, PSTR prop_name, alljoyn_msgarg prop_value);
 
 public function PSTR alljoyn_interfacedescription_translation_callback_ptr(PSTR sourceLanguage, PSTR targetLanguage, PSTR sourceText);
 
@@ -665,11 +665,11 @@ public function void alljoyn_messagereceiver_replyhandler_ptr(alljoyn_message me
 
 public function void alljoyn_messagereceiver_signalhandler_ptr(alljoyn_interfacedescription_member* member, PSTR srcPath, alljoyn_message message);
 
-public function QStatus alljoyn_busobject_prop_get_ptr(in void context, PSTR ifcName, PSTR propName, alljoyn_msgarg val);
+public function QStatus alljoyn_busobject_prop_get_ptr(void* context, PSTR ifcName, PSTR propName, alljoyn_msgarg val);
 
-public function QStatus alljoyn_busobject_prop_set_ptr(in void context, PSTR ifcName, PSTR propName, alljoyn_msgarg val);
+public function QStatus alljoyn_busobject_prop_set_ptr(void* context, PSTR ifcName, PSTR propName, alljoyn_msgarg val);
 
-public function void alljoyn_busobject_object_registration_ptr(in void context);
+public function void alljoyn_busobject_object_registration_ptr(void* context);
 
 public function void alljoyn_proxybusobject_listener_introspectcb_ptr(QStatus status, alljoyn_proxybusobject obj, void* context);
 
@@ -681,41 +681,41 @@ public function void alljoyn_proxybusobject_listener_setpropertycb_ptr(QStatus s
 
 public function void alljoyn_proxybusobject_listener_propertieschanged_ptr(alljoyn_proxybusobject obj, PSTR ifaceName, alljoyn_msgarg changed, alljoyn_msgarg invalidated, void* context);
 
-public function QStatus alljoyn_permissionconfigurationlistener_factoryreset_ptr(in void context);
+public function QStatus alljoyn_permissionconfigurationlistener_factoryreset_ptr(void* context);
 
-public function void alljoyn_permissionconfigurationlistener_policychanged_ptr(in void context);
+public function void alljoyn_permissionconfigurationlistener_policychanged_ptr(void* context);
 
-public function void alljoyn_permissionconfigurationlistener_startmanagement_ptr(in void context);
+public function void alljoyn_permissionconfigurationlistener_startmanagement_ptr(void* context);
 
-public function void alljoyn_permissionconfigurationlistener_endmanagement_ptr(in void context);
+public function void alljoyn_permissionconfigurationlistener_endmanagement_ptr(void* context);
 
-public function void alljoyn_sessionlistener_sessionlost_ptr(in void context, uint32 sessionId, alljoyn_sessionlostreason reason);
+public function void alljoyn_sessionlistener_sessionlost_ptr(void* context, uint32 sessionId, alljoyn_sessionlostreason reason);
 
-public function void alljoyn_sessionlistener_sessionmemberadded_ptr(in void context, uint32 sessionId, PSTR uniqueName);
+public function void alljoyn_sessionlistener_sessionmemberadded_ptr(void* context, uint32 sessionId, PSTR uniqueName);
 
-public function void alljoyn_sessionlistener_sessionmemberremoved_ptr(in void context, uint32 sessionId, PSTR uniqueName);
+public function void alljoyn_sessionlistener_sessionmemberremoved_ptr(void* context, uint32 sessionId, PSTR uniqueName);
 
-public function int32 alljoyn_sessionportlistener_acceptsessionjoiner_ptr(in void context, uint16 sessionPort, PSTR joiner, alljoyn_sessionopts opts);
+public function int32 alljoyn_sessionportlistener_acceptsessionjoiner_ptr(void* context, uint16 sessionPort, PSTR joiner, alljoyn_sessionopts opts);
 
-public function void alljoyn_sessionportlistener_sessionjoined_ptr(in void context, uint16 sessionPort, uint32 id, PSTR joiner);
+public function void alljoyn_sessionportlistener_sessionjoined_ptr(void* context, uint16 sessionPort, uint32 id, PSTR joiner);
 
-public function void alljoyn_about_announced_ptr(in void context, PSTR busName, uint16 version, uint16 port, alljoyn_msgarg objectDescriptionArg, alljoyn_msgarg aboutDataArg);
+public function void alljoyn_about_announced_ptr(void* context, PSTR busName, uint16 version, uint16 port, alljoyn_msgarg objectDescriptionArg, alljoyn_msgarg aboutDataArg);
 
 public function void alljoyn_busattachment_joinsessioncb_ptr(QStatus status, uint32 sessionId, alljoyn_sessionopts opts, void* context);
 
 public function void alljoyn_busattachment_setlinktimeoutcb_ptr(QStatus status, uint32 timeout, void* context);
 
-public function QStatus alljoyn_aboutdatalistener_getaboutdata_ptr(in void context, alljoyn_msgarg msgArg, PSTR language);
+public function QStatus alljoyn_aboutdatalistener_getaboutdata_ptr(void* context, alljoyn_msgarg msgArg, PSTR language);
 
-public function QStatus alljoyn_aboutdatalistener_getannouncedaboutdata_ptr(in void context, alljoyn_msgarg msgArg);
+public function QStatus alljoyn_aboutdatalistener_getannouncedaboutdata_ptr(void* context, alljoyn_msgarg msgArg);
 
-public function void alljoyn_autopinger_destination_lost_ptr(in void context, PSTR group, PSTR destination);
+public function void alljoyn_autopinger_destination_lost_ptr(void* context, PSTR group, PSTR destination);
 
-public function void alljoyn_autopinger_destination_found_ptr(in void context, PSTR group, PSTR destination);
+public function void alljoyn_autopinger_destination_found_ptr(void* context, PSTR group, PSTR destination);
 
-public function void alljoyn_observer_object_discovered_ptr(in void context, alljoyn_proxybusobject_ref proxyref);
+public function void alljoyn_observer_object_discovered_ptr(void* context, alljoyn_proxybusobject_ref proxyref);
 
-public function void alljoyn_observer_object_lost_ptr(in void context, alljoyn_proxybusobject_ref proxyref);
+public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_proxybusobject_ref proxyref);
 
 #endregion
 
@@ -1437,7 +1437,7 @@ public static
 	public static extern void alljoyn_applicationstatelistener_destroy(alljoyn_applicationstatelistener listener);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_keystorelistener alljoyn_keystorelistener_create(alljoyn_keystorelistener_callbacks* callbacks, in void context);
+	public static extern alljoyn_keystorelistener alljoyn_keystorelistener_create(alljoyn_keystorelistener_callbacks* callbacks, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern alljoyn_keystorelistener alljoyn_keystorelistener_with_synchronization_create(alljoyn_keystorelistener_with_synchronization_callbacks* callbacks, void* context);
@@ -1587,10 +1587,10 @@ public static
 	public static extern QStatus alljoyn_authlistener_verifycredentialsresponse(alljoyn_authlistener listener, void* authContext, int32 accept);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_authlistener alljoyn_authlistener_create(alljoyn_authlistener_callbacks* callbacks, in void context);
+	public static extern alljoyn_authlistener alljoyn_authlistener_create(alljoyn_authlistener_callbacks* callbacks, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_authlistener alljoyn_authlistenerasync_create(alljoyn_authlistenerasync_callbacks* callbacks, in void context);
+	public static extern alljoyn_authlistener alljoyn_authlistenerasync_create(alljoyn_authlistenerasync_callbacks* callbacks, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_authlistener_destroy(alljoyn_authlistener listener);
@@ -1650,7 +1650,7 @@ public static
 	public static extern void alljoyn_credentials_clear(alljoyn_credentials cred);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_buslistener alljoyn_buslistener_create(alljoyn_buslistener_callbacks* callbacks, in void context);
+	public static extern alljoyn_buslistener alljoyn_buslistener_create(alljoyn_buslistener_callbacks* callbacks, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_buslistener_destroy(alljoyn_buslistener listener);
@@ -1830,7 +1830,7 @@ public static
 	public static extern int32 alljoyn_interfacedescription_property_eql(alljoyn_interfacedescription_property one, alljoyn_interfacedescription_property other);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_busobject alljoyn_busobject_create(PSTR path, int32 isPlaceholder, alljoyn_busobject_callbacks* callbacks_in, in void context_in);
+	public static extern alljoyn_busobject alljoyn_busobject_create(PSTR path, int32 isPlaceholder, alljoyn_busobject_callbacks* callbacks_in, void* context_in);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_busobject_destroy(alljoyn_busobject bus);
@@ -2007,25 +2007,25 @@ public static
 	public static extern void alljoyn_proxybusobject_enablepropertycaching(alljoyn_proxybusobject proxyObj);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_permissionconfigurationlistener alljoyn_permissionconfigurationlistener_create(alljoyn_permissionconfigurationlistener_callbacks* callbacks, in void context);
+	public static extern alljoyn_permissionconfigurationlistener alljoyn_permissionconfigurationlistener_create(alljoyn_permissionconfigurationlistener_callbacks* callbacks, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_permissionconfigurationlistener_destroy(alljoyn_permissionconfigurationlistener listener);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_sessionlistener alljoyn_sessionlistener_create(alljoyn_sessionlistener_callbacks* callbacks, in void context);
+	public static extern alljoyn_sessionlistener alljoyn_sessionlistener_create(alljoyn_sessionlistener_callbacks* callbacks, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_sessionlistener_destroy(alljoyn_sessionlistener listener);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_sessionportlistener alljoyn_sessionportlistener_create(alljoyn_sessionportlistener_callbacks* callbacks, in void context);
+	public static extern alljoyn_sessionportlistener alljoyn_sessionportlistener_create(alljoyn_sessionportlistener_callbacks* callbacks, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_sessionportlistener_destroy(alljoyn_sessionportlistener listener);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_aboutlistener alljoyn_aboutlistener_create(alljoyn_aboutlistener_callback* callback, in void context);
+	public static extern alljoyn_aboutlistener alljoyn_aboutlistener_create(alljoyn_aboutlistener_callback* callback, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_aboutlistener_destroy(alljoyn_aboutlistener listener);
@@ -2295,7 +2295,7 @@ public static
 	public static extern QStatus alljoyn_abouticonproxy_getversion(_alljoyn_abouticonproxy_handle* proxy, uint16* version);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_aboutdatalistener alljoyn_aboutdatalistener_create(alljoyn_aboutdatalistener_callbacks* callbacks, in void context);
+	public static extern alljoyn_aboutdatalistener alljoyn_aboutdatalistener_create(alljoyn_aboutdatalistener_callbacks* callbacks, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_aboutdatalistener_destroy(alljoyn_aboutdatalistener listener);
@@ -2367,7 +2367,7 @@ public static
 	public static extern QStatus alljoyn_aboutproxy_getversion(alljoyn_aboutproxy proxy, uint16* version);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_pinglistener alljoyn_pinglistener_create(alljoyn_pinglistener_callback* callback, in void context);
+	public static extern alljoyn_pinglistener alljoyn_pinglistener_create(alljoyn_pinglistener_callback* callback, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_pinglistener_destroy(alljoyn_pinglistener listener);
@@ -2436,7 +2436,7 @@ public static
 	public static extern void alljoyn_proxybusobject_ref_decref(alljoyn_proxybusobject_ref @ref);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern alljoyn_observerlistener alljoyn_observerlistener_create(alljoyn_observerlistener_callback* callback, in void context);
+	public static extern alljoyn_observerlistener alljoyn_observerlistener_create(alljoyn_observerlistener_callback* callback, void* context);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void alljoyn_observerlistener_destroy(alljoyn_observerlistener listener);

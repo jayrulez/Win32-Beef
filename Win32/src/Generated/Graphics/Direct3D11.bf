@@ -5542,7 +5542,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumRects, RECT* pRects) RSSetScissorRects;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox) CopySubresourceRegion;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource) CopyResource;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) UpdateSubresource;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) UpdateSubresource;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Buffer* pDstBuffer, uint32 DstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) CopyStructureCount;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11RenderTargetView* pRenderTargetView, in float ColorRGBA) ClearRenderTargetView;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11UnorderedAccessView* pUnorderedAccessView, in uint32 Values) ClearUnorderedAccessViewUint;
@@ -5694,7 +5694,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void CopyResource(ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource) mut => VT.[Friend]CopyResource(&this, pDstResource, pSrcResource);
 
-	public void UpdateSubresource(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]UpdateSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
+	public void UpdateSubresource(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]UpdateSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
 
 	public void CopyStructureCount(ID3D11Buffer* pDstBuffer, uint32 DstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) mut => VT.[Friend]CopyStructureCount(&this, pDstBuffer, DstAlignedByteOffset, pSrcView);
 
@@ -6642,7 +6642,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 	[CRepr]public struct VTable : ID3D11DeviceContext.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox, uint32 CopyFlags) CopySubresourceRegion1;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch, uint32 CopyFlags) UpdateSubresource1;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch, uint32 CopyFlags) UpdateSubresource1;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pResource) DiscardResource;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11View* pResourceView) DiscardView;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D11Buffer** ppConstantBuffers, uint32* pFirstConstant, uint32* pNumConstants) VSSetConstantBuffers1;
@@ -6665,7 +6665,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void CopySubresourceRegion1(ID3D11Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox, uint32 CopyFlags) mut => VT.[Friend]CopySubresourceRegion1(&this, pDstResource, DstSubresource, DstX, DstY, DstZ, pSrcResource, SrcSubresource, pSrcBox, CopyFlags);
 
-	public void UpdateSubresource1(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch, uint32 CopyFlags) mut => VT.[Friend]UpdateSubresource1(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch, CopyFlags);
+	public void UpdateSubresource1(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch, uint32 CopyFlags) mut => VT.[Friend]UpdateSubresource1(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch, CopyFlags);
 
 	public void DiscardResource(ID3D11Resource* pResource) mut => VT.[Friend]DiscardResource(&this, pResource);
 
@@ -6863,7 +6863,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11Resource* pTiledResource, uint32 NumTiledResourceRegions, D3D11_TILED_RESOURCE_COORDINATE* pTiledResourceRegionStartCoordinates, D3D11_TILE_REGION_SIZE* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint32 NumRanges, uint32* pRangeFlags, uint32* pTilePoolStartOffsets, uint32* pRangeTileCounts, uint32 Flags) UpdateTileMappings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pSourceRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pTileRegionSize, uint32 Flags) CopyTileMappings;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pTileRegionSize, ID3D11Buffer* pBuffer, uint64 BufferStartOffsetInBytes, uint32 Flags) CopyTiles;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pDestTileRegionSize, in void pSourceTileData, uint32 Flags) UpdateTiles;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pDestTileRegionSize, void* pSourceTileData, uint32 Flags) UpdateTiles;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D11Buffer* pTilePool, uint64 NewSizeInBytes) ResizeTilePool;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11DeviceChild* pTiledResourceOrViewAccessBeforeBarrier, ID3D11DeviceChild* pTiledResourceOrViewAccessAfterBarrier) TiledResourceBarrier;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsAnnotationEnabled;
@@ -6879,7 +6879,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void CopyTiles(ID3D11Resource* pTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pTileRegionSize, ID3D11Buffer* pBuffer, uint64 BufferStartOffsetInBytes, uint32 Flags) mut => VT.[Friend]CopyTiles(&this, pTiledResource, pTileRegionStartCoordinate, pTileRegionSize, pBuffer, BufferStartOffsetInBytes, Flags);
 
-	public void UpdateTiles(ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pDestTileRegionSize, in void pSourceTileData, uint32 Flags) mut => VT.[Friend]UpdateTiles(&this, pDestTiledResource, pDestTileRegionStartCoordinate, pDestTileRegionSize, pSourceTileData, Flags);
+	public void UpdateTiles(ID3D11Resource* pDestTiledResource, D3D11_TILED_RESOURCE_COORDINATE* pDestTileRegionStartCoordinate, D3D11_TILE_REGION_SIZE* pDestTileRegionSize, void* pSourceTileData, uint32 Flags) mut => VT.[Friend]UpdateTiles(&this, pDestTiledResource, pDestTileRegionStartCoordinate, pDestTileRegionSize, pSourceTileData, Flags);
 
 	public HRESULT ResizeTilePool(ID3D11Buffer* pTilePool, uint64 NewSizeInBytes) mut => VT.[Friend]ResizeTilePool(&this, pTilePool, NewSizeInBytes);
 
@@ -7100,7 +7100,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D11_QUERY_DESC1* pQueryDesc1, ID3D11Query1** ppQuery1) CreateQuery1;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11DeviceContext3** ppImmediateContext) GetImmediateContext3;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ContextFlags, ID3D11DeviceContext3** ppDeferredContext) CreateDeferredContext3;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) WriteToSubresource;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) WriteToSubresource;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, void* pDstData, uint32 DstRowPitch, uint32 DstDepthPitch, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox) ReadFromSubresource;
 	}
 
@@ -7123,7 +7123,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public HRESULT CreateDeferredContext3(uint32 ContextFlags, ID3D11DeviceContext3** ppDeferredContext) mut => VT.[Friend]CreateDeferredContext3(&this, ContextFlags, ppDeferredContext);
 
-	public void WriteToSubresource(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]WriteToSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
+	public void WriteToSubresource(ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]WriteToSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
 
 	public void ReadFromSubresource(void* pDstData, uint32 DstRowPitch, uint32 DstDepthPitch, ID3D11Resource* pSrcResource, uint32 SrcSubresource, D3D11_BOX* pSrcBox) mut => VT.[Friend]ReadFromSubresource(&this, pDstData, DstRowPitch, DstDepthPitch, pSrcResource, SrcSubresource, pSrcBox);
 }

@@ -4027,22 +4027,22 @@ public static
 	public static extern void NdrMesSimpleTypeDecode(void* Handle, void* pObject, int16 Size);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesSimpleTypeEncode(void* Handle, MIDL_STUB_DESC* pStubDesc, in void pObject, int16 Size);
+	public static extern void NdrMesSimpleTypeEncode(void* Handle, MIDL_STUB_DESC* pStubDesc, void* pObject, int16 Size);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint NdrMesTypeAlignSize(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, in void pObject);
+	public static extern uint NdrMesTypeAlignSize(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesTypeEncode(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, in void pObject);
+	public static extern void NdrMesTypeEncode(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void NdrMesTypeDecode(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint NdrMesTypeAlignSize2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, in void pObject);
+	public static extern uint NdrMesTypeAlignSize2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesTypeEncode2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, in void pObject);
+	public static extern void NdrMesTypeEncode2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void NdrMesTypeDecode2(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString, void* pObject);
@@ -4057,10 +4057,10 @@ public static
 	public static extern CLIENT_CALL_RETURN NdrMesProcEncodeDecode2(void* Handle, MIDL_STUB_DESC* pStubDesc, uint8* pFormatString);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint NdrMesTypeAlignSize3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, in void pObject);
+	public static extern uint NdrMesTypeAlignSize3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, void* pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesTypeEncode3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, in void pObject);
+	public static extern void NdrMesTypeEncode3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, void* pObject);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void NdrMesTypeDecode3(void* Handle, MIDL_TYPE_PICKLING_INFO* pPicklingInfo, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, uint32** ArrTypeOffset, uint32 nTypeIndex, void* pObject);
@@ -4075,7 +4075,7 @@ public static
 	public static extern void NdrMesSimpleTypeDecodeAll(void* Handle, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, void* pObject, int16 Size);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void NdrMesSimpleTypeEncodeAll(void* Handle, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, in void pObject, int16 Size);
+	public static extern void NdrMesSimpleTypeEncodeAll(void* Handle, MIDL_STUBLESS_PROXY_INFO* pProxyInfo, void* pObject, int16 Size);
 
 	[Import("RPCRT4.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint NdrMesSimpleTypeAlignSizeAll(void* Handle, MIDL_STUBLESS_PROXY_INFO* pProxyInfo);

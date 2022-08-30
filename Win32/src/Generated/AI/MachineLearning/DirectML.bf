@@ -2130,11 +2130,11 @@ public struct DML_GRAPH_DESC
 
 	[CRepr]public struct VTable : IDMLPageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] DML_BINDING_PROPERTIES(SelfOuter* self) GetBindingProperties;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out DML_BINDING_PROPERTIES @return) GetBindingProperties;
 	}
 
 
-	public DML_BINDING_PROPERTIES GetBindingProperties() mut => VT.[Friend]GetBindingProperties(&this);
+	public DML_BINDING_PROPERTIES GetBindingProperties() mut => VT.[Friend]GetBindingProperties(&this, ..?);
 }
 
 [CRepr]struct IDMLCompiledOperator : IDMLDispatchable

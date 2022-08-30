@@ -1344,7 +1344,7 @@ public static
 	public static extern int32 sqlite3_complete(PSTR sql);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_complete16(in void sql);
+	public static extern int32 sqlite3_complete16(void* sql);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 sqlite3_busy_handler(sqlite3* param0, int param1, void* param2);
@@ -1416,7 +1416,7 @@ public static
 	public static extern int32 sqlite3_open(PSTR filename, sqlite3** ppDb);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_open16(in void filename, sqlite3** ppDb);
+	public static extern int32 sqlite3_open16(void* filename, sqlite3** ppDb);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 sqlite3_open_v2(PSTR filename, sqlite3** ppDb, int32 flags, PSTR zVfs);
@@ -1479,13 +1479,13 @@ public static
 	public static extern int32 sqlite3_prepare_v3(sqlite3* db, PSTR zSql, int32 nByte, uint32 prepFlags, sqlite3_stmt** ppStmt, int8** pzTail);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_prepare16(sqlite3* db, in void zSql, int32 nByte, sqlite3_stmt** ppStmt, void** pzTail);
+	public static extern int32 sqlite3_prepare16(sqlite3* db, void* zSql, int32 nByte, sqlite3_stmt** ppStmt, void** pzTail);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_prepare16_v2(sqlite3* db, in void zSql, int32 nByte, sqlite3_stmt** ppStmt, void** pzTail);
+	public static extern int32 sqlite3_prepare16_v2(sqlite3* db, void* zSql, int32 nByte, sqlite3_stmt** ppStmt, void** pzTail);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_prepare16_v3(sqlite3* db, in void zSql, int32 nByte, uint32 prepFlags, sqlite3_stmt** ppStmt, void** pzTail);
+	public static extern int32 sqlite3_prepare16_v3(sqlite3* db, void* zSql, int32 nByte, uint32 prepFlags, sqlite3_stmt** ppStmt, void** pzTail);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR sqlite3_sql(sqlite3_stmt* pStmt);
@@ -1503,10 +1503,10 @@ public static
 	public static extern int32 sqlite3_stmt_busy(sqlite3_stmt* param0);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_bind_blob(sqlite3_stmt* param0, int32 param1, in void param2, int32 n, int param4);
+	public static extern int32 sqlite3_bind_blob(sqlite3_stmt* param0, int32 param1, void* param2, int32 n, int param4);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_bind_blob64(sqlite3_stmt* param0, int32 param1, in void param2, uint64 param3, int param4);
+	public static extern int32 sqlite3_bind_blob64(sqlite3_stmt* param0, int32 param1, void* param2, uint64 param3, int param4);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 sqlite3_bind_double(sqlite3_stmt* param0, int32 param1, double param2);
@@ -1524,7 +1524,7 @@ public static
 	public static extern int32 sqlite3_bind_text(sqlite3_stmt* param0, int32 param1, PSTR param2, int32 param3, int param4);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_bind_text16(sqlite3_stmt* param0, int32 param1, in void param2, int32 param3, int param4);
+	public static extern int32 sqlite3_bind_text16(sqlite3_stmt* param0, int32 param1, void* param2, int32 param3, int param4);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 sqlite3_bind_text64(sqlite3_stmt* param0, int32 param1, PSTR param2, uint64 param3, int param4, uint8 encoding);
@@ -1632,7 +1632,7 @@ public static
 	public static extern int32 sqlite3_create_function(sqlite3* db, PSTR zFunctionName, int32 nArg, int32 eTextRep, void* pApp, int xFunc, int xStep, int xFinal);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_create_function16(sqlite3* db, in void zFunctionName, int32 nArg, int32 eTextRep, void* pApp, int xFunc, int xStep, int xFinal);
+	public static extern int32 sqlite3_create_function16(sqlite3* db, void* zFunctionName, int32 nArg, int32 eTextRep, void* pApp, int xFunc, int xStep, int xFinal);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 sqlite3_create_function_v2(sqlite3* db, PSTR zFunctionName, int32 nArg, int32 eTextRep, void* pApp, int xFunc, int xStep, int xFinal, int xDestroy);
@@ -1728,10 +1728,10 @@ public static
 	public static extern void sqlite3_set_auxdata(sqlite3_context* param0, int32 N, void* param2, int param3);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void sqlite3_result_blob(sqlite3_context* param0, in void param1, int32 param2, int param3);
+	public static extern void sqlite3_result_blob(sqlite3_context* param0, void* param1, int32 param2, int param3);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void sqlite3_result_blob64(sqlite3_context* param0, in void param1, uint64 param2, int param3);
+	public static extern void sqlite3_result_blob64(sqlite3_context* param0, void* param1, uint64 param2, int param3);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void sqlite3_result_double(sqlite3_context* param0, double param1);
@@ -1740,7 +1740,7 @@ public static
 	public static extern void sqlite3_result_error(sqlite3_context* param0, PSTR param1, int32 param2);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void sqlite3_result_error16(sqlite3_context* param0, in void param1, int32 param2);
+	public static extern void sqlite3_result_error16(sqlite3_context* param0, void* param1, int32 param2);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void sqlite3_result_error_toobig(sqlite3_context* param0);
@@ -1767,13 +1767,13 @@ public static
 	public static extern void sqlite3_result_text64(sqlite3_context* param0, PSTR param1, uint64 param2, int param3, uint8 encoding);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void sqlite3_result_text16(sqlite3_context* param0, in void param1, int32 param2, int param3);
+	public static extern void sqlite3_result_text16(sqlite3_context* param0, void* param1, int32 param2, int param3);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void sqlite3_result_text16le(sqlite3_context* param0, in void param1, int32 param2, int param3);
+	public static extern void sqlite3_result_text16le(sqlite3_context* param0, void* param1, int32 param2, int param3);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void sqlite3_result_text16be(sqlite3_context* param0, in void param1, int32 param2, int param3);
+	public static extern void sqlite3_result_text16be(sqlite3_context* param0, void* param1, int32 param2, int param3);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void sqlite3_result_value(sqlite3_context* param0, sqlite3_value* param1);
@@ -1797,7 +1797,7 @@ public static
 	public static extern int32 sqlite3_create_collation_v2(sqlite3* param0, PSTR zName, int32 eTextRep, void* pArg, int xCompare, int xDestroy);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_create_collation16(sqlite3* param0, in void zName, int32 eTextRep, void* pArg, int xCompare);
+	public static extern int32 sqlite3_create_collation16(sqlite3* param0, void* zName, int32 eTextRep, void* pArg, int xCompare);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 sqlite3_collation_needed(sqlite3* param0, void* param1, int param2);
@@ -1815,7 +1815,7 @@ public static
 	public static extern int32 sqlite3_win32_set_directory8(uint32 type, PSTR zValue);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_win32_set_directory16(uint32 type, in void zValue);
+	public static extern int32 sqlite3_win32_set_directory16(uint32 type, void* zValue);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 sqlite3_get_autocommit(sqlite3* param0);
@@ -1911,7 +1911,7 @@ public static
 	public static extern int32 sqlite3_blob_read(sqlite3_blob* param0, void* Z, int32 N, int32 iOffset);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 sqlite3_blob_write(sqlite3_blob* param0, in void z, int32 n, int32 iOffset);
+	public static extern int32 sqlite3_blob_write(sqlite3_blob* param0, void* z, int32 n, int32 iOffset);
 
 	[Import("winsqlite3.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern sqlite3_vfs* sqlite3_vfs_find(PSTR zVfsName);

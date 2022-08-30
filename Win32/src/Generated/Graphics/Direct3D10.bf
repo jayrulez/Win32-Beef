@@ -2634,7 +2634,7 @@ public struct D3D10_SHADER_DEBUG_INFO
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumRects, RECT* pRects) RSSetScissorRects;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D10Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, uint32 DstZ, ID3D10Resource* pSrcResource, uint32 SrcSubresource, D3D10_BOX* pSrcBox) CopySubresourceRegion;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D10Resource* pDstResource, ID3D10Resource* pSrcResource) CopyResource;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D10Resource* pDstResource, uint32 DstSubresource, D3D10_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) UpdateSubresource;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D10Resource* pDstResource, uint32 DstSubresource, D3D10_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) UpdateSubresource;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D10RenderTargetView* pRenderTargetView, in float ColorRGBA) ClearRenderTargetView;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D10DepthStencilView* pDepthStencilView, uint32 ClearFlags, float Depth, uint8 Stencil) ClearDepthStencilView;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D10ShaderResourceView* pShaderResourceView) GenerateMips;
@@ -2763,7 +2763,7 @@ public struct D3D10_SHADER_DEBUG_INFO
 
 	public void CopyResource(ID3D10Resource* pDstResource, ID3D10Resource* pSrcResource) mut => VT.[Friend]CopyResource(&this, pDstResource, pSrcResource);
 
-	public void UpdateSubresource(ID3D10Resource* pDstResource, uint32 DstSubresource, D3D10_BOX* pDstBox, in void pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]UpdateSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
+	public void UpdateSubresource(ID3D10Resource* pDstResource, uint32 DstSubresource, D3D10_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) mut => VT.[Friend]UpdateSubresource(&this, pDstResource, DstSubresource, pDstBox, pSrcData, SrcRowPitch, SrcDepthPitch);
 
 	public void ClearRenderTargetView(ID3D10RenderTargetView* pRenderTargetView, in float ColorRGBA) mut => VT.[Friend]ClearRenderTargetView(&this, pRenderTargetView, ColorRGBA);
 

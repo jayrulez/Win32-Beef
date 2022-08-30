@@ -10808,8 +10808,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCertificateSize) GetCertificateSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 CertifacteSize, uint8* ppCertificate) GetCertificate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 DataSize, void* pData) NegotiateKeyExchange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 InputSize, in void pInput, uint32 OutputSize, void* pOutput) Query;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 InputSize, in void pInput, D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT* pOutput) Configure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 InputSize, void* pInput, uint32 OutputSize, void* pOutput) Query;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 InputSize, void* pInput, D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT* pOutput) Configure;
 	}
 
 
@@ -10819,9 +10819,9 @@ public static
 
 	public HRESULT NegotiateKeyExchange(uint32 DataSize, void* pData) mut => VT.[Friend]NegotiateKeyExchange(&this, DataSize, pData);
 
-	public HRESULT Query(uint32 InputSize, in void pInput, uint32 OutputSize, void* pOutput) mut => VT.[Friend]Query(&this, InputSize, pInput, OutputSize, pOutput);
+	public HRESULT Query(uint32 InputSize, void* pInput, uint32 OutputSize, void* pOutput) mut => VT.[Friend]Query(&this, InputSize, pInput, OutputSize, pOutput);
 
-	public HRESULT Configure(uint32 InputSize, in void pInput, D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT* pOutput) mut => VT.[Friend]Configure(&this, InputSize, pInput, pOutput);
+	public HRESULT Configure(uint32 InputSize, void* pInput, D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT* pOutput) mut => VT.[Friend]Configure(&this, InputSize, pInput, pOutput);
 }
 
 [CRepr]struct IDirect3DCryptoSession9 : IUnknown
@@ -10871,11 +10871,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_DECODER_HEAP_DESC(SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_DECODER_HEAP_DESC @return) GetDesc;
 	}
 
 
-	public D3D12_VIDEO_DECODER_HEAP_DESC GetDesc() mut => VT.[Friend]GetDesc(&this);
+	public D3D12_VIDEO_DECODER_HEAP_DESC GetDesc() mut => VT.[Friend]GetDesc(&this, ..?);
 }
 
 [CRepr]struct ID3D12VideoDevice : IUnknown
@@ -10910,11 +10910,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_DECODER_DESC(SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_DECODER_DESC @return) GetDesc;
 	}
 
 
-	public D3D12_VIDEO_DECODER_DESC GetDesc() mut => VT.[Friend]GetDesc(&this);
+	public D3D12_VIDEO_DECODER_DESC GetDesc() mut => VT.[Friend]GetDesc(&this, ..?);
 }
 
 [CRepr]struct ID3D12VideoProcessor : ID3D12Pageable
@@ -10928,7 +10928,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetNodeMask;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetNumInputStreamDescs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs) GetInputStreamDescs;
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC(SelfOuter* self) GetOutputStreamDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC @return) GetOutputStreamDesc;
 	}
 
 
@@ -10938,7 +10938,7 @@ public static
 
 	public HRESULT GetInputStreamDescs(uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs) mut => VT.[Friend]GetInputStreamDescs(&this, NumInputStreamDescs, pInputStreamDescs);
 
-	public D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC GetOutputStreamDesc() mut => VT.[Friend]GetOutputStreamDesc(&this);
+	public D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC GetOutputStreamDesc() mut => VT.[Friend]GetOutputStreamDesc(&this, ..?);
 }
 
 [CRepr]struct ID3D12VideoDecodeCommandList : ID3D12CommandList
@@ -11087,12 +11087,12 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_MOTION_ESTIMATOR_DESC(SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_MOTION_ESTIMATOR_DESC @return) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
-	public D3D12_VIDEO_MOTION_ESTIMATOR_DESC GetDesc() mut => VT.[Friend]GetDesc(&this);
+	public D3D12_VIDEO_MOTION_ESTIMATOR_DESC GetDesc() mut => VT.[Friend]GetDesc(&this, ..?);
 
 	public HRESULT GetProtectedResourceSession(in Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, riid, ppProtectedSession);
 }
@@ -11105,12 +11105,12 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC(SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC @return) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
-	public D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC GetDesc() mut => VT.[Friend]GetDesc(&this);
+	public D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC GetDesc() mut => VT.[Friend]GetDesc(&this, ..?);
 
 	public HRESULT GetProtectedResourceSession(in Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, riid, ppProtectedSession);
 }
@@ -11246,12 +11246,12 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_EXTENSION_COMMAND_DESC(SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_EXTENSION_COMMAND_DESC @return) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
-	public D3D12_VIDEO_EXTENSION_COMMAND_DESC GetDesc() mut => VT.[Friend]GetDesc(&this);
+	public D3D12_VIDEO_EXTENSION_COMMAND_DESC GetDesc() mut => VT.[Friend]GetDesc(&this, ..?);
 
 	public HRESULT GetProtectedResourceSession(in Guid riid, void** ppProtectedSession) mut => VT.[Friend]GetProtectedResourceSession(&this, riid, ppProtectedSession);
 }

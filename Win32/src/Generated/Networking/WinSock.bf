@@ -4625,10 +4625,10 @@ public static
 	public static extern int32 InetPtonW(int32 Family, PWSTR pszAddrString, void* pAddrBuf);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PSTR inet_ntop(int32 Family, in void pAddr, uint8* pStringBuf, uint StringBufSize);
+	public static extern PSTR inet_ntop(int32 Family, void* pAddr, uint8* pStringBuf, uint StringBufSize);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern PWSTR InetNtopW(int32 Family, in void pAddr, char16* pStringBuf, uint StringBufSize);
+	public static extern PWSTR InetNtopW(int32 Family, void* pAddr, char16* pStringBuf, uint StringBufSize);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSASetSocketSecurity(SOCKET Socket, SOCKET_SECURITY_SETTINGS* SecuritySettings, uint32 SecuritySettingsLen, OVERLAPPED* Overlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE CompletionRoutine);

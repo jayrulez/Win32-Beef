@@ -6442,7 +6442,7 @@ public static
 	public static extern int32 SslGetExtensions(uint8* clientHello, uint32 clientHelloByteSize, SCH_EXTENSION_DATA* genericExtensions, uint8 genericExtensionsCount, uint32* bytesToRead, SchGetExtensionsOptions flags);
 
 	[Import("TOKENBINDING.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 TokenBindingGenerateBinding(TOKENBINDING_KEY_PARAMETERS_TYPE keyType, PWSTR targetURL, TOKENBINDING_TYPE bindingType, void* tlsEKM, uint32 tlsEKMSize, TOKENBINDING_EXTENSION_FORMAT extensionFormat, in void extensionData, void** tokenBinding, uint32* tokenBindingSize, TOKENBINDING_RESULT_DATA** resultData);
+	public static extern int32 TokenBindingGenerateBinding(TOKENBINDING_KEY_PARAMETERS_TYPE keyType, PWSTR targetURL, TOKENBINDING_TYPE bindingType, void* tlsEKM, uint32 tlsEKMSize, TOKENBINDING_EXTENSION_FORMAT extensionFormat, void* extensionData, void** tokenBinding, uint32* tokenBindingSize, TOKENBINDING_RESULT_DATA** resultData);
 
 	[Import("TOKENBINDING.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 TokenBindingGenerateMessage(void** tokenBindings, uint32* tokenBindingsSize, uint32 tokenBindingsCount, void** tokenBindingMessage, uint32* tokenBindingMessageSize);

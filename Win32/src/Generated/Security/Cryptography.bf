@@ -2671,9 +2671,9 @@ public function BOOL PFN_CERT_CREATE_CONTEXT_SORT_FUNC(uint32 cbTotalEncoded, ui
 
 public function BOOL PFN_CERT_ENUM_SYSTEM_STORE_LOCATION(PWSTR pwszStoreLocation, uint32 dwFlags, void* pvReserved, void* pvArg);
 
-public function BOOL PFN_CERT_ENUM_SYSTEM_STORE(in void pvSystemStore, CERT_SYSTEM_STORE_FLAGS dwFlags, CERT_SYSTEM_STORE_INFO* pStoreInfo, void* pvReserved, void* pvArg);
+public function BOOL PFN_CERT_ENUM_SYSTEM_STORE(void* pvSystemStore, CERT_SYSTEM_STORE_FLAGS dwFlags, CERT_SYSTEM_STORE_INFO* pStoreInfo, void* pvReserved, void* pvArg);
 
-public function BOOL PFN_CERT_ENUM_PHYSICAL_STORE(in void pvSystemStore, uint32 dwFlags, PWSTR pwszStoreName, CERT_PHYSICAL_STORE_INFO* pStoreInfo, void* pvReserved, void* pvArg);
+public function BOOL PFN_CERT_ENUM_PHYSICAL_STORE(void* pvSystemStore, uint32 dwFlags, PWSTR pwszStoreName, CERT_PHYSICAL_STORE_INFO* pStoreInfo, void* pvReserved, void* pvArg);
 
 public function BOOL PFN_CRYPT_EXTRACT_ENCODED_SIGNATURE_PARAMETERS_FUNC(uint32 dwCertEncodingType, CRYPT_ALGORITHM_IDENTIFIER* pSignatureAlgorithm, void** ppvDecodedSignPara, PWSTR* ppwszCNGHashAlgid);
 
@@ -7001,10 +7001,10 @@ public static
 	public static extern BOOL CryptFormatObject(uint32 dwCertEncodingType, uint32 dwFormatType, uint32 dwFormatStrType, void* pFormatStruct, PSTR lpszStructType, uint8* pbEncoded, uint32 cbEncoded, void* pbFormat, uint32* pcbFormat);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptEncodeObjectEx(CERT_QUERY_ENCODING_TYPE dwCertEncodingType, PSTR lpszStructType, in void pvStructInfo, CRYPT_ENCODE_OBJECT_FLAGS dwFlags, CRYPT_ENCODE_PARA* pEncodePara, void* pvEncoded, uint32* pcbEncoded);
+	public static extern BOOL CryptEncodeObjectEx(CERT_QUERY_ENCODING_TYPE dwCertEncodingType, PSTR lpszStructType, void* pvStructInfo, CRYPT_ENCODE_OBJECT_FLAGS dwFlags, CRYPT_ENCODE_PARA* pEncodePara, void* pvEncoded, uint32* pcbEncoded);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptEncodeObject(uint32 dwCertEncodingType, PSTR lpszStructType, in void pvStructInfo, uint8* pbEncoded, uint32* pcbEncoded);
+	public static extern BOOL CryptEncodeObject(uint32 dwCertEncodingType, PSTR lpszStructType, void* pvStructInfo, uint8* pbEncoded, uint32* pcbEncoded);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptDecodeObjectEx(uint32 dwCertEncodingType, PSTR lpszStructType, uint8* pbEncoded, uint32 cbEncoded, uint32 dwFlags, CRYPT_DECODE_PARA* pDecodePara, void* pvStructInfo, uint32* pcbStructInfo);
@@ -7067,10 +7067,10 @@ public static
 	public static extern PWSTR CryptFindLocalizedName(PWSTR pwszCryptName);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* CryptMsgOpenToEncode(uint32 dwMsgEncodingType, uint32 dwFlags, CRYPT_MSG_TYPE dwMsgType, in void pvMsgEncodeInfo, PSTR pszInnerContentObjID, CMSG_STREAM_INFO* pStreamInfo);
+	public static extern void* CryptMsgOpenToEncode(uint32 dwMsgEncodingType, uint32 dwFlags, CRYPT_MSG_TYPE dwMsgType, void* pvMsgEncodeInfo, PSTR pszInnerContentObjID, CMSG_STREAM_INFO* pStreamInfo);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CryptMsgCalculateEncodedLength(uint32 dwMsgEncodingType, uint32 dwFlags, uint32 dwMsgType, in void pvMsgEncodeInfo, PSTR pszInnerContentObjID, uint32 cbData);
+	public static extern uint32 CryptMsgCalculateEncodedLength(uint32 dwMsgEncodingType, uint32 dwFlags, uint32 dwMsgType, void* pvMsgEncodeInfo, PSTR pszInnerContentObjID, uint32 cbData);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* CryptMsgOpenToDecode(uint32 dwMsgEncodingType, uint32 dwFlags, uint32 dwMsgType, uint hCryptProv, CERT_INFO* pRecipientInfo, CMSG_STREAM_INFO* pStreamInfo);
@@ -7280,16 +7280,16 @@ public static
 	public static extern void* CertCreateContext(uint32 dwContextType, uint32 dwEncodingType, uint8* pbEncoded, uint32 cbEncoded, uint32 dwFlags, CERT_CREATE_CONTEXT_PARA* pCreatePara);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CertRegisterSystemStore(in void pvSystemStore, uint32 dwFlags, CERT_SYSTEM_STORE_INFO* pStoreInfo, void* pvReserved);
+	public static extern BOOL CertRegisterSystemStore(void* pvSystemStore, uint32 dwFlags, CERT_SYSTEM_STORE_INFO* pStoreInfo, void* pvReserved);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CertRegisterPhysicalStore(in void pvSystemStore, uint32 dwFlags, PWSTR pwszStoreName, CERT_PHYSICAL_STORE_INFO* pStoreInfo, void* pvReserved);
+	public static extern BOOL CertRegisterPhysicalStore(void* pvSystemStore, uint32 dwFlags, PWSTR pwszStoreName, CERT_PHYSICAL_STORE_INFO* pStoreInfo, void* pvReserved);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CertUnregisterSystemStore(in void pvSystemStore, uint32 dwFlags);
+	public static extern BOOL CertUnregisterSystemStore(void* pvSystemStore, uint32 dwFlags);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CertUnregisterPhysicalStore(in void pvSystemStore, uint32 dwFlags, PWSTR pwszStoreName);
+	public static extern BOOL CertUnregisterPhysicalStore(void* pvSystemStore, uint32 dwFlags, PWSTR pwszStoreName);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CertEnumSystemStoreLocation(uint32 dwFlags, void* pvArg, PFN_CERT_ENUM_SYSTEM_STORE_LOCATION pfnEnum);
@@ -7298,7 +7298,7 @@ public static
 	public static extern BOOL CertEnumSystemStore(uint32 dwFlags, void* pvSystemStoreLocationPara, void* pvArg, PFN_CERT_ENUM_SYSTEM_STORE pfnEnum);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CertEnumPhysicalStore(in void pvSystemStore, uint32 dwFlags, void* pvArg, PFN_CERT_ENUM_PHYSICAL_STORE pfnEnum);
+	public static extern BOOL CertEnumPhysicalStore(void* pvSystemStore, uint32 dwFlags, void* pvArg, PFN_CERT_ENUM_PHYSICAL_STORE pfnEnum);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CertGetEnhancedKeyUsage(CERT_CONTEXT* pCertContext, uint32 dwFlags, CTL_USAGE* pUsage, uint32* pcbUsage);
@@ -7376,7 +7376,7 @@ public static
 	public static extern BOOL CryptSignCertificate(uint hCryptProvOrNCryptKey, uint32 dwKeySpec, uint32 dwCertEncodingType, uint8* pbEncodedToBeSigned, uint32 cbEncodedToBeSigned, CRYPT_ALGORITHM_IDENTIFIER* pSignatureAlgorithm, void* pvHashAuxInfo, uint8* pbSignature, uint32* pcbSignature);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSignAndEncodeCertificate(uint hCryptProvOrNCryptKey, CERT_KEY_SPEC dwKeySpec, uint32 dwCertEncodingType, PSTR lpszStructType, in void pvStructInfo, CRYPT_ALGORITHM_IDENTIFIER* pSignatureAlgorithm, void* pvHashAuxInfo, uint8* pbEncoded, uint32* pcbEncoded);
+	public static extern BOOL CryptSignAndEncodeCertificate(uint hCryptProvOrNCryptKey, CERT_KEY_SPEC dwKeySpec, uint32 dwCertEncodingType, PSTR lpszStructType, void* pvStructInfo, CRYPT_ALGORITHM_IDENTIFIER* pSignatureAlgorithm, void* pvHashAuxInfo, uint8* pbEncoded, uint32* pcbEncoded);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 CertVerifyTimeValidity(FILETIME* pTimeToVerify, CERT_INFO* pCertInfo);
@@ -7538,7 +7538,7 @@ public static
 	public static extern HRESULT FindCertsByIssuer(CERT_CHAIN* pCertChains, uint32* pcbCertChains, uint32* pcCertChains, uint8* pbEncodedIssuerName, uint32 cbEncodedIssuerName, PWSTR pwszPurpose, uint32 dwKeySpec);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptQueryObject(CERT_QUERY_OBJECT_TYPE dwObjectType, in void pvObject, CERT_QUERY_CONTENT_TYPE_FLAGS dwExpectedContentTypeFlags, CERT_QUERY_FORMAT_TYPE_FLAGS dwExpectedFormatTypeFlags, uint32 dwFlags, CERT_QUERY_ENCODING_TYPE* pdwMsgAndCertEncodingType, CERT_QUERY_CONTENT_TYPE* pdwContentType, CERT_QUERY_FORMAT_TYPE* pdwFormatType, void** phCertStore, void** phMsg, void** ppvContext);
+	public static extern BOOL CryptQueryObject(CERT_QUERY_OBJECT_TYPE dwObjectType, void* pvObject, CERT_QUERY_CONTENT_TYPE_FLAGS dwExpectedContentTypeFlags, CERT_QUERY_FORMAT_TYPE_FLAGS dwExpectedFormatTypeFlags, uint32 dwFlags, CERT_QUERY_ENCODING_TYPE* pdwMsgAndCertEncodingType, CERT_QUERY_CONTENT_TYPE* pdwContentType, CERT_QUERY_FORMAT_TYPE* pdwFormatType, void** phCertStore, void** phMsg, void** ppvContext);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* CryptMemAlloc(uint32 cbSize);
@@ -7784,7 +7784,7 @@ public static
 	public static extern HRESULT CryptXmlGetAlgorithmInfo(CRYPT_XML_ALGORITHM* pXmlAlgorithm, CRYPT_XML_FLAGS dwFlags, CRYPT_XML_ALGORITHM_INFO** ppAlgInfo);
 
 	[Import("CRYPTXML.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPT_XML_ALGORITHM_INFO* CryptXmlFindAlgorithmInfo(uint32 dwFindByType, in void pvFindBy, uint32 dwGroupId, uint32 dwFlags);
+	public static extern CRYPT_XML_ALGORITHM_INFO* CryptXmlFindAlgorithmInfo(uint32 dwFindByType, void* pvFindBy, uint32 dwGroupId, uint32 dwFlags);
 
 	[Import("CRYPTXML.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CryptXmlEnumAlgorithmInfo(uint32 dwGroupId, uint32 dwFlags, void* pvArg, PFN_CRYPT_XML_ENUM_ALG_INFO pfnEnumAlgInfo);

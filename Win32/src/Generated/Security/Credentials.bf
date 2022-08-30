@@ -1039,7 +1039,7 @@ public static
 	public static extern int32 SCardForgetCardTypeW(uint hContext, PWSTR szCardName);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardFreeMemory(uint hContext, in void pvMem);
+	public static extern int32 SCardFreeMemory(uint hContext, void* pvMem);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE SCardAccessStartedEvent();

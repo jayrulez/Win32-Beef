@@ -2467,11 +2467,11 @@ public function uint32 PRESUTIL_VERIFY_PROPERTY_TABLE(RESUTIL_PROPERTY_ITEM* pPr
 
 public function uint32 PRESUTIL_SET_PROPERTY_TABLE(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
 
-public function uint32 PRESUTIL_SET_PROPERTY_TABLE_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, in void pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+public function uint32 PRESUTIL_SET_PROPERTY_TABLE_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
 
-public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, in void pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
 
-public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, in void pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
 
 public function uint32 PRESUTIL_SET_UNKNOWN_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pInPropertyList, uint32 cbInPropertyListSize);
 
@@ -6509,13 +6509,13 @@ public static
 	public static extern uint32 ResUtilSetPropertyTable(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPropertyTableEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, in void pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+	public static extern uint32 ResUtilSetPropertyTableEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPropertyParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, in void pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+	public static extern uint32 ResUtilSetPropertyParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPropertyParameterBlockEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, in void pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+	public static extern uint32 ResUtilSetPropertyParameterBlockEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilSetUnknownProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pInPropertyList, uint32 cbInPropertyListSize);

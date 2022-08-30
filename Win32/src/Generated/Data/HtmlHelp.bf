@@ -606,7 +606,7 @@ public struct COLUMNSTATUS
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCodePageID, uint32* plcid) GetLocaleInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwObjInstance) GetSorterInstance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcEntries) Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in void lpcvPrefix, BOOL fExactMatch, int32* plEntry) Lookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpcvPrefix, BOOL fExactMatch, int32* plEntry) Lookup;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEntry, IITResultSet* lpITResult, int32 cEntries) Lookup0;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEntry, void* lpvKeyBuf, uint32 cbKeyBuf) Lookup1;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IITGroup* piitGroup) SetGroup;
@@ -627,7 +627,7 @@ public struct COLUMNSTATUS
 
 	public HRESULT Count(int32* pcEntries) mut => VT.[Friend]Count(&this, pcEntries);
 
-	public HRESULT Lookup(in void lpcvPrefix, BOOL fExactMatch, int32* plEntry) mut => VT.[Friend]Lookup(&this, lpcvPrefix, fExactMatch, plEntry);
+	public HRESULT Lookup(void* lpcvPrefix, BOOL fExactMatch, int32* plEntry) mut => VT.[Friend]Lookup(&this, lpcvPrefix, fExactMatch, plEntry);
 
 	public HRESULT Lookup(int32 lEntry, IITResultSet* lpITResult, int32 cEntries) mut => VT.[Friend]Lookup0(&this, lEntry, lpITResult, cEntries);
 

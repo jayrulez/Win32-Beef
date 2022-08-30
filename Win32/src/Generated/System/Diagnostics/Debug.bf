@@ -3551,11 +3551,11 @@ public function uint32 PWINDBG_READ_PROCESS_MEMORY_ROUTINE32(uint32 offset, void
 
 public function uint32 PWINDBG_READ_PROCESS_MEMORY_ROUTINE64(uint64 offset, void* lpBuffer, uint32 cb, uint32* lpcbBytesRead);
 
-public function uint32 PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE(uint offset, in void lpBuffer, uint32 cb, uint32* lpcbBytesWritten);
+public function uint32 PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE(uint offset, void* lpBuffer, uint32 cb, uint32* lpcbBytesWritten);
 
-public function uint32 PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32(uint32 offset, in void lpBuffer, uint32 cb, uint32* lpcbBytesWritten);
+public function uint32 PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32(uint32 offset, void* lpBuffer, uint32 cb, uint32* lpcbBytesWritten);
 
-public function uint32 PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64(uint64 offset, in void lpBuffer, uint32 cb, uint32* lpcbBytesWritten);
+public function uint32 PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64(uint64 offset, void* lpBuffer, uint32 cb, uint32* lpcbBytesWritten);
 
 public function uint32 PWINDBG_GET_THREAD_CONTEXT_ROUTINE(uint32 Processor, CONTEXT* lpContext, uint32 cbSizeOfContext);
 
@@ -21792,7 +21792,7 @@ public static
 	public static extern HRESULT CreateDataModelManager(IDebugHost* debugHost, IDataModelManager** manager);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ReadProcessMemory(HANDLE hProcess, in void lpBaseAddress, void* lpBuffer, uint nSize, uint* lpNumberOfBytesRead);
+	public static extern BOOL ReadProcessMemory(HANDLE hProcess, void* lpBaseAddress, void* lpBuffer, uint nSize, uint* lpNumberOfBytesRead);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WriteProcessMemory(HANDLE hProcess, void* lpBaseAddress, void* lpBuffer, uint nSize, uint* lpNumberOfBytesWritten);

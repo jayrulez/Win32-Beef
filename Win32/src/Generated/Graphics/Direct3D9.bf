@@ -2254,8 +2254,8 @@ public struct D3DAES_CTR_IV
 		protected new function [CallingConvention(.Stdcall)] float(SelfOuter* self) GetNPatchMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 StartVertex, uint32 PrimitiveCount) DrawPrimitive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE param0, int32 BaseVertexIndex, uint32 MinVertexIndex, uint32 NumVertices, uint32 startIndex, uint32 primCount) DrawIndexedPrimitive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 PrimitiveCount, in void pVertexStreamZeroData, uint32 VertexStreamZeroStride) DrawPrimitiveUP;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 MinVertexIndex, uint32 NumVertices, uint32 PrimitiveCount, in void pIndexData, D3DFORMAT IndexDataFormat, in void pVertexStreamZeroData, uint32 VertexStreamZeroStride) DrawIndexedPrimitiveUP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 PrimitiveCount, void* pVertexStreamZeroData, uint32 VertexStreamZeroStride) DrawPrimitiveUP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DPRIMITIVETYPE PrimitiveType, uint32 MinVertexIndex, uint32 NumVertices, uint32 PrimitiveCount, void* pIndexData, D3DFORMAT IndexDataFormat, void* pVertexStreamZeroData, uint32 VertexStreamZeroStride) DrawIndexedPrimitiveUP;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 SrcStartIndex, uint32 DestIndex, uint32 VertexCount, IDirect3DVertexBuffer9* pDestBuffer, IDirect3DVertexDeclaration9* pVertexDecl, uint32 Flags) ProcessVertices;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3DVERTEXELEMENT9* pVertexElements, IDirect3DVertexDeclaration9** ppDecl) CreateVertexDeclaration;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DVertexDeclaration9* pDecl) SetVertexDeclaration;
@@ -2453,9 +2453,9 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT DrawIndexedPrimitive(D3DPRIMITIVETYPE param0, int32 BaseVertexIndex, uint32 MinVertexIndex, uint32 NumVertices, uint32 startIndex, uint32 primCount) mut => VT.[Friend]DrawIndexedPrimitive(&this, param0, BaseVertexIndex, MinVertexIndex, NumVertices, startIndex, primCount);
 
-	public HRESULT DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, uint32 PrimitiveCount, in void pVertexStreamZeroData, uint32 VertexStreamZeroStride) mut => VT.[Friend]DrawPrimitiveUP(&this, PrimitiveType, PrimitiveCount, pVertexStreamZeroData, VertexStreamZeroStride);
+	public HRESULT DrawPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, uint32 PrimitiveCount, void* pVertexStreamZeroData, uint32 VertexStreamZeroStride) mut => VT.[Friend]DrawPrimitiveUP(&this, PrimitiveType, PrimitiveCount, pVertexStreamZeroData, VertexStreamZeroStride);
 
-	public HRESULT DrawIndexedPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, uint32 MinVertexIndex, uint32 NumVertices, uint32 PrimitiveCount, in void pIndexData, D3DFORMAT IndexDataFormat, in void pVertexStreamZeroData, uint32 VertexStreamZeroStride) mut => VT.[Friend]DrawIndexedPrimitiveUP(&this, PrimitiveType, MinVertexIndex, NumVertices, PrimitiveCount, pIndexData, IndexDataFormat, pVertexStreamZeroData, VertexStreamZeroStride);
+	public HRESULT DrawIndexedPrimitiveUP(D3DPRIMITIVETYPE PrimitiveType, uint32 MinVertexIndex, uint32 NumVertices, uint32 PrimitiveCount, void* pIndexData, D3DFORMAT IndexDataFormat, void* pVertexStreamZeroData, uint32 VertexStreamZeroStride) mut => VT.[Friend]DrawIndexedPrimitiveUP(&this, PrimitiveType, MinVertexIndex, NumVertices, PrimitiveCount, pIndexData, IndexDataFormat, pVertexStreamZeroData, VertexStreamZeroStride);
 
 	public HRESULT ProcessVertices(uint32 SrcStartIndex, uint32 DestIndex, uint32 VertexCount, IDirect3DVertexBuffer9* pDestBuffer, IDirect3DVertexDeclaration9* pVertexDecl, uint32 Flags) mut => VT.[Friend]ProcessVertices(&this, SrcStartIndex, DestIndex, VertexCount, pDestBuffer, pVertexDecl, Flags);
 
@@ -2589,7 +2589,7 @@ public struct D3DAES_CTR_IV
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DDevice9** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, in void pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid) FreePrivateData;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self, uint32 PriorityNew) SetPriority;
@@ -2601,7 +2601,7 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT GetDevice(IDirect3DDevice9** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT SetPrivateData(in Guid refguid, in void pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, refguid, pData, SizeOfData, Flags);
+	public HRESULT SetPrivateData(in Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, refguid, pData, SizeOfData, Flags);
 
 	public HRESULT GetPrivateData(in Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, refguid, pData, pSizeOfData);
 
@@ -2862,7 +2862,7 @@ public struct D3DAES_CTR_IV
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DDevice9** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, in void pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) SetPrivateData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid, void* pData, uint32* pSizeOfData) GetPrivateData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid refguid) FreePrivateData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppContainer) GetContainer;
@@ -2874,7 +2874,7 @@ public struct D3DAES_CTR_IV
 
 	public HRESULT GetDevice(IDirect3DDevice9** ppDevice) mut => VT.[Friend]GetDevice(&this, ppDevice);
 
-	public HRESULT SetPrivateData(in Guid refguid, in void pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, refguid, pData, SizeOfData, Flags);
+	public HRESULT SetPrivateData(in Guid refguid, void* pData, uint32 SizeOfData, uint32 Flags) mut => VT.[Friend]SetPrivateData(&this, refguid, pData, SizeOfData, Flags);
 
 	public HRESULT GetPrivateData(in Guid refguid, void* pData, uint32* pSizeOfData) mut => VT.[Friend]GetPrivateData(&this, refguid, pData, pSizeOfData);
 

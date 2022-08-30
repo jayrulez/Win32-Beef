@@ -6860,13 +6860,13 @@ public static
 	public static extern int32 lineConfigDialogW(uint32 dwDeviceID, HWND hwndOwner, PWSTR lpszDeviceClass);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineConfigDialogEdit(uint32 dwDeviceID, HWND hwndOwner, PSTR lpszDeviceClass, in void lpDeviceConfigIn, uint32 dwSize, VARSTRING* lpDeviceConfigOut);
+	public static extern int32 lineConfigDialogEdit(uint32 dwDeviceID, HWND hwndOwner, PSTR lpszDeviceClass, void* lpDeviceConfigIn, uint32 dwSize, VARSTRING* lpDeviceConfigOut);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineConfigDialogEditA(uint32 dwDeviceID, HWND hwndOwner, PSTR lpszDeviceClass, in void lpDeviceConfigIn, uint32 dwSize, VARSTRING* lpDeviceConfigOut);
+	public static extern int32 lineConfigDialogEditA(uint32 dwDeviceID, HWND hwndOwner, PSTR lpszDeviceClass, void* lpDeviceConfigIn, uint32 dwSize, VARSTRING* lpDeviceConfigOut);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineConfigDialogEditW(uint32 dwDeviceID, HWND hwndOwner, PWSTR lpszDeviceClass, in void lpDeviceConfigIn, uint32 dwSize, VARSTRING* lpDeviceConfigOut);
+	public static extern int32 lineConfigDialogEditW(uint32 dwDeviceID, HWND hwndOwner, PWSTR lpszDeviceClass, void* lpDeviceConfigIn, uint32 dwSize, VARSTRING* lpDeviceConfigOut);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineConfigProvider(HWND hwndOwner, uint32 dwPermanentProviderID);
@@ -7301,13 +7301,13 @@ public static
 	public static extern int32 lineSetCurrentLocation(uint32 hLineApp, uint32 dwLocation);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineSetDevConfig(uint32 dwDeviceID, in void lpDeviceConfig, uint32 dwSize, PSTR lpszDeviceClass);
+	public static extern int32 lineSetDevConfig(uint32 dwDeviceID, void* lpDeviceConfig, uint32 dwSize, PSTR lpszDeviceClass);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineSetDevConfigA(uint32 dwDeviceID, in void lpDeviceConfig, uint32 dwSize, PSTR lpszDeviceClass);
+	public static extern int32 lineSetDevConfigA(uint32 dwDeviceID, void* lpDeviceConfig, uint32 dwSize, PSTR lpszDeviceClass);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineSetDevConfigW(uint32 dwDeviceID, in void lpDeviceConfig, uint32 dwSize, PWSTR lpszDeviceClass);
+	public static extern int32 lineSetDevConfigW(uint32 dwDeviceID, void* lpDeviceConfig, uint32 dwSize, PWSTR lpszDeviceClass);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineSetLineDevStatus(uint32 hLine, uint32 dwStatusToChange, uint32 fStatus);
@@ -7512,7 +7512,7 @@ public static
 	public static extern int32 phoneSetButtonInfoW(uint32 hPhone, uint32 dwButtonLampID, PHONEBUTTONINFO* lpButtonInfo);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 phoneSetData(uint32 hPhone, uint32 dwDataID, in void lpData, uint32 dwSize);
+	public static extern int32 phoneSetData(uint32 hPhone, uint32 dwDataID, void* lpData, uint32 dwSize);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 phoneSetDisplay(uint32 hPhone, uint32 dwRow, uint32 dwColumn, PSTR lpsDisplay, uint32 dwSize);

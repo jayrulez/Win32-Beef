@@ -4033,11 +4033,11 @@ public static
 	public static extern HMENU LoadMenuW(HINSTANCE hInstance, PWSTR lpMenuName);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HMENU LoadMenuIndirectA(in void lpMenuTemplate);
-	public static HMENU LoadMenuIndirect(in void lpMenuTemplate) => LoadMenuIndirectA(lpMenuTemplate);
+	public static extern HMENU LoadMenuIndirectA(void* lpMenuTemplate);
+	public static HMENU LoadMenuIndirect(void* lpMenuTemplate) => LoadMenuIndirectA(lpMenuTemplate);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HMENU LoadMenuIndirectW(in void lpMenuTemplate);
+	public static extern HMENU LoadMenuIndirectW(void* lpMenuTemplate);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HMENU GetMenu(HWND hWnd);
@@ -4573,7 +4573,7 @@ public static
 	public static extern HCURSOR LoadCursorFromFileW(PWSTR lpFileName);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HCURSOR CreateCursor(HINSTANCE hInst, int32 xHotSpot, int32 yHotSpot, int32 nWidth, int32 nHeight, in void pvANDPlane, in void pvXORPlane);
+	public static extern HCURSOR CreateCursor(HINSTANCE hInst, int32 xHotSpot, int32 yHotSpot, int32 nWidth, int32 nHeight, void* pvANDPlane, void* pvXORPlane);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DestroyCursor(HCURSOR hCursor);
