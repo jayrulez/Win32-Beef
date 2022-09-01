@@ -5772,10 +5772,10 @@ public static
 	public static extern uint32 NetReplGetInfo(PWSTR servername, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplSetInfo(PWSTR servername, uint32 level, in uint8 buf, uint32* parm_err);
+	public static extern uint32 NetReplSetInfo(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplExportDirAdd(PWSTR servername, uint32 level, in uint8 buf, uint32* parm_err);
+	public static extern uint32 NetReplExportDirAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplExportDirDel(PWSTR servername, PWSTR dirname);
@@ -5787,7 +5787,7 @@ public static
 	public static extern uint32 NetReplExportDirGetInfo(PWSTR servername, PWSTR dirname, uint32 level, uint8** bufptr);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplExportDirSetInfo(PWSTR servername, PWSTR dirname, uint32 level, in uint8 buf, uint32* parm_err);
+	public static extern uint32 NetReplExportDirSetInfo(PWSTR servername, PWSTR dirname, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplExportDirLock(PWSTR servername, PWSTR dirname);
@@ -5796,7 +5796,7 @@ public static
 	public static extern uint32 NetReplExportDirUnlock(PWSTR servername, PWSTR dirname, uint32 unlockforce);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetReplImportDirAdd(PWSTR servername, uint32 level, in uint8 buf, uint32* parm_err);
+	public static extern uint32 NetReplImportDirAdd(PWSTR servername, uint32 level, uint8* buf, uint32* parm_err);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetReplImportDirDel(PWSTR servername, PWSTR dirname);

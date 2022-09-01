@@ -1197,7 +1197,7 @@ public static
 	public static extern QStatus alljoyn_aboutdata_createfrommsgarg(alljoyn_aboutdata data, alljoyn_msgarg arg, PSTR language);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern QStatus alljoyn_aboutdata_setappid(alljoyn_aboutdata data, in uint8 appId, uint num);
+	public static extern QStatus alljoyn_aboutdata_setappid(alljoyn_aboutdata data, uint8* appId, uint num);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern QStatus alljoyn_aboutdata_setappid_fromstring(alljoyn_aboutdata data, PSTR appId);
@@ -1371,7 +1371,7 @@ public static
 	public static extern QStatus alljoyn_permissionconfigurator_reset(alljoyn_permissionconfigurator configurator);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern QStatus alljoyn_permissionconfigurator_claim(alljoyn_permissionconfigurator configurator, int8* caKey, int8* identityCertificateChain, in uint8 groupId, uint groupSize, int8* groupAuthority, int8** manifestsXmls, uint manifestsCount);
+	public static extern QStatus alljoyn_permissionconfigurator_claim(alljoyn_permissionconfigurator configurator, int8* caKey, int8* identityCertificateChain, uint8* groupId, uint groupSize, int8* groupAuthority, int8** manifestsXmls, uint manifestsCount);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern QStatus alljoyn_permissionconfigurator_updateidentity(alljoyn_permissionconfigurator configurator, int8* identityCertificateChain, int8** manifestsXmls, uint manifestsCount);
@@ -1422,7 +1422,7 @@ public static
 	public static extern QStatus alljoyn_permissionconfigurator_installmembership(alljoyn_permissionconfigurator configurator, int8* membershipCertificateChain);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern QStatus alljoyn_permissionconfigurator_removemembership(alljoyn_permissionconfigurator configurator, in uint8 serial, uint serialLen, int8* issuerPublicKey, in uint8 issuerAki, uint issuerAkiLen);
+	public static extern QStatus alljoyn_permissionconfigurator_removemembership(alljoyn_permissionconfigurator configurator, uint8* serial, uint serialLen, int8* issuerPublicKey, uint8* issuerAki, uint issuerAkiLen);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern QStatus alljoyn_permissionconfigurator_startmanagement(alljoyn_permissionconfigurator configurator);
@@ -1599,7 +1599,7 @@ public static
 	public static extern void alljoyn_authlistenerasync_destroy(alljoyn_authlistener listener);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern QStatus alljoyn_authlistener_setsharedsecret(alljoyn_authlistener listener, in uint8 sharedSecret, uint sharedSecretSize);
+	public static extern QStatus alljoyn_authlistener_setsharedsecret(alljoyn_authlistener listener, uint8* sharedSecret, uint sharedSecretSize);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern alljoyn_credentials alljoyn_credentials_create();
@@ -2478,7 +2478,7 @@ public static
 	public static extern void alljoyn_securityapplicationproxy_destroy(alljoyn_securityapplicationproxy proxy);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern QStatus alljoyn_securityapplicationproxy_claim(alljoyn_securityapplicationproxy proxy, int8* caKey, int8* identityCertificateChain, in uint8 groupId, uint groupSize, int8* groupAuthority, int8** manifestsXmls, uint manifestsCount);
+	public static extern QStatus alljoyn_securityapplicationproxy_claim(alljoyn_securityapplicationproxy proxy, int8* caKey, int8* identityCertificateChain, uint8* groupId, uint groupSize, int8* groupAuthority, int8** manifestsXmls, uint manifestsCount);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern QStatus alljoyn_securityapplicationproxy_getmanifesttemplate(alljoyn_securityapplicationproxy proxy, int8** manifestTemplateXml);
@@ -2544,7 +2544,7 @@ public static
 	public static extern void alljoyn_securityapplicationproxy_digest_destroy(uint8* digest);
 
 	[Import("MSAJApi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern QStatus alljoyn_securityapplicationproxy_setmanifestsignature(int8* unsignedManifestXml, int8* identityCertificatePem, in uint8 signature, uint signatureSize, int8** signedManifestXml);
+	public static extern QStatus alljoyn_securityapplicationproxy_setmanifestsignature(int8* unsignedManifestXml, int8* identityCertificatePem, uint8* signature, uint signatureSize, int8** signedManifestXml);
 
 }
 #endregion

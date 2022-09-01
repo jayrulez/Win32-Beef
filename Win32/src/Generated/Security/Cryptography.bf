@@ -6652,19 +6652,19 @@ public static
 	public static extern BOOL CryptDestroyKey(uint hKey);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSetKeyParam(uint hKey, CRYPT_KEY_PARAM_ID dwParam, in uint8 pbData, uint32 dwFlags);
+	public static extern BOOL CryptSetKeyParam(uint hKey, CRYPT_KEY_PARAM_ID dwParam, uint8* pbData, uint32 dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptGetKeyParam(uint hKey, CRYPT_KEY_PARAM_ID dwParam, uint8* pbData, uint32* pdwDataLen, uint32 dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSetHashParam(uint hHash, CRYPT_SET_HASH_PARAM dwParam, in uint8 pbData, uint32 dwFlags);
+	public static extern BOOL CryptSetHashParam(uint hHash, CRYPT_SET_HASH_PARAM dwParam, uint8* pbData, uint32 dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptGetHashParam(uint hHash, uint32 dwParam, uint8* pbData, uint32* pdwDataLen, uint32 dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CryptSetProvParam(uint hProv, CRYPT_SET_PROV_PARAM_ID dwParam, in uint8 pbData, uint32 dwFlags);
+	public static extern BOOL CryptSetProvParam(uint hProv, CRYPT_SET_PROV_PARAM_ID dwParam, uint8* pbData, uint32 dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptGetProvParam(uint hProv, uint32 dwParam, uint8* pbData, uint32* pdwDataLen, uint32 dwFlags);

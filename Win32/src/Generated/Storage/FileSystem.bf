@@ -1641,9 +1641,9 @@ public enum FILE_ID_TYPE : int32
 #region Function Pointers
 public function uint32 MAXMEDIALABEL(uint32* pMaxSize);
 
-public function uint32 CLAIMMEDIALABEL(in uint8 pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo);
+public function uint32 CLAIMMEDIALABEL(uint8* pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo);
 
-public function uint32 CLAIMMEDIALABELEX(in uint8 pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo, Guid* LabelGuid);
+public function uint32 CLAIMMEDIALABELEX(uint8* pBuffer, uint32 nBufferSize, MediaLabelInfo* pLabelInfo, Guid* LabelGuid);
 
 public function void* CLFS_BLOCK_ALLOCATION(uint32 cbBufferLength, void* pvUserContext);
 

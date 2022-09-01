@@ -653,7 +653,7 @@ public struct MLOperatorKernelDescription
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, MLOperatorEdgeDescription* edgeDescription) GetInputEdgeDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, uint32* dimensionCount) GetInputTensorDimensionCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 inputIndex, uint32 dimensionCount, uint32* dimensions) GetInputTensorShape;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 outputIndex, uint32 dimensionCount, in uint32 dimensions) SetOutputTensorShape;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 outputIndex, uint32 dimensionCount, uint32* dimensions) SetOutputTensorShape;
 	}
 
 
@@ -671,7 +671,7 @@ public struct MLOperatorKernelDescription
 
 	public HRESULT GetInputTensorShape(uint32 inputIndex, uint32 dimensionCount, uint32* dimensions) mut => VT.[Friend]GetInputTensorShape(&this, inputIndex, dimensionCount, dimensions);
 
-	public HRESULT SetOutputTensorShape(uint32 outputIndex, uint32 dimensionCount, in uint32 dimensions) mut => VT.[Friend]SetOutputTensorShape(&this, outputIndex, dimensionCount, dimensions);
+	public HRESULT SetOutputTensorShape(uint32 outputIndex, uint32 dimensionCount, uint32* dimensions) mut => VT.[Friend]SetOutputTensorShape(&this, outputIndex, dimensionCount, dimensions);
 }
 
 [CRepr]struct IMLOperatorTypeInferenceContext : IMLOperatorAttributes

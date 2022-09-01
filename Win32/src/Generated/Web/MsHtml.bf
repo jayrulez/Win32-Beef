@@ -41816,7 +41816,7 @@ public static
 	public static extern HRESULT GetMaxMIMEIDBytes(uint32* pnMaxBytes);
 
 	[Import("ImgUtil.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IdentifyMIMEType(in uint8 pbBytes, uint32 nBytes, uint32* pnFormat);
+	public static extern HRESULT IdentifyMIMEType(uint8* pbBytes, uint32 nBytes, uint32* pnFormat);
 
 	[Import("ImgUtil.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ComputeInvCMAP(RGBQUAD* pRGBColors, uint32 nColors, uint8* pInvTable, uint32 cbTable);

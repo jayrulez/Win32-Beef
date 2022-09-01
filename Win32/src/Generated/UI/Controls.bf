@@ -6326,7 +6326,7 @@ public static
 	public static extern BOOL ShowHideMenuCtl(HWND hWnd, uint uFlags, int32* lpInfo);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void GetEffectiveClientRect(HWND hWnd, RECT* lprc, in int32 lpInfo);
+	public static extern void GetEffectiveClientRect(HWND hWnd, RECT* lprc, int32* lpInfo);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MakeDragList(HWND hLB);

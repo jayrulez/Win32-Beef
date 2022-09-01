@@ -557,7 +557,7 @@ public static
 	public static extern uint32 SnmpGetPduData(int PDU, SNMP_PDU_TYPE* PDU_type, int32* request_id, SNMP_ERROR* error_status, int32* error_index, int* varbindlist);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SnmpSetPduData(int PDU, in int32 PDU_type, in int32 request_id, in int32 non_repeaters, in int32 max_repetitions, in int varbindlist);
+	public static extern uint32 SnmpSetPduData(int PDU, int32* PDU_type, int32* request_id, int32* non_repeaters, int32* max_repetitions, int* varbindlist);
 
 	[Import("wsnmp32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int SnmpDuplicatePdu(int session, int PDU);

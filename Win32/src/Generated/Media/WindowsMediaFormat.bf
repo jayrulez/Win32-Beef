@@ -3729,7 +3729,7 @@ public struct DRM_COPY_OPL
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcCerts) GetCertCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, uint8** ppbCertData) GetCert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCertIndex, in uint8 pbSharedData, uint8* pbCert, uint8** ppbSharedData) GetSharedData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCertIndex, uint8* pbSharedData, uint8* pbCert, uint8** ppbSharedData) GetSharedData;
 	}
 
 
@@ -3737,7 +3737,7 @@ public struct DRM_COPY_OPL
 
 	public HRESULT GetCert(uint32 dwIndex, uint8** ppbCertData) mut => VT.[Friend]GetCert(&this, dwIndex, ppbCertData);
 
-	public HRESULT GetSharedData(uint32 dwCertIndex, in uint8 pbSharedData, uint8* pbCert, uint8** ppbSharedData) mut => VT.[Friend]GetSharedData(&this, dwCertIndex, pbSharedData, pbCert, ppbSharedData);
+	public HRESULT GetSharedData(uint32 dwCertIndex, uint8* pbSharedData, uint8* pbCert, uint8** ppbSharedData) mut => VT.[Friend]GetSharedData(&this, dwCertIndex, pbSharedData, pbCert, ppbSharedData);
 }
 
 [CRepr]struct IWMSecureChannel : IWMAuthorizer
@@ -3758,7 +3758,7 @@ public struct DRM_COPY_OPL
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbData, uint32 cbData) WMSC_Decrypt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) WMSC_Lock;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) WMSC_Unlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCertIndex, in uint8 pbSharedData) WMSC_SetSharedData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCertIndex, uint8* pbSharedData) WMSC_SetSharedData;
 	}
 
 
@@ -3782,7 +3782,7 @@ public struct DRM_COPY_OPL
 
 	public HRESULT WMSC_Unlock() mut => VT.[Friend]WMSC_Unlock(&this);
 
-	public HRESULT WMSC_SetSharedData(uint32 dwCertIndex, in uint8 pbSharedData) mut => VT.[Friend]WMSC_SetSharedData(&this, dwCertIndex, pbSharedData);
+	public HRESULT WMSC_SetSharedData(uint32 dwCertIndex, uint8* pbSharedData) mut => VT.[Friend]WMSC_SetSharedData(&this, dwCertIndex, pbSharedData);
 }
 
 [CRepr]struct IWMGetSecureChannel : IUnknown

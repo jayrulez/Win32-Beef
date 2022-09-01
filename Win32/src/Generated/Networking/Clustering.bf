@@ -2297,7 +2297,7 @@ public function int32 PCLUSAPI_CLUSTER_REG_CLOSE_KEY(HKEY hKey);
 
 public function int32 PCLUSAPI_CLUSTER_REG_ENUM_KEY(HKEY hKey, uint32 dwIndex, char16* lpszName, uint32* lpcchName, FILETIME* lpftLastWriteTime);
 
-public function uint32 PCLUSAPI_CLUSTER_REG_SET_VALUE(HKEY hKey, PWSTR lpszValueName, uint32 dwType, in uint8 lpData, uint32 cbData);
+public function uint32 PCLUSAPI_CLUSTER_REG_SET_VALUE(HKEY hKey, PWSTR lpszValueName, uint32 dwType, uint8* lpData, uint32 cbData);
 
 public function uint32 PCLUSAPI_CLUSTER_REG_DELETE_VALUE(HKEY hKey, PWSTR lpszValueName);
 
@@ -2469,19 +2469,19 @@ public function uint32 PRESUTIL_SET_PROPERTY_TABLE(HKEY hkeyClusterKey, RESUTIL_
 
 public function uint32 PRESUTIL_SET_PROPERTY_TABLE_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
 
-public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, uint8* pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
 
-public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+public function uint32 PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, uint8* pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
 
 public function uint32 PRESUTIL_SET_UNKNOWN_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pInPropertyList, uint32 cbInPropertyListSize);
 
 public function uint32 PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, uint8* pOutParams, BOOL bCheckForRequiredProperties, PWSTR* pszNameOfPropInError);
 
-public function uint32 PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32* pcbOutPropertyListSize, in uint8 pInParams, uint32* pcbBytesReturned, uint32* pcbRequired);
+public function uint32 PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32* pcbOutPropertyListSize, uint8* pInParams, uint32* pcbBytesReturned, uint32* pcbRequired);
 
-public function uint32 PRESUTIL_DUP_PARAMETER_BLOCK(uint8* pOutParams, in uint8 pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
+public function uint32 PRESUTIL_DUP_PARAMETER_BLOCK(uint8* pOutParams, uint8* pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
 
-public function void PRESUTIL_FREE_PARAMETER_BLOCK(uint8* pOutParams, in uint8 pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
+public function void PRESUTIL_FREE_PARAMETER_BLOCK(uint8* pOutParams, uint8* pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
 
 public function uint32 PRESUTIL_ADD_UNKNOWN_PROPERTIES(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32 pcbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);
 
@@ -6326,7 +6326,7 @@ public static
 	public static extern int32 ClusterRegEnumKey(HKEY hKey, uint32 dwIndex, char16* lpszName, uint32* lpcchName, FILETIME* lpftLastWriteTime);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ClusterRegSetValue(HKEY hKey, PWSTR lpszValueName, uint32 dwType, in uint8 lpData, uint32 cbData);
+	public static extern uint32 ClusterRegSetValue(HKEY hKey, PWSTR lpszValueName, uint32 dwType, uint8* lpData, uint32 cbData);
 
 	[Import("CLUSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ClusterRegDeleteValue(HKEY hKey, PWSTR lpszValueName);
@@ -6512,10 +6512,10 @@ public static
 	public static extern uint32 ResUtilSetPropertyTableEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, BOOL bAllowUnknownProperties, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPropertyParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
+	public static extern uint32 ResUtilSetPropertyParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, uint8* pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, uint8* pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilSetPropertyParameterBlockEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, in uint8 pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
+	public static extern uint32 ResUtilSetPropertyParameterBlockEx(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* Reserved, uint8* pInParams, void* pInPropertyList, uint32 cbInPropertyListSize, BOOL bForceWrite, uint8* pOutParams);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilSetUnknownProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pInPropertyList, uint32 cbInPropertyListSize);
@@ -6524,13 +6524,13 @@ public static
 	public static extern uint32 ResUtilGetPropertiesToParameterBlock(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, uint8* pOutParams, BOOL bCheckForRequiredProperties, PWSTR* pszNameOfPropInError);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilPropertyListFromParameterBlock(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32* pcbOutPropertyListSize, in uint8 pInParams, uint32* pcbBytesReturned, uint32* pcbRequired);
+	public static extern uint32 ResUtilPropertyListFromParameterBlock(RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32* pcbOutPropertyListSize, uint8* pInParams, uint32* pcbBytesReturned, uint32* pcbRequired);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilDupParameterBlock(uint8* pOutParams, in uint8 pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
+	public static extern uint32 ResUtilDupParameterBlock(uint8* pOutParams, uint8* pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ResUtilFreeParameterBlock(uint8* pOutParams, in uint8 pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
+	public static extern void ResUtilFreeParameterBlock(uint8* pOutParams, uint8* pInParams, RESUTIL_PROPERTY_ITEM* pPropertyTable);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilAddUnknownProperties(HKEY hkeyClusterKey, RESUTIL_PROPERTY_ITEM* pPropertyTable, void* pOutPropertyList, uint32 pcbOutPropertyListSize, uint32* pcbBytesReturned, uint32* pcbRequired);

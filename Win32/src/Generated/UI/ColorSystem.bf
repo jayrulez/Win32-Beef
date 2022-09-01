@@ -650,7 +650,7 @@ public struct WCS_DEVICE_MHC2_CAPABILITIES
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXml, uint32 cNumModels, uint32 iModelPosition) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pNumChannels) GetNumChannels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cColors, uint32 cChannels, in float pDeviceValues, XYZColorF* pXYZColors) DeviceToColorimetricColors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cColors, uint32 cChannels, float* pDeviceValues, XYZColorF* pXYZColors) DeviceToColorimetricColors;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cColors, uint32 cChannels, XYZColorF* pXYZColors, float* pDeviceValues) ColorimetricToDeviceColors;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cColors, uint32 cChannels, XYZColorF* pXYZColors, BlackInformation* pBlackInformation, float* pDeviceValues) ColorimetricToDeviceColorsWithBlack;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iModelPosition, IDeviceModelPlugIn* pIDeviceModelOther) SetTransformDeviceModelInfo;
@@ -666,7 +666,7 @@ public struct WCS_DEVICE_MHC2_CAPABILITIES
 
 	public HRESULT GetNumChannels(uint32* pNumChannels) mut => VT.[Friend]GetNumChannels(&this, pNumChannels);
 
-	public HRESULT DeviceToColorimetricColors(uint32 cColors, uint32 cChannels, in float pDeviceValues, XYZColorF* pXYZColors) mut => VT.[Friend]DeviceToColorimetricColors(&this, cColors, cChannels, pDeviceValues, pXYZColors);
+	public HRESULT DeviceToColorimetricColors(uint32 cColors, uint32 cChannels, float* pDeviceValues, XYZColorF* pXYZColors) mut => VT.[Friend]DeviceToColorimetricColors(&this, cColors, cChannels, pDeviceValues, pXYZColors);
 
 	public HRESULT ColorimetricToDeviceColors(uint32 cColors, uint32 cChannels, XYZColorF* pXYZColors, float* pDeviceValues) mut => VT.[Friend]ColorimetricToDeviceColors(&this, cColors, cChannels, pXYZColors, pDeviceValues);
 

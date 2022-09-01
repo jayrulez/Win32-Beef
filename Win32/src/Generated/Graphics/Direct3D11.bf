@@ -5544,9 +5544,9 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource) CopyResource;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pDstResource, uint32 DstSubresource, D3D11_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) UpdateSubresource;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Buffer* pDstBuffer, uint32 DstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) CopyStructureCount;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11RenderTargetView* pRenderTargetView, in float ColorRGBA) ClearRenderTargetView;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11UnorderedAccessView* pUnorderedAccessView, in uint32 Values) ClearUnorderedAccessViewUint;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11UnorderedAccessView* pUnorderedAccessView, in float Values) ClearUnorderedAccessViewFloat;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11RenderTargetView* pRenderTargetView, float* ColorRGBA) ClearRenderTargetView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11UnorderedAccessView* pUnorderedAccessView, uint32* Values) ClearUnorderedAccessViewUint;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11UnorderedAccessView* pUnorderedAccessView, float* Values) ClearUnorderedAccessViewFloat;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11DepthStencilView* pDepthStencilView, uint32 ClearFlags, float Depth, uint8 Stencil) ClearDepthStencilView;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11ShaderResourceView* pShaderResourceView) GenerateMips;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11Resource* pResource, float MinLOD) SetResourceMinLOD;
@@ -5698,11 +5698,11 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void CopyStructureCount(ID3D11Buffer* pDstBuffer, uint32 DstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) mut => VT.[Friend]CopyStructureCount(&this, pDstBuffer, DstAlignedByteOffset, pSrcView);
 
-	public void ClearRenderTargetView(ID3D11RenderTargetView* pRenderTargetView, in float ColorRGBA) mut => VT.[Friend]ClearRenderTargetView(&this, pRenderTargetView, ColorRGBA);
+	public void ClearRenderTargetView(ID3D11RenderTargetView* pRenderTargetView, float* ColorRGBA) mut => VT.[Friend]ClearRenderTargetView(&this, pRenderTargetView, ColorRGBA);
 
-	public void ClearUnorderedAccessViewUint(ID3D11UnorderedAccessView* pUnorderedAccessView, in uint32 Values) mut => VT.[Friend]ClearUnorderedAccessViewUint(&this, pUnorderedAccessView, Values);
+	public void ClearUnorderedAccessViewUint(ID3D11UnorderedAccessView* pUnorderedAccessView, uint32* Values) mut => VT.[Friend]ClearUnorderedAccessViewUint(&this, pUnorderedAccessView, Values);
 
-	public void ClearUnorderedAccessViewFloat(ID3D11UnorderedAccessView* pUnorderedAccessView, in float Values) mut => VT.[Friend]ClearUnorderedAccessViewFloat(&this, pUnorderedAccessView, Values);
+	public void ClearUnorderedAccessViewFloat(ID3D11UnorderedAccessView* pUnorderedAccessView, float* Values) mut => VT.[Friend]ClearUnorderedAccessViewFloat(&this, pUnorderedAccessView, Values);
 
 	public void ClearDepthStencilView(ID3D11DepthStencilView* pDepthStencilView, uint32 ClearFlags, float Depth, uint8 Stencil) mut => VT.[Friend]ClearDepthStencilView(&this, pDepthStencilView, ClearFlags, Depth, Stencil);
 
@@ -6658,7 +6658,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D11Buffer** ppConstantBuffers, uint32* pFirstConstant, uint32* pNumConstants) PSGetConstantBuffers1;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 StartSlot, uint32 NumBuffers, ID3D11Buffer** ppConstantBuffers, uint32* pFirstConstant, uint32* pNumConstants) CSGetConstantBuffers1;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3DDeviceContextState* pState, ID3DDeviceContextState** ppPreviousState) SwapDeviceContextState;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11View* pView, in float Color, RECT* pRect, uint32 NumRects) ClearView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11View* pView, float* Color, RECT* pRect, uint32 NumRects) ClearView;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D11View* pResourceView, RECT* pRects, uint32 NumRects) DiscardView1;
 	}
 
@@ -6697,7 +6697,7 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 	public void SwapDeviceContextState(ID3DDeviceContextState* pState, ID3DDeviceContextState** ppPreviousState) mut => VT.[Friend]SwapDeviceContextState(&this, pState, ppPreviousState);
 
-	public void ClearView(ID3D11View* pView, in float Color, RECT* pRect, uint32 NumRects) mut => VT.[Friend]ClearView(&this, pView, Color, pRect, NumRects);
+	public void ClearView(ID3D11View* pView, float* Color, RECT* pRect, uint32 NumRects) mut => VT.[Friend]ClearView(&this, pView, Color, pRect, NumRects);
 
 	public void DiscardView1(ID3D11View* pResourceView, RECT* pRects, uint32 NumRects) mut => VT.[Friend]DiscardView1(&this, pResourceView, pRects, NumRects);
 }

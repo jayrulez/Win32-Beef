@@ -372,7 +372,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 fileSize, uint32* depth) ComputeDefaultRecursionDepth;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GeneratorParametersType parametersType, uint32 level, IRdcGeneratorParameters** iGeneratorParameters) CreateGeneratorParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 size, in uint8 parametersBlob, IRdcGeneratorParameters** iGeneratorParameters) OpenGeneratorParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 size, uint8* parametersBlob, IRdcGeneratorParameters** iGeneratorParameters) OpenGeneratorParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 depth, IRdcGeneratorParameters** iGeneratorParametersArray, IRdcGenerator** iGenerator) CreateGenerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRdcFileReader* iSeedSignaturesFile, uint32 comparatorBufferSize, IRdcComparator** iComparator) CreateComparator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRdcFileReader* iFileReader, IRdcSignatureReader** iSignatureReader) CreateSignatureReader;
@@ -384,7 +384,7 @@ public static
 
 	public HRESULT CreateGeneratorParameters(GeneratorParametersType parametersType, uint32 level, IRdcGeneratorParameters** iGeneratorParameters) mut => VT.[Friend]CreateGeneratorParameters(&this, parametersType, level, iGeneratorParameters);
 
-	public HRESULT OpenGeneratorParameters(uint32 size, in uint8 parametersBlob, IRdcGeneratorParameters** iGeneratorParameters) mut => VT.[Friend]OpenGeneratorParameters(&this, size, parametersBlob, iGeneratorParameters);
+	public HRESULT OpenGeneratorParameters(uint32 size, uint8* parametersBlob, IRdcGeneratorParameters** iGeneratorParameters) mut => VT.[Friend]OpenGeneratorParameters(&this, size, parametersBlob, iGeneratorParameters);
 
 	public HRESULT CreateGenerator(uint32 depth, IRdcGeneratorParameters** iGeneratorParametersArray, IRdcGenerator** iGenerator) mut => VT.[Friend]CreateGenerator(&this, depth, iGeneratorParametersArray, iGenerator);
 

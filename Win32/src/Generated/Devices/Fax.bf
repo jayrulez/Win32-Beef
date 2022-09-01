@@ -659,9 +659,9 @@ public function BOOL PFAXGETROUTINGINFOA(HANDLE FaxPortHandle, PSTR RoutingGuid,
 
 public function BOOL PFAXGETROUTINGINFOW(HANDLE FaxPortHandle, PWSTR RoutingGuid, uint8** RoutingInfoBuffer, uint32* RoutingInfoBufferSize);
 
-public function BOOL PFAXSETROUTINGINFOA(HANDLE FaxPortHandle, PSTR RoutingGuid, in uint8 RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
+public function BOOL PFAXSETROUTINGINFOA(HANDLE FaxPortHandle, PSTR RoutingGuid, uint8* RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
 
-public function BOOL PFAXSETROUTINGINFOW(HANDLE FaxPortHandle, PWSTR RoutingGuid, in uint8 RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
+public function BOOL PFAXSETROUTINGINFOW(HANDLE FaxPortHandle, PWSTR RoutingGuid, uint8* RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
 
 public function BOOL PFAXINITIALIZEEVENTQUEUE(HANDLE FaxHandle, HANDLE CompletionPort, uint CompletionKey, HWND hWnd, uint32 MessageStart);
 
@@ -733,7 +733,7 @@ public function BOOL PFAXROUTEDEVICECHANGENOTIFICATION(uint32 param0, BOOL param
 
 public function BOOL PFAXROUTEGETROUTINGINFO(PWSTR param0, uint32 param1, uint8* param2, uint32* param3);
 
-public function BOOL PFAXROUTESETROUTINGINFO(PWSTR param0, uint32 param1, in uint8 param2, uint32 param3);
+public function BOOL PFAXROUTESETROUTINGINFO(PWSTR param0, uint32 param1, uint8* param2, uint32 param3);
 
 public function uint32 PFAX_EXT_GET_DATA(uint32 param0, FAX_ENUM_DEVICE_ID_SOURCE param1, PWSTR param2, uint8** param3, uint32* param4);
 
@@ -4388,11 +4388,11 @@ public static
 	public static extern BOOL FaxGetRoutingInfoW(HANDLE FaxPortHandle, PWSTR RoutingGuid, uint8** RoutingInfoBuffer, uint32* RoutingInfoBufferSize);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FaxSetRoutingInfoA(HANDLE FaxPortHandle, PSTR RoutingGuid, in uint8 RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
-	public static BOOL FaxSetRoutingInfo(HANDLE FaxPortHandle, PSTR RoutingGuid, in uint8 RoutingInfoBuffer, uint32 RoutingInfoBufferSize) => FaxSetRoutingInfoA(FaxPortHandle, RoutingGuid, RoutingInfoBuffer, RoutingInfoBufferSize);
+	public static extern BOOL FaxSetRoutingInfoA(HANDLE FaxPortHandle, PSTR RoutingGuid, uint8* RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
+	public static BOOL FaxSetRoutingInfo(HANDLE FaxPortHandle, PSTR RoutingGuid, uint8* RoutingInfoBuffer, uint32 RoutingInfoBufferSize) => FaxSetRoutingInfoA(FaxPortHandle, RoutingGuid, RoutingInfoBuffer, RoutingInfoBufferSize);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FaxSetRoutingInfoW(HANDLE FaxPortHandle, PWSTR RoutingGuid, in uint8 RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
+	public static extern BOOL FaxSetRoutingInfoW(HANDLE FaxPortHandle, PWSTR RoutingGuid, uint8* RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxInitializeEventQueue(HANDLE FaxHandle, HANDLE CompletionPort, uint CompletionKey, HWND hWnd, uint32 MessageStart);

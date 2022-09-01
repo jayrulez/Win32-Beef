@@ -10107,7 +10107,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InterleavingMode mode) put_Mode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InterleavingMode* pMode) get_Mode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in int64 prtInterleave, in int64 prtPreroll) put_Interleaving;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* prtInterleave, int64* prtPreroll) put_Interleaving;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* prtInterleave, int64* prtPreroll) get_Interleaving;
 	}
 
@@ -10116,7 +10116,7 @@ public static
 
 	public HRESULT get_Mode(InterleavingMode* pMode) mut => VT.[Friend]get_Mode(&this, pMode);
 
-	public HRESULT put_Interleaving(in int64 prtInterleave, in int64 prtPreroll) mut => VT.[Friend]put_Interleaving(&this, prtInterleave, prtPreroll);
+	public HRESULT put_Interleaving(int64* prtInterleave, int64* prtPreroll) mut => VT.[Friend]put_Interleaving(&this, prtInterleave, prtPreroll);
 
 	public HRESULT get_Interleaving(int64* prtInterleave, int64* prtPreroll) mut => VT.[Friend]get_Interleaving(&this, prtInterleave, prtPreroll);
 }
@@ -10964,7 +10964,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwcbTotalFree, uint32* pdwcbLargestFree, uint32* pdwcbTotalMemory, uint32* pdwcbMinimumChunk) GetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in uint8 pBuffer) CheckMemory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer) CheckMemory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppBuffer, uint32* pdwcbBuffer) Alloc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer) Free;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnkInnner, IUnknown* pUnkOuter) GetDevMemoryObject;
@@ -10973,7 +10973,7 @@ public static
 
 	public HRESULT GetInfo(uint32* pdwcbTotalFree, uint32* pdwcbLargestFree, uint32* pdwcbTotalMemory, uint32* pdwcbMinimumChunk) mut => VT.[Friend]GetInfo(&this, pdwcbTotalFree, pdwcbLargestFree, pdwcbTotalMemory, pdwcbMinimumChunk);
 
-	public HRESULT CheckMemory(in uint8 pBuffer) mut => VT.[Friend]CheckMemory(&this, pBuffer);
+	public HRESULT CheckMemory(uint8* pBuffer) mut => VT.[Friend]CheckMemory(&this, pBuffer);
 
 	public HRESULT Alloc(uint8** ppBuffer, uint32* pdwcbBuffer) mut => VT.[Friend]Alloc(&this, ppBuffer, pdwcbBuffer);
 
@@ -15729,7 +15729,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMediaStream** ppMediaStream) GetMediaStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pStartTime, int64* pEndTime, int64* pCurrentTime) GetSampleTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in int64 pStartTime, in int64 pEndTime) SetSampleTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pStartTime, int64* pEndTime) SetSampleTimes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, HANDLE hEvent, PAPCFUNC pfnAPC, uint dwAPCData) Update;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32 dwMilliseconds) CompletionStatus;
 	}
@@ -15739,7 +15739,7 @@ public static
 
 	public HRESULT GetSampleTimes(int64* pStartTime, int64* pEndTime, int64* pCurrentTime) mut => VT.[Friend]GetSampleTimes(&this, pStartTime, pEndTime, pCurrentTime);
 
-	public HRESULT SetSampleTimes(in int64 pStartTime, in int64 pEndTime) mut => VT.[Friend]SetSampleTimes(&this, pStartTime, pEndTime);
+	public HRESULT SetSampleTimes(int64* pStartTime, int64* pEndTime) mut => VT.[Friend]SetSampleTimes(&this, pStartTime, pEndTime);
 
 	public HRESULT Update(uint32 dwFlags, HANDLE hEvent, PAPCFUNC pfnAPC, uint dwAPCData) mut => VT.[Friend]Update(&this, dwFlags, hEvent, pfnAPC, dwAPCData);
 
@@ -25317,7 +25317,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punk) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSize, uint8* pBuffer, IPBDA_EIT** ppEIT) GetEIT;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSize, in uint8 pBuffer, IPBDA_Services** ppServices) GetServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSize, uint8* pBuffer, IPBDA_Services** ppServices) GetServices;
 	}
 
 
@@ -25325,7 +25325,7 @@ public static
 
 	public HRESULT GetEIT(uint32 dwSize, uint8* pBuffer, IPBDA_EIT** ppEIT) mut => VT.[Friend]GetEIT(&this, dwSize, pBuffer, ppEIT);
 
-	public HRESULT GetServices(uint32 dwSize, in uint8 pBuffer, IPBDA_Services** ppServices) mut => VT.[Friend]GetServices(&this, dwSize, pBuffer, ppServices);
+	public HRESULT GetServices(uint32 dwSize, uint8* pBuffer, IPBDA_Services** ppServices) mut => VT.[Friend]GetServices(&this, dwSize, pBuffer, ppServices);
 }
 
 [CRepr]struct IPBDA_EIT : IUnknown
@@ -25336,7 +25336,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 size, in uint8 pBuffer) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 size, uint8* pBuffer) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbVal) GetTableId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwVal) GetVersionNumber;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* plwVal) GetServiceIdx;
@@ -25350,7 +25350,7 @@ public static
 	}
 
 
-	public HRESULT Initialize(uint32 size, in uint8 pBuffer) mut => VT.[Friend]Initialize(&this, size, pBuffer);
+	public HRESULT Initialize(uint32 size, uint8* pBuffer) mut => VT.[Friend]Initialize(&this, size, pBuffer);
 
 	public HRESULT GetTableId(uint8* pbVal) mut => VT.[Friend]GetTableId(&this, pbVal);
 

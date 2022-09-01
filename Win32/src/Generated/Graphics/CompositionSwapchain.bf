@@ -276,11 +276,11 @@ public struct CompositionFrameDisplayInstance
 
 	[CRepr]public struct VTable : IPresentStatistics.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out LUID @return) GetOutputAdapterLUID;
+		protected new function [CallingConvention(.Stdcall)] LUID(SelfOuter* self, out LUID @return) GetOutputAdapterLUID;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetOutputVidPnSourceId;
 		protected new function [CallingConvention(.Stdcall)] uint(SelfOuter* self) GetContentTag;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out SystemInterruptTime @return) GetDisplayedTime;
-		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out SystemInterruptTime @return) GetPresentDuration;
+		protected new function [CallingConvention(.Stdcall)] SystemInterruptTime(SelfOuter* self, out SystemInterruptTime @return) GetDisplayedTime;
+		protected new function [CallingConvention(.Stdcall)] SystemInterruptTime(SelfOuter* self, out SystemInterruptTime @return) GetPresentDuration;
 	}
 
 

@@ -6748,21 +6748,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cRows, in uint rghRows, uint32* rgRefCounts, uint32* rgRowStatus) AddRefRows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cRows, uint* rghRows, uint32* rgRefCounts, uint32* rgRowStatus) AddRefRows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) GetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) GetNextRows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cRows, in uint rghRows, uint32* rgRowOptions, uint32* rgRefCounts, uint32* rgRowStatus) ReleaseRows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cRows, uint* rghRows, uint32* rgRowOptions, uint32* rgRefCounts, uint32* rgRowStatus) ReleaseRows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved) RestartPosition;
 	}
 
 
-	public HRESULT AddRefRows(uint cRows, in uint rghRows, uint32* rgRefCounts, uint32* rgRowStatus) mut => VT.[Friend]AddRefRows(&this, cRows, rghRows, rgRefCounts, rgRowStatus);
+	public HRESULT AddRefRows(uint cRows, uint* rghRows, uint32* rgRefCounts, uint32* rgRowStatus) mut => VT.[Friend]AddRefRows(&this, cRows, rghRows, rgRefCounts, rgRowStatus);
 
 	public HRESULT GetData(uint hRow, uint hAccessor, void* pData) mut => VT.[Friend]GetData(&this, hRow, hAccessor, pData);
 
 	public HRESULT GetNextRows(uint hReserved, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) mut => VT.[Friend]GetNextRows(&this, hReserved, lRowsOffset, cRows, pcRowsObtained, prghRows);
 
-	public HRESULT ReleaseRows(uint cRows, in uint rghRows, uint32* rgRowOptions, uint32* rgRefCounts, uint32* rgRowStatus) mut => VT.[Friend]ReleaseRows(&this, cRows, rghRows, rgRowOptions, rgRefCounts, rgRowStatus);
+	public HRESULT ReleaseRows(uint cRows, uint* rghRows, uint32* rgRowOptions, uint32* rgRefCounts, uint32* rgRowStatus) mut => VT.[Friend]ReleaseRows(&this, cRows, rghRows, rgRowOptions, rgRefCounts, rgRowStatus);
 
 	public HRESULT RestartPosition(uint hReserved) mut => VT.[Friend]RestartPosition(&this, hReserved);
 }
@@ -6796,20 +6796,20 @@ public static
 
 	[CRepr]public struct VTable : IRowset.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cbBookmark1, in uint8 pBookmark1, uint cbBookmark2, in uint8 pBookmark2, uint32* pComparison) Compare;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved1, uint hReserved2, uint cbBookmark, in uint8 pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) GetRowsAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, in uint rgcbBookmarks, uint8** rgpBookmarks, uint* rghRows, uint32* rgRowStatus) GetRowsByBookmark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cBookmarks, in uint rgcbBookmarks, uint8** rgpBookmarks, uint* rgHashedValues, uint32* rgBookmarkStatus) Hash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cbBookmark1, uint8* pBookmark1, uint cbBookmark2, uint8* pBookmark2, uint32* pComparison) Compare;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved1, uint hReserved2, uint cbBookmark, uint8* pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) GetRowsAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, uint* rgcbBookmarks, uint8** rgpBookmarks, uint* rghRows, uint32* rgRowStatus) GetRowsByBookmark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cBookmarks, uint* rgcbBookmarks, uint8** rgpBookmarks, uint* rgHashedValues, uint32* rgBookmarkStatus) Hash;
 	}
 
 
-	public HRESULT Compare(uint hReserved, uint cbBookmark1, in uint8 pBookmark1, uint cbBookmark2, in uint8 pBookmark2, uint32* pComparison) mut => VT.[Friend]Compare(&this, hReserved, cbBookmark1, pBookmark1, cbBookmark2, pBookmark2, pComparison);
+	public HRESULT Compare(uint hReserved, uint cbBookmark1, uint8* pBookmark1, uint cbBookmark2, uint8* pBookmark2, uint32* pComparison) mut => VT.[Friend]Compare(&this, hReserved, cbBookmark1, pBookmark1, cbBookmark2, pBookmark2, pComparison);
 
-	public HRESULT GetRowsAt(uint hReserved1, uint hReserved2, uint cbBookmark, in uint8 pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) mut => VT.[Friend]GetRowsAt(&this, hReserved1, hReserved2, cbBookmark, pBookmark, lRowsOffset, cRows, pcRowsObtained, prghRows);
+	public HRESULT GetRowsAt(uint hReserved1, uint hReserved2, uint cbBookmark, uint8* pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) mut => VT.[Friend]GetRowsAt(&this, hReserved1, hReserved2, cbBookmark, pBookmark, lRowsOffset, cRows, pcRowsObtained, prghRows);
 
-	public HRESULT GetRowsByBookmark(uint hReserved, uint cRows, in uint rgcbBookmarks, uint8** rgpBookmarks, uint* rghRows, uint32* rgRowStatus) mut => VT.[Friend]GetRowsByBookmark(&this, hReserved, cRows, rgcbBookmarks, rgpBookmarks, rghRows, rgRowStatus);
+	public HRESULT GetRowsByBookmark(uint hReserved, uint cRows, uint* rgcbBookmarks, uint8** rgpBookmarks, uint* rghRows, uint32* rgRowStatus) mut => VT.[Friend]GetRowsByBookmark(&this, hReserved, cRows, rgcbBookmarks, rgpBookmarks, rghRows, rgRowStatus);
 
-	public HRESULT Hash(uint hReserved, uint cBookmarks, in uint rgcbBookmarks, uint8** rgpBookmarks, uint* rgHashedValues, uint32* rgBookmarkStatus) mut => VT.[Friend]Hash(&this, hReserved, cBookmarks, rgcbBookmarks, rgpBookmarks, rgHashedValues, rgBookmarkStatus);
+	public HRESULT Hash(uint hReserved, uint cBookmarks, uint* rgcbBookmarks, uint8** rgpBookmarks, uint* rgHashedValues, uint32* rgBookmarkStatus) mut => VT.[Friend]Hash(&this, hReserved, cBookmarks, rgcbBookmarks, rgpBookmarks, rgHashedValues, rgBookmarkStatus);
 }
 
 [CRepr]struct IRowsetResynch : IUnknown
@@ -6821,13 +6821,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) GetVisibleData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cRows, in uint rghRows, uint* pcRowsResynched, uint** prghRowsResynched, uint32** prgRowStatus) ResynchRows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cRows, uint* rghRows, uint* pcRowsResynched, uint** prghRowsResynched, uint32** prgRowStatus) ResynchRows;
 	}
 
 
 	public HRESULT GetVisibleData(uint hRow, uint hAccessor, void* pData) mut => VT.[Friend]GetVisibleData(&this, hRow, hAccessor, pData);
 
-	public HRESULT ResynchRows(uint cRows, in uint rghRows, uint* pcRowsResynched, uint** prghRowsResynched, uint32** prgRowStatus) mut => VT.[Friend]ResynchRows(&this, cRows, rghRows, pcRowsResynched, prghRowsResynched, prgRowStatus);
+	public HRESULT ResynchRows(uint cRows, uint* rghRows, uint* pcRowsResynched, uint** prghRowsResynched, uint32** prgRowStatus) mut => VT.[Friend]ResynchRows(&this, cRows, rghRows, pcRowsResynched, prghRowsResynched, prgRowStatus);
 }
 
 [CRepr]struct IRowsetScroll : IRowsetLocate
@@ -6838,12 +6838,12 @@ public static
 
 	[CRepr]public struct VTable : IRowsetLocate.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cbBookmark, in uint8 pBookmark, uint* pulPosition, uint* pcRows) GetApproximatePosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cbBookmark, uint8* pBookmark, uint* pulPosition, uint* pcRows) GetApproximatePosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved1, uint hReserved2, uint ulNumerator, uint ulDenominator, int cRows, uint* pcRowsObtained, uint** prghRows) GetRowsAtRatio;
 	}
 
 
-	public HRESULT GetApproximatePosition(uint hReserved, uint cbBookmark, in uint8 pBookmark, uint* pulPosition, uint* pcRows) mut => VT.[Friend]GetApproximatePosition(&this, hReserved, cbBookmark, pBookmark, pulPosition, pcRows);
+	public HRESULT GetApproximatePosition(uint hReserved, uint cbBookmark, uint8* pBookmark, uint* pulPosition, uint* pcRows) mut => VT.[Friend]GetApproximatePosition(&this, hReserved, cbBookmark, pBookmark, pulPosition, pcRows);
 
 	public HRESULT GetRowsAtRatio(uint hReserved1, uint hReserved2, uint ulNumerator, uint ulDenominator, int cRows, uint* pcRowsObtained, uint** prghRows) mut => VT.[Friend]GetRowsAtRatio(&this, hReserved1, hReserved2, ulNumerator, ulDenominator, cRows, pcRowsObtained, prghRows);
 }
@@ -6874,11 +6874,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint hAccessor, void* pFindValue, uint32 CompareOp, uint cbBookmark, in uint8 pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) FindNextRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint hAccessor, void* pFindValue, uint32 CompareOp, uint cbBookmark, uint8* pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) FindNextRow;
 	}
 
 
-	public HRESULT FindNextRow(uint hChapter, uint hAccessor, void* pFindValue, uint32 CompareOp, uint cbBookmark, in uint8 pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) mut => VT.[Friend]FindNextRow(&this, hChapter, hAccessor, pFindValue, CompareOp, cbBookmark, pBookmark, lRowsOffset, cRows, pcRowsObtained, prghRows);
+	public HRESULT FindNextRow(uint hChapter, uint hAccessor, void* pFindValue, uint32 CompareOp, uint cbBookmark, uint8* pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) mut => VT.[Friend]FindNextRow(&this, hChapter, hAccessor, pFindValue, CompareOp, cbBookmark, pBookmark, lRowsOffset, cRows, pcRowsObtained, prghRows);
 }
 
 [CRepr]struct IRowPosition : IUnknown
@@ -7024,13 +7024,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, in uint rghRows, uint32* rgRowStatus) DeleteRows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, uint* rghRows, uint32* rgRowStatus) DeleteRows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) SetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint hAccessor, void* pData, uint* phRow) InsertRow;
 	}
 
 
-	public HRESULT DeleteRows(uint hReserved, uint cRows, in uint rghRows, uint32* rgRowStatus) mut => VT.[Friend]DeleteRows(&this, hReserved, cRows, rghRows, rgRowStatus);
+	public HRESULT DeleteRows(uint hReserved, uint cRows, uint* rghRows, uint32* rgRowStatus) mut => VT.[Friend]DeleteRows(&this, hReserved, cRows, rghRows, rgRowStatus);
 
 	public HRESULT SetData(uint hRow, uint hAccessor, void* pData) mut => VT.[Friend]SetData(&this, hRow, hAccessor, pData);
 
@@ -7047,9 +7047,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) GetOriginalData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint32 dwRowStatus, uint* pcPendingRows, uint** prgPendingRows, uint32** prgPendingStatus) GetPendingRows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, in uint rghRows, uint32* rgPendingStatus) GetRowStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, in uint rghRows, uint* pcRowsUndone, uint** prgRowsUndone, uint32** prgRowStatus) Undo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, in uint rghRows, uint* pcRows, uint** prgRows, uint32** prgRowStatus) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, uint* rghRows, uint32* rgPendingStatus) GetRowStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, uint* rghRows, uint* pcRowsUndone, uint** prgRowsUndone, uint32** prgRowStatus) Undo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, uint* rghRows, uint* pcRows, uint** prgRows, uint32** prgRowStatus) Update;
 	}
 
 
@@ -7057,11 +7057,11 @@ public static
 
 	public HRESULT GetPendingRows(uint hReserved, uint32 dwRowStatus, uint* pcPendingRows, uint** prgPendingRows, uint32** prgPendingStatus) mut => VT.[Friend]GetPendingRows(&this, hReserved, dwRowStatus, pcPendingRows, prgPendingRows, prgPendingStatus);
 
-	public HRESULT GetRowStatus(uint hReserved, uint cRows, in uint rghRows, uint32* rgPendingStatus) mut => VT.[Friend]GetRowStatus(&this, hReserved, cRows, rghRows, rgPendingStatus);
+	public HRESULT GetRowStatus(uint hReserved, uint cRows, uint* rghRows, uint32* rgPendingStatus) mut => VT.[Friend]GetRowStatus(&this, hReserved, cRows, rghRows, rgPendingStatus);
 
-	public HRESULT Undo(uint hReserved, uint cRows, in uint rghRows, uint* pcRowsUndone, uint** prgRowsUndone, uint32** prgRowStatus) mut => VT.[Friend]Undo(&this, hReserved, cRows, rghRows, pcRowsUndone, prgRowsUndone, prgRowStatus);
+	public HRESULT Undo(uint hReserved, uint cRows, uint* rghRows, uint* pcRowsUndone, uint** prgRowsUndone, uint32** prgRowStatus) mut => VT.[Friend]Undo(&this, hReserved, cRows, rghRows, pcRowsUndone, prgRowsUndone, prgRowStatus);
 
-	public HRESULT Update(uint hReserved, uint cRows, in uint rghRows, uint* pcRows, uint** prgRows, uint32** prgRowStatus) mut => VT.[Friend]Update(&this, hReserved, cRows, rghRows, pcRows, prgRows, prgRowStatus);
+	public HRESULT Update(uint hReserved, uint cRows, uint* rghRows, uint* pcRows, uint** prgRows, uint32** prgRowStatus) mut => VT.[Friend]Update(&this, hReserved, cRows, rghRows, pcRows, prgRows, prgRowStatus);
 }
 
 [CRepr]struct IRowsetIdentity : IUnknown
@@ -7681,12 +7681,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint cRows, in uint rghRows, BOOL fOverWrite, uint* pcRowsRefreshed, uint** prghRowsRefreshed, uint32** prgRowStatus) RefreshVisibleData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint cRows, uint* rghRows, BOOL fOverWrite, uint* pcRowsRefreshed, uint** prghRowsRefreshed, uint32** prgRowStatus) RefreshVisibleData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) GetLastVisibleData;
 	}
 
 
-	public HRESULT RefreshVisibleData(uint hChapter, uint cRows, in uint rghRows, BOOL fOverWrite, uint* pcRowsRefreshed, uint** prghRowsRefreshed, uint32** prgRowStatus) mut => VT.[Friend]RefreshVisibleData(&this, hChapter, cRows, rghRows, fOverWrite, pcRowsRefreshed, prghRowsRefreshed, prgRowStatus);
+	public HRESULT RefreshVisibleData(uint hChapter, uint cRows, uint* rghRows, BOOL fOverWrite, uint* pcRowsRefreshed, uint** prghRowsRefreshed, uint32** prgRowStatus) mut => VT.[Friend]RefreshVisibleData(&this, hChapter, cRows, rghRows, fOverWrite, pcRowsRefreshed, prghRowsRefreshed, prgRowStatus);
 
 	public HRESULT GetLastVisibleData(uint hRow, uint hAccessor, void* pData) mut => VT.[Friend]GetLastVisibleData(&this, hRow, hAccessor, pData);
 }
@@ -9854,13 +9854,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint hRow, uint* phRowOriginal) GetOriginalRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint hRow, uint32 cColumnOrdinals, in uint32 rgiOrdinals, uint32* rgColumnStatus) GetPendingColumns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint hRow, uint32 cColumnOrdinals, uint32* rgiOrdinals, uint32* rgColumnStatus) GetPendingColumns;
 	}
 
 
 	public HRESULT GetOriginalRow(uint hReserved, uint hRow, uint* phRowOriginal) mut => VT.[Friend]GetOriginalRow(&this, hReserved, hRow, phRowOriginal);
 
-	public HRESULT GetPendingColumns(uint hReserved, uint hRow, uint32 cColumnOrdinals, in uint32 rgiOrdinals, uint32* rgColumnStatus) mut => VT.[Friend]GetPendingColumns(&this, hReserved, hRow, cColumnOrdinals, rgiOrdinals, rgColumnStatus);
+	public HRESULT GetPendingColumns(uint hReserved, uint hRow, uint32 cColumnOrdinals, uint32* rgiOrdinals, uint32* rgColumnStatus) mut => VT.[Friend]GetPendingColumns(&this, hReserved, hRow, cColumnOrdinals, rgiOrdinals, rgColumnStatus);
 }
 
 [CRepr]struct ISQLRequestDiagFields : IUnknown
@@ -9916,11 +9916,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint32 cbbmPrevious, in uint8 pbmPrevious, uint hAccessor, uint8* pData, uint* phRow) SetNewDataAfter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint32 cbbmPrevious, uint8* pbmPrevious, uint hAccessor, uint8* pData, uint* phRow) SetNewDataAfter;
 	}
 
 
-	public HRESULT SetNewDataAfter(uint hChapter, uint32 cbbmPrevious, in uint8 pbmPrevious, uint hAccessor, uint8* pData, uint* phRow) mut => VT.[Friend]SetNewDataAfter(&this, hChapter, cbbmPrevious, pbmPrevious, hAccessor, pData, phRow);
+	public HRESULT SetNewDataAfter(uint hChapter, uint32 cbbmPrevious, uint8* pbmPrevious, uint hAccessor, uint8* pData, uint* phRow) mut => VT.[Friend]SetNewDataAfter(&this, hChapter, cbbmPrevious, pbmPrevious, hAccessor, pData, phRow);
 }
 
 [CRepr]struct IRowsetWithParameters : IUnknown
@@ -10049,19 +10049,19 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 hSourceID) CloseSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 hSourceID, uint hReserved, int cRows, in uint rghRows, uint32 bFlags) CopyByHROWS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 hSourceID, uint hReserved, int cRows, uint* rghRows, uint32 bFlags) CopyByHROWS;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 hSourceID, uint hReserved, int cRows, uint32 bFlags, uint* pcRowsCopied) CopyRows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRowset* pRowsetSource, uint cColIds, in int rgSourceColumns, in int rgTargetColumns, uint16* phSourceID) DefineSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRowset* pRowsetSource, uint cColIds, int* rgSourceColumns, int* rgTargetColumns, uint16* phSourceID) DefineSource;
 	}
 
 
 	public HRESULT CloseSource(uint16 hSourceID) mut => VT.[Friend]CloseSource(&this, hSourceID);
 
-	public HRESULT CopyByHROWS(uint16 hSourceID, uint hReserved, int cRows, in uint rghRows, uint32 bFlags) mut => VT.[Friend]CopyByHROWS(&this, hSourceID, hReserved, cRows, rghRows, bFlags);
+	public HRESULT CopyByHROWS(uint16 hSourceID, uint hReserved, int cRows, uint* rghRows, uint32 bFlags) mut => VT.[Friend]CopyByHROWS(&this, hSourceID, hReserved, cRows, rghRows, bFlags);
 
 	public HRESULT CopyRows(uint16 hSourceID, uint hReserved, int cRows, uint32 bFlags, uint* pcRowsCopied) mut => VT.[Friend]CopyRows(&this, hSourceID, hReserved, cRows, bFlags, pcRowsCopied);
 
-	public HRESULT DefineSource(IRowset* pRowsetSource, uint cColIds, in int rgSourceColumns, in int rgTargetColumns, uint16* phSourceID) mut => VT.[Friend]DefineSource(&this, pRowsetSource, cColIds, rgSourceColumns, rgTargetColumns, phSourceID);
+	public HRESULT DefineSource(IRowset* pRowsetSource, uint cColIds, int* rgSourceColumns, int* rgTargetColumns, uint16* phSourceID) mut => VT.[Friend]DefineSource(&this, pRowsetSource, cColIds, rgSourceColumns, rgTargetColumns, phSourceID);
 }
 
 [CRepr]struct IReadData : IUnknown
@@ -10072,12 +10072,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint cbBookmark, in uint8 pBookmark, int lRowsOffset, uint hAccessor, int cRows, uint* pcRowsObtained, uint8** ppFixedData, uint* pcbVariableTotal, uint8** ppVariableData) ReadData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint cbBookmark, uint8* pBookmark, int lRowsOffset, uint hAccessor, int cRows, uint* pcRowsObtained, uint8** ppFixedData, uint* pcbVariableTotal, uint8** ppVariableData) ReadData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter) ReleaseChapter;
 	}
 
 
-	public HRESULT ReadData(uint hChapter, uint cbBookmark, in uint8 pBookmark, int lRowsOffset, uint hAccessor, int cRows, uint* pcRowsObtained, uint8** ppFixedData, uint* pcbVariableTotal, uint8** ppVariableData) mut => VT.[Friend]ReadData(&this, hChapter, cbBookmark, pBookmark, lRowsOffset, hAccessor, cRows, pcRowsObtained, ppFixedData, pcbVariableTotal, ppVariableData);
+	public HRESULT ReadData(uint hChapter, uint cbBookmark, uint8* pBookmark, int lRowsOffset, uint hAccessor, int cRows, uint* pcRowsObtained, uint8** ppFixedData, uint* pcbVariableTotal, uint8** ppVariableData) mut => VT.[Friend]ReadData(&this, hChapter, cbBookmark, pBookmark, lRowsOffset, hAccessor, cRows, pcRowsObtained, ppFixedData, pcbVariableTotal, ppVariableData);
 
 	public HRESULT ReleaseChapter(uint hChapter) mut => VT.[Friend]ReleaseChapter(&this, hChapter);
 }
@@ -10211,13 +10211,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus, uint32* pcFilteredDocuments, uint32* pcDocumentsToFilter, uint* pdwRatioFinishedDenominator, uint* pdwRatioFinishedNumerator, uint cbBmk, in uint8 pBmk, uint* piRowBmk, uint* pcRowsTotal) GetStatusEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus, uint32* pcFilteredDocuments, uint32* pcDocumentsToFilter, uint* pdwRatioFinishedDenominator, uint* pdwRatioFinishedNumerator, uint cbBmk, uint8* pBmk, uint* piRowBmk, uint* pcRowsTotal) GetStatusEx;
 	}
 
 
 	public HRESULT GetStatus(uint32* pdwStatus) mut => VT.[Friend]GetStatus(&this, pdwStatus);
 
-	public HRESULT GetStatusEx(uint32* pdwStatus, uint32* pcFilteredDocuments, uint32* pcDocumentsToFilter, uint* pdwRatioFinishedDenominator, uint* pdwRatioFinishedNumerator, uint cbBmk, in uint8 pBmk, uint* piRowBmk, uint* pcRowsTotal) mut => VT.[Friend]GetStatusEx(&this, pdwStatus, pcFilteredDocuments, pcDocumentsToFilter, pdwRatioFinishedDenominator, pdwRatioFinishedNumerator, cbBmk, pBmk, piRowBmk, pcRowsTotal);
+	public HRESULT GetStatusEx(uint32* pdwStatus, uint32* pcFilteredDocuments, uint32* pcDocumentsToFilter, uint* pdwRatioFinishedDenominator, uint* pdwRatioFinishedNumerator, uint cbBmk, uint8* pBmk, uint* piRowBmk, uint* pcRowsTotal) mut => VT.[Friend]GetStatusEx(&this, pdwStatus, pcFilteredDocuments, pcDocumentsToFilter, pdwRatioFinishedDenominator, pdwRatioFinishedNumerator, cbBmk, pBmk, piRowBmk, pcRowsTotal);
 }
 
 [CRepr]struct IUMSInitialize : IUnknown

@@ -2360,7 +2360,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32 cbData, in uint8 pData) SetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32 cbData, uint8* pData) SetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, uint32* pcbData, uint8* pData) GetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, PWSTR pszValue) SetStringValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszValueName, PWSTR* ppszValue) GetStringValue;
@@ -2375,7 +2375,7 @@ public static
 	}
 
 
-	public HRESULT SetData(PWSTR pszValueName, uint32 cbData, in uint8 pData) mut => VT.[Friend]SetData(&this, pszValueName, cbData, pData);
+	public HRESULT SetData(PWSTR pszValueName, uint32 cbData, uint8* pData) mut => VT.[Friend]SetData(&this, pszValueName, cbData, pData);
 
 	public HRESULT GetData(PWSTR pszValueName, uint32* pcbData, uint8* pData) mut => VT.[Friend]GetData(&this, pszValueName, pcbData, pData);
 
@@ -2890,8 +2890,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pLangID) GetLangId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 LangID) SetLangId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in uint16 pszSAPIId, uint16* pszUPSId, uint32 cMaxLength) SAPI2UPS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in uint16 pszUPSId, uint16* pszSAPIId, uint32 cMaxLength) UPS2SAPI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pszSAPIId, uint16* pszUPSId, uint32 cMaxLength) SAPI2UPS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pszUPSId, uint16* pszSAPIId, uint32 cMaxLength) UPS2SAPI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSrcLength, BOOL bSAPI2UPS, uint32* pcMaxDestLength) GetMaxConvertLength;
 	}
 
@@ -2900,9 +2900,9 @@ public static
 
 	public HRESULT SetLangId(uint16 LangID) mut => VT.[Friend]SetLangId(&this, LangID);
 
-	public HRESULT SAPI2UPS(in uint16 pszSAPIId, uint16* pszUPSId, uint32 cMaxLength) mut => VT.[Friend]SAPI2UPS(&this, pszSAPIId, pszUPSId, cMaxLength);
+	public HRESULT SAPI2UPS(uint16* pszSAPIId, uint16* pszUPSId, uint32 cMaxLength) mut => VT.[Friend]SAPI2UPS(&this, pszSAPIId, pszUPSId, cMaxLength);
 
-	public HRESULT UPS2SAPI(in uint16 pszUPSId, uint16* pszSAPIId, uint32 cMaxLength) mut => VT.[Friend]UPS2SAPI(&this, pszUPSId, pszSAPIId, cMaxLength);
+	public HRESULT UPS2SAPI(uint16* pszUPSId, uint16* pszSAPIId, uint32 cMaxLength) mut => VT.[Friend]UPS2SAPI(&this, pszUPSId, pszSAPIId, cMaxLength);
 
 	public HRESULT GetMaxConvertLength(uint32 cSrcLength, BOOL bSAPI2UPS, uint32* pcMaxDestLength) mut => VT.[Friend]GetMaxConvertLength(&this, cSrcLength, bSAPI2UPS, pcMaxDestLength);
 }

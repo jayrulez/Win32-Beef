@@ -4874,10 +4874,10 @@ public static
 	public static extern uint32 wglSwapMultipleBuffers(uint32 param0, WGLSWAP* param1);
 
 	[Import("FONTSUB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 CreateFontPackage(in uint8 puchSrcBuffer, uint32 ulSrcBufferSize, uint8** ppuchFontPackageBuffer, uint32* pulFontPackageBufferSize, uint32* pulBytesWritten, uint16 usFlag, uint16 usTTCIndex, uint16 usSubsetFormat, uint16 usSubsetLanguage, CREATE_FONT_PACKAGE_SUBSET_PLATFORM usSubsetPlatform, CREATE_FONT_PACKAGE_SUBSET_ENCODING usSubsetEncoding, in uint16 pusSubsetKeepList, uint16 usSubsetListCount, CFP_ALLOCPROC lpfnAllocate, CFP_REALLOCPROC lpfnReAllocate, CFP_FREEPROC lpfnFree, void* lpvReserved);
+	public static extern uint32 CreateFontPackage(uint8* puchSrcBuffer, uint32 ulSrcBufferSize, uint8** ppuchFontPackageBuffer, uint32* pulFontPackageBufferSize, uint32* pulBytesWritten, uint16 usFlag, uint16 usTTCIndex, uint16 usSubsetFormat, uint16 usSubsetLanguage, CREATE_FONT_PACKAGE_SUBSET_PLATFORM usSubsetPlatform, CREATE_FONT_PACKAGE_SUBSET_ENCODING usSubsetEncoding, uint16* pusSubsetKeepList, uint16 usSubsetListCount, CFP_ALLOCPROC lpfnAllocate, CFP_REALLOCPROC lpfnReAllocate, CFP_FREEPROC lpfnFree, void* lpvReserved);
 
 	[Import("FONTSUB.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MergeFontPackage(in uint8 puchMergeFontBuffer, uint32 ulMergeFontBufferSize, in uint8 puchFontPackageBuffer, uint32 ulFontPackageBufferSize, uint8** ppuchDestBuffer, uint32* pulDestBufferSize, uint32* pulBytesWritten, uint16 usMode, CFP_ALLOCPROC lpfnAllocate, CFP_REALLOCPROC lpfnReAllocate, CFP_FREEPROC lpfnFree, void* lpvReserved);
+	public static extern uint32 MergeFontPackage(uint8* puchMergeFontBuffer, uint32 ulMergeFontBufferSize, uint8* puchFontPackageBuffer, uint32 ulFontPackageBufferSize, uint8** ppuchDestBuffer, uint32* pulDestBufferSize, uint32* pulBytesWritten, uint16 usMode, CFP_ALLOCPROC lpfnAllocate, CFP_REALLOCPROC lpfnReAllocate, CFP_FREEPROC lpfnFree, void* lpvReserved);
 
 	[Import("t2embed.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 TTEmbedFont(HDC hDC, TTEMBED_FLAGS ulFlags, EMBED_FONT_CHARSET ulCharSet, EMBEDDED_FONT_PRIV_STATUS* pulPrivStatus, uint32* pulStatus, WRITEEMBEDPROC lpfnWriteToStream, void* lpvWriteStream, uint16* pusCharCodeSet, uint16 usCharCodeCount, uint16 usLanguage, TTEMBEDINFO* pTTEmbedInfo);
