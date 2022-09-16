@@ -3,6 +3,8 @@ namespace Win32
 	public static
 	{
 		public const uint ANYSIZE_ARRAY = 1;
+		public const uint32 FALSE = 0;
+		public const uint32 TRUE = 1;
 	}
 }
 
