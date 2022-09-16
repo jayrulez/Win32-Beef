@@ -10871,7 +10871,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_DECODER_HEAP_DESC(SelfOuter* self, out D3D12_VIDEO_DECODER_HEAP_DESC @return) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_DECODER_HEAP_DESC @return) GetDesc;
 	}
 
 
@@ -10910,7 +10910,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_DECODER_DESC(SelfOuter* self, out D3D12_VIDEO_DECODER_DESC @return) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_DECODER_DESC @return) GetDesc;
 	}
 
 
@@ -10928,7 +10928,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetNodeMask;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetNumInputStreamDescs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NumInputStreamDescs, D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC* pInputStreamDescs) GetInputStreamDescs;
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC(SelfOuter* self, out D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC @return) GetOutputStreamDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC @return) GetOutputStreamDesc;
 	}
 
 
@@ -11087,7 +11087,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_MOTION_ESTIMATOR_DESC(SelfOuter* self, out D3D12_VIDEO_MOTION_ESTIMATOR_DESC @return) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_MOTION_ESTIMATOR_DESC @return) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
@@ -11105,7 +11105,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC(SelfOuter* self, out D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC @return) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC @return) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
@@ -11246,7 +11246,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_VIDEO_EXTENSION_COMMAND_DESC(SelfOuter* self, out D3D12_VIDEO_EXTENSION_COMMAND_DESC @return) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D3D12_VIDEO_EXTENSION_COMMAND_DESC @return) GetDesc;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 

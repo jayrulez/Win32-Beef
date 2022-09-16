@@ -2431,9 +2431,9 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	[CRepr]public struct VTable : ID2D1Image.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_F(SelfOuter* self, out D2D_SIZE_F @return) GetSize;
-		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_U(SelfOuter* self, out D2D_SIZE_U @return) GetPixelSize;
-		protected new function [CallingConvention(.Stdcall)] D2D1_PIXEL_FORMAT(SelfOuter* self, out D2D1_PIXEL_FORMAT @return) GetPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_SIZE_F @return) GetSize;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_SIZE_U @return) GetPixelSize;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D1_PIXEL_FORMAT @return) GetPixelFormat;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float* dpiX, float* dpiY) GetDpi;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D_POINT_2U* destPoint, ID2D1Bitmap* bitmap, D2D_RECT_U* srcRect) CopyFromBitmap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D_POINT_2U* destPoint, ID2D1RenderTarget* renderTarget, D2D_RECT_U* srcRect) CopyFromRenderTarget;
@@ -2549,7 +2549,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 	[CRepr]public struct VTable : ID2D1Brush.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D1_COLOR_F* color) SetColor;
-		protected new function [CallingConvention(.Stdcall)] D2D1_COLOR_F(SelfOuter* self, out D2D1_COLOR_F @return) GetColor;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D1_COLOR_F @return) GetColor;
 	}
 
 
@@ -2568,8 +2568,8 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 	{
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D_POINT_2F startPoint) SetStartPoint;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D_POINT_2F endPoint) SetEndPoint;
-		protected new function [CallingConvention(.Stdcall)] D2D_POINT_2F(SelfOuter* self, out D2D_POINT_2F @return) GetStartPoint;
-		protected new function [CallingConvention(.Stdcall)] D2D_POINT_2F(SelfOuter* self, out D2D_POINT_2F @return) GetEndPoint;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_POINT_2F @return) GetStartPoint;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_POINT_2F @return) GetEndPoint;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID2D1GradientStopCollection** gradientStopCollection) GetGradientStopCollection;
 	}
 
@@ -2597,8 +2597,8 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D_POINT_2F gradientOriginOffset) SetGradientOriginOffset;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float radiusX) SetRadiusX;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float radiusY) SetRadiusY;
-		protected new function [CallingConvention(.Stdcall)] D2D_POINT_2F(SelfOuter* self, out D2D_POINT_2F @return) GetCenter;
-		protected new function [CallingConvention(.Stdcall)] D2D_POINT_2F(SelfOuter* self, out D2D_POINT_2F @return) GetGradientOriginOffset;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_POINT_2F @return) GetCenter;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_POINT_2F @return) GetGradientOriginOffset;
 		protected new function [CallingConvention(.Stdcall)] float(SelfOuter* self) GetRadiusX;
 		protected new function [CallingConvention(.Stdcall)] float(SelfOuter* self) GetRadiusY;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID2D1GradientStopCollection** gradientStopCollection) GetGradientStopCollection;
@@ -2890,7 +2890,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_F(SelfOuter* self, out D2D_SIZE_F @return) GetSize;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_SIZE_F @return) GetSize;
 	}
 
 
@@ -2975,11 +2975,11 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D1_COLOR_F* clearColor) Clear;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* tag1, uint64* tag2) EndDraw;
-		protected new function [CallingConvention(.Stdcall)] D2D1_PIXEL_FORMAT(SelfOuter* self, out D2D1_PIXEL_FORMAT @return) GetPixelFormat;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D1_PIXEL_FORMAT @return) GetPixelFormat;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float dpiX, float dpiY) SetDpi;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float* dpiX, float* dpiY) GetDpi;
-		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_F(SelfOuter* self, out D2D_SIZE_F @return) GetSize;
-		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_U(SelfOuter* self, out D2D_SIZE_U @return) GetPixelSize;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_SIZE_F @return) GetSize;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_SIZE_U @return) GetPixelSize;
 		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetMaximumBitmapSize;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, D2D1_RENDER_TARGET_PROPERTIES* renderTargetProperties) IsSupported;
 	}
@@ -4148,7 +4148,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 	[CRepr]public struct VTable : ID2D1TransformNode.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, POINT offset) SetOffset;
-		protected new function [CallingConvention(.Stdcall)] POINT(SelfOuter* self, out POINT @return) GetOffset;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out POINT @return) GetOffset;
 	}
 
 
@@ -4610,7 +4610,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D_SIZE_F viewportSize) SetViewportSize;
-		protected new function [CallingConvention(.Stdcall)] D2D_SIZE_F(SelfOuter* self, out D2D_SIZE_F @return) GetViewportSize;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D_SIZE_F @return) GetViewportSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1SvgElement* root) SetRoot;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID2D1SvgElement** root) GetRoot;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR id, ID2D1SvgElement** svgElement) FindElementById;
@@ -4679,7 +4679,7 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 	[CRepr]public struct VTable : ID2D1Resource.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D1_INK_POINT* startPoint) SetStartPoint;
-		protected new function [CallingConvention(.Stdcall)] D2D1_INK_POINT(SelfOuter* self, out D2D1_INK_POINT @return) GetStartPoint;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, out D2D1_INK_POINT @return) GetStartPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_INK_BEZIER_SEGMENT* segments, uint32 segmentsCount) AddSegments;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentsCount) RemoveSegmentsAtEnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 startSegment, D2D1_INK_BEZIER_SEGMENT* segments, uint32 segmentsCount) SetSegments;
