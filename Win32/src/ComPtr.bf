@@ -18,12 +18,12 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	private T* mPtr;
 
 	// Increments the reference count for the current COM object, if any
-	private void InternalAddRef() mut
+	private void InternalAddRef()
 	{
 		T* ptr = mPtr;
 		if (ptr != null)
 		{
-			ptr.AddRef();
+			((IUnknown*)ptr).AddRef();
 		}
 	}
 
@@ -37,7 +37,7 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 		{
 			mPtr = null;
 
-			refCount = ptr.Release();
+			refCount = ((IUnknown*)ptr).Release();
 		}
 
 		return refCount;
@@ -130,9 +130,9 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	/// <param name="ptr">A raw pointer to the target <see cref="ComPtr{T}"/> value to write to.</param>
 	/// <returns>The result of <see cref="IUnknown.QueryInterface"/> for the target type <typeparamref name="U"/>.</returns>
 	/// <remarks>This method will automatically release the target COM object pointed to by <paramref name="p"/>, if any.</remarks>
-	public HRESULT As<U>(ComPtr<U>* ptr) mut where U : IUnknown
+	public HRESULT As<U>(ComPtr<U>* ptr) where U : IUnknown
 	{
-		return mPtr.QueryInterface(__uuidof<U>(), (void**)ptr.ReleaseAndGetAddressOf());
+		return ((IUnknown*)mPtr).QueryInterface(__uuidof<U>(), (void**)ptr.ReleaseAndGetAddressOf());
 	}
 
 	/// <summary>Converts the current object reference to type <typeparamref name="U"/> and assigns that to a target <see cref="ComPtr{T}"/> value.</summary>
@@ -140,10 +140,10 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	/// <param name="other">A reference to the target <see cref="ComPtr{T}"/> value to write to.</param>
 	/// <returns>The result of <see cref="IUnknown.QueryInterface"/> for the target type <typeparamref name="U"/>.</returns>
 	/// <remarks>This method will automatically release the target COM object pointed to by <paramref name="other"/>, if any.</remarks>
-	public HRESULT As<U>(ref ComPtr<U> other) mut where U : IUnknown
+	public HRESULT As<U>(ref ComPtr<U> other) where U : IUnknown
 	{
 		U* ptr = null;
-		HRESULT result = mPtr.QueryInterface(__uuidof<U>(), (void**)&ptr);
+		HRESULT result = ((IUnknown*)mPtr).QueryInterface(__uuidof<U>(), (void**)&ptr);
 
 		other.Attach(ptr);
 
@@ -157,7 +157,7 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	/// <remarks>This method will automatically release the target COM object pointed to by <paramref name="other"/>, if any.</remarks>
 	public HRESULT AsIID(in Guid riid, ComPtr<IUnknown>* other)
 	{
-		return mPtr.QueryInterface(riid, (void**)other.ReleaseAndGetAddressOf());
+		return ((IUnknown*)mPtr).QueryInterface(riid, (void**)other.ReleaseAndGetAddressOf());
 	}
 
 	/// <summary>Converts the current object reference to a type indicated by the given IID and assigns that to a target <see cref="ComPtr{T}"/> value.</summary>
@@ -168,7 +168,7 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	public HRESULT AsIID(in Guid riid, ref ComPtr<IUnknown> other)
 	{
 		IUnknown* ptr = null;
-		HRESULT result = mPtr.QueryInterface(riid, (void**)&ptr);
+		HRESULT result = ((IUnknown*)mPtr).QueryInterface(riid, (void**)&ptr);
 
 		other.Attach(ptr);
 		return result;
@@ -181,7 +181,7 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	{
 		if (mPtr != null)
 		{
-			var @ref = mPtr.Release();
+			var @ref = ((IUnknown*)mPtr).Release();
 			Debug.Assert((@ref != 0) || (mPtr != ptr));
 		}
 		mPtr = ptr;
@@ -200,7 +200,7 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	/// <summary>Increments the reference count for the current COM object, if any, and copies its address to a target raw pointer.</summary>
 	/// <param name="ptr">The target raw pointer to copy the address of the current COM object to.</param>
 	/// <returns>This method always returns <see cref="S_OK"/>.</returns>
-	public HRESULT CopyTo(T** ptr) mut
+	public HRESULT CopyTo(T** ptr)
 	{
 		InternalAddRef();
 		*ptr = mPtr;
@@ -210,7 +210,7 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	/// <summary>Increments the reference count for the current COM object, if any, and copies its address to a target <see cref="ComPtr{T}"/>.</summary>
 	/// <param name="other">The target raw pointer to copy the address of the current COM object to.</param>
 	/// <returns>This method always returns <see cref="S_OK"/>.</returns>
-	public HRESULT CopyTo(ComPtr<T>* other) mut
+	public HRESULT CopyTo(ComPtr<T>* other)
 	{
 		InternalAddRef();
 		*other.ReleaseAndGetAddressOf() = mPtr;
@@ -220,7 +220,7 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	/// <summary>Increments the reference count for the current COM object, if any, and copies its address to a target <see cref="ComPtr{T}"/>.</summary>
 	/// <param name="other">The target reference to copy the address of the current COM object to.</param>
 	/// <returns>This method always returns <see cref="S_OK"/>.</returns>
-	public HRESULT CopyTo(ref ComPtr<T> other) mut
+	public HRESULT CopyTo(ref ComPtr<T> other)
 	{
 		InternalAddRef();
 		other.Attach(mPtr);
@@ -230,29 +230,29 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	/// <summary>Converts the current COM object reference to a given interface type and assigns that to a target raw pointer.</summary>
 	/// <param name="ptr">The target raw pointer to copy the address of the current COM object to.</param>
 	/// <returns>The result of <see cref="IUnknown.QueryInterface"/> for the target type <typeparamref name="U"/>.</returns>
-	public HRESULT CopyTo<U>(U** ptr) mut
+	public HRESULT CopyTo<U>(U** ptr)
 		where U : IUnknown
 	{
-		return mPtr.QueryInterface(__uuidof<U>(), (void**)ptr);
+		return ((IUnknown*)mPtr).QueryInterface(__uuidof<U>(), (void**)ptr);
 	}
 
 	/// <summary>Converts the current COM object reference to a given interface type and assigns that to a target <see cref="ComPtr{T}"/>.</summary>
 	/// <param name="other">The target raw pointer to copy the address of the current COM object to.</param>
 	/// <returns>The result of <see cref="IUnknown.QueryInterface"/> for the target type <typeparamref name="U"/>.</returns>
-	public HRESULT CopyTo<U>(ComPtr<U>* other) mut
+	public HRESULT CopyTo<U>(ComPtr<U>* other)
 		where U : IUnknown
 	{
-		return mPtr.QueryInterface(__uuidof<U>(), (void**)other.ReleaseAndGetAddressOf());
+		return ((IUnknown*)mPtr).QueryInterface(__uuidof<U>(), (void**)other.ReleaseAndGetAddressOf());
 	}
 
 	/// <summary>Converts the current COM object reference to a given interface type and assigns that to a target <see cref="ComPtr{T}"/>.</summary>
 	/// <param name="other">The target reference to copy the address of the current COM object to.</param>
 	/// <returns>The result of <see cref="IUnknown.QueryInterface"/> for the target type <typeparamref name="U"/>.</returns>
-	public HRESULT CopyTo<U>(ref ComPtr<U> other) mut
+	public HRESULT CopyTo<U>(ref ComPtr<U> other)
 		where U : IUnknown
 	{
 		U* ptr = null;
-		HRESULT result = mPtr.QueryInterface(__uuidof<U>(), (void**)&ptr);
+		HRESULT result = ((IUnknown*)mPtr).QueryInterface(__uuidof<U>(), (void**)&ptr);
 
 		other.Attach(ptr);
 		return result;
@@ -264,7 +264,7 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	/// <returns>The result of <see cref="IUnknown.QueryInterface"/> for the target IID.</returns>
 	public HRESULT CopyTo(in Guid riid, void** ptr)
 	{
-		return mPtr.QueryInterface(riid, ptr);
+		return ((IUnknown*)mPtr).QueryInterface(riid, ptr);
 	}
 
 	/// <summary>Converts the current object reference to a type indicated by the given IID and assigns that to a target <see cref="ComPtr{T}"/> value.</summary>
@@ -273,7 +273,7 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	/// <returns>The result of <see cref="IUnknown.QueryInterface"/> for the target IID.</returns>
 	public HRESULT CopyTo(in Guid riid, ComPtr<IUnknown>* other)
 	{
-		return mPtr.QueryInterface(riid, (void**)other.ReleaseAndGetAddressOf());
+		return ((IUnknown*)mPtr).QueryInterface(riid, (void**)other.ReleaseAndGetAddressOf());
 	}
 
 	/// <summary>Converts the current object reference to a type indicated by the given IID and assigns that to a target <see cref="ComPtr{T}"/> value.</summary>
@@ -283,20 +283,20 @@ struct ComPtr<T> : IDisposable where T : IUnknown
 	public HRESULT CopyTo(in Guid riid, ref ComPtr<IUnknown> other)
 	{
 		IUnknown* ptr = null;
-		HRESULT result = mPtr.QueryInterface(riid, (void**)&ptr);
+		HRESULT result = ((IUnknown*)mPtr).QueryInterface(riid, (void**)&ptr);
 
 		other.Attach(ptr);
 		return result;
 	}
 
 	[Inline]
-	public void Dispose() mut
+	public void Dispose()
 	{
 		T* ptr = mPtr;
 
 		if (ptr != null)
 		{
-			ptr.Release();
+			((IUnknown*)ptr).Release();
 		}
 	}
 
