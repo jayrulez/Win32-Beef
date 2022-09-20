@@ -5,6 +5,16 @@ namespace Win32
 		public const uint ANYSIZE_ARRAY = 1;
 		public const uint32 FALSE = 0;
 		public const uint32 TRUE = 1;
+
+		public static bool SUCCEEDED(Win32.Foundation.HRESULT hr)
+		{
+			return hr >= 0;
+		}
+
+		public static bool FAILED(Win32.Foundation.HRESULT hr)
+		{
+			return hr < 0;
+		}
 	}
 }
 
