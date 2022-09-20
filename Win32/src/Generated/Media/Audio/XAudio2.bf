@@ -931,16 +931,16 @@ public static
 #region Functions
 public static
 {
-	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("XAudio2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateFX(in Guid clsid, IUnknown** pEffect, void* pInitDat, uint32 InitDataByteSize);
 
-	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("XAudio2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT XAudio2CreateWithVersionInfo(IXAudio2** ppXAudio2, uint32 Flags, uint32 XAudio2Processor, uint32 ntddiVersion);
 
-	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("XAudio2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateAudioVolumeMeter(IUnknown** ppApo);
 
-	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("XAudio2.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateAudioReverb(IUnknown** ppApo);
 
 	[Import("HrtfApo.lib"), CLink, CallingConvention(.Stdcall)]

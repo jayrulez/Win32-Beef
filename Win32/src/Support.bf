@@ -1,20 +1,49 @@
 namespace Win32
 {
+	using Win32.Foundation;
+	using Win32.System.Diagnostics.Debug;
+	using System;
+
 	public static
 	{
 		public const uint ANYSIZE_ARRAY = 1;
 		public const uint32 FALSE = 0;
 		public const uint32 TRUE = 1;
 
-		public static bool SUCCEEDED(Win32.Foundation.HRESULT hr)
+		public static bool SUCCEEDED(HRESULT hr)
 		{
 			return hr >= 0;
 		}
 
-		public static bool FAILED(Win32.Foundation.HRESULT hr)
+		public static bool FAILED(HRESULT hr)
 		{
 			return hr < 0;
 		}
+
+		public static HRESULT HRESULT_FROM_WIN32(uint64 win32Error)
+		{
+			return (HRESULT)(win32Error) <= 0 ? (HRESULT)(win32Error) : (HRESULT)(((win32Error) & 0x0000FFFF) | ((uint32)FACILITY_CODE.FACILITY_WIN32 << 16) | 0x80000000);
+		}
+
+		public static mixin FOURCC(var ch0, var ch1, var ch2, var ch3)
+		{
+			((uint32)(uint8)(ch0) | ((uint32)(uint8)(ch1) << 8) | ((uint32)(uint8)(ch2) << 16) | ((uint32)(uint8)(ch3) << 24 ))
+		}
+
+		[Comptime(ConstEval=true)]
+		public static uint32 FOURCC(String str)
+		{
+			Runtime.Assert(str.Length == 4);
+			return (uint32)(uint8)(str[0]) | (uint32)(uint8)(str[1]) << 8 | (uint32)(uint8)(str[2]) << 16 | (uint32)(uint8)(str[3]) << 24;
+		}
+	}
+}
+
+namespace Win32.Foundation
+{
+	extension WIN32_ERROR
+	{
+		public static implicit operator uint64(Self self) => self;
 	}
 }
 
