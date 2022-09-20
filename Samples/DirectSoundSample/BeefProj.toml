@@ -2,5 +2,5 @@ FileVersion = 1
 Dependencies = {corlib = "*", Win32 = "*", Common = "*"}
 
 [Project]
-Name = "XAudioSample"
-StartupObject = "XAudioSample.Program"
+Name = "DirectSoundSample"
+StartupObject = "DirectSoundSample.Program"
