@@ -25,7 +25,7 @@ namespace Win32
 			return (HRESULT)(win32Error) <= 0 ? (HRESULT)(win32Error) : (HRESULT)(((win32Error) & 0x0000FFFF) | ((uint32)FACILITY_CODE.FACILITY_WIN32 << 16) | 0x80000000);
 		}
 
-		public static mixin FOURCC(var ch0, var ch1, var ch2, var ch3)
+		public static mixin FOURCC(char8 ch0, char8 ch1, char8 ch2, char8 ch3)
 		{
 			((uint32)(uint8)(ch0) | ((uint32)(uint8)(ch1) << 8) | ((uint32)(uint8)(ch2) << 16) | ((uint32)(uint8)(ch3) << 24 ))
 		}

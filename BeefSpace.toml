@@ -3,4 +3,4 @@ Projects = {Win32 = {Path = "Win32"}, FlexibleArray = {Path = "Samples/FlexibleA
 WorkspaceFolders = {Samples = ["FlexibleArray", "PerfCount", "XAudioSample", "DirectSoundSample", "Common"]}
 
 [Workspace]
-StartupProject = "DirectSoundSample"
+StartupProject = "XAudioSample"
