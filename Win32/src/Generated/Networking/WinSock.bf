@@ -929,7 +929,7 @@ public static
 	public const uint32 VNSPROTO_IPC = 1;
 	public const uint32 VNSPROTO_RELIABLE_IPC = 2;
 	public const uint32 VNSPROTO_SPP = 3;
-	public const SOCKET INVALID_SOCKET = 4294967295;
+	public const SOCKET INVALID_SOCKET = SOCKET.MaxValue;
 	public const uint32 WSA_INFINITE = 4294967295;
 	public const uint32 IOC_INOUT = 3221225472;
 	public const int32 FIONREAD = 1074030207;
