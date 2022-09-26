@@ -43,7 +43,7 @@ namespace Win32.Foundation
 {
 	extension WIN32_ERROR
 	{
-		public static implicit operator uint64(Self self) => self;
+		public static implicit operator uint64(Self self) => (uint64)self.Underlying;
 	}
 }
 
