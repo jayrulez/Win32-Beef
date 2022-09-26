@@ -305,7 +305,7 @@ public enum NETISO_ERROR_TYPE : int32
 
 
 [AllowDuplicates]
-public enum _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE : int32
+public enum FW_DYNAMIC_KEYWORD_ORIGIN_TYPE : int32
 {
 	FW_DYNAMIC_KEYWORD_ORIGIN_INVALID = 0,
 	FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL = 1,
@@ -314,14 +314,14 @@ public enum _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE : int32
 
 
 [AllowDuplicates]
-public enum _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS : int32
+public enum FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS : uint32
 {
 	FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE = 1,
 }
 
 
 [AllowDuplicates]
-public enum _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS : int32
+public enum FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS : uint32
 {
 	FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE = 1,
 	FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE = 2,
@@ -335,15 +335,15 @@ public function void PAC_CHANGES_CALLBACK_FN(void* context, INET_FIREWALL_AC_CHA
 
 public function void PNETISO_EDP_ID_CALLBACK_FN(void* context, PWSTR wszEnterpriseId, uint32 dwErr);
 
-public function uint32 PFN_FWADDDYNAMICKEYWORDADDRESS0(_tag_FW_DYNAMIC_KEYWORD_ADDRESS0* dynamicKeywordAddress);
+public function uint32 PFN_FWADDDYNAMICKEYWORDADDRESS0(FW_DYNAMIC_KEYWORD_ADDRESS0* dynamicKeywordAddress);
 
 public function uint32 PFN_FWDELETEDYNAMICKEYWORDADDRESS0(Guid dynamicKeywordAddressId);
 
-public function uint32 PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0(uint32 flags, _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0** dynamicKeywordAddressData);
+public function uint32 PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0(uint32 flags, FW_DYNAMIC_KEYWORD_ADDRESS_DATA0** dynamicKeywordAddressData);
 
-public function uint32 PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0(Guid dynamicKeywordAddressId, _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0** dynamicKeywordAddressData);
+public function uint32 PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0(Guid dynamicKeywordAddressId, FW_DYNAMIC_KEYWORD_ADDRESS_DATA0** dynamicKeywordAddressData);
 
-public function uint32 PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0(_tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0* dynamicKeywordAddressData);
+public function uint32 PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0(FW_DYNAMIC_KEYWORD_ADDRESS_DATA0* dynamicKeywordAddressData);
 
 public function uint32 PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(Guid dynamicKeywordAddressId, PWSTR updatedAddresses, BOOL @append);
 
@@ -409,7 +409,7 @@ public struct INET_FIREWALL_APP_CONTAINER
 }
 
 [CRepr]
-public struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0
+public struct FW_DYNAMIC_KEYWORD_ADDRESS0
 {
 	public Guid id;
 	public PWSTR keyword;
@@ -418,12 +418,12 @@ public struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0
 }
 
 [CRepr]
-public struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0
+public struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0
 {
-	public _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 dynamicKeywordAddress;
-	public _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0* next;
+	public FW_DYNAMIC_KEYWORD_ADDRESS0 dynamicKeywordAddress;
+	public FW_DYNAMIC_KEYWORD_ADDRESS_DATA0* next;
 	public uint16 schemaVersion;
-	public _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE originType;
+	public FW_DYNAMIC_KEYWORD_ORIGIN_TYPE originType;
 }
 
 #endregion

@@ -58,6 +58,44 @@ public static
 	public const uint32 _WIN32_MSI = 500;
 	public const uint32 MAX_GUID_CHARS = 38;
 	public const uint32 MAX_FEATURE_CHARS = 38;
+	public const String INSTALLPROPERTY_PACKAGENAME = "PackageName";
+	public const String INSTALLPROPERTY_TRANSFORMS = "Transforms";
+	public const String INSTALLPROPERTY_LANGUAGE = "Language";
+	public const String INSTALLPROPERTY_PRODUCTNAME = "ProductName";
+	public const String INSTALLPROPERTY_ASSIGNMENTTYPE = "AssignmentType";
+	public const String INSTALLPROPERTY_INSTANCETYPE = "InstanceType";
+	public const String INSTALLPROPERTY_AUTHORIZED_LUA_APP = "AuthorizedLUAApp";
+	public const String INSTALLPROPERTY_PACKAGECODE = "PackageCode";
+	public const String INSTALLPROPERTY_VERSION = "Version";
+	public const String INSTALLPROPERTY_PRODUCTICON = "ProductIcon";
+	public const String INSTALLPROPERTY_INSTALLEDPRODUCTNAME = "InstalledProductName";
+	public const String INSTALLPROPERTY_VERSIONSTRING = "VersionString";
+	public const String INSTALLPROPERTY_HELPLINK = "HelpLink";
+	public const String INSTALLPROPERTY_HELPTELEPHONE = "HelpTelephone";
+	public const String INSTALLPROPERTY_INSTALLLOCATION = "InstallLocation";
+	public const String INSTALLPROPERTY_INSTALLSOURCE = "InstallSource";
+	public const String INSTALLPROPERTY_INSTALLDATE = "InstallDate";
+	public const String INSTALLPROPERTY_PUBLISHER = "Publisher";
+	public const String INSTALLPROPERTY_LOCALPACKAGE = "LocalPackage";
+	public const String INSTALLPROPERTY_URLINFOABOUT = "URLInfoAbout";
+	public const String INSTALLPROPERTY_URLUPDATEINFO = "URLUpdateInfo";
+	public const String INSTALLPROPERTY_VERSIONMINOR = "VersionMinor";
+	public const String INSTALLPROPERTY_VERSIONMAJOR = "VersionMajor";
+	public const String INSTALLPROPERTY_PRODUCTID = "ProductID";
+	public const String INSTALLPROPERTY_REGCOMPANY = "RegCompany";
+	public const String INSTALLPROPERTY_REGOWNER = "RegOwner";
+	public const String INSTALLPROPERTY_INSTALLEDLANGUAGE = "InstalledLanguage";
+	public const String INSTALLPROPERTY_UNINSTALLABLE = "Uninstallable";
+	public const String INSTALLPROPERTY_PRODUCTSTATE = "State";
+	public const String INSTALLPROPERTY_PATCHSTATE = "State";
+	public const String INSTALLPROPERTY_PATCHTYPE = "PatchType";
+	public const String INSTALLPROPERTY_LUAENABLED = "LUAEnabled";
+	public const String INSTALLPROPERTY_DISPLAYNAME = "DisplayName";
+	public const String INSTALLPROPERTY_MOREINFOURL = "MoreInfoURL";
+	public const String INSTALLPROPERTY_LASTUSEDSOURCE = "LastUsedSource";
+	public const String INSTALLPROPERTY_LASTUSEDTYPE = "LastUsedType";
+	public const String INSTALLPROPERTY_MEDIAPACKAGEPATH = "MediaPackagePath";
+	public const String INSTALLPROPERTY_DISKPROMPT = "DiskPrompt";
 	public const uint32 MSI_INVALID_HASH_IS_FATAL = 1;
 	public const uint32 ERROR_ROLLBACK_DISABLED = 1653;
 	public const uint32 MSI_NULL_INTEGER = 2147483648;
@@ -85,6 +123,232 @@ public static
 	public const uint32 SFC_SCAN_ONCE = 2;
 	public const uint32 SFC_SCAN_IMMEDIATE = 3;
 	public const uint32 SFC_QUOTA_DEFAULT = 50;
+	public const String SFC_IDLE_TRIGGER = "WFP_IDLE_TRIGGER";
+	public const String IPROPNAME_PRODUCTNAME = "ProductName";
+	public const String IPROPNAME_PRODUCTCODE = "ProductCode";
+	public const String IPROPNAME_PRODUCTVERSION = "ProductVersion";
+	public const String IPROPNAME_INSTALLLANGUAGE = "ProductLanguage";
+	public const String IPROPNAME_MANUFACTURER = "Manufacturer";
+	public const String IPROPNAME_UPGRADECODE = "UpgradeCode";
+	public const String IPROPNAME_PIDTEMPLATE = "PIDTemplate";
+	public const String IPROPNAME_DISKPROMPT = "DiskPrompt";
+	public const String IPROPNAME_LEFTUNIT = "LeftUnit";
+	public const String IPROPNAME_ADMIN_PROPERTIES = "AdminProperties";
+	public const String IPROPNAME_DEFAULTUIFONT = "DefaultUIFont";
+	public const String IPROPNAME_ALLOWEDPROPERTIES = "SecureCustomProperties";
+	public const String IPROPNAME_ENABLEUSERCONTROL = "EnableUserControl";
+	public const String IPROPNAME_HIDDEN_PROPERTIES = "MsiHiddenProperties";
+	public const String IPROPNAME_USERNAME = "USERNAME";
+	public const String IPROPNAME_COMPANYNAME = "COMPANYNAME";
+	public const String IPROPNAME_PIDKEY = "PIDKEY";
+	public const String IPROPNAME_PATCH = "PATCH";
+	public const String IPROPNAME_MSIPATCHREMOVE = "MSIPATCHREMOVE";
+	public const String IPROPNAME_TARGETDIR = "TARGETDIR";
+	public const String IPROPNAME_ACTION = "ACTION";
+	public const String IPROPNAME_LIMITUI = "LIMITUI";
+	public const String IPROPNAME_LOGACTION = "LOGACTION";
+	public const String IPROPNAME_ALLUSERS = "ALLUSERS";
+	public const String IPROPNAME_INSTALLLEVEL = "INSTALLLEVEL";
+	public const String IPROPNAME_REBOOT = "REBOOT";
+	public const String IPROPNAME_REBOOTPROMPT = "REBOOTPROMPT";
+	public const String IPROPNAME_EXECUTEMODE = "EXECUTEMODE";
+	public const String IPROPVALUE_EXECUTEMODE_NONE = "NONE";
+	public const String IPROPVALUE_EXECUTEMODE_SCRIPT = "SCRIPT";
+	public const String IPROPNAME_EXECUTEACTION = "EXECUTEACTION";
+	public const String IPROPNAME_SOURCELIST = "SOURCELIST";
+	public const String IPROPNAME_ROOTDRIVE = "ROOTDRIVE";
+	public const String IPROPNAME_TRANSFORMS = "TRANSFORMS";
+	public const String IPROPNAME_TRANSFORMSATSOURCE = "TRANSFORMSATSOURCE";
+	public const String IPROPNAME_TRANSFORMSSECURE = "TRANSFORMSSECURE";
+	public const String IPROPNAME_SEQUENCE = "SEQUENCE";
+	public const String IPROPNAME_SHORTFILENAMES = "SHORTFILENAMES";
+	public const String IPROPNAME_PRIMARYFOLDER = "PRIMARYFOLDER";
+	public const String IPROPNAME_AFTERREBOOT = "AFTERREBOOT";
+	public const String IPROPNAME_NOCOMPANYNAME = "NOCOMPANYNAME";
+	public const String IPROPNAME_NOUSERNAME = "NOUSERNAME";
+	public const String IPROPNAME_DISABLEROLLBACK = "DISABLEROLLBACK";
+	public const String IPROPNAME_AVAILABLEFREEREG = "AVAILABLEFREEREG";
+	public const String IPROPNAME_DISABLEADVTSHORTCUTS = "DISABLEADVTSHORTCUTS";
+	public const String IPROPNAME_PATCHNEWPACKAGECODE = "PATCHNEWPACKAGECODE";
+	public const String IPROPNAME_PATCHNEWSUMMARYSUBJECT = "PATCHNEWSUMMARYSUBJECT";
+	public const String IPROPNAME_PATCHNEWSUMMARYCOMMENTS = "PATCHNEWSUMMARYCOMMENTS";
+	public const String IPROPNAME_PRODUCTLANGUAGE = "PRODUCTLANGUAGE";
+	public const String IPROPNAME_CHECKCRCS = "MSICHECKCRCS";
+	public const String IPROPNAME_MSINODISABLEMEDIA = "MSINODISABLEMEDIA";
+	public const String IPROPNAME_CARRYINGNDP = "CARRYINGNDP";
+	public const String IPROPVALUE__CARRYINGNDP_URTREINSTALL = "URTREINSTALL";
+	public const String IPROPVALUE__CARRYINGNDP_URTUPGRADE = "URTUPGRADE";
+	public const String IPROPNAME_ENFORCE_UPGRADE_COMPONENT_RULES = "MSIENFORCEUPGRADECOMPONENTRULES";
+	public const String IPROPNAME_MSINEWINSTANCE = "MSINEWINSTANCE";
+	public const String IPROPNAME_MSIINSTANCEGUID = "MSIINSTANCEGUID";
+	public const String IPROPNAME_MSIPACKAGEDOWNLOADLOCALCOPY = "MSIPACKAGEDOWNLOADLOCALCOPY";
+	public const String IPROPNAME_MSIPATCHDOWNLOADLOCALCOPY = "MSIPATCHDOWNLOADLOCALCOPY";
+	public const String IPROPNAME_MSIDISABLELUAPATCHING = "MSIDISABLELUAPATCHING";
+	public const String IPROPNAME_MSILOGGINGMODE = "MsiLogging";
+	public const String IPROPNAME_MSILOGFILELOCATION = "MsiLogFileLocation";
+	public const String IPROPNAME_MSI_RM_CONTROL = "MSIRESTARTMANAGERCONTROL";
+	public const String IPROPVALUE_MSI_RM_CONTROL_DISABLE = "Disable";
+	public const String IPROPVALUE_MSI_RM_CONTROL_DISABLESHUTDOWN = "DisableShutdown";
+	public const String IPROPNAME_MSI_RM_SESSION_KEY = "MsiRestartManagerSessionKey";
+	public const String IPROPNAME_MSI_REBOOT_PENDING = "MsiSystemRebootPending";
+	public const String IPROPNAME_MSI_RM_SHUTDOWN = "MSIRMSHUTDOWN";
+	public const String IPROPNAME_MSI_RM_DISABLE_RESTART = "MSIDISABLERMRESTART";
+	public const String IPROPNAME_MSI_UAC_DEPLOYMENT_COMPLIANT = "MSIDEPLOYMENTCOMPLIANT";
+	public const String IPROPNAME_MSI_USE_REAL_ADMIN_DETECTION = "MSIUSEREALADMINDETECTION";
+	public const String IPROPNAME_MSI_UNINSTALL_SUPERSEDED_COMPONENTS = "MSIUNINSTALLSUPERSEDEDCOMPONENTS";
+	public const String IPROPNAME_MSIDISABLEEEUI = "MSIDISABLEEEUI";
+	public const String IPROPNAME_MSI_FASTINSTALL = "MSIFASTINSTALL";
+	public const String IPROPNAME_INSTALLPERUSER = "MSIINSTALLPERUSER";
+	public const String IPROPNAME_INTERNALINSTALLEDPERUSER = "MSIINTERNALINSTALLEDPERUSER";
+	public const String IPROPNAME_ARPAUTHORIZEDCDFPREFIX = "ARPAUTHORIZEDCDFPREFIX";
+	public const String IPROPNAME_ARPCOMMENTS = "ARPCOMMENTS";
+	public const String IPROPNAME_ARPCONTACT = "ARPCONTACT";
+	public const String IPROPNAME_ARPHELPLINK = "ARPHELPLINK";
+	public const String IPROPNAME_ARPHELPTELEPHONE = "ARPHELPTELEPHONE";
+	public const String IPROPNAME_ARPINSTALLLOCATION = "ARPINSTALLLOCATION";
+	public const String IPROPNAME_ARPNOMODIFY = "ARPNOMODIFY";
+	public const String IPROPNAME_ARPNOREMOVE = "ARPNOREMOVE";
+	public const String IPROPNAME_ARPNOREPAIR = "ARPNOREPAIR";
+	public const String IPROPNAME_ARPREADME = "ARPREADME";
+	public const String IPROPNAME_ARPSIZE = "ARPSIZE";
+	public const String IPROPNAME_ARPSYSTEMCOMPONENT = "ARPSYSTEMCOMPONENT";
+	public const String IPROPNAME_ARPURLINFOABOUT = "ARPURLINFOABOUT";
+	public const String IPROPNAME_ARPURLUPDATEINFO = "ARPURLUPDATEINFO";
+	public const String IPROPNAME_ARPPRODUCTICON = "ARPPRODUCTICON";
+	public const String IPROPNAME_ARPSETTINGSIDENTIFIER = "MSIARPSETTINGSIDENTIFIER";
+	public const String IPROPNAME_ARPSHIMFLAGS = "SHIMFLAGS";
+	public const String IPROPNAME_ARPSHIMVERSIONNT = "SHIMVERSIONNT";
+	public const String IPROPNAME_ARPSHIMSERVICEPACKLEVEL = "SHIMSERVICEPACKLEVEL";
+	public const String IPROPNAME_INSTALLED = "Installed";
+	public const String IPROPNAME_PRODUCTSTATE = "ProductState";
+	public const String IPROPNAME_PRESELECTED = "Preselected";
+	public const String IPROPNAME_RESUME = "RESUME";
+	public const String IPROPNAME_UPDATESTARTED = "UpdateStarted";
+	public const String IPROPNAME_PRODUCTID = "ProductID";
+	public const String IPROPNAME_OUTOFDISKSPACE = "OutOfDiskSpace";
+	public const String IPROPNAME_OUTOFNORBDISKSPACE = "OutOfNoRbDiskSpace";
+	public const String IPROPNAME_COSTINGCOMPLETE = "CostingComplete";
+	public const String IPROPNAME_SOURCEDIR = "SourceDir";
+	public const String IPROPNAME_REPLACEDINUSEFILES = "ReplacedInUseFiles";
+	public const String IPROPNAME_PRIMARYFOLDER_PATH = "PrimaryVolumePath";
+	public const String IPROPNAME_PRIMARYFOLDER_SPACEAVAILABLE = "PrimaryVolumeSpaceAvailable";
+	public const String IPROPNAME_PRIMARYFOLDER_SPACEREQUIRED = "PrimaryVolumeSpaceRequired";
+	public const String IPROPNAME_PRIMARYFOLDER_SPACEREMAINING = "PrimaryVolumeSpaceRemaining";
+	public const String IPROPNAME_ISADMINPACKAGE = "IsAdminPackage";
+	public const String IPROPNAME_ROLLBACKDISABLED = "RollbackDisabled";
+	public const String IPROPNAME_RESTRICTEDUSERCONTROL = "RestrictedUserControl";
+	public const String IPROPNAME_SOURCERESONLY = "MsiUISourceResOnly";
+	public const String IPROPNAME_HIDECANCEL = "MsiUIHideCancel";
+	public const String IPROPNAME_PROGRESSONLY = "MsiUIProgressOnly";
+	public const String IPROPNAME_UACONLY = "MsiUIUACOnly";
+	public const String IPROPNAME_TIME = "Time";
+	public const String IPROPNAME_DATE = "Date";
+	public const String IPROPNAME_DATETIME = "DateTime";
+	public const String IPROPNAME_ARM = "Arm";
+	public const String IPROPNAME_ARM64 = "Arm64";
+	public const String IPROPNAME_INTEL = "Intel";
+	public const String IPROPNAME_TEMPLATE_AMD64 = "AMD64";
+	public const String IPROPNAME_TEMPLATE_X64 = "x64";
+	public const String IPROPNAME_MSIAMD64 = "MsiAMD64";
+	public const String IPROPNAME_MSIX64 = "Msix64";
+	public const String IPROPNAME_INTEL64 = "Intel64";
+	public const String IPROPNAME_IA64 = "IA64";
+	public const String IPROPNAME_TEXTHEIGHT = "TextHeight";
+	public const String IPROPNAME_TEXTINTERNALLEADING = "TextInternalLeading";
+	public const String IPROPNAME_SCREENX = "ScreenX";
+	public const String IPROPNAME_SCREENY = "ScreenY";
+	public const String IPROPNAME_CAPTIONHEIGHT = "CaptionHeight";
+	public const String IPROPNAME_BORDERTOP = "BorderTop";
+	public const String IPROPNAME_BORDERSIDE = "BorderSide";
+	public const String IPROPNAME_COLORBITS = "ColorBits";
+	public const String IPROPNAME_PHYSICALMEMORY = "PhysicalMemory";
+	public const String IPROPNAME_VIRTUALMEMORY = "VirtualMemory";
+	public const String IPROPNAME_TEXTHEIGHT_CORRECTION = "TextHeightCorrection";
+	public const String IPROPNAME_MSITABLETPC = "MsiTabletPC";
+	public const String IPROPNAME_VERSIONNT = "VersionNT";
+	public const String IPROPNAME_VERSION9X = "Version9X";
+	public const String IPROPNAME_VERSIONNT64 = "VersionNT64";
+	public const String IPROPNAME_WINDOWSBUILD = "WindowsBuild";
+	public const String IPROPNAME_SERVICEPACKLEVEL = "ServicePackLevel";
+	public const String IPROPNAME_SERVICEPACKLEVELMINOR = "ServicePackLevelMinor";
+	public const String IPROPNAME_SHAREDWINDOWS = "SharedWindows";
+	public const String IPROPNAME_COMPUTERNAME = "ComputerName";
+	public const String IPROPNAME_SHELLADVTSUPPORT = "ShellAdvtSupport";
+	public const String IPROPNAME_OLEADVTSUPPORT = "OLEAdvtSupport";
+	public const String IPROPNAME_SYSTEMLANGUAGEID = "SystemLanguageID";
+	public const String IPROPNAME_TTCSUPPORT = "TTCSupport";
+	public const String IPROPNAME_TERMSERVER = "TerminalServer";
+	public const String IPROPNAME_REMOTEADMINTS = "RemoteAdminTS";
+	public const String IPROPNAME_REDIRECTEDDLLSUPPORT = "RedirectedDllSupport";
+	public const String IPROPNAME_NTPRODUCTTYPE = "MsiNTProductType";
+	public const String IPROPNAME_NTSUITEBACKOFFICE = "MsiNTSuiteBackOffice";
+	public const String IPROPNAME_NTSUITEDATACENTER = "MsiNTSuiteDataCenter";
+	public const String IPROPNAME_NTSUITEENTERPRISE = "MsiNTSuiteEnterprise";
+	public const String IPROPNAME_NTSUITESMALLBUSINESS = "MsiNTSuiteSmallBusiness";
+	public const String IPROPNAME_NTSUITESMALLBUSINESSRESTRICTED = "MsiNTSuiteSmallBusinessRestricted";
+	public const String IPROPNAME_NTSUITEPERSONAL = "MsiNTSuitePersonal";
+	public const String IPROPNAME_NTSUITEWEBSERVER = "MsiNTSuiteWebServer";
+	public const String IPROPNAME_NETASSEMBLYSUPPORT = "MsiNetAssemblySupport";
+	public const String IPROPNAME_WIN32ASSEMBLYSUPPORT = "MsiWin32AssemblySupport";
+	public const String IPROPNAME_LOGONUSER = "LogonUser";
+	public const String IPROPNAME_USERSID = "UserSID";
+	public const String IPROPNAME_ADMINUSER = "AdminUser";
+	public const String IPROPNAME_USERLANGUAGEID = "UserLanguageID";
+	public const String IPROPNAME_PRIVILEGED = "Privileged";
+	public const String IPROPNAME_RUNNINGELEVATED = "MsiRunningElevated";
+	public const String IPROPNAME_TRUEADMINUSER = "MsiTrueAdminUser";
+	public const String IPROPNAME_WINDOWS_FOLDER = "WindowsFolder";
+	public const String IPROPNAME_SYSTEM_FOLDER = "SystemFolder";
+	public const String IPROPNAME_SYSTEM16_FOLDER = "System16Folder";
+	public const String IPROPNAME_WINDOWS_VOLUME = "WindowsVolume";
+	public const String IPROPNAME_TEMP_FOLDER = "TempFolder";
+	public const String IPROPNAME_PROGRAMFILES_FOLDER = "ProgramFilesFolder";
+	public const String IPROPNAME_COMMONFILES_FOLDER = "CommonFilesFolder";
+	public const String IPROPNAME_SYSTEM64_FOLDER = "System64Folder";
+	public const String IPROPNAME_PROGRAMFILES64_FOLDER = "ProgramFiles64Folder";
+	public const String IPROPNAME_COMMONFILES64_FOLDER = "CommonFiles64Folder";
+	public const String IPROPNAME_STARTMENU_FOLDER = "StartMenuFolder";
+	public const String IPROPNAME_PROGRAMMENU_FOLDER = "ProgramMenuFolder";
+	public const String IPROPNAME_STARTUP_FOLDER = "StartupFolder";
+	public const String IPROPNAME_NETHOOD_FOLDER = "NetHoodFolder";
+	public const String IPROPNAME_PERSONAL_FOLDER = "PersonalFolder";
+	public const String IPROPNAME_SENDTO_FOLDER = "SendToFolder";
+	public const String IPROPNAME_DESKTOP_FOLDER = "DesktopFolder";
+	public const String IPROPNAME_TEMPLATE_FOLDER = "TemplateFolder";
+	public const String IPROPNAME_FONTS_FOLDER = "FontsFolder";
+	public const String IPROPNAME_FAVORITES_FOLDER = "FavoritesFolder";
+	public const String IPROPNAME_RECENT_FOLDER = "RecentFolder";
+	public const String IPROPNAME_APPDATA_FOLDER = "AppDataFolder";
+	public const String IPROPNAME_PRINTHOOD_FOLDER = "PrintHoodFolder";
+	public const String IPROPNAME_ADMINTOOLS_FOLDER = "AdminToolsFolder";
+	public const String IPROPNAME_COMMONAPPDATA_FOLDER = "CommonAppDataFolder";
+	public const String IPROPNAME_LOCALAPPDATA_FOLDER = "LocalAppDataFolder";
+	public const String IPROPNAME_MYPICTURES_FOLDER = "MyPicturesFolder";
+	public const String IPROPNAME_FEATUREADDLOCAL = "ADDLOCAL";
+	public const String IPROPNAME_FEATUREADDSOURCE = "ADDSOURCE";
+	public const String IPROPNAME_FEATUREADDDEFAULT = "ADDDEFAULT";
+	public const String IPROPNAME_FEATUREREMOVE = "REMOVE";
+	public const String IPROPNAME_FEATUREADVERTISE = "ADVERTISE";
+	public const String IPROPVALUE_FEATURE_ALL = "ALL";
+	public const String IPROPNAME_COMPONENTADDLOCAL = "COMPADDLOCAL";
+	public const String IPROPNAME_COMPONENTADDSOURCE = "COMPADDSOURCE";
+	public const String IPROPNAME_COMPONENTADDDEFAULT = "COMPADDDEFAULT";
+	public const String IPROPNAME_FILEADDLOCAL = "FILEADDLOCAL";
+	public const String IPROPNAME_FILEADDSOURCE = "FILEADDSOURCE";
+	public const String IPROPNAME_FILEADDDEFAULT = "FILEADDDEFAULT";
+	public const String IPROPNAME_REINSTALL = "REINSTALL";
+	public const String IPROPNAME_REINSTALLMODE = "REINSTALLMODE";
+	public const String IPROPNAME_PROMPTROLLBACKCOST = "PROMPTROLLBACKCOST";
+	public const String IPROPVALUE_RBCOST_PROMPT = "P";
+	public const String IPROPVALUE_RBCOST_SILENT = "D";
+	public const String IPROPVALUE_RBCOST_FAIL = "F";
+	public const String IPROPNAME_CUSTOMACTIONDATA = "CustomActionData";
+	public const String IACTIONNAME_INSTALL = "INSTALL";
+	public const String IACTIONNAME_ADVERTISE = "ADVERTISE";
+	public const String IACTIONNAME_ADMIN = "ADMIN";
+	public const String IACTIONNAME_SEQUENCE = "SEQUENCE";
+	public const String IACTIONNAME_COLLECTUSERINFO = "CollectUserInfo";
+	public const String IACTIONNAME_FIRSTRUN = "FirstRun";
 	public const uint32 PID_TITLE = 2;
 	public const uint32 PID_SUBJECT = 3;
 	public const uint32 PID_AUTHOR = 4;
@@ -536,7 +800,7 @@ public enum REINSTALLMODE : int32
 
 
 [AllowDuplicates]
-public enum INSTALLOGMODE : int32
+public enum INSTALLLOGMODE : int32
 {
 	INSTALLLOGMODE_FATALEXIT = 1,
 	INSTALLLOGMODE_ERROR = 2,
@@ -1601,6 +1865,13 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 
 #region Structs
 [CRepr]
+public struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION
+{
+	public uint32 ElementCount;
+	public COMPATIBILITY_CONTEXT_ELEMENT* Elements;
+}
+
+[CRepr]
 public struct PMSIHANDLE
 {
 	public MSIHANDLE m_h;
@@ -1659,7 +1930,7 @@ public struct PROTECTED_FILE_DATA
 }
 
 [CRepr]
-public struct _tagAPPTASKTYPE
+public struct PM_APPTASKTYPE
 {
 	public Guid ProductID;
 	public PM_TASK_TYPE TaskType;
@@ -1699,7 +1970,7 @@ public struct PM_ENUM_FILTER
 		public PM_TASK_TYPE Tasktype;
 		public Guid TaskProductID;
 		public Guid TileProductID;
-		public _tagAPPTASKTYPE AppTaskType;
+		public PM_APPTASKTYPE AppTaskType;
 		public PM_EXTENSIONCONSUMER Consumer;
 		public PM_BSATASKID BSATask;
 		public Guid BSAProductID;
@@ -1982,14 +2253,6 @@ public struct COMPATIBILITY_CONTEXT_ELEMENT
 	public Guid Id;
 	public ACTCTX_COMPATIBILITY_ELEMENT_TYPE Type;
 	public uint64 MaxVersionTested;
-}
-
-[CRepr]
-public struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION
-{
-	public uint32 ElementCount;
-	public COMPATIBILITY_CONTEXT_ELEMENT* Elements mut => &Elements_impl;
-	private COMPATIBILITY_CONTEXT_ELEMENT[ANYSIZE_ARRAY] Elements_impl;
 }
 
 [CRepr]
@@ -3465,11 +3728,11 @@ public static
 	public static extern uint32 MsiSetExternalUIRecord(PINSTALLUI_HANDLER_RECORD puiHandler, uint32 dwMessageFilter, void* pvContext, PINSTALLUI_HANDLER_RECORD ppuiPrevHandler);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnableLogA(INSTALLOGMODE dwLogMode, PSTR szLogFile, uint32 dwLogAttributes);
-	public static uint32 MsiEnableLog(INSTALLOGMODE dwLogMode, PSTR szLogFile, uint32 dwLogAttributes) => MsiEnableLogA(dwLogMode, szLogFile, dwLogAttributes);
+	public static extern uint32 MsiEnableLogA(INSTALLLOGMODE dwLogMode, PSTR szLogFile, uint32 dwLogAttributes);
+	public static uint32 MsiEnableLog(INSTALLLOGMODE dwLogMode, PSTR szLogFile, uint32 dwLogAttributes) => MsiEnableLogA(dwLogMode, szLogFile, dwLogAttributes);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 MsiEnableLogW(INSTALLOGMODE dwLogMode, PWSTR szLogFile, uint32 dwLogAttributes);
+	public static extern uint32 MsiEnableLogW(INSTALLLOGMODE dwLogMode, PWSTR szLogFile, uint32 dwLogAttributes);
 
 	[Import("msi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern INSTALLSTATE MsiQueryProductStateA(PSTR szProduct);

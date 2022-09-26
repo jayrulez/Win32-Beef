@@ -467,6 +467,23 @@ public static
 	public const uint32 D3D11_DEBUG_FEATURE_AVOID_BEHAVIOR_CHANGING_DEBUG_AIDS = 64;
 	public const uint32 D3D11_DEBUG_FEATURE_DISABLE_TILED_RESOURCE_MAPPING_TRACKING_AND_VALIDATION = 128;
 	public const Guid DXGI_DEBUG_D3D11 = .(0x4b99317b, 0xac39, 0x4aa6, 0xbb, 0x0b, 0xba, 0xa0, 0x47, 0x84, 0x79, 0x8f);
+	public const String D3D11_REGKEY_PATH = "Software\Microsoft\Direct3D";
+	public const String D3D11_MUTE_DEBUG_OUTPUT = "MuteDebugOutput";
+	public const String D3D11_ENABLE_BREAK_ON_MESSAGE = "EnableBreakOnMessage";
+	public const String D3D11_INFOQUEUE_STORAGE_FILTER_OVERRIDE = "InfoQueueStorageFilterOverride";
+	public const String D3D11_MUTE_CATEGORY = "Mute_CATEGORY_%s";
+	public const String D3D11_MUTE_SEVERITY = "Mute_SEVERITY_%s";
+	public const String D3D11_MUTE_ID_STRING = "Mute_ID_%s";
+	public const String D3D11_MUTE_ID_DECIMAL = "Mute_ID_%d";
+	public const String D3D11_UNMUTE_SEVERITY_INFO = "Unmute_SEVERITY_INFO";
+	public const String D3D11_BREAKON_CATEGORY = "BreakOn_CATEGORY_%s";
+	public const String D3D11_BREAKON_SEVERITY = "BreakOn_SEVERITY_%s";
+	public const String D3D11_BREAKON_ID_STRING = "BreakOn_ID_%s";
+	public const String D3D11_BREAKON_ID_DECIMAL = "BreakOn_ID_%d";
+	public const String D3D11_APPSIZE_STRING = "Size";
+	public const String D3D11_APPNAME_STRING = "Name";
+	public const String D3D11_FORCE_DEBUGGABLE = "ForceDebuggable";
+	public const String D3D11_FORCE_SHADER_SKIP_OPTIMIZATION = "ForceShaderSkipOptimization";
 	public const uint32 D3D11_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT = 1024;
 	public const int32 D3D_RETURN_PARAMETER_INDEX = -1;
 	public const uint32 D3D_SHADER_REQUIRES_DOUBLES = 1;
@@ -492,6 +509,9 @@ public static
 	public const uint32 D3D11_TRACE_MISC_GS_CUT_STREAM = 16;
 	public const uint32 D3D11_TRACE_MISC_HALT = 32;
 	public const uint32 D3D11_TRACE_MISC_MESSAGE = 64;
+	public const String D3DCSX_DLL_W = "d3dcsx_47.dll";
+	public const String D3DCSX_DLL_A = "d3dcsx_47.dll";
+	public const String D3DCSX_DLL = "d3dcsx_47.dll";
 	public const uint32 D3DX11_FFT_MAX_PRECOMPUTE_BUFFERS = 4;
 	public const uint32 D3DX11_FFT_MAX_TEMP_BUFFERS = 4;
 	public const uint32 D3DX11_FFT_MAX_DIMENSIONS = 32;
@@ -3251,9 +3271,9 @@ public struct D3D11_BUFFER_DESC
 {
 	public uint32 ByteWidth;
 	public D3D11_USAGE Usage;
-	public uint32 BindFlags;
-	public uint32 CPUAccessFlags;
-	public uint32 MiscFlags;
+	public D3D11_BIND_FLAG BindFlags;
+	public D3D11_CPU_ACCESS_FLAG CPUAccessFlags;
+	public D3D11_RESOURCE_MISC_FLAG MiscFlags;
 	public uint32 StructureByteStride;
 }
 
@@ -3265,9 +3285,9 @@ public struct D3D11_TEXTURE1D_DESC
 	public uint32 ArraySize;
 	public DXGI_FORMAT Format;
 	public D3D11_USAGE Usage;
-	public uint32 BindFlags;
-	public uint32 CPUAccessFlags;
-	public uint32 MiscFlags;
+	public D3D11_BIND_FLAG BindFlags;
+	public D3D11_CPU_ACCESS_FLAG CPUAccessFlags;
+	public D3D11_RESOURCE_MISC_FLAG MiscFlags;
 }
 
 [CRepr]
@@ -3294,9 +3314,9 @@ public struct D3D11_TEXTURE3D_DESC
 	public uint32 MipLevels;
 	public DXGI_FORMAT Format;
 	public D3D11_USAGE Usage;
-	public uint32 BindFlags;
-	public uint32 CPUAccessFlags;
-	public uint32 MiscFlags;
+	public D3D11_BIND_FLAG BindFlags;
+	public D3D11_CPU_ACCESS_FLAG CPUAccessFlags;
+	public D3D11_RESOURCE_MISC_FLAG MiscFlags;
 }
 
 [CRepr]
@@ -4557,9 +4577,9 @@ public struct D3D11_TEXTURE2D_DESC1
 	public DXGI_FORMAT Format;
 	public DXGI_SAMPLE_DESC SampleDesc;
 	public D3D11_USAGE Usage;
-	public uint32 BindFlags;
-	public uint32 CPUAccessFlags;
-	public uint32 MiscFlags;
+	public D3D11_BIND_FLAG BindFlags;
+	public D3D11_CPU_ACCESS_FLAG CPUAccessFlags;
+	public D3D11_RESOURCE_MISC_FLAG MiscFlags;
 	public D3D11_TEXTURE_LAYOUT TextureLayout;
 }
 
@@ -4572,9 +4592,9 @@ public struct D3D11_TEXTURE3D_DESC1
 	public uint32 MipLevels;
 	public DXGI_FORMAT Format;
 	public D3D11_USAGE Usage;
-	public uint32 BindFlags;
-	public uint32 CPUAccessFlags;
-	public uint32 MiscFlags;
+	public D3D11_BIND_FLAG BindFlags;
+	public D3D11_CPU_ACCESS_FLAG CPUAccessFlags;
+	public D3D11_RESOURCE_MISC_FLAG MiscFlags;
 	public D3D11_TEXTURE_LAYOUT TextureLayout;
 }
 

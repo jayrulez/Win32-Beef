@@ -1,5 +1,5 @@
-using Win32.Graphics.Direct3D;
 using Win32.Foundation;
+using Win32.Graphics.Direct3D;
 using Win32.System.Com;
 using Win32.Graphics.Gdi;
 using System;
@@ -497,6 +497,10 @@ public enum D3DTRANSFORMSTATETYPE : int32
 	D3DTS_TEXTURE6 = 22,
 	D3DTS_TEXTURE7 = 23,
 	D3DTS_FORCE_DWORD = 2147483647,
+	D3DTS_WORLD = 256,
+	D3DTS_WORLD1 = 257,
+	D3DTS_WORLD2 = 258,
+	D3DTS_WORLD3 = 259,
 }
 
 
@@ -1312,6 +1316,66 @@ public enum D3DBUSTYPE : int32
 
 
 #region Structs
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct D3DADAPTER_IDENTIFIER9
+{
+	public CHAR[512] Driver;
+	public CHAR[512] Description;
+	public CHAR[32] DeviceName;
+	public LARGE_INTEGER DriverVersion;
+	public uint32 VendorId;
+	public uint32 DeviceId;
+	public uint32 SubSysId;
+	public uint32 Revision;
+	public Guid DeviceIdentifier;
+	public uint32 WHQLLevel;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct D3DMEMORYPRESSURE
+{
+	public uint64 BytesEvictedFromProcess;
+	public uint64 SizeOfInefficientAllocation;
+	public uint32 LevelOfEfficiency;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct D3DPRESENTSTATS
+{
+	public uint32 PresentCount;
+	public uint32 PresentRefreshCount;
+	public uint32 SyncRefreshCount;
+	public LARGE_INTEGER SyncQPCTime;
+	public LARGE_INTEGER SyncGPUTime;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT
+{
+	public D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT Output;
+	public HANDLE DeviceHandle;
+	public HANDLE CryptoSessionHandle;
+	public uint32 OutputIDIndex;
+	public uint64 OutputID;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct D3DAES_CTR_IV
+{
+	public uint64 IV;
+	public uint64 Count;
+}
+#endif
+
 [CRepr]
 public struct D3DCOLORVALUE
 {
@@ -1532,8 +1596,8 @@ public struct D3DTRIPATCH_INFO
 	public D3DDEGREETYPE Degree;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct D3DADAPTER_IDENTIFIER9
 {
 	public CHAR[512] Driver;
@@ -1637,8 +1701,8 @@ public struct D3DDEVINFO_D3D9CACHEUTILIZATION
 	public float PostTransformVertexCacheHitRate;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct D3DMEMORYPRESSURE
 {
 	public uint64 BytesEvictedFromProcess;
@@ -1665,8 +1729,8 @@ public struct D3DCOMPOSERECTDESTINATION
 	public int16 Y;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct D3DPRESENTSTATS
 {
 	public uint32 PresentCount;
@@ -1830,8 +1894,8 @@ public struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT
 	public uint32 OutputIDIndex;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT
 {
 	public D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT Output;
@@ -1947,8 +2011,8 @@ public struct D3DENCRYPTED_BLOCK_INFO
 	public uint32 NumBytesInEncryptPattern;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct D3DAES_CTR_IV
 {
 	public uint64 IV;
@@ -2048,66 +2112,6 @@ public struct D3DCAPS9
 	public uint32 MaxVertexShader30InstructionSlots;
 	public uint32 MaxPixelShader30InstructionSlots;
 }
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct D3DADAPTER_IDENTIFIER9
-{
-	public CHAR[512] Driver;
-	public CHAR[512] Description;
-	public CHAR[32] DeviceName;
-	public LARGE_INTEGER DriverVersion;
-	public uint32 VendorId;
-	public uint32 DeviceId;
-	public uint32 SubSysId;
-	public uint32 Revision;
-	public Guid DeviceIdentifier;
-	public uint32 WHQLLevel;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct D3DMEMORYPRESSURE
-{
-	public uint64 BytesEvictedFromProcess;
-	public uint64 SizeOfInefficientAllocation;
-	public uint32 LevelOfEfficiency;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct D3DPRESENTSTATS
-{
-	public uint32 PresentCount;
-	public uint32 PresentRefreshCount;
-	public uint32 SyncRefreshCount;
-	public LARGE_INTEGER SyncQPCTime;
-	public LARGE_INTEGER SyncGPUTime;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT
-{
-	public D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT Output;
-	public HANDLE DeviceHandle;
-	public HANDLE CryptoSessionHandle;
-	public uint32 OutputIDIndex;
-	public uint64 OutputID;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct D3DAES_CTR_IV
-{
-	public uint64 IV;
-	public uint64 Count;
-}
-#endif
 
 #endregion
 

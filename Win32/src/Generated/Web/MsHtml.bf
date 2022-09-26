@@ -249,31 +249,192 @@ public static
 	public const uint32 DISPID_EXPAND = 25;
 	public const uint32 DISPID_UNSELECTALL = 26;
 	public const uint32 TF_NAVIGATE = 2142153644;
+	public const String TARGET_NOTIFY_OBJECT_NAME = "863a99a0-21bc-11d0-82b4-00a0c90c29c5";
+	public const String IEPROCESS_MODULE_NAME = "IERtUtil.dll";
+	public const String IEGetProcessModule_PROC_NAME = "IEGetProcessModule";
+	public const String IEGetTabWindowExports_PROC_NAME = "IEGetTabWindowExports";
+	public const String TSZMICROSOFTPATH = "Software\Microsoft";
+	public const String SZ_IE_MAIN = "Main";
+	public const String REGSTR_VAL_SMOOTHSCROLL = "SmoothScroll";
 	public const uint32 REGSTR_VAL_SMOOTHSCROLL_DEF = 1;
+	public const String REGSTR_VAL_SHOWTOOLBAR = "Show_ToolBar";
+	public const String REGSTR_VAL_SHOWADDRESSBAR = "Show_URLToolBar";
+	public const String REGSTR_VAL_STARTPAGE = "Start Page";
+	public const String REGSTRA_VAL_STARTPAGE = "Start Page";
+	public const String REGSTR_VAL_SEARCHPAGE = "Search Page";
+	public const String REGSTR_VAL_LOCALPAGE = "Local Page";
+	public const String REGSTR_VAL_USESTYLESHEETS = "Use Stylesheets";
+	public const String REGSTR_VAL_USESTYLESHEETS_DEF = "yes";
+	public const String REGSTR_VAL_USEICM = "UseICM";
 	public const uint32 REGSTR_VAL_USEICM_DEF = 0;
+	public const String REGSTR_VAL_SHOWFOCUS = "Tabstop - MouseDown";
+	public const String REGSTR_VAL_SHOWFOCUS_DEF = "no";
+	public const String REGSTR_VAL_LOADIMAGES = "Display Inline Images";
+	public const String REGSTR_VAL_PLAYSOUNDS = "Play_Background_Sounds";
+	public const String REGSTR_VAL_PLAYVIDEOS = "Display Inline Videos";
+	public const String REGSTR_VAL_ANCHORUNDERLINE = "Anchor Underline";
+	public const String REGSTR_VAL_USEDLGCOLORS = "Use_DlgBox_Colors";
+	public const String REGSTR_VAL_CHECKASSOC = "Check_Associations";
+	public const String REGSTR_VAL_SHOWFULLURLS = "Show_FullURL";
+	public const String REGSTR_VAL_AUTOSEARCH = "Do404Search";
+	public const String REGSTR_VAL_AUTONAVIGATE = "SearchForExtensions";
+	public const String REGSTR_VAL_HTTP_ERRORS = "Friendly http errors";
+	public const String REGSTR_VAL_USEIBAR = "UseBar";
+	public const String SZ_IE_SETTINGS = "Settings";
+	public const String REGSTR_VAL_IE_CUSTOMCOLORS = "Custom Colors";
+	public const String REGSTR_VAL_ANCHORCOLOR = "Anchor Color";
+	public const String REGSTR_VAL_ANCHORCOLORVISITED = "Anchor Color Visited";
+	public const String REGSTR_VAL_BACKGROUNDCOLOR = "Background Color";
+	public const String REGSTR_VAL_TEXTCOLOR = "Text Color";
+	public const String REGSTR_VAL_ANCHORCOLORHOVER = "Anchor Color Hover";
+	public const String REGSTR_VAL_USEHOVERCOLOR = "Use Anchor Hover Color";
+	public const String SZ_IE_SECURITY = "Security";
+	public const String REGSTR_VAL_SAFETYWARNINGLEVEL = "Safety Warning Level";
+	public const String SZ_IE_DEFAULT_HTML_EDITOR = "Default HTML Editor";
+	public const String REGSTR_VAL_USEAUTOAPPEND = "Append Completion";
+	public const String REGSTR_VAL_USEAUTOSUGGEST = "AutoSuggest";
+	public const String REGSTR_VAL_USEAUTOCOMPLETE = "Use AutoComplete";
+	public const String SZ_IE_IBAR = "Bar";
+	public const String SZ_IE_IBAR_BANDS = "Bands";
+	public const String REGSTR_VAL_USERAGENT = "User Agent";
+	public const String REGSTR_VAL_INTERNETENTRY = "InternetProfile";
+	public const String REGSTR_VAL_INTERNETPROFILE = "InternetProfile";
+	public const String REGSTR_VAL_INTERNETENTRYBKUP = "BackupInternetProfile";
+	public const String REGSTR_VAL_CODEDOWNLOAD = "Code Download";
+	public const String REGSTR_VAL_CODEDOWNLOAD_DEF = "yes";
+	public const String REGSTR_PATH_INETCPL_RESTRICTIONS = "Software\Policies\Microsoft\Internet Explorer\Control Panel";
+	public const String REGSTR_VAL_INETCPL_GENERALTAB = "GeneralTab";
+	public const String REGSTR_VAL_INETCPL_SECURITYTAB = "SecurityTab";
+	public const String REGSTR_VAL_INETCPL_CONTENTTAB = "ContentTab";
+	public const String REGSTR_VAL_INETCPL_CONNECTIONSTAB = "ConnectionsTab";
+	public const String REGSTR_VAL_INETCPL_PROGRAMSTAB = "ProgramsTab";
+	public const String REGSTR_VAL_INETCPL_ADVANCEDTAB = "AdvancedTab";
+	public const String REGSTR_VAL_INETCPL_PRIVACYTAB = "PrivacyTab";
+	public const String REGSTR_VAL_INETCPL_IEAK = "IEAKContext";
+	public const String REGSTR_VAL_DIRECTORY = "Directory";
+	public const String REGSTR_VAL_NEWDIRECTORY = "NewDirectory";
+	public const String REGSTR_VAL_CACHEPREFIX = "CachePrefix";
+	public const String SZ_IE_SEARCHSTRINGS = "UrlTemplate";
 	public const uint32 MAX_SEARCH_FORMAT_STRING = 255;
+	public const String SZ_IE_THRESHOLDS = "ErrorThresholds";
+	public const String REGSTR_VAL_ACCESSMEDIUM = "AccessMedium";
+	public const String REGSTR_VAL_ACCESSTYPE = "AccessType";
+	public const String REGSTR_VAL_AUTODIALDLLNAME = "AutodialDllName";
+	public const String REGSTR_VAL_AUTODIALFCNNAME = "AutodialFcnName";
+	public const String REGSTR_VAL_AUTODIAL_MONITORCLASSNAME = "MS_AutodialMonitor";
+	public const String REGSTR_VAL_AUTODIAL_TRYONLYONCE = "TryAutodialOnce";
+	public const String REGSTR_PATH_REMOTEACCESS = "RemoteAccess";
+	public const String REGSTR_PATH_REMOTEACESS = "RemoteAccess";
+	public const String REGSTR_VAL_RNAINSTALLED = "Installed";
+	public const String REGSTR_VAL_ENABLEAUTODIAL = "EnableAutodial";
+	public const String REGSTR_VAL_ENABLEUNATTENDED = "EnableUnattended";
+	public const String REGSTR_VAL_NONETAUTODIAL = "NoNetAutodial";
+	public const String REGSTR_VAL_REDIALATTEMPTS = "RedialAttempts";
+	public const String REGSTR_VAL_REDIALINTERVAL = "RedialWait";
+	public const String REGSTR_VAL_ENABLEAUTODIALDISCONNECT = "EnableAutodisconnect";
+	public const String REGSTR_VAL_ENABLEAUTODISCONNECT = "EnableAutodisconnect";
+	public const String REGSTR_VAL_ENABLEEXITDISCONNECT = "EnableExitDisconnect";
+	public const String REGSTR_VAL_ENABLESECURITYCHECK = "EnableSecurityCheck";
+	public const String REGSTR_VAL_COVEREXCLUDE = "CoverExclude";
+	public const String REGSTR_VAL_DISCONNECTIDLETIME = "DisconnectIdleTime";
+	public const String REGSTR_VAL_MOSDISCONNECT = "DisconnectTimeout";
+	public const String REGSTR_VAL_PROXYENABLE = "ProxyEnable";
+	public const String REGSTR_VAL_PROXYSERVER = "ProxyServer";
+	public const String REGSTR_VAL_PROXYOVERRIDE = "ProxyOverride";
+	public const String REGSTR_VAL_BYPASSAUTOCONFIG = "BypassAutoconfig";
+	public const String SZTRUSTWARNLEVEL = "Trust Warning Level";
+	public const String REGSTR_VAL_TRUSTWARNINGLEVEL_HIGH = "High";
+	public const String REGSTR_VAL_TRUSTWARNINGLEVEL_MED = "Medium";
+	public const String REGSTR_VAL_TRUSTWARNINGLEVEL_LOW = "No Security";
+	public const String REGSTR_VAL_SECURITYWARNONSEND = "WarnOnPost";
 	public const uint32 REGSTR_VAL_SECURITYWARNONSEND_DEF = 1;
+	public const String REGSTR_VAL_SECURITYWARNONSENDALWAYS = "WarnAlwaysOnPost";
 	public const uint32 REGSTR_VAL_SECURITYWARNONSENDALWAYS_DEF = 1;
+	public const String REGSTR_VAL_SECURITYWARNONVIEW = "WarnOnView";
 	public const uint32 REGSTR_VAL_SECURITYWARNONVIEW_DEF = 1;
+	public const String REGSTR_VAL_SECURITYALLOWCOOKIES = "AllowCookies";
 	public const uint32 REGSTR_VAL_SECURITYALLOWCOOKIES_DEF = 1;
+	public const String REGSTR_VAL_SECURITYWARNONZONECROSSING = "WarnOnZoneCrossing";
 	public const uint32 REGSTR_VAL_SECURITYWARNONZONECROSSING_DEF = 1;
+	public const String REGSTR_VAL_SECURITYWARNONBADCERTVIEWING = "WarnOnBadCertRecving";
 	public const uint32 REGSTR_VAL_SECURITYWARNONBADCERTVIEWING_DEF = 1;
+	public const String REGSTR_VAL_SECURITYWARNONBADCERTSENDING = "WarnOnBadCertSending";
 	public const uint32 REGSTR_VAL_SECURITYWARNONBADCERTSENDING_DEF = 1;
+	public const String REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES = "DisableCachingOfSSLPages";
 	public const uint32 REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES_DEF = 0;
+	public const String REGSTR_VAL_SECURITYACTIVEX = "Security_RunActiveXControls";
 	public const uint32 REGSTR_VAL_SECURITYACTIVEX_DEF = 1;
+	public const String REGSTR_VAL_SECURITYACTICEXSCRIPTS = "Security_RunScripts";
 	public const uint32 REGSTR_VAL_SECURITYACTICEXSCRIPTS_DEF = 1;
+	public const String REGSTR_VAL_SECURITYJAVA = "Security_RunJavaApplets";
 	public const uint32 REGSTR_VAL_SECURITYJAVA_DEF = 1;
+	public const String SZJAVAVMPATH = "\Java VM";
+	public const String REGSTR_VAL_JAVAJIT = "EnableJIT";
 	public const uint32 REGSTR_VAL_JAVAJIT_DEF = 0;
+	public const String REGSTR_VAL_JAVALOGGING = "EnableLogging";
 	public const uint32 REGSTR_VAL_JAVALOGGING_DEF = 0;
+	public const String SZTOOLBAR = "\Toolbar";
+	public const String REGSTR_VAL_DAYSTOKEEP = "DaysToKeep";
+	public const String SZNOTEXT = "NoText";
+	public const String SZVISIBLE = "VisibleBands";
+	public const String REGSTR_VAL_VISIBLEBANDS = "VisibleBands";
 	public const uint32 REGSTR_VAL_VISIBLEBANDS_DEF = 7;
 	public const uint32 TOOLSBAND = 1;
 	public const uint32 ADDRESSBAND = 2;
 	public const uint32 LINKSBAND = 4;
+	public const String SZBACKBITMAP = "BackBitmap";
+	public const String REGSTR_VAL_BACKBITMAP = "BackBitmap";
+	public const String REGSTR_SHIFTQUICKSUFFIX = "ShiftQuickCompleteSuffix";
+	public const String TSZSCHANNELPATH = "SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL";
+	public const String REGSTR_VAL_SCHANNELENABLEPROTOCOL = "Enabled";
 	public const uint32 REGSTR_VAL_SCHANNELENABLEPROTOCOL_DEF = 1;
+	public const String TSZINTERNETCLIENTSPATH = "Software\Microsoft\Internet Explorer\Unix";
+	public const String REGSTR_PATH_DEFAULT = "default";
+	public const String REGSTR_PATH_CURRENT = "current";
 	public const int32 IE_USE_OE_PRESENT_HKEY = -2147483646;
+	public const String IE_USE_OE_PRESENT_KEY = "Software\Microsoft\Windows\CurrentVersion\app.paths\msimn.exe";
 	public const int32 IE_USE_OE_MAIL_HKEY = -2147483647;
+	public const String IE_USE_OE_MAIL_KEY = "Software\Microsoft\Internet Explorer\Mail";
+	public const String IE_USE_OE_MAIL_VALUE = "Use Outlook Express";
 	public const int32 IE_USE_OE_NEWS_HKEY = -2147483647;
+	public const String IE_USE_OE_NEWS_KEY = "Software\Microsoft\Internet Explorer\News";
+	public const String IE_USE_OE_NEWS_VALUE = "Use Outlook Express";
+	public const String TSZPROTOCOLSPATH = "Protocols\";
+	public const String TSZMAILTOPROTOCOL = "mailto";
+	public const String TSZNEWSPROTOCOL = "news";
+	public const String TSZCALLTOPROTOCOL = "callto";
+	public const String TSZLDAPPROTOCOL = "ldap";
+	public const String TSZCALENDARPROTOCOL = "unk";
+	public const String TSZVSOURCEPROTOCOL = "view source";
+	public const String REGSTR_VAL_DEFAULT_CODEPAGE = "Default_CodePage";
+	public const String REGSTR_VAL_DEFAULT_SCRIPT = "Default_Script";
+	public const String REGSTR_VAL_ACCEPT_LANGUAGE = "AcceptLanguage";
+	public const String REGSTR_VAL_FONT_SCRIPTS = "Scripts";
+	public const String REGSTR_VAL_FONT_SCRIPT = "Script";
+	public const String REGSTR_VAL_FONT_SCRIPT_NAME = "Script";
+	public const String REGSTR_VAL_DEF_ENCODING = "Default_Encoding";
+	public const String REGSTR_VAL_DEF_INETENCODING = "Default_InternetEncoding";
+	public const String REGSTR_VAL_FIXED_FONT = "IEFixedFontName";
+	public const String REGSTR_VAL_SCRIPT_FIXED_FONT = "IEFixedFontName";
+	public const String REGSTR_VAL_PROP_FONT = "IEPropFontName";
+	public const String REGSTR_VAL_SCRIPT_PROP_FONT = "IEPropFontName";
+	public const String REGSTR_VAL_FONT_SIZE = "IEFontSize";
 	public const uint32 REGSTR_VAL_FONT_SIZE_DEF = 2;
+	public const String REGSTR_VAL_AUTODETECT = "AutoDetect";
+	public const String REGSTR_PATH_MIME_DATABASE = "MIME\Database";
+	public const String REGSTR_VAL_CODEPAGE = "CodePage";
+	public const String REGSTR_VAL_INETENCODING = "InternetEncoding";
+	public const String REGSTR_VAL_FAMILY = "Family";
+	public const String REGSTR_VAL_LEVEL = "Level";
+	public const String REGSTR_VAL_ALIASTO = "AliasForCharset";
+	public const String REGSTR_VAL_ENCODENAME = "EncodingName";
+	public const String REGSTR_VAL_DESCRIPTION = "Description";
+	public const String REGSTR_VAL_WEBCHARSET = "WebCharset";
+	public const String REGSTR_VAL_BODYCHARSET = "BodyCharset";
+	public const String REGSTR_VAL_HEADERCHARSET = "HeaderCharset";
+	public const String REGSTR_VAL_FIXEDWIDTHFONT = "FixedWidthFont";
+	public const String REGSTR_VAL_PROPORTIONALFONT = "ProportionalFont";
+	public const String REGSTR_VAL_PRIVCONVERTER = "PrivConverter";
 	public const uint32 IDM_UNKNOWN = 0;
 	public const uint32 IDM_ALIGNBOTTOM = 1;
 	public const uint32 IDM_ALIGNHORIZONTALCENTERS = 2;
@@ -6552,6 +6713,7 @@ public static
 	public const uint32 CMDID_HOSTCONTEXT_URL = 8;
 	public const uint32 CMDID_SCRIPTSITE_ALLOWRECOVERY = 9;
 	public const uint32 CMDID_SCRIPTSITE_BASEIURI = 10;
+	public const String SZ_HTML_CLIENTSITE_OBJECTPARAM = "{d4db6850-5385-11d0-89e9-00a0c90a90ac}";
 	public const Guid CGID_DocHostCommandHandler = .(0xf38bc242, 0xb950, 0x11d1, 0x89, 0x18, 0x00, 0xc0, 0x4f, 0xc2, 0xc8, 0x36);
 	public const uint32 IECMDID_CLEAR_AUTOCOMPLETE_FOR_FORMS = 0;
 	public const uint32 IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS = 1;
@@ -6564,6 +6726,19 @@ public static
 	public const uint32 IECMDID_ARG_CLEAR_FORMS_ALL_BUT_PASSWORDS = 1;
 	public const uint32 IECMDID_ARG_CLEAR_FORMS_PASSWORDS_ONLY = 2;
 	public const Guid CATID_MSOfficeAntiVirus = .(0x56ffcc30, 0xd398, 0x11d0, 0xb2, 0xae, 0x00, 0xa0, 0xc9, 0x08, 0xfa, 0x49);
+	public const uint32 msoedmEnable = 1;
+	public const uint32 msoedmDisable = 2;
+	public const uint32 msoedmDontOpen = 3;
+	public const uint32 msoslUndefined = 0;
+	public const uint32 msoslNone = 1;
+	public const uint32 msoslMedium = 2;
+	public const uint32 msoslHigh = 3;
+	public const uint32 msodsvNoMacros = 0;
+	public const uint32 msodsvUnsigned = 1;
+	public const uint32 msodsvPassedTrusted = 2;
+	public const uint32 msodsvFailed = 3;
+	public const uint32 msodsvLowSecurityLevel = 4;
+	public const uint32 msodsvPassedTrustedCert = 5;
 	public const uint32 STATURL_QUERYFLAG_ISCACHED = 65536;
 	public const uint32 STATURL_QUERYFLAG_NOURL = 131072;
 	public const uint32 STATURL_QUERYFLAG_NOTITLE = 262144;
@@ -10148,7 +10323,7 @@ public enum ExtensionValidationResults : int32
 
 
 [AllowDuplicates]
-public enum __MIDL_ITargetFrame2_0001 : int32
+public enum FINDFRAME_FLAGS : int32
 {
 	FINDFRAME_NONE = 0,
 	FINDFRAME_JUSTTESTEXISTENCE = 1,
@@ -10157,7 +10332,7 @@ public enum __MIDL_ITargetFrame2_0001 : int32
 
 
 [AllowDuplicates]
-public enum __MIDL_ITargetFrame2_0002 : int32
+public enum FRAMEOPTIONS_FLAGS : int32
 {
 	FRAMEOPTIONS_SCROLL_YES = 1,
 	FRAMEOPTIONS_SCROLL_NO = 2,
@@ -10170,7 +10345,7 @@ public enum __MIDL_ITargetFrame2_0002 : int32
 
 
 [AllowDuplicates]
-public enum __MIDL_ITargetFrame_0001 : int32
+public enum NAVIGATEFRAME_FLAGS : int32
 {
 	NAVIGATEFRAME_FL_RECORD = 1,
 	NAVIGATEFRAME_FL_POST = 2,
@@ -10183,7 +10358,7 @@ public enum __MIDL_ITargetFrame_0001 : int32
 
 
 [AllowDuplicates]
-public enum MediaActivityNotifyType : int32
+public enum MEDIA_ACTIVITY_NOTIFY_TYPE : int32
 {
 	MediaPlayback = 0,
 	MediaRecording = 1,
@@ -10349,7 +10524,7 @@ public struct HTML_PAINT_DRAW_INFO
 }
 
 [CRepr]
-public struct tagNavigateData
+public struct NAVIGATEDATA
 {
 	public uint32 ulTarget;
 	public uint32 ulURL;
@@ -10385,8 +10560,8 @@ public struct HostDialogHelper
 public struct DOCHOSTUIINFO
 {
 	public uint32 cbSize;
-	public uint32 dwFlags;
-	public uint32 dwDoubleClick;
+	public DOCHOSTUIFLAG dwFlags;
+	public DOCHOSTUIDBLCLK dwDoubleClick;
 	public PWSTR pchHostCss;
 	public PWSTR pchHostNS;
 }
@@ -40375,14 +40550,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MediaActivityNotifyType mediaActivityType) OnMediaActivityStarted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MediaActivityNotifyType mediaActivityType) OnMediaActivityStopped;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MEDIA_ACTIVITY_NOTIFY_TYPE mediaActivityType) OnMediaActivityStarted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MEDIA_ACTIVITY_NOTIFY_TYPE mediaActivityType) OnMediaActivityStopped;
 	}
 
 
-	public HRESULT OnMediaActivityStarted(MediaActivityNotifyType mediaActivityType) mut => VT.[Friend]OnMediaActivityStarted(&this, mediaActivityType);
+	public HRESULT OnMediaActivityStarted(MEDIA_ACTIVITY_NOTIFY_TYPE mediaActivityType) mut => VT.[Friend]OnMediaActivityStarted(&this, mediaActivityType);
 
-	public HRESULT OnMediaActivityStopped(MediaActivityNotifyType mediaActivityType) mut => VT.[Friend]OnMediaActivityStopped(&this, mediaActivityType);
+	public HRESULT OnMediaActivityStopped(MEDIA_ACTIVITY_NOTIFY_TYPE mediaActivityType) mut => VT.[Friend]OnMediaActivityStopped(&this, mediaActivityType);
 }
 
 [CRepr]struct IAudioSessionSite : IUnknown

@@ -454,7 +454,7 @@ public function void DNS_PROXY_COMPLETION_ROUTINE(void* completionContext, int32
 
 public function void PDNS_QUERY_COMPLETION_ROUTINE(void* pQueryContext, DNS_QUERY_RESULT* pQueryResults);
 
-public function void PDNS_SERVICE_BROWSE_CALLBACK(uint32 Status, void* pQueryContext, DNS_RECORDA* pDnsRecord);
+public function void PDNS_SERVICE_BROWSE_CALLBACK(uint32 Status, void* pQueryContext, DNS_RECORDW* pDnsRecord);
 
 public function void PDNS_SERVICE_RESOLVE_COMPLETE(uint32 Status, void* pQueryContext, DNS_SERVICE_INSTANCE* pInstance);
 
@@ -465,6 +465,17 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 #endregion
 
 #region Structs
+#if BF_64_BIT || BF_ARM_64
+[CRepr, Union]
+public struct IP6_ADDRESS
+{
+	public uint64[2] IP6Qword;
+	public uint32[4] IP6Dword;
+	public uint16[8] IP6Word;
+	public uint8[16] IP6Byte;
+}
+#endif
+
 [CRepr]
 public struct IP4_ARRAY
 {
@@ -473,11 +484,10 @@ public struct IP4_ARRAY
 	private uint32[ANYSIZE_ARRAY] AddrArray_impl;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr, Union]
 public struct IP6_ADDRESS
 {
-	public uint64[2] IP6Qword;
 	public uint32[4] IP6Dword;
 	public uint16[8] IP6Word;
 	public uint8[16] IP6Byte;
@@ -1087,7 +1097,7 @@ public struct DNS_RECORDW
 }
 
 [CRepr]
-public struct _DnsRecordOptW
+public struct DNS_RECORD_OPTW
 {
 	[CRepr, Union]
 	public struct _Flags_e__Union
@@ -1527,16 +1537,6 @@ public struct MDNS_QUERY_REQUEST
 	public BOOL fAnswerReceived;
 	public uint32 ulResendCount;
 }
-
-#if BF_32_BIT
-[CRepr, Union]
-public struct IP6_ADDRESS
-{
-	public uint32[4] IP6Dword;
-	public uint16[8] IP6Word;
-	public uint8[16] IP6Byte;
-}
-#endif
 
 #endregion
 

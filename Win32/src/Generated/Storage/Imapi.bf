@@ -193,6 +193,8 @@ public static
 	public const uint32 DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT = 257;
 	public const uint32 IMAPI2FS_MajorVersion = 1;
 	public const uint32 IMAPI2FS_MinorVersion = 0;
+	public const String IMAPI2FS_FullVersion_STR = "1.0";
+	public const String IMAPI2FS_FullVersion_WSTR = "1.0";
 	public const uint32 MP_MSGCLASS_SYSTEM = 1;
 	public const uint32 MP_MSGCLASS_REPLICATION = 2;
 	public const uint32 MP_MSGCLASS_DELIVERY_REPORT = 3;
@@ -256,6 +258,7 @@ public static
 	public const Guid CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS = .(0x84ff368a, 0xfab3, 0x43d7, 0xbc, 0xdf, 0x69, 0x2c, 0x5b, 0x46, 0xe6, 0xb1);
 	public const Guid CLSID_SmtpCat = .(0xb23c35b7, 0x9219, 0x11d2, 0x9e, 0x17, 0x00, 0xc0, 0x4f, 0xa3, 0x22, 0xba);
 	public const Guid CATID_SMTP_DSN = .(0x22b55731, 0xf5f8, 0x4d23, 0xbd, 0x8f, 0x87, 0xb5, 0x23, 0x71, 0xa7, 0x3a);
+	public const String SZ_PROGID_SMTPCAT = "Smtp.Cat";
 	public const HRESULT IMAPI_S_PROPERTIESIGNORED = 262656;
 	public const HRESULT IMAPI_S_BUFFER_TO_SMALL = 262657;
 	public const HRESULT IMAPI_E_NOTOPENED = -2147220981;

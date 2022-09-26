@@ -877,11 +877,6 @@ public struct WINBIO_EXTENDED_ENROLLMENT_STATUS
 	public struct _Specific_e__Union
 	{
 		[CRepr]
-		public struct _Voice_e__Struct
-		{
-			public uint32 Reserved;
-		}
-		[CRepr]
 		public struct _Iris_e__Struct
 		{
 			[CRepr]
@@ -913,6 +908,11 @@ public struct WINBIO_EXTENDED_ENROLLMENT_STATUS
 			public RECT BoundingBox;
 			public int32 Distance;
 			public _OpaqueEngineData_e__Struct OpaqueEngineData;
+		}
+		[CRepr]
+		public struct _Voice_e__Struct
+		{
+			public uint32 Reserved;
 		}
 		[CRepr]
 		public struct _Fingerprint_e__Struct
@@ -1000,75 +1000,9 @@ public struct WINBIO_ASYNC_RESULT
 	public struct _Parameters_e__Union
 	{
 		[CRepr]
-		public struct _GetProtectionPolicy_e__Struct
+		public struct _NotifyUnitStatusChange_e__Struct
 		{
-			public WINBIO_IDENTITY Identity;
-			public WINBIO_PROTECTION_POLICY Policy;
-		}
-		[CRepr]
-		public struct _EnrollSelect_e__Struct
-		{
-			public uint64 SelectorValue;
-		}
-		[CRepr]
-		public struct _VerifyAndReleaseTicket_e__Struct
-		{
-			public BOOLEAN Match;
-			public uint32 RejectDetail;
-			public uint64 Ticket;
-		}
-		[CRepr]
-		public struct _EnumBiometricUnits_e__Struct
-		{
-			public uint UnitCount;
-			public WINBIO_UNIT_SCHEMA* UnitSchemaArray;
-		}
-		[CRepr]
-		public struct _ControlUnit_e__Struct
-		{
-			public WINBIO_COMPONENT Component;
-			public uint32 ControlCode;
-			public uint32 OperationStatus;
-			public uint8* SendBuffer;
-			public uint SendBufferSize;
-			public uint8* ReceiveBuffer;
-			public uint ReceiveBufferSize;
-			public uint ReceiveDataSize;
-		}
-		[CRepr]
-		public struct _SetProperty_e__Struct
-		{
-			public uint32 PropertyType;
-			public uint32 PropertyId;
-			public WINBIO_IDENTITY Identity;
-			public uint8 SubFactor;
-			public uint PropertyBufferSize;
-			public void* PropertyBuffer;
-		}
-		[CRepr]
-		public struct _DeleteTemplate_e__Struct
-		{
-			public WINBIO_IDENTITY Identity;
-			public uint8 SubFactor;
-		}
-		[CRepr]
-		public struct _EnumEnrollments_e__Struct
-		{
-			public WINBIO_IDENTITY Identity;
-			public uint SubFactorCount;
-			public uint8* SubFactorArray;
-		}
-		[CRepr]
-		public struct _EnrollCapture_e__Struct
-		{
-			public uint32 RejectDetail;
-		}
-		[CRepr]
-		public struct _Identify_e__Struct
-		{
-			public WINBIO_IDENTITY Identity;
-			public uint8 SubFactor;
-			public uint32 RejectDetail;
+			public WINBIO_EXTENDED_UNIT_STATUS ExtendedStatus;
 		}
 		[CRepr]
 		public struct _MonitorPresence_e__Struct
@@ -1078,32 +1012,18 @@ public struct WINBIO_ASYNC_RESULT
 			public WINBIO_PRESENCE* PresenceArray;
 		}
 		[CRepr]
+		public struct _IdentifyAndReleaseTicket_e__Struct
+		{
+			public WINBIO_IDENTITY Identity;
+			public uint8 SubFactor;
+			public uint32 RejectDetail;
+			public uint64 Ticket;
+		}
+		[CRepr]
 		public struct _EnumDatabases_e__Struct
 		{
 			public uint StorageCount;
 			public WINBIO_STORAGE_SCHEMA* StorageSchemaArray;
-		}
-		[CRepr]
-		public struct _GetEvent_e__Struct
-		{
-			public WINBIO_EVENT Event;
-		}
-		[CRepr]
-		public struct _CaptureSample_e__Struct
-		{
-			public WINBIO_BIR* Sample;
-			public uint SampleSize;
-			public uint32 RejectDetail;
-		}
-		[CRepr]
-		public struct _EnrollBegin_e__Struct
-		{
-			public uint8 SubFactor;
-		}
-		[CRepr]
-		public struct _NotifyUnitStatusChange_e__Struct
-		{
-			public WINBIO_EXTENDED_UNIT_STATUS ExtendedStatus;
 		}
 		[CRepr]
 		public struct _EnumServiceProviders_e__Struct
@@ -1112,10 +1032,9 @@ public struct WINBIO_ASYNC_RESULT
 			public WINBIO_BSP_SCHEMA* BspSchemaArray;
 		}
 		[CRepr]
-		public struct _EnrollCommit_e__Struct
+		public struct _GetEvent_e__Struct
 		{
-			public WINBIO_IDENTITY Identity;
-			public BOOLEAN IsNewTemplate;
+			public WINBIO_EVENT Event;
 		}
 		[CRepr]
 		public struct _GetProperty_e__Struct
@@ -1128,18 +1047,99 @@ public struct WINBIO_ASYNC_RESULT
 			public void* PropertyBuffer;
 		}
 		[CRepr]
-		public struct _IdentifyAndReleaseTicket_e__Struct
+		public struct _CaptureSample_e__Struct
+		{
+			public WINBIO_BIR* Sample;
+			public uint SampleSize;
+			public uint32 RejectDetail;
+		}
+		[CRepr]
+		public struct _EnrollCommit_e__Struct
 		{
 			public WINBIO_IDENTITY Identity;
+			public BOOLEAN IsNewTemplate;
+		}
+		[CRepr]
+		public struct _EnrollBegin_e__Struct
+		{
 			public uint8 SubFactor;
-			public uint32 RejectDetail;
-			public uint64 Ticket;
 		}
 		[CRepr]
 		public struct _Verify_e__Struct
 		{
 			public BOOLEAN Match;
 			public uint32 RejectDetail;
+		}
+		[CRepr]
+		public struct _EnrollSelect_e__Struct
+		{
+			public uint64 SelectorValue;
+		}
+		[CRepr]
+		public struct _EnumBiometricUnits_e__Struct
+		{
+			public uint UnitCount;
+			public WINBIO_UNIT_SCHEMA* UnitSchemaArray;
+		}
+		[CRepr]
+		public struct _SetProperty_e__Struct
+		{
+			public uint32 PropertyType;
+			public uint32 PropertyId;
+			public WINBIO_IDENTITY Identity;
+			public uint8 SubFactor;
+			public uint PropertyBufferSize;
+			public void* PropertyBuffer;
+		}
+		[CRepr]
+		public struct _EnumEnrollments_e__Struct
+		{
+			public WINBIO_IDENTITY Identity;
+			public uint SubFactorCount;
+			public uint8* SubFactorArray;
+		}
+		[CRepr]
+		public struct _Identify_e__Struct
+		{
+			public WINBIO_IDENTITY Identity;
+			public uint8 SubFactor;
+			public uint32 RejectDetail;
+		}
+		[CRepr]
+		public struct _VerifyAndReleaseTicket_e__Struct
+		{
+			public BOOLEAN Match;
+			public uint32 RejectDetail;
+			public uint64 Ticket;
+		}
+		[CRepr]
+		public struct _DeleteTemplate_e__Struct
+		{
+			public WINBIO_IDENTITY Identity;
+			public uint8 SubFactor;
+		}
+		[CRepr]
+		public struct _GetProtectionPolicy_e__Struct
+		{
+			public WINBIO_IDENTITY Identity;
+			public WINBIO_PROTECTION_POLICY Policy;
+		}
+		[CRepr]
+		public struct _EnrollCapture_e__Struct
+		{
+			public uint32 RejectDetail;
+		}
+		[CRepr]
+		public struct _ControlUnit_e__Struct
+		{
+			public WINBIO_COMPONENT Component;
+			public uint32 ControlCode;
+			public uint32 OperationStatus;
+			public uint8* SendBuffer;
+			public uint SendBufferSize;
+			public uint8* ReceiveBuffer;
+			public uint ReceiveBufferSize;
+			public uint ReceiveDataSize;
 		}
 		public _Verify_e__Struct Verify;
 		public _Identify_e__Struct Identify;

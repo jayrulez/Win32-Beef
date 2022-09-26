@@ -7,6 +7,32 @@ public static
 {
 	public const HANDLE INVALID_HANDLE_VALUE = -1;
 	public const HRESULT CO_E_NOTINITIALIZED = -2147221008;
+	public const NTSTATUS STILL_ACTIVE = 259;
+	public const NTSTATUS EXCEPTION_ACCESS_VIOLATION = -1073741819;
+	public const NTSTATUS EXCEPTION_DATATYPE_MISALIGNMENT = -2147483646;
+	public const NTSTATUS EXCEPTION_BREAKPOINT = -2147483645;
+	public const NTSTATUS EXCEPTION_SINGLE_STEP = -2147483644;
+	public const NTSTATUS EXCEPTION_ARRAY_BOUNDS_EXCEEDED = -1073741684;
+	public const NTSTATUS EXCEPTION_FLT_DENORMAL_OPERAND = -1073741683;
+	public const NTSTATUS EXCEPTION_FLT_DIVIDE_BY_ZERO = -1073741682;
+	public const NTSTATUS EXCEPTION_FLT_INEXACT_RESULT = -1073741681;
+	public const NTSTATUS EXCEPTION_FLT_INVALID_OPERATION = -1073741680;
+	public const NTSTATUS EXCEPTION_FLT_OVERFLOW = -1073741679;
+	public const NTSTATUS EXCEPTION_FLT_STACK_CHECK = -1073741678;
+	public const NTSTATUS EXCEPTION_FLT_UNDERFLOW = -1073741677;
+	public const NTSTATUS EXCEPTION_INT_DIVIDE_BY_ZERO = -1073741676;
+	public const NTSTATUS EXCEPTION_INT_OVERFLOW = -1073741675;
+	public const NTSTATUS EXCEPTION_PRIV_INSTRUCTION = -1073741674;
+	public const NTSTATUS EXCEPTION_IN_PAGE_ERROR = -1073741818;
+	public const NTSTATUS EXCEPTION_ILLEGAL_INSTRUCTION = -1073741795;
+	public const NTSTATUS EXCEPTION_NONCONTINUABLE_EXCEPTION = -1073741787;
+	public const NTSTATUS EXCEPTION_STACK_OVERFLOW = -1073741571;
+	public const NTSTATUS EXCEPTION_INVALID_DISPOSITION = -1073741786;
+	public const NTSTATUS EXCEPTION_GUARD_PAGE = -2147483647;
+	public const NTSTATUS EXCEPTION_INVALID_HANDLE = -1073741816;
+	public const NTSTATUS EXCEPTION_POSSIBLE_DEADLOCK = -1073741420;
+	public const NTSTATUS CONTROL_C_EXIT = -1073741510;
+	public const NTSTATUS STATUS_ACCESS_DENIED = -1073741790;
 	public const HRESULT E_NOTIMPL = -2147467263;
 	public const HRESULT E_OUTOFMEMORY = -2147024882;
 	public const HRESULT E_INVALIDARG = -2147024809;
@@ -2803,14 +2829,6 @@ public static
 	public const NTSTATUS STATUS_IORING_CORRUPT = -1069154297;
 	public const uint32 WINVER = 1280;
 	public const uint32 APP_LOCAL_DEVICE_ID_SIZE = 32;
-	public const uint32 DM_UPDATE = 1;
-	public const uint32 DM_COPY = 2;
-	public const uint32 DM_PROMPT = 4;
-	public const uint32 DM_MODIFY = 8;
-	public const uint32 DM_IN_BUFFER = 8;
-	public const uint32 DM_IN_PROMPT = 4;
-	public const uint32 DM_OUT_BUFFER = 2;
-	public const uint32 DM_OUT_DEFAULT = 1;
 	public const HRESULT SEC_E_OK = 0;
 	public const int32 RPC_X_NO_MORE_ENTRIES = 1772;
 	public const int32 RPC_X_SS_CHAR_TRANS_OPEN_FAIL = 1773;
@@ -6527,17 +6545,17 @@ typealias LPARAM = int;
 
 typealias LRESULT = int;
 
-typealias LSTATUS = int32;
-
 typealias NTSTATUS = int32;
 
-typealias PSID = int;
+typealias PSID = void*;
 
 typealias PSTR = uint8*;
 
 typealias PWSTR = char16*;
 
 typealias WPARAM = uint;
+
+typealias COLORREF = uint32;
 
 typealias HRSRC = int;
 
@@ -6556,6 +6574,10 @@ typealias HANDLE_PTR = uint;
 public enum WIN32_ERROR : uint32
 {
 	NO_ERROR = 0,
+	WAIT_OBJECT_0 = 0,
+	WAIT_ABANDONED = 128,
+	WAIT_ABANDONED_0 = 128,
+	WAIT_IO_COMPLETION = 192,
 	WAIT_TIMEOUT = 258,
 	WAIT_FAILED = 4294967295,
 	ERROR_SUCCESS = 0,
@@ -9992,13 +10014,13 @@ public struct FLOAT128
 public struct LARGE_INTEGER
 {
 	[CRepr]
-	public struct _Anonymous_e__Struct
+	public struct _u_e__Struct
 	{
 		public uint32 LowPart;
 		public int32 HighPart;
 	}
 	[CRepr]
-	public struct _u_e__Struct
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 LowPart;
 		public int32 HighPart;
@@ -10012,13 +10034,13 @@ public struct LARGE_INTEGER
 public struct ULARGE_INTEGER
 {
 	[CRepr]
-	public struct _Anonymous_e__Struct
+	public struct _u_e__Struct
 	{
 		public uint32 LowPart;
 		public uint32 HighPart;
 	}
 	[CRepr]
-	public struct _u_e__Struct
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 LowPart;
 		public uint32 HighPart;
@@ -10068,7 +10090,7 @@ public static
 	public static extern uint32 SysStringByteLen(BSTR bstr);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BSTR SysAllocStringByteLen(PSTR psz, uint32 len);
+	public static extern BSTR SysAllocStringByteLen(uint8* psz, uint32 len);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CloseHandle(HANDLE hObject);

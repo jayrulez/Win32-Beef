@@ -1,8 +1,8 @@
 using Win32.Foundation;
+using Win32.System.SystemInformation;
 using Win32.System.SystemServices;
 using Win32.System.Kernel;
 using Win32.Security;
-using Win32.System.SystemInformation;
 using System;
 
 namespace Win32.System.Threading;
@@ -10,10 +10,6 @@ namespace Win32.System.Threading;
 #region Constants
 public static
 {
-	public const uint32 WAIT_OBJECT_0 = 0;
-	public const uint32 WAIT_ABANDONED = 128;
-	public const uint32 WAIT_ABANDONED_0 = 128;
-	public const uint32 WAIT_IO_COMPLETION = 192;
 	public const uint32 PRIVATE_NAMESPACE_FLAG_DESTROY = 1;
 	public const uint32 PROC_THREAD_ATTRIBUTE_REPLACE_VALUE = 1;
 	public const uint32 THREAD_POWER_THROTTLING_CURRENT_VERSION = 1;
@@ -32,13 +28,31 @@ public static
 	public const uint32 INIT_ONCE_INIT_FAILED = 4;
 	public const uint32 INIT_ONCE_CTX_RESERVED_BITS = 2;
 	public const uint32 CONDITION_VARIABLE_LOCKMODE_SHARED = 1;
-	public const uint32 MUTEX_MODIFY_STATE = 1;
 	public const uint32 CREATE_MUTEX_INITIAL_OWNER = 1;
 	public const uint32 CREATE_WAITABLE_TIMER_MANUAL_RESET = 1;
 	public const uint32 CREATE_WAITABLE_TIMER_HIGH_RESOLUTION = 2;
 	public const uint32 SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY = 1;
 	public const uint32 SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY = 2;
 	public const uint32 SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE = 4;
+	public const uint32 PROC_THREAD_ATTRIBUTE_PARENT_PROCESS = 131072;
+	public const uint32 PROC_THREAD_ATTRIBUTE_HANDLE_LIST = 131074;
+	public const uint32 PROC_THREAD_ATTRIBUTE_GROUP_AFFINITY = 196611;
+	public const uint32 PROC_THREAD_ATTRIBUTE_PREFERRED_NODE = 131076;
+	public const uint32 PROC_THREAD_ATTRIBUTE_IDEAL_PROCESSOR = 196613;
+	public const uint32 PROC_THREAD_ATTRIBUTE_UMS_THREAD = 196614;
+	public const uint32 PROC_THREAD_ATTRIBUTE_MITIGATION_POLICY = 131079;
+	public const uint32 PROC_THREAD_ATTRIBUTE_SECURITY_CAPABILITIES = 131081;
+	public const uint32 PROC_THREAD_ATTRIBUTE_PROTECTION_LEVEL = 131083;
+	public const uint32 PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE = 131094;
+	public const uint32 PROC_THREAD_ATTRIBUTE_MACHINE_TYPE = 131097;
+	public const uint32 PROC_THREAD_ATTRIBUTE_ENABLE_OPTIONAL_XSTATE_FEATURES = 196635;
+	public const uint32 PROC_THREAD_ATTRIBUTE_WIN32K_FILTER = 131088;
+	public const uint32 PROC_THREAD_ATTRIBUTE_JOB_LIST = 131085;
+	public const uint32 PROC_THREAD_ATTRIBUTE_CHILD_PROCESS_POLICY = 131086;
+	public const uint32 PROC_THREAD_ATTRIBUTE_ALL_APPLICATION_PACKAGES_POLICY = 131087;
+	public const uint32 PROC_THREAD_ATTRIBUTE_DESKTOP_APP_POLICY = 131090;
+	public const uint32 PROC_THREAD_ATTRIBUTE_MITIGATION_AUDIT_POLICY = 131096;
+	public const uint32 PROC_THREAD_ATTRIBUTE_COMPONENT_FILTER = 131098;
 }
 #endregion
 
@@ -263,6 +277,26 @@ public enum THREAD_ACCESS_RIGHTS : uint32
 
 
 [AllowDuplicates]
+public enum SYNCHRONIZATION_ACCESS_RIGHTS : uint32
+{
+	EVENT_ALL_ACCESS = 2031619,
+	EVENT_MODIFY_STATE = 2,
+	MUTEX_ALL_ACCESS = 2031617,
+	MUTEX_MODIFY_STATE = 1,
+	SEMAPHORE_ALL_ACCESS = 2031619,
+	SEMAPHORE_MODIFY_STATE = 2,
+	TIMER_ALL_ACCESS = 2031619,
+	TIMER_MODIFY_STATE = 2,
+	TIMER_QUERY_STATE = 1,
+	SYNCHRONIZATION_DELETE = 65536,
+	SYNCHRONIZATION_READ_CONTROL = 131072,
+	SYNCHRONIZATION_WRITE_DAC = 262144,
+	SYNCHRONIZATION_WRITE_OWNER = 524288,
+	SYNCHRONIZATION_SYNCHRONIZE = 1048576,
+}
+
+
+[AllowDuplicates]
 public enum PROCESS_CREATION_FLAGS : uint32
 {
 	DEBUG_PROCESS = 1,
@@ -380,6 +414,17 @@ public enum PROCESS_MEMORY_EXHAUSTION_TYPE : int32
 
 
 [AllowDuplicates]
+public enum AVRT_PRIORITY : int32
+{
+	AVRT_PRIORITY_VERYLOW = -2,
+	AVRT_PRIORITY_LOW = -1,
+	AVRT_PRIORITY_NORMAL = 0,
+	AVRT_PRIORITY_HIGH = 1,
+	AVRT_PRIORITY_CRITICAL = 2,
+}
+
+
+[AllowDuplicates]
 public enum PROCESS_MITIGATION_POLICY : int32
 {
 	ProcessDEPPolicy = 0,
@@ -425,6 +470,32 @@ public enum TP_CALLBACK_PRIORITY : int32
 	TP_CALLBACK_PRIORITY_LOW = 2,
 	TP_CALLBACK_PRIORITY_INVALID = 3,
 	TP_CALLBACK_PRIORITY_COUNT = 3,
+}
+
+
+[AllowDuplicates]
+public enum PROC_THREAD_ATTRIBUTE_NUM : uint32
+{
+	ProcThreadAttributeParentProcess = 0,
+	ProcThreadAttributeHandleList = 2,
+	ProcThreadAttributeGroupAffinity = 3,
+	ProcThreadAttributePreferredNode = 4,
+	ProcThreadAttributeIdealProcessor = 5,
+	ProcThreadAttributeUmsThread = 6,
+	ProcThreadAttributeMitigationPolicy = 7,
+	ProcThreadAttributeSecurityCapabilities = 9,
+	ProcThreadAttributeProtectionLevel = 11,
+	ProcThreadAttributeJobList = 13,
+	ProcThreadAttributeChildProcessPolicy = 14,
+	ProcThreadAttributeAllApplicationPackagesPolicy = 15,
+	ProcThreadAttributeWin32kFilter = 16,
+	ProcThreadAttributeSafeOpenPromptOriginClaim = 17,
+	ProcThreadAttributeDesktopAppPolicy = 18,
+	ProcThreadAttributePseudoConsole = 22,
+	ProcThreadAttributeMitigationAuditPolicy = 24,
+	ProcThreadAttributeMachineType = 25,
+	ProcThreadAttributeComponentFilter = 26,
+	ProcThreadAttributeEnableOptionalXStateFeatures = 27,
 }
 
 
@@ -608,7 +679,7 @@ public struct APP_MEMORY_INFORMATION
 [CRepr]
 public struct PROCESS_MACHINE_INFORMATION
 {
-	public uint16 ProcessMachine;
+	public IMAGE_FILE_MACHINE ProcessMachine;
 	public uint16 Res0;
 	public MACHINE_ATTRIBUTES MachineAttributes;
 }
@@ -982,16 +1053,16 @@ public static
 	public static extern BOOL ReleaseMutex(HANDLE hMutex);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WaitForSingleObject(HANDLE hHandle, uint32 dwMilliseconds);
+	public static extern WIN32_ERROR WaitForSingleObject(HANDLE hHandle, uint32 dwMilliseconds);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SleepEx(uint32 dwMilliseconds, BOOL bAlertable);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WaitForSingleObjectEx(HANDLE hHandle, uint32 dwMilliseconds, BOOL bAlertable);
+	public static extern WIN32_ERROR WaitForSingleObjectEx(HANDLE hHandle, uint32 dwMilliseconds, BOOL bAlertable);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WaitForMultipleObjectsEx(uint32 nCount, HANDLE* lpHandles, BOOL bWaitAll, uint32 dwMilliseconds, BOOL bAlertable);
+	public static extern WIN32_ERROR WaitForMultipleObjectsEx(uint32 nCount, HANDLE* lpHandles, BOOL bWaitAll, uint32 dwMilliseconds, BOOL bAlertable);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateMutexA(SECURITY_ATTRIBUTES* lpMutexAttributes, BOOL bInitialOwner, PSTR lpName);
@@ -1001,7 +1072,7 @@ public static
 	public static extern HANDLE CreateMutexW(SECURITY_ATTRIBUTES* lpMutexAttributes, BOOL bInitialOwner, PWSTR lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenMutexW(uint32 dwDesiredAccess, BOOL bInheritHandle, PWSTR lpName);
+	public static extern HANDLE OpenMutexW(SYNCHRONIZATION_ACCESS_RIGHTS dwDesiredAccess, BOOL bInheritHandle, PWSTR lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateEventA(SECURITY_ATTRIBUTES* lpEventAttributes, BOOL bManualReset, BOOL bInitialState, PSTR lpName);
@@ -1011,17 +1082,17 @@ public static
 	public static extern HANDLE CreateEventW(SECURITY_ATTRIBUTES* lpEventAttributes, BOOL bManualReset, BOOL bInitialState, PWSTR lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenEventA(uint32 dwDesiredAccess, BOOL bInheritHandle, PSTR lpName);
-	public static HANDLE OpenEvent(uint32 dwDesiredAccess, BOOL bInheritHandle, PSTR lpName) => OpenEventA(dwDesiredAccess, bInheritHandle, lpName);
+	public static extern HANDLE OpenEventA(SYNCHRONIZATION_ACCESS_RIGHTS dwDesiredAccess, BOOL bInheritHandle, PSTR lpName);
+	public static HANDLE OpenEvent(SYNCHRONIZATION_ACCESS_RIGHTS dwDesiredAccess, BOOL bInheritHandle, PSTR lpName) => OpenEventA(dwDesiredAccess, bInheritHandle, lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenEventW(uint32 dwDesiredAccess, BOOL bInheritHandle, PWSTR lpName);
+	public static extern HANDLE OpenEventW(SYNCHRONIZATION_ACCESS_RIGHTS dwDesiredAccess, BOOL bInheritHandle, PWSTR lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenSemaphoreW(uint32 dwDesiredAccess, BOOL bInheritHandle, PWSTR lpName);
+	public static extern HANDLE OpenSemaphoreW(SYNCHRONIZATION_ACCESS_RIGHTS dwDesiredAccess, BOOL bInheritHandle, PWSTR lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HANDLE OpenWaitableTimerW(uint32 dwDesiredAccess, BOOL bInheritHandle, PWSTR lpTimerName);
+	public static extern HANDLE OpenWaitableTimerW(SYNCHRONIZATION_ACCESS_RIGHTS dwDesiredAccess, BOOL bInheritHandle, PWSTR lpTimerName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetWaitableTimerEx(HANDLE hTimer, LARGE_INTEGER* lpDueTime, int32 lPeriod, PTIMERAPCROUTINE pfnCompletionRoutine, void* lpArgToCompletionRoutine, REASON_CONTEXT* WakeContext, uint32 TolerableDelay);
@@ -1064,17 +1135,17 @@ public static
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void Sleep(uint32 dwMilliseconds);
 
-	[Import("vertdll.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("api-ms-win-core-synch-l1-2-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WaitOnAddress(void* Address, void* CompareAddress, uint AddressSize, uint32 dwMilliseconds);
 
-	[Import("vertdll.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("api-ms-win-core-synch-l1-2-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WakeByAddressSingle(void* Address);
 
-	[Import("vertdll.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("api-ms-win-core-synch-l1-2-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WakeByAddressAll(void* Address);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WaitForMultipleObjects(uint32 nCount, HANDLE* lpHandles, BOOL bWaitAll, uint32 dwMilliseconds);
+	public static extern WIN32_ERROR WaitForMultipleObjects(uint32 nCount, HANDLE* lpHandles, BOOL bWaitAll, uint32 dwMilliseconds);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateSemaphoreW(SECURITY_ATTRIBUTES* lpSemaphoreAttributes, int32 lInitialCount, int32 lMaximumCount, PWSTR lpName);
@@ -1505,7 +1576,7 @@ public static
 	public static extern uint16 Wow64SetThreadDefaultGuestMachine(uint16 Machine);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL IsWow64Process2(HANDLE hProcess, uint16* pProcessMachine, uint16* pNativeMachine);
+	public static extern BOOL IsWow64Process2(HANDLE hProcess, IMAGE_FILE_MACHINE* pProcessMachine, IMAGE_FILE_MACHINE* pNativeMachine);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 Wow64SuspendThread(HANDLE hThread);
@@ -1548,6 +1619,51 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetThreadGroupAffinity(HANDLE hThread, GROUP_AFFINITY* GroupAffinity, GROUP_AFFINITY* PreviousGroupAffinity);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern HANDLE AvSetMmThreadCharacteristicsA(PSTR TaskName, uint32* TaskIndex);
+	public static HANDLE AvSetMmThreadCharacteristics(PSTR TaskName, uint32* TaskIndex) => AvSetMmThreadCharacteristicsA(TaskName, TaskIndex);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern HANDLE AvSetMmThreadCharacteristicsW(PWSTR TaskName, uint32* TaskIndex);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern HANDLE AvSetMmMaxThreadCharacteristicsA(PSTR FirstTask, PSTR SecondTask, uint32* TaskIndex);
+	public static HANDLE AvSetMmMaxThreadCharacteristics(PSTR FirstTask, PSTR SecondTask, uint32* TaskIndex) => AvSetMmMaxThreadCharacteristicsA(FirstTask, SecondTask, TaskIndex);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern HANDLE AvSetMmMaxThreadCharacteristicsW(PWSTR FirstTask, PWSTR SecondTask, uint32* TaskIndex);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvRevertMmThreadCharacteristics(HANDLE AvrtHandle);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvSetMmThreadPriority(HANDLE AvrtHandle, AVRT_PRIORITY Priority);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvRtCreateThreadOrderingGroup(HANDLE* Context, LARGE_INTEGER* Period, Guid* ThreadOrderingGuid, LARGE_INTEGER* Timeout);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvRtCreateThreadOrderingGroupExA(HANDLE* Context, LARGE_INTEGER* Period, Guid* ThreadOrderingGuid, LARGE_INTEGER* Timeout, PSTR TaskName);
+	public static BOOL AvRtCreateThreadOrderingGroupEx(HANDLE* Context, LARGE_INTEGER* Period, Guid* ThreadOrderingGuid, LARGE_INTEGER* Timeout, PSTR TaskName) => AvRtCreateThreadOrderingGroupExA(Context, Period, ThreadOrderingGuid, Timeout, TaskName);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvRtCreateThreadOrderingGroupExW(HANDLE* Context, LARGE_INTEGER* Period, Guid* ThreadOrderingGuid, LARGE_INTEGER* Timeout, PWSTR TaskName);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvRtJoinThreadOrderingGroup(HANDLE* Context, Guid* ThreadOrderingGuid, BOOL Before);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvRtWaitOnThreadOrderingGroup(HANDLE Context);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvRtLeaveThreadOrderingGroup(HANDLE Context);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvRtDeleteThreadOrderingGroup(HANDLE Context);
+
+	[Import("AVRT.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL AvQuerySystemResponsiveness(HANDLE AvrtHandle, uint32* SystemResponsivenessValue);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AttachThreadInput(uint32 idAttach, uint32 idAttachTo, BOOL fAttach);

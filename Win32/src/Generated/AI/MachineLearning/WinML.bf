@@ -330,7 +330,7 @@ public struct MLOperatorAttribute
 {
 	public PSTR name;
 	public MLOperatorAttributeType type;
-	public bool required;
+	public uint8 required;
 }
 
 [CRepr]

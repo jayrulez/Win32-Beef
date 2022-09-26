@@ -250,10 +250,30 @@ public struct PSS_HANDLE_ENTRY
 	public struct _TypeSpecificInformation_e__Union
 	{
 		[CRepr]
-		public struct _Semaphore_e__Struct
+		public struct _Section_e__Struct
+		{
+			public void* BaseAddress;
+			public uint32 AllocationAttributes;
+			public LARGE_INTEGER MaximumSize;
+		}
+		[CRepr]
+		public struct _Mutant_e__Struct
 		{
 			public int32 CurrentCount;
-			public int32 MaximumCount;
+			public BOOL Abandoned;
+			public uint32 OwnerProcessId;
+			public uint32 OwnerThreadId;
+		}
+		[CRepr]
+		public struct _Process_e__Struct
+		{
+			public uint32 ExitStatus;
+			public void* PebBaseAddress;
+			public uint AffinityMask;
+			public int32 BasePriority;
+			public uint32 ProcessId;
+			public uint32 ParentProcessId;
+			public uint32 Flags;
 		}
 		[CRepr]
 		public struct _Event_e__Struct
@@ -274,30 +294,10 @@ public struct PSS_HANDLE_ENTRY
 			public void* Win32StartAddress;
 		}
 		[CRepr]
-		public struct _Section_e__Struct
-		{
-			public void* BaseAddress;
-			public uint32 AllocationAttributes;
-			public LARGE_INTEGER MaximumSize;
-		}
-		[CRepr]
-		public struct _Process_e__Struct
-		{
-			public uint32 ExitStatus;
-			public void* PebBaseAddress;
-			public uint AffinityMask;
-			public int32 BasePriority;
-			public uint32 ProcessId;
-			public uint32 ParentProcessId;
-			public uint32 Flags;
-		}
-		[CRepr]
-		public struct _Mutant_e__Struct
+		public struct _Semaphore_e__Struct
 		{
 			public int32 CurrentCount;
-			public BOOL Abandoned;
-			public uint32 OwnerProcessId;
-			public uint32 OwnerThreadId;
+			public int32 MaximumCount;
 		}
 		public _Process_e__Struct Process;
 		public _Thread_e__Struct Thread;

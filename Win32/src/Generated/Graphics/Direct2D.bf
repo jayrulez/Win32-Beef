@@ -2196,19 +2196,19 @@ public struct D2D1_CREATION_PROPERTIES
 [CRepr]
 public struct Matrix4x3F
 {
-	public D2D_MATRIX_4X3_F __AnonymousBase_d2d1_1helper_L45_C31;
+	public D2D_MATRIX_4X3_F Base;
 }
 
 [CRepr]
 public struct Matrix4x4F
 {
-	public D2D_MATRIX_4X4_F __AnonymousBase_d2d1_1helper_L97_C31;
+	public D2D_MATRIX_4X4_F Base;
 }
 
 [CRepr]
 public struct Matrix5x4F
 {
-	public D2D_MATRIX_5X4_F __AnonymousBase_d2d1_1helper_L472_C31;
+	public D2D_MATRIX_5X4_F Base;
 }
 
 [CRepr]

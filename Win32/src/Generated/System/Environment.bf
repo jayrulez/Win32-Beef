@@ -41,8 +41,6 @@ public enum ENCLAVE_SEALING_IDENTITY_POLICY : int32
 #endregion
 
 #region Function Pointers
-public function void VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE(uint ReturnValue);
-
 #if BF_64_BIT
 public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(VBS_BASIC_ENCLAVE_EXCEPTION_AMD64* ExceptionRecord);
 #endif
@@ -55,25 +53,11 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(VBS_BASIC_EN
 public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64* ThreadDescriptor);
 #endif
 
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES(void* EnclaveAddress, uint NumberOfBytes, void* SourceAddress, uint32 PageProtection);
-
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES(void* EnclaveAddress, uint NumberOfBytes);
-
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES(void* EnclaveAddress, uint NumberOfytes, uint32 PageProtection);
-
 #if BF_64_BIT || BF_ARM_64
 public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64* ThreadDescriptor);
 #endif
 
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(ENCLAVE_INFORMATION* EnclaveInfo);
-
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(ENCLAVE_VBS_BASIC_KEY_REQUEST* KeyRequest, uint32 RequestedKeySize, uint8* ReturnedKey);
-
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(uint8* EnclaveData, void* Report, uint32 BufferSize, uint32* OutputSize);
-
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT(void* Report, uint32 ReportSize);
-
-public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(uint8* Buffer, uint32 NumberOfBytes, uint64* Generation);
+public function void VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE(uint ReturnValue);
 
 #if BF_32_BIT || BF_ARM_64
 public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(void* ExceptionRecord);
@@ -87,9 +71,25 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(VBS_BASIC_EN
 public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32* ThreadDescriptor);
 #endif
 
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES(void* EnclaveAddress, uint NumberOfBytes, void* SourceAddress, uint32 PageProtection);
+
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES(void* EnclaveAddress, uint NumberOfBytes);
+
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES(void* EnclaveAddress, uint NumberOfytes, uint32 PageProtection);
+
 #if BF_32_BIT
 public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32* ThreadDescriptor);
 #endif
+
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(ENCLAVE_INFORMATION* EnclaveInfo);
+
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(ENCLAVE_VBS_BASIC_KEY_REQUEST* KeyRequest, uint32 RequestedKeySize, uint8* ReturnedKey);
+
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(uint8* EnclaveData, void* Report, uint32 BufferSize, uint32* OutputSize);
+
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT(void* Report, uint32 ReportSize);
+
+public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(uint8* Buffer, uint32 NumberOfBytes, uint64* Generation);
 
 #endregion
 

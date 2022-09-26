@@ -516,6 +516,8 @@ public static
 	public const uint32 MUI_VERIFY_FILE_EXISTS = 4;
 	public const uint32 MUI_SKIP_STRING_CACHE = 8;
 	public const uint32 MUI_IMMUTABLE_LOOKUP = 16;
+	public const String LOCALE_NAME_INVARIANT = "";
+	public const String LOCALE_NAME_SYSTEM_DEFAULT = "!x-sys-default-locale";
 	public const uint32 MIN_SPELLING_NTDDI = 100794368;
 	public const uint32 SCRIPT_UNDEFINED = 0;
 	public const HRESULT USP_E_SCRIPT_NOT_IN_FONT = -2147220992;
@@ -559,12 +561,30 @@ public static
 	public const uint32 U_HIDE_OBSOLETE_API = 1;
 	public const uint32 U_HIDE_INTERNAL_API = 1;
 	public const uint32 U_NO_DEFAULT_INCLUDE_UTF_HEADERS = 1;
+	public const uint32 U_DEBUG = 1;
 	public const uint32 UCLN_NO_AUTO_CLEANUP = 1;
 	public const uint32 U_OVERRIDE_CXX_ALLOCATION = 1;
 	public const uint32 U_ENABLE_TRACING = 0;
 	public const uint32 UCONFIG_ENABLE_PLUGINS = 0;
 	public const uint32 U_ENABLE_DYLOAD = 1;
 	public const uint32 U_CHECK_DYLOAD = 1;
+	public const uint32 U_HAVE_LIB_SUFFIX = 1;
+	public const String U_LIB_SUFFIX_C_NAME_STRING = "";
+	public const uint32 UCONFIG_ONLY_COLLATION = 0;
+	public const uint32 UCONFIG_NO_BREAK_ITERATION = 1;
+	public const uint32 UCONFIG_NO_IDNA = 1;
+	public const uint32 UCONFIG_NO_FORMATTING = 1;
+	public const uint32 UCONFIG_NO_TRANSLITERATION = 1;
+	public const uint32 UCONFIG_NO_REGULAR_EXPRESSIONS = 1;
+	public const uint32 UCONFIG_NO_FILE_IO = 0;
+	public const uint32 UCONFIG_NO_CONVERSION = 0;
+	public const uint32 UCONFIG_NO_LEGACY_CONVERSION = 1;
+	public const uint32 UCONFIG_ONLY_HTML_CONVERSION = 0;
+	public const uint32 UCONFIG_NO_NORMALIZATION = 0;
+	public const uint32 UCONFIG_NO_COLLATION = 1;
+	public const uint32 UCONFIG_NO_SERVICE = 0;
+	public const uint32 UCONFIG_HAVE_PARSEALLINPUT = 1;
+	public const uint32 UCONFIG_NO_FILTERED_BREAK_ITERATION = 0;
 	public const uint32 U_PF_UNKNOWN = 0;
 	public const uint32 U_PF_WINDOWS = 1000;
 	public const uint32 U_PF_MINGW = 1800;
@@ -584,13 +604,36 @@ public static
 	public const uint32 U_PF_EMSCRIPTEN = 5010;
 	public const uint32 U_PF_OS390 = 9000;
 	public const uint32 U_PF_OS400 = 9400;
+	public const uint32 U_PLATFORM = 1800;
+	public const uint32 U_PLATFORM_USES_ONLY_WIN32_API = 1;
+	public const uint32 U_PLATFORM_HAS_WIN32_API = 1;
+	public const uint32 U_PLATFORM_IMPLEMENTS_POSIX = 0;
+	public const uint32 U_PLATFORM_IS_LINUX_BASED = 1;
+	public const uint32 U_PLATFORM_IS_DARWIN_BASED = 1;
+	public const uint32 U_HAVE_STDINT_H = 1;
+	public const uint32 U_HAVE_INTTYPES_H = 1;
+	public const uint32 U_GCC_MAJOR_MINOR = 0;
+	public const uint32 U_IS_BIG_ENDIAN = 0;
+	public const uint32 U_HAVE_PLACEMENT_NEW = 0;
+	public const uint32 U_HAVE_DEBUG_LOCATION_NEW = 1;
+	public const uint32 U_CPLUSPLUS_VERSION = 0;
 	public const uint32 U_ASCII_FAMILY = 0;
 	public const uint32 U_EBCDIC_FAMILY = 1;
+	public const uint32 U_CHARSET_FAMILY = 1;
+	public const uint32 U_CHARSET_IS_UTF8 = 1;
+	public const uint32 U_HAVE_WCHAR_H = 0;
+	public const uint32 U_SIZEOF_WCHAR_T = 1;
+	public const uint32 U_HAVE_WCSCPY = 0;
+	public const uint32 U_HAVE_CHAR16_T = 1;
 	public const uint32 U_DEFINE_FALSE_AND_TRUE = 1;
 	public const uint32 U_SIZEOF_UCHAR = 2;
+	public const uint32 U_CHAR16_IS_TYPEDEF = 1;
 	public const int32 U_SENTINEL = -1;
+	public const String U8_LEAD3_T1_BITS = " 00000000000000";
+	public const String U8_LEAD4_T1_BITS = "            ";
 	public const uint32 U8_MAX_LENGTH = 4;
 	public const uint32 U16_MAX_LENGTH = 2;
+	public const uint32 U_HIDE_OBSOLETE_UTF_OLD_H = 0;
 	public const uint32 UTF_SIZE = 16;
 	public const uint32 UTF8_ERROR_VALUE_1 = 21;
 	public const uint32 UTF8_ERROR_VALUE_2 = 159;
@@ -657,6 +700,27 @@ public static
 	public const uint32 U_SHAPE_SPACES_RELATIVE_TO_TEXT_MASK = 67108864;
 	public const uint32 U_SHAPE_TAIL_NEW_UNICODE = 134217728;
 	public const uint32 U_SHAPE_TAIL_TYPE_MASK = 134217728;
+	public const String ULOC_CHINESE = "zh";
+	public const String ULOC_ENGLISH = "en";
+	public const String ULOC_FRENCH = "fr";
+	public const String ULOC_GERMAN = "de";
+	public const String ULOC_ITALIAN = "it";
+	public const String ULOC_JAPANESE = "ja";
+	public const String ULOC_KOREAN = "ko";
+	public const String ULOC_SIMPLIFIED_CHINESE = "zh_CN";
+	public const String ULOC_TRADITIONAL_CHINESE = "zh_TW";
+	public const String ULOC_CANADA = "en_CA";
+	public const String ULOC_CANADA_FRENCH = "fr_CA";
+	public const String ULOC_CHINA = "zh_CN";
+	public const String ULOC_PRC = "zh_CN";
+	public const String ULOC_FRANCE = "fr_FR";
+	public const String ULOC_GERMANY = "de_DE";
+	public const String ULOC_ITALY = "it_IT";
+	public const String ULOC_JAPAN = "ja_JP";
+	public const String ULOC_KOREA = "ko_KR";
+	public const String ULOC_TAIWAN = "zh_TW";
+	public const String ULOC_UK = "en_GB";
+	public const String ULOC_US = "en_US";
 	public const uint32 ULOC_LANG_CAPACITY = 12;
 	public const uint32 ULOC_COUNTRY_CAPACITY = 4;
 	public const uint32 ULOC_FULLNAME_CAPACITY = 157;
@@ -666,9 +730,22 @@ public static
 	public const uint32 ULOC_KEYWORD_SEPARATOR_UNICODE = 64;
 	public const uint32 ULOC_KEYWORD_ASSIGN_UNICODE = 61;
 	public const uint32 ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE = 59;
+	public const String UCNV_SUB_STOP_ON_ILLEGAL = "i";
+	public const String UCNV_SKIP_STOP_ON_ILLEGAL = "i";
+	public const String UCNV_ESCAPE_JAVA = "J";
+	public const String UCNV_ESCAPE_C = "C";
+	public const String UCNV_ESCAPE_XML_DEC = "D";
+	public const String UCNV_ESCAPE_XML_HEX = "X";
+	public const String UCNV_ESCAPE_UNICODE = "U";
+	public const String UCNV_ESCAPE_CSS2 = "S";
 	public const uint32 UCNV_MAX_CONVERTER_NAME_LENGTH = 60;
 	public const uint32 UCNV_SI = 15;
 	public const uint32 UCNV_SO = 14;
+	public const String UCNV_OPTION_SEP_STRING = ",";
+	public const String UCNV_VALUE_SEP_STRING = "=";
+	public const String UCNV_LOCALE_OPTION_STRING = ",locale=";
+	public const String UCNV_VERSION_OPTION_STRING = ",version=";
+	public const String UCNV_SWAP_LFNL_OPTION_STRING = ",swaplfnl";
 	public const uint32 U_FOLD_CASE_DEFAULT = 0;
 	public const uint32 U_FOLD_CASE_EXCLUDE_SPECIAL_I = 1;
 	public const uint32 U_TITLECASE_WHOLE_STRING = 32;
@@ -695,24 +772,62 @@ public static
 	public const uint32 UBIDI_OUTPUT_REVERSE = 16;
 	public const uint32 USPREP_DEFAULT = 0;
 	public const uint32 USPREP_ALLOW_UNASSIGNED = 1;
+	public const String U_ICU_VERSION_BUNDLE = "icuver";
+	public const String U_ICU_DATA_KEY = "DataVersion";
+	public const String UCAL_UNKNOWN_ZONE_ID = "Etc/Unknown";
+	public const String UDAT_YEAR = "y";
+	public const String UDAT_QUARTER = "QQQQ";
+	public const String UDAT_ABBR_QUARTER = "QQQ";
+	public const String UDAT_YEAR_QUARTER = "yQQQQ";
+	public const String UDAT_YEAR_ABBR_QUARTER = "yQQQ";
+	public const String UDAT_MONTH = "MMMM";
+	public const String UDAT_ABBR_MONTH = "MMM";
+	public const String UDAT_NUM_MONTH = "M";
+	public const String UDAT_YEAR_MONTH = "yMMMM";
+	public const String UDAT_YEAR_ABBR_MONTH = "yMMM";
+	public const String UDAT_YEAR_NUM_MONTH = "yM";
+	public const String UDAT_DAY = "d";
+	public const String UDAT_YEAR_MONTH_DAY = "yMMMMd";
+	public const String UDAT_YEAR_ABBR_MONTH_DAY = "yMMMd";
+	public const String UDAT_YEAR_NUM_MONTH_DAY = "yMd";
+	public const String UDAT_WEEKDAY = "EEEE";
+	public const String UDAT_ABBR_WEEKDAY = "E";
+	public const String UDAT_YEAR_MONTH_WEEKDAY_DAY = "yMMMMEEEEd";
+	public const String UDAT_YEAR_ABBR_MONTH_WEEKDAY_DAY = "yMMMEd";
+	public const String UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY = "yMEd";
+	public const String UDAT_MONTH_DAY = "MMMMd";
+	public const String UDAT_ABBR_MONTH_DAY = "MMMd";
+	public const String UDAT_NUM_MONTH_DAY = "Md";
+	public const String UDAT_MONTH_WEEKDAY_DAY = "MMMMEEEEd";
+	public const String UDAT_ABBR_MONTH_WEEKDAY_DAY = "MMMEd";
+	public const String UDAT_NUM_MONTH_WEEKDAY_DAY = "MEd";
+	public const String UDAT_HOUR = "j";
+	public const String UDAT_HOUR24 = "H";
+	public const String UDAT_MINUTE = "m";
+	public const String UDAT_HOUR_MINUTE = "jm";
+	public const String UDAT_HOUR24_MINUTE = "Hm";
+	public const String UDAT_SECOND = "s";
+	public const String UDAT_HOUR_MINUTE_SECOND = "jms";
+	public const String UDAT_HOUR24_MINUTE_SECOND = "Hms";
+	public const String UDAT_MINUTE_SECOND = "ms";
+	public const String UDAT_LOCATION_TZ = "VVVV";
+	public const String UDAT_GENERIC_TZ = "vvvv";
+	public const String UDAT_ABBR_GENERIC_TZ = "v";
+	public const String UDAT_SPECIFIC_TZ = "zzzz";
+	public const String UDAT_ABBR_SPECIFIC_TZ = "z";
+	public const String UDAT_ABBR_UTC_TZ = "ZZZZ";
 	public const int32 USEARCH_DONE = -1;
 	public const uint32 U_HAVE_STD_STRING = 0;
+	public const uint32 UCONFIG_FORMAT_FASTPATHS_49 = 1;
+	public const uint32 U_PLATFORM_HAS_WINUWP_API = 0;
 	public const uint32 U_IOSTREAM_SOURCE = 199711;
+	public const uint32 U_HAVE_RVALUE_REFERENCES = 1;
+	public const uint32 U_USING_ICU_NAMESPACE = 1;
+	public const String U_ICUDATA_TYPE_LETTER = "e";
+	public const String U_UNICODE_VERSION = "8.0";
 	public const uint32 CANITER_SKIP_ZEROES = 1;
 	public const uint32 NUMSYS_NAME_CAPACITY = 8;
 	public const uint32 U_HAVE_RBNF = 0;
-	public const uint32 IME_CMODE_ALPHANUMERIC = 0;
-	public const uint32 IME_CMODE_NATIVE = 1;
-	public const uint32 IME_CMODE_CHINESE = 1;
-	public const uint32 IME_CMODE_HANGUL = 1;
-	public const uint32 IME_CMODE_JAPANESE = 1;
-	public const uint32 IME_CMODE_KATAKANA = 2;
-	public const uint32 IME_CMODE_LANGUAGE = 3;
-	public const uint32 IME_CMODE_FULLSHAPE = 8;
-	public const uint32 IME_CMODE_ROMAN = 16;
-	public const uint32 IME_CMODE_CHARCODE = 32;
-	public const uint32 IME_CMODE_HANJACONVERT = 64;
-	public const uint32 IME_CMODE_NATIVESYMBOL = 128;
 	public const uint32 MAX_MIMECP_NAME = 64;
 	public const uint32 MAX_MIMECSET_NAME = 50;
 	public const uint32 MAX_MIMEFACE_NAME = 32;
@@ -3862,7 +3977,7 @@ public enum SCRIPTCONTF : int32
 
 
 [AllowDuplicates]
-public enum tagMLCONVCHARF : int32
+public enum MLCONVCHAR : int32
 {
 	MLCONVCHARF_AUTODETECT = 1,
 	MLCONVCHARF_ENTITIZE = 2,
@@ -3875,7 +3990,7 @@ public enum tagMLCONVCHARF : int32
 
 
 [AllowDuplicates]
-public enum tagMLCPF : int32
+public enum MLCP : int32
 {
 	MLDETECTF_MAILNEWS = 1,
 	MLDETECTF_BROWSER = 2,
@@ -4390,27 +4505,27 @@ public struct SCRIPT_DIGITSUBSTITUTE
 }
 
 [CRepr]
-public struct opentype_feature_record
+public struct OPENTYPE_FEATURE_RECORD
 {
 	public uint32 tagFeature;
 	public int32 lParameter;
 }
 
 [CRepr]
-public struct textrange_properties
+public struct TEXTRANGE_PROPERTIES
 {
-	public opentype_feature_record* potfRecords;
+	public OPENTYPE_FEATURE_RECORD* potfRecords;
 	public int32 cotfRecords;
 }
 
 [CRepr]
-public struct script_charprop
+public struct SCRIPT_CHARPROP
 {
 	public uint16 _bitfield;
 }
 
 [CRepr]
-public struct script_glyphprop
+public struct SCRIPT_GLYPHPROP
 {
 	public SCRIPT_VISATTR sva;
 	public uint16 reserved;
@@ -4863,7 +4978,7 @@ public struct DetectEncodingInfo
 }
 
 [CRepr]
-public struct tagSCRIPFONTINFO
+public struct SCRIPTFONTINFO
 {
 	public int64 scripts;
 	public char16[32] wszFont;
@@ -5648,7 +5763,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResetFontMapping;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hDC, uint32 dwCodePages, char16 chSrc, HFONT* pFont) MapFont;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hDC, uint32* puiRanges, UNICODERANGE* pUranges) GetFontUnicodeRanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 sid, uint32 dwFlags, uint32* puiFonts, tagSCRIPFONTINFO* pScriptFont) GetScriptFontInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 sid, uint32 dwFlags, uint32* puiFonts, SCRIPTFONTINFO* pScriptFont) GetScriptFontInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage, uint8* pSid) CodePageToScriptID;
 	}
 
@@ -5663,7 +5778,7 @@ public static
 
 	public HRESULT GetFontUnicodeRanges(HDC hDC, uint32* puiRanges, UNICODERANGE* pUranges) mut => VT.[Friend]GetFontUnicodeRanges(&this, hDC, puiRanges, pUranges);
 
-	public HRESULT GetScriptFontInfo(uint8 sid, uint32 dwFlags, uint32* puiFonts, tagSCRIPFONTINFO* pScriptFont) mut => VT.[Friend]GetScriptFontInfo(&this, sid, dwFlags, puiFonts, pScriptFont);
+	public HRESULT GetScriptFontInfo(uint8 sid, uint32 dwFlags, uint32* puiFonts, SCRIPTFONTINFO* pScriptFont) mut => VT.[Friend]GetScriptFontInfo(&this, sid, dwFlags, puiFonts, pScriptFont);
 
 	public HRESULT CodePageToScriptID(uint32 uiCodePage, uint8* pSid) mut => VT.[Friend]CodePageToScriptID(&this, uiCodePage, pSid);
 }
@@ -6206,10 +6321,10 @@ public static
 	public static extern HRESULT ScriptApplyDigitSubstitution(SCRIPT_DIGITSUBSTITUTE* psds, SCRIPT_CONTROL* psc, SCRIPT_STATE* pss);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptShapeOpenType(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, int32* rcRangeChars, textrange_properties** rpRangeProperties, int32 cRanges, char16* pwcChars, int32 cChars, int32 cMaxGlyphs, uint16* pwLogClust, script_charprop* pCharProps, uint16* pwOutGlyphs, script_glyphprop* pOutGlyphProps, int32* pcGlyphs);
+	public static extern HRESULT ScriptShapeOpenType(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, int32* rcRangeChars, TEXTRANGE_PROPERTIES** rpRangeProperties, int32 cRanges, char16* pwcChars, int32 cChars, int32 cMaxGlyphs, uint16* pwLogClust, SCRIPT_CHARPROP* pCharProps, uint16* pwOutGlyphs, SCRIPT_GLYPHPROP* pOutGlyphProps, int32* pcGlyphs);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ScriptPlaceOpenType(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, int32* rcRangeChars, textrange_properties** rpRangeProperties, int32 cRanges, char16* pwcChars, uint16* pwLogClust, script_charprop* pCharProps, int32 cChars, uint16* pwGlyphs, script_glyphprop* pGlyphProps, int32 cGlyphs, int32* piAdvance, GOFFSET* pGoffset, ABC* pABC);
+	public static extern HRESULT ScriptPlaceOpenType(HDC hdc, void** psc, SCRIPT_ANALYSIS* psa, uint32 tagScript, uint32 tagLangSys, int32* rcRangeChars, TEXTRANGE_PROPERTIES** rpRangeProperties, int32 cRanges, char16* pwcChars, uint16* pwLogClust, SCRIPT_CHARPROP* pCharProps, int32 cChars, uint16* pwGlyphs, SCRIPT_GLYPHPROP* pGlyphProps, int32 cGlyphs, int32* piAdvance, GOFFSET* pGoffset, ABC* pABC);
 
 	[Import("USP10.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ScriptItemizeOpenType(char16* pwcInChars, int32 cInChars, int32 cMaxItems, SCRIPT_CONTROL* psControl, SCRIPT_STATE* psState, SCRIPT_ITEM* pItems, uint32* pScriptTags, int32* pcItems);

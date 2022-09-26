@@ -1,5 +1,5 @@
-using Win32.Foundation;
 using Win32.NetworkManagement.Ndis;
+using Win32.Foundation;
 using Win32.Networking.WinSock;
 using Win32.System.WindowsProgramming;
 using Win32.System.IO;
@@ -10,29 +10,6 @@ namespace Win32.NetworkManagement.IpHelper;
 #region Constants
 public static
 {
-	public const uint32 NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED = 1;
-	public const uint32 NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED = 2;
-	public const uint32 NET_IF_OPER_STATUS_DORMANT_PAUSED = 4;
-	public const uint32 NET_IF_OPER_STATUS_DORMANT_LOW_POWER = 8;
-	public const uint32 NET_IF_OID_IF_ALIAS = 1;
-	public const uint32 NET_IF_OID_COMPARTMENT_ID = 2;
-	public const uint32 NET_IF_OID_NETWORK_GUID = 3;
-	public const uint32 NET_IF_OID_IF_ENTRY = 4;
-	public const uint32 NET_SITEID_UNSPECIFIED = 0;
-	public const uint32 NET_SITEID_MAXUSER = 134217727;
-	public const uint32 NET_SITEID_MAXSYSTEM = 268435455;
-	public const uint32 NET_IFLUID_UNSPECIFIED = 0;
-	public const uint32 NIIF_HARDWARE_INTERFACE = 1;
-	public const uint32 NIIF_FILTER_INTERFACE = 2;
-	public const uint32 NIIF_NDIS_RESERVED1 = 4;
-	public const uint32 NIIF_NDIS_RESERVED2 = 8;
-	public const uint32 NIIF_NDIS_RESERVED3 = 16;
-	public const uint32 NIIF_NDIS_WDM_INTERFACE = 32;
-	public const uint32 NIIF_NDIS_ENDPOINT_INTERFACE = 64;
-	public const uint32 NIIF_NDIS_ISCSI_INTERFACE = 128;
-	public const uint32 NIIF_NDIS_RESERVED4 = 256;
-	public const uint32 IF_MAX_STRING_SIZE = 256;
-	public const uint32 IF_MAX_PHYS_ADDRESS_LENGTH = 32;
 	public const uint32 ANY_SIZE = 1;
 	public const uint32 MAXLEN_PHYSADDR = 8;
 	public const uint32 MAXLEN_IFDESCR = 256;
@@ -492,15 +469,6 @@ typealias HIFTIMESTAMPCHANGE = int;
 #region Enums
 
 [AllowDuplicates]
-public enum ADDRESS_FAMILY : uint32
-{
-	AF_INET = 2,
-	AF_INET6 = 23,
-	AF_UNSPEC = 0,
-}
-
-
-[AllowDuplicates]
 public enum GET_ADAPTERS_ADDRESSES_FLAGS : uint32
 {
 	GAA_FLAG_SKIP_UNICAST = 1,
@@ -538,121 +506,6 @@ public enum INTERNAL_IF_OPER_STATUS : int32
 	IF_OPER_STATUS_CONNECTING = 3,
 	IF_OPER_STATUS_CONNECTED = 4,
 	IF_OPER_STATUS_OPERATIONAL = 5,
-}
-
-
-[AllowDuplicates]
-public enum NET_IF_OPER_STATUS : int32
-{
-	NET_IF_OPER_STATUS_UP = 1,
-	NET_IF_OPER_STATUS_DOWN = 2,
-	NET_IF_OPER_STATUS_TESTING = 3,
-	NET_IF_OPER_STATUS_UNKNOWN = 4,
-	NET_IF_OPER_STATUS_DORMANT = 5,
-	NET_IF_OPER_STATUS_NOT_PRESENT = 6,
-	NET_IF_OPER_STATUS_LOWER_LAYER_DOWN = 7,
-}
-
-
-[AllowDuplicates]
-public enum NET_IF_ADMIN_STATUS : int32
-{
-	NET_IF_ADMIN_STATUS_UP = 1,
-	NET_IF_ADMIN_STATUS_DOWN = 2,
-	NET_IF_ADMIN_STATUS_TESTING = 3,
-}
-
-
-[AllowDuplicates]
-public enum NET_IF_RCV_ADDRESS_TYPE : int32
-{
-	NET_IF_RCV_ADDRESS_TYPE_OTHER = 1,
-	NET_IF_RCV_ADDRESS_TYPE_VOLATILE = 2,
-	NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE = 3,
-}
-
-
-[AllowDuplicates]
-public enum NET_IF_CONNECTION_TYPE : int32
-{
-	NET_IF_CONNECTION_DEDICATED = 1,
-	NET_IF_CONNECTION_PASSIVE = 2,
-	NET_IF_CONNECTION_DEMAND = 3,
-	NET_IF_CONNECTION_MAXIMUM = 4,
-}
-
-
-[AllowDuplicates]
-public enum TUNNEL_TYPE : int32
-{
-	TUNNEL_TYPE_NONE = 0,
-	TUNNEL_TYPE_OTHER = 1,
-	TUNNEL_TYPE_DIRECT = 2,
-	TUNNEL_TYPE_6TO4 = 11,
-	TUNNEL_TYPE_ISATAP = 13,
-	TUNNEL_TYPE_TEREDO = 14,
-	TUNNEL_TYPE_IPHTTPS = 15,
-}
-
-
-[AllowDuplicates]
-public enum NET_IF_ACCESS_TYPE : int32
-{
-	NET_IF_ACCESS_LOOPBACK = 1,
-	NET_IF_ACCESS_BROADCAST = 2,
-	NET_IF_ACCESS_POINT_TO_POINT = 3,
-	NET_IF_ACCESS_POINT_TO_MULTI_POINT = 4,
-	NET_IF_ACCESS_MAXIMUM = 5,
-}
-
-
-[AllowDuplicates]
-public enum NET_IF_DIRECTION_TYPE : int32
-{
-	NET_IF_DIRECTION_SENDRECEIVE = 0,
-	NET_IF_DIRECTION_SENDONLY = 1,
-	NET_IF_DIRECTION_RECEIVEONLY = 2,
-	NET_IF_DIRECTION_MAXIMUM = 3,
-}
-
-
-[AllowDuplicates]
-public enum NET_IF_MEDIA_CONNECT_STATE : int32
-{
-	MediaConnectStateUnknown = 0,
-	MediaConnectStateConnected = 1,
-	MediaConnectStateDisconnected = 2,
-}
-
-
-[AllowDuplicates]
-public enum NET_IF_MEDIA_DUPLEX_STATE : int32
-{
-	MediaDuplexStateUnknown = 0,
-	MediaDuplexStateHalf = 1,
-	MediaDuplexStateFull = 2,
-}
-
-
-[AllowDuplicates]
-public enum IF_ADMINISTRATIVE_STATE : int32
-{
-	IF_ADMINISTRATIVE_DISABLED = 0,
-	IF_ADMINISTRATIVE_ENABLED = 1,
-	IF_ADMINISTRATIVE_DEMANDDIAL = 2,
-}
-
-
-[AllowDuplicates]
-public enum IF_OPER_STATUS : int32
-{
-	IfOperStatusUp = 1,
-	IfOperStatusDown = 2,
-	IfOperStatusTesting = 3,
-	IfOperStatusUnknown = 4,
-	IfOperStatusDormant = 5,
-	IfOperStatusNotPresent = 6,
-	IfOperStatusLowerLayerDown = 7,
 }
 
 
@@ -938,19 +791,9 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 #endregion
 
 #region Structs
-[CRepr]
-public struct ip_option_information
-{
-	public uint8 Ttl;
-	public uint8 Tos;
-	public uint8 Flags;
-	public uint8 OptionsSize;
-	public uint8* OptionsData;
-}
-
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
-public struct ip_option_information32
+public struct IP_OPTION_INFORMATION32
 {
 	public uint8 Ttl;
 	public uint8 Tos;
@@ -960,21 +803,9 @@ public struct ip_option_information32
 }
 #endif
 
-[CRepr]
-public struct icmp_echo_reply
-{
-	public uint32 Address;
-	public uint32 Status;
-	public uint32 RoundTripTime;
-	public uint16 DataSize;
-	public uint16 Reserved;
-	public void* Data;
-	public ip_option_information Options;
-}
-
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
-public struct icmp_echo_reply32
+public struct ICMP_ECHO_REPLY32
 {
 	public uint32 Address;
 	public uint32 Status;
@@ -982,9 +813,31 @@ public struct icmp_echo_reply32
 	public uint16 DataSize;
 	public uint16 Reserved;
 	public void* Data;
-	public ip_option_information32 Options;
+	public IP_OPTION_INFORMATION32 Options;
 }
 #endif
+
+[CRepr]
+public struct IP_OPTION_INFORMATION
+{
+	public uint8 Ttl;
+	public uint8 Tos;
+	public uint8 Flags;
+	public uint8 OptionsSize;
+	public uint8* OptionsData;
+}
+
+[CRepr]
+public struct ICMP_ECHO_REPLY
+{
+	public uint32 Address;
+	public uint32 Status;
+	public uint32 RoundTripTime;
+	public uint16 DataSize;
+	public uint16 Reserved;
+	public void* Data;
+	public IP_OPTION_INFORMATION Options;
+}
 
 [CRepr, Packed(1)]
 public struct IPV6_ADDRESS_EX
@@ -996,7 +849,7 @@ public struct IPV6_ADDRESS_EX
 }
 
 [CRepr]
-public struct icmpv6_echo_reply_lh
+public struct ICMPV6_ECHO_REPLY_LH
 {
 	public IPV6_ADDRESS_EX Address;
 	public uint32 Status;
@@ -1004,14 +857,14 @@ public struct icmpv6_echo_reply_lh
 }
 
 [CRepr]
-public struct arp_send_reply
+public struct ARP_SEND_REPLY
 {
 	public uint32 DestAddress;
 	public uint32 SrcAddress;
 }
 
 [CRepr]
-public struct tcp_reserve_port_range
+public struct TCP_RESERVE_PORT_RANGE
 {
 	public uint16 UpperRange;
 	public uint16 LowerRange;
@@ -1055,92 +908,6 @@ public struct IP_MCAST_COUNTER_INFO
 	public uint64 OutMcastOctets;
 	public uint64 InMcastPkts;
 	public uint64 OutMcastPkts;
-}
-
-[CRepr]
-public struct NET_IF_RCV_ADDRESS_LH
-{
-	public NET_IF_RCV_ADDRESS_TYPE ifRcvAddressType;
-	public uint16 ifRcvAddressLength;
-	public uint16 ifRcvAddressOffset;
-}
-
-[CRepr]
-public struct NET_IF_ALIAS_LH
-{
-	public uint16 ifAliasLength;
-	public uint16 ifAliasOffset;
-}
-
-[CRepr, Union]
-public struct NET_LUID_LH
-{
-	[CRepr]
-	public struct _Info_e__Struct
-	{
-		public uint64 _bitfield;
-	}
-	public uint64 Value;
-	public _Info_e__Struct Info;
-}
-
-[CRepr]
-public struct NET_PHYSICAL_LOCATION_LH
-{
-	public uint32 BusNumber;
-	public uint32 SlotNumber;
-	public uint32 FunctionNumber;
-}
-
-[CRepr]
-public struct IF_COUNTED_STRING_LH
-{
-	public uint16 Length;
-	public char16[257] String;
-}
-
-[CRepr]
-public struct IF_PHYSICAL_ADDRESS_LH
-{
-	public uint16 Length;
-	public uint8[32] Address;
-}
-
-[CRepr]
-public struct NDIS_INTERFACE_INFORMATION
-{
-	public NET_IF_OPER_STATUS ifOperStatus;
-	public uint32 ifOperStatusFlags;
-	public NET_IF_MEDIA_CONNECT_STATE MediaConnectState;
-	public NET_IF_MEDIA_DUPLEX_STATE MediaDuplexState;
-	public uint32 ifMtu;
-	public BOOLEAN ifPromiscuousMode;
-	public BOOLEAN ifDeviceWakeUpEnable;
-	public uint64 XmitLinkSpeed;
-	public uint64 RcvLinkSpeed;
-	public uint64 ifLastChange;
-	public uint64 ifCounterDiscontinuityTime;
-	public uint64 ifInUnknownProtos;
-	public uint64 ifInDiscards;
-	public uint64 ifInErrors;
-	public uint64 ifHCInOctets;
-	public uint64 ifHCInUcastPkts;
-	public uint64 ifHCInMulticastPkts;
-	public uint64 ifHCInBroadcastPkts;
-	public uint64 ifHCOutOctets;
-	public uint64 ifHCOutUcastPkts;
-	public uint64 ifHCOutMulticastPkts;
-	public uint64 ifHCOutBroadcastPkts;
-	public uint64 ifOutErrors;
-	public uint64 ifOutDiscards;
-	public uint64 ifHCInUcastOctets;
-	public uint64 ifHCInMulticastOctets;
-	public uint64 ifHCInBroadcastOctets;
-	public uint64 ifHCOutUcastOctets;
-	public uint64 ifHCOutMulticastOctets;
-	public uint64 ifHCOutBroadcastOctets;
-	public uint32 CompartmentId;
-	public uint32 SupportedStatistics;
 }
 
 [CRepr]
@@ -2879,7 +2646,7 @@ public struct FIXED_INFO_W2KSP1
 }
 
 [CRepr]
-public struct ip_interface_name_info_w2ksp1
+public struct IP_INTERFACE_NAME_INFO_W2KSP1
 {
 	public uint32 Index;
 	public uint32 MediaType;
@@ -3479,16 +3246,16 @@ public static
 	public static extern BOOL IcmpCloseHandle(IcmpHandle IcmpHandle);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 IcmpSendEcho(IcmpHandle IcmpHandle, uint32 DestinationAddress, void* RequestData, uint16 RequestSize, ip_option_information* RequestOptions, void* ReplyBuffer, uint32 ReplySize, uint32 Timeout);
+	public static extern uint32 IcmpSendEcho(IcmpHandle IcmpHandle, uint32 DestinationAddress, void* RequestData, uint16 RequestSize, IP_OPTION_INFORMATION* RequestOptions, void* ReplyBuffer, uint32 ReplySize, uint32 Timeout);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 IcmpSendEcho2(IcmpHandle IcmpHandle, HANDLE Event, PIO_APC_ROUTINE ApcRoutine, void* ApcContext, uint32 DestinationAddress, void* RequestData, uint16 RequestSize, ip_option_information* RequestOptions, void* ReplyBuffer, uint32 ReplySize, uint32 Timeout);
+	public static extern uint32 IcmpSendEcho2(IcmpHandle IcmpHandle, HANDLE Event, PIO_APC_ROUTINE ApcRoutine, void* ApcContext, uint32 DestinationAddress, void* RequestData, uint16 RequestSize, IP_OPTION_INFORMATION* RequestOptions, void* ReplyBuffer, uint32 ReplySize, uint32 Timeout);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 IcmpSendEcho2Ex(IcmpHandle IcmpHandle, HANDLE Event, PIO_APC_ROUTINE ApcRoutine, void* ApcContext, uint32 SourceAddress, uint32 DestinationAddress, void* RequestData, uint16 RequestSize, ip_option_information* RequestOptions, void* ReplyBuffer, uint32 ReplySize, uint32 Timeout);
+	public static extern uint32 IcmpSendEcho2Ex(IcmpHandle IcmpHandle, HANDLE Event, PIO_APC_ROUTINE ApcRoutine, void* ApcContext, uint32 SourceAddress, uint32 DestinationAddress, void* RequestData, uint16 RequestSize, IP_OPTION_INFORMATION* RequestOptions, void* ReplyBuffer, uint32 ReplySize, uint32 Timeout);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 Icmp6SendEcho2(IcmpHandle IcmpHandle, HANDLE Event, PIO_APC_ROUTINE ApcRoutine, void* ApcContext, SOCKADDR_IN6* SourceAddress, SOCKADDR_IN6* DestinationAddress, void* RequestData, uint16 RequestSize, ip_option_information* RequestOptions, void* ReplyBuffer, uint32 ReplySize, uint32 Timeout);
+	public static extern uint32 Icmp6SendEcho2(IcmpHandle IcmpHandle, HANDLE Event, PIO_APC_ROUTINE ApcRoutine, void* ApcContext, SOCKADDR_IN6* SourceAddress, SOCKADDR_IN6* DestinationAddress, void* RequestData, uint16 RequestSize, IP_OPTION_INFORMATION* RequestOptions, void* ReplyBuffer, uint32 ReplySize, uint32 Timeout);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 IcmpParseReplies(void* ReplyBuffer, uint32 ReplySize);
@@ -3644,7 +3411,7 @@ public static
 	public static extern uint32 GetUniDirectionalAdapterInfo(IP_UNIDIRECTIONAL_ADAPTER_ADDRESS* pIPIfInfo, uint32* dwOutBufLen);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NhpAllocateAndGetInterfaceInfoFromStack(ip_interface_name_info_w2ksp1** ppTable, uint32* pdwCount, BOOL bOrder, HANDLE hHeap, uint32 dwFlags);
+	public static extern uint32 NhpAllocateAndGetInterfaceInfoFromStack(IP_INTERFACE_NAME_INFO_W2KSP1** ppTable, uint32* pdwCount, BOOL bOrder, HANDLE hHeap, uint32 dwFlags);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetBestInterface(uint32 dwDestAddr, uint32* pdwBestIfIndex);

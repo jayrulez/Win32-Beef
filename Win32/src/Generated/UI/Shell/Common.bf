@@ -110,7 +110,7 @@ public struct SHITEMID
 	private uint8[ANYSIZE_ARRAY] abID_impl;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct ITEMIDLIST
 {
 	public SHITEMID mkid;

@@ -1443,14 +1443,14 @@ public struct VDS_ASYNC_OUTPUT
 			public uint64 ullReclaimedBytes;
 		}
 		[CRepr]
-		public struct _ct
-		{
-			public IUnknown* pTargetUnk;
-		}
-		[CRepr]
 		public struct _cv
 		{
 			public IUnknown* pVolumeUnk;
+		}
+		[CRepr]
+		public struct _ct
+		{
+			public IUnknown* pTargetUnk;
 		}
 		public _cp cp;
 		public _cv cv;

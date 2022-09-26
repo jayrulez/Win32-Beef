@@ -3,6 +3,7 @@ using Win32.System.Diagnostics.Debug;
 using Win32.System.Com;
 using Win32.Graphics.Gdi;
 using Win32.Security;
+using Win32.System.JobObjects;
 using System;
 
 namespace Win32.System.SystemServices;
@@ -569,6 +570,7 @@ public static
 	public const uint32 RUNTIME_FUNCTION_INDIRECT = 1;
 	public const uint32 UNW_FLAG_NO_EPILOGUE = 2147483648;
 	public const uint32 UNWIND_CHAIN_LIMIT = 32;
+	public const String OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME = "OutOfProcessFunctionTableCallback";
 	public const int32 CONTEXT_ARM = 2097152;
 	public const uint32 INITIAL_CPSR = 16;
 	public const uint32 INITIAL_FPSCR = 0;
@@ -606,9 +608,6 @@ public static
 	public const uint32 EXCEPTION_COLLIDED_UNWIND = 64;
 	public const uint32 EXCEPTION_SOFTWARE_ORIGINATE = 128;
 	public const uint32 EXCEPTION_MAXIMUM_PARAMETERS = 15;
-	public const uint32 DELETE = 65536;
-	public const uint32 WRITE_DAC = 262144;
-	public const uint32 WRITE_OWNER = 524288;
 	public const uint32 ACCESS_SYSTEM_SECURITY = 16777216;
 	public const uint32 MAXIMUM_ALLOWED = 33554432;
 	public const uint32 GENERIC_READ = 2147483648;
@@ -888,6 +887,10 @@ public static
 	public const uint32 ACCESS_PROPERTY_GUID = 2;
 	public const uint32 ACCESS_MAX_LEVEL = 4;
 	public const uint32 AUDIT_ALLOW_NO_PRIVILEGE = 1;
+	public const String ACCESS_DS_SOURCE_A = "DS";
+	public const String ACCESS_DS_SOURCE_W = "DS";
+	public const String ACCESS_DS_OBJECT_TYPE_NAME_A = "Directory Service Object";
+	public const String ACCESS_DS_OBJECT_TYPE_NAME_W = "Directory Service Object";
 	public const uint32 PRIVILEGE_SET_ALL_NECESSARY = 1;
 	public const uint32 ACCESS_REASON_TYPE_MASK = 16711680;
 	public const uint32 ACCESS_REASON_DATA_MASK = 65535;
@@ -899,6 +902,48 @@ public static
 	public const uint32 SE_SECURITY_DESCRIPTOR_VALID_FLAGS = 7;
 	public const uint32 SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING = 8;
 	public const uint32 SE_ACCESS_CHECK_VALID_FLAGS = 8;
+	public const String SE_CREATE_TOKEN_NAME = "SeCreateTokenPrivilege";
+	public const String SE_ASSIGNPRIMARYTOKEN_NAME = "SeAssignPrimaryTokenPrivilege";
+	public const String SE_LOCK_MEMORY_NAME = "SeLockMemoryPrivilege";
+	public const String SE_INCREASE_QUOTA_NAME = "SeIncreaseQuotaPrivilege";
+	public const String SE_UNSOLICITED_INPUT_NAME = "SeUnsolicitedInputPrivilege";
+	public const String SE_MACHINE_ACCOUNT_NAME = "SeMachineAccountPrivilege";
+	public const String SE_TCB_NAME = "SeTcbPrivilege";
+	public const String SE_SECURITY_NAME = "SeSecurityPrivilege";
+	public const String SE_TAKE_OWNERSHIP_NAME = "SeTakeOwnershipPrivilege";
+	public const String SE_LOAD_DRIVER_NAME = "SeLoadDriverPrivilege";
+	public const String SE_SYSTEM_PROFILE_NAME = "SeSystemProfilePrivilege";
+	public const String SE_SYSTEMTIME_NAME = "SeSystemtimePrivilege";
+	public const String SE_PROF_SINGLE_PROCESS_NAME = "SeProfileSingleProcessPrivilege";
+	public const String SE_INC_BASE_PRIORITY_NAME = "SeIncreaseBasePriorityPrivilege";
+	public const String SE_CREATE_PAGEFILE_NAME = "SeCreatePagefilePrivilege";
+	public const String SE_CREATE_PERMANENT_NAME = "SeCreatePermanentPrivilege";
+	public const String SE_BACKUP_NAME = "SeBackupPrivilege";
+	public const String SE_RESTORE_NAME = "SeRestorePrivilege";
+	public const String SE_SHUTDOWN_NAME = "SeShutdownPrivilege";
+	public const String SE_DEBUG_NAME = "SeDebugPrivilege";
+	public const String SE_AUDIT_NAME = "SeAuditPrivilege";
+	public const String SE_SYSTEM_ENVIRONMENT_NAME = "SeSystemEnvironmentPrivilege";
+	public const String SE_CHANGE_NOTIFY_NAME = "SeChangeNotifyPrivilege";
+	public const String SE_REMOTE_SHUTDOWN_NAME = "SeRemoteShutdownPrivilege";
+	public const String SE_UNDOCK_NAME = "SeUndockPrivilege";
+	public const String SE_SYNC_AGENT_NAME = "SeSyncAgentPrivilege";
+	public const String SE_ENABLE_DELEGATION_NAME = "SeEnableDelegationPrivilege";
+	public const String SE_MANAGE_VOLUME_NAME = "SeManageVolumePrivilege";
+	public const String SE_IMPERSONATE_NAME = "SeImpersonatePrivilege";
+	public const String SE_CREATE_GLOBAL_NAME = "SeCreateGlobalPrivilege";
+	public const String SE_TRUSTED_CREDMAN_ACCESS_NAME = "SeTrustedCredManAccessPrivilege";
+	public const String SE_RELABEL_NAME = "SeRelabelPrivilege";
+	public const String SE_INC_WORKING_SET_NAME = "SeIncreaseWorkingSetPrivilege";
+	public const String SE_TIME_ZONE_NAME = "SeTimeZonePrivilege";
+	public const String SE_CREATE_SYMBOLIC_LINK_NAME = "SeCreateSymbolicLinkPrivilege";
+	public const String SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME = "SeDelegateSessionUserImpersonatePrivilege";
+	public const String SE_ACTIVATE_AS_USER_CAPABILITY = "activateAsUser";
+	public const String SE_CONSTRAINED_IMPERSONATION_CAPABILITY = "constrainedImpersonation";
+	public const String SE_SESSION_IMPERSONATION_CAPABILITY = "sessionImpersonation";
+	public const String SE_MUMA_CAPABILITY = "muma";
+	public const String SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY = "developmentModeNetwork";
+	public const String SE_PERMISSIVE_LEARNING_MODE_CAPABILITY = "permissiveLearningMode";
 	public const uint32 POLICY_AUDIT_SUBCATEGORY_COUNT = 59;
 	public const uint32 TOKEN_SOURCE_LENGTH = 8;
 	public const uint32 CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID = 0;
@@ -970,15 +1015,9 @@ public static
 	public const uint32 JOB_OBJECT_MSG_MAXIMUM = 13;
 	public const uint32 JOB_OBJECT_UILIMIT_ALL = 255;
 	public const uint32 JOB_OBJECT_UI_VALID_FLAGS = 255;
-	public const uint32 JOB_OBJECT_CPU_RATE_CONTROL_MIN_MAX_RATE = 16;
-	public const uint32 JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS = 31;
 	public const uint32 MEMORY_PARTITION_QUERY_ACCESS = 1;
 	public const uint32 MEMORY_PARTITION_MODIFY_ACCESS = 2;
-	public const uint32 EVENT_MODIFY_STATE = 2;
 	public const uint32 MUTANT_QUERY_STATE = 1;
-	public const uint32 SEMAPHORE_MODIFY_STATE = 2;
-	public const uint32 TIMER_QUERY_STATE = 1;
-	public const uint32 TIMER_MODIFY_STATE = 2;
 	public const uint32 TIME_ZONE_ID_UNKNOWN = 0;
 	public const uint32 TIME_ZONE_ID_STANDARD = 1;
 	public const uint32 TIME_ZONE_ID_DAYLIGHT = 2;
@@ -1136,50 +1175,50 @@ public static
 	public const uint32 IO_REPARSE_TAG_RESERVED_ONE = 1;
 	public const uint32 IO_REPARSE_TAG_RESERVED_TWO = 2;
 	public const uint32 IO_REPARSE_TAG_RESERVED_RANGE = 2;
-	public const int32 IO_REPARSE_TAG_MOUNT_POINT = -1610612733;
-	public const int32 IO_REPARSE_TAG_HSM = -1073741820;
-	public const int32 IO_REPARSE_TAG_HSM2 = -2147483642;
-	public const int32 IO_REPARSE_TAG_SIS = -2147483641;
-	public const int32 IO_REPARSE_TAG_WIM = -2147483640;
-	public const int32 IO_REPARSE_TAG_CSV = -2147483639;
-	public const int32 IO_REPARSE_TAG_DFS = -2147483638;
-	public const int32 IO_REPARSE_TAG_SYMLINK = -1610612724;
-	public const int32 IO_REPARSE_TAG_DFSR = -2147483630;
-	public const int32 IO_REPARSE_TAG_DEDUP = -2147483629;
-	public const int32 IO_REPARSE_TAG_NFS = -2147483628;
-	public const int32 IO_REPARSE_TAG_FILE_PLACEHOLDER = -2147483627;
-	public const int32 IO_REPARSE_TAG_WOF = -2147483625;
-	public const int32 IO_REPARSE_TAG_WCI = -2147483624;
-	public const int32 IO_REPARSE_TAG_WCI_1 = -1879044072;
-	public const int32 IO_REPARSE_TAG_GLOBAL_REPARSE = -1610612711;
-	public const int32 IO_REPARSE_TAG_CLOUD = -1879048166;
-	public const int32 IO_REPARSE_TAG_CLOUD_1 = -1879044070;
-	public const int32 IO_REPARSE_TAG_CLOUD_2 = -1879039974;
-	public const int32 IO_REPARSE_TAG_CLOUD_3 = -1879035878;
-	public const int32 IO_REPARSE_TAG_CLOUD_4 = -1879031782;
-	public const int32 IO_REPARSE_TAG_CLOUD_5 = -1879027686;
-	public const int32 IO_REPARSE_TAG_CLOUD_6 = -1879023590;
-	public const int32 IO_REPARSE_TAG_CLOUD_7 = -1879019494;
-	public const int32 IO_REPARSE_TAG_CLOUD_8 = -1879015398;
-	public const int32 IO_REPARSE_TAG_CLOUD_9 = -1879011302;
-	public const int32 IO_REPARSE_TAG_CLOUD_A = -1879007206;
-	public const int32 IO_REPARSE_TAG_CLOUD_B = -1879003110;
-	public const int32 IO_REPARSE_TAG_CLOUD_C = -1878999014;
-	public const int32 IO_REPARSE_TAG_CLOUD_D = -1878994918;
-	public const int32 IO_REPARSE_TAG_CLOUD_E = -1878990822;
-	public const int32 IO_REPARSE_TAG_CLOUD_F = -1878986726;
-	public const int32 IO_REPARSE_TAG_CLOUD_MASK = 61440;
-	public const int32 IO_REPARSE_TAG_APPEXECLINK = -2147483621;
-	public const int32 IO_REPARSE_TAG_PROJFS = -1879048164;
-	public const int32 IO_REPARSE_TAG_STORAGE_SYNC = -2147483618;
-	public const int32 IO_REPARSE_TAG_WCI_TOMBSTONE = -1610612705;
-	public const int32 IO_REPARSE_TAG_UNHANDLED = -2147483616;
-	public const int32 IO_REPARSE_TAG_ONEDRIVE = -2147483615;
-	public const int32 IO_REPARSE_TAG_PROJFS_TOMBSTONE = -1610612702;
-	public const int32 IO_REPARSE_TAG_AF_UNIX = -2147483613;
-	public const int32 IO_REPARSE_TAG_WCI_LINK = -1610612697;
-	public const int32 IO_REPARSE_TAG_WCI_LINK_1 = -1610608601;
-	public const int32 IO_REPARSE_TAG_DATALESS_CIM = -1610612696;
+	public const uint32 IO_REPARSE_TAG_MOUNT_POINT = 2684354563;
+	public const uint32 IO_REPARSE_TAG_HSM = 3221225476;
+	public const uint32 IO_REPARSE_TAG_HSM2 = 2147483654;
+	public const uint32 IO_REPARSE_TAG_SIS = 2147483655;
+	public const uint32 IO_REPARSE_TAG_WIM = 2147483656;
+	public const uint32 IO_REPARSE_TAG_CSV = 2147483657;
+	public const uint32 IO_REPARSE_TAG_DFS = 2147483658;
+	public const uint32 IO_REPARSE_TAG_SYMLINK = 2684354572;
+	public const uint32 IO_REPARSE_TAG_DFSR = 2147483666;
+	public const uint32 IO_REPARSE_TAG_DEDUP = 2147483667;
+	public const uint32 IO_REPARSE_TAG_NFS = 2147483668;
+	public const uint32 IO_REPARSE_TAG_FILE_PLACEHOLDER = 2147483669;
+	public const uint32 IO_REPARSE_TAG_WOF = 2147483671;
+	public const uint32 IO_REPARSE_TAG_WCI = 2147483672;
+	public const uint32 IO_REPARSE_TAG_WCI_1 = 2415923224;
+	public const uint32 IO_REPARSE_TAG_GLOBAL_REPARSE = 2684354585;
+	public const uint32 IO_REPARSE_TAG_CLOUD = 2415919130;
+	public const uint32 IO_REPARSE_TAG_CLOUD_1 = 2415923226;
+	public const uint32 IO_REPARSE_TAG_CLOUD_2 = 2415927322;
+	public const uint32 IO_REPARSE_TAG_CLOUD_3 = 2415931418;
+	public const uint32 IO_REPARSE_TAG_CLOUD_4 = 2415935514;
+	public const uint32 IO_REPARSE_TAG_CLOUD_5 = 2415939610;
+	public const uint32 IO_REPARSE_TAG_CLOUD_6 = 2415943706;
+	public const uint32 IO_REPARSE_TAG_CLOUD_7 = 2415947802;
+	public const uint32 IO_REPARSE_TAG_CLOUD_8 = 2415951898;
+	public const uint32 IO_REPARSE_TAG_CLOUD_9 = 2415955994;
+	public const uint32 IO_REPARSE_TAG_CLOUD_A = 2415960090;
+	public const uint32 IO_REPARSE_TAG_CLOUD_B = 2415964186;
+	public const uint32 IO_REPARSE_TAG_CLOUD_C = 2415968282;
+	public const uint32 IO_REPARSE_TAG_CLOUD_D = 2415972378;
+	public const uint32 IO_REPARSE_TAG_CLOUD_E = 2415976474;
+	public const uint32 IO_REPARSE_TAG_CLOUD_F = 2415980570;
+	public const uint32 IO_REPARSE_TAG_CLOUD_MASK = 61440;
+	public const uint32 IO_REPARSE_TAG_APPEXECLINK = 2147483675;
+	public const uint32 IO_REPARSE_TAG_PROJFS = 2415919132;
+	public const uint32 IO_REPARSE_TAG_STORAGE_SYNC = 2147483678;
+	public const uint32 IO_REPARSE_TAG_WCI_TOMBSTONE = 2684354591;
+	public const uint32 IO_REPARSE_TAG_UNHANDLED = 2147483680;
+	public const uint32 IO_REPARSE_TAG_ONEDRIVE = 2147483681;
+	public const uint32 IO_REPARSE_TAG_PROJFS_TOMBSTONE = 2684354594;
+	public const uint32 IO_REPARSE_TAG_AF_UNIX = 2147483683;
+	public const uint32 IO_REPARSE_TAG_WCI_LINK = 2684354599;
+	public const uint32 IO_REPARSE_TAG_WCI_LINK_1 = 2684358695;
+	public const uint32 IO_REPARSE_TAG_DATALESS_CIM = 2684354600;
 	public const uint32 SCRUB_DATA_INPUT_FLAG_RESUME = 1;
 	public const uint32 SCRUB_DATA_INPUT_FLAG_SKIP_IN_SYNC = 2;
 	public const uint32 SCRUB_DATA_INPUT_FLAG_SKIP_NON_INTEGRITY_DATA = 4;
@@ -1193,6 +1232,7 @@ public static
 	public const uint32 SCRUB_DATA_OUTPUT_FLAG_RESUME_CONTEXT_LENGTH_SPECIFIED = 262144;
 	public const uint32 SHUFFLE_FILE_FLAG_SKIP_INITIALIZING_NEW_CLUSTERS = 1;
 	public const uint32 IO_COMPLETION_MODIFY_STATE = 2;
+	public const String SMB_CCF_APP_INSTANCE_EA_NAME = "ClusteredApplicationInstance";
 	public const uint32 NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR = 1;
 	public const Guid GUID_MAX_POWER_SAVINGS = .(0xa1841308, 0x3541, 0x4fab, 0xbc, 0x81, 0xf7, 0x15, 0x56, 0xf2, 0x0b, 0x4a);
 	public const Guid GUID_MIN_POWER_SAVINGS = .(0x8c5e7fda, 0xe8bf, 0x4a96, 0x9a, 0x85, 0xa6, 0xe2, 0x3a, 0x8c, 0x63, 0x5c);
@@ -1538,10 +1578,10 @@ public static
 	public const uint32 HIBERFILE_TYPE_REDUCED = 1;
 	public const uint32 HIBERFILE_TYPE_FULL = 2;
 	public const uint32 HIBERFILE_TYPE_MAX = 3;
-	public const uint32 IMAGE_DOS_SIGNATURE = 23117;
-	public const uint32 IMAGE_OS2_SIGNATURE = 17742;
-	public const uint32 IMAGE_OS2_SIGNATURE_LE = 17740;
-	public const uint32 IMAGE_VXD_SIGNATURE = 17740;
+	public const uint16 IMAGE_DOS_SIGNATURE = 23117;
+	public const uint16 IMAGE_OS2_SIGNATURE = 17742;
+	public const uint16 IMAGE_OS2_SIGNATURE_LE = 17740;
+	public const uint16 IMAGE_VXD_SIGNATURE = 17740;
 	public const uint32 IMAGE_NT_SIGNATURE = 17744;
 	public const uint32 IMAGE_SIZEOF_FILE_HEADER = 20;
 	public const uint32 IMAGE_NUMBEROF_DIRECTORY_ENTRIES = 16;
@@ -1948,6 +1988,15 @@ public static
 	public const uint32 IMAGE_REL_BASED_ARM_MOV32 = 5;
 	public const uint32 IMAGE_REL_BASED_THUMB_MOV32 = 7;
 	public const uint32 IMAGE_ARCHIVE_START_SIZE = 8;
+	public const String IMAGE_ARCHIVE_START = "!<arch>
+";
+	public const String IMAGE_ARCHIVE_END = "`
+";
+	public const String IMAGE_ARCHIVE_PAD = "
+";
+	public const String IMAGE_ARCHIVE_LINKER_MEMBER = "/               ";
+	public const String IMAGE_ARCHIVE_LONGNAMES_MEMBER = "//              ";
+	public const String IMAGE_ARCHIVE_HYBRIDMAP_MEMBER = "/<HYBRIDMAP>/   ";
 	public const uint32 IMAGE_SIZEOF_ARCHIVE_MEMBER_HDR = 60;
 	public const uint64 IMAGE_ORDINAL_FLAG64 = 9223372036854775808;
 	public const uint32 IMAGE_ORDINAL_FLAG32 = 2147483648;
@@ -2142,6 +2191,7 @@ public static
 	public const uint32 FILL_NV_MEMORY_FLAG_NON_TEMPORAL = 2;
 	public const uint32 FILL_NV_MEMORY_FLAG_NO_DRAIN = 256;
 	public const uint32 IMAGE_POLICY_METADATA_VERSION = 1;
+	public const String IMAGE_POLICY_SECTION_NAME = ".tPolicy";
 	public const uint32 RTL_VIRTUAL_UNWIND2_VALIDATE_PAC = 1;
 	public const uint32 RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO = 16777216;
 	public const uint32 RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN = 33554432;
@@ -2164,7 +2214,11 @@ public static
 	public const uint32 PERFORMANCE_DATA_VERSION = 1;
 	public const uint32 READ_THREAD_PROFILING_FLAG_DISPATCHING = 1;
 	public const uint32 READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS = 2;
+	public const String UNIFIEDBUILDREVISION_KEY = "\Registry\Machine\Software\Microsoft\Windows NT\CurrentVersion";
+	public const String UNIFIEDBUILDREVISION_VALUE = "UBR";
 	public const uint32 UNIFIEDBUILDREVISION_MIN = 0;
+	public const String DEVICEFAMILYDEVICEFORM_KEY = "\Registry\Machine\Software\Microsoft\Windows NT\CurrentVersion\OEM";
+	public const String DEVICEFAMILYDEVICEFORM_VALUE = "DeviceForm";
 	public const uint32 DLL_PROCESS_ATTACH = 1;
 	public const uint32 DLL_THREAD_ATTACH = 2;
 	public const uint32 DLL_THREAD_DETACH = 3;
@@ -2932,8 +2986,6 @@ public static
 	public const uint32 D3DFVF_TEXTUREFORMAT1 = 3;
 	public const uint32 D3DFVF_TEXTUREFORMAT3 = 1;
 	public const uint32 D3DFVF_TEXTUREFORMAT4 = 2;
-	public const uint32 ROTFLAGS_REGISTRATIONKEEPSALIVE = 1;
-	public const uint32 ROTFLAGS_ALLOWANYCLIENT = 2;
 	public const uint32 ROT_COMPARE_MAX = 2048;
 	public const uint32 WDT_INPROC_CALL = 1215587415;
 	public const uint32 WDT_REMOTE_CALL = 1383359575;
@@ -3200,21 +3252,6 @@ public enum ATF_FLAGS : uint32
 
 
 [AllowDuplicates]
-public enum CHOOSECOLOR_FLAGS : uint32
-{
-	CC_RGBINIT = 1,
-	CC_FULLOPEN = 2,
-	CC_PREVENTFULLOPEN = 4,
-	CC_SHOWHELP = 8,
-	CC_ENABLEHOOK = 16,
-	CC_ENABLETEMPLATE = 32,
-	CC_ENABLETEMPLATEHANDLE = 64,
-	CC_SOLIDCOLOR = 128,
-	CC_ANYCOLOR = 256,
-}
-
-
-[AllowDuplicates]
 public enum CLIPBOARD_FORMATS : uint32
 {
 	CF_TEXT = 1,
@@ -3368,6 +3405,125 @@ public enum DEV_BROADCAST_VOLUME_FLAGS : uint16
 {
 	DBTF_MEDIA = 1,
 	DBTF_NET = 2,
+}
+
+
+[AllowDuplicates]
+public enum MODIFIERKEYS_FLAGS : uint32
+{
+	MK_LBUTTON = 1,
+	MK_RBUTTON = 2,
+	MK_SHIFT = 4,
+	MK_CONTROL = 8,
+	MK_MBUTTON = 16,
+	MK_XBUTTON1 = 32,
+	MK_XBUTTON2 = 64,
+}
+
+
+[AllowDuplicates]
+public enum STATIC_STYLES : uint32
+{
+	SS_LEFT = 0,
+	SS_CENTER = 1,
+	SS_RIGHT = 2,
+	SS_ICON = 3,
+	SS_BLACKRECT = 4,
+	SS_GRAYRECT = 5,
+	SS_WHITERECT = 6,
+	SS_BLACKFRAME = 7,
+	SS_GRAYFRAME = 8,
+	SS_WHITEFRAME = 9,
+	SS_USERITEM = 10,
+	SS_SIMPLE = 11,
+	SS_LEFTNOWORDWRAP = 12,
+	SS_OWNERDRAW = 13,
+	SS_BITMAP = 14,
+	SS_ENHMETAFILE = 15,
+	SS_ETCHEDHORZ = 16,
+	SS_ETCHEDVERT = 17,
+	SS_ETCHEDFRAME = 18,
+	SS_TYPEMASK = 31,
+	SS_REALSIZECONTROL = 64,
+	SS_NOPREFIX = 128,
+	SS_NOTIFY = 256,
+	SS_CENTERIMAGE = 512,
+	SS_RIGHTJUST = 1024,
+	SS_REALSIZEIMAGE = 2048,
+	SS_SUNKEN = 4096,
+	SS_EDITCONTROL = 8192,
+	SS_ENDELLIPSIS = 16384,
+	SS_PATHELLIPSIS = 32768,
+	SS_WORDELLIPSIS = 49152,
+	SS_ELLIPSISMASK = 49152,
+}
+
+
+[AllowDuplicates]
+public enum RECO_FLAGS : uint32
+{
+	RECO_PASTE = 0,
+	RECO_DROP = 1,
+	RECO_COPY = 2,
+	RECO_CUT = 3,
+	RECO_DRAG = 4,
+}
+
+
+[AllowDuplicates]
+public enum SFGAO_FLAGS : uint64
+{
+	SFGAO_CANCOPY = 1,
+	SFGAO_CANMOVE = 2,
+	SFGAO_CANLINK = 4,
+	SFGAO_STORAGE = 8,
+	SFGAO_CANRENAME = 16,
+	SFGAO_CANDELETE = 32,
+	SFGAO_HASPROPSHEET = 64,
+	SFGAO_DROPTARGET = 256,
+	SFGAO_CAPABILITYMASK = 375,
+	SFGAO_PLACEHOLDER = 2048,
+	SFGAO_SYSTEM = 4096,
+	SFGAO_ENCRYPTED = 8192,
+	SFGAO_ISSLOW = 16384,
+	SFGAO_GHOSTED = 32768,
+	SFGAO_LINK = 65536,
+	SFGAO_SHARE = 131072,
+	SFGAO_READONLY = 262144,
+	SFGAO_HIDDEN = 524288,
+	SFGAO_DISPLAYATTRMASK = 1032192,
+	SFGAO_FILESYSANCESTOR = 268435456,
+	SFGAO_FOLDER = 536870912,
+	SFGAO_FILESYSTEM = 1073741824,
+	SFGAO_HASSUBFOLDER = 2147483648,
+	SFGAO_CONTENTSMASK = 2147483648,
+	SFGAO_VALIDATE = 16777216,
+	SFGAO_REMOVABLE = 33554432,
+	SFGAO_COMPRESSED = 67108864,
+	SFGAO_BROWSABLE = 134217728,
+	SFGAO_NONENUMERATED = 1048576,
+	SFGAO_NEWCONTENT = 2097152,
+	SFGAO_CANMONIKER = 4194304,
+	SFGAO_HASSTORAGE = 4194304,
+	SFGAO_STREAM = 4194304,
+	SFGAO_STORAGEANCESTOR = 8388608,
+	SFGAO_STORAGECAPMASK = 1891958792,
+	SFGAO_PKEYSFGAOMASK = 2164539392,
+}
+
+
+[AllowDuplicates]
+public enum DESKTOP_ACCESS_FLAGS : uint32
+{
+	DESKTOP_READOBJECTS = 1,
+	DESKTOP_CREATEWINDOW = 2,
+	DESKTOP_CREATEMENU = 4,
+	DESKTOP_HOOKCONTROL = 8,
+	DESKTOP_JOURNALRECORD = 16,
+	DESKTOP_JOURNALPLAYBACK = 32,
+	DESKTOP_ENUMERATE = 64,
+	DESKTOP_WRITEOBJECTS = 128,
+	DESKTOP_SWITCHDESKTOP = 256,
 }
 
 
@@ -3739,7 +3895,7 @@ public enum ACTIVATION_CONTEXT_INFO_CLASS : int32
 
 
 [AllowDuplicates]
-public enum CM_SERVICE_NODE_TYPE : int32
+public enum SERVICE_NODE_TYPE : int32
 {
 	DriverType = 1,
 	FileSystemType = 2,
@@ -3751,7 +3907,7 @@ public enum CM_SERVICE_NODE_TYPE : int32
 
 
 [AllowDuplicates]
-public enum CM_SERVICE_LOAD_TYPE : int32
+public enum SERVICE_LOAD_TYPE : int32
 {
 	BootLoad = 0,
 	SystemLoad = 1,
@@ -3762,7 +3918,7 @@ public enum CM_SERVICE_LOAD_TYPE : int32
 
 
 [AllowDuplicates]
-public enum CM_ERROR_CONTROL_TYPE : int32
+public enum SERVICE_ERROR_TYPE : int32
 {
 	IgnoreError = 0,
 	NormalError = 1,
@@ -3945,7 +4101,7 @@ public struct RemHPALETTE
 }
 
 [CRepr]
-public struct RemBRUSH
+public struct RemHBRUSH
 {
 	public uint32 cbData;
 	public uint8* data mut => &data_impl;
@@ -4325,6 +4481,18 @@ public struct _DEV_BROADCAST_USERDEFINED
 public struct AtlThunkData_t
 {
 }
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct REARRANGE_FILE_DATA32
+{
+	public uint64 SourceStartingOffset;
+	public uint64 TargetOffset;
+	public uint32 SourceFileHandle;
+	public uint32 Length;
+	public uint32 Flags;
+}
+#endif
 
 [CRepr]
 public struct XSAVE_CET_U_FORMAT
@@ -4819,6 +4987,18 @@ public struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY
 }
 
 [CRepr]
+public struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1
+{
+	public int64 MaxIops;
+	public int64 MaxBandwidth;
+	public int64 ReservationIops;
+	public PWSTR VolumeName;
+	public uint32 BaseIoSize;
+	public JOB_OBJECT_IO_RATE_CONTROL_FLAGS ControlFlags;
+	public uint16 VolumeNameLength;
+}
+
+[CRepr]
 public struct SILOOBJECT_BASIC_INFORMATION
 {
 	public uint32 SiloId;
@@ -4837,14 +5017,6 @@ public struct SERVERSILO_BASIC_INFORMATION
 	public BOOLEAN IsDownlevelContainer;
 	public void* ApiSetSchema;
 	public void* HostApiSetSchema;
-}
-
-[CRepr]
-public struct MEM_ADDRESS_REQUIREMENTS
-{
-	public void* LowestStartingAddress;
-	public void* HighestEndingAddress;
-	public uint Alignment;
 }
 
 [CRepr]
@@ -4941,18 +5113,6 @@ public struct REARRANGE_FILE_DATA
 	public uint32 Length;
 	public uint32 Flags;
 }
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct REARRANGE_FILE_DATA32
-{
-	public uint64 SourceStartingOffset;
-	public uint64 TargetOffset;
-	public uint32 SourceFileHandle;
-	public uint32 Length;
-	public uint32 Flags;
-}
-#endif
 
 [CRepr]
 public struct SHUFFLE_FILE_DATA

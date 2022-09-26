@@ -39,6 +39,8 @@ public static
 	public const uint64 PERF_ATTRIB_DISPLAY_AS_REAL = 8;
 	public const uint64 PERF_ATTRIB_DISPLAY_AS_HEX = 16;
 	public const uint32 PERF_WILDCARD_COUNTER = 4294967295;
+	public const String PERF_WILDCARD_INSTANCE = "*";
+	public const String PERF_AGGREGATE_INSTANCE = "_Total";
 	public const uint32 PERF_MAX_INSTANCE_NAME = 1024;
 	public const uint32 PERF_ADD_COUNTER = 1;
 	public const uint32 PERF_REMOVE_COUNTER = 2;
@@ -536,6 +538,44 @@ public function int32 CounterPathCallBack(uint param0);
 #endregion
 
 #region Structs
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct PERF_OBJECT_TYPE
+{
+	public uint32 TotalByteLength;
+	public uint32 DefinitionLength;
+	public uint32 HeaderLength;
+	public uint32 ObjectNameTitleIndex;
+	public uint32 ObjectNameTitle;
+	public uint32 ObjectHelpTitleIndex;
+	public uint32 ObjectHelpTitle;
+	public uint32 DetailLevel;
+	public uint32 NumCounters;
+	public int32 DefaultCounter;
+	public int32 NumInstances;
+	public uint32 CodePage;
+	public LARGE_INTEGER PerfTime;
+	public LARGE_INTEGER PerfFreq;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct PERF_COUNTER_DEFINITION
+{
+	public uint32 ByteLength;
+	public uint32 CounterNameTitleIndex;
+	public uint32 CounterNameTitle;
+	public uint32 CounterHelpTitleIndex;
+	public uint32 CounterHelpTitle;
+	public int32 DefaultScale;
+	public uint32 DetailLevel;
+	public uint32 CounterType;
+	public uint32 CounterSize;
+	public uint32 CounterOffset;
+}
+#endif
+
 [CRepr]
 public struct PERF_COUNTERSET_INFO
 {
@@ -709,7 +749,7 @@ public struct PERF_DATA_BLOCK
 	public uint32 SystemNameOffset;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct PERF_OBJECT_TYPE
 {
@@ -717,9 +757,9 @@ public struct PERF_OBJECT_TYPE
 	public uint32 DefinitionLength;
 	public uint32 HeaderLength;
 	public uint32 ObjectNameTitleIndex;
-	public uint32 ObjectNameTitle;
+	public PWSTR ObjectNameTitle;
 	public uint32 ObjectHelpTitleIndex;
-	public uint32 ObjectHelpTitle;
+	public PWSTR ObjectHelpTitle;
 	public uint32 DetailLevel;
 	public uint32 NumCounters;
 	public int32 DefaultCounter;
@@ -730,15 +770,15 @@ public struct PERF_OBJECT_TYPE
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct PERF_COUNTER_DEFINITION
 {
 	public uint32 ByteLength;
 	public uint32 CounterNameTitleIndex;
-	public uint32 CounterNameTitle;
+	public PWSTR CounterNameTitle;
 	public uint32 CounterHelpTitleIndex;
-	public uint32 CounterHelpTitle;
+	public PWSTR CounterHelpTitle;
 	public int32 DefaultScale;
 	public uint32 DetailLevel;
 	public uint32 CounterType;
@@ -963,18 +1003,6 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_A
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _Anonymous1_e__Struct
-		{
-			public uint32 PdlAutoNameInterval;
-			public uint32 PdlAutoNameUnits;
-			public PSTR PdlCommandFilename;
-			public PSTR PdlCounterList;
-			public uint32 PdlAutoNameFormat;
-			public uint32 PdlSampleInterval;
-			public FILETIME PdlLogStartTime;
-			public FILETIME PdlLogEndTime;
-		}
-		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
 			public uint32 TlNumberOfBuffers;
@@ -987,6 +1015,18 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_A
 			public uint32 TlBuffersWritten;
 			public uint32 TlLogHandle;
 			public PSTR TlLogFileName;
+		}
+		[CRepr]
+		public struct _Anonymous1_e__Struct
+		{
+			public uint32 PdlAutoNameInterval;
+			public uint32 PdlAutoNameUnits;
+			public PSTR PdlCommandFilename;
+			public PSTR PdlCounterList;
+			public uint32 PdlAutoNameFormat;
+			public uint32 PdlSampleInterval;
+			public FILETIME PdlLogStartTime;
+			public FILETIME PdlLogEndTime;
 		}
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
@@ -1009,18 +1049,6 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_W
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _Anonymous1_e__Struct
-		{
-			public uint32 PdlAutoNameInterval;
-			public uint32 PdlAutoNameUnits;
-			public PWSTR PdlCommandFilename;
-			public PWSTR PdlCounterList;
-			public uint32 PdlAutoNameFormat;
-			public uint32 PdlSampleInterval;
-			public FILETIME PdlLogStartTime;
-			public FILETIME PdlLogEndTime;
-		}
-		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
 			public uint32 TlNumberOfBuffers;
@@ -1033,6 +1061,18 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_W
 			public uint32 TlBuffersWritten;
 			public uint32 TlLogHandle;
 			public PWSTR TlLogFileName;
+		}
+		[CRepr]
+		public struct _Anonymous1_e__Struct
+		{
+			public uint32 PdlAutoNameInterval;
+			public uint32 PdlAutoNameUnits;
+			public PWSTR PdlCommandFilename;
+			public PWSTR PdlCounterList;
+			public uint32 PdlAutoNameFormat;
+			public uint32 PdlSampleInterval;
+			public FILETIME PdlLogStartTime;
+			public FILETIME PdlLogEndTime;
 		}
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
@@ -1107,44 +1147,6 @@ public struct PDH_BROWSE_DLG_CONFIG_A
 	public PERF_DETAIL dwDefaultDetailLevel;
 	public PSTR szDialogBoxCaption;
 }
-
-#if BF_32_BIT
-[CRepr]
-public struct PERF_OBJECT_TYPE
-{
-	public uint32 TotalByteLength;
-	public uint32 DefinitionLength;
-	public uint32 HeaderLength;
-	public uint32 ObjectNameTitleIndex;
-	public PWSTR ObjectNameTitle;
-	public uint32 ObjectHelpTitleIndex;
-	public PWSTR ObjectHelpTitle;
-	public uint32 DetailLevel;
-	public uint32 NumCounters;
-	public int32 DefaultCounter;
-	public int32 NumInstances;
-	public uint32 CodePage;
-	public LARGE_INTEGER PerfTime;
-	public LARGE_INTEGER PerfFreq;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct PERF_COUNTER_DEFINITION
-{
-	public uint32 ByteLength;
-	public uint32 CounterNameTitleIndex;
-	public PWSTR CounterNameTitle;
-	public uint32 CounterHelpTitleIndex;
-	public PWSTR CounterHelpTitle;
-	public int32 DefaultScale;
-	public uint32 DetailLevel;
-	public uint32 CounterType;
-	public uint32 CounterSize;
-	public uint32 CounterOffset;
-}
-#endif
 
 #endregion
 

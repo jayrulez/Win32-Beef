@@ -8,6 +8,9 @@ namespace Win32.Security.Credentials;
 #region Constants
 public static
 {
+	public const uint32 CRED_MAX_CREDENTIAL_BLOB_SIZE = 2560;
+	public const uint32 CRED_MAX_USERNAME_LENGTH = 513;
+	public const uint32 CRED_MAX_DOMAIN_TARGET_NAME_LENGTH = 337;
 	public const uint32 FILE_DEVICE_SMARTCARD = 49;
 	public const Guid GUID_DEVINTERFACE_SMARTCARD_READER = .(0x50dd5230, 0xba8a, 0x11d1, 0xbf, 0x5d, 0x00, 0x00, 0xf8, 0x05, 0xf5, 0x30);
 	public const uint32 SCARD_ATR_LENGTH = 33;
@@ -67,7 +70,6 @@ public static
 	public const NTSTATUS STATUS_WRONG_PASSWORD = -1073741718;
 	public const NTSTATUS STATUS_PASSWORD_EXPIRED = -1073741711;
 	public const NTSTATUS STATUS_PASSWORD_MUST_CHANGE = -1073741276;
-	public const NTSTATUS STATUS_ACCESS_DENIED = -1073741790;
 	public const NTSTATUS STATUS_DOWNGRADE_DETECTED = -1073740920;
 	public const NTSTATUS STATUS_AUTHENTICATION_FIREWALL_FAILED = -1073740781;
 	public const NTSTATUS STATUS_ACCOUNT_DISABLED = -1073741710;
@@ -83,6 +85,41 @@ public static
 	public const uint32 CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH = 256;
 	public const uint32 CRED_MAX_VALUE_SIZE = 256;
 	public const uint32 CRED_MAX_ATTRIBUTES = 64;
+	public const String CRED_SESSION_WILDCARD_NAME_W = "*Session";
+	public const String CRED_SESSION_WILDCARD_NAME_A = "*Session";
+	public const String CRED_TARGETNAME_DOMAIN_NAMESPACE_W = "Domain";
+	public const String CRED_TARGETNAME_DOMAIN_NAMESPACE_A = "Domain";
+	public const String CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_W = "LegacyGeneric";
+	public const String CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_A = "LegacyGeneric";
+	public const String CRED_TARGETNAME_ATTRIBUTE_TARGET_W = "target";
+	public const String CRED_TARGETNAME_ATTRIBUTE_TARGET_A = "target";
+	public const String CRED_TARGETNAME_ATTRIBUTE_NAME_W = "name";
+	public const String CRED_TARGETNAME_ATTRIBUTE_NAME_A = "name";
+	public const String CRED_TARGETNAME_ATTRIBUTE_BATCH_W = "batch";
+	public const String CRED_TARGETNAME_ATTRIBUTE_BATCH_A = "batch";
+	public const String CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_W = "interactive";
+	public const String CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_A = "interactive";
+	public const String CRED_TARGETNAME_ATTRIBUTE_SERVICE_W = "service";
+	public const String CRED_TARGETNAME_ATTRIBUTE_SERVICE_A = "service";
+	public const String CRED_TARGETNAME_ATTRIBUTE_NETWORK_W = "network";
+	public const String CRED_TARGETNAME_ATTRIBUTE_NETWORK_A = "network";
+	public const String CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_W = "networkcleartext";
+	public const String CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_A = "networkcleartext";
+	public const String CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_W = "remoteinteractive";
+	public const String CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_A = "remoteinteractive";
+	public const String CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_W = "cachedinteractive";
+	public const String CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_A = "cachedinteractive";
+	public const String CRED_SESSION_WILDCARD_NAME = "*Session";
+	public const String CRED_TARGETNAME_DOMAIN_NAMESPACE = "Domain";
+	public const String CRED_TARGETNAME_ATTRIBUTE_NAME = "name";
+	public const String CRED_TARGETNAME_ATTRIBUTE_TARGET = "target";
+	public const String CRED_TARGETNAME_ATTRIBUTE_BATCH = "batch";
+	public const String CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE = "interactive";
+	public const String CRED_TARGETNAME_ATTRIBUTE_SERVICE = "service";
+	public const String CRED_TARGETNAME_ATTRIBUTE_NETWORK = "network";
+	public const String CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT = "networkcleartext";
+	public const String CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE = "remoteinteractive";
+	public const String CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE = "cachedinteractive";
 	public const uint32 CRED_LOGON_TYPES_MASK = 61440;
 	public const uint32 CRED_TI_SERVER_FORMAT_UNKNOWN = 1;
 	public const uint32 CRED_TI_DOMAIN_FORMAT_UNKNOWN = 2;
@@ -96,6 +133,8 @@ public static
 	public const uint32 CREDUI_MAX_MESSAGE_LENGTH = 1024;
 	public const uint32 CREDUI_MAX_CAPTION_LENGTH = 128;
 	public const uint32 CREDUI_MAX_GENERIC_TARGET_LENGTH = 32767;
+	public const uint32 CREDUI_MAX_DOMAIN_TARGET_LENGTH = 337;
+	public const uint32 CREDUI_MAX_USERNAME_LENGTH = 513;
 	public const uint32 CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME = 262144;
 	public const uint32 CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD = 2147483648;
 	public const uint32 CRED_PRESERVE_CREDENTIAL_BLOB = 1;
@@ -106,6 +145,10 @@ public static
 	public const uint32 CRED_UNPROTECT_AS_SELF = 1;
 	public const uint32 CRED_UNPROTECT_ALLOW_TO_SYSTEM = 2;
 	public const uint32 SCARD_SCOPE_TERMINAL = 1;
+	public const String SCARD_ALL_READERS = "SCard$AllReaders 00";
+	public const String SCARD_DEFAULT_READERS = "SCard$DefaultReaders 00";
+	public const String SCARD_LOCAL_READERS = "SCard$LocalReaders 00";
+	public const String SCARD_SYSTEM_READERS = "SCard$SystemReaders 00";
 	public const uint32 SCARD_PROVIDER_PRIMARY = 1;
 	public const uint32 SCARD_PROVIDER_CSP = 2;
 	public const uint32 SCARD_PROVIDER_KSP = 3;
@@ -124,6 +167,10 @@ public static
 	public const uint32 SCERR_NOGUIDS = 32768;
 	public const uint32 SCARD_AUDIT_CHV_FAILURE = 0;
 	public const uint32 SCARD_AUDIT_CHV_SUCCESS = 1;
+	public const String CREDSSP_NAME = "CREDSSP";
+	public const String TS_SSP_NAME_A = "TSSSP";
+	public const String TS_SSP_NAME = "TSSSP";
+	public const String szOID_TS_KP_TS_SERVER_AUTH = "1.3.6.1.4.1.311.54.1.2";
 	public const uint32 CREDSSP_SERVER_AUTH_NEGOTIATE = 1;
 	public const uint32 CREDSSP_SERVER_AUTH_CERTIFICATE = 2;
 	public const uint32 CREDSSP_SERVER_AUTH_LOOPBACK = 4;
@@ -626,6 +673,13 @@ public struct READER_SEL_REQUEST
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
+		public struct _SerialNumberParameter_e__Struct
+		{
+			public uint32 cbSerialNumberOffset;
+			public uint32 cbSerialNumberLength;
+			public uint32 dwDesiredCardModuleVersion;
+		}
+		[CRepr]
 		public struct _ReaderAndContainerParameter_e__Struct
 		{
 			public uint32 cbReaderNameOffset;
@@ -634,13 +688,6 @@ public struct READER_SEL_REQUEST
 			public uint32 cchContainerNameLength;
 			public uint32 dwDesiredCardModuleVersion;
 			public uint32 dwCspFlags;
-		}
-		[CRepr]
-		public struct _SerialNumberParameter_e__Struct
-		{
-			public uint32 cbSerialNumberOffset;
-			public uint32 cbSerialNumberLength;
-			public uint32 dwDesiredCardModuleVersion;
 		}
 		public _ReaderAndContainerParameter_e__Struct ReaderAndContainerParameter;
 		public _SerialNumberParameter_e__Struct SerialNumberParameter;
@@ -941,18 +988,18 @@ public static
 	public static extern int32 SCardListReaderGroupsW(uint hContext, char16* mszGroups, uint32* pcchGroups);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardListReadersA(uint hContext, PSTR mszGroups, PSTR mszReaders, uint32* pcchReaders);
-	public static int32 SCardListReaders(uint hContext, PSTR mszGroups, PSTR mszReaders, uint32* pcchReaders) => SCardListReadersA(hContext, mszGroups, mszReaders, pcchReaders);
+	public static extern int32 SCardListReadersA(uint hContext, PSTR mszGroups, uint8* mszReaders, uint32* pcchReaders);
+	public static int32 SCardListReaders(uint hContext, PSTR mszGroups, uint8* mszReaders, uint32* pcchReaders) => SCardListReadersA(hContext, mszGroups, mszReaders, pcchReaders);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardListReadersW(uint hContext, PWSTR mszGroups, PWSTR mszReaders, uint32* pcchReaders);
+	public static extern int32 SCardListReadersW(uint hContext, PWSTR mszGroups, char16* mszReaders, uint32* pcchReaders);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardListCardsA(uint hContext, uint8* pbAtr, Guid* rgquidInterfaces, uint32 cguidInterfaceCount, PSTR mszCards, uint32* pcchCards);
-	public static int32 SCardListCards(uint hContext, uint8* pbAtr, Guid* rgquidInterfaces, uint32 cguidInterfaceCount, PSTR mszCards, uint32* pcchCards) => SCardListCardsA(hContext, pbAtr, rgquidInterfaces, cguidInterfaceCount, mszCards, pcchCards);
+	public static extern int32 SCardListCardsA(uint hContext, uint8* pbAtr, Guid* rgquidInterfaces, uint32 cguidInterfaceCount, uint8* mszCards, uint32* pcchCards);
+	public static int32 SCardListCards(uint hContext, uint8* pbAtr, Guid* rgquidInterfaces, uint32 cguidInterfaceCount, uint8* mszCards, uint32* pcchCards) => SCardListCardsA(hContext, pbAtr, rgquidInterfaces, cguidInterfaceCount, mszCards, pcchCards);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardListCardsW(uint hContext, uint8* pbAtr, Guid* rgquidInterfaces, uint32 cguidInterfaceCount, PWSTR mszCards, uint32* pcchCards);
+	public static extern int32 SCardListCardsW(uint hContext, uint8* pbAtr, Guid* rgquidInterfaces, uint32 cguidInterfaceCount, char16* mszCards, uint32* pcchCards);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardListInterfacesA(uint hContext, PSTR szCard, Guid* pguidInterfaces, uint32* pcguidInterfaces);
@@ -1094,11 +1141,11 @@ public static
 	public static extern int32 SCardState(uint hCard, uint32* pdwState, uint32* pdwProtocol, uint8* pbAtr, uint32* pcbAtrLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardStatusA(uint hCard, PSTR mszReaderNames, uint32* pcchReaderLen, uint32* pdwState, uint32* pdwProtocol, uint8* pbAtr, uint32* pcbAtrLen);
-	public static int32 SCardStatus(uint hCard, PSTR mszReaderNames, uint32* pcchReaderLen, uint32* pdwState, uint32* pdwProtocol, uint8* pbAtr, uint32* pcbAtrLen) => SCardStatusA(hCard, mszReaderNames, pcchReaderLen, pdwState, pdwProtocol, pbAtr, pcbAtrLen);
+	public static extern int32 SCardStatusA(uint hCard, uint8* mszReaderNames, uint32* pcchReaderLen, uint32* pdwState, uint32* pdwProtocol, uint8* pbAtr, uint32* pcbAtrLen);
+	public static int32 SCardStatus(uint hCard, uint8* mszReaderNames, uint32* pcchReaderLen, uint32* pdwState, uint32* pdwProtocol, uint8* pbAtr, uint32* pcbAtrLen) => SCardStatusA(hCard, mszReaderNames, pcchReaderLen, pdwState, pdwProtocol, pbAtr, pcbAtrLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardStatusW(uint hCard, PWSTR mszReaderNames, uint32* pcchReaderLen, uint32* pdwState, uint32* pdwProtocol, uint8* pbAtr, uint32* pcbAtrLen);
+	public static extern int32 SCardStatusW(uint hCard, char16* mszReaderNames, uint32* pcchReaderLen, uint32* pdwState, uint32* pdwProtocol, uint8* pbAtr, uint32* pcbAtrLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardTransmit(uint hCard, SCARD_IO_REQUEST* pioSendPci, uint8* pbSendBuffer, uint32 cbSendLength, SCARD_IO_REQUEST* pioRecvPci, uint8* pbRecvBuffer, uint32* pcbRecvLength);
@@ -1161,18 +1208,18 @@ public static
 	public static extern int32 SCardGetDeviceTypeIdW(uint hContext, PWSTR szReaderName, uint32* pdwDeviceTypeId);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardGetReaderDeviceInstanceIdA(uint hContext, PSTR szReaderName, PSTR szDeviceInstanceId, uint32* pcchDeviceInstanceId);
-	public static int32 SCardGetReaderDeviceInstanceId(uint hContext, PSTR szReaderName, PSTR szDeviceInstanceId, uint32* pcchDeviceInstanceId) => SCardGetReaderDeviceInstanceIdA(hContext, szReaderName, szDeviceInstanceId, pcchDeviceInstanceId);
+	public static extern int32 SCardGetReaderDeviceInstanceIdA(uint hContext, PSTR szReaderName, uint8* szDeviceInstanceId, uint32* pcchDeviceInstanceId);
+	public static int32 SCardGetReaderDeviceInstanceId(uint hContext, PSTR szReaderName, uint8* szDeviceInstanceId, uint32* pcchDeviceInstanceId) => SCardGetReaderDeviceInstanceIdA(hContext, szReaderName, szDeviceInstanceId, pcchDeviceInstanceId);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardGetReaderDeviceInstanceIdW(uint hContext, PWSTR szReaderName, PWSTR szDeviceInstanceId, uint32* pcchDeviceInstanceId);
+	public static extern int32 SCardGetReaderDeviceInstanceIdW(uint hContext, PWSTR szReaderName, char16* szDeviceInstanceId, uint32* pcchDeviceInstanceId);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardListReadersWithDeviceInstanceIdA(uint hContext, PSTR szDeviceInstanceId, PSTR mszReaders, uint32* pcchReaders);
-	public static int32 SCardListReadersWithDeviceInstanceId(uint hContext, PSTR szDeviceInstanceId, PSTR mszReaders, uint32* pcchReaders) => SCardListReadersWithDeviceInstanceIdA(hContext, szDeviceInstanceId, mszReaders, pcchReaders);
+	public static extern int32 SCardListReadersWithDeviceInstanceIdA(uint hContext, PSTR szDeviceInstanceId, uint8* mszReaders, uint32* pcchReaders);
+	public static int32 SCardListReadersWithDeviceInstanceId(uint hContext, PSTR szDeviceInstanceId, uint8* mszReaders, uint32* pcchReaders) => SCardListReadersWithDeviceInstanceIdA(hContext, szDeviceInstanceId, mszReaders, pcchReaders);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardListReadersWithDeviceInstanceIdW(uint hContext, PWSTR szDeviceInstanceId, PWSTR mszReaders, uint32* pcchReaders);
+	public static extern int32 SCardListReadersWithDeviceInstanceIdW(uint hContext, PWSTR szDeviceInstanceId, char16* mszReaders, uint32* pcchReaders);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardAudit(uint hContext, uint32 dwEvent);

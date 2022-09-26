@@ -8,14 +8,22 @@ namespace Win32.Security.WinTrust;
 #region Constants
 public static
 {
+	public const String WINTRUST_CONFIG_REGPATH = "Software\Microsoft\Cryptography\Wintrust\Config";
+	public const String WINTRUST_MAX_HEADER_BYTES_TO_MAP_VALUE_NAME = "MaxHeaderBytesToMap";
 	public const uint32 WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT = 10485760;
+	public const String WINTRUST_MAX_HASH_BYTES_TO_MAP_VALUE_NAME = "MaxHashBytesToMap";
 	public const uint32 WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT = 1048576;
+	public const uint32 WTD_PROV_FLAGS_MASK = 65535;
+	public const uint32 WTD_CODE_INTEGRITY_DRIVER_MODE = 32768;
 	public const uint32 WSS_VERIFY_SEALING = 4;
 	public const uint32 WSS_INPUT_FLAG_MASK = 7;
 	public const uint32 WSS_OUT_SEALING_STATUS_VERIFIED = 2147483648;
 	public const uint32 WSS_OUT_HAS_SEALING_INTENT = 1073741824;
 	public const uint32 WSS_OUT_FILE_SUPPORTS_SEAL = 536870912;
 	public const uint32 WSS_OUTPUT_FLAG_MASK = 3758096384;
+	public const uint32 WTCI_DONT_OPEN_STORES = 1;
+	public const uint32 WTCI_OPEN_ONLY_ROOT = 2;
+	public const uint32 WTCI_USE_LOCAL_MACHINE = 4;
 	public const uint32 TRUSTERROR_STEP_WVTPARAMS = 0;
 	public const uint32 TRUSTERROR_STEP_FILEIO = 2;
 	public const uint32 TRUSTERROR_STEP_SIP = 3;
@@ -43,12 +51,89 @@ public static
 	public const uint32 TRUSTERROR_STEP_FINAL_POLICYPROV = 36;
 	public const uint32 TRUSTERROR_STEP_FINAL_UIPROV = 37;
 	public const uint32 TRUSTERROR_MAX_STEPS = 38;
+	public const uint32 CPD_CHOICE_SIP = 1;
+	public const uint32 CPD_USE_NT5_CHAIN_FLAG = 2147483648;
+	public const uint32 CPD_REVOCATION_CHECK_NONE = 65536;
+	public const uint32 CPD_REVOCATION_CHECK_END_CERT = 131072;
+	public const uint32 CPD_REVOCATION_CHECK_CHAIN = 262144;
+	public const uint32 CPD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT = 524288;
+	public const uint32 CPD_RETURN_LOWER_QUALITY_CHAINS = 1048576;
+	public const uint32 CPD_UISTATE_MODE_PROMPT = 0;
+	public const uint32 CPD_UISTATE_MODE_BLOCK = 1;
+	public const uint32 CPD_UISTATE_MODE_ALLOW = 2;
+	public const uint32 CPD_UISTATE_MODE_MASK = 3;
 	public const uint32 WSS_OBJTRUST_SUPPORT = 1;
 	public const uint32 WSS_SIGTRUST_SUPPORT = 2;
 	public const uint32 WSS_CERTTRUST_SUPPORT = 4;
+	public const uint32 SGNR_TYPE_TIMESTAMP = 16;
+	public const uint32 CERT_CONFIDENCE_SIG = 268435456;
+	public const uint32 CERT_CONFIDENCE_TIME = 16777216;
+	public const uint32 CERT_CONFIDENCE_TIMENEST = 1048576;
+	public const uint32 CERT_CONFIDENCE_AUTHIDEXT = 65536;
+	public const uint32 CERT_CONFIDENCE_HYGIENE = 4096;
+	public const uint32 CERT_CONFIDENCE_HIGHEST = 286330880;
 	public const uint32 WT_CURRENT_VERSION = 512;
+	public const String WT_PROVIDER_DLL_NAME = "WINTRUST.DLL";
+	public const String WT_PROVIDER_CERTTRUST_FUNCTION = "WintrustCertificateTrust";
 	public const uint32 WT_ADD_ACTION_ID_RET_RESULT_FLAG = 1;
+	public const String szOID_TRUSTED_CODESIGNING_CA_LIST = "1.3.6.1.4.1.311.2.2.1";
+	public const String szOID_TRUSTED_CLIENT_AUTH_CA_LIST = "1.3.6.1.4.1.311.2.2.2";
+	public const String szOID_TRUSTED_SERVER_AUTH_CA_LIST = "1.3.6.1.4.1.311.2.2.3";
+	public const String SPC_COMMON_NAME_OBJID = "2.5.4.3";
+	public const String SPC_TIME_STAMP_REQUEST_OBJID = "1.3.6.1.4.1.311.3.2.1";
+	public const String SPC_INDIRECT_DATA_OBJID = "1.3.6.1.4.1.311.2.1.4";
+	public const String SPC_SP_AGENCY_INFO_OBJID = "1.3.6.1.4.1.311.2.1.10";
+	public const String SPC_STATEMENT_TYPE_OBJID = "1.3.6.1.4.1.311.2.1.11";
+	public const String SPC_SP_OPUS_INFO_OBJID = "1.3.6.1.4.1.311.2.1.12";
+	public const String SPC_CERT_EXTENSIONS_OBJID = "1.3.6.1.4.1.311.2.1.14";
+	public const String SPC_PE_IMAGE_DATA_OBJID = "1.3.6.1.4.1.311.2.1.15";
+	public const String SPC_RAW_FILE_DATA_OBJID = "1.3.6.1.4.1.311.2.1.18";
+	public const String SPC_STRUCTURED_STORAGE_DATA_OBJID = "1.3.6.1.4.1.311.2.1.19";
+	public const String SPC_JAVA_CLASS_DATA_OBJID = "1.3.6.1.4.1.311.2.1.20";
+	public const String SPC_INDIVIDUAL_SP_KEY_PURPOSE_OBJID = "1.3.6.1.4.1.311.2.1.21";
+	public const String SPC_COMMERCIAL_SP_KEY_PURPOSE_OBJID = "1.3.6.1.4.1.311.2.1.22";
+	public const String SPC_CAB_DATA_OBJID = "1.3.6.1.4.1.311.2.1.25";
+	public const String SPC_GLUE_RDN_OBJID = "1.3.6.1.4.1.311.2.1.25";
+	public const String SPC_MINIMAL_CRITERIA_OBJID = "1.3.6.1.4.1.311.2.1.26";
+	public const String SPC_FINANCIAL_CRITERIA_OBJID = "1.3.6.1.4.1.311.2.1.27";
+	public const String SPC_LINK_OBJID = "1.3.6.1.4.1.311.2.1.28";
+	public const String SPC_SIGINFO_OBJID = "1.3.6.1.4.1.311.2.1.30";
+	public const String SPC_PE_IMAGE_PAGE_HASHES_V1_OBJID = "1.3.6.1.4.1.311.2.3.1";
+	public const String SPC_PE_IMAGE_PAGE_HASHES_V2_OBJID = "1.3.6.1.4.1.311.2.3.2";
+	public const String szOID_NESTED_SIGNATURE = "1.3.6.1.4.1.311.2.4.1";
+	public const String szOID_INTENT_TO_SEAL = "1.3.6.1.4.1.311.2.4.2";
+	public const String szOID_SEALING_SIGNATURE = "1.3.6.1.4.1.311.2.4.3";
+	public const String szOID_SEALING_TIMESTAMP = "1.3.6.1.4.1.311.2.4.4";
+	public const String szOID_ENHANCED_HASH = "1.3.6.1.4.1.311.2.5.1";
+	public const String SPC_RELAXED_PE_MARKER_CHECK_OBJID = "1.3.6.1.4.1.311.2.6.1";
+	public const String SPC_ENCRYPTED_DIGEST_RETRY_COUNT_OBJID = "1.3.6.1.4.1.311.2.6.2";
+	public const String szOID_PKCS_9_SEQUENCE_NUMBER = "1.2.840.113549.1.9.25.4";
+	public const String CAT_NAMEVALUE_OBJID = "1.3.6.1.4.1.311.12.2.1";
+	public const String CAT_MEMBERINFO_OBJID = "1.3.6.1.4.1.311.12.2.2";
+	public const String CAT_MEMBERINFO2_OBJID = "1.3.6.1.4.1.311.12.2.3";
+	public const String SPC_WINDOWS_HELLO_COMPATIBILITY_OBJID = "1.3.6.1.4.1.311.10.41.1";
+	public const String SPC_NATURAL_AUTH_PLUGIN_OBJID = "1.3.6.1.4.1.311.96.1.1";
+	public const PSTR SPC_SP_AGENCY_INFO_STRUCT = 2000;
+	public const PSTR SPC_MINIMAL_CRITERIA_STRUCT = 2001;
+	public const PSTR SPC_FINANCIAL_CRITERIA_STRUCT = 2002;
+	public const PSTR SPC_INDIRECT_DATA_CONTENT_STRUCT = 2003;
+	public const PSTR SPC_PE_IMAGE_DATA_STRUCT = 2004;
+	public const PSTR SPC_LINK_STRUCT = 2005;
+	public const PSTR SPC_STATEMENT_TYPE_STRUCT = 2006;
+	public const PSTR SPC_SP_OPUS_INFO_STRUCT = 2007;
+	public const PSTR SPC_CAB_DATA_STRUCT = 2008;
+	public const PSTR SPC_JAVA_CLASS_DATA_STRUCT = 2009;
+	public const PSTR INTENT_TO_SEAL_ATTRIBUTE_STRUCT = 2010;
+	public const PSTR SEALING_SIGNATURE_ATTRIBUTE_STRUCT = 2011;
+	public const PSTR SEALING_TIMESTAMP_ATTRIBUTE_STRUCT = 2012;
+	public const PSTR SPC_SIGINFO_STRUCT = 2130;
+	public const PSTR CAT_NAMEVALUE_STRUCT = 2221;
+	public const PSTR CAT_MEMBERINFO_STRUCT = 2222;
+	public const PSTR CAT_MEMBERINFO2_STRUCT = 2223;
 	public const uint32 SPC_UUID_LENGTH = 16;
+	public const uint32 SPC_URL_LINK_CHOICE = 1;
+	public const uint32 SPC_MONIKER_LINK_CHOICE = 2;
+	public const uint32 SPC_FILE_LINK_CHOICE = 3;
 	public const uint32 WIN_CERT_REVISION_1_0 = 256;
 	public const uint32 WIN_CERT_REVISION_2_0 = 512;
 	public const uint32 WIN_CERT_TYPE_X509 = 1;
@@ -59,6 +144,29 @@ public static
 	public const uint32 WT_TRUSTDBDIALOG_ONLY_PUB_TAB_FLAG = 2;
 	public const uint32 WT_TRUSTDBDIALOG_WRITE_LEGACY_REG_FLAG = 256;
 	public const uint32 WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG = 512;
+	public const String SP_POLICY_PROVIDER_DLL_NAME = "WINTRUST.DLL";
+	public const String SP_INIT_FUNCTION = "SoftpubInitialize";
+	public const String SP_OBJTRUST_FUNCTION = "SoftpubLoadMessage";
+	public const String SP_SIGTRUST_FUNCTION = "SoftpubLoadSignature";
+	public const String SP_CHKCERT_FUNCTION = "SoftpubCheckCert";
+	public const String SP_FINALPOLICY_FUNCTION = "SoftpubAuthenticode";
+	public const String SP_CLEANUPPOLICY_FUNCTION = "SoftpubCleanup";
+	public const String SP_TESTDUMPPOLICY_FUNCTION_TEST = "SoftpubDumpStructure";
+	public const String SP_GENERIC_CERT_INIT_FUNCTION = "SoftpubDefCertInit";
+	public const String GENERIC_CHAIN_FINALPOLICY_FUNCTION = "GenericChainFinalProv";
+	public const String GENERIC_CHAIN_CERTTRUST_FUNCTION = "GenericChainCertificateTrust";
+	public const String HTTPS_FINALPOLICY_FUNCTION = "HTTPSFinalProv";
+	public const String HTTPS_CHKCERT_FUNCTION = "HTTPSCheckCertProv";
+	public const String HTTPS_CERTTRUST_FUNCTION = "HTTPSCertificateTrust";
+	public const String OFFICE_POLICY_PROVIDER_DLL_NAME = "WINTRUST.DLL";
+	public const String OFFICE_INITPROV_FUNCTION = "OfficeInitializePolicy";
+	public const String OFFICE_CLEANUPPOLICY_FUNCTION = "OfficeCleanupPolicy";
+	public const String DRIVER_INITPROV_FUNCTION = "DriverInitializePolicy";
+	public const String DRIVER_FINALPOLPROV_FUNCTION = "DriverFinalPolicy";
+	public const String DRIVER_CLEANUPPOLICY_FUNCTION = "DriverCleanupPolicy";
+	public const uint32 CCPI_RESULT_ALLOW = 1;
+	public const uint32 CCPI_RESULT_DENY = 2;
+	public const uint32 CCPI_RESULT_AUDIT = 3;
 }
 #endregion
 
@@ -86,6 +194,26 @@ public enum WINTRUST_POLICY_FLAGS : uint32
 	WTPF_VERIFY_V1_OFF = 65536,
 	WTPF_IGNOREREVOCATIONONTS = 131072,
 	WTPF_ALLOWONLYPERTRUST = 262144,
+}
+
+
+[AllowDuplicates]
+public enum WINTRUST_DATA_PROVIDER_FLAGS : uint32
+{
+	WTD_USE_IE4_TRUST_FLAG = 1,
+	WTD_NO_IE4_CHAIN_FLAG = 2,
+	WTD_NO_POLICY_USAGE_FLAG = 4,
+	WTD_REVOCATION_CHECK_NONE = 16,
+	WTD_REVOCATION_CHECK_END_CERT = 32,
+	WTD_REVOCATION_CHECK_CHAIN = 64,
+	WTD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT = 128,
+	WTD_SAFER_FLAG = 256,
+	WTD_HASH_ONLY_FLAG = 512,
+	WTD_USE_DEFAULT_OSVER_CHECK = 1024,
+	WTD_LIFETIME_SIGNING_FLAG = 2048,
+	WTD_CACHE_ONLY_URL_RETRIEVAL = 4096,
+	WTD_DISABLE_MD2_MD4 = 8192,
+	WTD_MOTW = 16384,
 }
 
 
@@ -151,7 +279,7 @@ public function void* PFN_CPD_MEM_ALLOC(uint32 cbSize);
 
 public function void PFN_CPD_MEM_FREE(void* pvMem2Free);
 
-public function BOOL PFN_CPD_ADD_STORE(CRYPT_PROVIDER_DATA* pProvData, void* hStore2Add);
+public function BOOL PFN_CPD_ADD_STORE(CRYPT_PROVIDER_DATA* pProvData, HCERTSTORE hStore2Add);
 
 public function BOOL PFN_CPD_ADD_SGNR(CRYPT_PROVIDER_DATA* pProvData, BOOL fCounterSigner, uint32 idxSigner, CRYPT_PROVIDER_SGNR* pSgnr2Add);
 
@@ -208,7 +336,7 @@ public struct WINTRUST_DATA
 	public WINTRUST_DATA_STATE_ACTION dwStateAction;
 	public HANDLE hWVTStateData;
 	public PWSTR pwszURLReference;
-	public uint32 dwProvFlags;
+	public WINTRUST_DATA_PROVIDER_FLAGS dwProvFlags;
 	public WINTRUST_DATA_UICONTEXT dwUIContext;
 	public WINTRUST_SIGNATURE_SETTINGS* pSignatureSettings;
 }
@@ -267,7 +395,7 @@ public struct WINTRUST_SGNR_INFO
 	public PWSTR pcwszDisplayName;
 	public CMSG_SIGNER_INFO* psSignerInfo;
 	public uint32 chStores;
-	public void** pahStores;
+	public HCERTSTORE* pahStores;
 }
 
 [CRepr]
@@ -277,7 +405,7 @@ public struct WINTRUST_CERT_INFO
 	public PWSTR pcwszDisplayName;
 	public CERT_CONTEXT* psCertContext;
 	public uint32 chStores;
-	public void** pahStores;
+	public HCERTSTORE* pahStores;
 	public uint32 dwFlags;
 	public FILETIME* psftVerifyAsOf;
 }
@@ -303,7 +431,7 @@ public struct CRYPT_PROVIDER_DATA
 	public uint32 cdwTrustStepErrors;
 	public uint32* padwTrustStepErrors;
 	public uint32 chStores;
-	public void** pahStores;
+	public HCERTSTORE* pahStores;
 	public uint32 dwEncoding;
 	public void* hMsg;
 	public uint32 csSigners;

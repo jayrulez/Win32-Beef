@@ -45,6 +45,12 @@ public static
 	public const float FXECHO_MIN_DELAY = 1f;
 	public const float FXECHO_MAX_DELAY = 2000f;
 	public const float FXECHO_DEFAULT_DELAY = 500f;
+	public const String XAUDIO2_DLL_A = "xaudio2_9.dll";
+	public const String XAUDIO2_DLL_W = "xaudio2_9.dll";
+	public const String XAUDIO2D_DLL_A = "xaudio2_9d.dll";
+	public const String XAUDIO2D_DLL_W = "xaudio2_9d.dll";
+	public const String XAUDIO2_DLL = "xaudio2_9.dll";
+	public const String XAUDIO2D_DLL = "xaudio2_9d.dll";
 	public const uint32 XAUDIO2_MAX_BUFFER_BYTES = 2147483648;
 	public const uint32 XAUDIO2_MAX_QUEUED_BUFFERS = 64;
 	public const uint32 XAUDIO2_MAX_BUFFERS_SYSTEM = 2;
@@ -931,16 +937,16 @@ public static
 #region Functions
 public static
 {
-	[Import("XAudio2.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateFX(in Guid clsid, IUnknown** pEffect, void* pInitDat, uint32 InitDataByteSize);
 
-	[Import("XAudio2.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT XAudio2CreateWithVersionInfo(IXAudio2** ppXAudio2, uint32 Flags, uint32 XAudio2Processor, uint32 ntddiVersion);
 
-	[Import("XAudio2.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateAudioVolumeMeter(IUnknown** ppApo);
 
-	[Import("XAudio2.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("XAudio2_8.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateAudioReverb(IUnknown** ppApo);
 
 	[Import("HrtfApo.lib"), CLink, CallingConvention(.Stdcall)]

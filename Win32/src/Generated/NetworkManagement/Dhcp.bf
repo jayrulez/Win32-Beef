@@ -280,6 +280,9 @@ public static
 	public const uint32 MODE = 16;
 	public const uint32 PREVSTATE = 32;
 	public const uint32 SHAREDSECRET = 64;
+	public const String DHCP_CALLOUT_LIST_KEY = "System\CurrentControlSet\Services\DHCPServer\Parameters";
+	public const String DHCP_CALLOUT_LIST_VALUE = "CalloutDlls";
+	public const String DHCP_CALLOUT_ENTRY_POINT = "DhcpServerCalloutEntry";
 	public const uint32 DHCP_CONTROL_START = 1;
 	public const uint32 DHCP_CONTROL_STOP = 2;
 	public const uint32 DHCP_CONTROL_PAUSE = 3;
@@ -678,7 +681,6 @@ public struct DHCPCAPI_CLASSID
 	public uint32 nBytesData;
 }
 
-#if BF_64_BIT || BF_ARM_64
 [CRepr]
 public struct DHCP_SERVER_OPTIONS
 {
@@ -708,7 +710,6 @@ public struct DHCP_SERVER_OPTIONS
 	public uint32 DSDomainNameLen;
 	public uint32* ScopeId;
 }
-#endif
 
 [CRepr]
 public struct DHCP_CALLOUT_TABLE
@@ -2013,38 +2014,6 @@ public struct DHCP_FAILOVER_STATISTICS
 	public uint32 PartnerAddrInUse;
 	public uint32 ThisAddrInUse;
 }
-
-#if BF_32_BIT
-[CRepr]
-public struct DHCP_SERVER_OPTIONS
-{
-	public uint8* MessageType;
-	public uint32* SubnetMask;
-	public uint32* RequestedAddress;
-	public uint32* RequestLeaseTime;
-	public uint8* OverlayFields;
-	public uint32* RouterAddress;
-	public uint32* Server;
-	public uint8* ParameterRequestList;
-	public uint32 ParameterRequestListLength;
-	public PSTR MachineName;
-	public uint32 MachineNameLength;
-	public uint8 ClientHardwareAddressType;
-	public uint8 ClientHardwareAddressLength;
-	public uint8* ClientHardwareAddress;
-	public PSTR ClassIdentifier;
-	public uint32 ClassIdentifierLength;
-	public uint8* VendorClass;
-	public uint32 VendorClassLength;
-	public uint32 DNSFlags;
-	public uint32 DNSNameLength;
-	public uint8* DNSName;
-	public BOOLEAN DSDomainNameRequested;
-	public PSTR DSDomainName;
-	public uint32 DSDomainNameLen;
-	public uint32* ScopeId;
-}
-#endif
 
 #endregion
 

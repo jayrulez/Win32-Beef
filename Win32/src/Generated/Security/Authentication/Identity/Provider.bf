@@ -9,7 +9,18 @@ namespace Win32.Security.Authentication.Identity.Provider;
 #region Constants
 public static
 {
+	public const String IDENTITY_KEYWORD_ASSOCIATED = "associated";
+	public const String IDENTITY_KEYWORD_LOCAL = "local";
+	public const String IDENTITY_KEYWORD_HOMEGROUP = "homegroup";
+	public const String IDENTITY_KEYWORD_CONNECTED = "connected";
 	public const Guid OID_OAssociatedIdentityProviderObject = .(0x98c5a3dd, 0xdb68, 0x4f1a, 0x8d, 0x2b, 0x90, 0x79, 0xcd, 0xfe, 0xaf, 0x61);
+	public const String STR_OUT_OF_BOX_EXPERIENCE = "OutOfBoxExperience";
+	public const String STR_MODERN_SETTINGS_ADD_USER = "ModernSettingsAddUser";
+	public const String STR_OUT_OF_BOX_UPGRADE_EXPERIENCE = "OutOfBoxUpgradeExperience";
+	public const String STR_COMPLETE_ACCOUNT = "CompleteAccount";
+	public const String STR_NTH_USER_FIRST_AUTH = "NthUserFirstAuth";
+	public const String STR_USER_NAME = "Username";
+	public const String STR_PROPERTY_STORE = "PropertyStore";
 }
 #endregion
 

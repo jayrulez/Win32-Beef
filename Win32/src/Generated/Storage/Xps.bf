@@ -115,7 +115,7 @@ public enum PRINT_WINDOW_FLAGS : uint32
 
 
 [AllowDuplicates]
-public enum DEVICE_CAPABILITIES : uint32
+public enum DEVICE_CAPABILITIES : uint16
 {
 	DC_BINNAMES = 12,
 	DC_BINS = 6,
@@ -3036,11 +3036,11 @@ public static
 #region Functions
 public static
 {
-	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("winspool.drv"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DeviceCapabilitiesA(PSTR pDevice, PSTR pPort, DEVICE_CAPABILITIES fwCapability, PSTR pOutput, DEVMODEA* pDevMode);
 	public static int32 DeviceCapabilities(PSTR pDevice, PSTR pPort, DEVICE_CAPABILITIES fwCapability, PSTR pOutput, DEVMODEA* pDevMode) => DeviceCapabilitiesA(pDevice, pPort, fwCapability, pOutput, pDevMode);
 
-	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("winspool.drv"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DeviceCapabilitiesW(PWSTR pDevice, PWSTR pPort, DEVICE_CAPABILITIES fwCapability, PWSTR pOutput, DEVMODEW* pDevMode);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]

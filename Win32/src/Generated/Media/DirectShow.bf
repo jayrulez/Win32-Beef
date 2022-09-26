@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using Win32.System.Com;
+using Win32.Media.MediaFoundation;
 using Win32.Media;
 using Win32.Graphics.Gdi;
 using Win32.System.Com.StructuredStorage;
@@ -11,7 +12,6 @@ using Win32.Media.WindowsMediaFormat;
 using Win32.Media.Audio;
 using Win32.UI.WindowsAndMessaging;
 using Win32.Graphics.Direct3D9;
-using Win32.Media.MediaFoundation;
 using Win32.System.Diagnostics.Etw;
 using Win32.System.Ole;
 using System;
@@ -281,6 +281,63 @@ public static
 	public const uint32 DVD_AUDIO_CAPS_DTS = 8;
 	public const uint32 DVD_AUDIO_CAPS_SDDS = 16;
 	public const Guid MEDIATYPE_MPEG2_PACK = .(0x36523b13, 0x8ee5, 0x11d1, 0x8c, 0xa3, 0x00, 0x60, 0xb0, 0x57, 0x66, 0x4a);
+	public const Guid MEDIATYPE_MPEG2_PES = .(0xe06d8020, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIATYPE_CONTROL = .(0xe06d8021, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIATYPE_MPEG2_SECTIONS = .(0x455f176c, 0x4b06, 0x47ce, 0x9a, 0xef, 0x8c, 0xae, 0xf7, 0x3d, 0xf7, 0xb5);
+	public const Guid MEDIASUBTYPE_MPEG2_VERSIONED_TABLES = .(0x1ed988b0, 0x3ffc, 0x4523, 0x87, 0x25, 0x34, 0x7b, 0xee, 0xc1, 0xa8, 0xa0);
+	public const Guid MEDIASUBTYPE_ATSC_SI = .(0xb3c7397c, 0xd303, 0x414d, 0xb3, 0x3c, 0x4e, 0xd2, 0xc9, 0xd2, 0x97, 0x33);
+	public const Guid MEDIASUBTYPE_DVB_SI = .(0xe9dd31a3, 0x221d, 0x4adb, 0x85, 0x32, 0x9a, 0xf3, 0x09, 0xc1, 0xa4, 0x08);
+	public const Guid MEDIASUBTYPE_ISDB_SI = .(0xe89ad298, 0x3601, 0x4b06, 0xaa, 0xec, 0x9d, 0xde, 0xed, 0xcc, 0x5b, 0xd0);
+	public const Guid MEDIASUBTYPE_TIF_SI = .(0xec232eb2, 0xcb96, 0x4191, 0xb2, 0x26, 0x0e, 0xa1, 0x29, 0xf3, 0x82, 0x50);
+	public const Guid MEDIASUBTYPE_MPEG2DATA = .(0xc892e55b, 0x252d, 0x42b5, 0xa3, 0x16, 0xd9, 0x97, 0xe7, 0xa5, 0xd9, 0x95);
+	public const Guid MEDIASUBTYPE_MPEG2_WMDRM_TRANSPORT = .(0x18bec4ea, 0x4676, 0x450e, 0xb4, 0x78, 0x0c, 0xd8, 0x4c, 0x54, 0xb3, 0x27);
+	public const Guid MEDIASUBTYPE_MPEG2_VIDEO = .(0xe06d8026, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid FORMAT_MPEG2_VIDEO = .(0xe06d80e3, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid FORMAT_VIDEOINFO2 = .(0xf72a76a0, 0xeb0a, 0x11d0, 0xac, 0xe4, 0x00, 0x00, 0xc0, 0xcc, 0x16, 0xba);
+	public const Guid MEDIASUBTYPE_MPEG2_PROGRAM = .(0xe06d8022, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_MPEG2_TRANSPORT = .(0xe06d8023, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_MPEG2_TRANSPORT_STRIDE = .(0x138aa9a4, 0x1ee2, 0x4c5b, 0x98, 0x8e, 0x19, 0xab, 0xfd, 0xbc, 0x8a, 0x11);
+	public const Guid MEDIASUBTYPE_MPEG2_UDCR_TRANSPORT = .(0x18bec4ea, 0x4676, 0x450e, 0xb4, 0x78, 0x0c, 0xd8, 0x4c, 0x54, 0xb3, 0x27);
+	public const Guid MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_RAW = .(0x0d7aed42, 0xcb9a, 0x11db, 0x97, 0x05, 0x00, 0x50, 0x56, 0xc0, 0x00, 0x08);
+	public const Guid MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_PROCESSED = .(0xaf748dd4, 0x0d80, 0x11db, 0x97, 0x05, 0x00, 0x50, 0x56, 0xc0, 0x00, 0x08);
+	public const Guid MEDIASUBTYPE_MPEG2_AUDIO = .(0xe06d802b, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_DOLBY_AC3 = .(0xe06d802c, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_DVD_SUBPICTURE = .(0xe06d802d, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_DVD_LPCM_AUDIO = .(0xe06d8032, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_DTS = .(0xe06d8033, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_SDDS = .(0xe06d8034, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIATYPE_DVD_ENCRYPTED_PACK = .(0xed0b916a, 0x044d, 0x11d1, 0xaa, 0x78, 0x00, 0xc0, 0x4f, 0xc3, 0x1d, 0x60);
+	public const Guid MEDIATYPE_DVD_NAVIGATION = .(0xe06d802e, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_DVD_NAVIGATION_PCI = .(0xe06d802f, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_DVD_NAVIGATION_DSI = .(0xe06d8030, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid MEDIASUBTYPE_DVD_NAVIGATION_PROVIDER = .(0xe06d8031, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid FORMAT_MPEG2Video = .(0xe06d80e3, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid FORMAT_DolbyAC3 = .(0xe06d80e4, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid FORMAT_MPEG2Audio = .(0xe06d80e5, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid FORMAT_DVD_LPCMAudio = .(0xe06d80e6, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
+	public const Guid FORMAT_UVCH264Video = .(0x2017be05, 0x6629, 0x4248, 0xaa, 0xed, 0x7e, 0x1a, 0x47, 0xbc, 0x9b, 0x9c);
+	public const Guid FORMAT_JPEGImage = .(0x692fa379, 0xd3e8, 0x4651, 0xb5, 0xb4, 0x0b, 0x94, 0xb0, 0x13, 0xee, 0xaf);
+	public const Guid FORMAT_Image = .(0x692fa379, 0xd3e8, 0x4651, 0xb5, 0xb4, 0x0b, 0x94, 0xb0, 0x13, 0xee, 0xaf);
+	public const Guid AM_KSPROPSETID_AC3 = .(0xbfabe720, 0x6e1f, 0x11d0, 0xbc, 0xf2, 0x44, 0x45, 0x53, 0x54, 0x00, 0x00);
+	public const Guid AM_KSPROPSETID_DvdSubPic = .(0xac390460, 0x43af, 0x11d0, 0xbd, 0x6a, 0x00, 0x35, 0x05, 0xc1, 0x03, 0xa9);
+	public const Guid AM_KSPROPSETID_CopyProt = .(0x0e8a0a40, 0x6aef, 0x11d0, 0x9e, 0xd0, 0x00, 0xa0, 0x24, 0xca, 0x19, 0xb3);
+	public const Guid AM_KSPROPSETID_TSRateChange = .(0xa503c5c0, 0x1d1d, 0x11d1, 0xad, 0x80, 0x44, 0x45, 0x53, 0x54, 0x00, 0x00);
+	public const Guid AM_KSPROPSETID_DVD_RateChange = .(0x3577eb09, 0x9582, 0x477f, 0xb2, 0x9c, 0xb0, 0xc4, 0x52, 0xa4, 0xff, 0x9a);
+	public const Guid AM_KSPROPSETID_DvdKaraoke = .(0xae4720ae, 0xaa71, 0x42d8, 0xb8, 0x2a, 0xff, 0xfd, 0xf5, 0x8b, 0x76, 0xfd);
+	public const Guid AM_KSPROPSETID_FrameStep = .(0xc830acbd, 0xab07, 0x492f, 0x88, 0x52, 0x45, 0xb6, 0x98, 0x7c, 0x29, 0x79);
+	public const Guid AM_KSPROPSETID_MPEG4_MediaType_Attributes = .(0xff6c4bfa, 0x07a9, 0x4c7b, 0xa2, 0x37, 0x67, 0x2f, 0x9d, 0x68, 0x06, 0x5f);
+	public const Guid AM_KSCATEGORY_CAPTURE = .(0x65e8773d, 0x8f56, 0x11d0, 0xa3, 0xb9, 0x00, 0xa0, 0xc9, 0x22, 0x31, 0x96);
+	public const Guid AM_KSCATEGORY_RENDER = .(0x65e8773e, 0x8f56, 0x11d0, 0xa3, 0xb9, 0x00, 0xa0, 0xc9, 0x22, 0x31, 0x96);
+	public const Guid AM_KSCATEGORY_DATACOMPRESSOR = .(0x1e84c900, 0x7e70, 0x11d0, 0xa5, 0xd6, 0x28, 0xdb, 0x04, 0xc1, 0x00, 0x00);
+	public const Guid AM_KSCATEGORY_AUDIO = .(0x6994ad04, 0x93ef, 0x11d0, 0xa3, 0xcc, 0x00, 0xa0, 0xc9, 0x22, 0x31, 0x96);
+	public const Guid AM_KSCATEGORY_VIDEO = .(0x6994ad05, 0x93ef, 0x11d0, 0xa3, 0xcc, 0x00, 0xa0, 0xc9, 0x22, 0x31, 0x96);
+	public const Guid AM_KSCATEGORY_TVTUNER = .(0xa799a800, 0xa46d, 0x11d0, 0xa1, 0x8c, 0x00, 0xa0, 0x24, 0x01, 0xdc, 0xd4);
+	public const Guid AM_KSCATEGORY_CROSSBAR = .(0xa799a801, 0xa46d, 0x11d0, 0xa1, 0x8c, 0x00, 0xa0, 0x24, 0x01, 0xdc, 0xd4);
+	public const Guid AM_KSCATEGORY_TVAUDIO = .(0xa799a802, 0xa46d, 0x11d0, 0xa1, 0x8c, 0x00, 0xa0, 0x24, 0x01, 0xdc, 0xd4);
+	public const Guid AM_KSCATEGORY_VBICODEC = .(0x07dad660, 0x22f1, 0x11d1, 0xa9, 0xf4, 0x00, 0xc0, 0x4f, 0xbb, 0xde, 0x8f);
+	public const Guid AM_KSCATEGORY_VBICODEC_MI = .(0x9c24a977, 0x0951, 0x451a, 0x80, 0x06, 0x0e, 0x49, 0xbd, 0x28, 0xcd, 0x5f);
+	public const Guid AM_KSCATEGORY_SPLITTER = .(0x0a4252a0, 0x7e70, 0x11d0, 0xa5, 0xd6, 0x28, 0xdb, 0x04, 0xc1, 0x00, 0x00);
+	public const Guid AM_INTERFACESETID_Standard = .(0x1a8766a0, 0x62ce, 0x11cf, 0xa5, 0xd6, 0x28, 0xdb, 0x04, 0xc1, 0x00, 0x00);
 	public const Guid PBDA_AUX_CONNECTOR_TYPE_SVideo = .(0xa0e905f4, 0x24c9, 0x4a54, 0xb7, 0x61, 0x21, 0x33, 0x55, 0xef, 0xc1, 0x3a);
 	public const Guid PBDA_AUX_CONNECTOR_TYPE_Composite = .(0xf6298b4c, 0xc725, 0x4d42, 0x84, 0x9b, 0x41, 0x0b, 0xbb, 0x14, 0xea, 0x62);
 	public const Guid CLSID_PBDA_AUX_DATA_TYPE = .(0xfd456373, 0x3323, 0x4090, 0xad, 0xca, 0x8e, 0xd4, 0x5f, 0x55, 0xcf, 0x10);
@@ -314,6 +371,15 @@ public static
 	public const uint32 AMDDS_YUVFLP = 128;
 	public const uint32 AMDDS_ALL = 255;
 	public const uint32 AMDDS_DEFAULT = 255;
+	public const uint32 iPALETTE_COLORS = 256;
+	public const uint32 iEGA_COLORS = 16;
+	public const uint32 iMASK_COLORS = 3;
+	public const uint32 iTRUECOLOR = 16;
+	public const uint32 iRED = 0;
+	public const uint32 iGREEN = 1;
+	public const uint32 iBLUE = 2;
+	public const uint32 iPALETTE = 8;
+	public const uint32 iMAXBITS = 8;
 	public const uint32 MAX_SIZE_MPEG1_SEQUENCE_INFO = 140;
 	public const Guid CLSID_DMOWrapperFilter = .(0x94297043, 0xbd82, 0x4dfd, 0xb0, 0xde, 0x81, 0x77, 0x73, 0x9c, 0x6d, 0x20);
 	public const Guid CLSID_DMOFilterCategory = .(0xbcd5796c, 0xbd52, 0x4d30, 0xab, 0x76, 0x70, 0xf9, 0x75, 0xb8, 0x91, 0x99);
@@ -491,6 +557,7 @@ public static
 	public const HRESULT VFW_E_CODECAPI_NO_CURRENT_VALUE = -2147220716;
 	public const HRESULT VFW_E_DVD_CHAPTER_DOES_NOT_EXIST = -2147220715;
 	public const HRESULT VFW_S_DVD_RENDER_STATUS = 262944;
+	public const String CFSTR_VFW_FILTERLIST = "Video for Windows 4 Filters";
 	public const Guid DXVA_ModeNone = .(0x1b81be00, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
 	public const Guid DXVA_ModeH261_A = .(0x1b81be01, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
 	public const Guid DXVA_ModeH261_B = .(0x1b81be02, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
@@ -712,6 +779,7 @@ public static
 	public const Guid DXVA2Trace_VideoProcessDevCreated = .(0x895508c6, 0x540d, 0x4c87, 0x98, 0xf8, 0x8d, 0xcb, 0xf2, 0xda, 0xbb, 0x2a);
 	public const Guid DXVA2Trace_VideoProcessDevDestroyed = .(0xf97f30b1, 0xfb49, 0x42c7, 0x8e, 0xe8, 0x88, 0xbd, 0xfa, 0x92, 0xd4, 0xe2);
 	public const Guid DXVA2Trace_VideoProcessBlt = .(0x69089cc0, 0x71ab, 0x42d0, 0x95, 0x3a, 0x28, 0x87, 0xbf, 0x05, 0xa8, 0xaf);
+	public const Guid MSTapeDeviceGUID = .(0x8c0f6af2, 0x0edb, 0x44c1, 0x8a, 0xeb, 0x59, 0x04, 0x0b, 0xd8, 0x30, 0xed);
 	public const uint32 DTV_CardStatus_Inserted = 0;
 	public const uint32 DTV_CardStatus_Removed = 1;
 	public const uint32 DTV_CardStatus_Error = 2;
@@ -1042,22 +1110,6 @@ public enum OA_BOOL : int32
 
 
 [AllowDuplicates]
-public enum MPEG2VIDEOINFO_FLAGS : uint32
-{
-	AMMPEG2_DoPanScan = 1,
-	AMMPEG2_DVDLine21Field1 = 2,
-	AMMPEG2_DVDLine21Field2 = 4,
-	AMMPEG2_SourceIsLetterboxed = 8,
-	AMMPEG2_FilmCameraMode = 16,
-	AMMPEG2_LetterboxAnalogOut = 32,
-	AMMPEG2_DSS_UserData = 64,
-	AMMPEG2_DVB_UserData = 128,
-	AMMPEG2_27MhzTimebase = 256,
-	AMMPEG2_WidescreenAnalogOut = 512,
-}
-
-
-[AllowDuplicates]
 public enum MPEGLAYER3WAVEFORMAT_FLAGS : uint32
 {
 	MPEGLAYER3_FLAG_PADDING_ISO = 0,
@@ -1121,7 +1173,7 @@ public enum AM_SAMPLE_PROPERTY_FLAGS : int32
 
 
 [AllowDuplicates]
-public enum AM_SEEKING_SeekingFlags : int32
+public enum AM_SEEKING_SEEKING_FLAGS : int32
 {
 	AM_SEEKING_NoPositioning = 0,
 	AM_SEEKING_AbsolutePositioning = 1,
@@ -5022,20 +5074,6 @@ public struct AMVPDATAINFO
 }
 
 [CRepr]
-public struct AM_MEDIA_TYPE
-{
-	public Guid majortype;
-	public Guid subtype;
-	public BOOL bFixedSizeSamples;
-	public BOOL bTemporalCompression;
-	public uint32 lSampleSize;
-	public Guid formattype;
-	public IUnknown* pUnk;
-	public uint32 cbFormat;
-	public uint8* pbFormat;
-}
-
-[CRepr]
 public struct ALLOCATOR_PROPERTIES
 {
 	public int32 cBuffers;
@@ -5162,8 +5200,8 @@ public struct COLORKEY
 {
 	public uint32 KeyType;
 	public uint32 PaletteIndex;
-	public uint32 LowColorValue;
-	public uint32 HighColorValue;
+	public COLORREF LowColorValue;
+	public COLORREF HighColorValue;
 }
 
 [CRepr]
@@ -5369,7 +5407,7 @@ public struct VMRALPHABITMAP
 	public RECT rSrc;
 	public NORMALIZEDRECT rDest;
 	public float fAlpha;
-	public uint32 clrSrcKey;
+	public COLORREF clrSrcKey;
 }
 
 [CRepr]
@@ -6087,17 +6125,6 @@ public struct TRUECOLORINFO
 }
 
 [CRepr]
-public struct VIDEOINFOHEADER
-{
-	public RECT rcSource;
-	public RECT rcTarget;
-	public uint32 dwBitRate;
-	public uint32 dwBitErrorRate;
-	public int64 AvgTimePerFrame;
-	public BITMAPINFOHEADER bmiHeader;
-}
-
-[CRepr]
 public struct VIDEOINFO
 {
 	[CRepr, Union]
@@ -6114,16 +6141,6 @@ public struct VIDEOINFO
 	public int64 AvgTimePerFrame;
 	public BITMAPINFOHEADER bmiHeader;
 	public using _Anonymous_e__Union Anonymous;
-}
-
-[CRepr]
-public struct MPEG1VIDEOINFO
-{
-	public VIDEOINFOHEADER hdr;
-	public uint32 dwStartTimeCode;
-	public uint32 cbSequenceHeader;
-	public uint8* bSequenceHeader mut => &bSequenceHeader_impl;
-	private uint8[ANYSIZE_ARRAY] bSequenceHeader_impl;
 }
 
 [CRepr]
@@ -6228,7 +6245,7 @@ public struct VMR9AlphaBitmap
 	public RECT rSrc;
 	public VMR9NormalizedRect rDest;
 	public float fAlpha;
-	public uint32 clrSrcKey;
+	public COLORREF clrSrcKey;
 	public uint32 dwFilterMode;
 }
 
@@ -6454,7 +6471,7 @@ public struct AVITIMEDINDEX_ENTRY
 }
 
 [CRepr, Packed(2)]
-public struct _avitimedindex
+public struct AVITIMEDINDEX
 {
 	public uint32 fcc;
 	public uint32 cb;
@@ -6494,7 +6511,7 @@ public struct AVITCDLINDEX_ENTRY
 }
 
 [CRepr, Packed(2)]
-public struct _avitcdlindex
+public struct AVITCDLINDEX
 {
 	public uint32 fcc;
 	public uint32 cb;
@@ -6711,42 +6728,6 @@ public struct DVD_REGION
 	public uint8 RegionData;
 	public uint8 SystemRegion;
 	public uint8 ResetCount;
-}
-
-[CRepr]
-public struct VIDEOINFOHEADER2
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		public uint32 dwControlFlags;
-		public uint32 dwReserved1;
-	}
-	public RECT rcSource;
-	public RECT rcTarget;
-	public uint32 dwBitRate;
-	public uint32 dwBitErrorRate;
-	public int64 AvgTimePerFrame;
-	public uint32 dwInterlaceFlags;
-	public uint32 dwCopyProtectFlags;
-	public uint32 dwPictAspectRatioX;
-	public uint32 dwPictAspectRatioY;
-	public using _Anonymous_e__Union Anonymous;
-	public uint32 dwReserved2;
-	public BITMAPINFOHEADER bmiHeader;
-}
-
-[CRepr]
-public struct MPEG2VIDEOINFO
-{
-	public VIDEOINFOHEADER2 hdr;
-	public uint32 dwStartTimeCode;
-	public uint32 cbSequenceHeader;
-	public uint32 dwProfile;
-	public uint32 dwLevel;
-	public MPEG2VIDEOINFO_FLAGS dwFlags;
-	public uint32* dwSequenceHeader mut => &dwSequenceHeader_impl;
-	private uint32[ANYSIZE_ARRAY] dwSequenceHeader_impl;
 }
 
 [CRepr]
@@ -7020,7 +7001,7 @@ public struct TID_EXTENSION
 	public uint16 wCount;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct SECTION
 {
 	[CRepr, Union, Packed(1)]
@@ -7207,7 +7188,7 @@ public struct MPEG_STREAM_BUFFER
 	public uint8* pDataBuffer;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct MPEG_TIME
 {
 	public uint8 Hours;
@@ -7223,7 +7204,7 @@ public struct MPEG_DATE
 	public uint16 Year;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct MPEG_DATE_AND_TIME
 {
 	public MPEG_DATE D;
@@ -11814,7 +11795,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectDraw7* lpDDrawDevice, HMONITOR hMonitor) ChangeDDrawDevice;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RestoreDDrawSurfaces;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 EventCode, int Param1, int Param2) NotifyEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 clrBorder) SetBorderColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF clrBorder) SetBorderColor;
 	}
 
 
@@ -11828,7 +11809,7 @@ public static
 
 	public HRESULT NotifyEvent(int32 EventCode, int Param1, int Param2) mut => VT.[Friend]NotifyEvent(&this, EventCode, Param1, Param2);
 
-	public HRESULT SetBorderColor(uint32 clrBorder) mut => VT.[Friend]SetBorderColor(&this, clrBorder);
+	public HRESULT SetBorderColor(COLORREF clrBorder) mut => VT.[Friend]SetBorderColor(&this, clrBorder);
 }
 
 [CRepr]struct IVMRWindowlessControl : IUnknown
@@ -11850,10 +11831,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, HDC hdc) RepaintVideo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisplayModeChanged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** lpDib) GetCurrentImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Clr) SetBorderColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpClr) GetBorderColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Clr) SetColorKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpClr) GetColorKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF Clr) SetBorderColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF* lpClr) GetBorderColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF Clr) SetColorKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF* lpClr) GetColorKey;
 	}
 
 
@@ -11879,13 +11860,13 @@ public static
 
 	public HRESULT GetCurrentImage(uint8** lpDib) mut => VT.[Friend]GetCurrentImage(&this, lpDib);
 
-	public HRESULT SetBorderColor(uint32 Clr) mut => VT.[Friend]SetBorderColor(&this, Clr);
+	public HRESULT SetBorderColor(COLORREF Clr) mut => VT.[Friend]SetBorderColor(&this, Clr);
 
-	public HRESULT GetBorderColor(uint32* lpClr) mut => VT.[Friend]GetBorderColor(&this, lpClr);
+	public HRESULT GetBorderColor(COLORREF* lpClr) mut => VT.[Friend]GetBorderColor(&this, lpClr);
 
-	public HRESULT SetColorKey(uint32 Clr) mut => VT.[Friend]SetColorKey(&this, Clr);
+	public HRESULT SetColorKey(COLORREF Clr) mut => VT.[Friend]SetColorKey(&this, Clr);
 
-	public HRESULT GetColorKey(uint32* lpClr) mut => VT.[Friend]GetColorKey(&this, lpClr);
+	public HRESULT GetColorKey(COLORREF* lpClr) mut => VT.[Friend]GetColorKey(&this, lpClr);
 }
 
 [CRepr]struct IVMRMixerControl : IUnknown
@@ -11902,8 +11883,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, uint32* pZ) GetZOrder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, NORMALIZEDRECT* pRect) SetOutputRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, NORMALIZEDRECT* pRect) GetOutputRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ClrBkg) SetBackgroundClr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpClrBkg) GetBackgroundClr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF ClrBkg) SetBackgroundClr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF* lpClrBkg) GetBackgroundClr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMixerPrefs) SetMixingPrefs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMixerPrefs) GetMixingPrefs;
 	}
@@ -11921,9 +11902,9 @@ public static
 
 	public HRESULT GetOutputRect(uint32 dwStreamID, NORMALIZEDRECT* pRect) mut => VT.[Friend]GetOutputRect(&this, dwStreamID, pRect);
 
-	public HRESULT SetBackgroundClr(uint32 ClrBkg) mut => VT.[Friend]SetBackgroundClr(&this, ClrBkg);
+	public HRESULT SetBackgroundClr(COLORREF ClrBkg) mut => VT.[Friend]SetBackgroundClr(&this, ClrBkg);
 
-	public HRESULT GetBackgroundClr(uint32* lpClrBkg) mut => VT.[Friend]GetBackgroundClr(&this, lpClrBkg);
+	public HRESULT GetBackgroundClr(COLORREF* lpClrBkg) mut => VT.[Friend]GetBackgroundClr(&this, lpClrBkg);
 
 	public HRESULT SetMixingPrefs(uint32 dwMixerPrefs) mut => VT.[Friend]SetMixingPrefs(&this, dwMixerPrefs);
 
@@ -14359,6 +14340,8 @@ public static
 
 [CRepr]struct IAMDirectSound : IUnknown
 {
+	public new const Guid IID = .(0x546f4260, 0xd53e, 0x11cf, 0xb3, 0xf0, 0x00, 0xaa, 0x00, 0x37, 0x61, 0xc5);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IUnknown.VTable
@@ -14393,6 +14376,8 @@ public static
 
 [CRepr]struct IAMLine21Decoder : IUnknown
 {
+	public new const Guid IID = .(0x6e8d4a21, 0x310c, 0x11d0, 0xb7, 0x9a, 0x00, 0xaa, 0x00, 0x37, 0x67, 0xa7);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IUnknown.VTable
@@ -15159,6 +15144,8 @@ public static
 
 [CRepr]struct IAMWstDecoder : IUnknown
 {
+	public new const Guid IID = .(0xc056de21, 0x75c2, 0x11d3, 0xa1, 0x84, 0x00, 0x10, 0x5a, 0xef, 0x9f, 0x33);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IUnknown.VTable
@@ -15588,6 +15575,36 @@ public static
 	public HRESULT put_NodeId(uint32 dwNodeId) mut => VT.[Friend]put_NodeId(&this, dwNodeId);
 
 	public HRESULT put_KsControl(void* pKsControl) mut => VT.[Friend]put_KsControl(&this, pKsControl);
+}
+
+[CRepr]struct IAMWMBufferPass : IUnknown
+{
+	public new const Guid IID = .(0x6dd816d7, 0xe740, 0x4123, 0x9e, 0x24, 0x24, 0x44, 0x41, 0x26, 0x44, 0xd8);
+
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IUnknown.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAMWMBufferPassCallback* pCallback) SetNotify;
+	}
+
+
+	public HRESULT SetNotify(IAMWMBufferPassCallback* pCallback) mut => VT.[Friend]SetNotify(&this, pCallback);
+}
+
+[CRepr]struct IAMWMBufferPassCallback : IUnknown
+{
+	public new const Guid IID = .(0xb25b8372, 0xd2d2, 0x44b2, 0x86, 0x53, 0x1b, 0x8d, 0xae, 0x33, 0x24, 0x89);
+
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IUnknown.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INSSBuffer3* pNSSBuffer3, IPin* pPin, int64* prtStart, int64* prtEnd) Notify;
+	}
+
+
+	public HRESULT Notify(INSSBuffer3* pNSSBuffer3, IPin* pPin, int64* prtStart, int64* prtEnd) mut => VT.[Friend]Notify(&this, pNSSBuffer3, pPin, prtStart, prtEnd);
 }
 
 [CRepr]struct IConfigAsfWriter : IUnknown
@@ -16093,6 +16110,8 @@ public static
 
 [CRepr]struct IDirectDrawVideo : IUnknown
 {
+	public new const Guid IID = .(0x36d39eb0, 0xdd75, 0x11ce, 0xbf, 0x0e, 0x00, 0xaa, 0x00, 0x55, 0x59, 0x5a);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IUnknown.VTable
@@ -16151,6 +16170,8 @@ public static
 
 [CRepr]struct IQualProp : IUnknown
 {
+	public new const Guid IID = .(0x1bd0ecb0, 0xf8e2, 0x11ce, 0xaa, 0xc6, 0x00, 0x20, 0xaf, 0x0b, 0x99, 0xa3);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IUnknown.VTable
@@ -16179,6 +16200,8 @@ public static
 
 [CRepr]struct IFullScreenVideo : IUnknown
 {
+	public new const Guid IID = .(0xdd1d7110, 0x7836, 0x11cf, 0xbf, 0x47, 0x00, 0xaa, 0x00, 0x55, 0x59, 0x5a);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IUnknown.VTable
@@ -16240,6 +16263,8 @@ public static
 
 [CRepr]struct IFullScreenVideoEx : IFullScreenVideo
 {
+	public new const Guid IID = .(0x53479470, 0xf1dd, 0x11cf, 0xbc, 0x42, 0x00, 0xaa, 0x00, 0xac, 0x74, 0xf6);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IFullScreenVideo.VTable
@@ -16262,6 +16287,8 @@ public static
 
 [CRepr]struct IBaseVideoMixer : IUnknown
 {
+	public new const Guid IID = .(0x61ded640, 0xe912, 0x11ce, 0xa0, 0x99, 0x00, 0xaa, 0x00, 0x47, 0x9a, 0x58);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IUnknown.VTable
@@ -16365,6 +16392,8 @@ public static
 
 [CRepr]struct IMixerPinConfig : IUnknown
 {
+	public new const Guid IID = .(0x593cdde1, 0x0759, 0x11d1, 0x9e, 0x69, 0x00, 0xc0, 0x4f, 0xd7, 0xc1, 0x5b);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IUnknown.VTable
@@ -16411,6 +16440,8 @@ public static
 
 [CRepr]struct IMixerPinConfig2 : IMixerPinConfig
 {
+	public new const Guid IID = .(0xebf47182, 0x8764, 0x11d1, 0x9e, 0x69, 0x00, 0xc0, 0x4f, 0xd7, 0xc1, 0x5b);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IMixerPinConfig.VTable
@@ -16427,6 +16458,8 @@ public static
 
 [CRepr]struct IMpegAudioDecoder : IUnknown
 {
+	public new const Guid IID = .(0xb45dd570, 0x3c77, 0x11d1, 0xab, 0xe1, 0x00, 0xa0, 0xc9, 0x05, 0xf3, 0x75);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IUnknown.VTable
@@ -16580,8 +16613,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, HDC hdc) RepaintVideo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisplayModeChanged;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** lpDib) GetCurrentImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Clr) SetBorderColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpClr) GetBorderColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF Clr) SetBorderColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF* lpClr) GetBorderColor;
 	}
 
 
@@ -16607,9 +16640,9 @@ public static
 
 	public HRESULT GetCurrentImage(uint8** lpDib) mut => VT.[Friend]GetCurrentImage(&this, lpDib);
 
-	public HRESULT SetBorderColor(uint32 Clr) mut => VT.[Friend]SetBorderColor(&this, Clr);
+	public HRESULT SetBorderColor(COLORREF Clr) mut => VT.[Friend]SetBorderColor(&this, Clr);
 
-	public HRESULT GetBorderColor(uint32* lpClr) mut => VT.[Friend]GetBorderColor(&this, lpClr);
+	public HRESULT GetBorderColor(COLORREF* lpClr) mut => VT.[Friend]GetBorderColor(&this, lpClr);
 }
 
 [CRepr]struct IVMRMixerControl9 : IUnknown
@@ -16626,8 +16659,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, uint32* pZ) GetZOrder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, VMR9NormalizedRect* pRect) SetOutputRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, VMR9NormalizedRect* pRect) GetOutputRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ClrBkg) SetBackgroundClr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpClrBkg) GetBackgroundClr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF ClrBkg) SetBackgroundClr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF* lpClrBkg) GetBackgroundClr;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMixerPrefs) SetMixingPrefs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMixerPrefs) GetMixingPrefs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, VMR9ProcAmpControl* lpClrControl) SetProcAmpControl;
@@ -16648,9 +16681,9 @@ public static
 
 	public HRESULT GetOutputRect(uint32 dwStreamID, VMR9NormalizedRect* pRect) mut => VT.[Friend]GetOutputRect(&this, dwStreamID, pRect);
 
-	public HRESULT SetBackgroundClr(uint32 ClrBkg) mut => VT.[Friend]SetBackgroundClr(&this, ClrBkg);
+	public HRESULT SetBackgroundClr(COLORREF ClrBkg) mut => VT.[Friend]SetBackgroundClr(&this, ClrBkg);
 
-	public HRESULT GetBackgroundClr(uint32* lpClrBkg) mut => VT.[Friend]GetBackgroundClr(&this, lpClrBkg);
+	public HRESULT GetBackgroundClr(COLORREF* lpClrBkg) mut => VT.[Friend]GetBackgroundClr(&this, lpClrBkg);
 
 	public HRESULT SetMixingPrefs(uint32 dwMixerPrefs) mut => VT.[Friend]SetMixingPrefs(&this, dwMixerPrefs);
 
@@ -16930,6 +16963,8 @@ public static
 
 [CRepr]struct IVPConfig : IVPBaseConfig
 {
+	public new const Guid IID = .(0xbc29a660, 0x30e3, 0x11d0, 0x9e, 0x69, 0x00, 0xc0, 0x4f, 0xd7, 0xc1, 0x5b);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IVPBaseConfig.VTable
@@ -16946,6 +16981,8 @@ public static
 
 [CRepr]struct IVPVBIConfig : IVPBaseConfig
 {
+	public new const Guid IID = .(0xec529b00, 0x1a1f, 0x11d1, 0xba, 0xd9, 0x00, 0x60, 0x97, 0x44, 0x11, 0x1a);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IVPBaseConfig.VTable
@@ -16969,6 +17006,8 @@ public static
 
 [CRepr]struct IVPNotify : IVPBaseNotify
 {
+	public new const Guid IID = .(0xc76794a1, 0xd6c5, 0x11d0, 0x9e, 0x69, 0x00, 0xc0, 0x4f, 0xd7, 0xc1, 0x5b);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IVPBaseNotify.VTable
@@ -16985,6 +17024,8 @@ public static
 
 [CRepr]struct IVPNotify2 : IVPNotify
 {
+	public new const Guid IID = .(0xebf47183, 0x8764, 0x11d1, 0x9e, 0x69, 0x00, 0xc0, 0x4f, 0xd7, 0xc1, 0x5b);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IVPNotify.VTable
@@ -17001,6 +17042,8 @@ public static
 
 [CRepr]struct IVPVBINotify : IVPBaseNotify
 {
+	public new const Guid IID = .(0xec529b01, 0x1a1f, 0x11d1, 0xba, 0xd9, 0x00, 0x60, 0x97, 0x44, 0x11, 0x1a);
+
 	public new VTable* VT { get => (.)mVT; }
 
 	[CRepr]public struct VTable : IVPBaseNotify.VTable
@@ -25716,6 +25759,45 @@ public static
 	public HRESULT Init(IGuideData* pGuideStore) mut => VT.[Friend]Init(&this, pGuideStore);
 
 	public HRESULT Terminate() mut => VT.[Friend]Terminate(&this);
+}
+
+[CRepr]struct IWMCodecAMVideoAccelerator : IUnknown
+{
+	public new const Guid IID = .(0xd98ee251, 0x34e0, 0x4a2d, 0x93, 0x12, 0x9b, 0x4c, 0x78, 0x8d, 0x9f, 0xa1);
+
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IUnknown.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAMVideoAccelerator* pIAMVA) SetAcceleratorInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AM_MEDIA_TYPE* pMediaType) NegotiateConnection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMPlayerTimestampHook* pHook) SetPlayerNotify;
+	}
+
+
+	public HRESULT SetAcceleratorInterface(IAMVideoAccelerator* pIAMVA) mut => VT.[Friend]SetAcceleratorInterface(&this, pIAMVA);
+
+	public HRESULT NegotiateConnection(AM_MEDIA_TYPE* pMediaType) mut => VT.[Friend]NegotiateConnection(&this, pMediaType);
+
+	public HRESULT SetPlayerNotify(IWMPlayerTimestampHook* pHook) mut => VT.[Friend]SetPlayerNotify(&this, pHook);
+}
+
+[CRepr]struct IWMCodecVideoAccelerator : IUnknown
+{
+	public new const Guid IID = .(0x990641b0, 0x739f, 0x4e94, 0xa8, 0x08, 0x98, 0x88, 0xda, 0x8f, 0x75, 0xaf);
+
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IUnknown.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAMVideoAccelerator* pIAMVA, AM_MEDIA_TYPE* pMediaType) NegotiateConnection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMPlayerTimestampHook* pHook) SetPlayerNotify;
+	}
+
+
+	public HRESULT NegotiateConnection(IAMVideoAccelerator* pIAMVA, AM_MEDIA_TYPE* pMediaType) mut => VT.[Friend]NegotiateConnection(&this, pIAMVA, pMediaType);
+
+	public HRESULT SetPlayerNotify(IWMPlayerTimestampHook* pHook) mut => VT.[Friend]SetPlayerNotify(&this, pHook);
 }
 
 #endregion

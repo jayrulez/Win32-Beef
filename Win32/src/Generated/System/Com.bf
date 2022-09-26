@@ -112,12 +112,173 @@ public enum RPC_C_IMP_LEVEL : uint32
 
 
 [AllowDuplicates]
-public enum DVASPECT : int32
+public enum ROT_FLAGS : uint32
+{
+	ROTFLAGS_REGISTRATIONKEEPSALIVE = 1,
+	ROTFLAGS_ALLOWANYCLIENT = 2,
+}
+
+
+[AllowDuplicates]
+public enum ADVANCED_FEATURE_FLAGS : uint16
+{
+	FADF_AUTO = 1,
+	FADF_STATIC = 2,
+	FADF_EMBEDDED = 4,
+	FADF_FIXEDSIZE = 16,
+	FADF_RECORD = 32,
+	FADF_HAVEIID = 64,
+	FADF_HAVEVARTYPE = 128,
+	FADF_BSTR = 256,
+	FADF_UNKNOWN = 512,
+	FADF_DISPATCH = 1024,
+	FADF_VARIANT = 2048,
+	FADF_RESERVED = 61448,
+}
+
+
+[AllowDuplicates]
+public enum IMPLTYPEFLAGS : int32
+{
+	IMPLTYPEFLAG_FDEFAULT = 1,
+	IMPLTYPEFLAG_FSOURCE = 2,
+	IMPLTYPEFLAG_FRESTRICTED = 4,
+	IMPLTYPEFLAG_FDEFAULTVTABLE = 8,
+}
+
+
+[AllowDuplicates]
+public enum IDLFLAGS : uint16
+{
+	IDLFLAG_NONE = 0,
+	IDLFLAG_FIN = 1,
+	IDLFLAG_FOUT = 2,
+	IDLFLAG_FLCID = 4,
+	IDLFLAG_FRETVAL = 8,
+}
+
+
+[AllowDuplicates]
+public enum DISPATCH_FLAGS : uint16
+{
+	DISPATCH_METHOD = 1,
+	DISPATCH_PROPERTYGET = 2,
+	DISPATCH_PROPERTYPUT = 4,
+	DISPATCH_PROPERTYPUTREF = 8,
+}
+
+
+[AllowDuplicates]
+public enum STGM : uint32
+{
+	STGM_DIRECT = 0,
+	STGM_TRANSACTED = 65536,
+	STGM_SIMPLE = 134217728,
+	STGM_READ = 0,
+	STGM_WRITE = 1,
+	STGM_READWRITE = 2,
+	STGM_SHARE_DENY_NONE = 64,
+	STGM_SHARE_DENY_READ = 48,
+	STGM_SHARE_DENY_WRITE = 32,
+	STGM_SHARE_EXCLUSIVE = 16,
+	STGM_PRIORITY = 262144,
+	STGM_DELETEONRELEASE = 67108864,
+	STGM_NOSCRATCH = 1048576,
+	STGM_CREATE = 4096,
+	STGM_CONVERT = 131072,
+	STGM_FAILIFTHERE = 0,
+	STGM_NOSNAPSHOT = 2097152,
+	STGM_DIRECT_SWMR = 4194304,
+}
+
+
+[AllowDuplicates]
+public enum DVASPECT : uint32
 {
 	DVASPECT_CONTENT = 1,
 	DVASPECT_THUMBNAIL = 2,
 	DVASPECT_ICON = 4,
 	DVASPECT_DOCPRINT = 8,
+	DVASPECT_OPAQUE = 16,
+	DVASPECT_TRANSPARENT = 32,
+}
+
+
+[AllowDuplicates]
+public enum STGC : uint32
+{
+	STGC_DEFAULT = 0,
+	STGC_OVERWRITE = 1,
+	STGC_ONLYIFCURRENT = 2,
+	STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE = 4,
+	STGC_CONSOLIDATE = 8,
+}
+
+
+[AllowDuplicates]
+public enum STATFLAG : int32
+{
+	STATFLAG_DEFAULT = 0,
+	STATFLAG_NONAME = 1,
+	STATFLAG_NOOPEN = 2,
+}
+
+
+[AllowDuplicates]
+public enum VARENUM : uint16
+{
+	VT_EMPTY = 0,
+	VT_NULL = 1,
+	VT_I2 = 2,
+	VT_I4 = 3,
+	VT_R4 = 4,
+	VT_R8 = 5,
+	VT_CY = 6,
+	VT_DATE = 7,
+	VT_BSTR = 8,
+	VT_DISPATCH = 9,
+	VT_ERROR = 10,
+	VT_BOOL = 11,
+	VT_VARIANT = 12,
+	VT_UNKNOWN = 13,
+	VT_DECIMAL = 14,
+	VT_I1 = 16,
+	VT_UI1 = 17,
+	VT_UI2 = 18,
+	VT_UI4 = 19,
+	VT_I8 = 20,
+	VT_UI8 = 21,
+	VT_INT = 22,
+	VT_UINT = 23,
+	VT_VOID = 24,
+	VT_HRESULT = 25,
+	VT_PTR = 26,
+	VT_SAFEARRAY = 27,
+	VT_CARRAY = 28,
+	VT_USERDEFINED = 29,
+	VT_LPSTR = 30,
+	VT_LPWSTR = 31,
+	VT_RECORD = 36,
+	VT_INT_PTR = 37,
+	VT_UINT_PTR = 38,
+	VT_FILETIME = 64,
+	VT_BLOB = 65,
+	VT_STREAM = 66,
+	VT_STORAGE = 67,
+	VT_STREAMED_OBJECT = 68,
+	VT_STORED_OBJECT = 69,
+	VT_BLOB_OBJECT = 70,
+	VT_CF = 71,
+	VT_CLSID = 72,
+	VT_VERSIONED_STREAM = 73,
+	VT_BSTR_BLOB = 4095,
+	VT_VECTOR = 4096,
+	VT_ARRAY = 8192,
+	VT_BYREF = 16384,
+	VT_RESERVED = 32768,
+	VT_ILLEGAL = 65535,
+	VT_ILLEGALMASKED = 4095,
+	VT_TYPEMASK = 4095,
 }
 
 
@@ -250,6 +411,15 @@ public enum STREAM_SEEK : uint32
 	STREAM_SEEK_SET = 0,
 	STREAM_SEEK_CUR = 1,
 	STREAM_SEEK_END = 2,
+}
+
+
+[AllowDuplicates]
+public enum LOCKTYPE : int32
+{
+	LOCK_WRITE = 1,
+	LOCK_EXCLUSIVE = 2,
+	LOCK_ONLYONCE = 4,
 }
 
 
@@ -446,7 +616,7 @@ public enum MKSYS : int32
 
 
 [AllowDuplicates]
-public enum MKREDUCE : int32
+public enum MKRREDUCE : int32
 {
 	MKRREDUCE_ONE = 196608,
 	MKRREDUCE_TOUSER = 131072,
@@ -685,6 +855,44 @@ public enum VARKIND : int32
 
 
 [AllowDuplicates]
+public enum FUNCFLAGS : uint16
+{
+	FUNCFLAG_FRESTRICTED = 1,
+	FUNCFLAG_FSOURCE = 2,
+	FUNCFLAG_FBINDABLE = 4,
+	FUNCFLAG_FREQUESTEDIT = 8,
+	FUNCFLAG_FDISPLAYBIND = 16,
+	FUNCFLAG_FDEFAULTBIND = 32,
+	FUNCFLAG_FHIDDEN = 64,
+	FUNCFLAG_FUSESGETLASTERROR = 128,
+	FUNCFLAG_FDEFAULTCOLLELEM = 256,
+	FUNCFLAG_FUIDEFAULT = 512,
+	FUNCFLAG_FNONBROWSABLE = 1024,
+	FUNCFLAG_FREPLACEABLE = 2048,
+	FUNCFLAG_FIMMEDIATEBIND = 4096,
+}
+
+
+[AllowDuplicates]
+public enum VARFLAGS : uint16
+{
+	VARFLAG_FREADONLY = 1,
+	VARFLAG_FSOURCE = 2,
+	VARFLAG_FBINDABLE = 4,
+	VARFLAG_FREQUESTEDIT = 8,
+	VARFLAG_FDISPLAYBIND = 16,
+	VARFLAG_FDEFAULTBIND = 32,
+	VARFLAG_FHIDDEN = 64,
+	VARFLAG_FRESTRICTED = 128,
+	VARFLAG_FDEFAULTCOLLELEM = 256,
+	VARFLAG_FUIDEFAULT = 512,
+	VARFLAG_FNONBROWSABLE = 1024,
+	VARFLAG_FREPLACEABLE = 2048,
+	VARFLAG_FIMMEDIATEBIND = 4096,
+}
+
+
+[AllowDuplicates]
 public enum DESCKIND : int32
 {
 	DESCKIND_NONE = 0,
@@ -758,15 +966,15 @@ public struct uCLSSPEC
 	public struct _tagged_union_e__Struct
 	{
 		[CRepr]
-		public struct _ByName_e__Struct
-		{
-			public PWSTR pPackageName;
-			public Guid PolicyId;
-		}
-		[CRepr]
 		public struct _ByObjectId_e__Struct
 		{
 			public Guid ObjectId;
+			public Guid PolicyId;
+		}
+		[CRepr]
+		public struct _ByName_e__Struct
+		{
+			public PWSTR pPackageName;
 			public Guid PolicyId;
 		}
 		public Guid clsid;
@@ -855,14 +1063,14 @@ public struct BYTE_SIZEDARR
 }
 
 [CRepr]
-public struct SHORT_SIZEDARR
+public struct WORD_SIZEDARR
 {
 	public uint32 clSize;
 	public uint16* pData;
 }
 
 [CRepr]
-public struct LONG_SIZEDARR
+public struct DWORD_SIZEDARR
 {
 	public uint32 clSize;
 	public uint32* pData;
@@ -918,8 +1126,8 @@ public struct STATSTG
 	public FILETIME mtime;
 	public FILETIME ctime;
 	public FILETIME atime;
-	public uint32 grfMode;
-	public uint32 grfLocksSupported;
+	public STGM grfMode;
+	public LOCKTYPE grfLocksSupported;
 	public Guid clsid;
 	public uint32 grfStateBits;
 	public uint32 reserved;
@@ -990,7 +1198,7 @@ public struct BIND_OPTS
 [CRepr]
 public struct BIND_OPTS2
 {
-	public BIND_OPTS __AnonymousBase_objidl_L9017_C36;
+	public BIND_OPTS Base;
 	public uint32 dwTrackFlags;
 	public uint32 dwClassContext;
 	public uint32 locale;
@@ -1000,7 +1208,7 @@ public struct BIND_OPTS2
 [CRepr]
 public struct BIND_OPTS3
 {
-	public BIND_OPTS2 __AnonymousBase_objidl_L9041_C36;
+	public BIND_OPTS2 Base;
 	public HWND hwnd;
 }
 
@@ -1038,7 +1246,7 @@ public struct STATDATA
 [CRepr]
 public struct RemSTGMEDIUM
 {
-	public uint32 tymed;
+	public TYMED tymed;
 	public uint32 dwHandleType;
 	public uint32 pData;
 	public uint32 pUnkForRelease;
@@ -1061,7 +1269,7 @@ public struct STGMEDIUM
 		public IStream* pstm;
 		public IStorage* pstg;
 	}
-	public uint32 tymed;
+	public TYMED tymed;
 	public using _Anonymous_e__Union Anonymous;
 	public IUnknown* pUnkForRelease;
 }
@@ -1189,7 +1397,7 @@ public struct SAFEARRAYBOUND
 public struct SAFEARRAY
 {
 	public uint16 cDims;
-	public uint16 fFeatures;
+	public ADVANCED_FEATURE_FLAGS fFeatures;
 	public uint32 cbElements;
 	public uint32 cLocks;
 	public void* pvData;
@@ -1262,7 +1470,7 @@ public struct VARIANT
 				public uint32* puintVal;
 				public using _Anonymous_e__Struct Anonymous;
 			}
-			public uint16 vt;
+			public VARENUM vt;
 			public uint16 wReserved1;
 			public uint16 wReserved2;
 			public uint16 wReserved3;
@@ -1285,14 +1493,14 @@ public struct TYPEDESC
 		public uint32 hreftype;
 	}
 	public using _Anonymous_e__Union Anonymous;
-	public uint16 vt;
+	public VARENUM vt;
 }
 
 [CRepr]
 public struct IDLDESC
 {
 	public uint dwReserved;
-	public uint16 wIDLFlags;
+	public IDLFLAGS wIDLFlags;
 }
 
 [CRepr]
@@ -1368,7 +1576,7 @@ public struct FUNCDESC
 	public int16 oVft;
 	public int16 cScodes;
 	public ELEMDESC elemdescFunc;
-	public uint16 wFuncFlags;
+	public FUNCFLAGS wFuncFlags;
 }
 
 [CRepr]
@@ -1384,7 +1592,7 @@ public struct VARDESC
 	public PWSTR lpstrSchema;
 	public using _Anonymous_e__Union Anonymous;
 	public ELEMDESC elemdescVar;
-	public uint16 wVarFlags;
+	public VARFLAGS wVarFlags;
 	public VARKIND varkind;
 }
 
@@ -1729,11 +1937,11 @@ public struct CONNECTDATA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LARGE_INTEGER dlibMove, STREAM_SEEK dwOrigin, ULARGE_INTEGER* plibNewPosition) Seek;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER libNewSize) SetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pstm, ULARGE_INTEGER cb, ULARGE_INTEGER* pcbRead, ULARGE_INTEGER* pcbWritten) CopyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfCommitFlags) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STGC grfCommitFlags) Commit;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Revert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, uint32 dwLockType) LockRegion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, LOCKTYPE dwLockType) LockRegion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, uint32 dwLockType) UnlockRegion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STATSTG* pstatstg, uint32 grfStatFlag) Stat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STATSTG* pstatstg, STATFLAG grfStatFlag) Stat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** ppstm) Clone;
 	}
 
@@ -1744,15 +1952,15 @@ public struct CONNECTDATA
 
 	public HRESULT CopyTo(IStream* pstm, ULARGE_INTEGER cb, ULARGE_INTEGER* pcbRead, ULARGE_INTEGER* pcbWritten) mut => VT.[Friend]CopyTo(&this, pstm, cb, pcbRead, pcbWritten);
 
-	public HRESULT Commit(uint32 grfCommitFlags) mut => VT.[Friend]Commit(&this, grfCommitFlags);
+	public HRESULT Commit(STGC grfCommitFlags) mut => VT.[Friend]Commit(&this, grfCommitFlags);
 
 	public HRESULT Revert() mut => VT.[Friend]Revert(&this);
 
-	public HRESULT LockRegion(ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, uint32 dwLockType) mut => VT.[Friend]LockRegion(&this, libOffset, cb, dwLockType);
+	public HRESULT LockRegion(ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, LOCKTYPE dwLockType) mut => VT.[Friend]LockRegion(&this, libOffset, cb, dwLockType);
 
 	public HRESULT UnlockRegion(ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, uint32 dwLockType) mut => VT.[Friend]UnlockRegion(&this, libOffset, cb, dwLockType);
 
-	public HRESULT Stat(STATSTG* pstatstg, uint32 grfStatFlag) mut => VT.[Friend]Stat(&this, pstatstg, grfStatFlag);
+	public HRESULT Stat(STATSTG* pstatstg, STATFLAG grfStatFlag) mut => VT.[Friend]Stat(&this, pstatstg, grfStatFlag);
 
 	public HRESULT Clone(IStream** ppstm) mut => VT.[Friend]Clone(&this, ppstm);
 }
@@ -2659,7 +2867,7 @@ public struct CONNECTDATA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfFlags, IUnknown* punkObject, IMoniker* pmkObjectName, uint32* pdwRegister) Register;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ROT_FLAGS grfFlags, IUnknown* punkObject, IMoniker* pmkObjectName, uint32* pdwRegister) Register;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRegister) Revoke;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMoniker* pmkObjectName) IsRunning;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMoniker* pmkObjectName, IUnknown** ppunkObject) GetObject;
@@ -2669,7 +2877,7 @@ public struct CONNECTDATA
 	}
 
 
-	public HRESULT Register(uint32 grfFlags, IUnknown* punkObject, IMoniker* pmkObjectName, uint32* pdwRegister) mut => VT.[Friend]Register(&this, grfFlags, punkObject, pmkObjectName, pdwRegister);
+	public HRESULT Register(ROT_FLAGS grfFlags, IUnknown* punkObject, IMoniker* pmkObjectName, uint32* pdwRegister) mut => VT.[Friend]Register(&this, grfFlags, punkObject, pmkObjectName, pdwRegister);
 
 	public HRESULT Revoke(uint32 dwRegister) mut => VT.[Friend]Revoke(&this, dwRegister);
 
@@ -3664,7 +3872,7 @@ public struct CONNECTDATA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pctinfo) GetTypeInfoCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iTInfo, uint32 lcid, ITypeInfo** ppTInfo) GetTypeInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, PWSTR* rgszNames, uint32 cNames, uint32 lcid, int32* rgDispId) GetIDsOfNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispIdMember, in Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pDispParams, VARIANT* pVarResult, EXCEPINFO* pExcepInfo, uint32* puArgErr) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 dispIdMember, in Guid riid, uint32 lcid, DISPATCH_FLAGS wFlags, DISPPARAMS* pDispParams, VARIANT* pVarResult, EXCEPINFO* pExcepInfo, uint32* puArgErr) Invoke;
 	}
 
 
@@ -3674,7 +3882,7 @@ public struct CONNECTDATA
 
 	public HRESULT GetIDsOfNames(in Guid riid, PWSTR* rgszNames, uint32 cNames, uint32 lcid, int32* rgDispId) mut => VT.[Friend]GetIDsOfNames(&this, riid, rgszNames, cNames, lcid, rgDispId);
 
-	public HRESULT Invoke(int32 dispIdMember, in Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pDispParams, VARIANT* pVarResult, EXCEPINFO* pExcepInfo, uint32* puArgErr) mut => VT.[Friend]Invoke(&this, dispIdMember, riid, lcid, wFlags, pDispParams, pVarResult, pExcepInfo, puArgErr);
+	public HRESULT Invoke(int32 dispIdMember, in Guid riid, uint32 lcid, DISPATCH_FLAGS wFlags, DISPPARAMS* pDispParams, VARIANT* pVarResult, EXCEPINFO* pExcepInfo, uint32* puArgErr) mut => VT.[Friend]Invoke(&this, dispIdMember, riid, lcid, wFlags, pDispParams, pVarResult, pExcepInfo, puArgErr);
 }
 
 [CRepr]struct ITypeComp : IUnknown
@@ -3711,7 +3919,7 @@ public struct CONNECTDATA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, uint32* pRefType) GetRefTypeOfImplType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, int32* pImplTypeFlags) GetImplTypeFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* rgszNames, uint32 cNames, int32* pMemId) GetIDsOfNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvInstance, int32 memid, uint16 wFlags, DISPPARAMS* pDispParams, VARIANT* pVarResult, EXCEPINFO* pExcepInfo, uint32* puArgErr) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvInstance, int32 memid, DISPATCH_FLAGS wFlags, DISPPARAMS* pDispParams, VARIANT* pVarResult, EXCEPINFO* pExcepInfo, uint32* puArgErr) Invoke;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 memid, BSTR* pBstrName, BSTR* pBstrDocString, uint32* pdwHelpContext, BSTR* pBstrHelpFile) GetDocumentation;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 memid, INVOKEKIND invKind, BSTR* pBstrDllName, BSTR* pBstrName, uint16* pwOrdinal) GetDllEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 hRefType, ITypeInfo** ppTInfo) GetRefTypeInfo;
@@ -3741,7 +3949,7 @@ public struct CONNECTDATA
 
 	public HRESULT GetIDsOfNames(PWSTR* rgszNames, uint32 cNames, int32* pMemId) mut => VT.[Friend]GetIDsOfNames(&this, rgszNames, cNames, pMemId);
 
-	public HRESULT Invoke(void* pvInstance, int32 memid, uint16 wFlags, DISPPARAMS* pDispParams, VARIANT* pVarResult, EXCEPINFO* pExcepInfo, uint32* puArgErr) mut => VT.[Friend]Invoke(&this, pvInstance, memid, wFlags, pDispParams, pVarResult, pExcepInfo, puArgErr);
+	public HRESULT Invoke(void* pvInstance, int32 memid, DISPATCH_FLAGS wFlags, DISPPARAMS* pDispParams, VARIANT* pVarResult, EXCEPINFO* pExcepInfo, uint32* puArgErr) mut => VT.[Friend]Invoke(&this, pvInstance, memid, wFlags, pDispParams, pVarResult, pExcepInfo, puArgErr);
 
 	public HRESULT GetDocumentation(int32 memid, BSTR* pBstrName, BSTR* pBstrDocString, uint32* pdwHelpContext, BSTR* pBstrHelpFile) mut => VT.[Friend]GetDocumentation(&this, memid, pBstrName, pBstrDocString, pdwHelpContext, pBstrHelpFile);
 
@@ -4166,7 +4374,7 @@ public static
 	public static extern HRESULT CoRevokeInitializeSpy(ULARGE_INTEGER uliCookie);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetSystemSecurityPermissions(COMSD comSDType, SECURITY_DESCRIPTOR** ppSD);
+	public static extern HRESULT CoGetSystemSecurityPermissions(COMSD comSDType, PSECURITY_DESCRIPTOR* ppSD);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE CoLoadLibrary(PWSTR lpszLibName, BOOL bAutoFree);
@@ -4301,7 +4509,7 @@ public static
 	public static extern HRESULT CoGetClassObject(in Guid rclsid, CLSCTX dwClsContext, void* pvReserved, in Guid riid, void** ppv);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoRegisterClassObject(in Guid rclsid, IUnknown* pUnk, CLSCTX dwClsContext, uint32 flags, uint32* lpdwRegister);
+	public static extern HRESULT CoRegisterClassObject(in Guid rclsid, IUnknown* pUnk, CLSCTX dwClsContext, REGCLS flags, uint32* lpdwRegister);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CoRevokeClassObject(uint32 dwRegister);
@@ -4349,7 +4557,7 @@ public static
 	public static extern HRESULT CoDisconnectContext(uint32 dwTimeout);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoInitializeSecurity(SECURITY_DESCRIPTOR* pSecDesc, int32 cAuthSvc, SOLE_AUTHENTICATION_SERVICE* asAuthSvc, void* pReserved1, RPC_C_AUTHN_LEVEL dwAuthnLevel, RPC_C_IMP_LEVEL dwImpLevel, void* pAuthList, EOLE_AUTHENTICATION_CAPABILITIES dwCapabilities, void* pReserved3);
+	public static extern HRESULT CoInitializeSecurity(PSECURITY_DESCRIPTOR pSecDesc, int32 cAuthSvc, SOLE_AUTHENTICATION_SERVICE* asAuthSvc, void* pReserved1, RPC_C_AUTHN_LEVEL dwAuthnLevel, RPC_C_IMP_LEVEL dwImpLevel, void* pAuthList, EOLE_AUTHENTICATION_CAPABILITIES dwCapabilities, void* pReserved3);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CoGetCallContext(in Guid riid, void** ppInterface);

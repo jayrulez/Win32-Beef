@@ -22,6 +22,7 @@ public static
 	public const uint32 WHV_VPCI_TYPE0_BAR_COUNT = 6;
 	public const uint32 WHV_ANY_VP = 4294967295;
 	public const uint32 WHV_SYNIC_MESSAGE_SIZE = 256;
+	public const String VM_GENCOUNTER_SYMBOLIC_LINK_NAME = "\VmGenerationCounter";
 	public const uint32 IOCTL_VMGENCOUNTER_READ = 3325956;
 	public const uint32 HDV_PCI_BAR_COUNT = 6;
 	public const Guid HV_GUID_ZERO = .(0x00000000, 0x0000, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
@@ -215,7 +216,6 @@ public enum WHV_CACHE_TYPE : int32
 	WHvCacheTypeUncached = 0,
 	WHvCacheTypeWriteCombining = 1,
 	WHvCacheTypeWriteThrough = 4,
-	WHvCacheTypeWriteProtected = 5,
 	WHvCacheTypeWriteBack = 6,
 }
 

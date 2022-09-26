@@ -7,13 +7,26 @@ namespace Win32.UI.Magnification;
 #region Constants
 public static
 {
+	public const String WC_MAGNIFIERA = "Magnifier";
+	public const String WC_MAGNIFIERW = "Magnifier";
+	public const String WC_MAGNIFIER = "Magnifier";
 	public const int32 MS_SHOWMAGNIFIEDCURSOR = 1;
 	public const int32 MS_CLIPAROUNDCURSOR = 2;
 	public const int32 MS_INVERTCOLORS = 4;
-	public const uint32 MW_FILTERMODE_EXCLUDE = 0;
-	public const uint32 MW_FILTERMODE_INCLUDE = 1;
 }
 #endregion
+
+#region Enums
+
+[AllowDuplicates]
+public enum MW_FILTERMODE : uint32
+{
+	MW_FILTERMODE_EXCLUDE = 0,
+	MW_FILTERMODE_INCLUDE = 1,
+}
+
+#endregion
+
 #region Function Pointers
 public function BOOL MagImageScalingCallback(HWND hwnd, void* srcdata, MAGIMAGEHEADER srcheader, void* destdata, MAGIMAGEHEADER destheader, RECT unclipped, RECT clipped, HRGN dirty);
 
@@ -67,10 +80,10 @@ public static
 	public static extern BOOL MagGetWindowTransform(HWND hwnd, MAGTRANSFORM* pTransform);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MagSetWindowFilterList(HWND hwnd, uint32 dwFilterMode, int32 count, HWND* pHWND);
+	public static extern BOOL MagSetWindowFilterList(HWND hwnd, MW_FILTERMODE dwFilterMode, int32 count, HWND* pHWND);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 MagGetWindowFilterList(HWND hwnd, uint32* pdwFilterMode, int32 count, HWND* pHWND);
+	public static extern int32 MagGetWindowFilterList(HWND hwnd, MW_FILTERMODE* pdwFilterMode, int32 count, HWND* pHWND);
 
 	[Import("MAGNIFICATION.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL MagSetImageScalingCallback(HWND hwnd, MagImageScalingCallback callback);

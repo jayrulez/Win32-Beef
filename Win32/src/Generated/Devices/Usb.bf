@@ -444,8 +444,13 @@ public static
 	public const uint32 OS_STRING_DESCRIPTOR_INDEX = 238;
 	public const uint32 MS_GENRE_DESCRIPTOR_INDEX = 1;
 	public const uint32 MS_POWER_DESCRIPTOR_INDEX = 2;
+	public const String MS_OS_STRING_SIGNATURE = "MSFT100";
 	public const uint32 MS_OS_FLAGS_CONTAINERID = 2;
 	public const uint32 URB_OPEN_STATIC_STREAMS_VERSION_100 = 256;
+	public const String KREGUSBFNENUMPATH = "\Registry\Machine\SYSTEM\CurrentControlSet\Control\USBFN\";
+	public const String UREGUSBFNENUMPATH = "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\USBFN\";
+	public const String KREGMANUSBFNENUMPATH = "\Registry\Machine\SYSTEM\CurrentControlSet\Control\ManufacturingMode\Current\USBFN\";
+	public const String UREGMANUSBFNENUMPATH = "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ManufacturingMode\Current\USBFN\";
 	public const uint32 MAX_NUM_USBFN_ENDPOINTS = 15;
 	public const uint32 MAX_CONFIGURATION_NAME_LENGTH = 40;
 	public const uint32 MAX_USB_STRING_LENGTH = 255;
@@ -1864,7 +1869,7 @@ public struct PACKET_PARAMETERS
 	public uint8[4] Data;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_SEND_ONE_PACKET
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -1878,7 +1883,7 @@ public struct RAW_RESET_PORT_PARAMETERS
 	public uint16 PortStatus;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_RAW_RESET_ROOT_PORT
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -1893,7 +1898,7 @@ public struct RAW_ROOTPORT_FEATURE
 	public uint16 PortStatus;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_ROOTPORT_FEATURE_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -1907,7 +1912,7 @@ public struct RAW_ROOTPORT_PARAMETERS
 	public uint16 PortStatus;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_ROOTPORT_PARAMETERS
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -1925,7 +1930,7 @@ public struct USB_CONTROLLER_INFO_0
 	public uint32 HcFeatureFlags;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_CONTROLLER_INFO_0
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -1940,7 +1945,7 @@ public struct USB_UNICODE_NAME
 	private char16[ANYSIZE_ARRAY] String_impl;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_CONTROLLER_UNICODE_NAME
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -1955,7 +1960,7 @@ public struct USB_PASS_THRU_PARAMETERS
 	public uint8[4] Parameters;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_PASS_THRU_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -1977,7 +1982,7 @@ public struct USB_POWER_INFO
 	public BOOLEAN IsPowered;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_POWER_INFO_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -1991,7 +1996,7 @@ public struct USB_OPEN_RAW_DEVICE_PARAMETERS
 	public uint16 MaxPacketEp0;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_OPEN_RAW_DEVICE
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -2004,7 +2009,7 @@ public struct USB_CLOSE_RAW_DEVICE_PARAMETERS
 	public uint32 xxx;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_CLOSE_RAW_DEVICE
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -2027,7 +2032,7 @@ public struct USB_SEND_RAW_COMMAND_PARAMETERS
 	public uint8[4] Data;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_SEND_RAW_COMMAND
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -2050,7 +2055,7 @@ public struct USB_BANDWIDTH_INFO
 	public uint32 AllocedInterrupt_32ms;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_BANDWIDTH_INFO_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -2078,7 +2083,7 @@ public struct USB_BUS_STATISTICS_0
 	public uint8 NameIndex;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_BUS_STATISTICS_0_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
@@ -2096,20 +2101,20 @@ public struct USB_DRIVER_VERSION_PARAMETERS
 	public uint16 USB_Version;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_GET_DRIVER_VERSION
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_DRIVER_VERSION_PARAMETERS Parameters;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USB_USB2HW_VERSION_PARAMETERS
 {
 	public uint8 Usb2HwRevision;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct USBUSER_GET_USB2HW_VERSION
 {
 	public USBUSER_REQUEST_HEADER Header;

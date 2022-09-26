@@ -105,6 +105,18 @@ public static
 }
 #endregion
 #region Function Pointers
+#if BF_64_BIT || BF_ARM_64
+public function BOOL VDMGETTHREADSELECTORENTRYPROC(HANDLE param0, HANDLE param1, uint32 param2, VDMLDT_ENTRY* param3);
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+public function BOOL VDMGETCONTEXTPROC(HANDLE param0, HANDLE param1, VDMCONTEXT* param2);
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, VDMCONTEXT* param2);
+#endif
+
 public function uint32 DEBUGEVENTPROC(DEBUG_EVENT* param0, void* param1);
 
 public function BOOL PROCESSENUMPROC(uint32 dwProcessId, uint32 dwAttributes, LPARAM lpUserDefined);
@@ -115,18 +127,18 @@ public function BOOL TASKENUMPROCEX(uint32 dwThreadId, uint16 hMod16, uint16 hTa
 
 public function BOOL VDMPROCESSEXCEPTIONPROC(DEBUG_EVENT* param0);
 
-#if BF_64_BIT || BF_ARM_64
-public function BOOL VDMGETTHREADSELECTORENTRYPROC(HANDLE param0, HANDLE param1, uint32 param2, VDMLDT_ENTRY* param3);
+#if BF_32_BIT
+public function BOOL VDMGETTHREADSELECTORENTRYPROC(HANDLE param0, HANDLE param1, uint32 param2, LDT_ENTRY* param3);
 #endif
 
 public function uint32 VDMGETPOINTERPROC(HANDLE param0, HANDLE param1, uint16 param2, uint32 param3, BOOL param4);
 
-#if BF_64_BIT || BF_ARM_64
-public function BOOL VDMGETCONTEXTPROC(HANDLE param0, HANDLE param1, VDMCONTEXT* param2);
+#if BF_32_BIT
+public function BOOL VDMGETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* param2);
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, VDMCONTEXT* param2);
+#if BF_32_BIT
+public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* param2);
 #endif
 
 public function BOOL VDMKILLWOWPROC();
@@ -168,18 +180,6 @@ public function BOOL VDMGETSEGMENTINFOPROC(uint16 param0, uint32 param1, BOOL pa
 public function BOOL VDMGETSYMBOLPROC(PSTR param0, uint16 param1, uint32 param2, BOOL param3, BOOL param4, uint8* param5, uint32* param6);
 
 public function BOOL VDMGETADDREXPRESSIONPROC(PSTR param0, PSTR param1, uint16* param2, uint32* param3, uint16* param4);
-
-#if BF_32_BIT
-public function BOOL VDMGETTHREADSELECTORENTRYPROC(HANDLE param0, HANDLE param1, uint32 param2, LDT_ENTRY* param3);
-#endif
-
-#if BF_32_BIT
-public function BOOL VDMGETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* param2);
-#endif
-
-#if BF_32_BIT
-public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* param2);
-#endif
 
 #endregion
 

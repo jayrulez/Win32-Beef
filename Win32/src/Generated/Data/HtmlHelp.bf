@@ -157,6 +157,9 @@ public static
 	public const uint32 STDPROP_INDEX_TERM_RAW_LENGTH = 211;
 	public const uint32 STDPROP_USERPROP_BASE = 65536;
 	public const uint32 STDPROP_USERPROP_MAX = 2147483647;
+	public const String SZ_WWDEST_GLOBAL = "GLOBAL";
+	public const String SZ_WWDEST_KEY = "KEY";
+	public const String SZ_WWDEST_OCC = "OCC";
 	public const Guid CLSID_IITCmdInt = .(0x4662daa2, 0xd393, 0x11d0, 0x9a, 0x56, 0x00, 0xc0, 0x4f, 0xb6, 0x8b, 0xf7);
 	public const Guid CLSID_IITSvMgr = .(0x4662daa3, 0xd393, 0x11d0, 0x9a, 0x56, 0x00, 0xc0, 0x4f, 0xb6, 0x8b, 0xf7);
 	public const Guid CLSID_IITWordWheelUpdate = .(0x4662daa5, 0xd393, 0x11d0, 0x9a, 0x56, 0x00, 0xc0, 0x4f, 0xb6, 0x8b, 0xf7);
@@ -334,8 +337,8 @@ public struct HH_POPUP
 	public uint32 idString;
 	public int8* pszText;
 	public POINT pt;
-	public uint32 clrForeground;
-	public uint32 clrBackground;
+	public COLORREF clrForeground;
+	public COLORREF clrBackground;
 	public RECT rcMargins;
 	public int8* pszFont;
 }

@@ -11,6 +11,24 @@ namespace Win32.System.WindowsProgramming;
 #region Constants
 public static
 {
+	public const String WLDP_DLL = "WLDP.DLL";
+	public const String WLDP_GETLOCKDOWNPOLICY_FN = "WldpGetLockdownPolicy";
+	public const String WLDP_ISCLASSINAPPROVEDLIST_FN = "WldpIsClassInApprovedList";
+	public const String WLDP_SETDYNAMICCODETRUST_FN = "WldpSetDynamicCodeTrust";
+	public const String WLDP_ISDYNAMICCODEPOLICYENABLED_FN = "WldpIsDynamicCodePolicyEnabled";
+	public const String WLDP_QUERYDANAMICCODETRUST_FN = "WldpQueryDynamicCodeTrust";
+	public const String WLDP_QUERYDYNAMICCODETRUST_FN = "WldpQueryDynamicCodeTrust";
+	public const String WLDP_QUERYWINDOWSLOCKDOWNMODE_FN = "WldpQueryWindowsLockdownMode";
+	public const String WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN = "WldpSetWindowsLockdownRestriction";
+	public const String WLDP_QUERYDEVICESECURITYINFORMATION_FN = "WldpQueryDeviceSecurityInformation";
+	public const String WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN = "WldpQueryWindowsLockdownRestriction";
+	public const String WLDP_ISAPPAPPROVEDBYPOLICY_FN = "WldpIsAppApprovedByPolicy";
+	public const String WLDP_QUERYPOLICYSETTINGENABLED_FN = "WldpQueryPolicySettingEnabled";
+	public const String WLDP_QUERYPOLICYSETTINGENABLED2_FN = "WldpQueryPolicySettingEnabled2";
+	public const String WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN = "WldpIsWcosProductionConfiguration";
+	public const String WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN = "WldpResetWcosProductionConfiguration";
+	public const String WLDP_ISPRODUCTIONCONFIGURATION_FN = "WldpIsProductionConfiguration";
+	public const String WLDP_RESETPRODUCTIONCONFIGURATION_FN = "WldpResetProductionConfiguration";
 	public const uint32 WLDP_LOCKDOWN_UNDEFINED = 0;
 	public const uint32 WLDP_LOCKDOWN_DEFINED_FLAG = 2147483648;
 	public const uint32 WLDP_LOCKDOWN_CONFIG_CI_FLAG = 1;
@@ -158,14 +176,6 @@ public static
 	public const uint32 FILE_TYPE_CHAR = 2;
 	public const uint32 FILE_TYPE_PIPE = 3;
 	public const uint32 FILE_TYPE_REMOTE = 32768;
-	public const uint32 NOPARITY = 0;
-	public const uint32 ODDPARITY = 1;
-	public const uint32 EVENPARITY = 2;
-	public const uint32 MARKPARITY = 3;
-	public const uint32 SPACEPARITY = 4;
-	public const uint32 ONESTOPBIT = 0;
-	public const uint32 ONE5STOPBITS = 1;
-	public const uint32 TWOSTOPBITS = 2;
 	public const uint32 IGNORE = 0;
 	public const uint32 INFINITE = 4294967295;
 	public const uint32 CBR_110 = 110;
@@ -245,6 +255,7 @@ public static
 	public const uint32 SCS_POSIX_BINARY = 4;
 	public const uint32 SCS_OS216_BINARY = 5;
 	public const uint32 SCS_64BIT_BINARY = 6;
+	public const uint32 SCS_THIS_PLATFORM_BINARY = 6;
 	public const uint32 FIBER_FLAG_FLOAT_SWITCH = 1;
 	public const uint32 UMS_VERSION = 256;
 	public const uint32 FILE_SKIP_COMPLETION_PORT_ON_SUCCESS = 1;
@@ -294,6 +305,15 @@ public static
 	public const uint32 PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_DISABLE_PROCESS_TREE = 2;
 	public const uint32 PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_OVERRIDE = 4;
 	public const uint32 ATOM_FLAG_GLOBAL = 2;
+	public const String GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A = "GetSystemWow64DirectoryA";
+	public const String GET_SYSTEM_WOW64_DIRECTORY_NAME_A_W = "GetSystemWow64DirectoryA";
+	public const String GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T = "GetSystemWow64DirectoryA";
+	public const String GET_SYSTEM_WOW64_DIRECTORY_NAME_W_A = "GetSystemWow64DirectoryW";
+	public const String GET_SYSTEM_WOW64_DIRECTORY_NAME_W_W = "GetSystemWow64DirectoryW";
+	public const String GET_SYSTEM_WOW64_DIRECTORY_NAME_W_T = "GetSystemWow64DirectoryW";
+	public const String GET_SYSTEM_WOW64_DIRECTORY_NAME_T_A = "GetSystemWow64DirectoryW";
+	public const String GET_SYSTEM_WOW64_DIRECTORY_NAME_T_W = "GetSystemWow64DirectoryW";
+	public const String GET_SYSTEM_WOW64_DIRECTORY_NAME_T_T = "GetSystemWow64DirectoryW";
 	public const uint32 BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE = 1;
 	public const uint32 BASE_SEARCH_PATH_DISABLE_SAFE_SEARCHMODE = 65536;
 	public const uint32 BASE_SEARCH_PATH_PERMANENT = 32768;
@@ -467,6 +487,8 @@ public static
 	public const uint32 ARSR_NOMESSAGES = 8;
 	public const uint32 ARSR_REGSECTION = 128;
 	public const uint32 ARSR_REMOVREGBKDATA = 4096;
+	public const String REG_SAVE_LOG_KEY = "RegSaveLogFile";
+	public const String REG_RESTORE_LOG_KEY = "RegRestoreLogFile";
 	public const uint32 AFSR_RESTORE = 1;
 	public const uint32 AFSR_BACKNEW = 2;
 	public const uint32 AFSR_NODELETENEW = 4;
@@ -595,32 +617,6 @@ public enum TDIENTITY_ENTITY_TYPE : uint32
 	CO_TL_ENTITY = 1024,
 	ER_ENTITY = 896,
 	IF_ENTITY = 512,
-}
-
-
-[AllowDuplicates]
-public enum PROC_THREAD_ATTRIBUTE_NUM : int32
-{
-	ProcThreadAttributeParentProcess = 0,
-	ProcThreadAttributeHandleList = 2,
-	ProcThreadAttributeGroupAffinity = 3,
-	ProcThreadAttributePreferredNode = 4,
-	ProcThreadAttributeIdealProcessor = 5,
-	ProcThreadAttributeUmsThread = 6,
-	ProcThreadAttributeMitigationPolicy = 7,
-	ProcThreadAttributeSecurityCapabilities = 9,
-	ProcThreadAttributeProtectionLevel = 11,
-	ProcThreadAttributeJobList = 13,
-	ProcThreadAttributeChildProcessPolicy = 14,
-	ProcThreadAttributeAllApplicationPackagesPolicy = 15,
-	ProcThreadAttributeWin32kFilter = 16,
-	ProcThreadAttributeSafeOpenPromptOriginClaim = 17,
-	ProcThreadAttributeDesktopAppPolicy = 18,
-	ProcThreadAttributePseudoConsole = 22,
-	ProcThreadAttributeMitigationAuditPolicy = 24,
-	ProcThreadAttributeMachineType = 25,
-	ProcThreadAttributeComponentFilter = 26,
-	ProcThreadAttributeEnableOptionalXStateFeatures = 27,
 }
 
 
@@ -902,6 +898,30 @@ public struct _D3DHAL_CALLBACKS
 public struct _D3DHAL_GLOBALDRIVERDATA
 {
 }
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct TCP_REQUEST_QUERY_INFORMATION_EX32_XP
+{
+	public TDIObjectID ID;
+	public uint32[4] Context;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DELAYLOAD_INFO
+{
+	public uint32 Size;
+	public IMAGE_DELAYLOAD_DESCRIPTOR* DelayloadDescriptor;
+	public IMAGE_THUNK_DATA64* ThunkAddress;
+	public PSTR TargetDllName;
+	public DELAYLOAD_PROC_DESCRIPTOR TargetApiDescriptor;
+	public void* TargetModuleBase;
+	public void* Unused;
+	public uint32 LastError;
+}
+#endif
 
 [CRepr]
 public struct IMAGE_THUNK_DATA64
@@ -1512,30 +1532,21 @@ public struct TDIObjectID
 }
 
 [CRepr]
-public struct tcp_request_query_information_ex_xp
+public struct TCP_REQUEST_QUERY_INFORMATION_EX_XP
 {
 	public TDIObjectID ID;
-	public uint[2] Context;
+	public uint[4] Context;
 }
 
-#if BF_64_BIT || BF_ARM_64
 [CRepr]
-public struct tcp_request_query_information_ex32_xp
-{
-	public TDIObjectID ID;
-	public uint32[4] Context;
-}
-#endif
-
-[CRepr]
-public struct tcp_request_query_information_ex_w2k
+public struct TCP_REQUEST_QUERY_INFORMATION_EX_W2K
 {
 	public TDIObjectID ID;
 	public uint8[16] Context;
 }
 
 [CRepr]
-public struct tcp_request_set_information_ex
+public struct TCP_REQUEST_SET_INFORMATION_EX
 {
 	public TDIObjectID ID;
 	public uint32 BufferSize;
@@ -1591,21 +1602,6 @@ public struct DELAYLOAD_PROC_DESCRIPTOR
 	public uint32 ImportDescribedByName;
 	public _Description_e__Union Description;
 }
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct DELAYLOAD_INFO
-{
-	public uint32 Size;
-	public IMAGE_DELAYLOAD_DESCRIPTOR* DelayloadDescriptor;
-	public IMAGE_THUNK_DATA64* ThunkAddress;
-	public PSTR TargetDllName;
-	public DELAYLOAD_PROC_DESCRIPTOR TargetApiDescriptor;
-	public void* TargetModuleBase;
-	public void* Unused;
-	public uint32 LastError;
-}
-#endif
 
 #if BF_32_BIT
 [CRepr]
@@ -1837,6 +1833,46 @@ public static
 #region Functions
 public static
 {
+#if BF_64_BIT || BF_ARM_64
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 uaw_lstrcmpW(uint16* String1, uint16* String2);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 uaw_lstrcmpiW(uint16* String1, uint16* String2);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 uaw_lstrlenW(uint16* String);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint16* uaw_wcschr(uint16* String, char16 Character);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint16* uaw_wcscpy(uint16* Destination, uint16* Source);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 uaw_wcsicmp(uint16* String1, uint16* String2);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint uaw_wcslen(uint16* String);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint16* uaw_wcsrchr(uint16* String, char16 Character);
+
+#endif
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint RtlGetReturnAddressHijackTarget();
 
@@ -1952,7 +1988,7 @@ public static
 	public static extern int32 _llseek(int32 hFile, int32 lOffset, int32 iOrigin);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SignalObjectAndWait(HANDLE hObjectToSignal, HANDLE hObjectToWaitOn, uint32 dwMilliseconds, BOOL bAlertable);
+	public static extern WIN32_ERROR SignalObjectAndWait(HANDLE hObjectToSignal, HANDLE hObjectToWaitOn, uint32 dwMilliseconds, BOOL bAlertable);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE OpenMutexA(uint32 dwDesiredAccess, BOOL bInheritHandle, PSTR lpName);
@@ -2147,46 +2183,6 @@ public static
 	[Import("api-ms-win-core-backgroundtask-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RaiseCustomSystemEventTrigger(CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG* CustomSystemEventTriggerConfig);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uaw_lstrcmpW(uint16* String1, uint16* String2);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uaw_lstrcmpiW(uint16* String1, uint16* String2);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uaw_lstrlenW(uint16* String);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16* uaw_wcschr(uint16* String, char16 Character);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16* uaw_wcscpy(uint16* Destination, uint16* Source);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 uaw_wcsicmp(uint16* String1, uint16* String2);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint uaw_wcslen(uint16* String);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16* uaw_wcsrchr(uint16* String, char16 Character);
-
-#endif
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS NtClose(HANDLE Handle);
 

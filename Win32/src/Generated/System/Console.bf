@@ -15,22 +15,6 @@ public static
 	public const uint32 CTRL_LOGOFF_EVENT = 5;
 	public const uint32 CTRL_SHUTDOWN_EVENT = 6;
 	public const uint32 PSEUDOCONSOLE_INHERIT_CURSOR = 1;
-	public const uint32 FOREGROUND_BLUE = 1;
-	public const uint32 FOREGROUND_GREEN = 2;
-	public const uint32 FOREGROUND_RED = 4;
-	public const uint32 FOREGROUND_INTENSITY = 8;
-	public const uint32 BACKGROUND_BLUE = 16;
-	public const uint32 BACKGROUND_GREEN = 32;
-	public const uint32 BACKGROUND_RED = 64;
-	public const uint32 BACKGROUND_INTENSITY = 128;
-	public const uint32 COMMON_LVB_LEADING_BYTE = 256;
-	public const uint32 COMMON_LVB_TRAILING_BYTE = 512;
-	public const uint32 COMMON_LVB_GRID_HORIZONTAL = 1024;
-	public const uint32 COMMON_LVB_GRID_LVERTICAL = 2048;
-	public const uint32 COMMON_LVB_GRID_RVERTICAL = 4096;
-	public const uint32 COMMON_LVB_REVERSE_VIDEO = 16384;
-	public const uint32 COMMON_LVB_UNDERSCORE = 32768;
-	public const uint32 COMMON_LVB_SBCSDBCS = 768;
 	public const uint32 CONSOLE_NO_SELECTION = 0;
 	public const uint32 CONSOLE_SELECTION_IN_PROGRESS = 1;
 	public const uint32 CONSOLE_SELECTION_NOT_EMPTY = 2;
@@ -110,6 +94,28 @@ public enum STD_HANDLE : uint32
 	STD_INPUT_HANDLE = 4294967286,
 	STD_OUTPUT_HANDLE = 4294967285,
 	STD_ERROR_HANDLE = 4294967284,
+}
+
+
+[AllowDuplicates]
+public enum CONSOLE_CHARACTER_ATTRIBUTES : uint16
+{
+	FOREGROUND_BLUE = 1,
+	FOREGROUND_GREEN = 2,
+	FOREGROUND_RED = 4,
+	FOREGROUND_INTENSITY = 8,
+	BACKGROUND_BLUE = 16,
+	BACKGROUND_GREEN = 32,
+	BACKGROUND_RED = 64,
+	BACKGROUND_INTENSITY = 128,
+	COMMON_LVB_LEADING_BYTE = 256,
+	COMMON_LVB_TRAILING_BYTE = 512,
+	COMMON_LVB_GRID_HORIZONTAL = 1024,
+	COMMON_LVB_GRID_LVERTICAL = 2048,
+	COMMON_LVB_GRID_RVERTICAL = 4096,
+	COMMON_LVB_REVERSE_VIDEO = 16384,
+	COMMON_LVB_UNDERSCORE = 32768,
+	COMMON_LVB_SBCSDBCS = 768,
 }
 
 #endregion
@@ -237,7 +243,7 @@ public struct CONSOLE_SCREEN_BUFFER_INFO
 {
 	public COORD dwSize;
 	public COORD dwCursorPosition;
-	public uint16 wAttributes;
+	public CONSOLE_CHARACTER_ATTRIBUTES wAttributes;
 	public SMALL_RECT srWindow;
 	public COORD dwMaximumWindowSize;
 }
@@ -248,12 +254,12 @@ public struct CONSOLE_SCREEN_BUFFER_INFOEX
 	public uint32 cbSize;
 	public COORD dwSize;
 	public COORD dwCursorPosition;
-	public uint16 wAttributes;
+	public CONSOLE_CHARACTER_ATTRIBUTES wAttributes;
 	public SMALL_RECT srWindow;
 	public COORD dwMaximumWindowSize;
 	public uint16 wPopupAttributes;
 	public BOOL bFullscreenSupported;
-	public uint32[16] ColorTable;
+	public COLORREF[16] ColorTable;
 }
 
 [CRepr]
@@ -406,7 +412,7 @@ public static
 	public static extern COORD GetLargestConsoleWindowSize(HANDLE hConsoleOutput);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetConsoleTextAttribute(HANDLE hConsoleOutput, uint16 wAttributes);
+	public static extern BOOL SetConsoleTextAttribute(HANDLE hConsoleOutput, CONSOLE_CHARACTER_ATTRIBUTES wAttributes);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetConsoleWindowInfo(HANDLE hConsoleOutput, BOOL bAbsolute, SMALL_RECT* lpConsoleWindow);

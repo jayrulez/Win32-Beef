@@ -1,7 +1,5 @@
 using Win32.Security;
 using Win32.Foundation;
-using Win32.Networking.WinSock;
-using Win32.System.Kernel;
 using Win32.System.Rpc;
 using System;
 
@@ -213,105 +211,6 @@ public static
 	public const uint32 IPSEC_DOSP_DSCP_DISABLE_VALUE = 255;
 	public const uint32 IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE = 0;
 	public const uint32 IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY = 1;
-	public const uint32 _LITTLE_ENDIAN = 1234;
-	public const uint32 _BIG_ENDIAN = 4321;
-	public const uint32 _PDP_ENDIAN = 3412;
-	public const uint32 BYTE_ORDER = 1234;
-	public const uint32 DL_ADDRESS_LENGTH_MAXIMUM = 32;
-	public const uint32 DL_HEADER_LENGTH_MAXIMUM = 64;
-	public const uint32 SNAP_DSAP = 170;
-	public const uint32 SNAP_SSAP = 170;
-	public const uint32 SNAP_CONTROL = 3;
-	public const uint32 SNAP_OUI = 0;
-	public const uint32 ETH_LENGTH_OF_HEADER = 14;
-	public const uint32 ETH_LENGTH_OF_VLAN_HEADER = 4;
-	public const uint32 ETH_LENGTH_OF_SNAP_HEADER = 8;
-	public const uint32 ETHERNET_TYPE_MINIMUM = 1536;
-	public const uint32 ETHERNET_TYPE_IPV4 = 2048;
-	public const uint32 ETHERNET_TYPE_ARP = 2054;
-	public const uint32 ETHERNET_TYPE_IPV6 = 34525;
-	public const uint32 ETHERNET_TYPE_802_1Q = 33024;
-	public const uint32 ETHERNET_TYPE_802_1AD = 34984;
-	public const uint32 IP_VER_MASK = 240;
-	public const uint32 IPV4_VERSION = 4;
-	public const uint32 MAX_IPV4_PACKET = 65535;
-	public const uint32 MAX_IPV4_HLEN = 60;
-	public const uint32 IPV4_MINIMUM_MTU = 576;
-	public const uint32 IPV4_MIN_MINIMUM_MTU = 352;
-	public const uint32 IPV4_MAX_MINIMUM_MTU = 576;
-	public const uint32 SIZEOF_IP_OPT_ROUTING_HEADER = 3;
-	public const uint32 SIZEOF_IP_OPT_TIMESTAMP_HEADER = 4;
-	public const uint32 SIZEOF_IP_OPT_SECURITY = 11;
-	public const uint32 SIZEOF_IP_OPT_STREAMIDENTIFIER = 4;
-	public const uint32 SIZEOF_IP_OPT_ROUTERALERT = 4;
-	public const uint32 IP4_OFF_MASK = 65311;
-	public const uint32 ICMPV4_INVALID_PREFERENCE_LEVEL = 2147483648;
-	public const uint32 IGMP_QUERY_TYPE = 17;
-	public const uint32 IGMP_VERSION1_REPORT_TYPE = 18;
-	public const uint32 IGMP_VERSION2_REPORT_TYPE = 22;
-	public const uint32 IGMP_LEAVE_GROUP_TYPE = 23;
-	public const uint32 IGMP_VERSION3_REPORT_TYPE = 34;
-	public const uint32 IPV6_VERSION = 96;
-	public const uint32 IPV6_TRAFFIC_CLASS_MASK = 49167;
-	public const uint32 IPV6_FULL_TRAFFIC_CLASS_MASK = 61455;
-	public const uint32 IPV6_ECN_MASK = 12288;
-	public const uint32 IPV6_FLOW_LABEL_MASK = 4294905600;
-	public const uint32 MAX_IPV6_PAYLOAD = 65535;
-	public const uint32 IPV6_ECN_SHIFT = 12;
-	public const uint32 IPV6_MINIMUM_MTU = 1280;
-	public const uint32 IP6F_OFF_MASK = 63743;
-	public const uint32 IP6F_RESERVED_MASK = 1536;
-	public const uint32 IP6F_MORE_FRAG = 256;
-	public const uint32 EXT_LEN_UNIT = 8;
-	public const uint32 IP6OPT_TYPE_SKIP = 0;
-	public const uint32 IP6OPT_TYPE_DISCARD = 64;
-	public const uint32 IP6OPT_TYPE_FORCEICMP = 128;
-	public const uint32 IP6OPT_TYPE_ICMP = 192;
-	public const uint32 IP6OPT_MUTABLE = 32;
-	public const uint32 ICMP6_DST_UNREACH_NOROUTE = 0;
-	public const uint32 ICMP6_DST_UNREACH_ADMIN = 1;
-	public const uint32 ICMP6_DST_UNREACH_BEYONDSCOPE = 2;
-	public const uint32 ICMP6_DST_UNREACH_ADDR = 3;
-	public const uint32 ICMP6_DST_UNREACH_NOPORT = 4;
-	public const uint32 ICMP6_TIME_EXCEED_TRANSIT = 0;
-	public const uint32 ICMP6_TIME_EXCEED_REASSEMBLY = 1;
-	public const uint32 ICMP6_PARAMPROB_HEADER = 0;
-	public const uint32 ICMP6_PARAMPROB_NEXTHEADER = 1;
-	public const uint32 ICMP6_PARAMPROB_OPTION = 2;
-	public const uint32 ICMPV6_ECHO_REQUEST_FLAG_REVERSE = 1;
-	public const uint32 ND_RA_FLAG_MANAGED = 128;
-	public const uint32 ND_RA_FLAG_OTHER = 64;
-	public const uint32 ND_RA_FLAG_HOME_AGENT = 32;
-	public const uint32 ND_RA_FLAG_PREFERENCE = 24;
-	public const uint32 ND_NA_FLAG_ROUTER = 2147483648;
-	public const uint32 ND_NA_FLAG_SOLICITED = 1073741824;
-	public const uint32 ND_NA_FLAG_OVERRIDE = 536870912;
-	public const uint32 ND_OPT_PI_FLAG_ONLINK = 128;
-	public const uint32 ND_OPT_PI_FLAG_AUTO = 64;
-	public const uint32 ND_OPT_PI_FLAG_ROUTER_ADDR = 32;
-	public const uint32 ND_OPT_PI_FLAG_SITE_PREFIX = 16;
-	public const uint32 ND_OPT_PI_FLAG_ROUTE = 1;
-	public const uint32 ND_OPT_RI_FLAG_PREFERENCE = 24;
-	public const uint32 ND_OPT_RDNSS_MIN_LEN = 24;
-	public const uint32 ND_OPT_DNSSL_MIN_LEN = 16;
-	public const uint32 IN6_EMBEDDEDV4_UOCTET_POSITION = 8;
-	public const uint32 IN6_EMBEDDEDV4_BITS_IN_BYTE = 8;
-	public const uint32 TH_FIN = 1;
-	public const uint32 TH_SYN = 2;
-	public const uint32 TH_RST = 4;
-	public const uint32 TH_PSH = 8;
-	public const uint32 TH_ACK = 16;
-	public const uint32 TH_URG = 32;
-	public const uint32 TH_ECE = 64;
-	public const uint32 TH_CWR = 128;
-	public const uint32 TH_OPT_EOL = 0;
-	public const uint32 TH_OPT_NOP = 1;
-	public const uint32 TH_OPT_MSS = 2;
-	public const uint32 TH_OPT_WS = 3;
-	public const uint32 TH_OPT_SACK_PERMITTED = 4;
-	public const uint32 TH_OPT_SACK = 5;
-	public const uint32 TH_OPT_TS = 8;
-	public const uint32 TH_OPT_FASTOPEN = 34;
 	public const Guid FWPM_LAYER_INBOUND_IPPACKET_V4 = .(0xc86fd1bf, 0x21cd, 0x497e, 0xa0, 0xbb, 0x17, 0x42, 0x5c, 0x88, 0x5c, 0x58);
 	public const Guid FWPM_LAYER_INBOUND_IPPACKET_V4_DISCARD = .(0xb5a230d0, 0xa8c0, 0x44f2, 0x91, 0x6e, 0x99, 0x1b, 0x53, 0xde, 0xd1, 0xf7);
 	public const Guid FWPM_LAYER_INBOUND_IPPACKET_V6 = .(0xf52032cb, 0x991c, 0x46e7, 0x97, 0x1d, 0x26, 0x01, 0x45, 0x9a, 0x91, 0xca);
@@ -1330,148 +1229,6 @@ public enum FWPM_VSWITCH_EVENT_TYPE : int32
 	FWPM_VSWITCH_EVENT_MAX = 5,
 }
 
-
-[AllowDuplicates]
-public enum IPV4_OPTION_TYPE : int32
-{
-	IP_OPT_EOL = 0,
-	IP_OPT_NOP = 1,
-	IP_OPT_SECURITY = 130,
-	IP_OPT_LSRR = 131,
-	IP_OPT_TS = 68,
-	IP_OPT_RR = 7,
-	IP_OPT_SSRR = 137,
-	IP_OPT_SID = 136,
-	IP_OPT_ROUTER_ALERT = 148,
-	IP_OPT_MULTIDEST = 149,
-}
-
-
-[AllowDuplicates]
-public enum IP_OPTION_TIMESTAMP_FLAGS : int32
-{
-	IP_OPTION_TIMESTAMP_ONLY = 0,
-	IP_OPTION_TIMESTAMP_ADDRESS = 1,
-	IP_OPTION_TIMESTAMP_SPECIFIC_ADDRESS = 3,
-}
-
-
-[AllowDuplicates]
-public enum ICMP4_UNREACH_CODE : int32
-{
-	ICMP4_UNREACH_NET = 0,
-	ICMP4_UNREACH_HOST = 1,
-	ICMP4_UNREACH_PROTOCOL = 2,
-	ICMP4_UNREACH_PORT = 3,
-	ICMP4_UNREACH_FRAG_NEEDED = 4,
-	ICMP4_UNREACH_SOURCEROUTE_FAILED = 5,
-	ICMP4_UNREACH_NET_UNKNOWN = 6,
-	ICMP4_UNREACH_HOST_UNKNOWN = 7,
-	ICMP4_UNREACH_ISOLATED = 8,
-	ICMP4_UNREACH_NET_ADMIN = 9,
-	ICMP4_UNREACH_HOST_ADMIN = 10,
-	ICMP4_UNREACH_NET_TOS = 11,
-	ICMP4_UNREACH_HOST_TOS = 12,
-	ICMP4_UNREACH_ADMIN = 13,
-}
-
-
-[AllowDuplicates]
-public enum ICMP4_TIME_EXCEED_CODE : int32
-{
-	ICMP4_TIME_EXCEED_TRANSIT = 0,
-	ICMP4_TIME_EXCEED_REASSEMBLY = 1,
-}
-
-
-[AllowDuplicates]
-public enum ARP_OPCODE : int32
-{
-	ARP_REQUEST = 1,
-	ARP_RESPONSE = 2,
-}
-
-
-[AllowDuplicates]
-public enum ARP_HARDWARE_TYPE : int32
-{
-	ARP_HW_ENET = 1,
-	ARP_HW_802 = 6,
-}
-
-
-[AllowDuplicates]
-public enum IGMP_MAX_RESP_CODE_TYPE : int32
-{
-	IGMP_MAX_RESP_CODE_TYPE_NORMAL = 0,
-	IGMP_MAX_RESP_CODE_TYPE_FLOAT = 1,
-}
-
-
-[AllowDuplicates]
-public enum IPV6_OPTION_TYPE : int32
-{
-	IP6OPT_PAD1 = 0,
-	IP6OPT_PADN = 1,
-	IP6OPT_TUNNEL_LIMIT = 4,
-	IP6OPT_ROUTER_ALERT = 5,
-	IP6OPT_JUMBO = 194,
-	IP6OPT_NSAP_ADDR = 195,
-}
-
-
-[AllowDuplicates]
-public enum ND_OPTION_TYPE : int32
-{
-	ND_OPT_SOURCE_LINKADDR = 1,
-	ND_OPT_TARGET_LINKADDR = 2,
-	ND_OPT_PREFIX_INFORMATION = 3,
-	ND_OPT_REDIRECTED_HEADER = 4,
-	ND_OPT_MTU = 5,
-	ND_OPT_NBMA_SHORTCUT_LIMIT = 6,
-	ND_OPT_ADVERTISEMENT_INTERVAL = 7,
-	ND_OPT_HOME_AGENT_INFORMATION = 8,
-	ND_OPT_SOURCE_ADDR_LIST = 9,
-	ND_OPT_TARGET_ADDR_LIST = 10,
-	ND_OPT_ROUTE_INFO = 24,
-	ND_OPT_RDNSS = 25,
-	ND_OPT_DNSSL = 31,
-}
-
-
-[AllowDuplicates]
-public enum MLD_MAX_RESP_CODE_TYPE : int32
-{
-	MLD_MAX_RESP_CODE_TYPE_NORMAL = 0,
-	MLD_MAX_RESP_CODE_TYPE_FLOAT = 1,
-}
-
-
-[AllowDuplicates]
-public enum TUNNEL_SUB_TYPE : int32
-{
-	TUNNEL_SUB_TYPE_NONE = 0,
-	TUNNEL_SUB_TYPE_CP = 1,
-	TUNNEL_SUB_TYPE_IPTLS = 2,
-	TUNNEL_SUB_TYPE_HA = 3,
-}
-
-
-[AllowDuplicates]
-public enum NPI_MODULEID_TYPE : int32
-{
-	MIT_GUID = 1,
-	MIT_IF_LUID = 2,
-}
-
-
-[AllowDuplicates]
-public enum FALLBACK_INDEX : int32
-{
-	FallbackIndexTcpFastopen = 0,
-	FallbackIndexMax = 1,
-}
-
 #endregion
 
 #region Function Pointers
@@ -1499,9 +1256,9 @@ public function void FWPM_NET_EVENT_CALLBACK1(void* context, FWPM_NET_EVENT2* ev
 
 public function void FWPM_NET_EVENT_CALLBACK2(void* context, FWPM_NET_EVENT3* event);
 
-public function void FWPM_NET_EVENT_CALLBACK3(void* context, FWPM_NET_EVENT4_* event);
+public function void FWPM_NET_EVENT_CALLBACK3(void* context, FWPM_NET_EVENT4* event);
 
-public function void FWPM_NET_EVENT_CALLBACK4(void* context, FWPM_NET_EVENT5_* event);
+public function void FWPM_NET_EVENT_CALLBACK4(void* context, FWPM_NET_EVENT5* event);
 
 public function void FWPM_DYNAMIC_KEYWORD_CALLBACK0(void* notification, void* context);
 
@@ -2403,7 +2160,7 @@ public struct IPSEC_SA_IDLE_TIMEOUT0
 }
 
 [CRepr]
-public struct IPSEC_TRAFFIC_SELECTOR0_
+public struct IPSEC_TRAFFIC_SELECTOR0
 {
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
@@ -2426,13 +2183,13 @@ public struct IPSEC_TRAFFIC_SELECTOR0_
 }
 
 [CRepr]
-public struct IPSEC_TRAFFIC_SELECTOR_POLICY0_
+public struct IPSEC_TRAFFIC_SELECTOR_POLICY0
 {
 	public uint32 flags;
 	public uint32 numLocalTrafficSelectors;
-	public IPSEC_TRAFFIC_SELECTOR0_* localTrafficSelectors;
+	public IPSEC_TRAFFIC_SELECTOR0* localTrafficSelectors;
 	public uint32 numRemoteTrafficSelectors;
-	public IPSEC_TRAFFIC_SELECTOR0_* remoteTrafficSelectors;
+	public IPSEC_TRAFFIC_SELECTOR0* remoteTrafficSelectors;
 }
 
 [CRepr]
@@ -2581,7 +2338,7 @@ public struct IPSEC_TUNNEL_POLICY2
 }
 
 [CRepr]
-public struct IPSEC_TUNNEL_POLICY3_
+public struct IPSEC_TUNNEL_POLICY3
 {
 	public uint32 flags;
 	public uint32 numIpsecProposals;
@@ -2592,7 +2349,7 @@ public struct IPSEC_TUNNEL_POLICY3_
 	public uint32 fwdPathSaLifetime;
 	public uint32 compartmentId;
 	public uint32 numTrafficSelectorPolicy;
-	public IPSEC_TRAFFIC_SELECTOR_POLICY0_* trafficSelectorPolicies;
+	public IPSEC_TRAFFIC_SELECTOR_POLICY0* trafficSelectorPolicies;
 }
 
 [CRepr]
@@ -3239,21 +2996,21 @@ public struct FWPM_PROVIDER_CONTEXT2
 }
 
 [CRepr]
-public struct FWPM_PROVIDER_CONTEXT3_
+public struct FWPM_PROVIDER_CONTEXT3
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
 		public IPSEC_KEYING_POLICY1* keyingPolicy;
 		public IPSEC_TRANSPORT_POLICY2* ikeQmTransportPolicy;
-		public IPSEC_TUNNEL_POLICY3_* ikeQmTunnelPolicy;
+		public IPSEC_TUNNEL_POLICY3* ikeQmTunnelPolicy;
 		public IPSEC_TRANSPORT_POLICY2* authipQmTransportPolicy;
-		public IPSEC_TUNNEL_POLICY3_* authipQmTunnelPolicy;
+		public IPSEC_TUNNEL_POLICY3* authipQmTunnelPolicy;
 		public IKEEXT_POLICY2* ikeMmPolicy;
 		public IKEEXT_POLICY2* authIpMmPolicy;
 		public FWP_BYTE_BLOB* dataBuffer;
 		public FWPM_CLASSIFY_OPTIONS0* classifyOptions;
-		public IPSEC_TUNNEL_POLICY3_* ikeV2QmTunnelPolicy;
+		public IPSEC_TUNNEL_POLICY3* ikeV2QmTunnelPolicy;
 		public IPSEC_TRANSPORT_POLICY2* ikeV2QmTransportPolicy;
 		public IKEEXT_POLICY2* ikeV2MmPolicy;
 		public IPSEC_DOSP_OPTIONS0* idpOptions;
@@ -3698,7 +3455,7 @@ public struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1
 }
 
 [CRepr]
-public struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_
+public struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2
 {
 	public uint32 failureErrorCode;
 	public IPSEC_FAILURE_POINT failurePoint;
@@ -3744,7 +3501,7 @@ public struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0
 }
 
 [CRepr]
-public struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_
+public struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1
 {
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
@@ -3923,7 +3680,7 @@ public struct FWPM_NET_EVENT_CAPABILITY_ALLOW0
 }
 
 [CRepr]
-public struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_
+public struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0
 {
 	public uint32 spi;
 }
@@ -4009,13 +3766,13 @@ public struct FWPM_NET_EVENT3
 }
 
 [CRepr]
-public struct FWPM_NET_EVENT4_
+public struct FWPM_NET_EVENT4
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_* ikeMmFailure;
-		public FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_* ikeQmFailure;
+		public FWPM_NET_EVENT_IKEEXT_MM_FAILURE2* ikeMmFailure;
+		public FWPM_NET_EVENT_IKEEXT_QM_FAILURE1* ikeQmFailure;
 		public FWPM_NET_EVENT_IKEEXT_EM_FAILURE1* ikeEmFailure;
 		public FWPM_NET_EVENT_CLASSIFY_DROP2* classifyDrop;
 		public FWPM_NET_EVENT_IPSEC_KERNEL_DROP0* ipsecDrop;
@@ -4031,13 +3788,13 @@ public struct FWPM_NET_EVENT4_
 }
 
 [CRepr]
-public struct FWPM_NET_EVENT5_
+public struct FWPM_NET_EVENT5
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_* ikeMmFailure;
-		public FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_* ikeQmFailure;
+		public FWPM_NET_EVENT_IKEEXT_MM_FAILURE2* ikeMmFailure;
+		public FWPM_NET_EVENT_IKEEXT_QM_FAILURE1* ikeQmFailure;
 		public FWPM_NET_EVENT_IKEEXT_EM_FAILURE1* ikeEmFailure;
 		public FWPM_NET_EVENT_CLASSIFY_DROP2* classifyDrop;
 		public FWPM_NET_EVENT_IPSEC_KERNEL_DROP0* ipsecDrop;
@@ -4046,7 +3803,7 @@ public struct FWPM_NET_EVENT5_
 		public FWPM_NET_EVENT_CAPABILITY_DROP0* capabilityDrop;
 		public FWPM_NET_EVENT_CAPABILITY_ALLOW0* capabilityAllow;
 		public FWPM_NET_EVENT_CLASSIFY_DROP_MAC0* classifyDropMac;
-		public FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_* lpmPacketArrival;
+		public FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0* lpmPacketArrival;
 	}
 	public FWPM_NET_EVENT_HEADER3 header;
 	public FWPM_NET_EVENT_TYPE type;
@@ -4138,15 +3895,15 @@ public struct FWPM_VSWITCH_EVENT0
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _reorderInfo_e__Struct
+		public struct _positionInfo_e__Struct
 		{
-			public BOOL inRequiredPosition;
 			public uint32 numvSwitchFilterExtensions;
 			public PWSTR* vSwitchFilterExtensions;
 		}
 		[CRepr]
-		public struct _positionInfo_e__Struct
+		public struct _reorderInfo_e__Struct
 		{
+			public BOOL inRequiredPosition;
 			public uint32 numvSwitchFilterExtensions;
 			public PWSTR* vSwitchFilterExtensions;
 		}
@@ -4175,806 +3932,6 @@ public struct IPSEC_KEY_MANAGER_CALLBACKS0
 	public IPSEC_KEY_MANAGER_NOTIFY_KEY0 keyNotify;
 }
 
-[CRepr, Union]
-public struct DL_OUI
-{
-	[CRepr]
-	public struct _Anonymous_e__Struct
-	{
-		public uint8 _bitfield;
-	}
-	public uint8[3] Byte;
-	public using _Anonymous_e__Struct Anonymous;
-}
-
-[CRepr, Union]
-public struct DL_EI48
-{
-	public uint8[3] Byte;
-}
-
-[CRepr, Union]
-public struct DL_EUI48
-{
-	[CRepr]
-	public struct _Anonymous_e__Struct
-	{
-		public DL_OUI Oui;
-		public DL_EI48 Ei48;
-	}
-	public uint8[6] Byte;
-	public using _Anonymous_e__Struct Anonymous;
-}
-
-[CRepr, Union]
-public struct DL_EI64
-{
-	public uint8[5] Byte;
-}
-
-[CRepr, Union]
-public struct DL_EUI64
-{
-	[CRepr]
-	public struct _Anonymous_e__Struct
-	{
-		[CRepr, Union]
-		public struct _Anonymous_e__Union
-		{
-			[CRepr]
-			public struct _Anonymous_e__Struct
-			{
-				public uint8 Type;
-				public uint8 Tse;
-				public DL_EI48 Ei48;
-			}
-			public DL_EI64 Ei64;
-			public using _Anonymous_e__Struct Anonymous;
-		}
-		public DL_OUI Oui;
-		public using _Anonymous_e__Union Anonymous;
-	}
-	public uint8[8] Byte;
-	public uint64 Value;
-	public using _Anonymous_e__Struct Anonymous;
-}
-
-[CRepr]
-public struct SNAP_HEADER
-{
-	public uint8 Dsap;
-	public uint8 Ssap;
-	public uint8 Control;
-	public uint8[3] Oui;
-	public uint16 Type;
-}
-
-[CRepr]
-public struct ETHERNET_HEADER
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		public uint16 Type;
-		public uint16 Length;
-	}
-	public DL_EUI48 Destination;
-	public DL_EUI48 Source;
-	public using _Anonymous_e__Union Anonymous;
-}
-
-[CRepr]
-public struct VLAN_TAG
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint16 _bitfield;
-		}
-		public uint16 Tag;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	public using _Anonymous_e__Union Anonymous;
-	public uint16 Type;
-}
-
-[CRepr]
-public struct ICMP_HEADER
-{
-	public uint8 Type;
-	public uint8 Code;
-	public uint16 Checksum;
-}
-
-[CRepr]
-public struct ICMP_MESSAGE
-{
-	[CRepr, Union]
-	public struct _Data_e__Union
-	{
-		public uint32* Data32 mut => &Data32_impl;
-		private uint32[ANYSIZE_ARRAY] Data32_impl;
-		public uint16[2] Data16;
-		public uint8[4] Data8;
-	}
-	public ICMP_HEADER Header;
-	public _Data_e__Union Data;
-}
-
-[CRepr]
-public struct IPV4_HEADER
-{
-	[CRepr, Union]
-	public struct _Anonymous3_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint16 _bitfield;
-		}
-		public uint16 FlagsAndOffset;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public uint8 TypeOfServiceAndEcnField;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	[CRepr, Union]
-	public struct _Anonymous1_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public uint8 VersionAndHeaderLength;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public uint16 TotalLength;
-	public uint16 Identification;
-	public _Anonymous3_e__Union Anonymous3;
-	public uint8 TimeToLive;
-	public uint8 Protocol;
-	public uint16 HeaderChecksum;
-	public IN_ADDR SourceAddress;
-	public IN_ADDR DestinationAddress;
-}
-
-[CRepr]
-public struct IPV4_OPTION_HEADER
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public uint8 OptionType;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	public using _Anonymous_e__Union Anonymous;
-	public uint8 OptionLength;
-}
-
-[CRepr]
-public struct IPV4_TIMESTAMP_OPTION
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public uint8 FlagsOverflow;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	public IPV4_OPTION_HEADER OptionHeader;
-	public uint8 Pointer;
-	public using _Anonymous_e__Union Anonymous;
-}
-
-[CRepr]
-public struct IPV4_ROUTING_HEADER
-{
-	public IPV4_OPTION_HEADER OptionHeader;
-	public uint8 Pointer;
-}
-
-[CRepr]
-public struct ICMPV4_ROUTER_SOLICIT
-{
-	public ICMP_MESSAGE RsHeader;
-}
-
-[CRepr]
-public struct ICMPV4_ROUTER_ADVERT_HEADER
-{
-	public ICMP_MESSAGE RaHeader;
-}
-
-[CRepr]
-public struct ICMPV4_ROUTER_ADVERT_ENTRY
-{
-	public IN_ADDR RouterAdvertAddr;
-	public int32 PreferenceLevel;
-}
-
-[CRepr]
-public struct ICMPV4_TIMESTAMP_MESSAGE
-{
-	public ICMP_MESSAGE Header;
-	public uint32 OriginateTimestamp;
-	public uint32 ReceiveTimestamp;
-	public uint32 TransmitTimestamp;
-}
-
-[CRepr]
-public struct ICMPV4_ADDRESS_MASK_MESSAGE
-{
-	public ICMP_MESSAGE Header;
-	public uint32 AddressMask;
-}
-
-[CRepr]
-public struct ARP_HEADER
-{
-	public uint16 HardwareAddressSpace;
-	public uint16 ProtocolAddressSpace;
-	public uint8 HardwareAddressLength;
-	public uint8 ProtocolAddressLength;
-	public uint16 Opcode;
-	public uint8* SenderHardwareAddress mut => &SenderHardwareAddress_impl;
-	private uint8[ANYSIZE_ARRAY] SenderHardwareAddress_impl;
-}
-
-[CRepr]
-public struct IGMP_HEADER
-{
-	[CRepr, Union]
-	public struct _Anonymous1_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public using _Anonymous_e__Struct Anonymous;
-		public uint8 VersionType;
-	}
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		public uint8 Reserved;
-		public uint8 MaxRespTime;
-		public uint8 Code;
-	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public uint16 Checksum;
-	public IN_ADDR MulticastAddress;
-}
-
-[CRepr]
-public struct IGMPV3_QUERY_HEADER
-{
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public uint8 QueriersQueryInterfaceCode;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	[CRepr, Union]
-	public struct _Anonymous1_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public uint8 MaxRespCode;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	public uint8 Type;
-	public _Anonymous1_e__Union Anonymous1;
-	public uint16 Checksum;
-	public IN_ADDR MulticastAddress;
-	public uint8 _bitfield;
-	public _Anonymous2_e__Union Anonymous2;
-	public uint16 SourceCount;
-}
-
-[CRepr]
-public struct IGMPV3_REPORT_RECORD_HEADER
-{
-	public uint8 Type;
-	public uint8 AuxillaryDataLength;
-	public uint16 SourceCount;
-	public IN_ADDR MulticastAddress;
-}
-
-[CRepr]
-public struct IGMPV3_REPORT_HEADER
-{
-	public uint8 Type;
-	public uint8 Reserved;
-	public uint16 Checksum;
-	public uint16 Reserved2;
-	public uint16 RecordCount;
-}
-
-[CRepr]
-public struct IPV6_HEADER
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint32 _bitfield;
-		}
-		public uint32 VersionClassFlow;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	public using _Anonymous_e__Union Anonymous;
-	public uint16 PayloadLength;
-	public uint8 NextHeader;
-	public uint8 HopLimit;
-	public IN6_ADDR SourceAddress;
-	public IN6_ADDR DestinationAddress;
-}
-
-[CRepr]
-public struct IPV6_FRAGMENT_HEADER
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint16 _bitfield;
-		}
-		public using _Anonymous_e__Struct Anonymous;
-		public uint16 OffsetAndFlags;
-	}
-	public uint8 NextHeader;
-	public uint8 Reserved;
-	public using _Anonymous_e__Union Anonymous;
-	public uint32 Id;
-}
-
-[CRepr]
-public struct IPV6_EXTENSION_HEADER
-{
-	public uint8 NextHeader;
-	public uint8 Length;
-}
-
-[CRepr]
-public struct IPV6_OPTION_HEADER
-{
-	public uint8 Type;
-	public uint8 DataLength;
-}
-
-[CRepr]
-public struct IPV6_OPTION_JUMBOGRAM
-{
-	public IPV6_OPTION_HEADER Header;
-	public uint8[4] JumbogramLength;
-}
-
-[CRepr]
-public struct IPV6_OPTION_ROUTER_ALERT
-{
-	public IPV6_OPTION_HEADER Header;
-	public uint8[2] Value;
-}
-
-[CRepr]
-public struct IPV6_ROUTING_HEADER
-{
-	public uint8 NextHeader;
-	public uint8 Length;
-	public uint8 RoutingType;
-	public uint8 SegmentsLeft;
-	public uint8[4] Reserved;
-}
-
-[CRepr]
-public struct nd_router_solicit
-{
-	public ICMP_MESSAGE nd_rs_hdr;
-}
-
-[CRepr]
-public struct nd_router_advert
-{
-	public ICMP_MESSAGE nd_ra_hdr;
-	public uint32 nd_ra_reachable;
-	public uint32 nd_ra_retransmit;
-}
-
-[CRepr, Union]
-public struct IPV6_ROUTER_ADVERTISEMENT_FLAGS
-{
-	[CRepr]
-	public struct _Anonymous_e__Struct
-	{
-		public uint8 _bitfield;
-	}
-	public using _Anonymous_e__Struct Anonymous;
-	public uint8 Value;
-}
-
-[CRepr]
-public struct nd_neighbor_solicit
-{
-	public ICMP_MESSAGE nd_ns_hdr;
-	public IN6_ADDR nd_ns_target;
-}
-
-[CRepr]
-public struct nd_neighbor_advert
-{
-	public ICMP_MESSAGE nd_na_hdr;
-	public IN6_ADDR nd_na_target;
-}
-
-[CRepr, Union]
-public struct IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS
-{
-	[CRepr]
-	public struct _Anonymous_e__Struct
-	{
-		public uint8 _bitfield;
-		public uint8[3] Reserved2;
-	}
-	public using _Anonymous_e__Struct Anonymous;
-	public uint32 Value;
-}
-
-[CRepr]
-public struct nd_redirect
-{
-	public ICMP_MESSAGE nd_rd_hdr;
-	public IN6_ADDR nd_rd_target;
-	public IN6_ADDR nd_rd_dst;
-}
-
-[CRepr]
-public struct nd_opt_hdr
-{
-	public uint8 nd_opt_type;
-	public uint8 nd_opt_len;
-}
-
-[CRepr]
-public struct nd_opt_prefix_info
-{
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint8[3] nd_opt_pi_reserved3;
-			public uint8 nd_opt_pi_site_prefix_len;
-		}
-		public uint32 nd_opt_pi_reserved2;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	[CRepr, Union]
-	public struct _Anonymous1_e__Union
-	{
-		[CRepr]
-		public struct _Flags_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public uint8 nd_opt_pi_flags_reserved;
-		public _Flags_e__Struct Flags;
-	}
-	public uint8 nd_opt_pi_type;
-	public uint8 nd_opt_pi_len;
-	public uint8 nd_opt_pi_prefix_len;
-	public _Anonymous1_e__Union Anonymous1;
-	public uint32 nd_opt_pi_valid_time;
-	public uint32 nd_opt_pi_preferred_time;
-	public _Anonymous2_e__Union Anonymous2;
-	public IN6_ADDR nd_opt_pi_prefix;
-}
-
-[CRepr]
-public struct nd_opt_rd_hdr
-{
-	public uint8 nd_opt_rh_type;
-	public uint8 nd_opt_rh_len;
-	public uint16 nd_opt_rh_reserved1;
-	public uint32 nd_opt_rh_reserved2;
-}
-
-[CRepr]
-public struct nd_opt_mtu
-{
-	public uint8 nd_opt_mtu_type;
-	public uint8 nd_opt_mtu_len;
-	public uint16 nd_opt_mtu_reserved;
-	public uint32 nd_opt_mtu_mtu;
-}
-
-[CRepr]
-public struct nd_opt_route_info
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		[CRepr]
-		public struct _Flags_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public uint8 nd_opt_ri_flags_reserved;
-		public _Flags_e__Struct Flags;
-	}
-	public uint8 nd_opt_ri_type;
-	public uint8 nd_opt_ri_len;
-	public uint8 nd_opt_ri_prefix_len;
-	public using _Anonymous_e__Union Anonymous;
-	public uint32 nd_opt_ri_route_lifetime;
-	public IN6_ADDR nd_opt_ri_prefix;
-}
-
-[CRepr]
-public struct nd_opt_rdnss
-{
-	public uint8 nd_opt_rdnss_type;
-	public uint8 nd_opt_rdnss_len;
-	public uint16 nd_opt_rdnss_reserved;
-	public uint32 nd_opt_rdnss_lifetime;
-}
-
-[CRepr]
-public struct nd_opt_dnssl
-{
-	public uint8 nd_opt_dnssl_type;
-	public uint8 nd_opt_dnssl_len;
-	public uint16 nd_opt_dnssl_reserved;
-	public uint32 nd_opt_dnssl_lifetime;
-}
-
-[CRepr]
-public struct MLD_HEADER
-{
-	public ICMP_HEADER IcmpHeader;
-	public uint16 MaxRespTime;
-	public uint16 Reserved;
-	public IN6_ADDR MulticastAddress;
-}
-
-[CRepr]
-public struct MLDV2_QUERY_HEADER
-{
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint8 _bitfield;
-		}
-		public uint8 QueriersQueryInterfaceCode;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	[CRepr, Union]
-	public struct _Anonymous1_e__Union
-	{
-		[CRepr]
-		public struct _Anonymous_e__Struct
-		{
-			public uint16 _bitfield;
-		}
-		public uint16 MaxRespCode;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	public ICMP_HEADER IcmpHeader;
-	public _Anonymous1_e__Union Anonymous1;
-	public uint16 Reserved;
-	public IN6_ADDR MulticastAddress;
-	public uint8 _bitfield;
-	public _Anonymous2_e__Union Anonymous2;
-	public uint16 SourceCount;
-}
-
-[CRepr]
-public struct MLDV2_REPORT_RECORD_HEADER
-{
-	public uint8 Type;
-	public uint8 AuxillaryDataLength;
-	public uint16 SourceCount;
-	public IN6_ADDR MulticastAddress;
-}
-
-[CRepr]
-public struct MLDV2_REPORT_HEADER
-{
-	public ICMP_HEADER IcmpHeader;
-	public uint16 Reserved;
-	public uint16 RecordCount;
-}
-
-[CRepr, Packed(1)]
-public struct tcp_hdr
-{
-	public uint16 th_sport;
-	public uint16 th_dport;
-	public uint32 th_seq;
-	public uint32 th_ack;
-	public uint8 _bitfield;
-	public uint8 th_flags;
-	public uint16 th_win;
-	public uint16 th_sum;
-	public uint16 th_urp;
-}
-
-[CRepr, Packed(1)]
-public struct tcp_opt_mss
-{
-	public uint8 Kind;
-	public uint8 Length;
-	public uint16 Mss;
-}
-
-[CRepr]
-public struct tcp_opt_ws
-{
-	public uint8 Kind;
-	public uint8 Length;
-	public uint8 ShiftCnt;
-}
-
-[CRepr]
-public struct tcp_opt_sack_permitted
-{
-	public uint8 Kind;
-	public uint8 Length;
-}
-
-[CRepr]
-public struct tcp_opt_sack
-{
-	[CRepr, Packed(1)]
-	public struct tcp_opt_sack_block
-	{
-		public uint32 Left;
-		public uint32 Right;
-	}
-	public uint8 Kind;
-	public uint8 Length;
-	public tcp_opt_sack_block* Block mut => &Block_impl;
-	private tcp_opt_sack_block[ANYSIZE_ARRAY] Block_impl;
-}
-
-[CRepr, Packed(1)]
-public struct tcp_opt_ts
-{
-	public uint8 Kind;
-	public uint8 Length;
-	public uint32 Val;
-	public uint32 EcR;
-}
-
-[CRepr]
-public struct tcp_opt_unknown
-{
-	public uint8 Kind;
-	public uint8 Length;
-}
-
-[CRepr]
-public struct tcp_opt_fastopen
-{
-	public uint8 Kind;
-	public uint8 Length;
-	public uint8* Cookie mut => &Cookie_impl;
-	private uint8[ANYSIZE_ARRAY] Cookie_impl;
-}
-
-[CRepr]
-public struct DL_TUNNEL_ADDRESS
-{
-	public COMPARTMENT_ID CompartmentId;
-	public SCOPE_ID ScopeId;
-	public uint8* IpAddress mut => &IpAddress_impl;
-	private uint8[ANYSIZE_ARRAY] IpAddress_impl;
-}
-
-[CRepr]
-public struct DL_TEREDO_ADDRESS
-{
-	[CRepr, Union, Packed(1)]
-	public struct _Anonymous_e__Union
-	{
-		[CRepr, Packed(1)]
-		public struct _Anonymous_e__Struct
-		{
-			public uint16 Flags;
-			public uint16 MappedPort;
-			public IN_ADDR MappedAddress;
-		}
-		public DL_EUI64 Eui64;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	public uint8[6] Reserved;
-	public using _Anonymous_e__Union Anonymous;
-}
-
-[CRepr]
-public struct DL_TEREDO_ADDRESS_PRV
-{
-	[CRepr, Union, Packed(1)]
-	public struct _Anonymous_e__Union
-	{
-		[CRepr, Packed(1)]
-		public struct _Anonymous_e__Struct
-		{
-			public uint16 Flags;
-			public uint16 MappedPort;
-			public IN_ADDR MappedAddress;
-			public IN_ADDR LocalAddress;
-			public uint32 InterfaceIndex;
-			public uint16 LocalPort;
-			public DL_EUI48 DlDestination;
-		}
-		public DL_EUI64 Eui64;
-		public using _Anonymous_e__Struct Anonymous;
-	}
-	public uint8[6] Reserved;
-	public using _Anonymous_e__Union Anonymous;
-}
-
-[CRepr, Packed(1)]
-public struct IPTLS_METADATA
-{
-	public uint64 SequenceNumber;
-}
-
-[CRepr]
-public struct NPI_MODULEID
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		public Guid Guid;
-		public LUID IfLuid;
-	}
-	public uint16 Length;
-	public NPI_MODULEID_TYPE Type;
-	public using _Anonymous_e__Union Anonymous;
-}
-
 #endregion
 
 #region Functions
@@ -4996,7 +3953,7 @@ public static
 	public static extern uint32 FwpmEngineSetOption0(HANDLE engineHandle, FWPM_ENGINE_OPTION option, FWP_VALUE0* newValue);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmEngineGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmEngineGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmEngineSetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5020,7 +3977,7 @@ public static
 	public static extern uint32 FwpmTransactionAbort0(HANDLE engineHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderAdd0(HANDLE engineHandle, FWPM_PROVIDER0* provider, SECURITY_DESCRIPTOR* sd);
+	public static extern uint32 FwpmProviderAdd0(HANDLE engineHandle, FWPM_PROVIDER0* provider, PSECURITY_DESCRIPTOR sd);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmProviderDeleteByKey0(HANDLE engineHandle, in Guid key);
@@ -5038,7 +3995,7 @@ public static
 	public static extern uint32 FwpmProviderDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmProviderGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmProviderSetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5053,16 +4010,16 @@ public static
 	public static extern uint32 FwpmProviderSubscriptionsGet0(HANDLE engineHandle, FWPM_PROVIDER_SUBSCRIPTION0*** entries, uint32* numEntries);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderContextAdd0(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT0* providerContext, SECURITY_DESCRIPTOR* sd, uint64* id);
+	public static extern uint32 FwpmProviderContextAdd0(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT0* providerContext, PSECURITY_DESCRIPTOR sd, uint64* id);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderContextAdd1(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT1* providerContext, SECURITY_DESCRIPTOR* sd, uint64* id);
+	public static extern uint32 FwpmProviderContextAdd1(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT1* providerContext, PSECURITY_DESCRIPTOR sd, uint64* id);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderContextAdd2(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT2* providerContext, SECURITY_DESCRIPTOR* sd, uint64* id);
+	public static extern uint32 FwpmProviderContextAdd2(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT2* providerContext, PSECURITY_DESCRIPTOR sd, uint64* id);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderContextAdd3(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT3_* providerContext, SECURITY_DESCRIPTOR* sd, uint64* id);
+	public static extern uint32 FwpmProviderContextAdd3(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT3* providerContext, PSECURITY_DESCRIPTOR sd, uint64* id);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmProviderContextDeleteById0(HANDLE engineHandle, uint64 id);
@@ -5080,7 +4037,7 @@ public static
 	public static extern uint32 FwpmProviderContextGetById2(HANDLE engineHandle, uint64 id, FWPM_PROVIDER_CONTEXT2** providerContext);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderContextGetById3(HANDLE engineHandle, uint64 id, FWPM_PROVIDER_CONTEXT3_** providerContext);
+	public static extern uint32 FwpmProviderContextGetById3(HANDLE engineHandle, uint64 id, FWPM_PROVIDER_CONTEXT3** providerContext);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmProviderContextGetByKey0(HANDLE engineHandle, in Guid key, FWPM_PROVIDER_CONTEXT0** providerContext);
@@ -5092,7 +4049,7 @@ public static
 	public static extern uint32 FwpmProviderContextGetByKey2(HANDLE engineHandle, in Guid key, FWPM_PROVIDER_CONTEXT2** providerContext);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderContextGetByKey3(HANDLE engineHandle, in Guid key, FWPM_PROVIDER_CONTEXT3_** providerContext);
+	public static extern uint32 FwpmProviderContextGetByKey3(HANDLE engineHandle, in Guid key, FWPM_PROVIDER_CONTEXT3** providerContext);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmProviderContextCreateEnumHandle0(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0* enumTemplate, HANDLE* enumHandle);
@@ -5107,13 +4064,13 @@ public static
 	public static extern uint32 FwpmProviderContextEnum2(HANDLE engineHandle, HANDLE enumHandle, uint32 numEntriesRequested, FWPM_PROVIDER_CONTEXT2*** entries, uint32* numEntriesReturned);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderContextEnum3(HANDLE engineHandle, HANDLE enumHandle, uint32 numEntriesRequested, FWPM_PROVIDER_CONTEXT3_*** entries, uint32* numEntriesReturned);
+	public static extern uint32 FwpmProviderContextEnum3(HANDLE engineHandle, HANDLE enumHandle, uint32 numEntriesRequested, FWPM_PROVIDER_CONTEXT3*** entries, uint32* numEntriesReturned);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmProviderContextDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmProviderContextGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmProviderContextGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmProviderContextSetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5128,7 +4085,7 @@ public static
 	public static extern uint32 FwpmProviderContextSubscriptionsGet0(HANDLE engineHandle, FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0*** entries, uint32* numEntries);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmSubLayerAdd0(HANDLE engineHandle, FWPM_SUBLAYER0* subLayer, SECURITY_DESCRIPTOR* sd);
+	public static extern uint32 FwpmSubLayerAdd0(HANDLE engineHandle, FWPM_SUBLAYER0* subLayer, PSECURITY_DESCRIPTOR sd);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmSubLayerDeleteByKey0(HANDLE engineHandle, in Guid key);
@@ -5146,7 +4103,7 @@ public static
 	public static extern uint32 FwpmSubLayerDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmSubLayerGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmSubLayerGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmSubLayerSetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5176,13 +4133,13 @@ public static
 	public static extern uint32 FwpmLayerDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmLayerGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmLayerGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmLayerSetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmCalloutAdd0(HANDLE engineHandle, FWPM_CALLOUT0* callout, SECURITY_DESCRIPTOR* sd, uint32* id);
+	public static extern uint32 FwpmCalloutAdd0(HANDLE engineHandle, FWPM_CALLOUT0* callout, PSECURITY_DESCRIPTOR sd, uint32* id);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmCalloutDeleteById0(HANDLE engineHandle, uint32 id);
@@ -5206,7 +4163,7 @@ public static
 	public static extern uint32 FwpmCalloutDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmCalloutGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmCalloutGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmCalloutSetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5221,7 +4178,7 @@ public static
 	public static extern uint32 FwpmCalloutSubscriptionsGet0(HANDLE engineHandle, FWPM_CALLOUT_SUBSCRIPTION0*** entries, uint32* numEntries);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmFilterAdd0(HANDLE engineHandle, FWPM_FILTER0* filter, SECURITY_DESCRIPTOR* sd, uint64* id);
+	public static extern uint32 FwpmFilterAdd0(HANDLE engineHandle, FWPM_FILTER0* filter, PSECURITY_DESCRIPTOR sd, uint64* id);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmFilterDeleteById0(HANDLE engineHandle, uint64 id);
@@ -5245,7 +4202,7 @@ public static
 	public static extern uint32 FwpmFilterDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmFilterGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmFilterGetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmFilterSetSecurityInfoByKey0(HANDLE engineHandle, Guid* key, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5263,16 +4220,16 @@ public static
 	public static extern uint32 FwpmGetAppIdFromFileName0(PWSTR fileName, FWP_BYTE_BLOB** appId);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmIPsecTunnelAdd0(HANDLE engineHandle, uint32 flags, FWPM_PROVIDER_CONTEXT0* mainModePolicy, FWPM_PROVIDER_CONTEXT0* tunnelPolicy, uint32 numFilterConditions, FWPM_FILTER_CONDITION0* filterConditions, SECURITY_DESCRIPTOR* sd);
+	public static extern uint32 FwpmIPsecTunnelAdd0(HANDLE engineHandle, uint32 flags, FWPM_PROVIDER_CONTEXT0* mainModePolicy, FWPM_PROVIDER_CONTEXT0* tunnelPolicy, uint32 numFilterConditions, FWPM_FILTER_CONDITION0* filterConditions, PSECURITY_DESCRIPTOR sd);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmIPsecTunnelAdd1(HANDLE engineHandle, uint32 flags, FWPM_PROVIDER_CONTEXT1* mainModePolicy, FWPM_PROVIDER_CONTEXT1* tunnelPolicy, uint32 numFilterConditions, FWPM_FILTER_CONDITION0* filterConditions, Guid* keyModKey, SECURITY_DESCRIPTOR* sd);
+	public static extern uint32 FwpmIPsecTunnelAdd1(HANDLE engineHandle, uint32 flags, FWPM_PROVIDER_CONTEXT1* mainModePolicy, FWPM_PROVIDER_CONTEXT1* tunnelPolicy, uint32 numFilterConditions, FWPM_FILTER_CONDITION0* filterConditions, Guid* keyModKey, PSECURITY_DESCRIPTOR sd);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmIPsecTunnelAdd2(HANDLE engineHandle, uint32 flags, FWPM_PROVIDER_CONTEXT2* mainModePolicy, FWPM_PROVIDER_CONTEXT2* tunnelPolicy, uint32 numFilterConditions, FWPM_FILTER_CONDITION0* filterConditions, Guid* keyModKey, SECURITY_DESCRIPTOR* sd);
+	public static extern uint32 FwpmIPsecTunnelAdd2(HANDLE engineHandle, uint32 flags, FWPM_PROVIDER_CONTEXT2* mainModePolicy, FWPM_PROVIDER_CONTEXT2* tunnelPolicy, uint32 numFilterConditions, FWPM_FILTER_CONDITION0* filterConditions, Guid* keyModKey, PSECURITY_DESCRIPTOR sd);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmIPsecTunnelAdd3(HANDLE engineHandle, uint32 flags, FWPM_PROVIDER_CONTEXT3_* mainModePolicy, FWPM_PROVIDER_CONTEXT3_* tunnelPolicy, uint32 numFilterConditions, FWPM_FILTER_CONDITION0* filterConditions, Guid* keyModKey, SECURITY_DESCRIPTOR* sd);
+	public static extern uint32 FwpmIPsecTunnelAdd3(HANDLE engineHandle, uint32 flags, FWPM_PROVIDER_CONTEXT3* mainModePolicy, FWPM_PROVIDER_CONTEXT3* tunnelPolicy, uint32 numFilterConditions, FWPM_FILTER_CONDITION0* filterConditions, Guid* keyModKey, PSECURITY_DESCRIPTOR sd);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmIPsecTunnelDeleteByKey0(HANDLE engineHandle, in Guid key);
@@ -5359,7 +4316,7 @@ public static
 	public static extern uint32 IPsecSaDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 IPsecSaDbGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 IPsecSaDbGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 IPsecSaDbSetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5377,7 +4334,7 @@ public static
 	public static extern uint32 IPsecDospStateDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 IPsecDospGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 IPsecDospGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 IPsecDospSetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5392,7 +4349,7 @@ public static
 	public static extern uint32 IPsecKeyManagersGet0(HANDLE engineHandle, IPSEC_KEY_MANAGER0*** entries, uint32* numEntries);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 IPsecKeyManagerGetSecurityInfoByKey0(HANDLE engineHandle, void* reserved, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 IPsecKeyManagerGetSecurityInfoByKey0(HANDLE engineHandle, void* reserved, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 IPsecKeyManagerSetSecurityInfoByKey0(HANDLE engineHandle, void* reserved, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5431,7 +4388,7 @@ public static
 	public static extern uint32 IkeextSaDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 IkeextSaDbGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 IkeextSaDbGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 IkeextSaDbSetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5452,16 +4409,16 @@ public static
 	public static extern uint32 FwpmNetEventEnum3(HANDLE engineHandle, HANDLE enumHandle, uint32 numEntriesRequested, FWPM_NET_EVENT3*** entries, uint32* numEntriesReturned);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmNetEventEnum4(HANDLE engineHandle, HANDLE enumHandle, uint32 numEntriesRequested, FWPM_NET_EVENT4_*** entries, uint32* numEntriesReturned);
+	public static extern uint32 FwpmNetEventEnum4(HANDLE engineHandle, HANDLE enumHandle, uint32 numEntriesRequested, FWPM_NET_EVENT4*** entries, uint32* numEntriesReturned);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmNetEventEnum5(HANDLE engineHandle, HANDLE enumHandle, uint32 numEntriesRequested, FWPM_NET_EVENT5_*** entries, uint32* numEntriesReturned);
+	public static extern uint32 FwpmNetEventEnum5(HANDLE engineHandle, HANDLE enumHandle, uint32 numEntriesRequested, FWPM_NET_EVENT5*** entries, uint32* numEntriesReturned);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmNetEventDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmNetEventsGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmNetEventsGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmNetEventsSetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5515,7 +4472,7 @@ public static
 	public static extern uint32 FwpmConnectionDestroyEnumHandle0(HANDLE engineHandle, HANDLE enumHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmConnectionGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmConnectionGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmConnectionSetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);
@@ -5533,7 +4490,7 @@ public static
 	public static extern uint32 FwpmvSwitchEventUnsubscribe0(HANDLE engineHandle, HANDLE subscriptionHandle);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FwpmvSwitchEventsGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, SECURITY_DESCRIPTOR** securityDescriptor);
+	public static extern uint32 FwpmvSwitchEventsGetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, PSID* sidOwner, PSID* sidGroup, ACL** dacl, ACL** sacl, PSECURITY_DESCRIPTOR* securityDescriptor);
 
 	[Import("fwpuclnt.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FwpmvSwitchEventsSetSecurityInfo0(HANDLE engineHandle, uint32 securityInfo, SID* sidOwner, SID* sidGroup, ACL* dacl, ACL* sacl);

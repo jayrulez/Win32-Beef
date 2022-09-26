@@ -8,6 +8,8 @@ namespace Win32.System.ComponentServices;
 #region Constants
 public static
 {
+	public const String TRACKER_STARTSTOP_EVENT = "Global\COM+ Tracker Push Event";
+	public const String TRACKER_INIT_EVENT = "Global\COM+ Tracker Init Event";
 	public const uint32 GUID_STRING_SIZE = 40;
 	public const uint32 DATA_NOT_AVAILABLE = 4294967295;
 	public const uint32 MTXDM_E_ENLISTRESOURCEFAILED = 2147803392;
@@ -614,7 +616,7 @@ public struct HANG_INFO
 }
 
 [CRepr]
-public struct CAppStatistics
+public struct APPSTATISTICS
 {
 	public uint32 m_cTotalCalls;
 	public uint32 m_cTotalInstances;
@@ -623,16 +625,16 @@ public struct CAppStatistics
 }
 
 [CRepr]
-public struct CAppData
+public struct APPDATA
 {
 	public uint32 m_idApp;
 	public char16[40] m_szAppGuid;
 	public uint32 m_dwAppProcessId;
-	public CAppStatistics m_AppStatistics;
+	public APPSTATISTICS m_AppStatistics;
 }
 
 [CRepr]
-public struct CCLSIDData
+public struct CLSIDDATA
 {
 	public Guid m_clsid;
 	public uint32 m_cReferences;
@@ -645,7 +647,7 @@ public struct CCLSIDData
 }
 
 [CRepr]
-public struct CCLSIDData2
+public struct CLSIDDATA2
 {
 	public Guid m_clsid;
 	public Guid m_appid;

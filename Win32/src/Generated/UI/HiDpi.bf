@@ -1,4 +1,5 @@
 using Win32.Foundation;
+using Win32.UI.WindowsAndMessaging;
 using Win32.Graphics.Gdi;
 using System;
 
@@ -101,10 +102,10 @@ public static
 	public static extern DIALOG_DPI_CHANGE_BEHAVIORS GetDialogDpiChangeBehavior(HWND hDlg);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetSystemMetricsForDpi(int32 nIndex, uint32 dpi);
+	public static extern int32 GetSystemMetricsForDpi(SYSTEM_METRICS_INDEX nIndex, uint32 dpi);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AdjustWindowRectExForDpi(RECT* lpRect, uint32 dwStyle, BOOL bMenu, uint32 dwExStyle, uint32 dpi);
+	public static extern BOOL AdjustWindowRectExForDpi(RECT* lpRect, WINDOW_STYLE dwStyle, BOOL bMenu, WINDOW_EX_STYLE dwExStyle, uint32 dpi);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LogicalToPhysicalPointForPerMonitorDPI(HWND hWnd, POINT* lpPoint);

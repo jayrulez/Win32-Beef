@@ -290,7 +290,7 @@ public struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION
 {
 	public IMMDevice* endpoint;
 	public Guid propertyStoreContext;
-	public __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 propertyStoreType;
+	public AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE propertyStoreType;
 	public IPropertyStore* propertyStore;
 	public PROPERTYKEY propertyKey;
 }

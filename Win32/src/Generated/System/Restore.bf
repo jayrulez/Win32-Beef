@@ -75,7 +75,7 @@ public struct RESTOREPOINTINFOW
 }
 
 [CRepr, Packed(1)]
-public struct _RESTOREPTINFOEX
+public struct RESTOREPOINTINFOEX
 {
 	public FILETIME ftCreation;
 	public uint32 dwEventType;

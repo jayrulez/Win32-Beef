@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using Win32.System.Com;
+using Win32.Media.MediaFoundation;
 using Win32.Media.DirectShow;
 using Win32.System.AddressBook;
 using System;
@@ -1121,6 +1122,17 @@ public static
 	public const HRESULT TAPI_E_WRONG_STATE = -2147221416;
 	public const HRESULT TAPI_E_NOT_INITIALIZED = -2147221415;
 	public const HRESULT TAPI_E_SERVICE_NOT_RUNNING = -2147221414;
+	public const String OPENTNEFSTREAM = "OpenTnefStream";
+	public const String OPENTNEFSTREAMEX = "OpenTnefStreamEx";
+	public const String GETTNEFSTREAMCODEPAGE = "GetTnefStreamCodePage";
+	public const uint32 cbDisplayName = 41;
+	public const uint32 cbEmailName = 11;
+	public const uint32 cbSeverName = 12;
+	public const uint32 cbTYPE = 16;
+	public const uint32 cbMaxIdData = 200;
+	public const uint32 prioLow = 3;
+	public const uint32 prioNorm = 2;
+	public const uint32 prioHigh = 1;
 	public const int32 atypNull = 0;
 	public const int32 atypFile = 1;
 	public const int32 atypOle = 2;
@@ -2821,6 +2833,23 @@ public struct LINEPROXYREQUEST
 			public uint32 dwAgentState;
 			public uint32 dwNextAgentState;
 		}
+		[CRepr]
+		public struct _GetGroupList_e__Struct
+		{
+			public LINEAGENTGROUPLIST GroupList;
+		}
+		[CRepr, Packed(1)]
+		public struct _GetAgentInfo_e__Struct
+		{
+			public uint32 hAgent;
+			public LINEAGENTINFO AgentInfo;
+		}
+		[CRepr, Packed(1)]
+		public struct _GetAgentCaps_e__Struct
+		{
+			public uint32 dwAddressID;
+			public LINEAGENTCAPS AgentCaps;
+		}
 		[CRepr, Packed(1)]
 		public struct _SetAgentSessionState_e__Struct
 		{
@@ -2833,23 +2862,6 @@ public struct LINEPROXYREQUEST
 		{
 			public uint32 dwAddressID;
 			public LINEAGENTGROUPLIST GroupList;
-		}
-		[CRepr]
-		public struct _GetGroupList_e__Struct
-		{
-			public LINEAGENTGROUPLIST GroupList;
-		}
-		[CRepr, Packed(1)]
-		public struct _GetAgentCaps_e__Struct
-		{
-			public uint32 dwAddressID;
-			public LINEAGENTCAPS AgentCaps;
-		}
-		[CRepr, Packed(1)]
-		public struct _GetAgentInfo_e__Struct
-		{
-			public uint32 hAgent;
-			public LINEAGENTINFO AgentInfo;
 		}
 		public _SetAgentGroup_e__Struct SetAgentGroup;
 		public _SetAgentState_e__Struct SetAgentState;
@@ -2892,7 +2904,7 @@ public struct LINEREQMAKECALL
 }
 
 [CRepr, Packed(1)]
-public struct linereqmakecallW_tag
+public struct LINEREQMAKECALLW
 {
 	public char16[80] szDestAddress;
 	public char16[40] szAppName;
@@ -2916,7 +2928,7 @@ public struct LINEREQMEDIACALL
 }
 
 [CRepr, Packed(1)]
-public struct linereqmediacallW_tag
+public struct LINEREQMEDIACALLW
 {
 	public HWND hWnd;
 	public WPARAM wRequestID;
@@ -3247,17 +3259,17 @@ public struct MSP_EVENT_INFO
 			public ITTerminal* pTerminal;
 		}
 		[CRepr]
+		public struct _MSP_TTS_TERMINAL_EVENT_INFO_e__Struct
+		{
+			public ITTerminal* pTTSTerminal;
+			public HRESULT hrErrorCode;
+		}
+		[CRepr]
 		public struct _MSP_TSP_DATA_e__Struct
 		{
 			public uint32 dwBufferSize;
 			public uint8* pBuffer mut => &pBuffer_impl;
 			private uint8[ANYSIZE_ARRAY] pBuffer_impl;
-		}
-		[CRepr]
-		public struct _MSP_TTS_TERMINAL_EVENT_INFO_e__Struct
-		{
-			public ITTerminal* pTTSTerminal;
-			public HRESULT hrErrorCode;
 		}
 		public _MSP_ADDRESS_EVENT_INFO_e__Struct MSP_ADDRESS_EVENT_INFO;
 		public _MSP_CALL_EVENT_INFO_e__Struct MSP_CALL_EVENT_INFO;
@@ -3292,7 +3304,7 @@ public struct STnefProblemArray
 }
 
 [CRepr, Packed(1)]
-public struct _renddata
+public struct RENDDATA
 {
 	public uint16 atyp;
 	public uint32 ulPosition;
@@ -3302,7 +3314,7 @@ public struct _renddata
 }
 
 [CRepr, Packed(1)]
-public struct _dtr
+public struct DTR
 {
 	public uint16 wYear;
 	public uint16 wMonth;
@@ -3314,7 +3326,7 @@ public struct _dtr
 }
 
 [CRepr]
-public struct _trp
+public struct TRP
 {
 	public uint16 trpid;
 	public uint16 cbgrtrp;
@@ -3323,7 +3335,7 @@ public struct _trp
 }
 
 [CRepr]
-public struct _ADDR_ALIAS
+public struct ADDRALIAS
 {
 	public CHAR[41] rgchName;
 	public CHAR[11] rgchEName;
@@ -3338,7 +3350,7 @@ public struct NSID
 	[CRepr, Union]
 	public struct _address_e__Union
 	{
-		public _ADDR_ALIAS alias;
+		public ADDRALIAS alias;
 		public CHAR* rgchInterNet mut => &rgchInterNet_impl;
 		private CHAR[ANYSIZE_ARRAY] rgchInterNet_impl;
 	}

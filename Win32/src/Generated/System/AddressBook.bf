@@ -11,6 +11,8 @@ public static
 	public const uint32 PROP_ID_SECURE_MIN = 26608;
 	public const uint32 PROP_ID_SECURE_MAX = 26623;
 	public const uint32 MAPI_DIM = 1;
+	public const uint32 fMapiUnicode = 0;
+	public const uint32 hrSuccess = 0;
 	public const uint32 MAPI_P1 = 268435456;
 	public const uint32 MAPI_SUBMITTED = 2147483648;
 	public const uint32 MAPI_SHORTTERM = 128;
@@ -19,6 +21,8 @@ public static
 	public const uint32 MAPI_NOW = 16;
 	public const uint32 MAPI_NOTRESERVED = 8;
 	public const uint32 MAPI_COMPOUND = 128;
+	public const uint32 cchProfileNameMax = 64;
+	public const uint32 cchProfilePassMax = 64;
 	public const uint32 MV_FLAG = 4096;
 	public const uint32 PROP_ID_NULL = 0;
 	public const uint32 PROP_ID_INVALID = 65535;
@@ -32,6 +36,7 @@ public static
 	public const uint32 TABLE_RESTRICT_DONE = 7;
 	public const uint32 TABLE_SETCOL_DONE = 8;
 	public const uint32 TABLE_RELOAD = 9;
+	public const String szMAPINotificationMsg = "MAPI Notify window message";
 	public const int32 MAPI_ERROR_VERSION = 0;
 	public const uint32 MAPI_USE_DEFAULT = 64;
 	public const uint32 MNID_ID = 0;
@@ -54,6 +59,8 @@ public static
 	public const uint32 WAB_DISPLAY_LDAPURL = 1;
 	public const uint32 WAB_CONTEXT_ADRLIST = 2;
 	public const uint32 WAB_DISPLAY_ISNTDS = 4;
+	public const String WAB_DLL_NAME = "WAB32.DLL";
+	public const String WAB_DLL_PATH_KEY = "Software\Microsoft\WAB\DLLPath";
 	public const HRESULT E_IMAPI_REQUEST_CANCELLED = -1062600702;
 	public const HRESULT E_IMAPI_RECORDER_REQUIRED = -1062600701;
 	public const HRESULT S_IMAPI_SPEEDADJUSTED = 11141124;
@@ -216,6 +223,9 @@ public static
 	public const int32 PRILOWEST = -32768;
 	public const uint32 PRIHIGHEST = 32767;
 	public const uint32 PRIUSER = 0;
+	public const String OPENSTREAMONFILE = "OpenStreamOnFile";
+	public const String szHrDispatchNotifications = "HrDispatchNotifications";
+	public const String szScCreateConversationIndex = "ScCreateConversationIndex";
 }
 #endregion
 
@@ -248,9 +258,7 @@ public function int32 LPFNBUTTON(uint ulUIParam, void* lpvContext, uint32 cbEntr
 
 public function void CALLERRELEASE(uint32 ulCallerData, ITableData* lpTblData, IMAPITable* lpVue);
 
-public function BOOL FNIDLE(void* param0);
-
-public function BOOL PFNIDLE();
+public function BOOL PFNIDLE(void* param0);
 
 public function HRESULT LPOPENSTREAMONFILE(LPALLOCATEBUFFER lpAllocateBuffer, LPFREEBUFFER lpFreeBuffer, uint32 ulFlags, int8* lpszFileName, int8* lpszPrefix, IStream** lppStream);
 
@@ -417,7 +425,7 @@ public struct SLPSTRArray
 }
 
 [CRepr, Union]
-public struct _PV
+public struct __UPV
 {
 	public int16 i;
 	public int32 l;
@@ -454,7 +462,7 @@ public struct SPropValue
 {
 	public uint32 ulPropTag;
 	public uint32 dwAlignPad;
-	public _PV Value;
+	public __UPV Value;
 }
 
 [CRepr]
@@ -770,7 +778,7 @@ public struct SRestriction
 }
 
 [CRepr]
-public struct _flaglist
+public struct FlagList
 {
 	public uint32 cFlags;
 	public uint32* ulFlag mut => &ulFlag_impl;
@@ -1219,7 +1227,7 @@ public struct NOTIFKEY
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulCreateFlags, IMAPIProp** lppMAPIPropEntry) CreateEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpEntries, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyEntries;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpEntries, uint32 ulFlags) DeleteEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, _flaglist* lpFlagList) ResolveNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, FlagList* lpFlagList) ResolveNames;
 	}
 
 
@@ -1229,7 +1237,7 @@ public struct NOTIFKEY
 
 	public HRESULT DeleteEntries(SBinaryArray* lpEntries, uint32 ulFlags) mut => VT.[Friend]DeleteEntries(&this, lpEntries, ulFlags);
 
-	public HRESULT ResolveNames(SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, _flaglist* lpFlagList) mut => VT.[Friend]ResolveNames(&this, lpPropTagArray, ulFlags, lpAdrList, lpFlagList);
+	public HRESULT ResolveNames(SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, FlagList* lpFlagList) mut => VT.[Friend]ResolveNames(&this, lpPropTagArray, ulFlags, lpAdrList, lpFlagList);
 }
 
 [CRepr]struct IMailUser : IMAPIProp
@@ -1251,7 +1259,7 @@ public struct NOTIFKEY
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulCreateFlags, IMAPIProp** lppMAPIPropEntry) CreateEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpEntries, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyEntries;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpEntries, uint32 ulFlags) DeleteEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, _flaglist* lpFlagList) ResolveNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, FlagList* lpFlagList) ResolveNames;
 	}
 
 
@@ -1261,7 +1269,7 @@ public struct NOTIFKEY
 
 	public HRESULT DeleteEntries(SBinaryArray* lpEntries, uint32 ulFlags) mut => VT.[Friend]DeleteEntries(&this, lpEntries, ulFlags);
 
-	public HRESULT ResolveNames(SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, _flaglist* lpFlagList) mut => VT.[Friend]ResolveNames(&this, lpPropTagArray, ulFlags, lpAdrList, lpFlagList);
+	public HRESULT ResolveNames(SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, FlagList* lpFlagList) mut => VT.[Friend]ResolveNames(&this, lpPropTagArray, ulFlags, lpAdrList, lpFlagList);
 }
 
 [CRepr]struct IMAPIFolder : IMAPIContainer

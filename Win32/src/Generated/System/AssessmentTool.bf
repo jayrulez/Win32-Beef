@@ -10,7 +10,7 @@ namespace Win32.System.AssessmentTool;
 #region Enums
 
 [AllowDuplicates]
-public enum WINSAT_OEM_DATA_TYPE : int32
+public enum WINSAT_OEM_CUSTOMIZATION_STATE : int32
 {
 	WINSAT_OEM_DATA_VALID = 0,
 	WINSAT_OEM_DATA_NON_SYS_CONFIG_MATCH = 1,
@@ -236,11 +236,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WINSAT_OEM_DATA_TYPE* state) GetOEMPrePopulationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WINSAT_OEM_CUSTOMIZATION_STATE* state) GetOEMPrePopulationInfo;
 	}
 
 
-	public HRESULT GetOEMPrePopulationInfo(WINSAT_OEM_DATA_TYPE* state) mut => VT.[Friend]GetOEMPrePopulationInfo(&this, state);
+	public HRESULT GetOEMPrePopulationInfo(WINSAT_OEM_CUSTOMIZATION_STATE* state) mut => VT.[Friend]GetOEMPrePopulationInfo(&this, state);
 }
 
 #endregion

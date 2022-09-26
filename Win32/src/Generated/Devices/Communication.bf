@@ -228,6 +228,26 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 	MDMSPKRFLAG_ON = 4,
 }
 
+
+[AllowDuplicates]
+public enum DCB_STOP_BITS : uint8
+{
+	ONESTOPBIT = 0,
+	ONE5STOPBITS = 1,
+	TWOSTOPBITS = 2,
+}
+
+
+[AllowDuplicates]
+public enum DCB_PARITY : uint8
+{
+	EVENPARITY = 2,
+	MARKPARITY = 3,
+	NOPARITY = 0,
+	ODDPARITY = 1,
+	SPACEPARITY = 4,
+}
+
 #endregion
 
 
@@ -318,8 +338,8 @@ public struct DCB
 	public uint16 XonLim;
 	public uint16 XoffLim;
 	public uint8 ByteSize;
-	public uint8 Parity;
-	public uint8 StopBits;
+	public DCB_PARITY Parity;
+	public DCB_STOP_BITS StopBits;
 	public CHAR XonChar;
 	public CHAR XoffChar;
 	public CHAR ErrorChar;

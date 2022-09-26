@@ -170,6 +170,7 @@ public static
 	public const HRESULT SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH = -2004286941;
 	public const HRESULT SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED = -2004286940;
 	public const HRESULT SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING = -2004286939;
+	public const String VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK = "VAD\Process_Loopback";
 	public const uint32 WAVERR_BADFORMAT = 32;
 	public const uint32 WAVERR_STILLPLAYING = 33;
 	public const uint32 WAVERR_UNPREPARED = 34;
@@ -409,6 +410,15 @@ public static
 	public const int32 ACM_FORMATSUGGESTF_NSAMPLESPERSEC = 262144;
 	public const int32 ACM_FORMATSUGGESTF_WBITSPERSAMPLE = 524288;
 	public const int32 ACM_FORMATSUGGESTF_TYPEMASK = 16711680;
+	public const String ACMHELPMSGSTRINGA = "acmchoose_help";
+	public const String ACMHELPMSGSTRINGW = "acmchoose_help";
+	public const String ACMHELPMSGCONTEXTMENUA = "acmchoose_contextmenu";
+	public const String ACMHELPMSGCONTEXTMENUW = "acmchoose_contextmenu";
+	public const String ACMHELPMSGCONTEXTHELPA = "acmchoose_contexthelp";
+	public const String ACMHELPMSGCONTEXTHELPW = "acmchoose_contexthelp";
+	public const String ACMHELPMSGSTRING = "acmchoose_help";
+	public const String ACMHELPMSGCONTEXTMENU = "acmchoose_contextmenu";
+	public const String ACMHELPMSGCONTEXTHELP = "acmchoose_contexthelp";
 	public const uint32 MM_ACM_FORMATCHOOSE = 32768;
 	public const uint32 FORMATCHOOSE_MESSAGE = 0;
 	public const uint32 FORMATCHOOSE_FORMATTAG_VERIFY = 0;
@@ -453,22 +463,7 @@ public static
 	public const uint32 ACM_STREAMCONVERTF_BLOCKALIGN = 4;
 	public const uint32 ACM_STREAMCONVERTF_START = 16;
 	public const uint32 ACM_STREAMCONVERTF_END = 32;
-	public const uint32 SND_SYNC = 0;
-	public const uint32 SND_ASYNC = 1;
-	public const uint32 SND_NODEFAULT = 2;
-	public const uint32 SND_MEMORY = 4;
-	public const uint32 SND_LOOP = 8;
-	public const uint32 SND_NOSTOP = 16;
-	public const int32 SND_NOWAIT = 8192;
-	public const int32 SND_ALIAS = 65536;
-	public const int32 SND_ALIAS_ID = 1114112;
-	public const int32 SND_FILENAME = 131072;
-	public const int32 SND_RESOURCE = 262148;
-	public const uint32 SND_PURGE = 64;
-	public const uint32 SND_APPLICATION = 128;
-	public const int32 SND_SENTRY = 524288;
 	public const int32 SND_RING = 1048576;
-	public const int32 SND_SYSTEM = 2097152;
 	public const uint32 SND_ALIAS_START = 0;
 	public const uint32 ACMDM_DRIVER_NOTIFY = 24577;
 	public const uint32 ACMDM_DRIVER_DETAILS = 24586;
@@ -539,6 +534,27 @@ public enum MIDI_WAVE_OPEN_TYPE : uint32
 	WAVE_FORMAT_DIRECT_QUERY = 9,
 	WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE = 16,
 	MIDI_IO_STATUS = 32,
+}
+
+
+[AllowDuplicates]
+public enum SND_FLAGS : uint32
+{
+	SND_APPLICATION = 128,
+	SND_ALIAS = 65536,
+	SND_ALIAS_ID = 1114112,
+	SND_FILENAME = 131072,
+	SND_RESOURCE = 262148,
+	SND_ASYNC = 1,
+	SND_NODEFAULT = 2,
+	SND_LOOP = 8,
+	SND_MEMORY = 4,
+	SND_NOSTOP = 16,
+	SND_NOWAIT = 8192,
+	SND_PURGE = 64,
+	SND_SENTRY = 524288,
+	SND_SYNC = 0,
+	SND_SYSTEM = 2097152,
 }
 
 
@@ -762,7 +778,7 @@ public enum EndpointFormFactor : int32
 
 
 [AllowDuplicates]
-public enum __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 : int32
+public enum AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE : int32
 {
 	AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT = 0,
 	AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER = 1,
@@ -944,6 +960,25 @@ public struct ECHOWAVEFILTER
 	public uint32 dwVolume;
 	public uint32 dwDelay;
 }
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr, Packed(1)]
+public struct ACMSTREAMHEADER
+{
+	public uint32 cbStruct;
+	public uint32 fdwStatus;
+	public uint dwUser;
+	public uint8* pbSrc;
+	public uint32 cbSrcLength;
+	public uint32 cbSrcLengthUsed;
+	public uint dwSrcUser;
+	public uint8* pbDst;
+	public uint32 cbDstLength;
+	public uint32 cbDstLengthUsed;
+	public uint dwDstUser;
+	public uint32[15] dwReservedDriver;
+}
+#endif
 
 [CRepr, Packed(1)]
 public struct WAVEHDR
@@ -2021,7 +2056,7 @@ public struct ACMFILTERCHOOSEW
 	public ACMFILTERCHOOSEHOOKPROCW pfnHook;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr, Packed(1)]
 public struct ACMSTREAMHEADER
 {
@@ -2036,12 +2071,12 @@ public struct ACMSTREAMHEADER
 	public uint32 cbDstLength;
 	public uint32 cbDstLengthUsed;
 	public uint dwDstUser;
-	public uint32[15] dwReservedDriver;
+	public uint32[10] dwReservedDriver;
 }
 #endif
 
 [CRepr, Packed(1)]
-public struct tACMDRVOPENDESCA
+public struct ACMDRVOPENDESCA
 {
 	public uint32 cbStruct;
 	public uint32 fccType;
@@ -2055,7 +2090,7 @@ public struct tACMDRVOPENDESCA
 }
 
 [CRepr, Packed(1)]
-public struct tACMDRVOPENDESCW
+public struct ACMDRVOPENDESCW
 {
 	public uint32 cbStruct;
 	public uint32 fccType;
@@ -2128,25 +2163,6 @@ public struct ACMDRVFORMATSUGGEST
 	public WAVEFORMATEX* pwfxDst;
 	public uint32 cbwfxDst;
 }
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct ACMSTREAMHEADER
-{
-	public uint32 cbStruct;
-	public uint32 fdwStatus;
-	public uint dwUser;
-	public uint8* pbSrc;
-	public uint32 cbSrcLength;
-	public uint32 cbSrcLengthUsed;
-	public uint dwSrcUser;
-	public uint8* pbDst;
-	public uint32 cbDstLength;
-	public uint32 cbDstLengthUsed;
-	public uint dwDstUser;
-	public uint32[10] dwReservedDriver;
-}
-#endif
 
 #endregion
 
@@ -2777,16 +2793,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid, uint32 dwClsCtx, PROPVARIANT* pActivationParams, void** ppInterface) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 stgmAccess, IPropertyStore** ppProperties) OpenPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid iid, CLSCTX dwClsCtx, PROPVARIANT* pActivationParams, void** ppInterface) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STGM stgmAccess, IPropertyStore** ppProperties) OpenPropertyStore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppstrId) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwState) GetState;
 	}
 
 
-	public HRESULT Activate(in Guid iid, uint32 dwClsCtx, PROPVARIANT* pActivationParams, void** ppInterface) mut => VT.[Friend]Activate(&this, iid, dwClsCtx, pActivationParams, ppInterface);
+	public HRESULT Activate(in Guid iid, CLSCTX dwClsCtx, PROPVARIANT* pActivationParams, void** ppInterface) mut => VT.[Friend]Activate(&this, iid, dwClsCtx, pActivationParams, ppInterface);
 
-	public HRESULT OpenPropertyStore(uint32 stgmAccess, IPropertyStore** ppProperties) mut => VT.[Friend]OpenPropertyStore(&this, stgmAccess, ppProperties);
+	public HRESULT OpenPropertyStore(STGM stgmAccess, IPropertyStore** ppProperties) mut => VT.[Friend]OpenPropertyStore(&this, stgmAccess, ppProperties);
 
 	public HRESULT GetId(PWSTR* ppstrId) mut => VT.[Friend]GetId(&this, ppstrId);
 
@@ -2906,11 +2922,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 type, PROPERTYKEY key) OnPropertyChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE type, PROPERTYKEY key) OnPropertyChanged;
 	}
 
 
-	public HRESULT OnPropertyChanged(__MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 type, PROPERTYKEY key) mut => VT.[Friend]OnPropertyChanged(&this, type, key);
+	public HRESULT OnPropertyChanged(AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE type, PROPERTYKEY key) mut => VT.[Friend]OnPropertyChanged(&this, type, key);
 }
 
 [CRepr]struct IAudioSystemEffectsPropertyStore : IUnknown
@@ -3781,11 +3797,11 @@ public static
 	public static extern BOOL sndPlaySoundW(PWSTR pszSound, uint32 fuSound);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PlaySoundA(PSTR pszSound, HINSTANCE hmod, uint32 fdwSound);
-	public static BOOL PlaySound(PSTR pszSound, HINSTANCE hmod, uint32 fdwSound) => PlaySoundA(pszSound, hmod, fdwSound);
+	public static extern BOOL PlaySoundA(PSTR pszSound, HINSTANCE hmod, SND_FLAGS fdwSound);
+	public static BOOL PlaySound(PSTR pszSound, HINSTANCE hmod, SND_FLAGS fdwSound) => PlaySoundA(pszSound, hmod, fdwSound);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL PlaySoundW(PWSTR pszSound, HINSTANCE hmod, uint32 fdwSound);
+	public static extern BOOL PlaySoundW(PWSTR pszSound, HINSTANCE hmod, SND_FLAGS fdwSound);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutGetNumDevs();

@@ -3,11 +3,13 @@ using Win32.System.Kernel;
 using Win32.System.Threading;
 using Win32.System.Com;
 using Win32.System.Memory;
+using Win32.System.SystemInformation;
 using Win32.Storage.FileSystem;
 using Win32.System.Time;
 using Win32.System.Com.StructuredStorage;
 using Win32.System.Ole;
 using Win32.Security.WinTrust;
+using Win32.UI.WindowsAndMessaging;
 using System;
 
 namespace Win32.System.Diagnostics.Debug;
@@ -638,6 +640,18 @@ public static
 	public const uint32 DEBUG_OUTPUT_SYMBOLS_NO_OFFSETS = 2;
 	public const uint32 DEBUG_OUTPUT_SYMBOLS_NO_VALUES = 4;
 	public const uint32 DEBUG_OUTPUT_SYMBOLS_NO_TYPES = 16;
+	public const String DEBUG_OUTPUT_NAME_END = "**NAME**";
+	public const String DEBUG_OUTPUT_OFFSET_END = "**OFF**";
+	public const String DEBUG_OUTPUT_VALUE_END = "**VALUE**";
+	public const String DEBUG_OUTPUT_TYPE_END = "**TYPE**";
+	public const String DEBUG_OUTPUT_NAME_END_WIDE = "**NAME**";
+	public const String DEBUG_OUTPUT_OFFSET_END_WIDE = "**OFF**";
+	public const String DEBUG_OUTPUT_VALUE_END_WIDE = "**VALUE**";
+	public const String DEBUG_OUTPUT_TYPE_END_WIDE = "**TYPE**";
+	public const String DEBUG_OUTPUT_NAME_END_T = "**NAME**";
+	public const String DEBUG_OUTPUT_OFFSET_END_T = "**OFF**";
+	public const String DEBUG_OUTPUT_VALUE_END_T = "**VALUE**";
+	public const String DEBUG_OUTPUT_TYPE_END_T = "**TYPE**";
 	public const uint32 DEBUG_SYMBOL_EXPANSION_LEVEL_MASK = 15;
 	public const uint32 DEBUG_SYMBOL_EXPANDED = 16;
 	public const uint32 DEBUG_SYMBOL_READ_ONLY = 32;
@@ -1173,6 +1187,9 @@ public static
 	public const uint32 WCT_MAX_NODE_COUNT = 16;
 	public const uint32 WCT_OBJNAME_LENGTH = 128;
 	public const uint32 WCT_NETWORK_IO_FLAG = 8;
+	public const String RESTORE_LAST_ERROR_NAME_A = "RestoreLastError";
+	public const String RESTORE_LAST_ERROR_NAME_W = "RestoreLastError";
+	public const String RESTORE_LAST_ERROR_NAME = "RestoreLastError";
 	public const uint32 APPBREAKFLAG_DEBUGGER_BLOCK = 1;
 	public const uint32 APPBREAKFLAG_DEBUGGER_HALT = 2;
 	public const uint32 APPBREAKFLAG_STEP = 65536;
@@ -1374,44 +1391,6 @@ public enum IMAGE_SECTION_CHARACTERISTICS : uint32
 	IMAGE_SCN_MEM_READ = 1073741824,
 	IMAGE_SCN_MEM_WRITE = 2147483648,
 	IMAGE_SCN_SCALE_INDEX = 1,
-}
-
-
-[AllowDuplicates]
-public enum IMAGE_FILE_MACHINE : uint16
-{
-	IMAGE_FILE_MACHINE_AXP64 = 644,
-	IMAGE_FILE_MACHINE_I386 = 332,
-	IMAGE_FILE_MACHINE_IA64 = 512,
-	IMAGE_FILE_MACHINE_AMD64 = 34404,
-	IMAGE_FILE_MACHINE_UNKNOWN = 0,
-	IMAGE_FILE_MACHINE_TARGET_HOST = 1,
-	IMAGE_FILE_MACHINE_R3000 = 354,
-	IMAGE_FILE_MACHINE_R4000 = 358,
-	IMAGE_FILE_MACHINE_R10000 = 360,
-	IMAGE_FILE_MACHINE_WCEMIPSV2 = 361,
-	IMAGE_FILE_MACHINE_ALPHA = 388,
-	IMAGE_FILE_MACHINE_SH3 = 418,
-	IMAGE_FILE_MACHINE_SH3DSP = 419,
-	IMAGE_FILE_MACHINE_SH3E = 420,
-	IMAGE_FILE_MACHINE_SH4 = 422,
-	IMAGE_FILE_MACHINE_SH5 = 424,
-	IMAGE_FILE_MACHINE_ARM = 448,
-	IMAGE_FILE_MACHINE_THUMB = 450,
-	IMAGE_FILE_MACHINE_ARMNT = 452,
-	IMAGE_FILE_MACHINE_AM33 = 467,
-	IMAGE_FILE_MACHINE_POWERPC = 496,
-	IMAGE_FILE_MACHINE_POWERPCFP = 497,
-	IMAGE_FILE_MACHINE_MIPS16 = 614,
-	IMAGE_FILE_MACHINE_ALPHA64 = 644,
-	IMAGE_FILE_MACHINE_MIPSFPU = 870,
-	IMAGE_FILE_MACHINE_MIPSFPU16 = 1126,
-	IMAGE_FILE_MACHINE_TRICORE = 1312,
-	IMAGE_FILE_MACHINE_CEF = 3311,
-	IMAGE_FILE_MACHINE_EBC = 3772,
-	IMAGE_FILE_MACHINE_M32R = 36929,
-	IMAGE_FILE_MACHINE_ARM64 = 43620,
-	IMAGE_FILE_MACHINE_CEE = 49390,
 }
 
 
@@ -2981,7 +2960,7 @@ public enum DBGPROP_INFO : uint32
 
 
 [AllowDuplicates]
-public enum OBJECT_ATTRIB_FLAG : uint32
+public enum OBJECT_ATTRIB_FLAGS : int32
 {
 	OBJECT_ATTRIB_NO_ATTRIB = 0,
 	OBJECT_ATTRIB_NO_NAME = 1,
@@ -3017,7 +2996,7 @@ public enum OBJECT_ATTRIB_FLAG : uint32
 	OBJECT_ATTRIB_IS_MACRO = 268435456,
 	OBJECT_ATTRIB_IS_TYPE = 536870912,
 	OBJECT_ATTRIB_IS_INHERITED = 1073741824,
-	OBJECT_ATTRIB_IS_INTERFACE = 2147483648,
+	OBJECT_ATTRIB_IS_INTERFACE = -2147483648,
 }
 
 
@@ -3070,7 +3049,7 @@ public enum BREAKREASON : int32
 
 
 [AllowDuplicates]
-public enum BREAKRESUME_ACTION : int32
+public enum BREAKRESUMEACTION : int32
 {
 	BREAKRESUMEACTION_ABORT = 0,
 	BREAKRESUMEACTION_CONTINUE = 1,
@@ -3424,7 +3403,7 @@ public enum JsDebugReadMemoryFlags : int32
 
 
 [AllowDuplicates]
-public enum _DUMP_TYPES : int32
+public enum DUMP_TYPE : int32
 {
 	DUMP_TYPE_INVALID = -1,
 	DUMP_TYPE_UNKNOWN = 0,
@@ -3643,6 +3622,22 @@ public function uint64 PGET_MODULE_BASE_ROUTINE64(HANDLE hProcess, uint64 Addres
 
 public function uint64 PTRANSLATE_ADDRESS_ROUTINE64(HANDLE hProcess, HANDLE hThread, ADDRESS64* lpaddr);
 
+#if BF_32_BIT
+public function BOOL PREAD_PROCESS_MEMORY_ROUTINE(HANDLE hProcess, uint32 lpBaseAddress, void* lpBuffer, uint32 nSize, uint32* lpNumberOfBytesRead);
+#endif
+
+#if BF_32_BIT
+public function void* PFUNCTION_TABLE_ACCESS_ROUTINE(HANDLE hProcess, uint32 AddrBase);
+#endif
+
+#if BF_32_BIT
+public function uint32 PGET_MODULE_BASE_ROUTINE(HANDLE hProcess, uint32 Address);
+#endif
+
+#if BF_32_BIT
+public function uint32 PTRANSLATE_ADDRESS_ROUTINE(HANDLE hProcess, HANDLE hThread, ADDRESS* lpaddr);
+#endif
+
 public function BOOL PSYM_ENUMMODULES_CALLBACK64(PSTR ModuleName, uint64 BaseOfDll, void* UserContext);
 
 public function BOOL PSYM_ENUMMODULES_CALLBACKW64(PWSTR ModuleName, uint64 BaseOfDll, void* UserContext);
@@ -3660,6 +3655,26 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK64(HANDLE hProcess, uint32 Actio
 public function void* PSYMBOL_FUNCENTRY_CALLBACK(HANDLE hProcess, uint32 AddrBase, void* UserContext);
 
 public function void* PSYMBOL_FUNCENTRY_CALLBACK64(HANDLE hProcess, uint64 AddrBase, uint64 UserContext);
+
+#if BF_32_BIT
+public function BOOL PSYM_ENUMMODULES_CALLBACK(PSTR ModuleName, uint32 BaseOfDll, void* UserContext);
+#endif
+
+#if BF_32_BIT
+public function BOOL PSYM_ENUMSYMBOLS_CALLBACK(PSTR SymbolName, uint32 SymbolAddress, uint32 SymbolSize, void* UserContext);
+#endif
+
+#if BF_32_BIT
+public function BOOL PSYM_ENUMSYMBOLS_CALLBACKW(PWSTR SymbolName, uint32 SymbolAddress, uint32 SymbolSize, void* UserContext);
+#endif
+
+#if BF_32_BIT
+public function BOOL PENUMLOADED_MODULES_CALLBACK(PSTR ModuleName, uint32 ModuleBase, uint32 ModuleSize, void* UserContext);
+#endif
+
+#if BF_32_BIT
+public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionCode, void* CallbackData, void* UserContext);
+#endif
 
 public function BOOL PSYM_ENUMSOURCEFILES_CALLBACK(SOURCEFILE* pSourceFile, void* UserContext);
 
@@ -3758,42 +3773,6 @@ public function NTSTATUS WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(void* Contex
 public function void WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(void* Context);
 
 public function NTSTATUS WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(void* ErrorSourceDesc, uint32* MaximumSectionLength);
-
-#if BF_32_BIT
-public function BOOL PREAD_PROCESS_MEMORY_ROUTINE(HANDLE hProcess, uint32 lpBaseAddress, void* lpBuffer, uint32 nSize, uint32* lpNumberOfBytesRead);
-#endif
-
-#if BF_32_BIT
-public function void* PFUNCTION_TABLE_ACCESS_ROUTINE(HANDLE hProcess, uint32 AddrBase);
-#endif
-
-#if BF_32_BIT
-public function uint32 PGET_MODULE_BASE_ROUTINE(HANDLE hProcess, uint32 Address);
-#endif
-
-#if BF_32_BIT
-public function uint32 PTRANSLATE_ADDRESS_ROUTINE(HANDLE hProcess, HANDLE hThread, ADDRESS* lpaddr);
-#endif
-
-#if BF_32_BIT
-public function BOOL PSYM_ENUMMODULES_CALLBACK(PSTR ModuleName, uint32 BaseOfDll, void* UserContext);
-#endif
-
-#if BF_32_BIT
-public function BOOL PSYM_ENUMSYMBOLS_CALLBACK(PSTR SymbolName, uint32 SymbolAddress, uint32 SymbolSize, void* UserContext);
-#endif
-
-#if BF_32_BIT
-public function BOOL PSYM_ENUMSYMBOLS_CALLBACKW(PWSTR SymbolName, uint32 SymbolAddress, uint32 SymbolSize, void* UserContext);
-#endif
-
-#if BF_32_BIT
-public function BOOL PENUMLOADED_MODULES_CALLBACK(PSTR ModuleName, uint32 ModuleBase, uint32 ModuleSize, void* UserContext);
-#endif
-
-#if BF_32_BIT
-public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionCode, void* CallbackData, void* UserContext);
-#endif
 
 #endregion
 
@@ -3914,7 +3893,7 @@ public struct UNWIND_HISTORY_TABLE_ENTRY
 #endif
 
 #if BF_ARM_64
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_THREAD_CALLBACK
 {
 	public uint32 ThreadId;
@@ -3928,7 +3907,7 @@ public struct MINIDUMP_THREAD_CALLBACK
 #endif
 
 #if BF_ARM_64
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_THREAD_EX_CALLBACK
 {
 	public uint32 ThreadId;
@@ -4295,12 +4274,6 @@ public struct DEBUG_VALUE
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _I64Parts32_e__Struct
-		{
-			public uint32 LowPart;
-			public uint32 HighPart;
-		}
-		[CRepr]
 		public struct _F128Parts64_e__Struct
 		{
 			public uint64 LowPart;
@@ -4311,6 +4284,12 @@ public struct DEBUG_VALUE
 		{
 			public uint64 I64;
 			public BOOL Nat;
+		}
+		[CRepr]
+		public struct _I64Parts32_e__Struct
+		{
+			public uint32 LowPart;
+			public uint32 HighPart;
 		}
 		public uint8 I8;
 		public uint16 I16;
@@ -4528,14 +4507,14 @@ public struct ScriptDebugEventInformation
 	public struct _u_e__Union
 	{
 		[CRepr]
-		public struct _ExceptionInformation_e__Struct
-		{
-			public bool IsUncaught;
-		}
-		[CRepr]
 		public struct _BreakpointInformation_e__Struct
 		{
 			public uint64 BreakpointId;
+		}
+		[CRepr]
+		public struct _ExceptionInformation_e__Struct
+		{
+			public uint8 IsUncaught;
 		}
 		public _ExceptionInformation_e__Struct ExceptionInformation;
 		public _BreakpointInformation_e__Struct BreakpointInformation;
@@ -4754,7 +4733,7 @@ public struct IOSPACE_EX64
 }
 
 [CRepr]
-public struct _GETSETBUSDATA
+public struct BUSDATA
 {
 	public uint32 BusDataType;
 	public uint32 BusNumber;
@@ -5356,13 +5335,6 @@ public struct SYM_DUMP_PARAM
 	public uint32 _bitfield;
 }
 
-[CRepr]
-public struct M128A
-{
-	public uint64 Low;
-	public int64 High;
-}
-
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
 public struct XSAVE_FORMAT
@@ -5385,21 +5357,6 @@ public struct XSAVE_FORMAT
 	public uint8[96] Reserved4;
 }
 #endif
-
-[CRepr]
-public struct XSAVE_AREA_HEADER
-{
-	public uint64 Mask;
-	public uint64 CompactionMask;
-	public uint64[6] Reserved2;
-}
-
-[CRepr]
-public struct XSAVE_AREA
-{
-	public XSAVE_FORMAT LegacyState;
-	public XSAVE_AREA_HEADER Header;
-}
 
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
@@ -5573,6 +5530,110 @@ public struct KNONVOLATILE_CONTEXT_POINTERS
 }
 #endif
 
+#if BF_64_BIT
+[CRepr]
+public struct UNWIND_HISTORY_TABLE_ENTRY
+{
+	public uint ImageBase;
+	public IMAGE_RUNTIME_FUNCTION_ENTRY* FunctionEntry;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct UNWIND_HISTORY_TABLE
+{
+	public uint32 Count;
+	public uint8 LocalHint;
+	public uint8 GlobalHint;
+	public uint8 Search;
+	public uint8 Once;
+	public uint LowAddress;
+	public uint HighAddress;
+	public UNWIND_HISTORY_TABLE_ENTRY[12] Entry;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct LOADED_IMAGE
+{
+	public PSTR ModuleName;
+	public HANDLE hFile;
+	public uint8* MappedAddress;
+	public IMAGE_NT_HEADERS64* FileHeader;
+	public IMAGE_SECTION_HEADER* LastRvaSection;
+	public uint32 NumberOfSections;
+	public IMAGE_SECTION_HEADER* Sections;
+	public IMAGE_FILE_CHARACTERISTICS2 Characteristics;
+	public BOOLEAN fSystemImage;
+	public BOOLEAN fDOSImage;
+	public BOOLEAN fReadOnly;
+	public uint8 Version;
+	public LIST_ENTRY Links;
+	public uint32 SizeOfImage;
+}
+#endif
+
+[CRepr]
+public struct M128A
+{
+	public uint64 Low;
+	public int64 High;
+}
+
+#if BF_32_BIT
+[CRepr]
+public struct XSAVE_FORMAT
+{
+	public uint16 ControlWord;
+	public uint16 StatusWord;
+	public uint8 TagWord;
+	public uint8 Reserved1;
+	public uint16 ErrorOpcode;
+	public uint32 ErrorOffset;
+	public uint16 ErrorSelector;
+	public uint16 Reserved2;
+	public uint32 DataOffset;
+	public uint16 DataSelector;
+	public uint16 Reserved3;
+	public uint32 MxCsr;
+	public uint32 MxCsr_Mask;
+	public M128A[8] FloatRegisters;
+	public M128A[8] XmmRegisters;
+	public uint8[224] Reserved4;
+}
+#endif
+
+[CRepr]
+public struct XSAVE_AREA_HEADER
+{
+	public uint64 Mask;
+	public uint64 CompactionMask;
+	public uint64[6] Reserved2;
+}
+
+[CRepr]
+public struct XSAVE_AREA
+{
+	public XSAVE_FORMAT LegacyState;
+	public XSAVE_AREA_HEADER Header;
+}
+
+#if BF_32_BIT
+[CRepr]
+public struct XSTATE_CONTEXT
+{
+	public uint64 Mask;
+	public uint32 Length;
+	public uint32 Reserved1;
+	public XSAVE_AREA* Area;
+	public uint32 Reserved2;
+	public void* Buffer;
+	public uint32 Reserved3;
+}
+#endif
+
 [CRepr, Union]
 public struct ARM64_NT_NEON128
 {
@@ -5649,22 +5710,35 @@ public struct ARM64_NT_CONTEXT
 }
 #endif
 
-#if BF_32_BIT || BF_64_BIT
+#if BF_32_BIT
 [CRepr]
-public struct DISPATCHER_CONTEXT_ARM64
+public struct CONTEXT
 {
-	public uint ControlPc;
-	public uint ImageBase;
-	public IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY* FunctionEntry;
-	public uint EstablisherFrame;
-	public uint TargetPc;
-	public ARM64_NT_CONTEXT* ContextRecord;
-	public EXCEPTION_ROUTINE LanguageHandler;
-	public void* HandlerData;
-	public UNWIND_HISTORY_TABLE* HistoryTable;
-	public uint32 ScopeIndex;
-	public BOOLEAN ControlPcIsUnwound;
-	public uint8* NonVolatileRegisters;
+	public uint32 ContextFlags;
+	public uint32 Dr0;
+	public uint32 Dr1;
+	public uint32 Dr2;
+	public uint32 Dr3;
+	public uint32 Dr6;
+	public uint32 Dr7;
+	public FLOATING_SAVE_AREA FloatSave;
+	public uint32 SegGs;
+	public uint32 SegFs;
+	public uint32 SegEs;
+	public uint32 SegDs;
+	public uint32 Edi;
+	public uint32 Esi;
+	public uint32 Ebx;
+	public uint32 Edx;
+	public uint32 Ecx;
+	public uint32 Eax;
+	public uint32 Ebp;
+	public uint32 Eip;
+	public uint32 SegCs;
+	public uint32 EFlags;
+	public uint32 Esp;
+	public uint32 SegSs;
+	public uint8[512] ExtendedRegisters;
 }
 #endif
 
@@ -5694,6 +5768,14 @@ public struct LDT_ENTRY
 	public uint16 BaseLow;
 	public _HighWord_e__Union HighWord;
 }
+
+#if BF_32_BIT
+[CRepr]
+public struct KNONVOLATILE_CONTEXT_POINTERS
+{
+	public uint32 Dummy;
+}
+#endif
 
 [CRepr]
 public struct WOW64_FLOATING_SAVE_AREA
@@ -6230,30 +6312,6 @@ public struct IMAGE_COR20_HEADER
 	public IMAGE_DATA_DIRECTORY ManagedNativeHeader;
 }
 
-#if BF_64_BIT
-[CRepr]
-public struct UNWIND_HISTORY_TABLE_ENTRY
-{
-	public uint ImageBase;
-	public IMAGE_RUNTIME_FUNCTION_ENTRY* FunctionEntry;
-}
-#endif
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct UNWIND_HISTORY_TABLE
-{
-	public uint32 Count;
-	public uint8 LocalHint;
-	public uint8 GlobalHint;
-	public uint8 Search;
-	public uint8 Once;
-	public uint LowAddress;
-	public uint HighAddress;
-	public UNWIND_HISTORY_TABLE_ENTRY[12] Entry;
-}
-#endif
-
 [CRepr]
 public struct WAITCHAIN_NODE_INFO
 {
@@ -6261,19 +6319,19 @@ public struct WAITCHAIN_NODE_INFO
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _LockObject_e__Struct
-		{
-			public char16[128] ObjectName;
-			public LARGE_INTEGER Timeout;
-			public BOOL Alertable;
-		}
-		[CRepr]
 		public struct _ThreadObject_e__Struct
 		{
 			public uint32 ProcessId;
 			public uint32 ThreadId;
 			public uint32 WaitTime;
 			public uint32 ContextSwitches;
+		}
+		[CRepr]
+		public struct _LockObject_e__Struct
+		{
+			public char16[128] ObjectName;
+			public LARGE_INTEGER Timeout;
+			public BOOL Alertable;
 		}
 		public _LockObject_e__Struct LockObject;
 		public _ThreadObject_e__Struct ThreadObject;
@@ -6283,7 +6341,7 @@ public struct WAITCHAIN_NODE_INFO
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_LOCATION_DESCRIPTOR
 {
 	public uint32 DataSize;
@@ -6329,14 +6387,14 @@ public struct MINIDUMP_HEADER
 	public uint64 Flags;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_DIRECTORY
 {
 	public uint32 StreamType;
 	public MINIDUMP_LOCATION_DESCRIPTOR Location;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_STRING
 {
 	public uint32 Length;
@@ -6364,7 +6422,7 @@ public struct CPU_INFORMATION
 	public _OtherCpuInfo_e__Struct OtherCpuInfo;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_SYSTEM_INFO
 {
 	[CRepr, Union]
@@ -6416,7 +6474,7 @@ public struct MINIDUMP_THREAD
 	public MINIDUMP_LOCATION_DESCRIPTOR ThreadContext;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_THREAD_LIST
 {
 	public uint32 NumberOfThreads;
@@ -6437,7 +6495,7 @@ public struct MINIDUMP_THREAD_EX
 	public MINIDUMP_MEMORY_DESCRIPTOR BackingStore;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_THREAD_EX_LIST
 {
 	public uint32 NumberOfThreads;
@@ -6457,7 +6515,7 @@ public struct MINIDUMP_EXCEPTION
 	public uint64[15] ExceptionInformation;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_EXCEPTION_STREAM
 {
 	public uint32 ThreadId;
@@ -6481,7 +6539,7 @@ public struct MINIDUMP_MODULE
 	public uint64 Reserved1;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_MODULE_LIST
 {
 	public uint32 NumberOfModules;
@@ -6489,7 +6547,7 @@ public struct MINIDUMP_MODULE_LIST
 	private MINIDUMP_MODULE[ANYSIZE_ARRAY] Modules_impl;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_MEMORY_LIST
 {
 	public uint32 NumberOfMemoryRanges;
@@ -6523,7 +6581,7 @@ public struct MINIDUMP_EXCEPTION_INFORMATION64
 	public BOOL ClientPointers;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_HANDLE_OBJECT_INFORMATION
 {
 	public uint32 NextInfoRva;
@@ -6557,7 +6615,7 @@ public struct MINIDUMP_HANDLE_DESCRIPTOR_2
 	public uint32 Reserved0;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_HANDLE_DATA_STREAM
 {
 	public uint32 SizeOfHeader;
@@ -6566,7 +6624,7 @@ public struct MINIDUMP_HANDLE_DATA_STREAM
 	public uint32 Reserved;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_HANDLE_OPERATION_LIST
 {
 	public uint32 SizeOfHeader;
@@ -6585,7 +6643,7 @@ public struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR
 	public uint32 SizeOfAlignPad;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_FUNCTION_TABLE_STREAM
 {
 	public uint32 SizeOfHeader;
@@ -6606,7 +6664,7 @@ public struct MINIDUMP_UNLOADED_MODULE
 	public uint32 ModuleNameRva;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_UNLOADED_MODULE_LIST
 {
 	public uint32 SizeOfHeader;
@@ -6623,7 +6681,7 @@ public struct XSTATE_CONFIG_FEATURE_MSC_INFO
 	public XSTATE_FEATURE[64] Features;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_MISC_INFO
 {
 	public uint32 SizeOfInfo;
@@ -6634,7 +6692,7 @@ public struct MINIDUMP_MISC_INFO
 	public uint32 ProcessKernelTime;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_MISC_INFO_2
 {
 	public uint32 SizeOfInfo;
@@ -6650,7 +6708,7 @@ public struct MINIDUMP_MISC_INFO_2
 	public uint32 ProcessorCurrentIdleState;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_MISC_INFO_3
 {
 	public uint32 SizeOfInfo;
@@ -6671,7 +6729,7 @@ public struct MINIDUMP_MISC_INFO_3
 	public TIME_ZONE_INFORMATION TimeZone;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_MISC_INFO_4
 {
 	public uint32 SizeOfInfo;
@@ -6694,7 +6752,7 @@ public struct MINIDUMP_MISC_INFO_4
 	public char16[40] DbgBldStr;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_MISC_INFO_5
 {
 	public uint32 SizeOfInfo;
@@ -6748,7 +6806,7 @@ public struct MINIDUMP_THREAD_NAME
 	public uint64 RvaOfThreadName;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_THREAD_NAME_LIST
 {
 	public uint32 NumberOfThreadNames;
@@ -6771,7 +6829,7 @@ public struct MINIDUMP_THREAD_INFO
 	public uint64 Affinity;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_THREAD_INFO_LIST
 {
 	public uint32 SizeOfHeader;
@@ -6787,7 +6845,7 @@ public struct MINIDUMP_TOKEN_INFO_HEADER
 	public uint64 TokenHandle;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_TOKEN_INFO_LIST
 {
 	public uint32 TokenListSize;
@@ -6917,7 +6975,7 @@ public struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION
 	public uint64 SharedCommittedPages;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_SYSTEM_MEMORY_INFO_1
 {
 	public uint16 Revision;
@@ -6970,7 +7028,7 @@ public struct MINIDUMP_PROCESS_VM_COUNTERS_2
 	public uint64 JobTotalCommitLimit;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_USER_RECORD
 {
 	public uint32 Type;
@@ -6992,8 +7050,8 @@ public struct MINIDUMP_USER_STREAM_INFORMATION
 	public MINIDUMP_USER_STREAM* UserStreamArray;
 }
 
-#if BF_64_BIT
-[CRepr]
+#if BF_32_BIT || BF_64_BIT
+[CRepr, Packed(4)]
 public struct MINIDUMP_THREAD_CALLBACK
 {
 	public uint32 ThreadId;
@@ -7005,8 +7063,8 @@ public struct MINIDUMP_THREAD_CALLBACK
 }
 #endif
 
-#if BF_64_BIT
-[CRepr]
+#if BF_32_BIT || BF_64_BIT
+[CRepr, Packed(4)]
 public struct MINIDUMP_THREAD_EX_CALLBACK
 {
 	public uint32 ThreadId;
@@ -7020,7 +7078,7 @@ public struct MINIDUMP_THREAD_EX_CALLBACK
 }
 #endif
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_INCLUDE_THREAD_CALLBACK
 {
 	public uint32 ThreadId;
@@ -7088,7 +7146,7 @@ public struct MINIDUMP_VM_POST_READ_CALLBACK
 	public HRESULT Status;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_CALLBACK_INPUT
 {
 	[CRepr, Union]
@@ -7113,29 +7171,23 @@ public struct MINIDUMP_CALLBACK_INPUT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct MINIDUMP_CALLBACK_OUTPUT
 {
-	[CRepr, Union, Packed(4)]
+	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		[CRepr]
-		public struct _Anonymous4_e__Struct
-		{
-			public HRESULT VmQueryStatus;
-			public MINIDUMP_MEMORY_INFO VmQueryResult;
-		}
-		[CRepr]
-		public struct _Anonymous2_e__Struct
-		{
-			public BOOL CheckCancel;
-			public BOOL Cancel;
-		}
 		[CRepr]
 		public struct _Anonymous5_e__Struct
 		{
 			public HRESULT VmReadStatus;
 			public uint32 VmReadBytesCompleted;
+		}
+		[CRepr]
+		public struct _Anonymous3_e__Struct
+		{
+			public MINIDUMP_MEMORY_INFO VmRegion;
+			public BOOL Continue;
 		}
 		[CRepr, Packed(4)]
 		public struct _Anonymous1_e__Struct
@@ -7144,10 +7196,16 @@ public struct MINIDUMP_CALLBACK_OUTPUT
 			public uint32 MemorySize;
 		}
 		[CRepr]
-		public struct _Anonymous3_e__Struct
+		public struct _Anonymous2_e__Struct
 		{
-			public MINIDUMP_MEMORY_INFO VmRegion;
-			public BOOL Continue;
+			public BOOL CheckCancel;
+			public BOOL Cancel;
+		}
+		[CRepr]
+		public struct _Anonymous4_e__Struct
+		{
+			public HRESULT VmQueryStatus;
+			public MINIDUMP_MEMORY_INFO VmQueryResult;
 		}
 		public uint32 ModuleWriteFlags;
 		public uint32 ThreadWriteFlags;
@@ -7308,14 +7366,14 @@ public struct PROFILER_HEAP_SUMMARY
 	public uint32 totalHeapSize;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct LOADED_IMAGE
 {
 	public PSTR ModuleName;
 	public HANDLE hFile;
 	public uint8* MappedAddress;
-	public IMAGE_NT_HEADERS64* FileHeader;
+	public IMAGE_NT_HEADERS32* FileHeader;
 	public IMAGE_SECTION_HEADER* LastRvaSection;
 	public uint32 NumberOfSections;
 	public IMAGE_SECTION_HEADER* Sections;
@@ -7326,6 +7384,44 @@ public struct LOADED_IMAGE
 	public uint8 Version;
 	public LIST_ENTRY Links;
 	public uint32 SizeOfImage;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr]
+public struct IMAGE_DEBUG_INFORMATION
+{
+	public LIST_ENTRY List;
+	public uint32 ReservedSize;
+	public void* ReservedMappedBase;
+	public uint16 ReservedMachine;
+	public uint16 ReservedCharacteristics;
+	public uint32 ReservedCheckSum;
+	public uint32 ImageBase;
+	public uint32 SizeOfImage;
+	public uint32 ReservedNumberOfSections;
+	public IMAGE_SECTION_HEADER* ReservedSections;
+	public uint32 ReservedExportedNamesSize;
+	public PSTR ReservedExportedNames;
+	public uint32 ReservedNumberOfFunctionTableEntries;
+	public IMAGE_FUNCTION_ENTRY* ReservedFunctionTableEntries;
+	public uint32 ReservedLowestFunctionStartingAddress;
+	public uint32 ReservedHighestFunctionEndingAddress;
+	public uint32 ReservedNumberOfFpoTableEntries;
+	public FPO_DATA* ReservedFpoTableEntries;
+	public uint32 SizeOfCoffSymbols;
+	public IMAGE_COFF_SYMBOLS_HEADER* CoffSymbols;
+	public uint32 ReservedSizeOfCodeViewSymbols;
+	public void* ReservedCodeViewSymbols;
+	public PSTR ImageFilePath;
+	public PSTR ImageFileName;
+	public PSTR ReservedDebugFilePath;
+	public uint32 ReservedTimeDateStamp;
+	public BOOL ReservedRomImage;
+	public IMAGE_DEBUG_DIRECTORY* ReservedDebugDirectory;
+	public uint32 ReservedNumberOfDebugDirectories;
+	public uint32 ReservedOriginalFunctionTableBaseAddress;
+	public uint32[2] Reserved;
 }
 #endif
 
@@ -7365,6 +7461,16 @@ public struct ADDRESS64
 	public ADDRESS_MODE Mode;
 }
 
+#if BF_32_BIT
+[CRepr]
+public struct ADDRESS
+{
+	public uint32 Offset;
+	public uint16 Segment;
+	public ADDRESS_MODE Mode;
+}
+#endif
+
 [CRepr]
 public struct KDHELP64
 {
@@ -7386,6 +7492,25 @@ public struct KDHELP64
 	public uint32 RetpolineStubSize;
 	public uint64[2] Reserved0;
 }
+
+#if BF_32_BIT
+[CRepr]
+public struct KDHELP
+{
+	public uint32 Thread;
+	public uint32 ThCallbackStack;
+	public uint32 NextCallback;
+	public uint32 FramePointer;
+	public uint32 KiCallUserMode;
+	public uint32 KeUserCallbackDispatcher;
+	public uint32 SystemRangeStart;
+	public uint32 ThCallbackBStore;
+	public uint32 KiUserExceptionDispatcher;
+	public uint32 StackBase;
+	public uint32 StackLimit;
+	public uint32[5] Reserved;
+}
+#endif
 
 [CRepr]
 public struct STACKFRAME64
@@ -7420,6 +7545,24 @@ public struct STACKFRAME_EX
 	public uint32 StackFrameSize;
 	public uint32 InlineFrameContext;
 }
+
+#if BF_32_BIT
+[CRepr]
+public struct STACKFRAME
+{
+	public ADDRESS AddrPC;
+	public ADDRESS AddrReturn;
+	public ADDRESS AddrFrame;
+	public ADDRESS AddrStack;
+	public void* FuncTableEntry;
+	public uint32[4] Params;
+	public BOOL Far;
+	public BOOL Virtual;
+	public uint32[3] Reserved;
+	public KDHELP KdHelp;
+	public ADDRESS AddrBStore;
+}
+#endif
 
 [CRepr]
 public struct API_VERSION
@@ -7467,6 +7610,52 @@ public struct IMAGEHLP_SYMBOLW64_PACKAGE
 	public IMAGEHLP_SYMBOLW64 sym;
 	public char16[2001] name;
 }
+
+#if BF_32_BIT
+[CRepr]
+public struct IMAGEHLP_SYMBOL
+{
+	public uint32 SizeOfStruct;
+	public uint32 Address;
+	public uint32 Size;
+	public uint32 Flags;
+	public uint32 MaxNameLength;
+	public CHAR* Name mut => &Name_impl;
+	private CHAR[ANYSIZE_ARRAY] Name_impl;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr]
+public struct IMAGEHLP_SYMBOL_PACKAGE
+{
+	public IMAGEHLP_SYMBOL sym;
+	public CHAR[2001] name;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr]
+public struct IMAGEHLP_SYMBOLW
+{
+	public uint32 SizeOfStruct;
+	public uint32 Address;
+	public uint32 Size;
+	public uint32 Flags;
+	public uint32 MaxNameLength;
+	public char16* Name mut => &Name_impl;
+	private char16[ANYSIZE_ARRAY] Name_impl;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr]
+public struct IMAGEHLP_SYMBOLW_PACKAGE
+{
+	public IMAGEHLP_SYMBOLW sym;
+	public char16[2001] name;
+}
+#endif
 
 [CRepr]
 public struct IMAGEHLP_MODULE64
@@ -7542,6 +7731,40 @@ public struct IMAGEHLP_MODULEW64_EX
 	public uint32 RegionFlags;
 }
 
+#if BF_32_BIT
+[CRepr]
+public struct IMAGEHLP_MODULE
+{
+	public uint32 SizeOfStruct;
+	public uint32 BaseOfImage;
+	public uint32 ImageSize;
+	public uint32 TimeDateStamp;
+	public uint32 CheckSum;
+	public uint32 NumSyms;
+	public SYM_TYPE SymType;
+	public CHAR[32] ModuleName;
+	public CHAR[256] ImageName;
+	public CHAR[256] LoadedImageName;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr]
+public struct IMAGEHLP_MODULEW
+{
+	public uint32 SizeOfStruct;
+	public uint32 BaseOfImage;
+	public uint32 ImageSize;
+	public uint32 TimeDateStamp;
+	public uint32 CheckSum;
+	public uint32 NumSyms;
+	public SYM_TYPE SymType;
+	public char16[32] ModuleName;
+	public char16[256] ImageName;
+	public char16[256] LoadedImageName;
+}
+#endif
+
 [CRepr]
 public struct IMAGEHLP_LINE64
 {
@@ -7561,6 +7784,30 @@ public struct IMAGEHLP_LINEW64
 	public PWSTR FileName;
 	public uint64 Address;
 }
+
+#if BF_32_BIT
+[CRepr]
+public struct IMAGEHLP_LINE
+{
+	public uint32 SizeOfStruct;
+	public void* Key;
+	public uint32 LineNumber;
+	public PSTR FileName;
+	public uint32 Address;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr]
+public struct IMAGEHLP_LINEW
+{
+	public uint32 SizeOfStruct;
+	public void* Key;
+	public uint32 LineNumber;
+	public PSTR FileName;
+	public uint64 Address;
+}
+#endif
 
 [CRepr]
 public struct SOURCEFILE
@@ -7629,6 +7876,20 @@ public struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64
 	public uint32 Flags;
 }
 
+#if BF_32_BIT
+[CRepr]
+public struct IMAGEHLP_DEFERRED_SYMBOL_LOAD
+{
+	public uint32 SizeOfStruct;
+	public uint32 BaseOfImage;
+	public uint32 CheckSum;
+	public uint32 TimeDateStamp;
+	public CHAR[260] FileName;
+	public BOOLEAN Reparse;
+	public HANDLE hFile;
+}
+#endif
+
 [CRepr]
 public struct IMAGEHLP_DUPLICATE_SYMBOL64
 {
@@ -7638,8 +7899,19 @@ public struct IMAGEHLP_DUPLICATE_SYMBOL64
 	public uint32 SelectedSymbol;
 }
 
+#if BF_32_BIT
 [CRepr]
-public struct _IMAGEHLP_JIT_SYMBOL_MAP
+public struct IMAGEHLP_DUPLICATE_SYMBOL
+{
+	public uint32 SizeOfStruct;
+	public uint32 NumberOfDups;
+	public IMAGEHLP_SYMBOL* Symbol;
+	public uint32 SelectedSymbol;
+}
+#endif
+
+[CRepr]
+public struct IMAGEHLP_JIT_SYMBOLMAP
 {
 	public uint32 SizeOfStruct;
 	public uint64 Address;
@@ -7860,7 +8132,7 @@ public struct JsDebugPropertyInfo
 }
 
 [CRepr]
-public struct __MIDL___MIDL_itf_jscript9diag_0000_0007_0001
+public struct JS_NATIVE_FRAME
 {
 	public uint64 InstructionOffset;
 	public uint64 ReturnOffset;
@@ -8132,7 +8404,7 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 	public struct _u_e__Union
 	{
 		[CRepr, Packed(1)]
-		public struct _Sei_e__Struct
+		public struct _Gsiv_e__Struct
 		{
 			public uint32 PollInterval;
 			public uint32 Vector;
@@ -8140,44 +8412,9 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 SwitchToPollingWindow;
 			public uint32 ErrorThreshold;
 			public uint32 ErrorThresholdWindow;
-		}
-		[CRepr, Packed(1)]
-		public struct _Nmi_e__Struct
-		{
-			public uint32 PollInterval;
-			public uint32 Vector;
-			public uint32 SwitchToPollingThreshold;
-			public uint32 SwitchToPollingWindow;
-			public uint32 ErrorThreshold;
-			public uint32 ErrorThresholdWindow;
-		}
-		[CRepr, Packed(1)]
-		public struct _LocalInterrupt_e__Struct
-		{
-			public uint32 PollInterval;
-			public uint32 Vector;
-			public uint32 SwitchToPollingThreshold;
-			public uint32 SwitchToPollingWindow;
-			public uint32 ErrorThreshold;
-			public uint32 ErrorThresholdWindow;
-		}
-		[CRepr, Packed(1)]
-		public struct _Polled_e__Struct
-		{
-			public uint32 PollInterval;
 		}
 		[CRepr, Packed(1)]
 		public struct _Sea_e__Struct
-		{
-			public uint32 PollInterval;
-			public uint32 Vector;
-			public uint32 SwitchToPollingThreshold;
-			public uint32 SwitchToPollingWindow;
-			public uint32 ErrorThreshold;
-			public uint32 ErrorThresholdWindow;
-		}
-		[CRepr, Packed(1)]
-		public struct _Interrupt_e__Struct
 		{
 			public uint32 PollInterval;
 			public uint32 Vector;
@@ -8197,7 +8434,7 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 ErrorThresholdWindow;
 		}
 		[CRepr, Packed(1)]
-		public struct _Gsiv_e__Struct
+		public struct _Interrupt_e__Struct
 		{
 			public uint32 PollInterval;
 			public uint32 Vector;
@@ -8205,6 +8442,41 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 SwitchToPollingWindow;
 			public uint32 ErrorThreshold;
 			public uint32 ErrorThresholdWindow;
+		}
+		[CRepr, Packed(1)]
+		public struct _Sei_e__Struct
+		{
+			public uint32 PollInterval;
+			public uint32 Vector;
+			public uint32 SwitchToPollingThreshold;
+			public uint32 SwitchToPollingWindow;
+			public uint32 ErrorThreshold;
+			public uint32 ErrorThresholdWindow;
+		}
+		[CRepr, Packed(1)]
+		public struct _LocalInterrupt_e__Struct
+		{
+			public uint32 PollInterval;
+			public uint32 Vector;
+			public uint32 SwitchToPollingThreshold;
+			public uint32 SwitchToPollingWindow;
+			public uint32 ErrorThreshold;
+			public uint32 ErrorThresholdWindow;
+		}
+		[CRepr, Packed(1)]
+		public struct _Nmi_e__Struct
+		{
+			public uint32 PollInterval;
+			public uint32 Vector;
+			public uint32 SwitchToPollingThreshold;
+			public uint32 SwitchToPollingWindow;
+			public uint32 ErrorThreshold;
+			public uint32 ErrorThresholdWindow;
+		}
+		[CRepr, Packed(1)]
+		public struct _Polled_e__Struct
+		{
+			public uint32 PollInterval;
 		}
 		public _Polled_e__Struct Polled;
 		public _Interrupt_e__Struct Interrupt;
@@ -8461,346 +8733,6 @@ public struct IPMI_OS_SEL_RECORD
 	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
-
-#if BF_32_BIT
-[CRepr]
-public struct XSAVE_FORMAT
-{
-	public uint16 ControlWord;
-	public uint16 StatusWord;
-	public uint8 TagWord;
-	public uint8 Reserved1;
-	public uint16 ErrorOpcode;
-	public uint32 ErrorOffset;
-	public uint16 ErrorSelector;
-	public uint16 Reserved2;
-	public uint32 DataOffset;
-	public uint16 DataSelector;
-	public uint16 Reserved3;
-	public uint32 MxCsr;
-	public uint32 MxCsr_Mask;
-	public M128A[8] FloatRegisters;
-	public M128A[8] XmmRegisters;
-	public uint8[224] Reserved4;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct XSTATE_CONTEXT
-{
-	public uint64 Mask;
-	public uint32 Length;
-	public uint32 Reserved1;
-	public XSAVE_AREA* Area;
-	public uint32 Reserved2;
-	public void* Buffer;
-	public uint32 Reserved3;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct CONTEXT
-{
-	public uint32 ContextFlags;
-	public uint32 Dr0;
-	public uint32 Dr1;
-	public uint32 Dr2;
-	public uint32 Dr3;
-	public uint32 Dr6;
-	public uint32 Dr7;
-	public FLOATING_SAVE_AREA FloatSave;
-	public uint32 SegGs;
-	public uint32 SegFs;
-	public uint32 SegEs;
-	public uint32 SegDs;
-	public uint32 Edi;
-	public uint32 Esi;
-	public uint32 Ebx;
-	public uint32 Edx;
-	public uint32 Ecx;
-	public uint32 Eax;
-	public uint32 Ebp;
-	public uint32 Eip;
-	public uint32 SegCs;
-	public uint32 EFlags;
-	public uint32 Esp;
-	public uint32 SegSs;
-	public uint8[512] ExtendedRegisters;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct KNONVOLATILE_CONTEXT_POINTERS
-{
-	public uint32 Dummy;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct MINIDUMP_THREAD_CALLBACK
-{
-	public uint32 ThreadId;
-	public HANDLE ThreadHandle;
-	public CONTEXT Context;
-	public uint32 SizeOfContext;
-	public uint64 StackBase;
-	public uint64 StackEnd;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct MINIDUMP_THREAD_EX_CALLBACK
-{
-	public uint32 ThreadId;
-	public HANDLE ThreadHandle;
-	public CONTEXT Context;
-	public uint32 SizeOfContext;
-	public uint64 StackBase;
-	public uint64 StackEnd;
-	public uint64 BackingStoreBase;
-	public uint64 BackingStoreEnd;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct LOADED_IMAGE
-{
-	public PSTR ModuleName;
-	public HANDLE hFile;
-	public uint8* MappedAddress;
-	public IMAGE_NT_HEADERS32* FileHeader;
-	public IMAGE_SECTION_HEADER* LastRvaSection;
-	public uint32 NumberOfSections;
-	public IMAGE_SECTION_HEADER* Sections;
-	public IMAGE_FILE_CHARACTERISTICS2 Characteristics;
-	public BOOLEAN fSystemImage;
-	public BOOLEAN fDOSImage;
-	public BOOLEAN fReadOnly;
-	public uint8 Version;
-	public LIST_ENTRY Links;
-	public uint32 SizeOfImage;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGE_DEBUG_INFORMATION
-{
-	public LIST_ENTRY List;
-	public uint32 ReservedSize;
-	public void* ReservedMappedBase;
-	public uint16 ReservedMachine;
-	public uint16 ReservedCharacteristics;
-	public uint32 ReservedCheckSum;
-	public uint32 ImageBase;
-	public uint32 SizeOfImage;
-	public uint32 ReservedNumberOfSections;
-	public IMAGE_SECTION_HEADER* ReservedSections;
-	public uint32 ReservedExportedNamesSize;
-	public PSTR ReservedExportedNames;
-	public uint32 ReservedNumberOfFunctionTableEntries;
-	public IMAGE_FUNCTION_ENTRY* ReservedFunctionTableEntries;
-	public uint32 ReservedLowestFunctionStartingAddress;
-	public uint32 ReservedHighestFunctionEndingAddress;
-	public uint32 ReservedNumberOfFpoTableEntries;
-	public FPO_DATA* ReservedFpoTableEntries;
-	public uint32 SizeOfCoffSymbols;
-	public IMAGE_COFF_SYMBOLS_HEADER* CoffSymbols;
-	public uint32 ReservedSizeOfCodeViewSymbols;
-	public void* ReservedCodeViewSymbols;
-	public PSTR ImageFilePath;
-	public PSTR ImageFileName;
-	public PSTR ReservedDebugFilePath;
-	public uint32 ReservedTimeDateStamp;
-	public BOOL ReservedRomImage;
-	public IMAGE_DEBUG_DIRECTORY* ReservedDebugDirectory;
-	public uint32 ReservedNumberOfDebugDirectories;
-	public uint32 ReservedOriginalFunctionTableBaseAddress;
-	public uint32[2] Reserved;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct ADDRESS
-{
-	public uint32 Offset;
-	public uint16 Segment;
-	public ADDRESS_MODE Mode;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct KDHELP
-{
-	public uint32 Thread;
-	public uint32 ThCallbackStack;
-	public uint32 NextCallback;
-	public uint32 FramePointer;
-	public uint32 KiCallUserMode;
-	public uint32 KeUserCallbackDispatcher;
-	public uint32 SystemRangeStart;
-	public uint32 ThCallbackBStore;
-	public uint32 KiUserExceptionDispatcher;
-	public uint32 StackBase;
-	public uint32 StackLimit;
-	public uint32[5] Reserved;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct STACKFRAME
-{
-	public ADDRESS AddrPC;
-	public ADDRESS AddrReturn;
-	public ADDRESS AddrFrame;
-	public ADDRESS AddrStack;
-	public void* FuncTableEntry;
-	public uint32[4] Params;
-	public BOOL Far;
-	public BOOL Virtual;
-	public uint32[3] Reserved;
-	public KDHELP KdHelp;
-	public ADDRESS AddrBStore;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_SYMBOL
-{
-	public uint32 SizeOfStruct;
-	public uint32 Address;
-	public uint32 Size;
-	public uint32 Flags;
-	public uint32 MaxNameLength;
-	public CHAR* Name mut => &Name_impl;
-	private CHAR[ANYSIZE_ARRAY] Name_impl;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_SYMBOL_PACKAGE
-{
-	public IMAGEHLP_SYMBOL sym;
-	public CHAR[2001] name;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_SYMBOLW
-{
-	public uint32 SizeOfStruct;
-	public uint32 Address;
-	public uint32 Size;
-	public uint32 Flags;
-	public uint32 MaxNameLength;
-	public char16* Name mut => &Name_impl;
-	private char16[ANYSIZE_ARRAY] Name_impl;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_SYMBOLW_PACKAGE
-{
-	public IMAGEHLP_SYMBOLW sym;
-	public char16[2001] name;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_MODULE
-{
-	public uint32 SizeOfStruct;
-	public uint32 BaseOfImage;
-	public uint32 ImageSize;
-	public uint32 TimeDateStamp;
-	public uint32 CheckSum;
-	public uint32 NumSyms;
-	public SYM_TYPE SymType;
-	public CHAR[32] ModuleName;
-	public CHAR[256] ImageName;
-	public CHAR[256] LoadedImageName;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_MODULEW
-{
-	public uint32 SizeOfStruct;
-	public uint32 BaseOfImage;
-	public uint32 ImageSize;
-	public uint32 TimeDateStamp;
-	public uint32 CheckSum;
-	public uint32 NumSyms;
-	public SYM_TYPE SymType;
-	public char16[32] ModuleName;
-	public char16[256] ImageName;
-	public char16[256] LoadedImageName;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_LINE
-{
-	public uint32 SizeOfStruct;
-	public void* Key;
-	public uint32 LineNumber;
-	public PSTR FileName;
-	public uint32 Address;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_LINEW
-{
-	public uint32 SizeOfStruct;
-	public void* Key;
-	public uint32 LineNumber;
-	public PSTR FileName;
-	public uint64 Address;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_DEFERRED_SYMBOL_LOAD
-{
-	public uint32 SizeOfStruct;
-	public uint32 BaseOfImage;
-	public uint32 CheckSum;
-	public uint32 TimeDateStamp;
-	public CHAR[260] FileName;
-	public BOOLEAN Reparse;
-	public HANDLE hFile;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IMAGEHLP_DUPLICATE_SYMBOL
-{
-	public uint32 SizeOfStruct;
-	public uint32 NumberOfDups;
-	public IMAGEHLP_SYMBOL* Symbol;
-	public uint32 SelectedSymbol;
-}
-#endif
 
 #endregion
 
@@ -17233,7 +17165,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDebugHostContext** context) GetContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ModelObjectKind* kind) GetKind;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* intrinsicData) GetIntrinsicValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 vt, VARIANT* intrinsicData) GetIntrinsicValueAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARENUM vt, VARIANT* intrinsicData) GetIntrinsicValueAs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key, IModelObject** object, IKeyStore** metadata) GetKeyValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key, IModelObject* object) SetKeyValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IKeyEnumerator** enumerator) EnumerateKeyValues;
@@ -17272,7 +17204,7 @@ public static
 
 	public HRESULT GetIntrinsicValue(VARIANT* intrinsicData) mut => VT.[Friend]GetIntrinsicValue(&this, intrinsicData);
 
-	public HRESULT GetIntrinsicValueAs(uint16 vt, VARIANT* intrinsicData) mut => VT.[Friend]GetIntrinsicValueAs(&this, vt, intrinsicData);
+	public HRESULT GetIntrinsicValueAs(VARENUM vt, VARIANT* intrinsicData) mut => VT.[Friend]GetIntrinsicValueAs(&this, vt, intrinsicData);
 
 	public HRESULT GetKeyValue(PWSTR key, IModelObject** object, IKeyStore** metadata) mut => VT.[Friend]GetKeyValue(&this, key, object, metadata);
 
@@ -20254,7 +20186,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRemoteDebugApplicationThread* prptFocus, BREAKRESUME_ACTION bra, ERRORRESUMEACTION era) ResumeFromBreakPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRemoteDebugApplicationThread* prptFocus, BREAKRESUMEACTION bra, ERRORRESUMEACTION era) ResumeFromBreakPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CauseBreak;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IApplicationDebugger* pad) ConnectDebugger;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisconnectDebugger;
@@ -20268,7 +20200,7 @@ public static
 	}
 
 
-	public HRESULT ResumeFromBreakPoint(IRemoteDebugApplicationThread* prptFocus, BREAKRESUME_ACTION bra, ERRORRESUMEACTION era) mut => VT.[Friend]ResumeFromBreakPoint(&this, prptFocus, bra, era);
+	public HRESULT ResumeFromBreakPoint(IRemoteDebugApplicationThread* prptFocus, BREAKRESUMEACTION bra, ERRORRESUMEACTION era) mut => VT.[Friend]ResumeFromBreakPoint(&this, prptFocus, bra, era);
 
 	public HRESULT CauseBreak() mut => VT.[Friend]CauseBreak(&this);
 
@@ -20303,7 +20235,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StepOutComplete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pstr) DebugOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StartDebugSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BREAKREASON br, BREAKRESUME_ACTION* pbra) HandleBreakPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BREAKREASON br, BREAKRESUMEACTION* pbra) HandleBreakPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pabf, IRemoteDebugApplicationThread** pprdatSteppingThread) GetBreakFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDebugApplicationThread** pat) GetCurrentThread;
@@ -20314,7 +20246,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDebugThreadCall32* pptc, uint32 dwParam1, uint32 dwParam2, uint32 dwParam3) SynchronousCallInDebuggerThread;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDebugApplicationNode** ppdanNew) CreateApplicationNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, IUnknown* punk) FireDebuggerEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUME_ACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) HandleRuntimeError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUMEACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) HandleRuntimeError;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) FCanJitDebug;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) FIsAutoJitDebugEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IProvideExpressionContexts* pdsfs, uint32* pdwCookie) AddGlobalExpressionContextProvider;
@@ -20330,7 +20262,7 @@ public static
 
 	public HRESULT StartDebugSession() mut => VT.[Friend]StartDebugSession(&this);
 
-	public HRESULT HandleBreakPoint(BREAKREASON br, BREAKRESUME_ACTION* pbra) mut => VT.[Friend]HandleBreakPoint(&this, br, pbra);
+	public HRESULT HandleBreakPoint(BREAKREASON br, BREAKRESUMEACTION* pbra) mut => VT.[Friend]HandleBreakPoint(&this, br, pbra);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
@@ -20352,7 +20284,7 @@ public static
 
 	public HRESULT FireDebuggerEvent(in Guid riid, IUnknown* punk) mut => VT.[Friend]FireDebuggerEvent(&this, riid, punk);
 
-	public HRESULT HandleRuntimeError(IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUME_ACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) mut => VT.[Friend]HandleRuntimeError(&this, pErrorDebug, pScriptSite, pbra, perra, pfCallOnScriptError);
+	public HRESULT HandleRuntimeError(IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUMEACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) mut => VT.[Friend]HandleRuntimeError(&this, pErrorDebug, pScriptSite, pbra, perra, pfCallOnScriptError);
 
 	public BOOL FCanJitDebug() mut => VT.[Friend]FCanJitDebug(&this);
 
@@ -20375,7 +20307,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StepOutComplete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pstr) DebugOutput;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StartDebugSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BREAKREASON br, BREAKRESUME_ACTION* pbra) HandleBreakPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BREAKREASON br, BREAKRESUMEACTION* pbra) HandleBreakPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pabf, IRemoteDebugApplicationThread** pprdatSteppingThread) GetBreakFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDebugApplicationThread** pat) GetCurrentThread;
@@ -20386,7 +20318,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDebugThreadCall64* pptc, uint64 dwParam1, uint64 dwParam2, uint64 dwParam3) SynchronousCallInDebuggerThread;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDebugApplicationNode** ppdanNew) CreateApplicationNode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, IUnknown* punk) FireDebuggerEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUME_ACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) HandleRuntimeError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUMEACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) HandleRuntimeError;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) FCanJitDebug;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) FIsAutoJitDebugEnabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IProvideExpressionContexts* pdsfs, uint64* pdwCookie) AddGlobalExpressionContextProvider;
@@ -20402,7 +20334,7 @@ public static
 
 	public HRESULT StartDebugSession() mut => VT.[Friend]StartDebugSession(&this);
 
-	public HRESULT HandleBreakPoint(BREAKREASON br, BREAKRESUME_ACTION* pbra) mut => VT.[Friend]HandleBreakPoint(&this, br, pbra);
+	public HRESULT HandleBreakPoint(BREAKREASON br, BREAKRESUMEACTION* pbra) mut => VT.[Friend]HandleBreakPoint(&this, br, pbra);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 
@@ -20424,7 +20356,7 @@ public static
 
 	public HRESULT FireDebuggerEvent(in Guid riid, IUnknown* punk) mut => VT.[Friend]FireDebuggerEvent(&this, riid, punk);
 
-	public HRESULT HandleRuntimeError(IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUME_ACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) mut => VT.[Friend]HandleRuntimeError(&this, pErrorDebug, pScriptSite, pbra, perra, pfCallOnScriptError);
+	public HRESULT HandleRuntimeError(IActiveScriptErrorDebug* pErrorDebug, IActiveScriptSite* pScriptSite, BREAKRESUMEACTION* pbra, ERRORRESUMEACTION* perra, BOOL* pfCallOnScriptError) mut => VT.[Friend]HandleRuntimeError(&this, pErrorDebug, pScriptSite, pbra, perra, pfCallOnScriptError);
 
 	public BOOL FCanJitDebug() mut => VT.[Friend]FCanJitDebug(&this);
 
@@ -20775,7 +20707,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvar, uint32 nRadix, BSTR* pbstrValue) GetStringForVariant;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwstrValue, VARIANT* pvar) GetVariantForString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 vt, TYPEDESC* ptdescArrayType, BSTR* pbstr) GetStringForVarType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARENUM vt, TYPEDESC* ptdescArrayType, BSTR* pbstr) GetStringForVarType;
 	}
 
 
@@ -20783,7 +20715,7 @@ public static
 
 	public HRESULT GetVariantForString(PWSTR pwstrValue, VARIANT* pvar) mut => VT.[Friend]GetVariantForString(&this, pwstrValue, pvar);
 
-	public HRESULT GetStringForVarType(uint16 vt, TYPEDESC* ptdescArrayType, BSTR* pbstr) mut => VT.[Friend]GetStringForVarType(&this, vt, ptdescArrayType, pbstr);
+	public HRESULT GetStringForVarType(VARENUM vt, TYPEDESC* ptdescArrayType, BSTR* pbstr) mut => VT.[Friend]GetStringForVarType(&this, vt, ptdescArrayType, pbstr);
 }
 
 [CRepr]struct ISimpleConnectionPoint : IUnknown
@@ -21679,12 +21611,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFrameCount, __MIDL___MIDL_itf_jscript9diag_0000_0007_0001* pFrames, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFrameCount, JS_NATIVE_FRAME* pFrames, uint32* pcFetched) Next;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 	}
 
 
-	public HRESULT Next(uint32 cFrameCount, __MIDL___MIDL_itf_jscript9diag_0000_0007_0001* pFrames, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFrameCount, pFrames, pcFetched);
+	public HRESULT Next(uint32 cFrameCount, JS_NATIVE_FRAME* pFrames, uint32* pcFetched) mut => VT.[Friend]Next(&this, cFrameCount, pFrames, pcFetched);
 
 	public HRESULT Reset() mut => VT.[Friend]Reset(&this);
 }
@@ -21762,6 +21694,11 @@ public static
 
 #endif
 #if BF_ARM_64
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOLEAN RtlInstallFunctionTableCallback(uint64 TableIdentifier, uint64 BaseAddress, uint32 Length, PGET_RUNTIME_FUNCTION_CALLBACK Callback, void* Context, PWSTR OutOfProcessCallbackDll);
+
+#endif
+#if BF_ARM_64
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtlAddGrowableFunctionTable(void** DynamicTable, IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY* FunctionTable, uint32 EntryCount, uint32 MaximumEntryCount, uint RangeBase, uint RangeEnd);
 
@@ -21812,20 +21749,11 @@ public static
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL Wow64SetThreadContext(HANDLE hThread, WOW64_CONTEXT* lpContext);
 
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint16 RtlCaptureStackBackTrace(uint32 FramesToSkip, uint32 FramesToCapture, void** BackTrace, uint32* BackTraceHash);
-
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RtlCaptureContext(CONTEXT* ContextRecord);
-
 #if BF_64_BIT
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RtlCaptureContext2(CONTEXT* ContextRecord);
 
 #endif
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RtlUnwind(void* TargetFrame, void* TargetIp, EXCEPTION_RECORD* ExceptionRecord, void* ReturnValue);
-
 #if BF_64_BIT
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN RtlAddFunctionTable(IMAGE_RUNTIME_FUNCTION_ENTRY* FunctionTable, uint32 EntryCount, uint64 BaseAddress);
@@ -21836,7 +21764,7 @@ public static
 	public static extern BOOLEAN RtlDeleteFunctionTable(IMAGE_RUNTIME_FUNCTION_ENTRY* FunctionTable);
 
 #endif
-#if BF_64_BIT || BF_ARM_64
+#if BF_64_BIT
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN RtlInstallFunctionTableCallback(uint64 TableIdentifier, uint64 BaseAddress, uint32 Length, PGET_RUNTIME_FUNCTION_CALLBACK Callback, void* Context, PWSTR OutOfProcessCallbackDll);
 
@@ -21861,9 +21789,6 @@ public static
 	public static extern IMAGE_RUNTIME_FUNCTION_ENTRY* RtlLookupFunctionEntry(uint64 ControlPc, uint64* ImageBase, UNWIND_HISTORY_TABLE* HistoryTable);
 
 #endif
-	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void RtlRestoreContext(CONTEXT* ContextRecord, EXCEPTION_RECORD* ExceptionRecord);
-
 #if BF_64_BIT || BF_ARM_64
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RtlUnwindEx(void* TargetFrame, void* TargetIp, EXCEPTION_RECORD* ExceptionRecord, void* ReturnValue, CONTEXT* ContextRecord, UNWIND_HISTORY_TABLE* HistoryTable);
@@ -21874,6 +21799,48 @@ public static
 	public static extern EXCEPTION_ROUTINE RtlVirtualUnwind(RTL_VIRTUAL_UNWIND_HANDLER_TYPE HandlerType, uint64 ImageBase, uint64 ControlPc, IMAGE_RUNTIME_FUNCTION_ENTRY* FunctionEntry, CONTEXT* ContextRecord, void** HandlerData, uint64* EstablisherFrame, KNONVOLATILE_CONTEXT_POINTERS* ContextPointers);
 
 #endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern IMAGE_NT_HEADERS64* CheckSumMappedFile(void* BaseAddress, uint32 FileLength, uint32* HeaderSum, uint32* CheckSum);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL GetImageConfigInformation(LOADED_IMAGE* LoadedImage, IMAGE_LOAD_CONFIG_DIRECTORY64* ImageConfigInformation);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SetImageConfigInformation(LOADED_IMAGE* LoadedImage, IMAGE_LOAD_CONFIG_DIRECTORY64* ImageConfigInformation);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern IMAGE_NT_HEADERS64* ImageNtHeader(void* Base);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern IMAGE_SECTION_HEADER* ImageRvaToSection(IMAGE_NT_HEADERS64* NtHeaders, void* Base, uint32 Rva);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern void* ImageRvaToVa(IMAGE_NT_HEADERS64* NtHeaders, void* Base, uint32 Rva, IMAGE_SECTION_HEADER** LastRvaSection);
+
+#endif
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint16 RtlCaptureStackBackTrace(uint32 FramesToSkip, uint32 FramesToCapture, void** BackTrace, uint32* BackTraceHash);
+
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern void RtlCaptureContext(CONTEXT* ContextRecord);
+
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern void RtlUnwind(void* TargetFrame, void* TargetIp, EXCEPTION_RECORD* ExceptionRecord, void* ReturnValue);
+
+	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern void RtlRestoreContext(CONTEXT* ContextRecord, EXCEPTION_RECORD* ExceptionRecord);
+
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RtlRaiseException(EXCEPTION_RECORD* ExceptionRecord);
 
@@ -22008,9 +21975,9 @@ public static
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ReBaseImage64(PSTR CurrentImageName, PSTR SymbolPath, BOOL fReBase, BOOL fRebaseSysfileOk, BOOL fGoingDown, uint32 CheckImageSize, uint32* OldImageSize, uint64* OldImageBase, uint32* NewImageSize, uint64* NewImageBase, uint32 TimeStamp);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern IMAGE_NT_HEADERS64* CheckSumMappedFile(void* BaseAddress, uint32 FileLength, uint32* HeaderSum, uint32* CheckSum);
+	public static extern IMAGE_NT_HEADERS32* CheckSumMappedFile(void* BaseAddress, uint32 FileLength, uint32* HeaderSum, uint32* CheckSum);
 
 #endif
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
@@ -22020,17 +21987,17 @@ public static
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MapFileAndCheckSumW(PWSTR Filename, uint32* HeaderSum, uint32* CheckSum);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetImageConfigInformation(LOADED_IMAGE* LoadedImage, IMAGE_LOAD_CONFIG_DIRECTORY64* ImageConfigInformation);
+	public static extern BOOL GetImageConfigInformation(LOADED_IMAGE* LoadedImage, IMAGE_LOAD_CONFIG_DIRECTORY32* ImageConfigInformation);
 
 #endif
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetImageUnusedHeaderBytes(LOADED_IMAGE* LoadedImage, uint32* SizeUnusedHeaderBytes);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetImageConfigInformation(LOADED_IMAGE* LoadedImage, IMAGE_LOAD_CONFIG_DIRECTORY64* ImageConfigInformation);
+	public static extern BOOL SetImageConfigInformation(LOADED_IMAGE* LoadedImage, IMAGE_LOAD_CONFIG_DIRECTORY32* ImageConfigInformation);
 
 #endif
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
@@ -22108,9 +22075,9 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE FindExecutableImageExW(PWSTR FileName, PWSTR SymbolPath, PWSTR ImageFilePath, PFIND_EXE_FILE_CALLBACKW Callback, void* CallerData);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern IMAGE_NT_HEADERS64* ImageNtHeader(void* Base);
+	public static extern IMAGE_NT_HEADERS32* ImageNtHeader(void* Base);
 
 #endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
@@ -22119,14 +22086,14 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* ImageDirectoryEntryToData(void* Base, BOOLEAN MappedAsImage, IMAGE_DIRECTORY_ENTRY DirectoryEntry, uint32* Size);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern IMAGE_SECTION_HEADER* ImageRvaToSection(IMAGE_NT_HEADERS64* NtHeaders, void* Base, uint32 Rva);
+	public static extern IMAGE_SECTION_HEADER* ImageRvaToSection(IMAGE_NT_HEADERS32* NtHeaders, void* Base, uint32 Rva);
 
 #endif
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* ImageRvaToVa(IMAGE_NT_HEADERS64* NtHeaders, void* Base, uint32 Rva, IMAGE_SECTION_HEADER** LastRvaSection);
+	public static extern void* ImageRvaToVa(IMAGE_NT_HEADERS32* NtHeaders, void* Base, uint32 Rva, IMAGE_SECTION_HEADER** LastRvaSection);
 
 #endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
@@ -22156,6 +22123,11 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StackWalkEx(uint32 MachineType, HANDLE hProcess, HANDLE hThread, STACKFRAME_EX* StackFrame, void* ContextRecord, PREAD_PROCESS_MEMORY_ROUTINE64 ReadMemoryRoutine, PFUNCTION_TABLE_ACCESS_ROUTINE64 FunctionTableAccessRoutine, PGET_MODULE_BASE_ROUTINE64 GetModuleBaseRoutine, PTRANSLATE_ADDRESS_ROUTINE64 TranslateAddress, uint32 Flags);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL StackWalk(uint32 MachineType, HANDLE hProcess, HANDLE hThread, STACKFRAME* StackFrame, void* ContextRecord, PREAD_PROCESS_MEMORY_ROUTINE ReadMemoryRoutine, PFUNCTION_TABLE_ACCESS_ROUTINE FunctionTableAccessRoutine, PGET_MODULE_BASE_ROUTINE GetModuleBaseRoutine, PTRANSLATE_ADDRESS_ROUTINE TranslateAddress);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern API_VERSION* ImagehlpApiVersion();
 
@@ -22219,6 +22191,11 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymEnumerateModulesW64(HANDLE hProcess, PSYM_ENUMMODULES_CALLBACKW64 EnumModulesCallback, void* UserContext);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymEnumerateModules(HANDLE hProcess, PSYM_ENUMMODULES_CALLBACK EnumModulesCallback, void* UserContext);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumerateLoadedModulesEx(HANDLE hProcess, PENUMLOADED_MODULES_CALLBACK64 EnumLoadedModulesCallback, void* UserContext);
 
@@ -22231,12 +22208,22 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumerateLoadedModulesW64(HANDLE hProcess, PENUMLOADED_MODULES_CALLBACKW64 EnumLoadedModulesCallback, void* UserContext);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL EnumerateLoadedModules(HANDLE hProcess, PENUMLOADED_MODULES_CALLBACK EnumLoadedModulesCallback, void* UserContext);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* SymFunctionTableAccess64(HANDLE hProcess, uint64 AddrBase);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* SymFunctionTableAccess64AccessRoutines(HANDLE hProcess, uint64 AddrBase, PREAD_PROCESS_MEMORY_ROUTINE64 ReadMemoryRoutine, PGET_MODULE_BASE_ROUTINE64 GetModuleBaseRoutine);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern void* SymFunctionTableAccess(HANDLE hProcess, uint32 AddrBase);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetUnwindInfo(HANDLE hProcess, uint64 Address, void* Buffer, uint32* Size);
 
@@ -22246,9 +22233,24 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetModuleInfoW64(HANDLE hProcess, uint64 qwAddr, IMAGEHLP_MODULEW64* ModuleInfo);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetModuleInfo(HANDLE hProcess, uint32 dwAddr, IMAGEHLP_MODULE* ModuleInfo);
+
+#endif
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetModuleInfoW(HANDLE hProcess, uint32 dwAddr, IMAGEHLP_MODULEW* ModuleInfo);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint64 SymGetModuleBase64(HANDLE hProcess, uint64 qwAddr);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint32 SymGetModuleBase(HANDLE hProcess, uint32 dwAddr);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymEnumLines(HANDLE hProcess, uint64 Base, PSTR Obj, PSTR File, PSYM_ENUMLINES_CALLBACK EnumLinesCallback, void* UserContext);
 
@@ -22282,24 +22284,44 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymQueryInlineTrace(HANDLE hProcess, uint64 StartAddress, uint32 StartContext, uint64 StartRetAddress, uint64 CurAddress, uint32* CurContext, uint32* CurFrameIndex);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetLineFromAddr(HANDLE hProcess, uint32 dwAddr, uint32* pdwDisplacement, IMAGEHLP_LINE* Line);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetLineFromName64(HANDLE hProcess, PSTR ModuleName, PSTR FileName, uint32 dwLineNumber, int32* plDisplacement, IMAGEHLP_LINE64* Line);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetLineFromNameW64(HANDLE hProcess, PWSTR ModuleName, PWSTR FileName, uint32 dwLineNumber, int32* plDisplacement, IMAGEHLP_LINEW64* Line);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetLineFromName(HANDLE hProcess, PSTR ModuleName, PSTR FileName, uint32 dwLineNumber, int32* plDisplacement, IMAGEHLP_LINE* Line);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetLineNext64(HANDLE hProcess, IMAGEHLP_LINE64* Line);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetLineNextW64(HANDLE hProcess, IMAGEHLP_LINEW64* Line);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetLineNext(HANDLE hProcess, IMAGEHLP_LINE* Line);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetLinePrev64(HANDLE hProcess, IMAGEHLP_LINE64* Line);
 
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetLinePrevW64(HANDLE hProcess, IMAGEHLP_LINEW64* Line);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetLinePrev(HANDLE hProcess, IMAGEHLP_LINE* Line);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SymGetFileLineOffsets64(HANDLE hProcess, PSTR ModuleName, PSTR FileName, uint64* Buffer, uint32 BufferLines);
 
@@ -22381,9 +22403,19 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymUnloadModule64(HANDLE hProcess, uint64 BaseOfDll);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymUnloadModule(HANDLE hProcess, uint32 BaseOfDll);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymUnDName64(IMAGEHLP_SYMBOL64* sym, uint8* UnDecName, uint32 UnDecNameLength);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymUnDName(IMAGEHLP_SYMBOL* sym, uint8* UnDecName, uint32 UnDecNameLength);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymRegisterCallback64(HANDLE hProcess, PSYMBOL_REGISTERED_CALLBACK64 CallbackFunction, uint64 UserContext);
 
@@ -22393,6 +22425,16 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymRegisterFunctionEntryCallback64(HANDLE hProcess, PSYMBOL_FUNCENTRY_CALLBACK64 CallbackFunction, uint64 UserContext);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymRegisterCallback(HANDLE hProcess, PSYMBOL_REGISTERED_CALLBACK CallbackFunction, void* UserContext);
+
+#endif
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymRegisterFunctionEntryCallback(HANDLE hProcess, PSYMBOL_FUNCENTRY_CALLBACK CallbackFunction, void* UserContext);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymSetContext(HANDLE hProcess, IMAGEHLP_STACK_FRAME* StackFrame, void* Context);
 
@@ -22591,9 +22633,19 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetSymFromAddr64(HANDLE hProcess, uint64 qwAddr, uint64* pdwDisplacement, IMAGEHLP_SYMBOL64* Symbol);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetSymFromAddr(HANDLE hProcess, uint32 dwAddr, uint32* pdwDisplacement, IMAGEHLP_SYMBOL* Symbol);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetSymFromName64(HANDLE hProcess, PSTR Name, IMAGEHLP_SYMBOL64* Symbol);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetSymFromName(HANDLE hProcess, PSTR Name, IMAGEHLP_SYMBOL* Symbol);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FindFileInPath(HANDLE hprocess, PSTR SearchPathA, PSTR FileName, void* id, uint32 two, uint32 three, uint32 flags, PSTR FilePath);
 
@@ -22609,15 +22661,40 @@ public static
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymEnumerateSymbolsW64(HANDLE hProcess, uint64 BaseOfDll, PSYM_ENUMSYMBOLS_CALLBACK64W EnumSymbolsCallback, void* UserContext);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymEnumerateSymbols(HANDLE hProcess, uint32 BaseOfDll, PSYM_ENUMSYMBOLS_CALLBACK EnumSymbolsCallback, void* UserContext);
+
+#endif
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymEnumerateSymbolsW(HANDLE hProcess, uint32 BaseOfDll, PSYM_ENUMSYMBOLS_CALLBACKW EnumSymbolsCallback, void* UserContext);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint64 SymLoadModule64(HANDLE hProcess, HANDLE hFile, PSTR ImageName, PSTR ModuleName, uint64 BaseOfDll, uint32 SizeOfDll);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint32 SymLoadModule(HANDLE hProcess, HANDLE hFile, PSTR ImageName, PSTR ModuleName, uint32 BaseOfDll, uint32 SizeOfDll);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetSymNext64(HANDLE hProcess, IMAGEHLP_SYMBOL64* Symbol);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetSymNext(HANDLE hProcess, IMAGEHLP_SYMBOL* Symbol);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SymGetSymPrev64(HANDLE hProcess, IMAGEHLP_SYMBOL64* Symbol);
 
+#if BF_32_BIT
+	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SymGetSymPrev(HANDLE hProcess, IMAGEHLP_SYMBOL* Symbol);
+
+#endif
 	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SetCheckUserInterruptShared(LPCALL_BACK_USER_INTERRUPT_ROUTINE lpStartAddress);
 
@@ -22652,7 +22729,7 @@ public static
 	public static extern BOOL RangeMapWrite(void* RmapHandle, uint64 Offset, void* Buffer, uint32 RequestBytes, uint32 Flags, uint32* DoneBytes);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL MessageBeep(uint32 uType);
+	public static extern BOOL MessageBeep(MESSAGEBOX_STYLE uType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void FatalExit(int32 ExitCode);
@@ -22703,146 +22780,6 @@ public static
 #if BF_32_BIT || BF_64_BIT
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetXStateFeaturesMask(CONTEXT* Context, uint64 FeatureMask);
-
-#endif
-#if BF_32_BIT
-	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern IMAGE_NT_HEADERS32* CheckSumMappedFile(void* BaseAddress, uint32 FileLength, uint32* HeaderSum, uint32* CheckSum);
-
-#endif
-#if BF_32_BIT
-	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetImageConfigInformation(LOADED_IMAGE* LoadedImage, IMAGE_LOAD_CONFIG_DIRECTORY32* ImageConfigInformation);
-
-#endif
-#if BF_32_BIT
-	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetImageConfigInformation(LOADED_IMAGE* LoadedImage, IMAGE_LOAD_CONFIG_DIRECTORY32* ImageConfigInformation);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern IMAGE_NT_HEADERS32* ImageNtHeader(void* Base);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern IMAGE_SECTION_HEADER* ImageRvaToSection(IMAGE_NT_HEADERS32* NtHeaders, void* Base, uint32 Rva);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* ImageRvaToVa(IMAGE_NT_HEADERS32* NtHeaders, void* Base, uint32 Rva, IMAGE_SECTION_HEADER** LastRvaSection);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL StackWalk(uint32 MachineType, HANDLE hProcess, HANDLE hThread, STACKFRAME* StackFrame, void* ContextRecord, PREAD_PROCESS_MEMORY_ROUTINE ReadMemoryRoutine, PFUNCTION_TABLE_ACCESS_ROUTINE FunctionTableAccessRoutine, PGET_MODULE_BASE_ROUTINE GetModuleBaseRoutine, PTRANSLATE_ADDRESS_ROUTINE TranslateAddress);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymEnumerateModules(HANDLE hProcess, PSYM_ENUMMODULES_CALLBACK EnumModulesCallback, void* UserContext);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL EnumerateLoadedModules(HANDLE hProcess, PENUMLOADED_MODULES_CALLBACK EnumLoadedModulesCallback, void* UserContext);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void* SymFunctionTableAccess(HANDLE hProcess, uint32 AddrBase);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetModuleInfo(HANDLE hProcess, uint32 dwAddr, IMAGEHLP_MODULE* ModuleInfo);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetModuleInfoW(HANDLE hProcess, uint32 dwAddr, IMAGEHLP_MODULEW* ModuleInfo);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SymGetModuleBase(HANDLE hProcess, uint32 dwAddr);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetLineFromAddr(HANDLE hProcess, uint32 dwAddr, uint32* pdwDisplacement, IMAGEHLP_LINE* Line);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetLineFromName(HANDLE hProcess, PSTR ModuleName, PSTR FileName, uint32 dwLineNumber, int32* plDisplacement, IMAGEHLP_LINE* Line);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetLineNext(HANDLE hProcess, IMAGEHLP_LINE* Line);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetLinePrev(HANDLE hProcess, IMAGEHLP_LINE* Line);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymUnloadModule(HANDLE hProcess, uint32 BaseOfDll);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymUnDName(IMAGEHLP_SYMBOL* sym, uint8* UnDecName, uint32 UnDecNameLength);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymRegisterCallback(HANDLE hProcess, PSYMBOL_REGISTERED_CALLBACK CallbackFunction, void* UserContext);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymRegisterFunctionEntryCallback(HANDLE hProcess, PSYMBOL_FUNCENTRY_CALLBACK CallbackFunction, void* UserContext);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSymFromAddr(HANDLE hProcess, uint32 dwAddr, uint32* pdwDisplacement, IMAGEHLP_SYMBOL* Symbol);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSymFromName(HANDLE hProcess, PSTR Name, IMAGEHLP_SYMBOL* Symbol);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymEnumerateSymbols(HANDLE hProcess, uint32 BaseOfDll, PSYM_ENUMSYMBOLS_CALLBACK EnumSymbolsCallback, void* UserContext);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymEnumerateSymbolsW(HANDLE hProcess, uint32 BaseOfDll, PSYM_ENUMSYMBOLS_CALLBACKW EnumSymbolsCallback, void* UserContext);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SymLoadModule(HANDLE hProcess, HANDLE hFile, PSTR ImageName, PSTR ModuleName, uint32 BaseOfDll, uint32 SizeOfDll);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSymNext(HANDLE hProcess, IMAGEHLP_SYMBOL* Symbol);
-
-#endif
-#if BF_32_BIT
-	[Import("dbghelp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SymGetSymPrev(HANDLE hProcess, IMAGEHLP_SYMBOL* Symbol);
 
 #endif
 }

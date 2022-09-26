@@ -11,6 +11,8 @@ public static
 	public const uint32 CI_VERSION_WDS30 = 258;
 	public const uint32 CI_VERSION_WDS40 = 265;
 	public const uint32 CI_VERSION_WIN70 = 1792;
+	public const String CINULLCATALOG = "::_noindex_::";
+	public const String CIADMIN = "::_nodocstore_::";
 	public const uint32 LIFF_LOAD_DEFINED_FILTER = 1;
 	public const uint32 LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY = 2;
 	public const uint32 LIFF_FORCE_TEXT_FILTER_FALLBACK = 3;
@@ -275,16 +277,16 @@ public struct STAT_CHUNK
 public struct DBID
 {
 	[CRepr, Union]
-	public struct _uName_e__Union
-	{
-		public PWSTR pwszName;
-		public uint32 ulPropid;
-	}
-	[CRepr, Union]
 	public struct _uGuid_e__Union
 	{
 		public Guid guid;
 		public Guid* pguid;
+	}
+	[CRepr, Union]
+	public struct _uName_e__Union
+	{
+		public PWSTR pwszName;
+		public uint32 ulPropid;
 	}
 	public _uGuid_e__Union uGuid;
 	public uint32 eKind;

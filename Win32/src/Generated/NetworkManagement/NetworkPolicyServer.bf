@@ -7,7 +7,17 @@ namespace Win32.NetworkManagement.NetworkPolicyServer;
 #region Constants
 public static
 {
+	public const String RADIUS_EXTENSION_INIT = "RadiusExtensionInit";
+	public const String RADIUS_EXTENSION_TERM = "RadiusExtensionTerm";
+	public const String RADIUS_EXTENSION_PROCESS = "RadiusExtensionProcess";
+	public const String RADIUS_EXTENSION_PROCESS_EX = "RadiusExtensionProcessEx";
+	public const String RADIUS_EXTENSION_FREE_ATTRIBUTES = "RadiusExtensionFreeAttributes";
+	public const String AUTHSRV_PARAMETERS_KEY_W = "System\CurrentControlSet\Services\AuthSrv\Parameters";
+	public const String AUTHSRV_EXTENSIONS_VALUE_W = "ExtensionDLLs";
+	public const String AUTHSRV_AUTHORIZATION_VALUE_W = "AuthorizationDLLs";
+	public const String AUTHSRV_ENFORCE_NP_FOR_PAP_CHALLENGE_RESPONSE_VALUE_W = "EnforceNetworkPolicyForPAPBasedChallengeResponse";
 	public const uint32 RADIUS_EXTENSION_VERSION = 1;
+	public const String RADIUS_EXTENSION_PROCESS2 = "RadiusExtensionProcess2";
 }
 #endregion
 
@@ -920,7 +930,7 @@ public struct RADIUS_ATTRIBUTE_ARRAY
 {
 	public uint32 cbSize;
 	public int Add;
-	public RADIUS_ATTRIBUTE********** AttributeAt;
+	public int AttributeAt;
 	public int GetSize;
 	public int InsertAt;
 	public int RemoveAt;

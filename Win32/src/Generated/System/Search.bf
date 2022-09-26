@@ -1,6 +1,6 @@
 using Win32.Foundation;
-using Win32.System.Com;
 using Win32.Storage.IndexServer;
+using Win32.System.Com;
 using Win32.System.Com.StructuredStorage;
 using Win32.System.Search.Common;
 using Win32.UI.Shell.PropertiesSystem;
@@ -792,6 +792,8 @@ public static
 	public const uint32 MAXNUMERICLEN = 16;
 	public const uint32 SQL_PERF_START = 1;
 	public const uint32 SQL_PERF_STOP = 2;
+	public const String SQL_SS_DL_DEFAULT = "STATS.LOG";
+	public const String SQL_SS_QL_DEFAULT = "QUERY.LOG";
 	public const uint32 SQL_SS_QI_DEFAULT = 30000;
 	public const uint32 SUCCEED = 1;
 	public const uint32 FAIL = 0;
@@ -1026,6 +1028,7 @@ public static
 	public const uint32 DBPROP_MAINTAINPROPS = 5;
 	public const uint32 DBPROP_Unicode = 6;
 	public const uint32 DBPROP_INTERLEAVEDROWS = 8;
+	public const String MS_PERSIST_PROGID = "MSPersist";
 	public const uint32 DISPID_QUERY_RANKVECTOR = 2;
 	public const uint32 DISPID_QUERY_RANK = 3;
 	public const uint32 DISPID_QUERY_HITCOUNT = 4;
@@ -1407,6 +1410,7 @@ public static
 	public const uint32 SQL_NC_LOW = 1;
 	public const uint32 SQL_SPEC_MAJOR = 3;
 	public const uint32 SQL_SPEC_MINOR = 80;
+	public const String SQL_SPEC_STRING = "03.80";
 	public const uint32 SQL_SQLSTATE_SIZE = 5;
 	public const uint32 SQL_MAX_DSN_LENGTH = 32;
 	public const uint32 SQL_MAX_OPTION_STRING_LENGTH = 256;
@@ -1473,6 +1477,7 @@ public static
 	public const uint32 SQL_OPT_TRACE_OFF = 0;
 	public const uint32 SQL_OPT_TRACE_ON = 1;
 	public const uint32 SQL_OPT_TRACE_DEFAULT = 0;
+	public const String SQL_OPT_TRACE_FILE_DEFAULT = "\SQL.LOG";
 	public const uint32 SQL_CUR_USE_IF_NEEDED = 0;
 	public const uint32 SQL_CUR_USE_ODBC = 1;
 	public const uint32 SQL_CUR_USE_DRIVER = 2;
@@ -2407,6 +2412,9 @@ public static
 	public const uint32 SQL_QUICK = 0;
 	public const uint32 SQL_ENSURE = 1;
 	public const uint32 SQL_TABLE_STAT = 0;
+	public const String SQL_ALL_CATALOGS = "%";
+	public const String SQL_ALL_SCHEMAS = "%";
+	public const String SQL_ALL_TABLE_TYPES = "%";
 	public const uint32 SQL_DRIVER_NOPROMPT = 0;
 	public const uint32 SQL_DRIVER_COMPLETE = 1;
 	public const uint32 SQL_DRIVER_PROMPT = 2;
@@ -2447,6 +2455,7 @@ public static
 	public const uint32 SQL_PT_UNKNOWN = 0;
 	public const uint32 SQL_PT_PROCEDURE = 1;
 	public const uint32 SQL_PT_FUNCTION = 2;
+	public const String SQL_ODBC_KEYWORDS = "ABSOLUTE,ACTION,ADA,ADD,ALL,ALLOCATE,ALTER,AND,ANY,ARE,AS,ASC,ASSERTION,AT,AUTHORIZATION,AVG,BEGIN,BETWEEN,BIT,BIT_LENGTH,BOTH,BY,CASCADE,CASCADED,CASE,CAST,CATALOG,CHAR,CHAR_LENGTH,CHARACTER,CHARACTER_LENGTH,CHECK,CLOSE,COALESCE,COLLATE,COLLATION,COLUMN,COMMIT,CONNECT,CONNECTION,CONSTRAINT,CONSTRAINTS,CONTINUE,CONVERT,CORRESPONDING,COUNT,CREATE,CROSS,CURRENT,CURRENT_DATE,CURRENT_TIME,CURRENT_TIMESTAMP,CURRENT_USER,CURSOR,DATE,DAY,DEALLOCATE,DEC,DECIMAL,DECLARE,DEFAULT,DEFERRABLE,DEFERRED,DELETE,DESC,DESCRIBE,DESCRIPTOR,DIAGNOSTICS,DISCONNECT,DISTINCT,DOMAIN,DOUBLE,DROP,ELSE,END,END-EXEC,ESCAPE,EXCEPT,EXCEPTION,EXEC,EXECUTE,EXISTS,EXTERNAL,EXTRACT,FALSE,FETCH,FIRST,FLOAT,FOR,FOREIGN,FORTRAN,FOUND,FROM,FULL,GET,GLOBAL,GO,GOTO,GRANT,GROUP,HAVING,HOUR,IDENTITY,IMMEDIATE,IN,INCLUDE,INDEX,INDICATOR,INITIALLY,INNER,INPUT,INSENSITIVE,INSERT,INT,INTEGER,INTERSECT,INTERVAL,INTO,IS,ISOLATION,JOIN,KEY,LANGUAGE,LAST,LEADING,LEFT,LEVEL,LIKE,LOCAL,LOWER,MATCH,MAX,MIN,MINUTE,MODULE,MONTH,NAMES,NATIONAL,NATURAL,NCHAR,NEXT,NO,NONE,NOT,NULL,NULLIF,NUMERIC,OCTET_LENGTH,OF,ON,ONLY,OPEN,OPTION,OR,ORDER,OUTER,OUTPUT,OVERLAPS,PAD,PARTIAL,PASCAL,PLI,POSITION,PRECISION,PREPARE,PRESERVE,PRIMARY,PRIOR,PRIVILEGES,PROCEDURE,PUBLIC,READ,REAL,REFERENCES,RELATIVE,RESTRICT,REVOKE,RIGHT,ROLLBACK,ROWSSCHEMA,SCROLL,SECOND,SECTION,SELECT,SESSION,SESSION_USER,SET,SIZE,SMALLINT,SOME,SPACE,SQL,SQLCA,SQLCODE,SQLERROR,SQLSTATE,SQLWARNING,SUBSTRING,SUM,SYSTEM_USER,TABLE,TEMPORARY,THEN,TIME,TIMESTAMP,TIMEZONE_HOUR,TIMEZONE_MINUTE,TO,TRAILING,TRANSACTION,TRANSLATE,TRANSLATION,TRIM,TRUE,UNION,UNIQUE,UNKNOWN,UPDATE,UPPER,USAGE,USER,USING,VALUE,VALUES,VARCHAR,VARYING,VIEW,WHEN,WHENEVER,WHERE,WITH,WORK,WRITE,YEAR,ZONE";
 	public const uint32 SQL_YEAR = 1;
 	public const uint32 SQL_MONTH = 2;
 	public const uint32 SQL_DAY = 3;
@@ -3400,6 +3409,12 @@ public static
 	public const Guid DBPROPSET_SQLSERVERSTREAM = .(0x9f79c073, 0x8a6d, 0x4bca, 0xa8, 0xa8, 0xc9, 0xb7, 0x9a, 0x9b, 0x96, 0x2d);
 }
 #endregion
+
+#region TypeDefs
+typealias HACCESSOR = uint;
+
+#endregion
+
 
 #region Enums
 
@@ -5116,33 +5131,6 @@ public struct IRowsetExactScroll
 {
 }
 
-[CRepr]
-public struct TEXT_SOURCE
-{
-	public PFNFILLTEXTBUFFER pfnFillTextBuffer;
-	public PWSTR awcBuffer;
-	public uint32 iEnd;
-	public uint32 iCur;
-}
-
-[CRepr]
-public struct FILTERED_DATA_SOURCES
-{
-	public PWSTR pwcsExtension;
-	public PWSTR pwcsMime;
-	public Guid* pClsid;
-	public PWSTR pwcsOverride;
-}
-
-[CRepr]
-public struct DB_NUMERIC
-{
-	public uint8 precision;
-	public uint8 scale;
-	public uint8 sign;
-	public uint8[16] val;
-}
-
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
 public struct DBVECTOR
@@ -5151,22 +5139,6 @@ public struct DBVECTOR
 	public void* ptr;
 }
 #endif
-
-[CRepr]
-public struct DBDATE
-{
-	public int16 year;
-	public uint16 month;
-	public uint16 day;
-}
-
-[CRepr]
-public struct DBTIME
-{
-	public uint16 hour;
-	public uint16 minute;
-	public uint16 second;
-}
 
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
@@ -5181,16 +5153,6 @@ public struct DBTIMESTAMP
 	public uint32 fraction;
 }
 #endif
-
-[CRepr]
-public struct DB_VARNUMERIC
-{
-	public uint8 precision;
-	public int8 scale;
-	public uint8 sign;
-	public uint8* val mut => &val_impl;
-	private uint8[ANYSIZE_ARRAY] val_impl;
-}
 
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
@@ -5292,7 +5254,7 @@ public struct DBPARAMS
 {
 	public void* pData;
 	public uint cParamSets;
-	public uint hAccessor;
+	public HACCESSOR hAccessor;
 }
 #endif
 
@@ -5328,7 +5290,7 @@ public struct DBPROPINFO
 	public PWSTR pwszDescription;
 	public uint32 dwPropertyID;
 	public uint32 dwFlags;
-	public uint16 vtType;
+	public VARENUM vtType;
 	public VARIANT vValues;
 }
 #endif
@@ -5500,6 +5462,411 @@ public struct ERRORINFO
 }
 #endif
 
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DBROWWATCHCHANGE
+{
+	public uint hRegion;
+	public uint32 eChangeKind;
+	public uint hRow;
+	public uint iRow;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DBCOST
+{
+	public uint32 eKind;
+	public uint32 dwUnits;
+	public int32 lValue;
+}
+#endif
+
+[CRepr]
+public struct TEXT_SOURCE
+{
+	public PFNFILLTEXTBUFFER pfnFillTextBuffer;
+	public PWSTR awcBuffer;
+	public uint32 iEnd;
+	public uint32 iCur;
+}
+
+[CRepr]
+public struct FILTERED_DATA_SOURCES
+{
+	public PWSTR pwcsExtension;
+	public PWSTR pwcsMime;
+	public Guid* pClsid;
+	public PWSTR pwcsOverride;
+}
+
+[CRepr]
+public struct DB_NUMERIC
+{
+	public uint8 precision;
+	public uint8 scale;
+	public uint8 sign;
+	public uint8[16] val;
+}
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBVECTOR
+{
+	public uint size;
+	public void* ptr;
+}
+#endif
+
+[CRepr]
+public struct DBDATE
+{
+	public int16 year;
+	public uint16 month;
+	public uint16 day;
+}
+
+[CRepr]
+public struct DBTIME
+{
+	public uint16 hour;
+	public uint16 minute;
+	public uint16 second;
+}
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBTIMESTAMP
+{
+	public int16 year;
+	public uint16 month;
+	public uint16 day;
+	public uint16 hour;
+	public uint16 minute;
+	public uint16 second;
+	public uint32 fraction;
+}
+#endif
+
+[CRepr]
+public struct DB_VARNUMERIC
+{
+	public uint8 precision;
+	public int8 scale;
+	public uint8 sign;
+	public uint8* val mut => &val_impl;
+	private uint8[ANYSIZE_ARRAY] val_impl;
+}
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct SEC_OBJECT_ELEMENT
+{
+	public Guid guidObjectType;
+	public DBID ObjectID;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct SEC_OBJECT
+{
+	public uint32 cObjects;
+	public SEC_OBJECT_ELEMENT* prgObjects;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBIMPLICITSESSION
+{
+	public IUnknown* pUnkOuter;
+	public Guid* piid;
+	public IUnknown* pSession;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBOBJECT
+{
+	public uint32 dwFlags;
+	public Guid iid;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBBINDEXT
+{
+	public uint8* pExtension;
+	public uint ulExtension;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBBINDING
+{
+	public uint iOrdinal;
+	public uint obValue;
+	public uint obLength;
+	public uint obStatus;
+	public ITypeInfo* pTypeInfo;
+	public DBOBJECT* pObject;
+	public DBBINDEXT* pBindExt;
+	public uint32 dwPart;
+	public uint32 dwMemOwner;
+	public uint32 eParamIO;
+	public uint cbMaxLen;
+	public uint32 dwFlags;
+	public uint16 wType;
+	public uint8 bPrecision;
+	public uint8 bScale;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBFAILUREINFO
+{
+	public uint hRow;
+	public uint iColumn;
+	public HRESULT failure;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBCOLUMNINFO
+{
+	public PWSTR pwszName;
+	public ITypeInfo* pTypeInfo;
+	public uint iOrdinal;
+	public uint32 dwFlags;
+	public uint ulColumnSize;
+	public uint16 wType;
+	public uint8 bPrecision;
+	public uint8 bScale;
+	public DBID columnid;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBPARAMS
+{
+	public void* pData;
+	public uint cParamSets;
+	public HACCESSOR hAccessor;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBPARAMINFO
+{
+	public uint32 dwFlags;
+	public uint iOrdinal;
+	public PWSTR pwszName;
+	public ITypeInfo* pTypeInfo;
+	public uint ulParamSize;
+	public uint16 wType;
+	public uint8 bPrecision;
+	public uint8 bScale;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBPROPIDSET
+{
+	public uint32* rgPropertyIDs;
+	public uint32 cPropertyIDs;
+	public Guid guidPropertySet;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBPROPINFO
+{
+	public PWSTR pwszDescription;
+	public uint32 dwPropertyID;
+	public uint32 dwFlags;
+	public VARENUM vtType;
+	public VARIANT vValues;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBPROPINFOSET
+{
+	public DBPROPINFO* rgPropertyInfos;
+	public uint32 cPropertyInfos;
+	public Guid guidPropertySet;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBPROP
+{
+	public uint32 dwPropertyID;
+	public uint32 dwOptions;
+	public uint32 dwStatus;
+	public DBID colid;
+	public VARIANT vValue;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBPROPSET
+{
+	public DBPROP* rgProperties;
+	public uint32 cProperties;
+	public Guid guidPropertySet;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBINDEXCOLUMNDESC
+{
+	public DBID* pColumnID;
+	public uint32 eIndexColOrder;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBCOLUMNDESC
+{
+	public PWSTR pwszTypeName;
+	public ITypeInfo* pTypeInfo;
+	public DBPROPSET* rgPropertySets;
+	public Guid* pclsid;
+	public uint32 cPropertySets;
+	public uint ulColumnSize;
+	public DBID dbcid;
+	public uint16 wType;
+	public uint8 bPrecision;
+	public uint8 bScale;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBCOLUMNACCESS
+{
+	public void* pData;
+	public DBID columnid;
+	public uint cbDataLen;
+	public uint32 dwStatus;
+	public uint cbMaxLen;
+	public uint dwReserved;
+	public uint16 wType;
+	public uint8 bPrecision;
+	public uint8 bScale;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBCONSTRAINTDESC
+{
+	public DBID* pConstraintID;
+	public uint32 ConstraintType;
+	public uint cColumns;
+	public DBID* rgColumnList;
+	public DBID* pReferencedTableID;
+	public uint cForeignKeyColumns;
+	public DBID* rgForeignKeyColumnList;
+	public PWSTR pwszConstraintText;
+	public uint32 UpdateRule;
+	public uint32 DeleteRule;
+	public uint32 MatchType;
+	public uint32 Deferrability;
+	public uint cReserved;
+	public DBPROPSET* rgReserved;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct MDAXISINFO
+{
+	public uint cbSize;
+	public uint iAxis;
+	public uint cDimensions;
+	public uint cCoordinates;
+	public uint* rgcColumns;
+	public PWSTR* rgpwszDimensionNames;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct RMTPACK
+{
+	public ISequentialStream* pISeqStream;
+	public uint32 cbData;
+	public uint32 cBSTR;
+	public BSTR* rgBSTR;
+	public uint32 cVARIANT;
+	public VARIANT* rgVARIANT;
+	public uint32 cIDISPATCH;
+	public IDispatch** rgIDISPATCH;
+	public uint32 cIUNKNOWN;
+	public IUnknown** rgIUNKNOWN;
+	public uint32 cPROPVARIANT;
+	public PROPVARIANT* rgPROPVARIANT;
+	public uint32 cArray;
+	public VARIANT* rgArray;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBPARAMBINDINFO
+{
+	public PWSTR pwszDataSourceType;
+	public PWSTR pwszName;
+	public uint ulParamSize;
+	public uint32 dwFlags;
+	public uint8 bPrecision;
+	public uint8 bScale;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBLITERALINFO
+{
+	public PWSTR pwszLiteralValue;
+	public PWSTR pwszInvalidChars;
+	public PWSTR pwszInvalidStartingChars;
+	public uint32 lt;
+	public BOOL fSupported;
+	public uint32 cchMaxLen;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct ERRORINFO
+{
+	public HRESULT hrError;
+	public uint32 dwMinor;
+	public Guid clsid;
+	public Guid iid;
+	public int32 dispid;
+}
+#endif
+
 [CRepr]
 public struct HITRANGE
 {
@@ -5638,7 +6005,7 @@ public struct DCINFO
 public struct KAGREQDIAG
 {
 	public uint32 ulDiagFlags;
-	public uint16 vt;
+	public VARENUM vt;
 	public int16 sDiagField;
 }
 
@@ -5679,14 +6046,14 @@ public struct TIMESTAMP_STRUCT
 }
 
 [CRepr]
-public struct tagSQL_YEAR_MONTH
+public struct SQL_YEAR_MONTH_STRUCT
 {
 	public uint32 year;
 	public uint32 month;
 }
 
 [CRepr]
-public struct tagSQL_DAY_SECOND
+public struct SQL_DAY_SECOND_STRUCT
 {
 	public uint32 day;
 	public uint32 hour;
@@ -5701,8 +6068,8 @@ public struct SQL_INTERVAL_STRUCT
 	[CRepr, Union]
 	public struct _intval_e__Union
 	{
-		public tagSQL_YEAR_MONTH year_month;
-		public tagSQL_DAY_SECOND day_second;
+		public SQL_YEAR_MONTH_STRUCT year_month;
+		public SQL_DAY_SECOND_STRUCT day_second;
 	}
 	public SQLINTERVAL interval_type;
 	public int16 interval_sign;
@@ -5719,42 +6086,42 @@ public struct SQL_NUMERIC_STRUCT
 }
 
 [CRepr]
-public struct dbvarychar
+public struct DBVARYCHAR
 {
 	public int16 len;
 	public int8[8001] str;
 }
 
 [CRepr]
-public struct dbvarybin
+public struct DBVARYBIN
 {
 	public int16 len;
 	public uint8[8001] array;
 }
 
 [CRepr]
-public struct dbmoney
+public struct DBMONEY
 {
 	public int32 mnyhigh;
 	public uint32 mnylow;
 }
 
 [CRepr]
-public struct dbdatetime
+public struct DBDATETIME
 {
 	public int32 dtdays;
 	public uint32 dttime;
 }
 
 [CRepr]
-public struct dbdatetime4
+public struct DBDATETIM4
 {
 	public uint16 numdays;
 	public uint16 nummins;
 }
 
 [CRepr]
-public struct sqlperf
+public struct SQLPERF
 {
 	public uint32 TimerResolution;
 	public uint32 SQLidu;
@@ -5791,9 +6158,9 @@ public struct sqlperf
 	public uint32 msNetWorkServerTime;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct tagDBROWWATCHRANGE
+#if BF_32_BIT
+[CRepr, Packed(2)]
+public struct DBROWWATCHCHANGE
 {
 	public uint hRegion;
 	public uint32 eChangeKind;
@@ -5802,8 +6169,8 @@ public struct tagDBROWWATCHRANGE
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(2)]
 public struct DBCOST
 {
 	public uint32 eKind;
@@ -5965,11 +6332,28 @@ public struct SSVARIANT
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _UnknownType
+		public struct _BLOBType
 		{
-			public uint32 dwActualLength;
-			public uint8[16] rgMetadata;
-			public uint8* pUnknownData;
+			public DBOBJECT dbobj;
+			public IUnknown* pUnk;
+		}
+		[CRepr]
+		public struct _BinaryVal
+		{
+			public int16 sActualLength;
+			public int16 sMaxLength;
+			public uint8* prgbBinaryVal;
+			public uint32 dwReserved;
+		}
+		[CRepr]
+		public struct _NCharVal
+		{
+			public int16 sActualLength;
+			public int16 sMaxLength;
+			public PWSTR pwchNCharVal;
+			public uint8[5] rgbReserved;
+			public uint32 dwReserved;
+			public PWSTR pwchReserved;
 		}
 		[CRepr]
 		public struct _CharVal
@@ -5982,28 +6366,11 @@ public struct SSVARIANT
 			public PWSTR pwchReserved;
 		}
 		[CRepr]
-		public struct _BinaryVal
+		public struct _UnknownType
 		{
-			public int16 sActualLength;
-			public int16 sMaxLength;
-			public uint8* prgbBinaryVal;
-			public uint32 dwReserved;
-		}
-		[CRepr]
-		public struct _BLOBType
-		{
-			public DBOBJECT dbobj;
-			public IUnknown* pUnk;
-		}
-		[CRepr]
-		public struct _NCharVal
-		{
-			public int16 sActualLength;
-			public int16 sMaxLength;
-			public PWSTR pwchNCharVal;
-			public uint8[5] rgbReserved;
-			public uint32 dwReserved;
-			public PWSTR pwchReserved;
+			public uint32 dwActualLength;
+			public uint8[16] rgMetadata;
+			public uint8* pUnknownData;
 		}
 		public uint8 bTinyIntVal;
 		public int16 sShortIntVal;
@@ -6029,7 +6396,7 @@ public struct SSVARIANT
 }
 
 [CRepr]
-public struct tagSSErrorInfo
+public struct SSERRORINFO
 {
 	public PWSTR pwszMessage;
 	public PWSTR pwszServer;
@@ -6039,358 +6406,6 @@ public struct tagSSErrorInfo
 	public uint8 bClass;
 	public uint16 wLineNumber;
 }
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBVECTOR
-{
-	public uint size;
-	public void* ptr;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBTIMESTAMP
-{
-	public int16 year;
-	public uint16 month;
-	public uint16 day;
-	public uint16 hour;
-	public uint16 minute;
-	public uint16 second;
-	public uint32 fraction;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct SEC_OBJECT_ELEMENT
-{
-	public Guid guidObjectType;
-	public DBID ObjectID;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct SEC_OBJECT
-{
-	public uint32 cObjects;
-	public SEC_OBJECT_ELEMENT* prgObjects;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBIMPLICITSESSION
-{
-	public IUnknown* pUnkOuter;
-	public Guid* piid;
-	public IUnknown* pSession;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBOBJECT
-{
-	public uint32 dwFlags;
-	public Guid iid;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBBINDEXT
-{
-	public uint8* pExtension;
-	public uint ulExtension;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBBINDING
-{
-	public uint iOrdinal;
-	public uint obValue;
-	public uint obLength;
-	public uint obStatus;
-	public ITypeInfo* pTypeInfo;
-	public DBOBJECT* pObject;
-	public DBBINDEXT* pBindExt;
-	public uint32 dwPart;
-	public uint32 dwMemOwner;
-	public uint32 eParamIO;
-	public uint cbMaxLen;
-	public uint32 dwFlags;
-	public uint16 wType;
-	public uint8 bPrecision;
-	public uint8 bScale;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBFAILUREINFO
-{
-	public uint hRow;
-	public uint iColumn;
-	public HRESULT failure;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBCOLUMNINFO
-{
-	public PWSTR pwszName;
-	public ITypeInfo* pTypeInfo;
-	public uint iOrdinal;
-	public uint32 dwFlags;
-	public uint ulColumnSize;
-	public uint16 wType;
-	public uint8 bPrecision;
-	public uint8 bScale;
-	public DBID columnid;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBPARAMS
-{
-	public void* pData;
-	public uint cParamSets;
-	public uint hAccessor;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBPARAMINFO
-{
-	public uint32 dwFlags;
-	public uint iOrdinal;
-	public PWSTR pwszName;
-	public ITypeInfo* pTypeInfo;
-	public uint ulParamSize;
-	public uint16 wType;
-	public uint8 bPrecision;
-	public uint8 bScale;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBPROPIDSET
-{
-	public uint32* rgPropertyIDs;
-	public uint32 cPropertyIDs;
-	public Guid guidPropertySet;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBPROPINFO
-{
-	public PWSTR pwszDescription;
-	public uint32 dwPropertyID;
-	public uint32 dwFlags;
-	public uint16 vtType;
-	public VARIANT vValues;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBPROPINFOSET
-{
-	public DBPROPINFO* rgPropertyInfos;
-	public uint32 cPropertyInfos;
-	public Guid guidPropertySet;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBPROP
-{
-	public uint32 dwPropertyID;
-	public uint32 dwOptions;
-	public uint32 dwStatus;
-	public DBID colid;
-	public VARIANT vValue;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBPROPSET
-{
-	public DBPROP* rgProperties;
-	public uint32 cProperties;
-	public Guid guidPropertySet;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBINDEXCOLUMNDESC
-{
-	public DBID* pColumnID;
-	public uint32 eIndexColOrder;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBCOLUMNDESC
-{
-	public PWSTR pwszTypeName;
-	public ITypeInfo* pTypeInfo;
-	public DBPROPSET* rgPropertySets;
-	public Guid* pclsid;
-	public uint32 cPropertySets;
-	public uint ulColumnSize;
-	public DBID dbcid;
-	public uint16 wType;
-	public uint8 bPrecision;
-	public uint8 bScale;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBCOLUMNACCESS
-{
-	public void* pData;
-	public DBID columnid;
-	public uint cbDataLen;
-	public uint32 dwStatus;
-	public uint cbMaxLen;
-	public uint dwReserved;
-	public uint16 wType;
-	public uint8 bPrecision;
-	public uint8 bScale;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBCONSTRAINTDESC
-{
-	public DBID* pConstraintID;
-	public uint32 ConstraintType;
-	public uint cColumns;
-	public DBID* rgColumnList;
-	public DBID* pReferencedTableID;
-	public uint cForeignKeyColumns;
-	public DBID* rgForeignKeyColumnList;
-	public PWSTR pwszConstraintText;
-	public uint32 UpdateRule;
-	public uint32 DeleteRule;
-	public uint32 MatchType;
-	public uint32 Deferrability;
-	public uint cReserved;
-	public DBPROPSET* rgReserved;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct MDAXISINFO
-{
-	public uint cbSize;
-	public uint iAxis;
-	public uint cDimensions;
-	public uint cCoordinates;
-	public uint* rgcColumns;
-	public PWSTR* rgpwszDimensionNames;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct RMTPACK
-{
-	public ISequentialStream* pISeqStream;
-	public uint32 cbData;
-	public uint32 cBSTR;
-	public BSTR* rgBSTR;
-	public uint32 cVARIANT;
-	public VARIANT* rgVARIANT;
-	public uint32 cIDISPATCH;
-	public IDispatch** rgIDISPATCH;
-	public uint32 cIUNKNOWN;
-	public IUnknown** rgIUNKNOWN;
-	public uint32 cPROPVARIANT;
-	public PROPVARIANT* rgPROPVARIANT;
-	public uint32 cArray;
-	public VARIANT* rgArray;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBPARAMBINDINFO
-{
-	public PWSTR pwszDataSourceType;
-	public PWSTR pwszName;
-	public uint ulParamSize;
-	public uint32 dwFlags;
-	public uint8 bPrecision;
-	public uint8 bScale;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBLITERALINFO
-{
-	public PWSTR pwszLiteralValue;
-	public PWSTR pwszInvalidChars;
-	public PWSTR pwszInvalidStartingChars;
-	public uint32 lt;
-	public BOOL fSupported;
-	public uint32 cchMaxLen;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct ERRORINFO
-{
-	public HRESULT hrError;
-	public uint32 dwMinor;
-	public Guid clsid;
-	public Guid iid;
-	public int32 dispid;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct tagDBROWWATCHRANGE
-{
-	public uint hRegion;
-	public uint32 eChangeKind;
-	public uint hRow;
-	public uint iRow;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(2)]
-public struct DBCOST
-{
-	public uint32 eKind;
-	public uint32 dwUnits;
-	public int32 lValue;
-}
-#endif
 
 #endregion
 
@@ -6724,20 +6739,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hAccessor, uint32* pcRefCount) AddRefAccessor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAccessorFlags, uint cBindings, DBBINDING* rgBindings, uint cbRowSize, uint* phAccessor, uint32* rgStatus) CreateAccessor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hAccessor, uint32* pdwAccessorFlags, uint* pcBindings, DBBINDING** prgBindings) GetBindings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hAccessor, uint32* pcRefCount) ReleaseAccessor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HACCESSOR hAccessor, uint32* pcRefCount) AddRefAccessor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAccessorFlags, uint cBindings, DBBINDING* rgBindings, uint cbRowSize, HACCESSOR* phAccessor, uint32* rgStatus) CreateAccessor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HACCESSOR hAccessor, uint32* pdwAccessorFlags, uint* pcBindings, DBBINDING** prgBindings) GetBindings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HACCESSOR hAccessor, uint32* pcRefCount) ReleaseAccessor;
 	}
 
 
-	public HRESULT AddRefAccessor(uint hAccessor, uint32* pcRefCount) mut => VT.[Friend]AddRefAccessor(&this, hAccessor, pcRefCount);
+	public HRESULT AddRefAccessor(HACCESSOR hAccessor, uint32* pcRefCount) mut => VT.[Friend]AddRefAccessor(&this, hAccessor, pcRefCount);
 
-	public HRESULT CreateAccessor(uint32 dwAccessorFlags, uint cBindings, DBBINDING* rgBindings, uint cbRowSize, uint* phAccessor, uint32* rgStatus) mut => VT.[Friend]CreateAccessor(&this, dwAccessorFlags, cBindings, rgBindings, cbRowSize, phAccessor, rgStatus);
+	public HRESULT CreateAccessor(uint32 dwAccessorFlags, uint cBindings, DBBINDING* rgBindings, uint cbRowSize, HACCESSOR* phAccessor, uint32* rgStatus) mut => VT.[Friend]CreateAccessor(&this, dwAccessorFlags, cBindings, rgBindings, cbRowSize, phAccessor, rgStatus);
 
-	public HRESULT GetBindings(uint hAccessor, uint32* pdwAccessorFlags, uint* pcBindings, DBBINDING** prgBindings) mut => VT.[Friend]GetBindings(&this, hAccessor, pdwAccessorFlags, pcBindings, prgBindings);
+	public HRESULT GetBindings(HACCESSOR hAccessor, uint32* pdwAccessorFlags, uint* pcBindings, DBBINDING** prgBindings) mut => VT.[Friend]GetBindings(&this, hAccessor, pdwAccessorFlags, pcBindings, prgBindings);
 
-	public HRESULT ReleaseAccessor(uint hAccessor, uint32* pcRefCount) mut => VT.[Friend]ReleaseAccessor(&this, hAccessor, pcRefCount);
+	public HRESULT ReleaseAccessor(HACCESSOR hAccessor, uint32* pcRefCount) mut => VT.[Friend]ReleaseAccessor(&this, hAccessor, pcRefCount);
 }
 
 [CRepr]struct IRowset : IUnknown
@@ -6749,7 +6764,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cRows, uint* rghRows, uint32* rgRefCounts, uint32* rgRowStatus) AddRefRows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, HACCESSOR hAccessor, void* pData) GetData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) GetNextRows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cRows, uint* rghRows, uint32* rgRowOptions, uint32* rgRefCounts, uint32* rgRowStatus) ReleaseRows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved) RestartPosition;
@@ -6758,7 +6773,7 @@ public static
 
 	public HRESULT AddRefRows(uint cRows, uint* rghRows, uint32* rgRefCounts, uint32* rgRowStatus) mut => VT.[Friend]AddRefRows(&this, cRows, rghRows, rgRefCounts, rgRowStatus);
 
-	public HRESULT GetData(uint hRow, uint hAccessor, void* pData) mut => VT.[Friend]GetData(&this, hRow, hAccessor, pData);
+	public HRESULT GetData(uint hRow, HACCESSOR hAccessor, void* pData) mut => VT.[Friend]GetData(&this, hRow, hAccessor, pData);
 
 	public HRESULT GetNextRows(uint hReserved, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) mut => VT.[Friend]GetNextRows(&this, hReserved, lRowsOffset, cRows, pcRowsObtained, prghRows);
 
@@ -6820,12 +6835,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) GetVisibleData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, HACCESSOR hAccessor, void* pData) GetVisibleData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cRows, uint* rghRows, uint* pcRowsResynched, uint** prghRowsResynched, uint32** prgRowStatus) ResynchRows;
 	}
 
 
-	public HRESULT GetVisibleData(uint hRow, uint hAccessor, void* pData) mut => VT.[Friend]GetVisibleData(&this, hRow, hAccessor, pData);
+	public HRESULT GetVisibleData(uint hRow, HACCESSOR hAccessor, void* pData) mut => VT.[Friend]GetVisibleData(&this, hRow, hAccessor, pData);
 
 	public HRESULT ResynchRows(uint cRows, uint* rghRows, uint* pcRowsResynched, uint** prghRowsResynched, uint32** prgRowStatus) mut => VT.[Friend]ResynchRows(&this, cRows, rghRows, pcRowsResynched, prghRowsResynched, prgRowStatus);
 }
@@ -6874,11 +6889,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint hAccessor, void* pFindValue, uint32 CompareOp, uint cbBookmark, uint8* pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) FindNextRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, HACCESSOR hAccessor, void* pFindValue, uint32 CompareOp, uint cbBookmark, uint8* pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) FindNextRow;
 	}
 
 
-	public HRESULT FindNextRow(uint hChapter, uint hAccessor, void* pFindValue, uint32 CompareOp, uint cbBookmark, uint8* pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) mut => VT.[Friend]FindNextRow(&this, hChapter, hAccessor, pFindValue, CompareOp, cbBookmark, pBookmark, lRowsOffset, cRows, pcRowsObtained, prghRows);
+	public HRESULT FindNextRow(uint hChapter, HACCESSOR hAccessor, void* pFindValue, uint32 CompareOp, uint cbBookmark, uint8* pBookmark, int lRowsOffset, int cRows, uint* pcRowsObtained, uint** prghRows) mut => VT.[Friend]FindNextRow(&this, hChapter, hAccessor, pFindValue, CompareOp, cbBookmark, pBookmark, lRowsOffset, cRows, pcRowsObtained, prghRows);
 }
 
 [CRepr]struct IRowPosition : IUnknown
@@ -6985,17 +7000,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hAccessor, uint* pcRows, uint32** pCompareOps, void* pCriteriaData) GetFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HACCESSOR hAccessor, uint* pcRows, uint32** pCompareOps, void* pCriteriaData) GetFilter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* pcBindings, DBBINDING** prgBindings) GetFilterBindings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hAccessor, uint cRows, uint32* CompareOps, void* pCriteriaData) SetFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HACCESSOR hAccessor, uint cRows, uint32* CompareOps, void* pCriteriaData) SetFilter;
 	}
 
 
-	public HRESULT GetFilter(uint hAccessor, uint* pcRows, uint32** pCompareOps, void* pCriteriaData) mut => VT.[Friend]GetFilter(&this, hAccessor, pcRows, pCompareOps, pCriteriaData);
+	public HRESULT GetFilter(HACCESSOR hAccessor, uint* pcRows, uint32** pCompareOps, void* pCriteriaData) mut => VT.[Friend]GetFilter(&this, hAccessor, pcRows, pCompareOps, pCriteriaData);
 
 	public HRESULT GetFilterBindings(uint* pcBindings, DBBINDING** prgBindings) mut => VT.[Friend]GetFilterBindings(&this, pcBindings, prgBindings);
 
-	public HRESULT SetFilter(uint hAccessor, uint cRows, uint32* CompareOps, void* pCriteriaData) mut => VT.[Friend]SetFilter(&this, hAccessor, cRows, CompareOps, pCriteriaData);
+	public HRESULT SetFilter(HACCESSOR hAccessor, uint cRows, uint32* CompareOps, void* pCriteriaData) mut => VT.[Friend]SetFilter(&this, hAccessor, cRows, CompareOps, pCriteriaData);
 }
 
 [CRepr]struct IRowsetView : IUnknown
@@ -7025,16 +7040,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, uint* rghRows, uint32* rgRowStatus) DeleteRows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) SetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint hAccessor, void* pData, uint* phRow) InsertRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, HACCESSOR hAccessor, void* pData) SetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, HACCESSOR hAccessor, void* pData, uint* phRow) InsertRow;
 	}
 
 
 	public HRESULT DeleteRows(uint hReserved, uint cRows, uint* rghRows, uint32* rgRowStatus) mut => VT.[Friend]DeleteRows(&this, hReserved, cRows, rghRows, rgRowStatus);
 
-	public HRESULT SetData(uint hRow, uint hAccessor, void* pData) mut => VT.[Friend]SetData(&this, hRow, hAccessor, pData);
+	public HRESULT SetData(uint hRow, HACCESSOR hAccessor, void* pData) mut => VT.[Friend]SetData(&this, hRow, hAccessor, pData);
 
-	public HRESULT InsertRow(uint hReserved, uint hAccessor, void* pData, uint* phRow) mut => VT.[Friend]InsertRow(&this, hReserved, hAccessor, pData, phRow);
+	public HRESULT InsertRow(uint hReserved, HACCESSOR hAccessor, void* pData, uint* phRow) mut => VT.[Friend]InsertRow(&this, hReserved, hAccessor, pData, phRow);
 }
 
 [CRepr]struct IRowsetUpdate : IRowsetChange
@@ -7045,7 +7060,7 @@ public static
 
 	[CRepr]public struct VTable : IRowsetChange.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) GetOriginalData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, HACCESSOR hAccessor, void* pData) GetOriginalData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint32 dwRowStatus, uint* pcPendingRows, uint** prgPendingRows, uint32** prgPendingStatus) GetPendingRows;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, uint* rghRows, uint32* rgPendingStatus) GetRowStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hReserved, uint cRows, uint* rghRows, uint* pcRowsUndone, uint** prgRowsUndone, uint32** prgRowStatus) Undo;
@@ -7053,7 +7068,7 @@ public static
 	}
 
 
-	public HRESULT GetOriginalData(uint hRow, uint hAccessor, void* pData) mut => VT.[Friend]GetOriginalData(&this, hRow, hAccessor, pData);
+	public HRESULT GetOriginalData(uint hRow, HACCESSOR hAccessor, void* pData) mut => VT.[Friend]GetOriginalData(&this, hRow, hAccessor, pData);
 
 	public HRESULT GetPendingRows(uint hReserved, uint32 dwRowStatus, uint* pcPendingRows, uint** prgPendingRows, uint32** prgPendingStatus) mut => VT.[Friend]GetPendingRows(&this, hReserved, dwRowStatus, pcPendingRows, prgPendingRows, prgPendingStatus);
 
@@ -7109,16 +7124,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* pcKeyColumns, DBINDEXCOLUMNDESC** prgIndexColumnDesc, uint32* pcIndexPropertySets, DBPROPSET** prgIndexPropertySets) GetIndexInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hAccessor, uint cKeyValues, void* pData, uint32 dwSeekOptions) Seek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hAccessor, uint cStartKeyColumns, void* pStartData, uint cEndKeyColumns, void* pEndData, uint32 dwRangeOptions) SetRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HACCESSOR hAccessor, uint cKeyValues, void* pData, uint32 dwSeekOptions) Seek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HACCESSOR hAccessor, uint cStartKeyColumns, void* pStartData, uint cEndKeyColumns, void* pEndData, uint32 dwRangeOptions) SetRange;
 	}
 
 
 	public HRESULT GetIndexInfo(uint* pcKeyColumns, DBINDEXCOLUMNDESC** prgIndexColumnDesc, uint32* pcIndexPropertySets, DBPROPSET** prgIndexPropertySets) mut => VT.[Friend]GetIndexInfo(&this, pcKeyColumns, prgIndexColumnDesc, pcIndexPropertySets, prgIndexPropertySets);
 
-	public HRESULT Seek(uint hAccessor, uint cKeyValues, void* pData, uint32 dwSeekOptions) mut => VT.[Friend]Seek(&this, hAccessor, cKeyValues, pData, dwSeekOptions);
+	public HRESULT Seek(HACCESSOR hAccessor, uint cKeyValues, void* pData, uint32 dwSeekOptions) mut => VT.[Friend]Seek(&this, hAccessor, cKeyValues, pData, dwSeekOptions);
 
-	public HRESULT SetRange(uint hAccessor, uint cStartKeyColumns, void* pStartData, uint cEndKeyColumns, void* pEndData, uint32 dwRangeOptions) mut => VT.[Friend]SetRange(&this, hAccessor, cStartKeyColumns, pStartData, cEndKeyColumns, pEndData, dwRangeOptions);
+	public HRESULT SetRange(HACCESSOR hAccessor, uint cStartKeyColumns, void* pStartData, uint cEndKeyColumns, void* pEndData, uint32 dwRangeOptions) mut => VT.[Friend]SetRange(&this, hAccessor, cStartKeyColumns, pStartData, cEndKeyColumns, pEndData, dwRangeOptions);
 }
 
 [CRepr]struct ICommand : IUnknown
@@ -7552,7 +7567,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cAxes, MDAXISINFO* rgAxisInfo) FreeAxisInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* pcAxes, MDAXISINFO** prgAxisInfo) GetAxisInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkOuter, uint iAxis, in Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) GetAxisRowset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hAccessor, uint ulStartCell, uint ulEndCell, void* pData) GetCellData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HACCESSOR hAccessor, uint ulStartCell, uint ulEndCell, void* pData) GetCellData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, in Guid riid, IUnknown** ppSpecification) GetSpecification;
 	}
 
@@ -7563,7 +7578,7 @@ public static
 
 	public HRESULT GetAxisRowset(IUnknown* pUnkOuter, uint iAxis, in Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]GetAxisRowset(&this, pUnkOuter, iAxis, riid, cPropertySets, rgPropertySets, ppRowset);
 
-	public HRESULT GetCellData(uint hAccessor, uint ulStartCell, uint ulEndCell, void* pData) mut => VT.[Friend]GetCellData(&this, hAccessor, ulStartCell, ulEndCell, pData);
+	public HRESULT GetCellData(HACCESSOR hAccessor, uint ulStartCell, uint ulEndCell, void* pData) mut => VT.[Friend]GetCellData(&this, hAccessor, ulStartCell, ulEndCell, pData);
 
 	public HRESULT GetSpecification(in Guid riid, IUnknown** ppSpecification) mut => VT.[Friend]GetSpecification(&this, riid, ppSpecification);
 }
@@ -7682,13 +7697,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint cRows, uint* rghRows, BOOL fOverWrite, uint* pcRowsRefreshed, uint** prghRowsRefreshed, uint32** prgRowStatus) RefreshVisibleData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, uint hAccessor, void* pData) GetLastVisibleData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRow, HACCESSOR hAccessor, void* pData) GetLastVisibleData;
 	}
 
 
 	public HRESULT RefreshVisibleData(uint hChapter, uint cRows, uint* rghRows, BOOL fOverWrite, uint* pcRowsRefreshed, uint** prghRowsRefreshed, uint32** prgRowStatus) mut => VT.[Friend]RefreshVisibleData(&this, hChapter, cRows, rghRows, fOverWrite, pcRowsRefreshed, prghRowsRefreshed, prgRowStatus);
 
-	public HRESULT GetLastVisibleData(uint hRow, uint hAccessor, void* pData) mut => VT.[Friend]GetLastVisibleData(&this, hRow, hAccessor, pData);
+	public HRESULT GetLastVisibleData(uint hRow, HACCESSOR hAccessor, void* pData) mut => VT.[Friend]GetLastVisibleData(&this, hRow, hAccessor, pData);
 }
 
 [CRepr]struct IParentRowset : IUnknown
@@ -9829,16 +9844,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* phwndParent) get_hWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 hwndParent) put_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* phwndParent) get_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent) put_hWnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppADOConnection) PromptNew;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppADOConnection, int16* pbSuccess) PromptEdit;
 	}
 
 
-	public HRESULT get_hWnd(int64* phwndParent) mut => VT.[Friend]get_hWnd(&this, phwndParent);
+	public HRESULT get_hWnd(HWND* phwndParent) mut => VT.[Friend]get_hWnd(&this, phwndParent);
 
-	public HRESULT put_hWnd(int64 hwndParent) mut => VT.[Friend]put_hWnd(&this, hwndParent);
+	public HRESULT put_hWnd(HWND hwndParent) mut => VT.[Friend]put_hWnd(&this, hwndParent);
 
 	public HRESULT PromptNew(IDispatch** ppADOConnection) mut => VT.[Friend]PromptNew(&this, ppADOConnection);
 
@@ -9916,11 +9931,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint32 cbbmPrevious, uint8* pbmPrevious, uint hAccessor, uint8* pData, uint* phRow) SetNewDataAfter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint32 cbbmPrevious, uint8* pbmPrevious, HACCESSOR hAccessor, uint8* pData, uint* phRow) SetNewDataAfter;
 	}
 
 
-	public HRESULT SetNewDataAfter(uint hChapter, uint32 cbbmPrevious, uint8* pbmPrevious, uint hAccessor, uint8* pData, uint* phRow) mut => VT.[Friend]SetNewDataAfter(&this, hChapter, cbbmPrevious, pbmPrevious, hAccessor, pData, phRow);
+	public HRESULT SetNewDataAfter(uint hChapter, uint32 cbbmPrevious, uint8* pbmPrevious, HACCESSOR hAccessor, uint8* pData, uint* phRow) mut => VT.[Friend]SetNewDataAfter(&this, hChapter, cbbmPrevious, pbmPrevious, hAccessor, pData, phRow);
 }
 
 [CRepr]struct IRowsetWithParameters : IUnknown
@@ -10022,7 +10037,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRegion, uint32 dwWatchMode) ChangeWatchMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRegion) DeleteWatchRegion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRegion, uint32* pdwWatchMode, uint* phChapter, uint* pcbBookmark, uint8** ppBookmark, int* pcRows) GetWatchRegionInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* pcChangesObtained, tagDBROWWATCHRANGE** prgChanges) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* pcChangesObtained, DBROWWATCHCHANGE** prgChanges) Refresh;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hRegion, uint hChapter, uint cbBookmark, uint8* pBookmark, int cRows) ShrinkWatchRegion;
 	}
 
@@ -10035,7 +10050,7 @@ public static
 
 	public HRESULT GetWatchRegionInfo(uint hRegion, uint32* pdwWatchMode, uint* phChapter, uint* pcbBookmark, uint8** ppBookmark, int* pcRows) mut => VT.[Friend]GetWatchRegionInfo(&this, hRegion, pdwWatchMode, phChapter, pcbBookmark, ppBookmark, pcRows);
 
-	public HRESULT Refresh(uint* pcChangesObtained, tagDBROWWATCHRANGE** prgChanges) mut => VT.[Friend]Refresh(&this, pcChangesObtained, prgChanges);
+	public HRESULT Refresh(uint* pcChangesObtained, DBROWWATCHCHANGE** prgChanges) mut => VT.[Friend]Refresh(&this, pcChangesObtained, prgChanges);
 
 	public HRESULT ShrinkWatchRegion(uint hRegion, uint hChapter, uint cbBookmark, uint8* pBookmark, int cRows) mut => VT.[Friend]ShrinkWatchRegion(&this, hRegion, hChapter, cbBookmark, pBookmark, cRows);
 }
@@ -10072,12 +10087,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint cbBookmark, uint8* pBookmark, int lRowsOffset, uint hAccessor, int cRows, uint* pcRowsObtained, uint8** ppFixedData, uint* pcbVariableTotal, uint8** ppVariableData) ReadData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter, uint cbBookmark, uint8* pBookmark, int lRowsOffset, HACCESSOR hAccessor, int cRows, uint* pcRowsObtained, uint8** ppFixedData, uint* pcbVariableTotal, uint8** ppVariableData) ReadData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hChapter) ReleaseChapter;
 	}
 
 
-	public HRESULT ReadData(uint hChapter, uint cbBookmark, uint8* pBookmark, int lRowsOffset, uint hAccessor, int cRows, uint* pcRowsObtained, uint8** ppFixedData, uint* pcbVariableTotal, uint8** ppVariableData) mut => VT.[Friend]ReadData(&this, hChapter, cbBookmark, pBookmark, lRowsOffset, hAccessor, cRows, pcRowsObtained, ppFixedData, pcbVariableTotal, ppVariableData);
+	public HRESULT ReadData(uint hChapter, uint cbBookmark, uint8* pBookmark, int lRowsOffset, HACCESSOR hAccessor, int cRows, uint* pcRowsObtained, uint8** ppFixedData, uint* pcbVariableTotal, uint8** ppVariableData) mut => VT.[Friend]ReadData(&this, hChapter, cbBookmark, pBookmark, lRowsOffset, hAccessor, cRows, pcRowsObtained, ppFixedData, pcbVariableTotal, ppVariableData);
 
 	public HRESULT ReleaseChapter(uint hChapter) mut => VT.[Friend]ReleaseChapter(&this, hChapter);
 }
@@ -10270,11 +10285,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, tagSSErrorInfo** ppErrorInfo, uint16** ppStringsBuffer) GetErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SSERRORINFO** ppErrorInfo, uint16** ppStringsBuffer) GetErrorInfo;
 	}
 
 
-	public HRESULT GetErrorInfo(tagSSErrorInfo** ppErrorInfo, uint16** ppStringsBuffer) mut => VT.[Friend]GetErrorInfo(&this, ppErrorInfo, ppStringsBuffer);
+	public HRESULT GetErrorInfo(SSERRORINFO** ppErrorInfo, uint16** ppStringsBuffer) mut => VT.[Friend]GetErrorInfo(&this, ppErrorInfo, ppStringsBuffer);
 }
 
 [CRepr]struct IRowsetFastLoad : IUnknown
@@ -10285,12 +10300,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint hAccessor, void* pData) InsertRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HACCESSOR hAccessor, void* pData) InsertRow;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fDone) Commit;
 	}
 
 
-	public HRESULT InsertRow(uint hAccessor, void* pData) mut => VT.[Friend]InsertRow(&this, hAccessor, pData);
+	public HRESULT InsertRow(HACCESSOR hAccessor, void* pData) mut => VT.[Friend]InsertRow(&this, hAccessor, pData);
 
 	public HRESULT Commit(BOOL fDone) mut => VT.[Friend]Commit(&this, fDone);
 }
@@ -10318,6 +10333,156 @@ public static
 #region Functions
 public static
 {
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLBindCol(void* StatementHandle, uint16 ColumnNumber, int16 TargetType, void* TargetValue, int64 BufferLength, int64* StrLen_or_Ind);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLBindParam(void* StatementHandle, uint16 ParameterNumber, int16 ValueType, int16 ParameterType, uint64 LengthPrecision, int16 ParameterScale, void* ParameterValue, int64* StrLen_or_Ind);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLColAttribute(void* StatementHandle, uint16 ColumnNumber, uint16 FieldIdentifier, void* CharacterAttribute, int16 BufferLength, int16* StringLength, int64* NumericAttribute);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLDescribeCol(void* StatementHandle, uint16 ColumnNumber, uint8* ColumnName, int16 BufferLength, int16* NameLength, int16* DataType, uint64* ColumnSize, int16* DecimalDigits, int16* Nullable);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLFetchScroll(void* StatementHandle, int16 FetchOrientation, int64 FetchOffset);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLGetData(void* StatementHandle, uint16 ColumnNumber, int16 TargetType, void* TargetValue, int64 BufferLength, int64* StrLen_or_IndPtr);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLGetDescRec(void* DescriptorHandle, int16 RecNumber, uint8* Name, int16 BufferLength, int16* StringLengthPtr, int16* TypePtr, int16* SubTypePtr, int64* LengthPtr, int16* PrecisionPtr, int16* ScalePtr, int16* NullablePtr);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLPutData(void* StatementHandle, void* Data, int64 StrLen_or_Ind);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLRowCount(void* StatementHandle, int64* RowCount);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLSetConnectOption(void* ConnectionHandle, uint16 Option, uint64 Value);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLSetDescRec(void* DescriptorHandle, int16 RecNumber, int16 Type, int16 SubType, int64 Length, int16 Precision, int16 Scale, void* Data, int64* StringLength, int64* Indicator);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLSetParam(void* StatementHandle, uint16 ParameterNumber, int16 ValueType, int16 ParameterType, uint64 LengthPrecision, int16 ParameterScale, void* ParameterValue, int64* StrLen_or_Ind);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLSetStmtOption(void* StatementHandle, uint16 Option, uint64 Value);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLColAttributes(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int64* pfDesc);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLDescribeParam(void* hstmt, uint16 ipar, int16* pfSqlType, uint64* pcbParamDef, int16* pibScale, int16* pfNullable);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLExtendedFetch(void* hstmt, uint16 fFetchType, int64 irow, uint64* pcrow, uint16* rgfRowStatus);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLParamOptions(void* hstmt, uint64 crow, uint64* pirow);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLSetPos(void* hstmt, uint64 irow, uint16 fOption, uint16 fLock);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLBindParameter(void* hstmt, uint16 ipar, int16 fParamType, int16 fCType, int16 fSqlType, uint64 cbColDef, int16 ibScale, void* rgbValue, int64 cbValueMax, int64* pcbValue);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLSetScrollOptions(void* hstmt, uint16 fConcurrency, int64 crowKeyset, uint16 crowRowset);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLColAttributeW(void* hstmt, uint16 iCol, uint16 iField, void* pCharAttr, int16 cbDescMax, int16* pcbCharAttr, int64* pNumAttr);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLColAttributesW(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int64* pfDesc);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLDescribeColW(void* hstmt, uint16 icol, uint16* szColName, int16 cchColNameMax, int16* pcchColName, int16* pfSqlType, uint64* pcbColDef, int16* pibScale, int16* pfNullable);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLGetDescRecW(void* hdesc, int16 iRecord, uint16* szName, int16 cchNameMax, int16* pcchName, int16* pfType, int16* pfSubType, int64* pLength, int16* pPrecision, int16* pScale, int16* pNullable);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLSetConnectOptionW(void* hdbc, uint16 fOption, uint64 vParam);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLColAttributeA(void* hstmt, int16 iCol, int16 iField, void* pCharAttr, int16 cbCharAttrMax, int16* pcbCharAttr, int64* pNumAttr);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLColAttributesA(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int64* pfDesc);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLDescribeColA(void* hstmt, uint16 icol, uint8* szColName, int16 cbColNameMax, int16* pcbColName, int16* pfSqlType, uint64* pcbColDef, int16* pibScale, int16* pfNullable);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLGetDescRecA(void* hdesc, int16 iRecord, uint8* szName, int16 cbNameMax, int16* pcbName, int16* pfType, int16* pfSubType, int64* pLength, int16* pPrecision, int16* pScale, int16* pNullable);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int16 SQLSetConnectOptionA(void* hdbc, uint16 fOption, uint64 vParam);
+
+#endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLAllocConnect(void* EnvironmentHandle, void** ConnectionHandle);
 
@@ -10330,14 +10495,14 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLAllocStmt(void* ConnectionHandle, void** StatementHandle);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLBindCol(void* StatementHandle, uint16 ColumnNumber, int16 TargetType, void* TargetValue, int64 BufferLength, int64* StrLen_or_Ind);
+	public static extern int16 SQLBindCol(void* StatementHandle, uint16 ColumnNumber, int16 TargetType, void* TargetValue, int32 BufferLength, int32* StrLen_or_Ind);
 
 #endif
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLBindParam(void* StatementHandle, uint16 ParameterNumber, int16 ValueType, int16 ParameterType, uint64 LengthPrecision, int16 ParameterScale, void* ParameterValue, int64* StrLen_or_Ind);
+	public static extern int16 SQLBindParam(void* StatementHandle, uint16 ParameterNumber, int16 ValueType, int16 ParameterType, uint32 LengthPrecision, int16 ParameterScale, void* ParameterValue, int32* StrLen_or_Ind);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10349,9 +10514,9 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLCloseCursor(void* StatementHandle);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttribute(void* StatementHandle, uint16 ColumnNumber, uint16 FieldIdentifier, void* CharacterAttribute, int16 BufferLength, int16* StringLength, int64* NumericAttribute);
+	public static extern int16 SQLColAttribute(void* StatementHandle, uint16 ColumnNumber, uint16 FieldIdentifier, void* CharacterAttribute, int16 BufferLength, int16* StringLength, void* NumericAttribute);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10369,9 +10534,9 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLDataSources(void* EnvironmentHandle, uint16 Direction, uint8* ServerName, int16 BufferLength1, int16* NameLength1Ptr, uint8* Description, int16 BufferLength2, int16* NameLength2Ptr);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLDescribeCol(void* StatementHandle, uint16 ColumnNumber, uint8* ColumnName, int16 BufferLength, int16* NameLength, int16* DataType, uint64* ColumnSize, int16* DecimalDigits, int16* Nullable);
+	public static extern int16 SQLDescribeCol(void* StatementHandle, uint16 ColumnNumber, uint8* ColumnName, int16 BufferLength, int16* NameLength, int16* DataType, uint32* ColumnSize, int16* DecimalDigits, int16* Nullable);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10392,9 +10557,9 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLFetch(void* StatementHandle);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLFetchScroll(void* StatementHandle, int16 FetchOrientation, int64 FetchOffset);
+	public static extern int16 SQLFetchScroll(void* StatementHandle, int16 FetchOrientation, int32 FetchOffset);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10418,17 +10583,17 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLGetCursorName(void* StatementHandle, uint8* CursorName, int16 BufferLength, int16* NameLengthPtr);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLGetData(void* StatementHandle, uint16 ColumnNumber, int16 TargetType, void* TargetValue, int64 BufferLength, int64* StrLen_or_IndPtr);
+	public static extern int16 SQLGetData(void* StatementHandle, uint16 ColumnNumber, int16 TargetType, void* TargetValue, int32 BufferLength, int32* StrLen_or_IndPtr);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLGetDescField(void* DescriptorHandle, int16 RecNumber, int16 FieldIdentifier, void* Value, int32 BufferLength, int32* StringLength);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLGetDescRec(void* DescriptorHandle, int16 RecNumber, uint8* Name, int16 BufferLength, int16* StringLengthPtr, int16* TypePtr, int16* SubTypePtr, int64* LengthPtr, int16* PrecisionPtr, int16* ScalePtr, int16* NullablePtr);
+	public static extern int16 SQLGetDescRec(void* DescriptorHandle, int16 RecNumber, uint8* Name, int16 BufferLength, int16* StringLengthPtr, int16* TypePtr, int16* SubTypePtr, int32* LengthPtr, int16* PrecisionPtr, int16* ScalePtr, int16* NullablePtr);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10464,22 +10629,22 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLPrepare(void* StatementHandle, uint8* StatementText, int32 TextLength);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLPutData(void* StatementHandle, void* Data, int64 StrLen_or_Ind);
+	public static extern int16 SQLPutData(void* StatementHandle, void* Data, int32 StrLen_or_Ind);
 
 #endif
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLRowCount(void* StatementHandle, int64* RowCount);
+	public static extern int16 SQLRowCount(void* StatementHandle, int32* RowCount);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLSetConnectAttr(void* ConnectionHandle, int32 Attribute, void* Value, int32 StringLength);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetConnectOption(void* ConnectionHandle, uint16 Option, uint64 Value);
+	public static extern int16 SQLSetConnectOption(void* ConnectionHandle, uint16 Option, uint32 Value);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10488,25 +10653,25 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLSetDescField(void* DescriptorHandle, int16 RecNumber, int16 FieldIdentifier, void* Value, int32 BufferLength);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetDescRec(void* DescriptorHandle, int16 RecNumber, int16 Type, int16 SubType, int64 Length, int16 Precision, int16 Scale, void* Data, int64* StringLength, int64* Indicator);
+	public static extern int16 SQLSetDescRec(void* DescriptorHandle, int16 RecNumber, int16 Type, int16 SubType, int32 Length, int16 Precision, int16 Scale, void* Data, int32* StringLength, int32* Indicator);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLSetEnvAttr(void* EnvironmentHandle, int32 Attribute, void* Value, int32 StringLength);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetParam(void* StatementHandle, uint16 ParameterNumber, int16 ValueType, int16 ParameterType, uint64 LengthPrecision, int16 ParameterScale, void* ParameterValue, int64* StrLen_or_Ind);
+	public static extern int16 SQLSetParam(void* StatementHandle, uint16 ParameterNumber, int16 ValueType, int16 ParameterType, uint32 LengthPrecision, int16 ParameterScale, void* ParameterValue, int32* StrLen_or_Ind);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLSetStmtAttr(void* StatementHandle, int32 Attribute, void* Value, int32 StringLength);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetStmtOption(void* StatementHandle, uint16 Option, uint64 Value);
+	public static extern int16 SQLSetStmtOption(void* StatementHandle, uint16 Option, uint32 Value);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10616,22 +10781,22 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLBulkOperations(void* StatementHandle, int16 Operation);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributes(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int64* pfDesc);
+	public static extern int16 SQLColAttributes(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int32* pfDesc);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLColumnPrivileges(void* hstmt, uint8* szCatalogName, int16 cchCatalogName, uint8* szSchemaName, int16 cchSchemaName, uint8* szTableName, int16 cchTableName, uint8* szColumnName, int16 cchColumnName);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLDescribeParam(void* hstmt, uint16 ipar, int16* pfSqlType, uint64* pcbParamDef, int16* pibScale, int16* pfNullable);
+	public static extern int16 SQLDescribeParam(void* hstmt, uint16 ipar, int16* pfSqlType, uint32* pcbParamDef, int16* pibScale, int16* pfNullable);
 
 #endif
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLExtendedFetch(void* hstmt, uint16 fFetchType, int64 irow, uint64* pcrow, uint16* rgfRowStatus);
+	public static extern int16 SQLExtendedFetch(void* hstmt, uint16 fFetchType, int32 irow, uint32* pcrow, uint16* rgfRowStatus);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10646,9 +10811,9 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLNumParams(void* hstmt, int16* pcpar);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLParamOptions(void* hstmt, uint64 crow, uint64* pirow);
+	public static extern int16 SQLParamOptions(void* hstmt, uint32 crow, uint32* pirow);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10660,9 +10825,9 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLProcedures(void* hstmt, uint8* szCatalogName, int16 cchCatalogName, uint8* szSchemaName, int16 cchSchemaName, uint8* szProcName, int16 cchProcName);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetPos(void* hstmt, uint64 irow, uint16 fOption, uint16 fLock);
+	public static extern int16 SQLSetPos(void* hstmt, uint16 irow, uint16 fOption, uint16 fLock);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10671,17 +10836,17 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLDrivers(void* henv, uint16 fDirection, uint8* szDriverDesc, int16 cchDriverDescMax, int16* pcchDriverDesc, uint8* szDriverAttributes, int16 cchDrvrAttrMax, int16* pcchDrvrAttr);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLBindParameter(void* hstmt, uint16 ipar, int16 fParamType, int16 fCType, int16 fSqlType, uint64 cbColDef, int16 ibScale, void* rgbValue, int64 cbValueMax, int64* pcbValue);
+	public static extern int16 SQLBindParameter(void* hstmt, uint16 ipar, int16 fParamType, int16 fCType, int16 fSqlType, uint32 cbColDef, int16 ibScale, void* rgbValue, int32 cbValueMax, int32* pcbValue);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLAllocHandleStd(int16 fHandleType, void* hInput, void** phOutput);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetScrollOptions(void* hstmt, uint16 fConcurrency, int64 crowKeyset, uint16 crowRowset);
+	public static extern int16 SQLSetScrollOptions(void* hstmt, uint16 fConcurrency, int32 crowKeyset, uint16 crowRowset);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10690,22 +10855,22 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ODBCGetTryWaitValue();
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributeW(void* hstmt, uint16 iCol, uint16 iField, void* pCharAttr, int16 cbDescMax, int16* pcbCharAttr, int64* pNumAttr);
+	public static extern int16 SQLColAttributeW(void* hstmt, uint16 iCol, uint16 iField, void* pCharAttr, int16 cbDescMax, int16* pcbCharAttr, void* pNumAttr);
 
 #endif
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributesW(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int64* pfDesc);
+	public static extern int16 SQLColAttributesW(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int32* pfDesc);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLConnectW(void* hdbc, uint16* szDSN, int16 cchDSN, uint16* szUID, int16 cchUID, uint16* szAuthStr, int16 cchAuthStr);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLDescribeColW(void* hstmt, uint16 icol, uint16* szColName, int16 cchColNameMax, int16* pcchColName, int16* pfSqlType, uint64* pcbColDef, int16* pibScale, int16* pfNullable);
+	public static extern int16 SQLDescribeColW(void* hstmt, uint16 icol, uint16* szColName, int16 cchColNameMax, int16* pcchColName, int16* pfSqlType, uint32* pcbColDef, int16* pibScale, int16* pfNullable);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10726,9 +10891,9 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLGetDescFieldW(void* hdesc, int16 iRecord, int16 iField, void* rgbValue, int32 cbBufferLength, int32* StringLength);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLGetDescRecW(void* hdesc, int16 iRecord, uint16* szName, int16 cchNameMax, int16* pcchName, int16* pfType, int16* pfSubType, int64* pLength, int16* pPrecision, int16* pScale, int16* pNullable);
+	public static extern int16 SQLGetDescRecW(void* hdesc, int16 iRecord, uint16* szName, int16 cchNameMax, int16* pcchName, int16* pfType, int16* pfSubType, int32* pLength, int16* pPrecision, int16* pScale, int16* pNullable);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10758,9 +10923,9 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLGetTypeInfoW(void* StatementHandle, int16 DataType);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetConnectOptionW(void* hdbc, uint16 fOption, uint64 vParam);
+	public static extern int16 SQLSetConnectOptionW(void* hdbc, uint16 fOption, uint32 vParam);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10811,22 +10976,22 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLDriversW(void* henv, uint16 fDirection, uint16* szDriverDesc, int16 cchDriverDescMax, int16* pcchDriverDesc, uint16* szDriverAttributes, int16 cchDrvrAttrMax, int16* pcchDrvrAttr);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributeA(void* hstmt, int16 iCol, int16 iField, void* pCharAttr, int16 cbCharAttrMax, int16* pcbCharAttr, int64* pNumAttr);
+	public static extern int16 SQLColAttributeA(void* hstmt, int16 iCol, int16 iField, void* pCharAttr, int16 cbCharAttrMax, int16* pcbCharAttr, void* pNumAttr);
 
 #endif
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributesA(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int64* pfDesc);
+	public static extern int16 SQLColAttributesA(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int32* pfDesc);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLConnectA(void* hdbc, uint8* szDSN, int16 cbDSN, uint8* szUID, int16 cbUID, uint8* szAuthStr, int16 cbAuthStr);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLDescribeColA(void* hstmt, uint16 icol, uint8* szColName, int16 cbColNameMax, int16* pcbColName, int16* pfSqlType, uint64* pcbColDef, int16* pibScale, int16* pfNullable);
+	public static extern int16 SQLDescribeColA(void* hstmt, uint16 icol, uint8* szColName, int16 cbColNameMax, int16* pcbColName, int16* pfSqlType, uint32* pcbColDef, int16* pibScale, int16* pfNullable);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10844,9 +11009,9 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLGetDescFieldA(void* hdesc, int16 iRecord, int16 iField, void* rgbValue, int32 cbBufferLength, int32* StringLength);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLGetDescRecA(void* hdesc, int16 iRecord, uint8* szName, int16 cbNameMax, int16* pcbName, int16* pfType, int16* pfSubType, int64* pLength, int16* pPrecision, int16* pScale, int16* pNullable);
+	public static extern int16 SQLGetDescRecA(void* hdesc, int16 iRecord, uint8* szName, int16 cbNameMax, int16* pcbName, int16* pfType, int16* pfSubType, int32* pLength, int16* pPrecision, int16* pScale, int16* pNullable);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10879,9 +11044,9 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLGetInfoA(void* hdbc, uint16 fInfoType, void* rgbInfoValue, int16 cbInfoValueMax, int16* pcbInfoValue);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetConnectOptionA(void* hdbc, uint16 fOption, uint64 vParam);
+	public static extern int16 SQLSetConnectOptionA(void* hdbc, uint16 fOption, uint32 vParam);
 
 #endif
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -10926,155 +11091,5 @@ public static
 	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLDriversA(void* henv, uint16 fDirection, uint8* szDriverDesc, int16 cbDriverDescMax, int16* pcbDriverDesc, uint8* szDriverAttributes, int16 cbDrvrAttrMax, int16* pcbDrvrAttr);
 
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLBindCol(void* StatementHandle, uint16 ColumnNumber, int16 TargetType, void* TargetValue, int32 BufferLength, int32* StrLen_or_Ind);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLBindParam(void* StatementHandle, uint16 ParameterNumber, int16 ValueType, int16 ParameterType, uint32 LengthPrecision, int16 ParameterScale, void* ParameterValue, int32* StrLen_or_Ind);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttribute(void* StatementHandle, uint16 ColumnNumber, uint16 FieldIdentifier, void* CharacterAttribute, int16 BufferLength, int16* StringLength, void* NumericAttribute);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLDescribeCol(void* StatementHandle, uint16 ColumnNumber, uint8* ColumnName, int16 BufferLength, int16* NameLength, int16* DataType, uint32* ColumnSize, int16* DecimalDigits, int16* Nullable);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLFetchScroll(void* StatementHandle, int16 FetchOrientation, int32 FetchOffset);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLGetData(void* StatementHandle, uint16 ColumnNumber, int16 TargetType, void* TargetValue, int32 BufferLength, int32* StrLen_or_IndPtr);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLGetDescRec(void* DescriptorHandle, int16 RecNumber, uint8* Name, int16 BufferLength, int16* StringLengthPtr, int16* TypePtr, int16* SubTypePtr, int32* LengthPtr, int16* PrecisionPtr, int16* ScalePtr, int16* NullablePtr);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLPutData(void* StatementHandle, void* Data, int32 StrLen_or_Ind);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLRowCount(void* StatementHandle, int32* RowCount);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetConnectOption(void* ConnectionHandle, uint16 Option, uint32 Value);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetDescRec(void* DescriptorHandle, int16 RecNumber, int16 Type, int16 SubType, int32 Length, int16 Precision, int16 Scale, void* Data, int32* StringLength, int32* Indicator);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetParam(void* StatementHandle, uint16 ParameterNumber, int16 ValueType, int16 ParameterType, uint32 LengthPrecision, int16 ParameterScale, void* ParameterValue, int32* StrLen_or_Ind);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetStmtOption(void* StatementHandle, uint16 Option, uint32 Value);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributes(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int32* pfDesc);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLDescribeParam(void* hstmt, uint16 ipar, int16* pfSqlType, uint32* pcbParamDef, int16* pibScale, int16* pfNullable);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLExtendedFetch(void* hstmt, uint16 fFetchType, int32 irow, uint32* pcrow, uint16* rgfRowStatus);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLParamOptions(void* hstmt, uint32 crow, uint32* pirow);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetPos(void* hstmt, uint16 irow, uint16 fOption, uint16 fLock);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLBindParameter(void* hstmt, uint16 ipar, int16 fParamType, int16 fCType, int16 fSqlType, uint32 cbColDef, int16 ibScale, void* rgbValue, int32 cbValueMax, int32* pcbValue);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetScrollOptions(void* hstmt, uint16 fConcurrency, int32 crowKeyset, uint16 crowRowset);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributeW(void* hstmt, uint16 iCol, uint16 iField, void* pCharAttr, int16 cbDescMax, int16* pcbCharAttr, void* pNumAttr);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributesW(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int32* pfDesc);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLDescribeColW(void* hstmt, uint16 icol, uint16* szColName, int16 cchColNameMax, int16* pcchColName, int16* pfSqlType, uint32* pcbColDef, int16* pibScale, int16* pfNullable);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLGetDescRecW(void* hdesc, int16 iRecord, uint16* szName, int16 cchNameMax, int16* pcchName, int16* pfType, int16* pfSubType, int32* pLength, int16* pPrecision, int16* pScale, int16* pNullable);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetConnectOptionW(void* hdbc, uint16 fOption, uint32 vParam);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributeA(void* hstmt, int16 iCol, int16 iField, void* pCharAttr, int16 cbCharAttrMax, int16* pcbCharAttr, void* pNumAttr);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLColAttributesA(void* hstmt, uint16 icol, uint16 fDescType, void* rgbDesc, int16 cbDescMax, int16* pcbDesc, int32* pfDesc);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLDescribeColA(void* hstmt, uint16 icol, uint8* szColName, int16 cbColNameMax, int16* pcbColName, int16* pfSqlType, uint32* pcbColDef, int16* pibScale, int16* pfNullable);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLGetDescRecA(void* hdesc, int16 iRecord, uint8* szName, int16 cbNameMax, int16* pcbName, int16* pfType, int16* pfSubType, int32* pLength, int16* pPrecision, int16* pScale, int16* pNullable);
-
-#endif
-#if BF_32_BIT
-	[Import("ODBC32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int16 SQLSetConnectOptionA(void* hdbc, uint16 fOption, uint32 vParam);
-
-#endif
 }
 #endregion

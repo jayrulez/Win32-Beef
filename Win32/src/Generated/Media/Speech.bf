@@ -10,6 +10,54 @@ namespace Win32.Media.Speech;
 #region Constants
 public static
 {
+	public const String SPDUI_EngineProperties = "EngineProperties";
+	public const String SPDUI_AddRemoveWord = "AddRemoveWord";
+	public const String SPDUI_UserTraining = "UserTraining";
+	public const String SPDUI_MicTraining = "MicTraining";
+	public const String SPDUI_RecoProfileProperties = "RecoProfileProperties";
+	public const String SPDUI_AudioProperties = "AudioProperties";
+	public const String SPDUI_AudioVolume = "AudioVolume";
+	public const String SPDUI_UserEnrollment = "UserEnrollment";
+	public const String SPDUI_ShareData = "ShareData";
+	public const String SPDUI_Tutorial = "Tutorial";
+	public const String SPREG_USER_ROOT = "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech";
+	public const String SPREG_LOCAL_MACHINE_ROOT = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech";
+	public const String SPCAT_AUDIOOUT = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\AudioOutput";
+	public const String SPCAT_AUDIOIN = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\AudioInput";
+	public const String SPCAT_VOICES = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices";
+	public const String SPCAT_RECOGNIZERS = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Recognizers";
+	public const String SPCAT_APPLEXICONS = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\AppLexicons";
+	public const String SPCAT_PHONECONVERTERS = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\PhoneConverters";
+	public const String SPCAT_TEXTNORMALIZERS = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\TextNormalizers";
+	public const String SPCAT_RECOPROFILES = "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech\RecoProfiles";
+	public const String SPMMSYS_AUDIO_IN_TOKEN_ID = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\AudioInput\TokenEnums\MMAudioIn\";
+	public const String SPMMSYS_AUDIO_OUT_TOKEN_ID = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\AudioOutput\TokenEnums\MMAudioOut\";
+	public const String SPCURRENT_USER_LEXICON_TOKEN_ID = "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech\CurrentUserLexicon";
+	public const String SPCURRENT_USER_SHORTCUT_TOKEN_ID = "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech\CurrentUserShortcut";
+	public const String SPTOKENVALUE_CLSID = "CLSID";
+	public const String SPTOKENKEY_FILES = "Files";
+	public const String SPTOKENKEY_UI = "UI";
+	public const String SPTOKENKEY_ATTRIBUTES = "Attributes";
+	public const String SPTOKENKEY_RETAINEDAUDIO = "SecondsPerRetainedAudioEvent";
+	public const String SPTOKENKEY_AUDIO_LATENCY_WARNING = "LatencyWarningThreshold";
+	public const String SPTOKENKEY_AUDIO_LATENCY_TRUNCATE = "LatencyTruncateThreshold";
+	public const String SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL = "LatencyUpdateInterval";
+	public const String SPVOICECATEGORY_TTSRATE = "DefaultTTSRate";
+	public const String SPPROP_RESOURCE_USAGE = "ResourceUsage";
+	public const String SPPROP_HIGH_CONFIDENCE_THRESHOLD = "HighConfidenceThreshold";
+	public const String SPPROP_NORMAL_CONFIDENCE_THRESHOLD = "NormalConfidenceThreshold";
+	public const String SPPROP_LOW_CONFIDENCE_THRESHOLD = "LowConfidenceThreshold";
+	public const String SPPROP_RESPONSE_SPEED = "ResponseSpeed";
+	public const String SPPROP_COMPLEX_RESPONSE_SPEED = "ComplexResponseSpeed";
+	public const String SPPROP_ADAPTATION_ON = "AdaptationOn";
+	public const String SPPROP_PERSISTED_BACKGROUND_ADAPTATION = "PersistedBackgroundAdaptation";
+	public const String SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION = "PersistedLanguageModelAdaptation";
+	public const String SPPROP_UX_IS_LISTENING = "UXIsListening";
+	public const String SPTOPIC_SPELLING = "Spelling";
+	public const String SPWILDCARD = "...";
+	public const String SPDICTATION = "*";
+	public const String SPINFDICTATION = "*+";
+	public const String SPREG_SAFE_USER_TOKENS = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\UserTokens";
 	public const int32 SP_LOW_CONFIDENCE = -1;
 	public const uint32 SP_NORMAL_CONFIDENCE = 0;
 	public const uint32 DEFAULT_WEIGHT = 1;
@@ -20,6 +68,9 @@ public static
 	public const int32 SP_STREAMPOS_REALTIME = -1;
 	public const uint32 SPRP_NORMAL = 0;
 	public const uint32 SP_MAX_LANGIDS = 20;
+	public const String SPRECOEXTENSION = "RecoExtension";
+	public const String SPALTERNATESCLSID = "AlternatesCLSID";
+	public const String SR_LOCALIZED_DESCRIPTION = "Description";
 	public const uint32 SAPI_ERROR_BASE = 20480;
 	public const float Speech_Default_Weight = 1f;
 	public const int32 Speech_Max_Word_Length = 128;
@@ -259,7 +310,7 @@ public enum SPAUDIOSTATE : int32
 
 
 [AllowDuplicates]
-public enum SPDISPLYATTRIBUTES : int32
+public enum SPDISPLAYATTRIBUTES : int32
 {
 	SPAF_ONE_TRAILING_SPACE = 2,
 	SPAF_TWO_TRAILING_SPACES = 4,
@@ -634,7 +685,7 @@ public enum SPADAPTATIONRELEVANCE : int32
 
 
 [AllowDuplicates]
-public enum SPWAVEFORMATTYPE : int32
+public enum SPSTREAMFORMATTYPE : int32
 {
 	SPWF_INPUT = 0,
 	SPWF_SRENGINE = 1,
@@ -1952,7 +2003,7 @@ public struct SPPHRASE_50
 [CRepr]
 public struct SPPHRASE
 {
-	public SPPHRASE_50 __AnonymousBase_sapi53_L5821_C34;
+	public SPPHRASE_50 Base;
 	public PWSTR pSML;
 	public SPSEMANTICERRORINFO* pSemanticErrorInfo;
 }
@@ -3455,7 +3506,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRECOSTATE* pState) GetRecoState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRECOSTATE NewState) SetRecoState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPRECOGNIZERSTATUS* pStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPWAVEFORMATTYPE WaveFormatType, Guid* pFormatId, WAVEFORMATEX** ppCoMemWFEX) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPSTREAMFORMATTYPE WaveFormatType, Guid* pFormatId, WAVEFORMATEX** ppCoMemWFEX) GetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, BOOL* pfSupported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR pszTitle, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData) DisplayUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpPhrase* pPhrase) EmulateRecognition;
@@ -3486,7 +3537,7 @@ public static
 
 	public HRESULT GetStatus(SPRECOGNIZERSTATUS* pStatus) mut => VT.[Friend]GetStatus(&this, pStatus);
 
-	public HRESULT GetFormat(SPWAVEFORMATTYPE WaveFormatType, Guid* pFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetFormat(&this, WaveFormatType, pFormatId, ppCoMemWFEX);
+	public HRESULT GetFormat(SPSTREAMFORMATTYPE WaveFormatType, Guid* pFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetFormat(&this, WaveFormatType, pFormatId, ppCoMemWFEX);
 
 	public HRESULT IsUISupported(PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, BOOL* pfSupported) mut => VT.[Friend]IsUISupported(&this, pszTypeOfUI, pvExtraData, cbExtraData, pfSupported);
 
@@ -3635,7 +3686,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkOuter, SpeechTokenContext ClsContext, IUnknown** Object) CreateInstance;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ObjectStorageCLSID) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ObjectStorageCLSID, BSTR KeyName, BSTR FileName, SpeechTokenShellFolder Folder, BSTR* FilePath) GetStorageFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ObjectStorageCLSID, BSTR KeyName, int16 DeleteFileA) RemoveStorageFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ObjectStorageCLSID, BSTR KeyName, int16 DeleteFile) RemoveStorageFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TypeOfUI, VARIANT* ExtraData, IUnknown* Object, int16* Supported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 hWnd, BSTR Title, BSTR TypeOfUI, VARIANT* ExtraData, IUnknown* Object) DisplayUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Attributes, int16* Matches) MatchesAttributes;
@@ -3660,7 +3711,7 @@ public static
 
 	public HRESULT GetStorageFileName(BSTR ObjectStorageCLSID, BSTR KeyName, BSTR FileName, SpeechTokenShellFolder Folder, BSTR* FilePath) mut => VT.[Friend]GetStorageFileName(&this, ObjectStorageCLSID, KeyName, FileName, Folder, FilePath);
 
-	public HRESULT RemoveStorageFileName(BSTR ObjectStorageCLSID, BSTR KeyName, int16 DeleteFileA) mut => VT.[Friend]RemoveStorageFileName(&this, ObjectStorageCLSID, KeyName, DeleteFileA);
+	public HRESULT RemoveStorageFileName(BSTR ObjectStorageCLSID, BSTR KeyName, int16 DeleteFile) mut => VT.[Friend]RemoveStorageFileName(&this, ObjectStorageCLSID, KeyName, DeleteFile);
 
 	public HRESULT IsUISupported(BSTR TypeOfUI, VARIANT* ExtraData, IUnknown* Object, int16* Supported) mut => VT.[Friend]IsUISupported(&this, TypeOfUI, ExtraData, Object, Supported);
 

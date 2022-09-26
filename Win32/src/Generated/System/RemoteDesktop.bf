@@ -218,6 +218,7 @@ public static
 	public const uint32 RENDER_HINT_CLEAR = 0;
 	public const uint32 RENDER_HINT_VIDEO = 1;
 	public const uint32 RENDER_HINT_MAPPEDWINDOW = 2;
+	public const String WTS_PROPERTY_DEFAULT_CONFIG = "DefaultConfig";
 	public const uint32 TS_VC_LISTENER_STATIC_CHANNEL = 1;
 	public const uint32 WRdsGraphicsChannels_LossyChannelMaxMessageSize = 988;
 	public const uint32 RFX_RDP_MSG_PREFIX = 0;
@@ -1173,14 +1174,14 @@ public struct WTSCLIENTA
 }
 
 [CRepr]
-public struct _WTS_PRODUCT_INFOA
+public struct PRODUCT_INFOA
 {
 	public CHAR[256] CompanyName;
 	public CHAR[4] ProductID;
 }
 
 [CRepr]
-public struct _WTS_PRODUCT_INFOW
+public struct PRODUCT_INFOW
 {
 	public char16[256] CompanyName;
 	public char16[4] ProductID;
@@ -1189,7 +1190,7 @@ public struct _WTS_PRODUCT_INFOW
 [CRepr]
 public struct WTS_VALIDATION_INFORMATIONA
 {
-	public _WTS_PRODUCT_INFOA ProductInfo;
+	public PRODUCT_INFOA ProductInfo;
 	public uint8[16384] License;
 	public uint32 LicenseLength;
 	public uint8[20] HardwareID;
@@ -1199,7 +1200,7 @@ public struct WTS_VALIDATION_INFORMATIONA
 [CRepr]
 public struct WTS_VALIDATION_INFORMATIONW
 {
-	public _WTS_PRODUCT_INFOW ProductInfo;
+	public PRODUCT_INFOW ProductInfo;
 	public uint8[16384] License;
 	public uint32 LicenseLength;
 	public uint8[20] HardwareID;
@@ -4767,18 +4768,18 @@ public static
 	public static BOOL WTSCreateListener(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, WTSLISTENERCONFIGA* pBuffer, uint32 flag) => WTSCreateListenerA(hServer, pReserved, Reserved, pListenerName, pBuffer, flag);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WTSSetListenerSecurityW(HANDLE hServer, void* pReserved, uint32 Reserved, PWSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
+	public static extern BOOL WTSSetListenerSecurityW(HANDLE hServer, void* pReserved, uint32 Reserved, PWSTR pListenerName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR pSecurityDescriptor);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WTSSetListenerSecurityA(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
-	public static BOOL WTSSetListenerSecurity(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor) => WTSSetListenerSecurityA(hServer, pReserved, Reserved, pListenerName, SecurityInformation, pSecurityDescriptor);
+	public static extern BOOL WTSSetListenerSecurityA(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR pSecurityDescriptor);
+	public static BOOL WTSSetListenerSecurity(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR pSecurityDescriptor) => WTSSetListenerSecurityA(hServer, pReserved, Reserved, pListenerName, SecurityInformation, pSecurityDescriptor);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WTSGetListenerSecurityW(HANDLE hServer, void* pReserved, uint32 Reserved, PWSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded);
+	public static extern BOOL WTSGetListenerSecurityW(HANDLE hServer, void* pReserved, uint32 Reserved, PWSTR pListenerName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WTSGetListenerSecurityA(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded);
-	public static BOOL WTSGetListenerSecurity(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded) => WTSGetListenerSecurityA(hServer, pReserved, Reserved, pListenerName, SecurityInformation, pSecurityDescriptor, nLength, lpnLengthNeeded);
+	public static extern BOOL WTSGetListenerSecurityA(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded);
+	public static BOOL WTSGetListenerSecurity(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded) => WTSGetListenerSecurityA(hServer, pReserved, Reserved, pListenerName, SecurityInformation, pSecurityDescriptor, nLength, lpnLengthNeeded);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnableChildSessions(BOOL bEnable);

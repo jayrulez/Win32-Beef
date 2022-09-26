@@ -1,5 +1,4 @@
 using Win32.Networking.WinSock;
-using Win32.NetworkManagement.WindowsFilteringPlatform;
 using Win32.Foundation;
 using Win32.System.IO;
 using System;

@@ -1,5 +1,5 @@
-using Win32.Foundation;
 using Win32.Networking.WinSock;
+using Win32.Foundation;
 using System;
 
 namespace Win32.Networking.WinHttp;
@@ -662,11 +662,61 @@ public enum WINHTTP_WEB_SOCKET_CLOSE_STATUS : int32
 #region Function Pointers
 public function void WINHTTP_STATUS_CALLBACK(void* hInternet, uint dwContext, uint32 dwInternetStatus, void* lpvStatusInformation, uint32 dwStatusInformationLength);
 
-public function void LPWINHTTP_STATUS_CALLBACK();
-
 #endregion
 
 #region Structs
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct WINHTTP_CONNECTION_INFO
+{
+	public uint32 cbSize;
+	public SOCKADDR_STORAGE LocalAddress;
+	public SOCKADDR_STORAGE RemoteAddress;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct WINHTTP_REQUEST_TIMES
+{
+	public uint32 cTimes;
+	public uint64[64] rgullTimes;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct WINHTTP_REQUEST_STATS
+{
+	public uint64 ullFlags;
+	public uint32 ulIndex;
+	public uint32 cStats;
+	public uint64[32] rgullStats;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct WINHTTP_MATCH_CONNECTION_GUID
+{
+	public Guid ConnectionGuid;
+	public uint64 ullFlags;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct WINHTTP_RESOLVER_CACHE_CONFIG
+{
+	public uint32 ulMaxResolverCacheEntries;
+	public uint32 ulMaxCacheEntryAge;
+	public uint32 ulMinCacheEntryTtl;
+	public WINHTTP_SECURE_DNS_SETTING SecureDnsSetting;
+	public uint64 ullConnResolutionWaitTime;
+	public uint64 ullFlags;
+}
+#endif
+
 [CRepr]
 public struct WINHTTP_ASYNC_RESULT
 {
@@ -747,7 +797,7 @@ public struct WINHTTP_PROXY_RESULT_EX
 }
 
 [CRepr]
-public struct _WinHttpProxyNetworkKey
+public struct WINHTTP_PROXY_NETWORKING_KEY
 {
 	public uint8[128] pbBuffer;
 }
@@ -770,7 +820,7 @@ public struct WINHTTP_PROXY_SETTINGS
 	public uint32 dwDetectedInterfaceIpCount;
 	public uint32* pdwDetectedInterfaceIp;
 	public uint32 cNetworkKeys;
-	public _WinHttpProxyNetworkKey* pNetworkKeys;
+	public WINHTTP_PROXY_NETWORKING_KEY* pNetworkKeys;
 }
 
 [CRepr]
@@ -786,8 +836,8 @@ public struct WINHTTP_CERTIFICATE_INFO
 	public uint32 dwKeySize;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct WINHTTP_CONNECTION_INFO
 {
 	public uint32 cbSize;
@@ -796,8 +846,8 @@ public struct WINHTTP_CONNECTION_INFO
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct WINHTTP_REQUEST_TIMES
 {
 	public uint32 cTimes;
@@ -805,8 +855,8 @@ public struct WINHTTP_REQUEST_TIMES
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct WINHTTP_REQUEST_STATS
 {
 	public uint64 ullFlags;
@@ -816,8 +866,8 @@ public struct WINHTTP_REQUEST_STATS
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct WINHTTP_MATCH_CONNECTION_GUID
 {
 	public Guid ConnectionGuid;
@@ -851,8 +901,8 @@ public struct WINHTTP_HEADER_NAME
 	public PSTR pszName;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct WINHTTP_RESOLVER_CACHE_CONFIG
 {
 	public uint32 ulMaxResolverCacheEntries;
@@ -945,58 +995,6 @@ public struct WINHTTP_WEB_SOCKET_STATUS
 	public uint32 dwBytesTransferred;
 	public WINHTTP_WEB_SOCKET_BUFFER_TYPE eBufferType;
 }
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct WINHTTP_CONNECTION_INFO
-{
-	public uint32 cbSize;
-	public SOCKADDR_STORAGE LocalAddress;
-	public SOCKADDR_STORAGE RemoteAddress;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct WINHTTP_REQUEST_TIMES
-{
-	public uint32 cTimes;
-	public uint64[64] rgullTimes;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct WINHTTP_REQUEST_STATS
-{
-	public uint64 ullFlags;
-	public uint32 ulIndex;
-	public uint32 cStats;
-	public uint64[32] rgullStats;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct WINHTTP_MATCH_CONNECTION_GUID
-{
-	public Guid ConnectionGuid;
-	public uint64 ullFlags;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct WINHTTP_RESOLVER_CACHE_CONFIG
-{
-	public uint32 ulMaxResolverCacheEntries;
-	public uint32 ulMaxCacheEntryAge;
-	public uint32 ulMinCacheEntryTtl;
-	public WINHTTP_SECURE_DNS_SETTING SecureDnsSetting;
-	public uint64 ullConnResolutionWaitTime;
-	public uint64 ullFlags;
-}
-#endif
 
 #endregion
 

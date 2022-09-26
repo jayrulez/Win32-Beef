@@ -17,7 +17,7 @@ public static
 #region Enums
 
 [AllowDuplicates]
-public enum GETPROPERTYSTOREFLAGS : int32
+public enum GETPROPERTYSTOREFLAGS : uint32
 {
 	GPS_DEFAULT = 0,
 	GPS_HANDLERPROPERTIESONLY = 1,
@@ -38,7 +38,7 @@ public enum GETPROPERTYSTOREFLAGS : int32
 
 
 [AllowDuplicates]
-public enum PKA_FLAGS : int32
+public enum PKA_FLAGS : uint32
 {
 	PKA_SET = 0,
 	PKA_APPEND = 1,
@@ -67,7 +67,7 @@ public enum PROPENUMTYPE : int32
 
 
 [AllowDuplicates]
-public enum PROPDESC_TYPE_FLAGS : int32
+public enum PROPDESC_TYPE_FLAGS : uint32
 {
 	PDTF_DEFAULT = 0,
 	PDTF_MULTIPLEVALUES = 1,
@@ -83,13 +83,13 @@ public enum PROPDESC_TYPE_FLAGS : int32
 	PDTF_SEARCHRAWVALUE = 1024,
 	PDTF_DONTCOERCEEMPTYSTRINGS = 2048,
 	PDTF_ALWAYSINSUPPLEMENTALSTORE = 4096,
-	PDTF_ISSYSTEMPROPERTY = -2147483648,
-	PDTF_MASK_ALL = -2147475457,
+	PDTF_ISSYSTEMPROPERTY = 2147483648,
+	PDTF_MASK_ALL = 2147491839,
 }
 
 
 [AllowDuplicates]
-public enum PROPDESC_VIEW_FLAGS : int32
+public enum PROPDESC_VIEW_FLAGS : uint32
 {
 	PDVF_DEFAULT = 0,
 	PDVF_CENTERALIGN = 1,
@@ -133,7 +133,7 @@ public enum PROPDESC_GROUPING_RANGE : int32
 
 
 [AllowDuplicates]
-public enum PROPDESC_FORMAT_FLAGS : int32
+public enum PROPDESC_FORMAT_FLAGS : uint32
 {
 	PDFF_DEFAULT = 0,
 	PDFF_PREFIXNAME = 1,
@@ -208,7 +208,7 @@ public enum PROPDESC_CONDITION_TYPE : int32
 
 
 [AllowDuplicates]
-public enum PROPDESC_SEARCHINFO_FLAGS : int32
+public enum PROPDESC_SEARCHINFO_FLAGS : uint32
 {
 	PDSIF_DEFAULT = 0,
 	PDSIF_ININVERTEDINDEX = 1,
@@ -254,7 +254,7 @@ public enum _PERSIST_SPROPSTORE_FLAGS : int32
 
 
 [AllowDuplicates]
-public enum PSTIME_FLAGS : int32
+public enum PSTIME_FLAGS : uint32
 {
 	PSTF_UTC = 0,
 	PSTF_LOCAL = 1,
@@ -275,7 +275,7 @@ public enum PROPVAR_COMPARE_UNIT : int32
 
 
 [AllowDuplicates]
-public enum PROPVAR_COMPARE_FLAGS : int32
+public enum PROPVAR_COMPARE_FLAGS : uint32
 {
 	PVCF_DEFAULT = 0,
 	PVCF_TREATEMPTYASGREATERTHAN = 1,
@@ -288,7 +288,7 @@ public enum PROPVAR_COMPARE_FLAGS : int32
 
 
 [AllowDuplicates]
-public enum PROPVAR_CHANGE_FLAGS : int32
+public enum PROPVAR_CHANGE_FLAGS : uint32
 {
 	PVCHF_DEFAULT = 0,
 	PVCHF_NOVALUEPROP = 1,
@@ -300,7 +300,7 @@ public enum PROPVAR_CHANGE_FLAGS : int32
 
 
 [AllowDuplicates]
-public enum DRAWPROGRESSFLAGS : int32
+public enum DRAWPROGRESSFLAGS : uint32
 {
 	DPF_NONE = 0,
 	DPF_MARQUEE = 1,
@@ -312,7 +312,7 @@ public enum DRAWPROGRESSFLAGS : int32
 
 
 [AllowDuplicates]
-public enum SYNC_TRANSFER_STATUS : int32
+public enum SYNC_TRANSFER_STATUS : uint32
 {
 	STS_NONE = 0,
 	STS_NEEDSUPLOAD = 1,
@@ -330,7 +330,7 @@ public enum SYNC_TRANSFER_STATUS : int32
 
 
 [AllowDuplicates]
-public enum PLACEHOLDER_STATES : int32
+public enum PLACEHOLDER_STATES : uint32
 {
 	PS_NONE = 0,
 	PS_MARKED_FOR_OFFLINE_AVAILABILITY = 1,
@@ -343,7 +343,7 @@ public enum PLACEHOLDER_STATES : int32
 
 
 [AllowDuplicates]
-public enum PROPERTYUI_NAME_FLAGS : int32
+public enum PROPERTYUI_NAME_FLAGS : uint32
 {
 	PUIFNF_DEFAULT = 0,
 	PUIFNF_MNEMONIC = 1,
@@ -351,7 +351,7 @@ public enum PROPERTYUI_NAME_FLAGS : int32
 
 
 [AllowDuplicates]
-public enum PROPERTYUI_FLAGS : int32
+public enum PROPERTYUI_FLAGS : uint32
 {
 	PUIF_DEFAULT = 0,
 	PUIF_RIGHTALIGN = 1,
@@ -360,7 +360,7 @@ public enum PROPERTYUI_FLAGS : int32
 
 
 [AllowDuplicates]
-public enum PROPERTYUI_FORMAT_FLAGS : int32
+public enum PROPERTYUI_FORMAT_FLAGS : uint32
 {
 	PUIFFDF_DEFAULT = 0,
 	PUIFFDF_RIGHTTOLEFT = 1,
@@ -382,7 +382,7 @@ public enum PDOPSTATUS : int32
 
 
 [AllowDuplicates]
-public enum SYNC_ENGINE_STATE_FLAGS : int32
+public enum SYNC_ENGINE_STATE_FLAGS : uint32
 {
 	SESF_NONE = 0,
 	SESF_SERVICE_QUOTA_NEARING_LIMIT = 1,
@@ -1150,7 +1150,7 @@ public static
 	public static extern HRESULT PSGetNamedPropertyFromPropertyStorage(SERIALIZEDPROPSTORAGE* psps, uint32 cb, PWSTR pszName, PROPVARIANT* ppropvar);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PSPropertyBag_ReadType(IPropertyBag* propBag, PWSTR propName, VARIANT* @var, uint16 type);
+	public static extern HRESULT PSPropertyBag_ReadType(IPropertyBag* propBag, PWSTR propName, VARIANT* @var, VARENUM type);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PSPropertyBag_ReadStr(IPropertyBag* propBag, PWSTR propName, char16* value, int32 characterCount);
@@ -1477,7 +1477,7 @@ public static
 	public static extern int32 PropVariantCompareEx(PROPVARIANT* propvar1, PROPVARIANT* propvar2, PROPVAR_COMPARE_UNIT unit, PROPVAR_COMPARE_FLAGS flags);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PropVariantChangeType(PROPVARIANT* ppropvarDest, PROPVARIANT* propvarSrc, PROPVAR_CHANGE_FLAGS flags, uint16 vt);
+	public static extern HRESULT PropVariantChangeType(PROPVARIANT* ppropvarDest, PROPVARIANT* propvarSrc, PROPVAR_CHANGE_FLAGS flags, VARENUM vt);
 
 	[Import("PROPSYS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PropVariantToVariant(PROPVARIANT* pPropVar, VARIANT* pVar);

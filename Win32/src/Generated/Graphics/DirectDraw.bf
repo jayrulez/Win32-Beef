@@ -16,6 +16,9 @@ public static
 	public const int32 DDENUM_ATTACHEDSECONDARYDEVICES = 1;
 	public const int32 DDENUM_DETACHEDSECONDARYDEVICES = 2;
 	public const int32 DDENUM_NONDISPLAYDEVICES = 4;
+	public const String REGSTR_KEY_DDHW_DESCRIPTION = "Description";
+	public const String REGSTR_KEY_DDHW_DRIVERNAME = "DriverName";
+	public const String REGSTR_PATH_DDHW = "Hardware\DirectDrawDrivers";
 	public const int32 DDCREATE_HARDWAREONLY = 1;
 	public const int32 DDCREATE_EMULATIONONLY = 2;
 	public const uint32 MAX_DDDEVICEID_STRING = 512;
@@ -499,6 +502,8 @@ public static
 	public const uint32 DDGET32BITDRIVERNAME = 11;
 	public const uint32 DDNEWCALLBACKFNS = 12;
 	public const uint32 DDVERSIONINFO = 13;
+	public const String DDHAL_DRIVER_DLLNAME = "DDRAW16.DLL";
+	public const String DDHAL_APP_DLLNAME = "DDRAW.DLL";
 	public const uint32 CCHDEVICENAME = 32;
 	public const uint32 MAX_DRIVER_NAME = 32;
 	public const uint32 MAX_PALETTE_SIZE = 256;
@@ -1934,21 +1939,6 @@ public struct DDCOLORCONTROL
 }
 
 [CRepr]
-public struct IDDVideoPortContainerVtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawVideoPortVtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawVideoPortNotifyVtbl
-{
-}
-
-[CRepr]
 public struct DDVIDEOPORTCONNECT
 {
 	public uint32 dwSize;
@@ -2187,81 +2177,6 @@ public struct DDMONITORINFO
 	public int32 ModeReserved1;
 	public int32 ModeReserved2;
 	public int32 ModeReserved3;
-}
-
-[CRepr]
-public struct IDirectDrawClipperVtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawPaletteVtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawSurfaceVtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawSurface2Vtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawSurface3Vtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawSurface4Vtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawSurface7Vtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawColorControlVtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawVtbl
-{
-}
-
-[CRepr]
-public struct IDirectDraw2Vtbl
-{
-}
-
-[CRepr]
-public struct IDirectDraw4Vtbl
-{
-}
-
-[CRepr]
-public struct IDirectDraw7Vtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawKernelVtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawSurfaceKernelVtbl
-{
-}
-
-[CRepr]
-public struct IDirectDrawGammaControlVtbl
-{
 }
 
 [CRepr]
