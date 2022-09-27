@@ -9,8 +9,8 @@ namespace Win32.Security.Cryptography.Certificates;
 #region Constants
 public static
 {
-	public const String wszREGKEYNOSYSTEMCERTSVCPATH = "CurrentControlSet\Services\CertSvc";
-	public const String wszREGKEYCERTSVCPATH = "SYSTEM\CurrentControlSet\Services\CertSvc";
+	public const String wszREGKEYNOSYSTEMCERTSVCPATH = "CurrentControlSet\\Services\\CertSvc";
+	public const String wszREGKEYCERTSVCPATH = "SYSTEM\\CurrentControlSet\\Services\\CertSvc";
 	public const uint32 CA_DISP_INCOMPLETE = 0;
 	public const uint32 CA_DISP_ERROR = 1;
 	public const uint32 CA_DISP_REVOKED = 2;
@@ -206,7 +206,7 @@ public static
 	public const uint32 CMM_READONLY = 2;
 	public const uint32 DBG_CERTSRV = 1;
 	public const String wszSERVICE_NAME = "CertSvc";
-	public const String wszREGKEYBASE = "SYSTEM\CurrentControlSet\Services\CertSvc";
+	public const String wszREGKEYBASE = "SYSTEM\\CurrentControlSet\\Services\\CertSvc";
 	public const String wszREGKEYCONFIG = "Configuration";
 	public const String wszREGACTIVE = "Active";
 	public const String wszREGDIRECTORY = "ConfigurationDirectory";
@@ -421,7 +421,7 @@ public static
 	public const String wszREGKEYEXITMODULES = "ExitModules";
 	public const String wszREGKEYPOLICYMODULES = "PolicyModules";
 	public const String wszSECUREDATTRIBUTES = "SignedAttributes";
-	public const String wszzDEFAULTSIGNEDATTRIBUTES = "RequesterName ";
+	public const String wszzDEFAULTSIGNEDATTRIBUTES = "RequesterName\u{0000}";
 	public const String wszREGBACKUPLOGDIRECTORY = "BackupLogDirectory";
 	public const String wszREGCHECKPOINTFILE = "CheckPointFile";
 	public const String wszREGHIGHLOGNUMBER = "HighLogNumber";
@@ -450,8 +450,7 @@ public static
 	public const String wszCNGHASHALGORITHM = "CNGHashAlgorithm";
 	public const String wszCNGENCRYPTIONALGORITHM = "CNGEncryptionAlgorithm";
 	public const String wszREGALTERNATESIGNATUREALGORITHM = "AlternateSignatureAlgorithm";
-	public const String szNAMESEPARATORDEFAULT = "
-";
+	public const String szNAMESEPARATORDEFAULT = "\n";
 	public const String wszPERIODYEARS = "Years";
 	public const String wszPERIODMONTHS = "Months";
 	public const String wszPERIODWEEKS = "Weeks";
@@ -689,8 +688,8 @@ public static
 	public const String wszREGEXITBODYFORMAT = "BodyFormat";
 	public const String wszREGEXITBODYARG = "BodyArg";
 	public const String wszREGEXITPROPNOTFOUND = "???";
-	public const String wszREGKEYENROLLMENT = "Software\Microsoft\Cryptography\AutoEnrollment";
-	public const String wszREGKEYGROUPPOLICYENROLLMENT = "Software\Policies\Microsoft\Cryptography\AutoEnrollment";
+	public const String wszREGKEYENROLLMENT = "Software\\Microsoft\\Cryptography\\AutoEnrollment";
+	public const String wszREGKEYGROUPPOLICYENROLLMENT = "Software\\Policies\\Microsoft\\Cryptography\\AutoEnrollment";
 	public const String wszREGMAXPENDINGREQUESTDAYS = "MaxPendingRequestDays";
 	public const String wszREGAELOGLEVEL_OLD = "AEEventLogLevel";
 	public const String wszREGENROLLFLAGS = "EnrollFlags";

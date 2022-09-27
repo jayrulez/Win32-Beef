@@ -11,7 +11,7 @@ public static
 	public const Guid ScsiRawInterfaceGuid = .(0x53f56309, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
 	public const Guid WmiScsiAddressGuid = .(0x53f5630f, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
 	public const uint32 FILE_DEVICE_SCSI = 27;
-	public const String DD_SCSI_DEVICE_NAME = "\Device\ScsiPort";
+	public const String DD_SCSI_DEVICE_NAME = "\\Device\\ScsiPort";
 	public const uint32 IOCTL_SCSI_PASS_THROUGH = 315396;
 	public const uint32 IOCTL_SCSI_MINIPORT = 315400;
 	public const uint32 IOCTL_SCSI_GET_INQUIRY_DATA = 266252;

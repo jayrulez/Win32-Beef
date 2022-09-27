@@ -1422,7 +1422,7 @@ public static
 	public const uint32 VIEW_PRIORITY_SHELLEXT_ASBACKUP = 21;
 	public const uint32 VIEW_PRIORITY_DESPERATE = 16;
 	public const uint32 VIEW_PRIORITY_NONE = 0;
-	public const String VOLUME_PREFIX = "\\?\Volume";
+	public const String VOLUME_PREFIX = "\\\\?\\Volume";
 	public const uint32 PATHCCH_MAX_CCH = 32768;
 	public const uint32 IDS_DESCRIPTION = 1;
 	public const uint32 ID_APP = 100;

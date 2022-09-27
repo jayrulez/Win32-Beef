@@ -1988,12 +1988,9 @@ public static
 	public const uint32 IMAGE_REL_BASED_ARM_MOV32 = 5;
 	public const uint32 IMAGE_REL_BASED_THUMB_MOV32 = 7;
 	public const uint32 IMAGE_ARCHIVE_START_SIZE = 8;
-	public const String IMAGE_ARCHIVE_START = "!<arch>
-";
-	public const String IMAGE_ARCHIVE_END = "`
-";
-	public const String IMAGE_ARCHIVE_PAD = "
-";
+	public const String IMAGE_ARCHIVE_START = "!<arch>\n";
+	public const String IMAGE_ARCHIVE_END = "`\n";
+	public const String IMAGE_ARCHIVE_PAD = "\n";
 	public const String IMAGE_ARCHIVE_LINKER_MEMBER = "/               ";
 	public const String IMAGE_ARCHIVE_LONGNAMES_MEMBER = "//              ";
 	public const String IMAGE_ARCHIVE_HYBRIDMAP_MEMBER = "/<HYBRIDMAP>/   ";
@@ -2214,10 +2211,10 @@ public static
 	public const uint32 PERFORMANCE_DATA_VERSION = 1;
 	public const uint32 READ_THREAD_PROFILING_FLAG_DISPATCHING = 1;
 	public const uint32 READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS = 2;
-	public const String UNIFIEDBUILDREVISION_KEY = "\Registry\Machine\Software\Microsoft\Windows NT\CurrentVersion";
+	public const String UNIFIEDBUILDREVISION_KEY = "\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion";
 	public const String UNIFIEDBUILDREVISION_VALUE = "UBR";
 	public const uint32 UNIFIEDBUILDREVISION_MIN = 0;
-	public const String DEVICEFAMILYDEVICEFORM_KEY = "\Registry\Machine\Software\Microsoft\Windows NT\CurrentVersion\OEM";
+	public const String DEVICEFAMILYDEVICEFORM_KEY = "\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM";
 	public const String DEVICEFAMILYDEVICEFORM_VALUE = "DeviceForm";
 	public const uint32 DLL_PROCESS_ATTACH = 1;
 	public const uint32 DLL_THREAD_ATTACH = 2;

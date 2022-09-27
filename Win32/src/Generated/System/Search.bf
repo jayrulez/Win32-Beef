@@ -1477,7 +1477,7 @@ public static
 	public const uint32 SQL_OPT_TRACE_OFF = 0;
 	public const uint32 SQL_OPT_TRACE_ON = 1;
 	public const uint32 SQL_OPT_TRACE_DEFAULT = 0;
-	public const String SQL_OPT_TRACE_FILE_DEFAULT = "\SQL.LOG";
+	public const String SQL_OPT_TRACE_FILE_DEFAULT = "\\SQL.LOG";
 	public const uint32 SQL_CUR_USE_IF_NEEDED = 0;
 	public const uint32 SQL_CUR_USE_ODBC = 1;
 	public const uint32 SQL_CUR_USE_DRIVER = 2;

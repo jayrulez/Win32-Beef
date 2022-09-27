@@ -139,7 +139,7 @@ public static
 	public const uint32 BITMAP_ARRAY_BYTE = 3;
 	public const uint32 BITMAP_PLANES = 1;
 	public const uint32 BITMAP_BITS_PIXEL = 1;
-	public const String DD_FULLSCREEN_VIDEO_DEVICE_NAME = "\Device\FSVideo";
+	public const String DD_FULLSCREEN_VIDEO_DEVICE_NAME = "\\Device\\FSVideo";
 	public const uint32 VIDEO_REASON_NONE = 0;
 	public const uint32 VIDEO_REASON_POLICY1 = 1;
 	public const uint32 VIDEO_REASON_POLICY2 = 2;

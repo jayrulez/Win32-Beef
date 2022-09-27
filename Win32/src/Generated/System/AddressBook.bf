@@ -60,7 +60,7 @@ public static
 	public const uint32 WAB_CONTEXT_ADRLIST = 2;
 	public const uint32 WAB_DISPLAY_ISNTDS = 4;
 	public const String WAB_DLL_NAME = "WAB32.DLL";
-	public const String WAB_DLL_PATH_KEY = "Software\Microsoft\WAB\DLLPath";
+	public const String WAB_DLL_PATH_KEY = "Software\\Microsoft\\WAB\\DLLPath";
 	public const HRESULT E_IMAPI_REQUEST_CANCELLED = -1062600702;
 	public const HRESULT E_IMAPI_RECORDER_REQUIRED = -1062600701;
 	public const HRESULT S_IMAPI_SPEEDADJUSTED = 11141124;

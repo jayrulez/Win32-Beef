@@ -318,7 +318,7 @@ public static
 	public const Guid GUID_QOS_ENABLE_AVG_STATS = .(0xbafb6d11, 0x27c4, 0x4801, 0xa4, 0x6f, 0xef, 0x80, 0x80, 0xc1, 0x88, 0xc8);
 	public const Guid GUID_QOS_ENABLE_WINDOW_ADJUSTMENT = .(0xaa966725, 0xd3e9, 0x4c55, 0xb3, 0x35, 0x2a, 0x00, 0x27, 0x9a, 0x1e, 0x64);
 	public const uint32 FSCTL_TCP_BASE = 18;
-	public const String DD_TCP_DEVICE_NAME = "\Device\Tcp";
+	public const String DD_TCP_DEVICE_NAME = "\\Device\\Tcp";
 	public const uint32 IF_MIB_STATS_ID = 1;
 	public const uint32 IP_MIB_STATS_ID = 1;
 	public const uint32 IP_MIB_ADDRTABLE_ENTRY_ID = 258;

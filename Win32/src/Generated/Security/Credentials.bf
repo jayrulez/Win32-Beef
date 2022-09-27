@@ -145,10 +145,10 @@ public static
 	public const uint32 CRED_UNPROTECT_AS_SELF = 1;
 	public const uint32 CRED_UNPROTECT_ALLOW_TO_SYSTEM = 2;
 	public const uint32 SCARD_SCOPE_TERMINAL = 1;
-	public const String SCARD_ALL_READERS = "SCard$AllReaders 00";
-	public const String SCARD_DEFAULT_READERS = "SCard$DefaultReaders 00";
-	public const String SCARD_LOCAL_READERS = "SCard$LocalReaders 00";
-	public const String SCARD_SYSTEM_READERS = "SCard$SystemReaders 00";
+	public const String SCARD_ALL_READERS = "SCard$AllReaders\u{0000}00";
+	public const String SCARD_DEFAULT_READERS = "SCard$DefaultReaders\u{0000}00";
+	public const String SCARD_LOCAL_READERS = "SCard$LocalReaders\u{0000}00";
+	public const String SCARD_SYSTEM_READERS = "SCard$SystemReaders\u{0000}00";
 	public const uint32 SCARD_PROVIDER_PRIMARY = 1;
 	public const uint32 SCARD_PROVIDER_CSP = 2;
 	public const uint32 SCARD_PROVIDER_KSP = 3;

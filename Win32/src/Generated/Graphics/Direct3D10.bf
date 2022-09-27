@@ -262,7 +262,7 @@ public static
 	public const uint32 D3D10_DEBUG_FEATURE_FINISH_PER_RENDER_OP = 2;
 	public const uint32 D3D10_DEBUG_FEATURE_PRESENT_PER_RENDER_OP = 4;
 	public const Guid DXGI_DEBUG_D3D10 = .(0x243b4c52, 0x3606, 0x4d3a, 0x99, 0xd7, 0xa7, 0xe7, 0xb3, 0x3e, 0xd7, 0x06);
-	public const String D3D10_REGKEY_PATH = "Software\Microsoft\Direct3D";
+	public const String D3D10_REGKEY_PATH = "Software\\Microsoft\\Direct3D";
 	public const String D3D10_MUTE_DEBUG_OUTPUT = "MuteDebugOutput";
 	public const String D3D10_ENABLE_BREAK_ON_MESSAGE = "EnableBreakOnMessage";
 	public const String D3D10_INFOQUEUE_STORAGE_FILTER_OVERRIDE = "InfoQueueStorageFilterOverride";

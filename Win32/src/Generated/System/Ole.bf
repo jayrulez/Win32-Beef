@@ -353,7 +353,7 @@ public static
 	public const uint32 IDD_LINKTYPECHANGEDA = 1026;
 	public const uint32 IDD_SERVERNOTREG = 1021;
 	public const uint32 IDD_LINKTYPECHANGED = 1022;
-	public const String OLESTDDELIM = "\";
+	public const String OLESTDDELIM = "\\";
 	public const String SZOLEUI_MSG_HELP = "OLEUI_MSG_HELP";
 	public const String SZOLEUI_MSG_ENDDIALOG = "OLEUI_MSG_ENDDIALOG";
 	public const String SZOLEUI_MSG_BROWSE = "OLEUI_MSG_BROWSE";

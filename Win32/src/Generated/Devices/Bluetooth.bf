@@ -562,11 +562,11 @@ public static
 	public const String STR_ADDR_FMTW = "(%02x:%02x:%02x:%02x:%02x:%02x)";
 	public const String STR_ADDR_SHORT_FMTA = "%04x%08x";
 	public const String STR_ADDR_SHORT_FMTW = "%04x%08x";
-	public const String STR_USBHCI_CLASS_HARDWAREIDA = "USB\Class_E0&SubClass_01&Prot_01";
-	public const String STR_USBHCI_CLASS_HARDWAREIDW = "USB\Class_E0&SubClass_01&Prot_01";
+	public const String STR_USBHCI_CLASS_HARDWAREIDA = "USB\\Class_E0&SubClass_01&Prot_01";
+	public const String STR_USBHCI_CLASS_HARDWAREIDW = "USB\\Class_E0&SubClass_01&Prot_01";
 	public const String STR_ADDR_FMT = "(%02x:%02x:%02x:%02x:%02x:%02x)";
 	public const String STR_ADDR_SHORT_FMT = "%04x%08x";
-	public const String STR_USBHCI_CLASS_HARDWAREID = "USB\Class_E0&SubClass_01&Prot_01";
+	public const String STR_USBHCI_CLASS_HARDWAREID = "USB\\Class_E0&SubClass_01&Prot_01";
 	public const uint32 BTH_IOCTL_BASE = 0;
 	public const uint32 SDP_CONNECT_CACHE = 1;
 	public const uint32 SDP_CONNECT_ALLOW_PIN = 2;
@@ -1481,22 +1481,22 @@ public static
 	[Import("BluetoothApis.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 BluetoothRemoveDevice(BLUETOOTH_ADDRESS_STRUCT* pAddress);
 
-	[Import("bthprops.cpl"), CLink, CallingConvention(.Stdcall)]
+	[Import("bthprops.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BluetoothSelectDevices(BLUETOOTH_SELECT_DEVICE_PARAMS* pbtsdp);
 
-	[Import("bthprops.cpl"), CLink, CallingConvention(.Stdcall)]
+	[Import("bthprops.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BluetoothSelectDevicesFree(BLUETOOTH_SELECT_DEVICE_PARAMS* pbtsdp);
 
-	[Import("bthprops.cpl"), CLink, CallingConvention(.Stdcall)]
+	[Import("bthprops.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BluetoothDisplayDeviceProperties(HWND hwndParent, BLUETOOTH_DEVICE_INFO_STRUCT* pbtdi);
 
-	[Import("bthprops.cpl"), CLink, CallingConvention(.Stdcall)]
+	[Import("bthprops.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 BluetoothAuthenticateDevice(HWND hwndParent, HANDLE hRadio, BLUETOOTH_DEVICE_INFO_STRUCT* pbtbi, char16* pszPasskey, uint32 ulPasskeyLength);
 
-	[Import("bthprops.cpl"), CLink, CallingConvention(.Stdcall)]
+	[Import("bthprops.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 BluetoothAuthenticateDeviceEx(HWND hwndParentIn, HANDLE hRadioIn, BLUETOOTH_DEVICE_INFO_STRUCT* pbtdiInout, BLUETOOTH_OOB_DATA_INFO* pbtOobData, AUTHENTICATION_REQUIREMENTS authenticationRequirement);
 
-	[Import("bthprops.cpl"), CLink, CallingConvention(.Stdcall)]
+	[Import("bthprops.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 BluetoothAuthenticateMultipleDevices(HWND hwndParent, HANDLE hRadio, uint32 cDevices, BLUETOOTH_DEVICE_INFO_STRUCT* rgbtdi);
 
 	[Import("BluetoothApis.lib"), CLink, CallingConvention(.Stdcall)]

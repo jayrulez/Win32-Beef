@@ -18,7 +18,7 @@ public static
 	public const int32 DDENUM_NONDISPLAYDEVICES = 4;
 	public const String REGSTR_KEY_DDHW_DESCRIPTION = "Description";
 	public const String REGSTR_KEY_DDHW_DRIVERNAME = "DriverName";
-	public const String REGSTR_PATH_DDHW = "Hardware\DirectDrawDrivers";
+	public const String REGSTR_PATH_DDHW = "Hardware\\DirectDrawDrivers";
 	public const int32 DDCREATE_HARDWAREONLY = 1;
 	public const int32 DDCREATE_EMULATIONONLY = 2;
 	public const uint32 MAX_DDDEVICEID_STRING = 512;

@@ -28,7 +28,7 @@ public static
 	public const uint32 EFFECT_WINDOWEDONLY = 8;
 	public const uint32 EFFECT2_FULLSCREENEXCLUSIVE = 16;
 	public const uint32 SA_BUFFER_SIZE = 1024;
-	public const String PLUGIN_INSTALLREGKEY = "Software\Microsoft\MediaPlayer\UIPlugins";
+	public const String PLUGIN_INSTALLREGKEY = "Software\\Microsoft\\MediaPlayer\\UIPlugins";
 	public const String PLUGIN_INSTALLREGKEY_FRIENDLYNAME = "FriendlyName";
 	public const String PLUGIN_INSTALLREGKEY_DESCRIPTION = "Description";
 	public const String PLUGIN_INSTALLREGKEY_CAPABILITIES = "Capabilities";

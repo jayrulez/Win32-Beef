@@ -467,7 +467,7 @@ public static
 	public const uint32 D3D11_DEBUG_FEATURE_AVOID_BEHAVIOR_CHANGING_DEBUG_AIDS = 64;
 	public const uint32 D3D11_DEBUG_FEATURE_DISABLE_TILED_RESOURCE_MAPPING_TRACKING_AND_VALIDATION = 128;
 	public const Guid DXGI_DEBUG_D3D11 = .(0x4b99317b, 0xac39, 0x4aa6, 0xbb, 0x0b, 0xba, 0xa0, 0x47, 0x84, 0x79, 0x8f);
-	public const String D3D11_REGKEY_PATH = "Software\Microsoft\Direct3D";
+	public const String D3D11_REGKEY_PATH = "Software\\Microsoft\\Direct3D";
 	public const String D3D11_MUTE_DEBUG_OUTPUT = "MuteDebugOutput";
 	public const String D3D11_ENABLE_BREAK_ON_MESSAGE = "EnableBreakOnMessage";
 	public const String D3D11_INFOQUEUE_STORAGE_FILTER_OVERRIDE = "InfoQueueStorageFilterOverride";

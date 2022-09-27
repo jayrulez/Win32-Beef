@@ -629,8 +629,8 @@ public static
 	public const uint32 U_SIZEOF_UCHAR = 2;
 	public const uint32 U_CHAR16_IS_TYPEDEF = 1;
 	public const int32 U_SENTINEL = -1;
-	public const String U8_LEAD3_T1_BITS = " 00000000000000";
-	public const String U8_LEAD4_T1_BITS = "            ";
+	public const String U8_LEAD3_T1_BITS = " 000000000000\u{0010}00";
+	public const String U8_LEAD4_T1_BITS = "\u{0000}\u{0000}\u{0000}\u{0000}\u{0000}\u{0000}\u{0000}\u{0000}\u{001e}\u{000f}\u{000f}\u{000f}\u{0000}\u{0000}\u{0000}\u{0000}";
 	public const uint32 U8_MAX_LENGTH = 4;
 	public const uint32 U16_MAX_LENGTH = 2;
 	public const uint32 U_HIDE_OBSOLETE_UTF_OLD_H = 0;

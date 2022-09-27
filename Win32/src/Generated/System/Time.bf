@@ -6,8 +6,8 @@ namespace Win32.System.Time;
 #region Constants
 public static
 {
-	public const String wszW32TimeRegKeyTimeProviders = "System\CurrentControlSet\Services\W32Time\TimeProviders";
-	public const String wszW32TimeRegKeyPolicyTimeProviders = "Software\Policies\Microsoft\W32Time\TimeProviders";
+	public const String wszW32TimeRegKeyTimeProviders = "System\\CurrentControlSet\\Services\\W32Time\\TimeProviders";
+	public const String wszW32TimeRegKeyPolicyTimeProviders = "Software\\Policies\\Microsoft\\W32Time\\TimeProviders";
 	public const String wszW32TimeRegValueEnabled = "Enabled";
 	public const String wszW32TimeRegValueDllName = "DllName";
 	public const String wszW32TimeRegValueInputProvider = "InputProvider";

@@ -26,7 +26,7 @@ public static
 	public const uint32 CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL = 16;
 	public const uint32 CLFS_FLAG_FILTER_TOP_LEVEL = 32;
 	public const String CLFS_CONTAINER_STREAM_PREFIX = "%BLF%:";
-	public const String CLFS_CONTAINER_RELATIVE_PREFIX = "%BLF%\";
+	public const String CLFS_CONTAINER_RELATIVE_PREFIX = "%BLF%\\";
 	public const uint32 TRANSACTION_MANAGER_VOLATILE = 1;
 	public const uint32 TRANSACTION_MANAGER_COMMIT_DEFAULT = 0;
 	public const uint32 TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME = 2;
@@ -72,10 +72,10 @@ public static
 	public const uint32 TRANSACTION_NOTIFY_PROMOTE_NEW = 268435456;
 	public const uint32 TRANSACTION_NOTIFY_REQUEST_OUTCOME = 536870912;
 	public const uint32 TRANSACTION_NOTIFY_COMMIT_FINALIZE = 1073741824;
-	public const String TRANSACTIONMANAGER_OBJECT_PATH = "\TransactionManager\";
-	public const String TRANSACTION_OBJECT_PATH = "\Transaction\";
-	public const String ENLISTMENT_OBJECT_PATH = "\Enlistment\";
-	public const String RESOURCE_MANAGER_OBJECT_PATH = "\ResourceManager\";
+	public const String TRANSACTIONMANAGER_OBJECT_PATH = "\\TransactionManager\\";
+	public const String TRANSACTION_OBJECT_PATH = "\\Transaction\\";
+	public const String ENLISTMENT_OBJECT_PATH = "\\Enlistment\\";
+	public const String RESOURCE_MANAGER_OBJECT_PATH = "\\ResourceManager\\";
 	public const uint32 TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED = 1;
 	public const uint32 KTM_MARSHAL_BLOB_VERSION_MAJOR = 1;
 	public const uint32 KTM_MARSHAL_BLOB_VERSION_MINOR = 1;

@@ -12,7 +12,7 @@ public static
 	public const String RADIUS_EXTENSION_PROCESS = "RadiusExtensionProcess";
 	public const String RADIUS_EXTENSION_PROCESS_EX = "RadiusExtensionProcessEx";
 	public const String RADIUS_EXTENSION_FREE_ATTRIBUTES = "RadiusExtensionFreeAttributes";
-	public const String AUTHSRV_PARAMETERS_KEY_W = "System\CurrentControlSet\Services\AuthSrv\Parameters";
+	public const String AUTHSRV_PARAMETERS_KEY_W = "System\\CurrentControlSet\\Services\\AuthSrv\\Parameters";
 	public const String AUTHSRV_EXTENSIONS_VALUE_W = "ExtensionDLLs";
 	public const String AUTHSRV_AUTHORIZATION_VALUE_W = "AuthorizationDLLs";
 	public const String AUTHSRV_ENFORCE_NP_FOR_PAP_CHALLENGE_RESPONSE_VALUE_W = "EnforceNetworkPolicyForPAPBasedChallengeResponse";

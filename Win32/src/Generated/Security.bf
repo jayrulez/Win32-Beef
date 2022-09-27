@@ -6,7 +6,7 @@ namespace Win32.Security;
 #region Constants
 public static
 {
-	public const String wszCERTENROLLSHAREPATH = "CertSrv\CertEnroll";
+	public const String wszCERTENROLLSHAREPATH = "CertSrv\\CertEnroll";
 	public const uint32 cwcHRESULTSTRING = 40;
 	public const String szLBRACE = "{";
 	public const String szRBRACE = "}";

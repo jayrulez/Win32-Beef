@@ -68,3 +68,15 @@ namespace Win32.UI.Shell.PropertiesSystem
 		}
 	}
 }
+
+namespace Win32.Devices.Properties
+{
+	extension DEVPROPKEY
+	{
+		public this(System.Guid fmtid, uint32 pid)
+		{
+			this.fmtid = fmtid;
+			this.pid = pid;
+		}
+	}
+}

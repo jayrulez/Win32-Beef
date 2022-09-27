@@ -30,7 +30,7 @@ public static
 	public const int32 SCESTATUS_NO_TEMPLATE_GIVEN = 17;
 	public const int32 SCESTATUS_NO_MAPPING = 18;
 	public const int32 SCESTATUS_TRUST_FAIL = 19;
-	public const String SCE_ROOT_PATH = "Software\Microsoft\Windows NT\CurrentVersion\SeCEdit";
+	public const String SCE_ROOT_PATH = "Software\\Microsoft\\Windows NT\\CurrentVersion\\SeCEdit";
 	public const int32 SCESVC_ENUMERATION_MAX = 100;
 	public const String struuidNodetypeSceTemplateServices = "{24a7f717-1f0c-11d1-affb-00c04fb984f9}";
 	public const String lstruuidNodetypeSceTemplateServices = "{24a7f717-1f0c-11d1-affb-00c04fb984f9}";

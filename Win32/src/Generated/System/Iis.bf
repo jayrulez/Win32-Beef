@@ -8,9 +8,9 @@ namespace Win32.System.Iis;
 #region Constants
 public static
 {
-	public const String IISADMIN_EXTENSIONS_REG_KEYA = "SOFTWARE\Microsoft\InetStp\Extensions";
-	public const String IISADMIN_EXTENSIONS_REG_KEYW = "SOFTWARE\Microsoft\InetStp\Extensions";
-	public const String IISADMIN_EXTENSIONS_REG_KEY = "SOFTWARE\Microsoft\InetStp\Extensions";
+	public const String IISADMIN_EXTENSIONS_REG_KEYA = "SOFTWARE\\Microsoft\\InetStp\\Extensions";
+	public const String IISADMIN_EXTENSIONS_REG_KEYW = "SOFTWARE\\Microsoft\\InetStp\\Extensions";
+	public const String IISADMIN_EXTENSIONS_REG_KEY = "SOFTWARE\\Microsoft\\InetStp\\Extensions";
 	public const String IISADMIN_EXTENSIONS_CLSID_MD_KEYA = "LM/IISADMIN/EXTENSIONS/DCOMCLSIDS";
 	public const String IISADMIN_EXTENSIONS_CLSID_MD_KEYW = "LM/IISADMIN/EXTENSIONS/DCOMCLSIDS";
 	public const String IISADMIN_EXTENSIONS_CLSID_MD_KEY = "LM/IISADMIN/EXTENSIONS/DCOMCLSIDS";

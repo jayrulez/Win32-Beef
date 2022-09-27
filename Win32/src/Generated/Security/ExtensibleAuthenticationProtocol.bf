@@ -133,7 +133,7 @@ public static
 	public const uint32 MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH = 1024;
 	public const uint32 CERTIFICATE_HASH_LENGTH = 20;
 	public const uint32 NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH = 90;
-	public const String EAP_REGISTRY_LOCATION = "System\CurrentControlSet\Services\EapHost\Methods";
+	public const String EAP_REGISTRY_LOCATION = "System\\CurrentControlSet\\Services\\EapHost\\Methods";
 	public const String EAP_PEER_VALUENAME_DLL_PATH = "PeerDllPath";
 	public const String EAP_PEER_VALUENAME_FRIENDLY_NAME = "PeerFriendlyName";
 	public const String EAP_PEER_VALUENAME_CONFIGUI = "PeerConfigUIPath";
@@ -148,7 +148,7 @@ public static
 	public const String EAP_AUTHENTICATOR_VALUENAME_PROPERTIES = "Properties";
 	public const String EAP_AUTHENTICATOR_VALUENAME_CONFIGUI = "AuthenticatorConfigUIPath";
 	public const uint32 EAP_METHOD_AUTHENTICATOR_CONFIG_IS_IDENTITY_PRIVACY = 1;
-	public const String RAS_EAP_REGISTRY_LOCATION = "System\CurrentControlSet\Services\Rasman\PPP\EAP";
+	public const String RAS_EAP_REGISTRY_LOCATION = "System\\CurrentControlSet\\Services\\Rasman\\PPP\\EAP";
 	public const String RAS_EAP_VALUENAME_PATH = "Path";
 	public const String RAS_EAP_VALUENAME_CONFIGUI = "ConfigUIPath";
 	public const String RAS_EAP_VALUENAME_INTERACTIVEUI = "InteractiveUIPath";

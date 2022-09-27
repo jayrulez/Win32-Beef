@@ -197,8 +197,8 @@ public static
 	public const uint32 MAX_NOTIFICATION_DATA = 64;
 	public const String STI_ADD_DEVICE_BROADCAST_ACTION = "Arrival";
 	public const String STI_REMOVE_DEVICE_BROADCAST_ACTION = "Removal";
-	public const String STI_ADD_DEVICE_BROADCAST_STRING = "STI\";
-	public const String STI_REMOVE_DEVICE_BROADCAST_STRING = "STI\";
+	public const String STI_ADD_DEVICE_BROADCAST_STRING = "STI\\";
+	public const String STI_REMOVE_DEVICE_BROADCAST_STRING = "STI\\";
 	public const uint32 STI_DEVICE_CREATE_STATUS = 1;
 	public const uint32 STI_DEVICE_CREATE_DATA = 2;
 	public const uint32 STI_DEVICE_CREATE_BOTH = 3;

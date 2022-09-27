@@ -182,8 +182,8 @@ public static
 	public const uint32 DEVICEDUMP_STRUCTURE_VERSION_V1 = 1;
 	public const uint32 DEVICEDUMP_MAX_IDSTRING = 32;
 	public const uint32 MAX_FW_BUCKET_ID_LENGTH = 132;
-	public const String STORAGE_CRASH_TELEMETRY_REGKEY = "\Registry\Machine\System\CurrentControlSet\Control\CrashControl\StorageTelemetry";
-	public const String STORAGE_DEVICE_TELEMETRY_REGKEY = "\Registry\Machine\System\CurrentControlSet\Control\Storage\StorageTelemetry";
+	public const String STORAGE_CRASH_TELEMETRY_REGKEY = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry";
+	public const String STORAGE_DEVICE_TELEMETRY_REGKEY = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry";
 	public const uint32 DDUMP_FLAG_DATA_READ_FROM_DEVICE = 1;
 	public const uint32 FW_ISSUEID_NO_ISSUE = 0;
 	public const uint32 FW_ISSUEID_UNKNOWN = 4294967295;

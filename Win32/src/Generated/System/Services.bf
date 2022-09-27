@@ -138,7 +138,7 @@ public static
 	public const Guid NAMED_PIPE_EVENT_GUID = .(0x1f81d131, 0x3fac, 0x4537, 0x9e, 0x0c, 0x7e, 0x7b, 0x0c, 0x2f, 0x4b, 0x55);
 	public const Guid CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID = .(0x2d7a2816, 0x0c5e, 0x45fc, 0x9c, 0xe7, 0x57, 0x0e, 0x5e, 0xcd, 0xe9, 0xc9);
 	public const String SERVICE_TRIGGER_STARTED_ARGUMENT = "TriggerStarted";
-	public const String SC_AGGREGATE_STORAGE_KEY = "System\CurrentControlSet\Control\ServiceAggregatedEvents";
+	public const String SC_AGGREGATE_STORAGE_KEY = "System\\CurrentControlSet\\Control\\ServiceAggregatedEvents";
 }
 #endregion
 

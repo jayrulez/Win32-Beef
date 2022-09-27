@@ -528,7 +528,7 @@ public static
 	public const int32 SERVICE_ACCOUNT_FLAG_ADD_AGAINST_RODC = 2;
 	public const int32 SERVICE_ACCOUNT_FLAG_UNLINK_FROM_HOST_ONLY = 1;
 	public const int32 SERVICE_ACCOUNT_FLAG_REMOVE_OFFLINE = 2;
-	public const String ALERTER_MAILSLOT = "\\.\MAILSLOT\Alerter";
+	public const String ALERTER_MAILSLOT = "\\\\.\\MAILSLOT\\Alerter";
 	public const String ALERT_PRINT_EVENT = "PRINTING";
 	public const String ALERT_MESSAGE_EVENT = "MESSAGE";
 	public const String ALERT_ERRORLOG_EVENT = "ERRORLOG";

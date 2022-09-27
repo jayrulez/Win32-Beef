@@ -1604,8 +1604,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHeaderCtrl* pHeader) SetHeader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IToolbar* pToolbar) SetToolbar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** pUnknown) QueryResultView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, System.Mmc.IImageList** ppImageList) QueryScopeImageList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, System.Mmc.IImageList** ppImageList) QueryResultImageList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Win32.System.Mmc.IImageList** ppImageList) QueryScopeImageList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Win32.System.Mmc.IImageList** ppImageList) QueryResultImageList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* lpDataObject, LPARAM data, int hint) UpdateAllViews;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszText, PWSTR lpszTitle, uint32 fuStyle, int32* piRetval) MessageBox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IConsoleVerb** ppConsoleVerb) QueryConsoleVerb;
@@ -1621,9 +1621,9 @@ public static
 
 	public HRESULT QueryResultView(IUnknown** pUnknown) mut => VT.[Friend]QueryResultView(&this, pUnknown);
 
-	public HRESULT QueryScopeImageList(System.Mmc.IImageList** ppImageList) mut => VT.[Friend]QueryScopeImageList(&this, ppImageList);
+	public HRESULT QueryScopeImageList(Win32.System.Mmc.IImageList** ppImageList) mut => VT.[Friend]QueryScopeImageList(&this, ppImageList);
 
-	public HRESULT QueryResultImageList(System.Mmc.IImageList** ppImageList) mut => VT.[Friend]QueryResultImageList(&this, ppImageList);
+	public HRESULT QueryResultImageList(Win32.System.Mmc.IImageList** ppImageList) mut => VT.[Friend]QueryResultImageList(&this, ppImageList);
 
 	public HRESULT UpdateAllViews(IDataObject* lpDataObject, LPARAM data, int hint) mut => VT.[Friend]UpdateAllViews(&this, lpDataObject, data, hint);
 

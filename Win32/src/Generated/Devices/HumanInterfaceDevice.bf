@@ -768,8 +768,8 @@ public static
 	public const uint16 HID_USAGE_CAMERA_SHUTTER = 33;
 	public const uint16 HID_USAGE_MS_BTH_HF_DIALNUMBER = 33;
 	public const uint16 HID_USAGE_MS_BTH_HF_DIALMEMORY = 34;
-	public const String DD_KEYBOARD_DEVICE_NAME = "\Device\KeyboardClass";
-	public const String DD_KEYBOARD_DEVICE_NAME_U = "\Device\KeyboardClass";
+	public const String DD_KEYBOARD_DEVICE_NAME = "\\Device\\KeyboardClass";
+	public const String DD_KEYBOARD_DEVICE_NAME_U = "\\Device\\KeyboardClass";
 	public const uint32 IOCTL_KEYBOARD_QUERY_ATTRIBUTES = 720896;
 	public const uint32 IOCTL_KEYBOARD_SET_TYPEMATIC = 720900;
 	public const uint32 IOCTL_KEYBOARD_SET_INDICATORS = 720904;
@@ -801,8 +801,8 @@ public static
 	public const uint32 KEYBOARD_NUM_LOCK_ON = 2;
 	public const uint32 KEYBOARD_SCROLL_LOCK_ON = 1;
 	public const uint32 KEYBOARD_ERROR_VALUE_BASE = 10000;
-	public const String DD_MOUSE_DEVICE_NAME = "\Device\PointerClass";
-	public const String DD_MOUSE_DEVICE_NAME_U = "\Device\PointerClass";
+	public const String DD_MOUSE_DEVICE_NAME = "\\Device\\PointerClass";
+	public const String DD_MOUSE_DEVICE_NAME_U = "\\Device\\PointerClass";
 	public const uint32 IOCTL_MOUSE_QUERY_ATTRIBUTES = 983040;
 	public const uint32 IOCTL_MOUSE_INSERT_DATA = 983044;
 	public const Guid GUID_DEVINTERFACE_MOUSE = .(0x378de44c, 0x56ef, 0x11d1, 0xbc, 0x8c, 0x00, 0xa0, 0xc9, 0x14, 0x05, 0xdd);

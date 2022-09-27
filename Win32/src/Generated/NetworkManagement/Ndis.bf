@@ -1614,7 +1614,7 @@ public static
 	public const uint32 NDIS_HASH_UDP_IPV4 = 16384;
 	public const uint32 NDIS_HASH_UDP_IPV6 = 32768;
 	public const uint32 NDIS_HASH_UDP_IPV6_EX = 65536;
-	public const String DD_NDIS_DEVICE_NAME = "\Device\NDIS";
+	public const String DD_NDIS_DEVICE_NAME = "\\Device\\NDIS";
 	public const uint32 NDIS_MAXIMUM_PORTS = 16777216;
 	public const uint32 NDIS_OBJECT_REVISION_1 = 1;
 	public const uint32 NDIS_OFFLOAD_NOT_SUPPORTED = 0;

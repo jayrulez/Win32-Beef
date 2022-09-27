@@ -8,8 +8,8 @@ namespace Win32.System.ComponentServices;
 #region Constants
 public static
 {
-	public const String TRACKER_STARTSTOP_EVENT = "Global\COM+ Tracker Push Event";
-	public const String TRACKER_INIT_EVENT = "Global\COM+ Tracker Init Event";
+	public const String TRACKER_STARTSTOP_EVENT = "Global\\COM+ Tracker Push Event";
+	public const String TRACKER_INIT_EVENT = "Global\\COM+ Tracker Init Event";
 	public const uint32 GUID_STRING_SIZE = 40;
 	public const uint32 DATA_NOT_AVAILABLE = 4294967295;
 	public const uint32 MTXDM_E_ENLISTRESOURCEFAILED = 2147803392;

@@ -925,8 +925,8 @@ public static
 	public const uint32 INTERNET_AUTOPROXY_INIT_ONLYQUERY = 8;
 	public const String REGSTR_DIAL_AUTOCONNECT = "AutoConnect";
 	public const String REGSTR_LEASH_LEGACY_COOKIES = "LeashLegacyCookies";
-	public const String LOCAL_NAMESPACE_PREFIX = "Local\";
-	public const String LOCAL_NAMESPACE_PREFIX_W = "Local\";
+	public const String LOCAL_NAMESPACE_PREFIX = "Local\\";
+	public const String LOCAL_NAMESPACE_PREFIX_W = "Local\\";
 	public const uint32 INTERNET_SUPPRESS_COOKIE_PERSIST = 3;
 	public const uint32 INTERNET_SUPPRESS_COOKIE_PERSIST_RESET = 4;
 	public const uint32 HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH = 123;

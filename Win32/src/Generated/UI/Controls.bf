@@ -8650,7 +8650,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAGELISTSTATS* pils) GetStatistics;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cx, int32 cy, IMAGELIST_CREATION_FLAGS flags, int32 cInitial, int32 cGrow) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HBITMAP hbmImage, HBITMAP hbmMask, IUnknown* punk, uint32 dwFlags) Replace2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) ReplaceFromImageList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, Win32.UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) ReplaceFromImageList;
 	}
 
 
@@ -8676,7 +8676,7 @@ public static
 
 	public HRESULT Replace2(int32 i, HBITMAP hbmImage, HBITMAP hbmMask, IUnknown* punk, uint32 dwFlags) mut => VT.[Friend]Replace2(&this, i, hbmImage, hbmMask, punk, dwFlags);
 
-	public HRESULT ReplaceFromImageList(int32 i, UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) mut => VT.[Friend]ReplaceFromImageList(&this, i, pil, iSrc, punk, dwFlags);
+	public HRESULT ReplaceFromImageList(int32 i, Win32.UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) mut => VT.[Friend]ReplaceFromImageList(&this, i, pil, iSrc, punk, dwFlags);
 }
 
 #endregion
