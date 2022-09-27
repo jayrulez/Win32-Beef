@@ -268,7 +268,7 @@ public struct AsnObjectIdentifier
 	public uint32* ids;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct AsnAny
 {
 	[CRepr, Union, Packed(4)]
@@ -291,7 +291,7 @@ public struct AsnAny
 	public _asnValue_e__Union asnValue;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct SnmpVarBind
 {
 	public AsnObjectIdentifier name;

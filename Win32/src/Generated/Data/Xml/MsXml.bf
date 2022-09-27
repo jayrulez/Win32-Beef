@@ -584,7 +584,7 @@ public enum DOMNodeType : int32
 
 
 [AllowDuplicates]
-public enum XMLEMEM_TYPE : int32
+public enum XMLELEM_TYPE : int32
 {
 	XMLELEMTYPE_ELEMENT = 0,
 	XMLELEMTYPE_TEXT = 1,

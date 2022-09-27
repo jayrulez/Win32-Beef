@@ -1,5 +1,5 @@
 using Win32.Foundation;
-using Win32.UI.Shell.PropertiesSystem;
+using Win32.Devices.Properties;
 using Win32.System.Com;
 using Win32.Media;
 using System;
@@ -76,6 +76,12 @@ public static
 	public const uint32 KSDATARANGE_BIT_ATTRIBUTES = 1;
 	public const uint32 KSDATARANGE_BIT_REQUIRED_ATTRIBUTES = 2;
 	public const uint32 KSATTRIBUTE_REQUIRED = 1;
+	public const String KSSTRING_Filter = "{9B365890-165F-11D0-A195-0020AFD156E4}";
+	public const String KSSTRING_Pin = "{146F1A80-4791-11D0-A5D6-28DB04C10000}";
+	public const String KSSTRING_Clock = "{53172480-4791-11D0-A5D6-28DB04C10000}";
+	public const String KSSTRING_Allocator = "{642F5D00-4791-11D0-A5D6-28DB04C10000}";
+	public const String KSSTRING_AllocatorEx = "{091BB63B-603F-11D1-B067-00A0C9062802}";
+	public const String KSSTRING_TopologyNode = "{0621061A-EE75-11D0-B915-00A0C9223196}";
 	public const uint32 KSALLOCATOR_REQUIREMENTF_INPLACE_MODIFIER = 1;
 	public const uint32 KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY = 2;
 	public const uint32 KSALLOCATOR_REQUIREMENTF_FRAME_INTEGRITY = 4;
@@ -189,9 +195,9 @@ public static
 	public const uint32 KSDSOUND_BUFFER_CTRL_PAN = 4;
 	public const uint32 KSDSOUND_BUFFER_CTRL_VOLUME = 8;
 	public const uint32 KSDSOUND_BUFFER_CTRL_POSITIONNOTIFY = 16;
-	public const PROPERTYKEY DEVPKEY_KsAudio_PacketSize_Constraints = .(.(0x13e004d6, 0xb066, 0x43bd, 0x91, 0x3b, 0xa4, 0x15, 0xcd, 0x13, 0xda, 0x87), 2);
-	public const PROPERTYKEY DEVPKEY_KsAudio_Controller_DeviceInterface_Path = .(.(0x13e004d6, 0xb066, 0x43bd, 0x91, 0x3b, 0xa4, 0x15, 0xcd, 0x13, 0xda, 0x87), 3);
-	public const PROPERTYKEY DEVPKEY_KsAudio_PacketSize_Constraints2 = .(.(0x9404f781, 0x7191, 0x409b, 0x8b, 0x0b, 0x80, 0xbf, 0x6e, 0xc2, 0x29, 0xae), 2);
+	public const DEVPROPKEY DEVPKEY_KsAudio_PacketSize_Constraints = .(.(0x13e004d6, 0xb066, 0x43bd, 0x91, 0x3b, 0xa4, 0x15, 0xcd, 0x13, 0xda, 0x87), 2);
+	public const DEVPROPKEY DEVPKEY_KsAudio_Controller_DeviceInterface_Path = .(.(0x13e004d6, 0xb066, 0x43bd, 0x91, 0x3b, 0xa4, 0x15, 0xcd, 0x13, 0xda, 0x87), 3);
+	public const DEVPROPKEY DEVPKEY_KsAudio_PacketSize_Constraints2 = .(.(0x9404f781, 0x7191, 0x409b, 0x8b, 0x0b, 0x80, 0xbf, 0x6e, 0xc2, 0x29, 0xae), 2);
 	public const int32 KSAUDIO_STEREO_SPEAKER_GEOMETRY_HEADPHONE = -1;
 	public const uint32 KSAUDIO_STEREO_SPEAKER_GEOMETRY_MIN = 5;
 	public const uint32 KSAUDIO_STEREO_SPEAKER_GEOMETRY_NARROW = 10;
@@ -1627,7 +1633,7 @@ public enum KS_TUNER_STRATEGY : int32
 
 
 [AllowDuplicates]
-public enum _TunerDecoderLockType : int32
+public enum TunerLockType : int32
 {
 	Tuner_LockType_None = 0,
 	Tuner_LockType_Within_Scan_Sensing_Range = 1,
@@ -1918,7 +1924,7 @@ public enum KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE : int32
 {
 	KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_DISABLE = 0,
 	KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_HOSTNTP = 1,
-	KSPROPERYT_NETWORKCAMERACONTROL_NTPINFO_TYPE_CUSTOM = 2,
+	KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_CUSTOM = 2,
 }
 
 
@@ -2451,6 +2457,41 @@ public struct IKsAllocatorEx
 {
 }
 
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct KSSTREAM_HEADER
+{
+	public uint32 Size;
+	public uint32 TypeSpecificFlags;
+	public KSTIME PresentationTime;
+	public int64 Duration;
+	public uint32 FrameExtent;
+	public uint32 DataUsed;
+	public void* Data;
+	public uint32 OptionsFlags;
+	public uint32 Reserved;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct KSNODEPROPERTY_AUDIO_3D_LISTENER
+{
+	public KSNODEPROPERTY NodeProperty;
+	public void* ListenerId;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct KSNODEPROPERTY_AUDIO_PROPERTY
+{
+	public KSNODEPROPERTY NodeProperty;
+	public void* AppContext;
+	public uint32 Length;
+}
+#endif
+
 [CRepr]
 public struct KSPRIORITY
 {
@@ -2587,13 +2628,6 @@ public struct KSEVENTDATA
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _SemaphoreHandle_e__Struct
-		{
-			public HANDLE Semaphore;
-			public uint32 Reserved;
-			public int32 Adjustment;
-		}
-		[CRepr]
 		public struct _Alignment_e__Struct
 		{
 			public void* Unused;
@@ -2604,6 +2638,13 @@ public struct KSEVENTDATA
 		{
 			public HANDLE Event;
 			public uint[2] Reserved;
+		}
+		[CRepr]
+		public struct _SemaphoreHandle_e__Struct
+		{
+			public HANDLE Semaphore;
+			public uint32 Reserved;
+			public int32 Adjustment;
 		}
 		public _EventHandle_e__Struct EventHandle;
 		public _SemaphoreHandle_e__Struct SemaphoreHandle;
@@ -2902,7 +2943,7 @@ public struct KSTIME
 	public uint32 Denominator;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct KSSTREAM_HEADER
 {
@@ -2914,7 +2955,6 @@ public struct KSSTREAM_HEADER
 	public uint32 DataUsed;
 	public void* Data;
 	public uint32 OptionsFlags;
-	public uint32 Reserved;
 }
 #endif
 
@@ -3089,7 +3129,7 @@ public struct KSAUDIO_PRESENTATION_POSITION
 }
 
 [CRepr]
-public struct _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT
+public struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT
 {
 	public Guid ProcessingMode;
 	public uint32 SamplesPerProcessingPacket;
@@ -3103,8 +3143,8 @@ public struct KSAUDIO_PACKETSIZE_CONSTRAINTS
 	public uint32 PacketSizeFileAlignment;
 	public uint32 Reserved;
 	public uint32 NumProcessingModeConstraints;
-	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT* ProcessingModeConstraints mut => &ProcessingModeConstraints_impl;
-	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[ANYSIZE_ARRAY] ProcessingModeConstraints_impl;
+	public KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT* ProcessingModeConstraints mut => &ProcessingModeConstraints_impl;
+	private KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT[ANYSIZE_ARRAY] ProcessingModeConstraints_impl;
 }
 
 [CRepr]
@@ -3114,8 +3154,8 @@ public struct KSAUDIO_PACKETSIZE_CONSTRAINTS2
 	public uint32 PacketSizeFileAlignment;
 	public uint32 MaxPacketSizeInBytes;
 	public uint32 NumProcessingModeConstraints;
-	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT* ProcessingModeConstraints mut => &ProcessingModeConstraints_impl;
-	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[ANYSIZE_ARRAY] ProcessingModeConstraints_impl;
+	public KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT* ProcessingModeConstraints mut => &ProcessingModeConstraints_impl;
+	private KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT[ANYSIZE_ARRAY] ProcessingModeConstraints_impl;
 }
 
 [CRepr]
@@ -3155,16 +3195,16 @@ public struct DS3DVECTOR
 		public float dvY;
 	}
 	[CRepr, Union]
-	public struct _Anonymous1_e__Union
-	{
-		public float x;
-		public float dvX;
-	}
-	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
 		public float z;
 		public float dvZ;
+	}
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
+	{
+		public float x;
+		public float dvX;
 	}
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
@@ -3645,22 +3685,24 @@ public struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC
 	public uint32 Length;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct KSNODEPROPERTY_AUDIO_3D_LISTENER
 {
 	public KSNODEPROPERTY NodeProperty;
 	public void* ListenerId;
+	public uint32 Reserved;
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct KSNODEPROPERTY_AUDIO_PROPERTY
 {
 	public KSNODEPROPERTY NodeProperty;
 	public void* AppContext;
 	public uint32 Length;
+	public uint32 Reserved;
 }
 #endif
 
@@ -3895,7 +3937,7 @@ public struct KS_VBIINFOHEADER
 }
 
 [CRepr]
-public struct KS_AnalogVideoInfo
+public struct KS_ANALOGVIDEOINFO
 {
 	public RECT rcSource;
 	public RECT rcTarget;
@@ -4003,7 +4045,7 @@ public struct KS_H264VIDEOINFO
 }
 
 [CRepr]
-public struct KS_MPEAUDIOINFO
+public struct KS_MPEGAUDIOINFO
 {
 	public uint32 dwFlags;
 	public uint32 dwReserved1;
@@ -4182,7 +4224,7 @@ public struct KS_DATARANGE_VIDEO_VBI
 public struct KS_DATARANGE_ANALOGVIDEO
 {
 	public KSDATAFORMAT DataRange;
-	public KS_AnalogVideoInfo AnalogVideoInfo;
+	public KS_ANALOGVIDEOINFO AnalogVideoInfo;
 }
 
 [CRepr]
@@ -4670,7 +4712,7 @@ public struct KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S
 public struct KSPROPERTY_TUNER_SCAN_STATUS_S
 {
 	public KSIDENTIFIER Property;
-	public _TunerDecoderLockType LockStatus;
+	public TunerLockType LockStatus;
 	public uint32 CurrentFrequency;
 }
 
@@ -5406,18 +5448,18 @@ public struct KSPROPERTY_EXTXPORT_S
 	public struct _u_e__Union
 	{
 		[CRepr]
-		public struct _RawAVC_e__Struct
-		{
-			public uint32 PayloadSize;
-			public uint8[512] Payload;
-		}
-		[CRepr]
 		public struct _Timecode_e__Struct
 		{
 			public uint8 frame;
 			public uint8 second;
 			public uint8 minute;
 			public uint8 hour;
+		}
+		[CRepr]
+		public struct _RawAVC_e__Struct
+		{
+			public uint32 PayloadSize;
+			public uint8[512] Payload;
 		}
 		public uint32 Capabilities;
 		public uint32 SignalMode;
@@ -5440,18 +5482,18 @@ public struct KSPROPERTY_EXTXPORT_NODE_S
 	public struct _u_e__Union
 	{
 		[CRepr]
-		public struct _RawAVC_e__Struct
-		{
-			public uint32 PayloadSize;
-			public uint8[512] Payload;
-		}
-		[CRepr]
 		public struct _Timecode_e__Struct
 		{
 			public uint8 frame;
 			public uint8 second;
 			public uint8 minute;
 			public uint8 hour;
+		}
+		[CRepr]
+		public struct _RawAVC_e__Struct
+		{
+			public uint32 PayloadSize;
+			public uint8[512] Payload;
 		}
 		public uint32 Capabilities;
 		public uint32 SignalMode;
@@ -5858,42 +5900,6 @@ public struct ALLOCATOR_PROPERTIES_EX
 	public uint32 InsideFactors;
 	public uint32 NumberPins;
 }
-
-#if BF_32_BIT
-[CRepr]
-public struct KSSTREAM_HEADER
-{
-	public uint32 Size;
-	public uint32 TypeSpecificFlags;
-	public KSTIME PresentationTime;
-	public int64 Duration;
-	public uint32 FrameExtent;
-	public uint32 DataUsed;
-	public void* Data;
-	public uint32 OptionsFlags;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct KSNODEPROPERTY_AUDIO_3D_LISTENER
-{
-	public KSNODEPROPERTY NodeProperty;
-	public void* ListenerId;
-	public uint32 Reserved;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct KSNODEPROPERTY_AUDIO_PROPERTY
-{
-	public KSNODEPROPERTY NodeProperty;
-	public void* AppContext;
-	public uint32 Length;
-	public uint32 Reserved;
-}
-#endif
 
 #endregion
 
@@ -7311,36 +7317,6 @@ public static
 
 
 	public const Guid CLSID_KSCATEGORY_MULTIPLEXER = .(0x7a5de1d3, 0x01a1, 0x452c, 0xb4, 0x81, 0x4f, 0xa2, 0xb9, 0x62, 0x71, 0xe8);
-
-
-	public const Guid CLSID_ENCAPIPARAM_BITRATE = .(0x49cc4c43, 0xca83, 0x4ad4, 0xa9, 0xaf, 0xf3, 0x69, 0x6a, 0xf6, 0x66, 0xdf);
-
-
-	public const Guid CLSID_ENCAPIPARAM_PEAK_BITRATE = .(0x703f16a9, 0x3d48, 0x44a1, 0xb0, 0x77, 0x01, 0x8d, 0xff, 0x91, 0x5d, 0x19);
-
-
-	public const Guid CLSID_ENCAPIPARAM_BITRATE_MODE = .(0xee5fb25c, 0xc713, 0x40d1, 0x9d, 0x58, 0xc0, 0xd7, 0x24, 0x1e, 0x25, 0x0f);
-
-
-	public const Guid CLSID_CODECAPI_CHANGELISTS = .(0x62b12acf, 0xf6b0, 0x47d9, 0x94, 0x56, 0x96, 0xf2, 0x2c, 0x4e, 0x0b, 0x9d);
-
-
-	public const Guid CLSID_CODECAPI_VIDEO_ENCODER = .(0x7112e8e1, 0x3d03, 0x47ef, 0x8e, 0x60, 0x03, 0xf1, 0xcf, 0x53, 0x73, 0x01);
-
-
-	public const Guid CLSID_CODECAPI_AUDIO_ENCODER = .(0xb9d19a3e, 0xf897, 0x429c, 0xbc, 0x46, 0x81, 0x38, 0xb7, 0x27, 0x2b, 0x2d);
-
-
-	public const Guid CLSID_CODECAPI_SETALLDEFAULTS = .(0x6c5e6a7c, 0xacf8, 0x4f55, 0xa9, 0x99, 0x1a, 0x62, 0x81, 0x09, 0x05, 0x1b);
-
-
-	public const Guid CLSID_CODECAPI_ALLSETTINGS = .(0x6a577e92, 0x83e1, 0x4113, 0xad, 0xc2, 0x4f, 0xce, 0xc3, 0x2f, 0x83, 0xa1);
-
-
-	public const Guid CLSID_CODECAPI_SUPPORTSEVENTS = .(0x0581af97, 0x7693, 0x4dbd, 0x9d, 0xca, 0x3f, 0x9e, 0xbd, 0x65, 0x85, 0xa1);
-
-
-	public const Guid CLSID_CODECAPI_CURRENTCHANGELIST = .(0x1cb14e83, 0x7d72, 0x4657, 0x83, 0xfd, 0x47, 0xa2, 0xc5, 0xb9, 0xd1, 0x3d);
 
 
 	public const Guid CLSID_KSPROPSETID_Jack = .(0x4509f757, 0x2d46, 0x4637, 0x8e, 0x62, 0xce, 0x7d, 0xb9, 0x44, 0xf5, 0x7b);

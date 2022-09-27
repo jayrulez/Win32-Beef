@@ -11,6 +11,281 @@ namespace Win32.UI.Input.Ime;
 #region Constants
 public static
 {
+	public const Guid CATID_MSIME_IImePadApplet_VER7 = .(0x4a0f8e31, 0xc3ee, 0x11d1, 0xaf, 0xef, 0x00, 0x80, 0x5f, 0x0c, 0x8b, 0x6d);
+	public const Guid CATID_MSIME_IImePadApplet_VER80 = .(0x56f7a792, 0xfef1, 0x11d3, 0x84, 0x63, 0x00, 0xc0, 0x4f, 0x7a, 0x06, 0xe5);
+	public const Guid CATID_MSIME_IImePadApplet_VER81 = .(0x656520b0, 0xbb88, 0x11d4, 0x84, 0xc0, 0x00, 0xc0, 0x4f, 0x7a, 0x06, 0xe5);
+	public const Guid CATID_MSIME_IImePadApplet900 = .(0xfaae51bf, 0x5e5b, 0x4a1d, 0x8d, 0xe1, 0x17, 0xc1, 0xd9, 0xe1, 0x72, 0x8d);
+	public const Guid CATID_MSIME_IImePadApplet1000 = .(0xe081e1d6, 0x2389, 0x43cb, 0xb6, 0x6f, 0x60, 0x9f, 0x82, 0x3d, 0x9f, 0x9c);
+	public const Guid CATID_MSIME_IImePadApplet1200 = .(0xa47fb5fc, 0x7d15, 0x4223, 0xa7, 0x89, 0xb7, 0x81, 0xbf, 0x9a, 0xe6, 0x67);
+	public const Guid CATID_MSIME_IImePadApplet = .(0x7566cad1, 0x4ec9, 0x4478, 0x9f, 0xe9, 0x8e, 0xd7, 0x66, 0x61, 0x9e, 0xdf);
+	public const uint32 FEID_NONE = 0;
+	public const uint32 FEID_CHINESE_TRADITIONAL = 1;
+	public const uint32 FEID_CHINESE_SIMPLIFIED = 2;
+	public const uint32 FEID_CHINESE_HONGKONG = 3;
+	public const uint32 FEID_CHINESE_SINGAPORE = 4;
+	public const uint32 FEID_JAPANESE = 5;
+	public const uint32 FEID_KOREAN = 6;
+	public const uint32 FEID_KOREAN_JOHAB = 7;
+	public const uint32 INFOMASK_NONE = 0;
+	public const uint32 INFOMASK_QUERY_CAND = 1;
+	public const uint32 INFOMASK_APPLY_CAND = 2;
+	public const uint32 INFOMASK_APPLY_CAND_EX = 4;
+	public const uint32 INFOMASK_STRING_FIX = 65536;
+	public const uint32 INFOMASK_HIDE_CAND = 131072;
+	public const uint32 INFOMASK_BLOCK_CAND = 262144;
+	public const uint32 IMEFAREASTINFO_TYPE_DEFAULT = 0;
+	public const uint32 IMEFAREASTINFO_TYPE_READING = 1;
+	public const uint32 IMEFAREASTINFO_TYPE_COMMENT = 2;
+	public const uint32 IMEFAREASTINFO_TYPE_COSTTIME = 3;
+	public const uint32 CHARINFO_APPLETID_MASK = 4278190080;
+	public const uint32 CHARINFO_FEID_MASK = 15728640;
+	public const uint32 CHARINFO_CHARID_MASK = 65535;
+	public const uint32 MAX_APPLETTITLE = 64;
+	public const uint32 MAX_FONTFACE = 32;
+	public const int32 IPACFG_NONE = 0;
+	public const int32 IPACFG_PROPERTY = 1;
+	public const int32 IPACFG_HELP = 2;
+	public const int32 IPACFG_TITLE = 65536;
+	public const int32 IPACFG_TITLEFONTFACE = 131072;
+	public const int32 IPACFG_CATEGORY = 262144;
+	public const int32 IPACFG_LANG = 16;
+	public const uint32 IPACID_NONE = 0;
+	public const uint32 IPACID_SOFTKEY = 1;
+	public const uint32 IPACID_HANDWRITING = 2;
+	public const uint32 IPACID_STROKESEARCH = 3;
+	public const uint32 IPACID_RADICALSEARCH = 4;
+	public const uint32 IPACID_SYMBOLSEARCH = 5;
+	public const uint32 IPACID_VOICE = 6;
+	public const uint32 IPACID_EPWING = 7;
+	public const uint32 IPACID_OCR = 8;
+	public const uint32 IPACID_CHARLIST = 9;
+	public const uint32 IPACID_USER = 256;
+	public const uint32 IMEPADREQ_FIRST = 4096;
+	public const uint32 IMEPADREQ_INSERTSTRINGCANDIDATE = 4098;
+	public const uint32 IMEPADREQ_INSERTITEMCANDIDATE = 4099;
+	public const uint32 IMEPADREQ_SENDKEYCONTROL = 4101;
+	public const uint32 IMEPADREQ_GETSELECTEDSTRING = 4103;
+	public const uint32 IMEPADREQ_SETAPPLETDATA = 4105;
+	public const uint32 IMEPADREQ_GETAPPLETDATA = 4106;
+	public const uint32 IMEPADREQ_SETTITLEFONT = 4107;
+	public const uint32 IMEPADREQ_GETCOMPOSITIONSTRINGID = 4109;
+	public const uint32 IMEPADREQ_INSERTSTRINGCANDIDATEINFO = 4110;
+	public const uint32 IMEPADREQ_CHANGESTRINGCANDIDATEINFO = 4111;
+	public const uint32 IMEPADREQ_INSERTSTRINGINFO = 4114;
+	public const uint32 IMEPADREQ_CHANGESTRINGINFO = 4115;
+	public const uint32 IMEPADREQ_GETCURRENTUILANGID = 4120;
+	public const uint32 IMEPADCTRL_CONVERTALL = 1;
+	public const uint32 IMEPADCTRL_DETERMINALL = 2;
+	public const uint32 IMEPADCTRL_DETERMINCHAR = 3;
+	public const uint32 IMEPADCTRL_CLEARALL = 4;
+	public const uint32 IMEPADCTRL_CARETSET = 5;
+	public const uint32 IMEPADCTRL_CARETLEFT = 6;
+	public const uint32 IMEPADCTRL_CARETRIGHT = 7;
+	public const uint32 IMEPADCTRL_CARETTOP = 8;
+	public const uint32 IMEPADCTRL_CARETBOTTOM = 9;
+	public const uint32 IMEPADCTRL_CARETBACKSPACE = 10;
+	public const uint32 IMEPADCTRL_CARETDELETE = 11;
+	public const uint32 IMEPADCTRL_PHRASEDELETE = 12;
+	public const uint32 IMEPADCTRL_INSERTSPACE = 13;
+	public const uint32 IMEPADCTRL_INSERTFULLSPACE = 14;
+	public const uint32 IMEPADCTRL_INSERTHALFSPACE = 15;
+	public const uint32 IMEPADCTRL_ONIME = 16;
+	public const uint32 IMEPADCTRL_OFFIME = 17;
+	public const uint32 IMEPADCTRL_ONPRECONVERSION = 18;
+	public const uint32 IMEPADCTRL_OFFPRECONVERSION = 19;
+	public const uint32 IMEPADCTRL_PHONETICCANDIDATE = 20;
+	public const uint32 IMEKEYCTRLMASK_ALT = 1;
+	public const uint32 IMEKEYCTRLMASK_CTRL = 2;
+	public const uint32 IMEKEYCTRLMASK_SHIFT = 4;
+	public const uint32 IMEKEYCTRL_UP = 1;
+	public const uint32 IMEKEYCTRL_DOWN = 0;
+	public const uint32 IMEPN_FIRST = 256;
+	public const uint32 IMEPN_ACTIVATE = 257;
+	public const uint32 IMEPN_INACTIVATE = 258;
+	public const uint32 IMEPN_SHOW = 260;
+	public const uint32 IMEPN_HIDE = 261;
+	public const uint32 IMEPN_SIZECHANGING = 262;
+	public const uint32 IMEPN_SIZECHANGED = 263;
+	public const uint32 IMEPN_CONFIG = 264;
+	public const uint32 IMEPN_HELP = 265;
+	public const uint32 IMEPN_QUERYCAND = 266;
+	public const uint32 IMEPN_APPLYCAND = 267;
+	public const uint32 IMEPN_APPLYCANDEX = 268;
+	public const uint32 IMEPN_SETTINGCHANGED = 269;
+	public const uint32 IMEPN_USER = 356;
+	public const int32 IPAWS_ENABLED = 1;
+	public const int32 IPAWS_SIZINGNOTIFY = 4;
+	public const int32 IPAWS_VERTICALFIXED = 256;
+	public const int32 IPAWS_HORIZONTALFIXED = 512;
+	public const int32 IPAWS_SIZEFIXED = 768;
+	public const int32 IPAWS_MAXWIDTHFIXED = 4096;
+	public const int32 IPAWS_MAXHEIGHTFIXED = 8192;
+	public const int32 IPAWS_MAXSIZEFIXED = 12288;
+	public const int32 IPAWS_MINWIDTHFIXED = 65536;
+	public const int32 IPAWS_MINHEIGHTFIXED = 131072;
+	public const int32 IPAWS_MINSIZEFIXED = 196608;
+	public const uint32 STYLE_DESCRIPTION_SIZE = 32;
+	public const uint32 IMEMENUITEM_STRING_SIZE = 80;
+	public const uint32 IMC_GETCANDIDATEPOS = 7;
+	public const uint32 IMC_SETCANDIDATEPOS = 8;
+	public const uint32 IMC_GETCOMPOSITIONFONT = 9;
+	public const uint32 IMC_SETCOMPOSITIONFONT = 10;
+	public const uint32 IMC_GETCOMPOSITIONWINDOW = 11;
+	public const uint32 IMC_SETCOMPOSITIONWINDOW = 12;
+	public const uint32 IMC_GETSTATUSWINDOWPOS = 15;
+	public const uint32 IMC_SETSTATUSWINDOWPOS = 16;
+	public const uint32 IMC_CLOSESTATUSWINDOW = 33;
+	public const uint32 IMC_OPENSTATUSWINDOW = 34;
+	public const uint32 NI_FINALIZECONVERSIONRESULT = 20;
+	public const uint32 ISC_SHOWUICANDIDATEWINDOW = 1;
+	public const uint32 ISC_SHOWUICOMPOSITIONWINDOW = 2147483648;
+	public const uint32 ISC_SHOWUIGUIDELINE = 1073741824;
+	public const uint32 ISC_SHOWUIALLCANDIDATEWINDOW = 15;
+	public const uint32 ISC_SHOWUIALL = 3221225487;
+	public const uint32 MOD_LEFT = 32768;
+	public const uint32 MOD_RIGHT = 16384;
+	public const uint32 MOD_ON_KEYUP = 2048;
+	public const uint32 MOD_IGNORE_ALL_MODIFIER = 1024;
+	public const uint32 IME_HOTKEY_DSWITCH_FIRST = 256;
+	public const uint32 IME_HOTKEY_DSWITCH_LAST = 287;
+	public const uint32 IME_HOTKEY_PRIVATE_FIRST = 512;
+	public const uint32 IME_HOTKEY_PRIVATE_LAST = 543;
+	public const uint32 CS_INSERTCHAR = 8192;
+	public const uint32 CS_NOMOVECARET = 16384;
+	public const uint32 IMEVER_0310 = 196618;
+	public const uint32 IMEVER_0400 = 262144;
+	public const uint32 IME_PROP_AT_CARET = 65536;
+	public const uint32 IME_PROP_SPECIAL_UI = 131072;
+	public const uint32 IME_PROP_CANDLIST_START_FROM_1 = 262144;
+	public const uint32 IME_PROP_UNICODE = 524288;
+	public const uint32 IME_PROP_COMPLETE_ON_UNSELECT = 1048576;
+	public const uint32 UI_CAP_2700 = 1;
+	public const uint32 UI_CAP_ROT90 = 2;
+	public const uint32 UI_CAP_ROTANY = 4;
+	public const uint32 SCS_CAP_COMPSTR = 1;
+	public const uint32 SCS_CAP_MAKEREAD = 2;
+	public const uint32 SCS_CAP_SETRECONVERTSTRING = 4;
+	public const uint32 SELECT_CAP_CONVERSION = 1;
+	public const uint32 SELECT_CAP_SENTENCE = 2;
+	public const uint32 GL_LEVEL_NOGUIDELINE = 0;
+	public const uint32 GL_LEVEL_FATAL = 1;
+	public const uint32 GL_LEVEL_ERROR = 2;
+	public const uint32 GL_LEVEL_WARNING = 3;
+	public const uint32 GL_LEVEL_INFORMATION = 4;
+	public const uint32 GL_ID_UNKNOWN = 0;
+	public const uint32 GL_ID_NOMODULE = 1;
+	public const uint32 GL_ID_NODICTIONARY = 16;
+	public const uint32 GL_ID_CANNOTSAVE = 17;
+	public const uint32 GL_ID_NOCONVERT = 32;
+	public const uint32 GL_ID_TYPINGERROR = 33;
+	public const uint32 GL_ID_TOOMANYSTROKE = 34;
+	public const uint32 GL_ID_READINGCONFLICT = 35;
+	public const uint32 GL_ID_INPUTREADING = 36;
+	public const uint32 GL_ID_INPUTRADICAL = 37;
+	public const uint32 GL_ID_INPUTCODE = 38;
+	public const uint32 GL_ID_INPUTSYMBOL = 39;
+	public const uint32 GL_ID_CHOOSECANDIDATE = 40;
+	public const uint32 GL_ID_REVERSECONVERSION = 41;
+	public const uint32 GL_ID_PRIVATE_FIRST = 32768;
+	public const uint32 GL_ID_PRIVATE_LAST = 65535;
+	public const uint32 ATTR_INPUT = 0;
+	public const uint32 ATTR_TARGET_CONVERTED = 1;
+	public const uint32 ATTR_CONVERTED = 2;
+	public const uint32 ATTR_TARGET_NOTCONVERTED = 3;
+	public const uint32 ATTR_INPUT_ERROR = 4;
+	public const uint32 ATTR_FIXEDCONVERTED = 5;
+	public const uint32 CFS_DEFAULT = 0;
+	public const uint32 CFS_RECT = 1;
+	public const uint32 CFS_POINT = 2;
+	public const uint32 CFS_FORCE_POSITION = 32;
+	public const uint32 CFS_CANDIDATEPOS = 64;
+	public const uint32 CFS_EXCLUDE = 128;
+	public const uint32 IME_CAND_UNKNOWN = 0;
+	public const uint32 IME_CAND_READ = 1;
+	public const uint32 IME_CAND_CODE = 2;
+	public const uint32 IME_CAND_MEANING = 3;
+	public const uint32 IME_CAND_RADICAL = 4;
+	public const uint32 IME_CAND_STROKE = 5;
+	public const uint32 IMN_CLOSESTATUSWINDOW = 1;
+	public const uint32 IMN_OPENSTATUSWINDOW = 2;
+	public const uint32 IMN_CHANGECANDIDATE = 3;
+	public const uint32 IMN_CLOSECANDIDATE = 4;
+	public const uint32 IMN_OPENCANDIDATE = 5;
+	public const uint32 IMN_SETCONVERSIONMODE = 6;
+	public const uint32 IMN_SETSENTENCEMODE = 7;
+	public const uint32 IMN_SETOPENSTATUS = 8;
+	public const uint32 IMN_SETCANDIDATEPOS = 9;
+	public const uint32 IMN_SETCOMPOSITIONFONT = 10;
+	public const uint32 IMN_SETCOMPOSITIONWINDOW = 11;
+	public const uint32 IMN_SETSTATUSWINDOWPOS = 12;
+	public const uint32 IMN_GUIDELINE = 13;
+	public const uint32 IMN_PRIVATE = 14;
+	public const uint32 IMR_COMPOSITIONWINDOW = 1;
+	public const uint32 IMR_CANDIDATEWINDOW = 2;
+	public const uint32 IMR_COMPOSITIONFONT = 3;
+	public const uint32 IMR_RECONVERTSTRING = 4;
+	public const uint32 IMR_CONFIRMRECONVERTSTRING = 5;
+	public const uint32 IMR_QUERYCHARPOSITION = 6;
+	public const uint32 IMR_DOCUMENTFEED = 7;
+	public const int32 IMM_ERROR_NODATA = -1;
+	public const int32 IMM_ERROR_GENERAL = -2;
+	public const uint32 IME_CONFIG_GENERAL = 1;
+	public const uint32 IME_CONFIG_REGISTERWORD = 2;
+	public const uint32 IME_CONFIG_SELECTDICTIONARY = 3;
+	public const uint32 IME_REGWORD_STYLE_EUDC = 1;
+	public const uint32 IME_REGWORD_STYLE_USER_FIRST = 2147483648;
+	public const uint32 IME_REGWORD_STYLE_USER_LAST = 4294967295;
+	public const uint32 IACE_CHILDREN = 1;
+	public const uint32 IACE_DEFAULT = 16;
+	public const uint32 IACE_IGNORENOCONTEXT = 32;
+	public const uint32 IGIMIF_RIGHTMENU = 1;
+	public const uint32 IGIMII_CMODE = 1;
+	public const uint32 IGIMII_SMODE = 2;
+	public const uint32 IGIMII_CONFIGURE = 4;
+	public const uint32 IGIMII_TOOLS = 8;
+	public const uint32 IGIMII_HELP = 16;
+	public const uint32 IGIMII_OTHER = 32;
+	public const uint32 IGIMII_INPUTTOOLS = 64;
+	public const uint32 IMFT_RADIOCHECK = 1;
+	public const uint32 IMFT_SEPARATOR = 2;
+	public const uint32 IMFT_SUBMENU = 4;
+	public const uint32 SOFTKEYBOARD_TYPE_T1 = 1;
+	public const uint32 SOFTKEYBOARD_TYPE_C1 = 2;
+	public const uint32 IMMGWL_IMC = 0;
+	public const uint32 IMMGWLP_IMC = 0;
+	public const uint32 IMC_SETCONVERSIONMODE = 2;
+	public const uint32 IMC_SETSENTENCEMODE = 4;
+	public const uint32 IMC_SETOPENSTATUS = 6;
+	public const uint32 IMC_GETSOFTKBDFONT = 17;
+	public const uint32 IMC_SETSOFTKBDFONT = 18;
+	public const uint32 IMC_GETSOFTKBDPOS = 19;
+	public const uint32 IMC_SETSOFTKBDPOS = 20;
+	public const uint32 IMC_GETSOFTKBDSUBTYPE = 21;
+	public const uint32 IMC_SETSOFTKBDSUBTYPE = 22;
+	public const uint32 IMC_SETSOFTKBDDATA = 24;
+	public const uint32 NI_CONTEXTUPDATED = 3;
+	public const uint32 IME_SYSINFO_WINLOGON = 1;
+	public const uint32 IME_SYSINFO_WOW16 = 2;
+	public const uint32 INIT_STATUSWNDPOS = 1;
+	public const uint32 INIT_CONVERSION = 2;
+	public const uint32 INIT_SENTENCE = 4;
+	public const uint32 INIT_LOGFONT = 8;
+	public const uint32 INIT_COMPFORM = 16;
+	public const uint32 INIT_SOFTKBDPOS = 32;
+	public const uint32 IME_PROP_END_UNLOAD = 1;
+	public const uint32 IME_PROP_KBD_CHAR_FIRST = 2;
+	public const uint32 IME_PROP_IGNORE_UPKEYS = 4;
+	public const uint32 IME_PROP_NEED_ALTKEY = 8;
+	public const uint32 IME_PROP_NO_KEYS_ON_CLOSE = 16;
+	public const uint32 IME_PROP_ACCEPT_WIDE_VKEY = 32;
+	public const uint32 UI_CAP_SOFTKBD = 65536;
+	public const uint32 IMN_SOFTKBDDESTROYED = 17;
+	public const uint32 IME_UI_CLASS_NAME_SIZE = 16;
+	public const uint32 IME_ESC_STRING_BUFFER_SIZE = 80;
+	public const String szImeJapan = "MSIME.Japan";
+	public const String szImeKorea = "MSIME.Korea";
+	public const String szImeChina = "MSIME.China";
+	public const String szImeTaiwan = "MSIME.Taiwan";
 	public const Guid CLSID_VERSION_DEPENDENT_MSIME_JAPANESE = .(0x6a91029e, 0xaa49, 0x471b, 0xae, 0xe7, 0x7d, 0x33, 0x27, 0x85, 0x66, 0x0d);
 	public const HRESULT IFEC_S_ALREADY_DEFAULT = 291840;
 	public const uint32 FELANG_REQ_CONV = 65536;
@@ -107,6 +382,8 @@ public static
 	public const HRESULT IFED_E_REGISTER_ILLEGAL_POS = -2147192055;
 	public const HRESULT IFED_E_REGISTER_IMPROPER_WORD = -2147192054;
 	public const HRESULT IFED_E_REGISTER_DISCONNECTED = -2147192053;
+	public const uint32 cbCommentMax = 256;
+	public const uint32 wchPrivate1 = 57344;
 	public const uint32 POS_UNDEFINED = 0;
 	public const uint32 JPOS_UNDEFINED = 0;
 	public const uint32 JPOS_MEISHI_FUTSU = 100;
@@ -272,7 +549,10 @@ public static
 	public const uint32 VERSION_ID_KOREAN = 33554432;
 	public const uint32 VERSION_ID_CHINESE_TRADITIONAL = 67108864;
 	public const uint32 VERSION_ID_CHINESE_SIMPLIFIED = 134217728;
+	public const String RWM_SERVICE = "MSIMEService";
 	public const uint32 FID_MSIME_VERSION = 0;
+	public const String RWM_UIREADY = "MSIMEUIReady";
+	public const String RWM_MOUSE = "MSIMEMouseOperation";
 	public const uint32 VERSION_MOUSE_OPERATION = 1;
 	public const int32 IMEMOUSERET_NOTHANDLED = -1;
 	public const uint32 IMEMOUSE_VERSION = 255;
@@ -282,10 +562,15 @@ public static
 	public const uint32 IMEMOUSE_MDOWN = 4;
 	public const uint32 IMEMOUSE_WUP = 16;
 	public const uint32 IMEMOUSE_WDOWN = 32;
+	public const String RWM_RECONVERT = "MSIMEReconvert";
 	public const uint32 FID_RECONVERT_VERSION = 268435456;
 	public const uint32 VERSION_RECONVERSION = 1;
+	public const String RWM_RECONVERTREQUEST = "MSIMEReconvertRequest";
 	public const uint32 VERSION_DOCUMENTFEED = 1;
+	public const String RWM_DOCUMENTFEED = "MSIMEDocumentFeed";
 	public const uint32 VERSION_QUERYPOSITION = 1;
+	public const String RWM_QUERYPOSITION = "MSIMEQueryPosition";
+	public const String RWM_MODEBIAS = "MSIMEModeBias";
 	public const uint32 VERSION_MODEBIAS = 1;
 	public const uint32 MODEBIAS_GETVERSION = 0;
 	public const uint32 MODEBIAS_SETVALUE = 1;
@@ -294,9 +579,13 @@ public static
 	public const uint32 MODEBIASMODE_FILENAME = 1;
 	public const uint32 MODEBIASMODE_READING = 2;
 	public const uint32 MODEBIASMODE_DIGIT = 4;
+	public const String RWM_SHOWIMEPAD = "MSIMEShowImePad";
 	public const uint32 SHOWIMEPAD_DEFAULT = 0;
 	public const uint32 SHOWIMEPAD_CATEGORY = 1;
 	public const uint32 SHOWIMEPAD_GUID = 2;
+	public const String RWM_KEYMAP = "MSIMEKeyMap";
+	public const String RWM_CHGKEYMAP = "MSIMEChangeKeyMap";
+	public const String RWM_NTFYKEYMAP = "MSIMENotifyKeyMap";
 	public const uint32 FID_MSIME_KMS_VERSION = 1;
 	public const uint32 FID_MSIME_KMS_INIT = 2;
 	public const uint32 FID_MSIME_KMS_TERM = 3;
@@ -316,334 +605,10 @@ public static
 	public const uint32 IMEKMS_INPTGL = 5;
 	public const uint32 IMEKMS_CANDIDATE = 6;
 	public const uint32 IMEKMS_TYPECAND = 7;
+	public const String RWM_RECONVERTOPTIONS = "MSIMEReconvertOptions";
 	public const uint32 RECONVOPT_NONE = 0;
 	public const uint32 RECONVOPT_USECANCELNOTIFY = 1;
 	public const uint32 GCSEX_CANCELRECONVERT = 268435456;
-	public const uint32 STYLE_DESCRIPTION_SIZE = 32;
-	public const uint32 IMEMENUITEM_STRING_SIZE = 80;
-	public const uint32 IMC_GETCANDIDATEPOS = 7;
-	public const uint32 IMC_SETCANDIDATEPOS = 8;
-	public const uint32 IMC_GETCOMPOSITIONFONT = 9;
-	public const uint32 IMC_SETCOMPOSITIONFONT = 10;
-	public const uint32 IMC_GETCOMPOSITIONWINDOW = 11;
-	public const uint32 IMC_SETCOMPOSITIONWINDOW = 12;
-	public const uint32 IMC_GETSTATUSWINDOWPOS = 15;
-	public const uint32 IMC_SETSTATUSWINDOWPOS = 16;
-	public const uint32 IMC_CLOSESTATUSWINDOW = 33;
-	public const uint32 IMC_OPENSTATUSWINDOW = 34;
-	public const uint32 NI_FINALIZECONVERSIONRESULT = 20;
-	public const uint32 ISC_SHOWUICANDIDATEWINDOW = 1;
-	public const uint32 ISC_SHOWUICOMPOSITIONWINDOW = 2147483648;
-	public const uint32 ISC_SHOWUIGUIDELINE = 1073741824;
-	public const uint32 ISC_SHOWUIALLCANDIDATEWINDOW = 15;
-	public const uint32 ISC_SHOWUIALL = 3221225487;
-	public const uint32 MOD_LEFT = 32768;
-	public const uint32 MOD_RIGHT = 16384;
-	public const uint32 MOD_ON_KEYUP = 2048;
-	public const uint32 MOD_IGNORE_ALL_MODIFIER = 1024;
-	public const uint32 IME_CHOTKEY_IME_NONIME_TOGGLE = 16;
-	public const uint32 IME_CHOTKEY_SHAPE_TOGGLE = 17;
-	public const uint32 IME_CHOTKEY_SYMBOL_TOGGLE = 18;
-	public const uint32 IME_JHOTKEY_CLOSE_OPEN = 48;
-	public const uint32 IME_KHOTKEY_SHAPE_TOGGLE = 80;
-	public const uint32 IME_KHOTKEY_HANJACONVERT = 81;
-	public const uint32 IME_KHOTKEY_ENGLISH = 82;
-	public const uint32 IME_THOTKEY_IME_NONIME_TOGGLE = 112;
-	public const uint32 IME_THOTKEY_SHAPE_TOGGLE = 113;
-	public const uint32 IME_THOTKEY_SYMBOL_TOGGLE = 114;
-	public const uint32 IME_HOTKEY_DSWITCH_FIRST = 256;
-	public const uint32 IME_HOTKEY_DSWITCH_LAST = 287;
-	public const uint32 IME_HOTKEY_PRIVATE_FIRST = 512;
-	public const uint32 IME_ITHOTKEY_RESEND_RESULTSTR = 512;
-	public const uint32 IME_ITHOTKEY_PREVIOUS_COMPOSITION = 513;
-	public const uint32 IME_ITHOTKEY_UISTYLE_TOGGLE = 514;
-	public const uint32 IME_ITHOTKEY_RECONVERTSTRING = 515;
-	public const uint32 IME_HOTKEY_PRIVATE_LAST = 543;
-	public const uint32 GCS_COMPREADSTR = 1;
-	public const uint32 GCS_COMPREADATTR = 2;
-	public const uint32 GCS_COMPREADCLAUSE = 4;
-	public const uint32 GCS_COMPSTR = 8;
-	public const uint32 GCS_COMPATTR = 16;
-	public const uint32 GCS_COMPCLAUSE = 32;
-	public const uint32 GCS_CURSORPOS = 128;
-	public const uint32 GCS_DELTASTART = 256;
-	public const uint32 GCS_RESULTREADSTR = 512;
-	public const uint32 GCS_RESULTREADCLAUSE = 1024;
-	public const uint32 GCS_RESULTSTR = 2048;
-	public const uint32 GCS_RESULTCLAUSE = 4096;
-	public const uint32 CS_INSERTCHAR = 8192;
-	public const uint32 CS_NOMOVECARET = 16384;
-	public const uint32 IMEVER_0310 = 196618;
-	public const uint32 IMEVER_0400 = 262144;
-	public const uint32 IME_PROP_AT_CARET = 65536;
-	public const uint32 IME_PROP_SPECIAL_UI = 131072;
-	public const uint32 IME_PROP_CANDLIST_START_FROM_1 = 262144;
-	public const uint32 IME_PROP_UNICODE = 524288;
-	public const uint32 IME_PROP_COMPLETE_ON_UNSELECT = 1048576;
-	public const uint32 UI_CAP_2700 = 1;
-	public const uint32 UI_CAP_ROT90 = 2;
-	public const uint32 UI_CAP_ROTANY = 4;
-	public const uint32 SCS_CAP_COMPSTR = 1;
-	public const uint32 SCS_CAP_MAKEREAD = 2;
-	public const uint32 SCS_CAP_SETRECONVERTSTRING = 4;
-	public const uint32 SELECT_CAP_CONVERSION = 1;
-	public const uint32 SELECT_CAP_SENTENCE = 2;
-	public const uint32 GL_LEVEL_NOGUIDELINE = 0;
-	public const uint32 GL_LEVEL_FATAL = 1;
-	public const uint32 GL_LEVEL_ERROR = 2;
-	public const uint32 GL_LEVEL_WARNING = 3;
-	public const uint32 GL_LEVEL_INFORMATION = 4;
-	public const uint32 GL_ID_UNKNOWN = 0;
-	public const uint32 GL_ID_NOMODULE = 1;
-	public const uint32 GL_ID_NODICTIONARY = 16;
-	public const uint32 GL_ID_CANNOTSAVE = 17;
-	public const uint32 GL_ID_NOCONVERT = 32;
-	public const uint32 GL_ID_TYPINGERROR = 33;
-	public const uint32 GL_ID_TOOMANYSTROKE = 34;
-	public const uint32 GL_ID_READINGCONFLICT = 35;
-	public const uint32 GL_ID_INPUTREADING = 36;
-	public const uint32 GL_ID_INPUTRADICAL = 37;
-	public const uint32 GL_ID_INPUTCODE = 38;
-	public const uint32 GL_ID_INPUTSYMBOL = 39;
-	public const uint32 GL_ID_CHOOSECANDIDATE = 40;
-	public const uint32 GL_ID_REVERSECONVERSION = 41;
-	public const uint32 GL_ID_PRIVATE_FIRST = 32768;
-	public const uint32 GL_ID_PRIVATE_LAST = 65535;
-	public const uint32 ATTR_INPUT = 0;
-	public const uint32 ATTR_TARGET_CONVERTED = 1;
-	public const uint32 ATTR_CONVERTED = 2;
-	public const uint32 ATTR_TARGET_NOTCONVERTED = 3;
-	public const uint32 ATTR_INPUT_ERROR = 4;
-	public const uint32 ATTR_FIXEDCONVERTED = 5;
-	public const uint32 CFS_DEFAULT = 0;
-	public const uint32 CFS_RECT = 1;
-	public const uint32 CFS_POINT = 2;
-	public const uint32 CFS_FORCE_POSITION = 32;
-	public const uint32 CFS_CANDIDATEPOS = 64;
-	public const uint32 CFS_EXCLUDE = 128;
-	public const uint32 IME_CMODE_SOFTKBD = 128;
-	public const uint32 IME_CMODE_NOCONVERSION = 256;
-	public const uint32 IME_CMODE_EUDC = 512;
-	public const uint32 IME_CMODE_SYMBOL = 1024;
-	public const uint32 IME_CMODE_FIXED = 2048;
-	public const uint32 IME_CMODE_RESERVED = 4026531840;
-	public const uint32 IME_SMODE_NONE = 0;
-	public const uint32 IME_SMODE_PLAURALCLAUSE = 1;
-	public const uint32 IME_SMODE_SINGLECONVERT = 2;
-	public const uint32 IME_SMODE_AUTOMATIC = 4;
-	public const uint32 IME_SMODE_PHRASEPREDICT = 8;
-	public const uint32 IME_SMODE_CONVERSATION = 16;
-	public const uint32 IME_SMODE_RESERVED = 61440;
-	public const uint32 IME_CAND_UNKNOWN = 0;
-	public const uint32 IME_CAND_READ = 1;
-	public const uint32 IME_CAND_CODE = 2;
-	public const uint32 IME_CAND_MEANING = 3;
-	public const uint32 IME_CAND_RADICAL = 4;
-	public const uint32 IME_CAND_STROKE = 5;
-	public const uint32 IMN_CLOSESTATUSWINDOW = 1;
-	public const uint32 IMN_OPENSTATUSWINDOW = 2;
-	public const uint32 IMN_CHANGECANDIDATE = 3;
-	public const uint32 IMN_CLOSECANDIDATE = 4;
-	public const uint32 IMN_OPENCANDIDATE = 5;
-	public const uint32 IMN_SETCONVERSIONMODE = 6;
-	public const uint32 IMN_SETSENTENCEMODE = 7;
-	public const uint32 IMN_SETOPENSTATUS = 8;
-	public const uint32 IMN_SETCANDIDATEPOS = 9;
-	public const uint32 IMN_SETCOMPOSITIONFONT = 10;
-	public const uint32 IMN_SETCOMPOSITIONWINDOW = 11;
-	public const uint32 IMN_SETSTATUSWINDOWPOS = 12;
-	public const uint32 IMN_GUIDELINE = 13;
-	public const uint32 IMN_PRIVATE = 14;
-	public const uint32 IMR_COMPOSITIONWINDOW = 1;
-	public const uint32 IMR_CANDIDATEWINDOW = 2;
-	public const uint32 IMR_COMPOSITIONFONT = 3;
-	public const uint32 IMR_RECONVERTSTRING = 4;
-	public const uint32 IMR_CONFIRMRECONVERTSTRING = 5;
-	public const uint32 IMR_QUERYCHARPOSITION = 6;
-	public const uint32 IMR_DOCUMENTFEED = 7;
-	public const int32 IMM_ERROR_NODATA = -1;
-	public const int32 IMM_ERROR_GENERAL = -2;
-	public const uint32 IME_CONFIG_GENERAL = 1;
-	public const uint32 IME_CONFIG_REGISTERWORD = 2;
-	public const uint32 IME_CONFIG_SELECTDICTIONARY = 3;
-	public const uint32 IME_ESC_QUERY_SUPPORT = 3;
-	public const uint32 IME_ESC_RESERVED_FIRST = 4;
-	public const uint32 IME_ESC_RESERVED_LAST = 2047;
-	public const uint32 IME_ESC_PRIVATE_FIRST = 2048;
-	public const uint32 IME_ESC_PRIVATE_LAST = 4095;
-	public const uint32 IME_ESC_SEQUENCE_TO_INTERNAL = 4097;
-	public const uint32 IME_ESC_GET_EUDC_DICTIONARY = 4099;
-	public const uint32 IME_ESC_SET_EUDC_DICTIONARY = 4100;
-	public const uint32 IME_ESC_MAX_KEY = 4101;
-	public const uint32 IME_ESC_IME_NAME = 4102;
-	public const uint32 IME_ESC_SYNC_HOTKEY = 4103;
-	public const uint32 IME_ESC_HANJA_MODE = 4104;
-	public const uint32 IME_ESC_AUTOMATA = 4105;
-	public const uint32 IME_ESC_PRIVATE_HOTKEY = 4106;
-	public const uint32 IME_ESC_GETHELPFILENAME = 4107;
-	public const uint32 IME_REGWORD_STYLE_EUDC = 1;
-	public const uint32 IME_REGWORD_STYLE_USER_FIRST = 2147483648;
-	public const uint32 IME_REGWORD_STYLE_USER_LAST = 4294967295;
-	public const uint32 IACE_CHILDREN = 1;
-	public const uint32 IACE_DEFAULT = 16;
-	public const uint32 IACE_IGNORENOCONTEXT = 32;
-	public const uint32 IGIMIF_RIGHTMENU = 1;
-	public const uint32 IGIMII_CMODE = 1;
-	public const uint32 IGIMII_SMODE = 2;
-	public const uint32 IGIMII_CONFIGURE = 4;
-	public const uint32 IGIMII_TOOLS = 8;
-	public const uint32 IGIMII_HELP = 16;
-	public const uint32 IGIMII_OTHER = 32;
-	public const uint32 IGIMII_INPUTTOOLS = 64;
-	public const uint32 IMFT_RADIOCHECK = 1;
-	public const uint32 IMFT_SEPARATOR = 2;
-	public const uint32 IMFT_SUBMENU = 4;
-	public const uint32 SOFTKEYBOARD_TYPE_T1 = 1;
-	public const uint32 SOFTKEYBOARD_TYPE_C1 = 2;
-	public const uint32 IMMGWL_IMC = 0;
-	public const uint32 IMMGWLP_IMC = 0;
-	public const uint32 IMC_SETCONVERSIONMODE = 2;
-	public const uint32 IMC_SETSENTENCEMODE = 4;
-	public const uint32 IMC_SETOPENSTATUS = 6;
-	public const uint32 IMC_GETSOFTKBDFONT = 17;
-	public const uint32 IMC_SETSOFTKBDFONT = 18;
-	public const uint32 IMC_GETSOFTKBDPOS = 19;
-	public const uint32 IMC_SETSOFTKBDPOS = 20;
-	public const uint32 IMC_GETSOFTKBDSUBTYPE = 21;
-	public const uint32 IMC_SETSOFTKBDSUBTYPE = 22;
-	public const uint32 IMC_SETSOFTKBDDATA = 24;
-	public const uint32 NI_CONTEXTUPDATED = 3;
-	public const uint32 IME_SYSINFO_WINLOGON = 1;
-	public const uint32 IME_SYSINFO_WOW16 = 2;
-	public const uint32 INIT_STATUSWNDPOS = 1;
-	public const uint32 INIT_CONVERSION = 2;
-	public const uint32 INIT_SENTENCE = 4;
-	public const uint32 INIT_LOGFONT = 8;
-	public const uint32 INIT_COMPFORM = 16;
-	public const uint32 INIT_SOFTKBDPOS = 32;
-	public const uint32 IME_PROP_END_UNLOAD = 1;
-	public const uint32 IME_PROP_KBD_CHAR_FIRST = 2;
-	public const uint32 IME_PROP_IGNORE_UPKEYS = 4;
-	public const uint32 IME_PROP_NEED_ALTKEY = 8;
-	public const uint32 IME_PROP_NO_KEYS_ON_CLOSE = 16;
-	public const uint32 IME_PROP_ACCEPT_WIDE_VKEY = 32;
-	public const uint32 UI_CAP_SOFTKBD = 65536;
-	public const uint32 IMN_SOFTKBDDESTROYED = 17;
-	public const uint32 IME_UI_CLASS_NAME_SIZE = 16;
-	public const uint32 IME_ESC_STRING_BUFFER_SIZE = 80;
-	public const Guid CATID_MSIME_IImePadApplet_VER7 = .(0x4a0f8e31, 0xc3ee, 0x11d1, 0xaf, 0xef, 0x00, 0x80, 0x5f, 0x0c, 0x8b, 0x6d);
-	public const Guid CATID_MSIME_IImePadApplet_VER80 = .(0x56f7a792, 0xfef1, 0x11d3, 0x84, 0x63, 0x00, 0xc0, 0x4f, 0x7a, 0x06, 0xe5);
-	public const Guid CATID_MSIME_IImePadApplet_VER81 = .(0x656520b0, 0xbb88, 0x11d4, 0x84, 0xc0, 0x00, 0xc0, 0x4f, 0x7a, 0x06, 0xe5);
-	public const Guid CATID_MSIME_IImePadApplet900 = .(0xfaae51bf, 0x5e5b, 0x4a1d, 0x8d, 0xe1, 0x17, 0xc1, 0xd9, 0xe1, 0x72, 0x8d);
-	public const Guid CATID_MSIME_IImePadApplet1000 = .(0xe081e1d6, 0x2389, 0x43cb, 0xb6, 0x6f, 0x60, 0x9f, 0x82, 0x3d, 0x9f, 0x9c);
-	public const Guid CATID_MSIME_IImePadApplet1200 = .(0xa47fb5fc, 0x7d15, 0x4223, 0xa7, 0x89, 0xb7, 0x81, 0xbf, 0x9a, 0xe6, 0x67);
-	public const Guid CATID_MSIME_IImePadApplet = .(0x7566cad1, 0x4ec9, 0x4478, 0x9f, 0xe9, 0x8e, 0xd7, 0x66, 0x61, 0x9e, 0xdf);
-	public const uint32 FEID_NONE = 0;
-	public const uint32 FEID_CHINESE_TRADITIONAL = 1;
-	public const uint32 FEID_CHINESE_SIMPLIFIED = 2;
-	public const uint32 FEID_CHINESE_HONGKONG = 3;
-	public const uint32 FEID_CHINESE_SINGAPORE = 4;
-	public const uint32 FEID_JAPANESE = 5;
-	public const uint32 FEID_KOREAN = 6;
-	public const uint32 FEID_KOREAN_JOHAB = 7;
-	public const uint32 INFOMASK_NONE = 0;
-	public const uint32 INFOMASK_QUERY_CAND = 1;
-	public const uint32 INFOMASK_APPLY_CAND = 2;
-	public const uint32 INFOMASK_APPLY_CAND_EX = 4;
-	public const uint32 INFOMASK_STRING_FIX = 65536;
-	public const uint32 INFOMASK_HIDE_CAND = 131072;
-	public const uint32 INFOMASK_BLOCK_CAND = 262144;
-	public const uint32 IMEFAREASTINFO_TYPE_DEFAULT = 0;
-	public const uint32 IMEFAREASTINFO_TYPE_READING = 1;
-	public const uint32 IMEFAREASTINFO_TYPE_COMMENT = 2;
-	public const uint32 IMEFAREASTINFO_TYPE_COSTTIME = 3;
-	public const uint32 CHARINFO_APPLETID_MASK = 4278190080;
-	public const uint32 CHARINFO_FEID_MASK = 15728640;
-	public const uint32 CHARINFO_CHARID_MASK = 65535;
-	public const uint32 MAX_APPLETTITLE = 64;
-	public const uint32 MAX_FONTFACE = 32;
-	public const int32 IPACFG_NONE = 0;
-	public const int32 IPACFG_PROPERTY = 1;
-	public const int32 IPACFG_HELP = 2;
-	public const int32 IPACFG_TITLE = 65536;
-	public const int32 IPACFG_TITLEFONTFACE = 131072;
-	public const int32 IPACFG_CATEGORY = 262144;
-	public const int32 IPACFG_LANG = 16;
-	public const uint32 IPACID_NONE = 0;
-	public const uint32 IPACID_SOFTKEY = 1;
-	public const uint32 IPACID_HANDWRITING = 2;
-	public const uint32 IPACID_STROKESEARCH = 3;
-	public const uint32 IPACID_RADICALSEARCH = 4;
-	public const uint32 IPACID_SYMBOLSEARCH = 5;
-	public const uint32 IPACID_VOICE = 6;
-	public const uint32 IPACID_EPWING = 7;
-	public const uint32 IPACID_OCR = 8;
-	public const uint32 IPACID_CHARLIST = 9;
-	public const uint32 IPACID_USER = 256;
-	public const uint32 IMEPADREQ_FIRST = 4096;
-	public const uint32 IMEPADREQ_INSERTSTRINGCANDIDATE = 4098;
-	public const uint32 IMEPADREQ_INSERTITEMCANDIDATE = 4099;
-	public const uint32 IMEPADREQ_SENDKEYCONTROL = 4101;
-	public const uint32 IMEPADREQ_GETSELECTEDSTRING = 4103;
-	public const uint32 IMEPADREQ_SETAPPLETDATA = 4105;
-	public const uint32 IMEPADREQ_GETAPPLETDATA = 4106;
-	public const uint32 IMEPADREQ_SETTITLEFONT = 4107;
-	public const uint32 IMEPADREQ_GETCOMPOSITIONSTRINGID = 4109;
-	public const uint32 IMEPADREQ_INSERTSTRINGCANDIDATEINFO = 4110;
-	public const uint32 IMEPADREQ_CHANGESTRINGCANDIDATEINFO = 4111;
-	public const uint32 IMEPADREQ_INSERTSTRINGINFO = 4114;
-	public const uint32 IMEPADREQ_CHANGESTRINGINFO = 4115;
-	public const uint32 IMEPADREQ_GETCURRENTUILANGID = 4120;
-	public const uint32 IMEPADCTRL_CONVERTALL = 1;
-	public const uint32 IMEPADCTRL_DETERMINALL = 2;
-	public const uint32 IMEPADCTRL_DETERMINCHAR = 3;
-	public const uint32 IMEPADCTRL_CLEARALL = 4;
-	public const uint32 IMEPADCTRL_CARETSET = 5;
-	public const uint32 IMEPADCTRL_CARETLEFT = 6;
-	public const uint32 IMEPADCTRL_CARETRIGHT = 7;
-	public const uint32 IMEPADCTRL_CARETTOP = 8;
-	public const uint32 IMEPADCTRL_CARETBOTTOM = 9;
-	public const uint32 IMEPADCTRL_CARETBACKSPACE = 10;
-	public const uint32 IMEPADCTRL_CARETDELETE = 11;
-	public const uint32 IMEPADCTRL_PHRASEDELETE = 12;
-	public const uint32 IMEPADCTRL_INSERTSPACE = 13;
-	public const uint32 IMEPADCTRL_INSERTFULLSPACE = 14;
-	public const uint32 IMEPADCTRL_INSERTHALFSPACE = 15;
-	public const uint32 IMEPADCTRL_ONIME = 16;
-	public const uint32 IMEPADCTRL_OFFIME = 17;
-	public const uint32 IMEPADCTRL_ONPRECONVERSION = 18;
-	public const uint32 IMEPADCTRL_OFFPRECONVERSION = 19;
-	public const uint32 IMEPADCTRL_PHONETICCANDIDATE = 20;
-	public const uint32 IMEKEYCTRLMASK_ALT = 1;
-	public const uint32 IMEKEYCTRLMASK_CTRL = 2;
-	public const uint32 IMEKEYCTRLMASK_SHIFT = 4;
-	public const uint32 IMEKEYCTRL_UP = 1;
-	public const uint32 IMEKEYCTRL_DOWN = 0;
-	public const uint32 IMEPN_FIRST = 256;
-	public const uint32 IMEPN_ACTIVATE = 257;
-	public const uint32 IMEPN_INACTIVATE = 258;
-	public const uint32 IMEPN_SHOW = 260;
-	public const uint32 IMEPN_HIDE = 261;
-	public const uint32 IMEPN_SIZECHANGING = 262;
-	public const uint32 IMEPN_SIZECHANGED = 263;
-	public const uint32 IMEPN_CONFIG = 264;
-	public const uint32 IMEPN_HELP = 265;
-	public const uint32 IMEPN_QUERYCAND = 266;
-	public const uint32 IMEPN_APPLYCAND = 267;
-	public const uint32 IMEPN_APPLYCANDEX = 268;
-	public const uint32 IMEPN_SETTINGCHANGED = 269;
-	public const uint32 IMEPN_USER = 356;
-	public const int32 IPAWS_ENABLED = 1;
-	public const int32 IPAWS_SIZINGNOTIFY = 4;
-	public const int32 IPAWS_VERTICALFIXED = 256;
-	public const int32 IPAWS_HORIZONTALFIXED = 512;
-	public const int32 IPAWS_SIZEFIXED = 768;
-	public const int32 IPAWS_MAXWIDTHFIXED = 4096;
-	public const int32 IPAWS_MAXHEIGHTFIXED = 8192;
-	public const int32 IPAWS_MAXSIZEFIXED = 12288;
-	public const int32 IPAWS_MINWIDTHFIXED = 65536;
-	public const int32 IPAWS_MINHEIGHTFIXED = 131072;
-	public const int32 IPAWS_MINSIZEFIXED = 196608;
 	public const Guid CLSID_ImePlugInDictDictionaryList_CHS = .(0x7bf0129b, 0x5bef, 0x4de4, 0x9b, 0x0b, 0x5e, 0xdb, 0x66, 0xac, 0x2f, 0xa6);
 	public const Guid CLSID_ImePlugInDictDictionaryList_JPN = .(0x4fe2776b, 0xb0f9, 0x4396, 0xb5, 0xfc, 0xe9, 0xd4, 0xcf, 0x1e, 0xc1, 0x95);
 }
@@ -727,6 +692,103 @@ public enum IME_PAD_REQUEST_FLAGS : uint32
 	IMEPADREQ_GETCONVERSIONSTATUS = 4126,
 	IMEPADREQ_GETVERSION = 4127,
 	IMEPADREQ_GETCURRENTIMEINFO = 4128,
+}
+
+
+[AllowDuplicates]
+public enum IME_CONVERSION_MODE : uint32
+{
+	IME_CMODE_ALPHANUMERIC = 0,
+	IME_CMODE_NATIVE = 1,
+	IME_CMODE_CHINESE = 1,
+	IME_CMODE_HANGUL = 1,
+	IME_CMODE_JAPANESE = 1,
+	IME_CMODE_KATAKANA = 2,
+	IME_CMODE_LANGUAGE = 3,
+	IME_CMODE_FULLSHAPE = 8,
+	IME_CMODE_ROMAN = 16,
+	IME_CMODE_CHARCODE = 32,
+	IME_CMODE_HANJACONVERT = 64,
+	IME_CMODE_NATIVESYMBOL = 128,
+	IME_CMODE_HANGEUL = 1,
+	IME_CMODE_SOFTKBD = 128,
+	IME_CMODE_NOCONVERSION = 256,
+	IME_CMODE_EUDC = 512,
+	IME_CMODE_SYMBOL = 1024,
+	IME_CMODE_FIXED = 2048,
+	IME_CMODE_RESERVED = 4026531840,
+}
+
+
+[AllowDuplicates]
+public enum IME_SENTENCE_MODE : uint32
+{
+	IME_SMODE_NONE = 0,
+	IME_SMODE_PLAURALCLAUSE = 1,
+	IME_SMODE_SINGLECONVERT = 2,
+	IME_SMODE_AUTOMATIC = 4,
+	IME_SMODE_PHRASEPREDICT = 8,
+	IME_SMODE_CONVERSATION = 16,
+	IME_SMODE_RESERVED = 61440,
+}
+
+
+[AllowDuplicates]
+public enum IME_COMPOSITION_STRING : uint32
+{
+	GCS_COMPREADSTR = 1,
+	GCS_COMPREADATTR = 2,
+	GCS_COMPREADCLAUSE = 4,
+	GCS_COMPSTR = 8,
+	GCS_COMPATTR = 16,
+	GCS_COMPCLAUSE = 32,
+	GCS_CURSORPOS = 128,
+	GCS_DELTASTART = 256,
+	GCS_RESULTREADSTR = 512,
+	GCS_RESULTREADCLAUSE = 1024,
+	GCS_RESULTSTR = 2048,
+	GCS_RESULTCLAUSE = 4096,
+}
+
+
+[AllowDuplicates]
+public enum IME_ESCAPE : uint32
+{
+	IME_ESC_QUERY_SUPPORT = 3,
+	IME_ESC_RESERVED_FIRST = 4,
+	IME_ESC_RESERVED_LAST = 2047,
+	IME_ESC_PRIVATE_FIRST = 2048,
+	IME_ESC_PRIVATE_LAST = 4095,
+	IME_ESC_SEQUENCE_TO_INTERNAL = 4097,
+	IME_ESC_GET_EUDC_DICTIONARY = 4099,
+	IME_ESC_SET_EUDC_DICTIONARY = 4100,
+	IME_ESC_MAX_KEY = 4101,
+	IME_ESC_IME_NAME = 4102,
+	IME_ESC_SYNC_HOTKEY = 4103,
+	IME_ESC_HANJA_MODE = 4104,
+	IME_ESC_AUTOMATA = 4105,
+	IME_ESC_PRIVATE_HOTKEY = 4106,
+	IME_ESC_GETHELPFILENAME = 4107,
+}
+
+
+[AllowDuplicates]
+public enum IME_HOTKEY_IDENTIFIER : uint32
+{
+	IME_CHOTKEY_IME_NONIME_TOGGLE = 16,
+	IME_CHOTKEY_SHAPE_TOGGLE = 17,
+	IME_CHOTKEY_SYMBOL_TOGGLE = 18,
+	IME_JHOTKEY_CLOSE_OPEN = 48,
+	IME_KHOTKEY_SHAPE_TOGGLE = 80,
+	IME_KHOTKEY_HANJACONVERT = 81,
+	IME_KHOTKEY_ENGLISH = 82,
+	IME_THOTKEY_IME_NONIME_TOGGLE = 112,
+	IME_THOTKEY_SHAPE_TOGGLE = 113,
+	IME_THOTKEY_SYMBOL_TOGGLE = 114,
+	IME_ITHOTKEY_RESEND_RESULTSTR = 512,
+	IME_ITHOTKEY_PREVIOUS_COMPOSITION = 513,
+	IME_ITHOTKEY_UISTYLE_TOGGLE = 514,
+	IME_ITHOTKEY_RECONVERTSTRING = 515,
 }
 
 
@@ -1284,14 +1346,14 @@ public struct IMEITEMCANDIDATE
 }
 
 [CRepr]
-public struct tabIMESTRINGINFO
+public struct IMESTRINGINFO
 {
 	public uint32 dwFarEastId;
 	public PWSTR lpwstr;
 }
 
 [CRepr]
-public struct tabIMEFAREASTINFO
+public struct IMEFAREASTINFO
 {
 	public uint32 dwSize;
 	public uint32 dwType;
@@ -1303,7 +1365,7 @@ public struct tabIMEFAREASTINFO
 public struct IMESTRINGCANDIDATEINFO
 {
 	public uint32 dwFarEastId;
-	public tabIMEFAREASTINFO* lpFarEastInfo;
+	public IMEFAREASTINFO* lpFarEastInfo;
 	public uint32 fInfoMask;
 	public int32 iSelIndex;
 	public uint32 uCount;
@@ -2307,7 +2369,7 @@ public static
 	public static extern BOOL ImmIsIME(HKL param0);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ImmSimulateHotKey(HWND param0, uint32 param1);
+	public static extern BOOL ImmSimulateHotKey(HWND param0, IME_HOTKEY_IDENTIFIER param1);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HIMC ImmCreateContext();
@@ -2328,11 +2390,11 @@ public static
 	public static extern BOOL ImmAssociateContextEx(HWND param0, HIMC param1, uint32 param2);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ImmGetCompositionStringA(HIMC param0, uint32 param1, void* lpBuf, uint32 dwBufLen);
-	public static int32 ImmGetCompositionString(HIMC param0, uint32 param1, void* lpBuf, uint32 dwBufLen) => ImmGetCompositionStringA(param0, param1, lpBuf, dwBufLen);
+	public static extern int32 ImmGetCompositionStringA(HIMC param0, IME_COMPOSITION_STRING param1, void* lpBuf, uint32 dwBufLen);
+	public static int32 ImmGetCompositionString(HIMC param0, IME_COMPOSITION_STRING param1, void* lpBuf, uint32 dwBufLen) => ImmGetCompositionStringA(param0, param1, lpBuf, dwBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ImmGetCompositionStringW(HIMC param0, uint32 param1, void* lpBuf, uint32 dwBufLen);
+	public static extern int32 ImmGetCompositionStringW(HIMC param0, IME_COMPOSITION_STRING param1, void* lpBuf, uint32 dwBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmSetCompositionStringA(HIMC param0, SET_COMPOSITION_STRING_TYPE dwIndex, void* lpComp, uint32 dwCompLen, void* lpRead, uint32 dwReadLen);
@@ -2363,10 +2425,10 @@ public static
 	public static extern uint32 ImmGetGuideLineW(HIMC param0, GET_GUIDE_LINE_TYPE dwIndex, PWSTR lpBuf, uint32 dwBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ImmGetConversionStatus(HIMC param0, uint32* lpfdwConversion, uint32* lpfdwSentence);
+	public static extern BOOL ImmGetConversionStatus(HIMC param0, IME_CONVERSION_MODE* lpfdwConversion, IME_SENTENCE_MODE* lpfdwSentence);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ImmSetConversionStatus(HIMC param0, uint32 param1, uint32 param2);
+	public static extern BOOL ImmSetConversionStatus(HIMC param0, IME_CONVERSION_MODE param1, IME_SENTENCE_MODE param2);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmGetOpenStatus(HIMC param0);
@@ -2396,11 +2458,11 @@ public static
 	public static extern BOOL ImmConfigureIMEW(HKL param0, HWND param1, uint32 param2, void* param3);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LRESULT ImmEscapeA(HKL param0, HIMC param1, uint32 param2, void* param3);
-	public static LRESULT ImmEscape(HKL param0, HIMC param1, uint32 param2, void* param3) => ImmEscapeA(param0, param1, param2, param3);
+	public static extern LRESULT ImmEscapeA(HKL param0, HIMC param1, IME_ESCAPE param2, void* param3);
+	public static LRESULT ImmEscape(HKL param0, HIMC param1, IME_ESCAPE param2, void* param3) => ImmEscapeA(param0, param1, param2, param3);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LRESULT ImmEscapeW(HKL param0, HIMC param1, uint32 param2, void* param3);
+	public static extern LRESULT ImmEscapeW(HKL param0, HIMC param1, IME_ESCAPE param2, void* param3);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetConversionListA(HKL param0, HIMC param1, PSTR lpSrc, CANDIDATELIST* lpDst, uint32 dwBufLen, GET_CONVERSION_LIST_FLAG uFlag);

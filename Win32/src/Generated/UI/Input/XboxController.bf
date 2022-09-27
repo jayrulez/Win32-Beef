@@ -6,57 +6,11 @@ namespace Win32.UI.Input.XboxController;
 #region Constants
 public static
 {
-	public const uint32 XINPUT_DEVTYPE_GAMEPAD = 1;
-	public const uint32 XINPUT_DEVSUBTYPE_GAMEPAD = 1;
-	public const uint32 XINPUT_DEVSUBTYPE_UNKNOWN = 0;
-	public const uint32 XINPUT_DEVSUBTYPE_WHEEL = 2;
-	public const uint32 XINPUT_DEVSUBTYPE_ARCADE_STICK = 3;
-	public const uint32 XINPUT_DEVSUBTYPE_FLIGHT_STICK = 4;
-	public const uint32 XINPUT_DEVSUBTYPE_DANCE_PAD = 5;
-	public const uint32 XINPUT_DEVSUBTYPE_GUITAR = 6;
-	public const uint32 XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE = 7;
-	public const uint32 XINPUT_DEVSUBTYPE_DRUM_KIT = 8;
-	public const uint32 XINPUT_DEVSUBTYPE_GUITAR_BASS = 11;
-	public const uint32 XINPUT_DEVSUBTYPE_ARCADE_PAD = 19;
-	public const uint32 XINPUT_CAPS_VOICE_SUPPORTED = 4;
-	public const uint32 XINPUT_CAPS_FFB_SUPPORTED = 1;
-	public const uint32 XINPUT_CAPS_WIRELESS = 2;
-	public const uint32 XINPUT_CAPS_PMD_SUPPORTED = 8;
-	public const uint32 XINPUT_CAPS_NO_NAVIGATION = 16;
-	public const uint32 XINPUT_GAMEPAD_DPAD_UP = 1;
-	public const uint32 XINPUT_GAMEPAD_DPAD_DOWN = 2;
-	public const uint32 XINPUT_GAMEPAD_DPAD_LEFT = 4;
-	public const uint32 XINPUT_GAMEPAD_DPAD_RIGHT = 8;
-	public const uint32 XINPUT_GAMEPAD_START = 16;
-	public const uint32 XINPUT_GAMEPAD_BACK = 32;
-	public const uint32 XINPUT_GAMEPAD_LEFT_THUMB = 64;
-	public const uint32 XINPUT_GAMEPAD_RIGHT_THUMB = 128;
-	public const uint32 XINPUT_GAMEPAD_LEFT_SHOULDER = 256;
-	public const uint32 XINPUT_GAMEPAD_RIGHT_SHOULDER = 512;
-	public const uint32 XINPUT_GAMEPAD_A = 4096;
-	public const uint32 XINPUT_GAMEPAD_B = 8192;
-	public const uint32 XINPUT_GAMEPAD_X = 16384;
-	public const uint32 XINPUT_GAMEPAD_Y = 32768;
-	public const uint32 XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE = 7849;
-	public const uint32 XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE = 8689;
-	public const uint32 XINPUT_GAMEPAD_TRIGGER_THRESHOLD = 30;
-	public const uint32 XINPUT_FLAG_GAMEPAD = 1;
-	public const uint32 BATTERY_DEVTYPE_GAMEPAD = 0;
-	public const uint32 BATTERY_DEVTYPE_HEADSET = 1;
-	public const uint32 BATTERY_TYPE_DISCONNECTED = 0;
-	public const uint32 BATTERY_TYPE_WIRED = 1;
-	public const uint32 BATTERY_TYPE_ALKALINE = 2;
-	public const uint32 BATTERY_TYPE_NIMH = 3;
-	public const uint32 BATTERY_TYPE_UNKNOWN = 255;
-	public const uint32 BATTERY_LEVEL_EMPTY = 0;
-	public const uint32 BATTERY_LEVEL_LOW = 1;
-	public const uint32 BATTERY_LEVEL_MEDIUM = 2;
-	public const uint32 BATTERY_LEVEL_FULL = 3;
+	public const String XINPUT_DLL_A = "xinput1_4.dll";
+	public const String XINPUT_DLL_W = "xinput1_4.dll";
+	public const String XINPUT_DLL = "xinput1_4.dll";
 	public const uint32 XUSER_MAX_COUNT = 4;
 	public const uint32 XUSER_INDEX_ANY = 255;
-	public const uint32 XINPUT_KEYSTROKE_KEYDOWN = 1;
-	public const uint32 XINPUT_KEYSTROKE_KEYUP = 2;
-	public const uint32 XINPUT_KEYSTROKE_REPEAT = 4;
 }
 #endregion
 
@@ -99,6 +53,110 @@ public enum XINPUT_VIRTUAL_KEY : uint16
 	VK_PAD_RTHUMB_DOWNLEFT = 22583,
 }
 
+
+[AllowDuplicates]
+public enum BATTERY_TYPE : uint32
+{
+	BATTERY_TYPE_DISCONNECTED = 0,
+	BATTERY_TYPE_WIRED = 1,
+	BATTERY_TYPE_ALKALINE = 2,
+	BATTERY_TYPE_NIMH = 3,
+	BATTERY_TYPE_UNKNOWN = 255,
+}
+
+
+[AllowDuplicates]
+public enum BATTERY_LEVEL : uint32
+{
+	BATTERY_LEVEL_EMPTY = 0,
+	BATTERY_LEVEL_LOW = 1,
+	BATTERY_LEVEL_MEDIUM = 2,
+	BATTERY_LEVEL_FULL = 3,
+}
+
+
+[AllowDuplicates]
+public enum BATTERY_DEVTYPE : uint32
+{
+	BATTERY_DEVTYPE_GAMEPAD = 0,
+	BATTERY_DEVTYPE_HEADSET = 1,
+}
+
+
+[AllowDuplicates]
+public enum XINPUT_DEVTYPE : uint32
+{
+	XINPUT_DEVTYPE_GAMEPAD = 1,
+}
+
+
+[AllowDuplicates]
+public enum XINPUT_DEVSUBTYPE : uint32
+{
+	XINPUT_DEVSUBTYPE_GAMEPAD = 1,
+	XINPUT_DEVSUBTYPE_UNKNOWN = 0,
+	XINPUT_DEVSUBTYPE_WHEEL = 2,
+	XINPUT_DEVSUBTYPE_ARCADE_STICK = 3,
+	XINPUT_DEVSUBTYPE_FLIGHT_STICK = 4,
+	XINPUT_DEVSUBTYPE_DANCE_PAD = 5,
+	XINPUT_DEVSUBTYPE_GUITAR = 6,
+	XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE = 7,
+	XINPUT_DEVSUBTYPE_DRUM_KIT = 8,
+	XINPUT_DEVSUBTYPE_GUITAR_BASS = 11,
+	XINPUT_DEVSUBTYPE_ARCADE_PAD = 19,
+}
+
+
+[AllowDuplicates]
+public enum XINPUT_CAPABILITIES_FLAGS : uint16
+{
+	XINPUT_CAPS_VOICE_SUPPORTED = 4,
+	XINPUT_CAPS_FFB_SUPPORTED = 1,
+	XINPUT_CAPS_WIRELESS = 2,
+	XINPUT_CAPS_PMD_SUPPORTED = 8,
+	XINPUT_CAPS_NO_NAVIGATION = 16,
+}
+
+
+[AllowDuplicates]
+public enum XINPUT_GAMEPAD_BUTTON_FLAGS : uint16
+{
+	XINPUT_GAMEPAD_DPAD_UP = 1,
+	XINPUT_GAMEPAD_DPAD_DOWN = 2,
+	XINPUT_GAMEPAD_DPAD_LEFT = 4,
+	XINPUT_GAMEPAD_DPAD_RIGHT = 8,
+	XINPUT_GAMEPAD_START = 16,
+	XINPUT_GAMEPAD_BACK = 32,
+	XINPUT_GAMEPAD_LEFT_THUMB = 64,
+	XINPUT_GAMEPAD_RIGHT_THUMB = 128,
+	XINPUT_GAMEPAD_LEFT_SHOULDER = 256,
+	XINPUT_GAMEPAD_RIGHT_SHOULDER = 512,
+	XINPUT_GAMEPAD_A = 4096,
+	XINPUT_GAMEPAD_B = 8192,
+	XINPUT_GAMEPAD_X = 16384,
+	XINPUT_GAMEPAD_Y = 32768,
+	XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE = 7849,
+	XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE = 8689,
+	XINPUT_GAMEPAD_TRIGGER_THRESHOLD = 30,
+}
+
+
+[AllowDuplicates]
+public enum XINPUT_KEYSTROKE_FLAGS : uint16
+{
+	XINPUT_KEYSTROKE_KEYDOWN = 1,
+	XINPUT_KEYSTROKE_KEYUP = 2,
+	XINPUT_KEYSTROKE_REPEAT = 4,
+}
+
+
+[AllowDuplicates]
+public enum XINPUT_FLAG : uint32
+{
+	XINPUT_FLAG_ALL = 0,
+	XINPUT_FLAG_GAMEPAD = 1,
+}
+
 #endregion
 
 
@@ -106,7 +164,7 @@ public enum XINPUT_VIRTUAL_KEY : uint16
 [CRepr]
 public struct XINPUT_GAMEPAD
 {
-	public uint16 wButtons;
+	public XINPUT_GAMEPAD_BUTTON_FLAGS wButtons;
 	public uint8 bLeftTrigger;
 	public uint8 bRightTrigger;
 	public int16 sThumbLX;
@@ -132,9 +190,9 @@ public struct XINPUT_VIBRATION
 [CRepr]
 public struct XINPUT_CAPABILITIES
 {
-	public uint8 Type;
-	public uint8 SubType;
-	public uint16 Flags;
+	public XINPUT_DEVTYPE Type;
+	public XINPUT_DEVSUBTYPE SubType;
+	public XINPUT_CAPABILITIES_FLAGS Flags;
 	public XINPUT_GAMEPAD Gamepad;
 	public XINPUT_VIBRATION Vibration;
 }
@@ -142,8 +200,8 @@ public struct XINPUT_CAPABILITIES
 [CRepr]
 public struct XINPUT_BATTERY_INFORMATION
 {
-	public uint8 BatteryType;
-	public uint8 BatteryLevel;
+	public BATTERY_TYPE BatteryType;
+	public BATTERY_LEVEL BatteryLevel;
 }
 
 [CRepr]
@@ -151,7 +209,7 @@ public struct XINPUT_KEYSTROKE
 {
 	public XINPUT_VIRTUAL_KEY VirtualKey;
 	public char16 Unicode;
-	public uint16 Flags;
+	public XINPUT_KEYSTROKE_FLAGS Flags;
 	public uint8 UserIndex;
 	public uint8 HidCode;
 }
@@ -168,7 +226,7 @@ public static
 	public static extern uint32 XInputSetState(uint32 dwUserIndex, XINPUT_VIBRATION* pVibration);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 XInputGetCapabilities(uint32 dwUserIndex, uint32 dwFlags, XINPUT_CAPABILITIES* pCapabilities);
+	public static extern uint32 XInputGetCapabilities(uint32 dwUserIndex, XINPUT_FLAG dwFlags, XINPUT_CAPABILITIES* pCapabilities);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void XInputEnable(BOOL enable);
@@ -177,7 +235,7 @@ public static
 	public static extern uint32 XInputGetAudioDeviceIds(uint32 dwUserIndex, char16* pRenderDeviceId, uint32* pRenderCount, char16* pCaptureDeviceId, uint32* pCaptureCount);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 XInputGetBatteryInformation(uint32 dwUserIndex, uint8 devType, XINPUT_BATTERY_INFORMATION* pBatteryInformation);
+	public static extern uint32 XInputGetBatteryInformation(uint32 dwUserIndex, BATTERY_DEVTYPE devType, XINPUT_BATTERY_INFORMATION* pBatteryInformation);
 
 	[Import("XINPUTUAP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 XInputGetKeystroke(uint32 dwUserIndex, uint32 dwReserved, XINPUT_KEYSTROKE* pKeystroke);

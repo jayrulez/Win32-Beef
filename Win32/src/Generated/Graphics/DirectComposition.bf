@@ -3,7 +3,6 @@ using Win32.Graphics.Dxgi.Common;
 using Win32.System.Com;
 using Win32.Graphics.Direct2D.Common;
 using Win32.Graphics.Direct3D;
-using Win32.Graphics;
 using Win32.Graphics.Dxgi;
 using Win32.Security;
 using System;
@@ -1536,7 +1535,7 @@ public struct DCompositionInkTrailPoint
 
 	[CRepr]public struct VTable : IDCompositionFilterEffect.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE interpolationMode) SetInterpolationMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Win32.Graphics.Direct2D.Common.D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE interpolationMode) SetInterpolationMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D1_BORDER_MODE borderMode) SetBorderMode;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D2D_MATRIX_3X2_F* transformMatrix) SetTransformMatrix;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 row, int32 column, IDCompositionAnimation* animation) SetTransformMatrixElement;
@@ -1546,7 +1545,7 @@ public struct DCompositionInkTrailPoint
 	}
 
 
-	public HRESULT SetInterpolationMode(D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE interpolationMode) mut => VT.[Friend]SetInterpolationMode(&this, interpolationMode);
+	public HRESULT SetInterpolationMode(Win32.Graphics.Direct2D.Common.D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE interpolationMode) mut => VT.[Friend]SetInterpolationMode(&this, interpolationMode);
 
 	public HRESULT SetBorderMode(D2D1_BORDER_MODE borderMode) mut => VT.[Friend]SetBorderMode(&this, borderMode);
 

@@ -47,7 +47,7 @@ public struct HTHREAD_NETWORK_CONTEXT
 [CRepr]
 public struct FILE_UNPROTECT_OPTIONS
 {
-	public bool audit;
+	public uint8 audit;
 }
 
 #endregion

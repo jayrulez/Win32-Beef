@@ -7,9 +7,13 @@ namespace Win32.Storage.Jet;
 #region Constants
 public static
 {
+	public const uint32 JET_VERSION = 1280;
+	public const String JET_wszConfigStoreReadControl = "CsReadControl";
 	public const uint32 JET_bitConfigStoreReadControlInhibitRead = 1;
 	public const uint32 JET_bitConfigStoreReadControlDisableAll = 2;
 	public const uint32 JET_bitConfigStoreReadControlDefault = 0;
+	public const String JET_wszConfigStoreRelPathSysParamDefault = "SysParamDefault";
+	public const String JET_wszConfigStoreRelPathSysParamOverride = "SysParamOverride";
 	public const uint32 JET_bitDefragmentBatchStart = 1;
 	public const uint32 JET_bitDefragmentBatchStop = 2;
 	public const uint32 JET_bitDefragmentAvailSpaceTreesOnly = 64;
@@ -35,6 +39,9 @@ public static
 	public const uint32 JET_bitObjectTableTemplate = 536870912;
 	public const uint32 JET_bitObjectTableDerived = 268435456;
 	public const uint32 JET_bitObjectTableNoFixedVarColumnsInDerivedTables = 67108864;
+	public const uint32 cObjectInfoCols = 9;
+	public const uint32 cColumnInfoCols = 14;
+	public const uint32 cIndexInfoCols = 15;
 	public const uint32 JET_MAX_COMPUTERNAME_LENGTH = 15;
 	public const uint32 JET_bitDurableCommitCallbackLogUnavailable = 1;
 	public const uint32 JET_cbBookmarkMost = 256;
@@ -546,6 +553,8 @@ public static
 	public const int32 JET_errKeyTruncated = -346;
 	public const int32 JET_errDatabaseLeakInSpace = -348;
 	public const int32 JET_errBadEmptyPage = -351;
+	public const uint32 wrnBTNotVisibleRejected = 352;
+	public const uint32 wrnBTNotVisibleAccumulated = 353;
 	public const int32 JET_errBadLineCount = -354;
 	public const int32 JET_errPageTagCorrupted = -357;
 	public const int32 JET_errNodeCorrupted = -358;
@@ -1031,6 +1040,117 @@ public struct JET_INDEXID
 }
 #endif
 
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct JET_OBJECTINFO
+{
+	public uint32 cbStruct;
+	public uint32 objtyp;
+	public double dtCreate;
+	public double dtUpdate;
+	public uint32 grbit;
+	public uint32 flags;
+	public uint32 cRecord;
+	public uint32 cPage;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct JET_THREADSTATS2
+{
+	public uint32 cbStruct;
+	public uint32 cPageReferenced;
+	public uint32 cPageRead;
+	public uint32 cPagePreread;
+	public uint32 cPageDirtied;
+	public uint32 cPageRedirtied;
+	public uint32 cLogRecord;
+	public uint32 cbLogRecord;
+	public uint64 cusecPageCacheMiss;
+	public uint32 cPageCacheMiss;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct JET_COMMIT_ID
+{
+	public JET_SIGNATURE signLog;
+	public int32 reserved;
+	public int64 commitId;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct JET_RBSINFOMISC
+{
+	public int32 lRBSGeneration;
+	public JET_LOGTIME logtimeCreate;
+	public JET_LOGTIME logtimeCreatePrevRBS;
+	public uint32 ulMajor;
+	public uint32 ulMinor;
+	public uint64 cbLogicalFileSize;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct JET_RBSREVERTINFOMISC
+{
+	public int32 lGenMinRevertStart;
+	public int32 lGenMaxRevertStart;
+	public int32 lGenMinRevertEnd;
+	public int32 lGenMaxRevertEnd;
+	public JET_LOGTIME logtimeRevertFrom;
+	public uint64 cSecRevert;
+	public uint64 cPagesReverted;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct JET_RECSIZE
+{
+	public uint64 cbData;
+	public uint64 cbLongValueData;
+	public uint64 cbOverhead;
+	public uint64 cbLongValueOverhead;
+	public uint64 cNonTaggedColumns;
+	public uint64 cTaggedColumns;
+	public uint64 cLongValues;
+	public uint64 cMultiValues;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct JET_RECSIZE2
+{
+	public uint64 cbData;
+	public uint64 cbLongValueData;
+	public uint64 cbOverhead;
+	public uint64 cbLongValueOverhead;
+	public uint64 cNonTaggedColumns;
+	public uint64 cTaggedColumns;
+	public uint64 cLongValues;
+	public uint64 cMultiValues;
+	public uint64 cCompressedColumns;
+	public uint64 cbDataCompressed;
+	public uint64 cbLongValueDataCompressed;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr]
+public struct JET_INDEXID
+{
+	public uint32 cbStruct;
+	public uint8[12] rgbIndexId;
+}
+#endif
+
 [CRepr]
 public struct JET_RSTMAP_A
 {
@@ -1046,7 +1166,7 @@ public struct JET_RSTMAP_W
 }
 
 [CRepr]
-public struct CONVERT_A
+public struct JET_CONVERT_A
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
@@ -1064,7 +1184,7 @@ public struct CONVERT_A
 }
 
 [CRepr]
-public struct CONVERT_W
+public struct JET_CONVERT_W
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
@@ -1112,8 +1232,8 @@ public struct JET_DBINFOUPGRADE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct JET_OBJECTINFO
 {
 	public uint32 cbStruct;
@@ -2020,8 +2140,8 @@ public struct JET_THREADSTATS
 	public uint32 cbLogRecord;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct JET_THREADSTATS2
 {
 	public uint32 cbStruct;
@@ -2070,8 +2190,8 @@ public struct JET_ERRINFOBASIC_W
 	public char16[64] rgszSourceFile;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct JET_COMMIT_ID
 {
 	public JET_SIGNATURE signLog;
@@ -2080,8 +2200,8 @@ public struct JET_COMMIT_ID
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct JET_RBSINFOMISC
 {
 	public int32 lRBSGeneration;
@@ -2093,8 +2213,8 @@ public struct JET_RBSINFOMISC
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct JET_RBSREVERTINFOMISC
 {
 	public int32 lGenMinRevertStart;
@@ -2204,8 +2324,8 @@ public struct JET_ENUMCOLUMN
 	public using _Anonymous_e__Union Anonymous;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct JET_RECSIZE
 {
 	public uint64 cbData;
@@ -2219,8 +2339,8 @@ public struct JET_RECSIZE
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(4)]
 public struct JET_RECSIZE2
 {
 	public uint64 cbData;
@@ -2276,117 +2396,6 @@ public struct JET_INSTANCE_INFO_W
 	public uint16** szDatabaseDisplayName;
 	public uint16** szDatabaseSLVFileName_Obsolete;
 }
-
-#if BF_32_BIT
-[CRepr]
-public struct JET_INDEXID
-{
-	public uint32 cbStruct;
-	public uint8[12] rgbIndexId;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct JET_OBJECTINFO
-{
-	public uint32 cbStruct;
-	public uint32 objtyp;
-	public double dtCreate;
-	public double dtUpdate;
-	public uint32 grbit;
-	public uint32 flags;
-	public uint32 cRecord;
-	public uint32 cPage;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct JET_THREADSTATS2
-{
-	public uint32 cbStruct;
-	public uint32 cPageReferenced;
-	public uint32 cPageRead;
-	public uint32 cPagePreread;
-	public uint32 cPageDirtied;
-	public uint32 cPageRedirtied;
-	public uint32 cLogRecord;
-	public uint32 cbLogRecord;
-	public uint64 cusecPageCacheMiss;
-	public uint32 cPageCacheMiss;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct JET_COMMIT_ID
-{
-	public JET_SIGNATURE signLog;
-	public int32 reserved;
-	public int64 commitId;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct JET_RBSINFOMISC
-{
-	public int32 lRBSGeneration;
-	public JET_LOGTIME logtimeCreate;
-	public JET_LOGTIME logtimeCreatePrevRBS;
-	public uint32 ulMajor;
-	public uint32 ulMinor;
-	public uint64 cbLogicalFileSize;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct JET_RBSREVERTINFOMISC
-{
-	public int32 lGenMinRevertStart;
-	public int32 lGenMaxRevertStart;
-	public int32 lGenMinRevertEnd;
-	public int32 lGenMaxRevertEnd;
-	public JET_LOGTIME logtimeRevertFrom;
-	public uint64 cSecRevert;
-	public uint64 cPagesReverted;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct JET_RECSIZE
-{
-	public uint64 cbData;
-	public uint64 cbLongValueData;
-	public uint64 cbOverhead;
-	public uint64 cbLongValueOverhead;
-	public uint64 cNonTaggedColumns;
-	public uint64 cTaggedColumns;
-	public uint64 cLongValues;
-	public uint64 cMultiValues;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(4)]
-public struct JET_RECSIZE2
-{
-	public uint64 cbData;
-	public uint64 cbLongValueData;
-	public uint64 cbOverhead;
-	public uint64 cbLongValueOverhead;
-	public uint64 cNonTaggedColumns;
-	public uint64 cTaggedColumns;
-	public uint64 cLongValues;
-	public uint64 cMultiValues;
-	public uint64 cCompressedColumns;
-	public uint64 cbDataCompressed;
-	public uint64 cbLongValueDataCompressed;
-}
-#endif
 
 #endregion
 
@@ -2859,11 +2868,11 @@ public static
 	public static extern int32 JetGetSecondaryIndexBookmark(JET_SESID sesid, JET_TABLEID tableid, void* pvSecondaryKey, uint32 cbSecondaryKeyMax, uint32* pcbSecondaryKeyActual, void* pvPrimaryBookmark, uint32 cbPrimaryBookmarkMax, uint32* pcbPrimaryBookmarkActual, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 JetCompactA(JET_SESID sesid, int8* szDatabaseSrc, int8* szDatabaseDest, JET_PFNSTATUS pfnStatus, CONVERT_A* pconvert, uint32 grbit);
-	public static int32 JetCompact(JET_SESID sesid, int8* szDatabaseSrc, int8* szDatabaseDest, JET_PFNSTATUS pfnStatus, CONVERT_A* pconvert, uint32 grbit) => JetCompactA(sesid, szDatabaseSrc, szDatabaseDest, pfnStatus, pconvert, grbit);
+	public static extern int32 JetCompactA(JET_SESID sesid, int8* szDatabaseSrc, int8* szDatabaseDest, JET_PFNSTATUS pfnStatus, JET_CONVERT_A* pconvert, uint32 grbit);
+	public static int32 JetCompact(JET_SESID sesid, int8* szDatabaseSrc, int8* szDatabaseDest, JET_PFNSTATUS pfnStatus, JET_CONVERT_A* pconvert, uint32 grbit) => JetCompactA(sesid, szDatabaseSrc, szDatabaseDest, pfnStatus, pconvert, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 JetCompactW(JET_SESID sesid, uint16* szDatabaseSrc, uint16* szDatabaseDest, JET_PFNSTATUS pfnStatus, CONVERT_W* pconvert, uint32 grbit);
+	public static extern int32 JetCompactW(JET_SESID sesid, uint16* szDatabaseSrc, uint16* szDatabaseDest, JET_PFNSTATUS pfnStatus, JET_CONVERT_W* pconvert, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDefragmentA(JET_SESID sesid, uint32 dbid, int8* szTableName, uint32* pcPasses, uint32* pcSeconds, uint32 grbit);

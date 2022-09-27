@@ -88,7 +88,7 @@ public struct TBS_CONTEXT_PARAMS2
 }
 
 [CRepr]
-public struct tdTPM_WNF_PROVISIONING
+public struct TPM_WNF_PROVISIONING
 {
 	public uint32 status;
 	public uint8[28] message;

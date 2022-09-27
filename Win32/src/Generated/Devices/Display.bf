@@ -1,4 +1,4 @@
-using Win32.UI.Shell.PropertiesSystem;
+using Win32.Devices.Properties;
 using Win32.Foundation;
 using Win32.Graphics.Gdi;
 using Win32.System.Com;
@@ -18,11 +18,13 @@ public static
 	public const Guid GUID_DEVINTERFACE_MONITOR = .(0xe6f07b5f, 0xee97, 0x4a90, 0xb0, 0x76, 0x33, 0xf5, 0x7b, 0xf4, 0xea, 0xa7);
 	public const Guid GUID_DISPLAY_DEVICE_ARRIVAL = .(0x1ca05180, 0xa699, 0x450a, 0x9a, 0x0c, 0xde, 0x4f, 0xbe, 0x3d, 0xdd, 0x89);
 	public const Guid GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL = .(0x1ad9e4f0, 0xf88d, 0x4360, 0xba, 0xb9, 0x4c, 0x2d, 0x55, 0xe5, 0x64, 0xcd);
-	public const PROPERTYKEY DEVPKEY_IndirectDisplay = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 1);
-	public const PROPERTYKEY DEVPKEY_Device_TerminalLuid = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 2);
-	public const PROPERTYKEY DEVPKEY_Device_AdapterLuid = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 3);
-	public const PROPERTYKEY DEVPKEY_Device_ActivityId = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 4);
+	public const DEVPROPKEY DEVPKEY_IndirectDisplay = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 1);
+	public const DEVPROPKEY DEVPKEY_Device_TerminalLuid = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 2);
+	public const DEVPROPKEY DEVPKEY_Device_AdapterLuid = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 3);
+	public const DEVPROPKEY DEVPKEY_Device_ActivityId = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 4);
 	public const uint32 INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER = 1;
+	public const String VIDEO_DEVICE_NAME = "DISPLAY%d";
+	public const String WVIDEO_DEVICE_NAME = "DISPLAY%d";
 	public const uint32 IOCTL_VIDEO_DISABLE_VDM = 2293764;
 	public const uint32 IOCTL_VIDEO_REGISTER_VDM = 2293768;
 	public const uint32 IOCTL_VIDEO_SET_OUTPUT_DEVICE_POWER_STATE = 2293772;
@@ -137,6 +139,7 @@ public static
 	public const uint32 BITMAP_ARRAY_BYTE = 3;
 	public const uint32 BITMAP_PLANES = 1;
 	public const uint32 BITMAP_BITS_PIXEL = 1;
+	public const String DD_FULLSCREEN_VIDEO_DEVICE_NAME = "\\Device\\FSVideo";
 	public const uint32 VIDEO_REASON_NONE = 0;
 	public const uint32 VIDEO_REASON_POLICY1 = 1;
 	public const uint32 VIDEO_REASON_POLICY2 = 2;
@@ -1775,6 +1778,143 @@ public struct FLOAT_LONG
 }
 #endif
 
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct FD_XFORM
+{
+	public float eXX;
+	public float eXY;
+	public float eYX;
+	public float eYY;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct IFIMETRICS
+{
+	public uint32 cjThis;
+	public uint32 cjIfiExtra;
+	public int32 dpwszFamilyName;
+	public int32 dpwszStyleName;
+	public int32 dpwszFaceName;
+	public int32 dpwszUniqueName;
+	public int32 dpFontSim;
+	public int32 lEmbedId;
+	public int32 lItalicAngle;
+	public int32 lCharBias;
+	public int32 dpCharSets;
+	public uint8 jWinCharSet;
+	public uint8 jWinPitchAndFamily;
+	public uint16 usWinWeight;
+	public uint32 flInfo;
+	public uint16 fsSelection;
+	public uint16 fsType;
+	public int16 fwdUnitsPerEm;
+	public int16 fwdLowestPPEm;
+	public int16 fwdWinAscender;
+	public int16 fwdWinDescender;
+	public int16 fwdMacAscender;
+	public int16 fwdMacDescender;
+	public int16 fwdMacLineGap;
+	public int16 fwdTypoAscender;
+	public int16 fwdTypoDescender;
+	public int16 fwdTypoLineGap;
+	public int16 fwdAveCharWidth;
+	public int16 fwdMaxCharInc;
+	public int16 fwdCapHeight;
+	public int16 fwdXHeight;
+	public int16 fwdSubscriptXSize;
+	public int16 fwdSubscriptYSize;
+	public int16 fwdSubscriptXOffset;
+	public int16 fwdSubscriptYOffset;
+	public int16 fwdSuperscriptXSize;
+	public int16 fwdSuperscriptYSize;
+	public int16 fwdSuperscriptXOffset;
+	public int16 fwdSuperscriptYOffset;
+	public int16 fwdUnderscoreSize;
+	public int16 fwdUnderscorePosition;
+	public int16 fwdStrikeoutSize;
+	public int16 fwdStrikeoutPosition;
+	public uint8 chFirstChar;
+	public uint8 chLastChar;
+	public uint8 chDefaultChar;
+	public uint8 chBreakChar;
+	public char16 wcFirstChar;
+	public char16 wcLastChar;
+	public char16 wcDefaultChar;
+	public char16 wcBreakChar;
+	public POINTL ptlBaseline;
+	public POINTL ptlAspect;
+	public POINTL ptlCaret;
+	public RECTL rclFontBox;
+	public uint8[4] achVendId;
+	public uint32 cKerningPairs;
+	public uint32 ulPanoseCulture;
+	public PANOSE panose;
+	public void* Align;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct LINEATTRS
+{
+	public uint32 fl;
+	public uint32 iJoin;
+	public uint32 iEndCap;
+	public FLOAT_LONG elWidth;
+	public float eMiterLimit;
+	public uint32 cstyle;
+	public FLOAT_LONG* pstyle;
+	public FLOAT_LONG elStyleState;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct XFORML
+{
+	public float eM11;
+	public float eM12;
+	public float eM21;
+	public float eM22;
+	public float eDx;
+	public float eDy;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct FLOATOBJ_XFORM
+{
+	public float eM11;
+	public float eM12;
+	public float eM21;
+	public float eM22;
+	public float eDx;
+	public float eDy;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr]
+public struct POINTE
+{
+	public uint32 x;
+	public uint32 y;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr, Union]
+public struct FLOAT_LONG
+{
+	public uint32 e;
+	public int32 l;
+}
+#endif
+
 [CRepr]
 public struct POINTFIX
 {
@@ -1791,14 +1931,14 @@ public struct RECTFX
 	public int32 yBottom;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct FD_XFORM
 {
-	public float eXX;
-	public float eXY;
-	public float eYX;
-	public float eYY;
+	public uint32 eXX;
+	public uint32 eXY;
+	public uint32 eYX;
+	public uint32 eYY;
 }
 #endif
 
@@ -1916,7 +2056,7 @@ public struct FONTSIM
 	public int32 dpBoldItalic;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct IFIMETRICS
 {
@@ -1979,7 +2119,6 @@ public struct IFIMETRICS
 	public uint32 cKerningPairs;
 	public uint32 ulPanoseCulture;
 	public PANOSE panose;
-	public void* Align;
 }
 #endif
 
@@ -2025,7 +2164,7 @@ public struct DEVINFO
 	public uint32 flGraphicsCaps2;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct LINEATTRS
 {
@@ -2033,23 +2172,23 @@ public struct LINEATTRS
 	public uint32 iJoin;
 	public uint32 iEndCap;
 	public FLOAT_LONG elWidth;
-	public float eMiterLimit;
+	public uint32 eMiterLimit;
 	public uint32 cstyle;
 	public FLOAT_LONG* pstyle;
 	public FLOAT_LONG elStyleState;
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct XFORML
 {
-	public float eM11;
-	public float eM12;
-	public float eM21;
-	public float eM22;
-	public float eDx;
-	public float eDy;
+	public uint32 eM11;
+	public uint32 eM12;
+	public uint32 eM21;
+	public uint32 eM22;
+	public uint32 eDx;
+	public uint32 eDy;
 }
 #endif
 
@@ -2394,16 +2533,25 @@ public struct ENGSAFESEMAPHORE
 	public int32 lCount;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
+[CRepr]
+public struct FLOATOBJ
+{
+	public uint32 ul1;
+	public uint32 ul2;
+}
+#endif
+
+#if BF_32_BIT
 [CRepr]
 public struct FLOATOBJ_XFORM
 {
-	public float eM11;
-	public float eM12;
-	public float eM21;
-	public float eM22;
-	public float eDx;
-	public float eDy;
+	public FLOATOBJ eM11;
+	public FLOATOBJ eM12;
+	public FLOATOBJ eM21;
+	public FLOATOBJ eM22;
+	public FLOATOBJ eDx;
+	public FLOATOBJ eDy;
 }
 #endif
 
@@ -3316,151 +3464,6 @@ public struct MIPI_DSI_RESET
 	public uint32 Flags;
 	public using _Anonymous_e__Union Anonymous;
 }
-
-#if BF_32_BIT
-[CRepr]
-public struct POINTE
-{
-	public uint32 x;
-	public uint32 y;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Union]
-public struct FLOAT_LONG
-{
-	public uint32 e;
-	public int32 l;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct FD_XFORM
-{
-	public uint32 eXX;
-	public uint32 eXY;
-	public uint32 eYX;
-	public uint32 eYY;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct IFIMETRICS
-{
-	public uint32 cjThis;
-	public uint32 cjIfiExtra;
-	public int32 dpwszFamilyName;
-	public int32 dpwszStyleName;
-	public int32 dpwszFaceName;
-	public int32 dpwszUniqueName;
-	public int32 dpFontSim;
-	public int32 lEmbedId;
-	public int32 lItalicAngle;
-	public int32 lCharBias;
-	public int32 dpCharSets;
-	public uint8 jWinCharSet;
-	public uint8 jWinPitchAndFamily;
-	public uint16 usWinWeight;
-	public uint32 flInfo;
-	public uint16 fsSelection;
-	public uint16 fsType;
-	public int16 fwdUnitsPerEm;
-	public int16 fwdLowestPPEm;
-	public int16 fwdWinAscender;
-	public int16 fwdWinDescender;
-	public int16 fwdMacAscender;
-	public int16 fwdMacDescender;
-	public int16 fwdMacLineGap;
-	public int16 fwdTypoAscender;
-	public int16 fwdTypoDescender;
-	public int16 fwdTypoLineGap;
-	public int16 fwdAveCharWidth;
-	public int16 fwdMaxCharInc;
-	public int16 fwdCapHeight;
-	public int16 fwdXHeight;
-	public int16 fwdSubscriptXSize;
-	public int16 fwdSubscriptYSize;
-	public int16 fwdSubscriptXOffset;
-	public int16 fwdSubscriptYOffset;
-	public int16 fwdSuperscriptXSize;
-	public int16 fwdSuperscriptYSize;
-	public int16 fwdSuperscriptXOffset;
-	public int16 fwdSuperscriptYOffset;
-	public int16 fwdUnderscoreSize;
-	public int16 fwdUnderscorePosition;
-	public int16 fwdStrikeoutSize;
-	public int16 fwdStrikeoutPosition;
-	public uint8 chFirstChar;
-	public uint8 chLastChar;
-	public uint8 chDefaultChar;
-	public uint8 chBreakChar;
-	public char16 wcFirstChar;
-	public char16 wcLastChar;
-	public char16 wcDefaultChar;
-	public char16 wcBreakChar;
-	public POINTL ptlBaseline;
-	public POINTL ptlAspect;
-	public POINTL ptlCaret;
-	public RECTL rclFontBox;
-	public uint8[4] achVendId;
-	public uint32 cKerningPairs;
-	public uint32 ulPanoseCulture;
-	public PANOSE panose;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct LINEATTRS
-{
-	public uint32 fl;
-	public uint32 iJoin;
-	public uint32 iEndCap;
-	public FLOAT_LONG elWidth;
-	public uint32 eMiterLimit;
-	public uint32 cstyle;
-	public FLOAT_LONG* pstyle;
-	public FLOAT_LONG elStyleState;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct XFORML
-{
-	public uint32 eM11;
-	public uint32 eM12;
-	public uint32 eM21;
-	public uint32 eM22;
-	public uint32 eDx;
-	public uint32 eDy;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct FLOATOBJ
-{
-	public uint32 ul1;
-	public uint32 ul2;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr]
-public struct FLOATOBJ_XFORM
-{
-	public FLOATOBJ eM11;
-	public FLOATOBJ eM12;
-	public FLOATOBJ eM21;
-	public FLOATOBJ eM22;
-	public FLOATOBJ eDx;
-	public FLOATOBJ eDy;
-}
-#endif
 
 #endregion
 

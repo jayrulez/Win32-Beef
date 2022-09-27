@@ -11,6 +11,7 @@ public static
 	public const Guid ScsiRawInterfaceGuid = .(0x53f56309, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
 	public const Guid WmiScsiAddressGuid = .(0x53f5630f, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
 	public const uint32 FILE_DEVICE_SCSI = 27;
+	public const String DD_SCSI_DEVICE_NAME = "\\Device\\ScsiPort";
 	public const uint32 IOCTL_SCSI_PASS_THROUGH = 315396;
 	public const uint32 IOCTL_SCSI_MINIPORT = 315400;
 	public const uint32 IOCTL_SCSI_GET_INQUIRY_DATA = 266252;
@@ -37,6 +38,17 @@ public static
 	public const uint32 ATA_FLAGS_48BIT_COMMAND = 8;
 	public const uint32 ATA_FLAGS_USE_DMA = 16;
 	public const uint32 ATA_FLAGS_NO_MULTIPLE = 32;
+	public const String IOCTL_MINIPORT_SIGNATURE_SCSIDISK = "SCSIDISK";
+	public const String IOCTL_MINIPORT_SIGNATURE_HYBRDISK = "HYBRDISK";
+	public const String IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION = "MPDSM   ";
+	public const String IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL = "MPDSMGEN";
+	public const String IOCTL_MINIPORT_SIGNATURE_FIRMWARE = "FIRMWARE";
+	public const String IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL = "PROTOCOL";
+	public const String IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL = "SETPROTO";
+	public const String IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE = "TEMPERAT";
+	public const String IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD = "SETTEMPT";
+	public const String IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY = "TOPOLOGY";
+	public const String IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO = "ENDURINF";
 	public const uint32 NRB_FUNCTION_NVCACHE_INFO = 236;
 	public const uint32 NRB_FUNCTION_SPINDLE_STATUS = 229;
 	public const uint32 NRB_FUNCTION_NVCACHE_POWER_MODE_SET = 0;
@@ -148,34 +160,34 @@ public static
 	public const uint32 MAX_ISCSI_PORTAL_ADDRESS_LEN = 256;
 	public const uint32 MAX_ISCSI_DISCOVERY_DOMAIN_LEN = 256;
 	public const uint32 MAX_RADIUS_ADDRESS_LEN = 41;
-	public const uint32 ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED = 64;
-	public const uint32 ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED = 32;
-	public const uint32 ISCSI_SECURITY_FLAG_PFS_ENABLED = 16;
-	public const uint32 ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED = 8;
-	public const uint32 ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED = 4;
-	public const uint32 ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED = 2;
-	public const uint32 ISCSI_SECURITY_FLAG_VALID = 1;
+	public const String ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED = "0x00000040";
+	public const String ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED = "0x00000020";
+	public const String ISCSI_SECURITY_FLAG_PFS_ENABLED = "0x00000010";
+	public const String ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED = "0x00000008";
+	public const String ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED = "0x00000004";
+	public const String ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED = "0x00000002";
+	public const String ISCSI_SECURITY_FLAG_VALID = "0x00000001";
+	public const String ISCSI_LOGIN_OPTIONS_HEADER_DIGEST = "0x00000001";
+	public const String ISCSI_LOGIN_OPTIONS_DATA_DIGEST = "0x00000002";
+	public const String ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS = "0x00000004";
+	public const String ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT = "0x00000008";
+	public const String ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN = "0x00000010";
+	public const String ISCSI_LOGIN_OPTIONS_USERNAME = "0x00000020";
+	public const String ISCSI_LOGIN_OPTIONS_PASSWORD = "0x00000040";
+	public const String ISCSI_LOGIN_OPTIONS_AUTH_TYPE = "0x00000080";
+	public const String ID_IPV4_ADDR = "1";
+	public const String ID_FQDN = "2";
+	public const String ID_USER_FQDN = "3";
+	public const String ID_IPV6_ADDR = "5";
 	public const uint32 ISCSI_LOGIN_FLAG_REQUIRE_IPSEC = 1;
 	public const uint32 ISCSI_LOGIN_FLAG_MULTIPATH_ENABLED = 2;
 	public const uint32 ISCSI_LOGIN_FLAG_RESERVED1 = 4;
 	public const uint32 ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING = 8;
 	public const uint32 ISCSI_LOGIN_FLAG_USE_RADIUS_RESPONSE = 16;
 	public const uint32 ISCSI_LOGIN_FLAG_USE_RADIUS_VERIFICATION = 32;
-	public const uint32 ISCSI_LOGIN_OPTIONS_HEADER_DIGEST = 1;
-	public const uint32 ISCSI_LOGIN_OPTIONS_DATA_DIGEST = 2;
-	public const uint32 ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS = 4;
-	public const uint32 ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT = 8;
-	public const uint32 ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN = 16;
-	public const uint32 ISCSI_LOGIN_OPTIONS_USERNAME = 32;
-	public const uint32 ISCSI_LOGIN_OPTIONS_PASSWORD = 64;
-	public const uint32 ISCSI_LOGIN_OPTIONS_AUTH_TYPE = 128;
 	public const uint32 ISCSI_LOGIN_OPTIONS_VERSION = 0;
 	public const uint32 ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET = 2;
 	public const uint32 ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION = 4;
-	public const uint32 ID_IPV4_ADDR = 1;
-	public const uint32 ID_FQDN = 2;
-	public const uint32 ID_USER_FQDN = 3;
-	public const uint32 ID_IPV6_ADDR = 5;
 }
 #endregion
 
@@ -276,9 +288,7 @@ public enum TARGET_INFORMATION_CLASS : int32
 #endregion
 
 #region Function Pointers
-public function int32 DUMP_DEVICE_POWERON_ROUTINE(void* Context);
-
-public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
+public function int32 PDUMP_DEVICE_POWERON_ROUTINE(void* Context);
 
 #endregion
 
@@ -286,42 +296,6 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 [CRepr]
 public struct _ADAPTER_OBJECT
 {
-}
-
-[CRepr]
-public struct SCSI_PASS_THROUGH
-{
-	public uint16 Length;
-	public uint8 ScsiStatus;
-	public uint8 PathId;
-	public uint8 TargetId;
-	public uint8 Lun;
-	public uint8 CdbLength;
-	public uint8 SenseInfoLength;
-	public uint8 DataIn;
-	public uint32 DataTransferLength;
-	public uint32 TimeOutValue;
-	public uint DataBufferOffset;
-	public uint32 SenseInfoOffset;
-	public uint8[16] Cdb;
-}
-
-[CRepr]
-public struct SCSI_PASS_THROUGH_DIRECT
-{
-	public uint16 Length;
-	public uint8 ScsiStatus;
-	public uint8 PathId;
-	public uint8 TargetId;
-	public uint8 Lun;
-	public uint8 CdbLength;
-	public uint8 SenseInfoLength;
-	public uint8 DataIn;
-	public uint32 DataTransferLength;
-	public uint32 TimeOutValue;
-	public void* DataBuffer;
-	public uint32 SenseInfoOffset;
-	public uint8[16] Cdb;
 }
 
 #if BF_64_BIT || BF_ARM_64
@@ -363,50 +337,6 @@ public struct SCSI_PASS_THROUGH_DIRECT32
 	public uint8[16] Cdb;
 }
 #endif
-
-[CRepr]
-public struct SCSI_PASS_THROUGH_EX
-{
-	public uint32 Version;
-	public uint32 Length;
-	public uint32 CdbLength;
-	public uint32 StorAddressLength;
-	public uint8 ScsiStatus;
-	public uint8 SenseInfoLength;
-	public uint8 DataDirection;
-	public uint8 Reserved;
-	public uint32 TimeOutValue;
-	public uint32 StorAddressOffset;
-	public uint32 SenseInfoOffset;
-	public uint32 DataOutTransferLength;
-	public uint32 DataInTransferLength;
-	public uint DataOutBufferOffset;
-	public uint DataInBufferOffset;
-	public uint8* Cdb mut => &Cdb_impl;
-	private uint8[ANYSIZE_ARRAY] Cdb_impl;
-}
-
-[CRepr]
-public struct SCSI_PASS_THROUGH_DIRECT_EX
-{
-	public uint32 Version;
-	public uint32 Length;
-	public uint32 CdbLength;
-	public uint32 StorAddressLength;
-	public uint8 ScsiStatus;
-	public uint8 SenseInfoLength;
-	public uint8 DataDirection;
-	public uint8 Reserved;
-	public uint32 TimeOutValue;
-	public uint32 StorAddressOffset;
-	public uint32 SenseInfoOffset;
-	public uint32 DataOutTransferLength;
-	public uint32 DataInTransferLength;
-	public void* DataOutBuffer;
-	public void* DataInBuffer;
-	public uint8* Cdb mut => &Cdb_impl;
-	private uint8[ANYSIZE_ARRAY] Cdb_impl;
-}
 
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
@@ -456,40 +386,6 @@ public struct SCSI_PASS_THROUGH_DIRECT32_EX
 }
 #endif
 
-[CRepr]
-public struct ATA_PASS_THROUGH_EX
-{
-	public uint16 Length;
-	public uint16 AtaFlags;
-	public uint8 PathId;
-	public uint8 TargetId;
-	public uint8 Lun;
-	public uint8 ReservedAsUchar;
-	public uint32 DataTransferLength;
-	public uint32 TimeOutValue;
-	public uint32 ReservedAsUlong;
-	public uint DataBufferOffset;
-	public uint8[8] PreviousTaskFile;
-	public uint8[8] CurrentTaskFile;
-}
-
-[CRepr]
-public struct ATA_PASS_THROUGH_DIRECT
-{
-	public uint16 Length;
-	public uint16 AtaFlags;
-	public uint8 PathId;
-	public uint8 TargetId;
-	public uint8 Lun;
-	public uint8 ReservedAsUchar;
-	public uint32 DataTransferLength;
-	public uint32 TimeOutValue;
-	public uint32 ReservedAsUlong;
-	public void* DataBuffer;
-	public uint8[8] PreviousTaskFile;
-	public uint8[8] CurrentTaskFile;
-}
-
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
 public struct ATA_PASS_THROUGH_EX32
@@ -527,6 +423,172 @@ public struct ATA_PASS_THROUGH_DIRECT32
 	public uint8[8] CurrentTaskFile;
 }
 #endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH32
+{
+	public SCSI_PASS_THROUGH32 PassThrough;
+	public uint32 Version;
+	public uint16 Length;
+	public uint8 Flags;
+	public uint8 PortNumber;
+	public uint64 MpioPathId;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH_DIRECT32
+{
+	public SCSI_PASS_THROUGH_DIRECT32 PassThrough;
+	public uint32 Version;
+	public uint16 Length;
+	public uint8 Flags;
+	public uint8 PortNumber;
+	public uint64 MpioPathId;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH32_EX
+{
+	public uint32 PassThroughOffset;
+	public uint32 Version;
+	public uint16 Length;
+	public uint8 Flags;
+	public uint8 PortNumber;
+	public uint64 MpioPathId;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX
+{
+	public uint32 PassThroughOffset;
+	public uint32 Version;
+	public uint16 Length;
+	public uint8 Flags;
+	public uint8 PortNumber;
+	public uint64 MpioPathId;
+}
+#endif
+
+[CRepr]
+public struct SCSI_PASS_THROUGH
+{
+	public uint16 Length;
+	public uint8 ScsiStatus;
+	public uint8 PathId;
+	public uint8 TargetId;
+	public uint8 Lun;
+	public uint8 CdbLength;
+	public uint8 SenseInfoLength;
+	public uint8 DataIn;
+	public uint32 DataTransferLength;
+	public uint32 TimeOutValue;
+	public uint DataBufferOffset;
+	public uint32 SenseInfoOffset;
+	public uint8[16] Cdb;
+}
+
+[CRepr]
+public struct SCSI_PASS_THROUGH_DIRECT
+{
+	public uint16 Length;
+	public uint8 ScsiStatus;
+	public uint8 PathId;
+	public uint8 TargetId;
+	public uint8 Lun;
+	public uint8 CdbLength;
+	public uint8 SenseInfoLength;
+	public uint8 DataIn;
+	public uint32 DataTransferLength;
+	public uint32 TimeOutValue;
+	public void* DataBuffer;
+	public uint32 SenseInfoOffset;
+	public uint8[16] Cdb;
+}
+
+[CRepr]
+public struct SCSI_PASS_THROUGH_EX
+{
+	public uint32 Version;
+	public uint32 Length;
+	public uint32 CdbLength;
+	public uint32 StorAddressLength;
+	public uint8 ScsiStatus;
+	public uint8 SenseInfoLength;
+	public uint8 DataDirection;
+	public uint8 Reserved;
+	public uint32 TimeOutValue;
+	public uint32 StorAddressOffset;
+	public uint32 SenseInfoOffset;
+	public uint32 DataOutTransferLength;
+	public uint32 DataInTransferLength;
+	public uint DataOutBufferOffset;
+	public uint DataInBufferOffset;
+	public uint8* Cdb mut => &Cdb_impl;
+	private uint8[ANYSIZE_ARRAY] Cdb_impl;
+}
+
+[CRepr]
+public struct SCSI_PASS_THROUGH_DIRECT_EX
+{
+	public uint32 Version;
+	public uint32 Length;
+	public uint32 CdbLength;
+	public uint32 StorAddressLength;
+	public uint8 ScsiStatus;
+	public uint8 SenseInfoLength;
+	public uint8 DataDirection;
+	public uint8 Reserved;
+	public uint32 TimeOutValue;
+	public uint32 StorAddressOffset;
+	public uint32 SenseInfoOffset;
+	public uint32 DataOutTransferLength;
+	public uint32 DataInTransferLength;
+	public void* DataOutBuffer;
+	public void* DataInBuffer;
+	public uint8* Cdb mut => &Cdb_impl;
+	private uint8[ANYSIZE_ARRAY] Cdb_impl;
+}
+
+[CRepr]
+public struct ATA_PASS_THROUGH_EX
+{
+	public uint16 Length;
+	public uint16 AtaFlags;
+	public uint8 PathId;
+	public uint8 TargetId;
+	public uint8 Lun;
+	public uint8 ReservedAsUchar;
+	public uint32 DataTransferLength;
+	public uint32 TimeOutValue;
+	public uint32 ReservedAsUlong;
+	public uint DataBufferOffset;
+	public uint8[8] PreviousTaskFile;
+	public uint8[8] CurrentTaskFile;
+}
+
+[CRepr]
+public struct ATA_PASS_THROUGH_DIRECT
+{
+	public uint16 Length;
+	public uint16 AtaFlags;
+	public uint8 PathId;
+	public uint8 TargetId;
+	public uint8 Lun;
+	public uint8 ReservedAsUchar;
+	public uint32 DataTransferLength;
+	public uint32 TimeOutValue;
+	public uint32 ReservedAsUlong;
+	public void* DataBuffer;
+	public uint8[8] PreviousTaskFile;
+	public uint8[8] CurrentTaskFile;
+}
 
 [CRepr]
 public struct IDE_IO_CONTROL
@@ -582,58 +644,6 @@ public struct MPIO_PASS_THROUGH_PATH_DIRECT_EX
 	public uint8 PortNumber;
 	public uint64 MpioPathId;
 }
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct MPIO_PASS_THROUGH_PATH32
-{
-	public SCSI_PASS_THROUGH32 PassThrough;
-	public uint32 Version;
-	public uint16 Length;
-	public uint8 Flags;
-	public uint8 PortNumber;
-	public uint64 MpioPathId;
-}
-#endif
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct MPIO_PASS_THROUGH_PATH_DIRECT32
-{
-	public SCSI_PASS_THROUGH_DIRECT32 PassThrough;
-	public uint32 Version;
-	public uint16 Length;
-	public uint8 Flags;
-	public uint8 PortNumber;
-	public uint64 MpioPathId;
-}
-#endif
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct MPIO_PASS_THROUGH_PATH32_EX
-{
-	public uint32 PassThroughOffset;
-	public uint32 Version;
-	public uint16 Length;
-	public uint8 Flags;
-	public uint8 PortNumber;
-	public uint64 MpioPathId;
-}
-#endif
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX
-{
-	public uint32 PassThroughOffset;
-	public uint32 Version;
-	public uint16 Length;
-	public uint8 Flags;
-	public uint8 PortNumber;
-	public uint64 MpioPathId;
-}
-#endif
 
 [CRepr]
 public struct SCSI_BUS_DATA

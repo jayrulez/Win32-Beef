@@ -1604,8 +1604,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHeaderCtrl* pHeader) SetHeader;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IToolbar* pToolbar) SetToolbar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** pUnknown) QueryResultView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, System.Mmc.IImageList** ppImageList) QueryScopeImageList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, System.Mmc.IImageList** ppImageList) QueryResultImageList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Win32.System.Mmc.IImageList** ppImageList) QueryScopeImageList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Win32.System.Mmc.IImageList** ppImageList) QueryResultImageList;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* lpDataObject, LPARAM data, int hint) UpdateAllViews;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszText, PWSTR lpszTitle, uint32 fuStyle, int32* piRetval) MessageBox;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IConsoleVerb** ppConsoleVerb) QueryConsoleVerb;
@@ -1621,9 +1621,9 @@ public static
 
 	public HRESULT QueryResultView(IUnknown** pUnknown) mut => VT.[Friend]QueryResultView(&this, pUnknown);
 
-	public HRESULT QueryScopeImageList(System.Mmc.IImageList** ppImageList) mut => VT.[Friend]QueryScopeImageList(&this, ppImageList);
+	public HRESULT QueryScopeImageList(Win32.System.Mmc.IImageList** ppImageList) mut => VT.[Friend]QueryScopeImageList(&this, ppImageList);
 
-	public HRESULT QueryResultImageList(System.Mmc.IImageList** ppImageList) mut => VT.[Friend]QueryResultImageList(&this, ppImageList);
+	public HRESULT QueryResultImageList(Win32.System.Mmc.IImageList** ppImageList) mut => VT.[Friend]QueryResultImageList(&this, ppImageList);
 
 	public HRESULT UpdateAllViews(IDataObject* lpDataObject, LPARAM data, int hint) mut => VT.[Friend]UpdateAllViews(&this, lpDataObject, data, hint);
 
@@ -1734,13 +1734,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int* pIcon, int32 nLoc) ImageListSetIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int* pBMapSm, int* pBMapLg, int32 nStartLoc, uint32 cMask) ImageListSetStrip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int* pBMapSm, int* pBMapLg, int32 nStartLoc, COLORREF cMask) ImageListSetStrip;
 	}
 
 
 	public HRESULT ImageListSetIcon(int* pIcon, int32 nLoc) mut => VT.[Friend]ImageListSetIcon(&this, pIcon, nLoc);
 
-	public HRESULT ImageListSetStrip(int* pBMapSm, int* pBMapLg, int32 nStartLoc, uint32 cMask) mut => VT.[Friend]ImageListSetStrip(&this, pBMapSm, pBMapLg, nStartLoc, cMask);
+	public HRESULT ImageListSetStrip(int* pBMapSm, int* pBMapLg, int32 nStartLoc, COLORREF cMask) mut => VT.[Friend]ImageListSetStrip(&this, pBMapSm, pBMapLg, nStartLoc, cMask);
 }
 
 [CRepr]struct IResultData : IUnknown
@@ -1961,7 +1961,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nImages, HBITMAP hbmp, int32 cxSize, int32 cySize, uint32 crMask) AddBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nImages, HBITMAP hbmp, int32 cxSize, int32 cySize, COLORREF crMask) AddBitmap;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nButtons, MMCBUTTON* lpButtons) AddButtons;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, MMCBUTTON* lpButton) InsertButton;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex) DeleteButton;
@@ -1970,7 +1970,7 @@ public static
 	}
 
 
-	public HRESULT AddBitmap(int32 nImages, HBITMAP hbmp, int32 cxSize, int32 cySize, uint32 crMask) mut => VT.[Friend]AddBitmap(&this, nImages, hbmp, cxSize, cySize, crMask);
+	public HRESULT AddBitmap(int32 nImages, HBITMAP hbmp, int32 cxSize, int32 cySize, COLORREF crMask) mut => VT.[Friend]AddBitmap(&this, nImages, hbmp, cxSize, cySize, crMask);
 
 	public HRESULT AddButtons(int32 nButtons, MMCBUTTON* lpButtons) mut => VT.[Friend]AddButtons(&this, nButtons, lpButtons);
 
@@ -2019,7 +2019,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* lpName) GetProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* lpVersion) GetSnapinVersion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HICON* hAppIcon) GetSnapinImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP* hSmallImage, HBITMAP* hSmallImageOpen, HBITMAP* hLargeImage, uint32* cMask) GetStaticFolderImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP* hSmallImage, HBITMAP* hSmallImageOpen, HBITMAP* hLargeImage, COLORREF* cMask) GetStaticFolderImage;
 	}
 
 
@@ -2031,7 +2031,7 @@ public static
 
 	public HRESULT GetSnapinImage(HICON* hAppIcon) mut => VT.[Friend]GetSnapinImage(&this, hAppIcon);
 
-	public HRESULT GetStaticFolderImage(HBITMAP* hSmallImage, HBITMAP* hSmallImageOpen, HBITMAP* hLargeImage, uint32* cMask) mut => VT.[Friend]GetStaticFolderImage(&this, hSmallImage, hSmallImageOpen, hLargeImage, cMask);
+	public HRESULT GetStaticFolderImage(HBITMAP* hSmallImage, HBITMAP* hSmallImageOpen, HBITMAP* hLargeImage, COLORREF* cMask) mut => VT.[Friend]GetStaticFolderImage(&this, hSmallImage, hSmallImageOpen, hLargeImage, cMask);
 }
 
 [CRepr]struct IMenuButton : IUnknown

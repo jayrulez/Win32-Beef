@@ -1,5 +1,5 @@
-using Win32.UI.WindowsAndMessaging;
 using Win32.Foundation;
+using Win32.UI.WindowsAndMessaging;
 using Win32.System.Com;
 using Win32.System.Registry;
 using Win32.System.Com.StructuredStorage;
@@ -74,10 +74,17 @@ public static
 	public const uint32 DSPROVIDER_UNUSED_3 = 8;
 	public const uint32 DSPROVIDER_ADVANCED = 16;
 	public const uint32 DSPROVIDER_AD_LDS = 32;
+	public const String CFSTR_DSOBJECTNAMES = "DsObjectNames";
+	public const String CFSTR_DS_DISPLAY_SPEC_OPTIONS = "DsDisplaySpecOptions";
+	public const String CFSTR_DSDISPLAYSPECOPTIONS = "DsDisplaySpecOptions";
+	public const String DS_PROP_SHELL_PREFIX = "shell";
+	public const String DS_PROP_ADMIN_PREFIX = "admin";
 	public const uint32 DSDSOF_HASUSERANDSERVERINFO = 1;
 	public const uint32 DSDSOF_SIMPLEAUTHENTICATE = 2;
 	public const uint32 DSDSOF_DONTSIGNSEAL = 4;
 	public const uint32 DSDSOF_DSAVAILABLE = 1073741824;
+	public const String CFSTR_DSPROPERTYPAGEINFO = "DsPropPageInfo";
+	public const String DSPROP_ATTRCHANGED_MSG = "DsPropAttrChanged";
 	public const uint32 DBDTF_RETURNFQDN = 1;
 	public const uint32 DBDTF_RETURNMIXEDDOMAINS = 2;
 	public const uint32 DBDTF_RETURNEXTERNAL = 4;
@@ -198,6 +205,8 @@ public static
 	public const uint32 DSQPF_ENABLEADVANCEDFEATURES = 16;
 	public const uint32 DSQPF_HASCREDENTIALS = 32;
 	public const uint32 DSQPF_NOCHOOSECOLUMNS = 64;
+	public const String CFSTR_DSQUERYPARAMS = "DsQueryParameters";
+	public const String CFSTR_DSQUERYSCOPE = "DsQueryScope";
 	public const uint32 DSQPM_GETCLASSLIST = 268435456;
 	public const uint32 DSQPM_HELPTOPICS = 268435457;
 	public const uint32 DSROLE_PRIMARY_DS_RUNNING = 1;
@@ -226,6 +235,8 @@ public static
 	public const uint32 DS_BEHAVIOR_WIN8 = 5;
 	public const uint32 DS_BEHAVIOR_WINBLUE = 6;
 	public const uint32 DS_BEHAVIOR_WINTHRESHOLD = 7;
+	public const String DS_SYNCED_EVENT_NAME = "NTDSInitialSyncsCompleted";
+	public const String DS_SYNCED_EVENT_NAME_W = "NTDSInitialSyncsCompleted";
 	public const uint32 ACTRL_DS_OPEN = 0;
 	public const uint32 ACTRL_DS_CREATE_CHILD = 1;
 	public const uint32 ACTRL_DS_DELETE_CHILD = 2;
@@ -352,6 +363,30 @@ public static
 	public const uint32 NTDSSITELINK_OPT_USE_NOTIFY = 1;
 	public const uint32 NTDSSITELINK_OPT_TWOWAY_SYNC = 2;
 	public const uint32 NTDSSITELINK_OPT_DISABLE_COMPRESSION = 4;
+	public const String GUID_USERS_CONTAINER_A = "a9d1ca15768811d1aded00c04fd8d5cd";
+	public const String GUID_COMPUTRS_CONTAINER_A = "aa312825768811d1aded00c04fd8d5cd";
+	public const String GUID_SYSTEMS_CONTAINER_A = "ab1d30f3768811d1aded00c04fd8d5cd";
+	public const String GUID_DOMAIN_CONTROLLERS_CONTAINER_A = "a361b2ffffd211d1aa4b00c04fd7d83a";
+	public const String GUID_INFRASTRUCTURE_CONTAINER_A = "2fbac1870ade11d297c400c04fd8d5cd";
+	public const String GUID_DELETED_OBJECTS_CONTAINER_A = "18e2ea80684f11d2b9aa00c04f79f805";
+	public const String GUID_LOSTANDFOUND_CONTAINER_A = "ab8153b7768811d1aded00c04fd8d5cd";
+	public const String GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A = "22b70c67d56e4efb91e9300fca3dc1aa";
+	public const String GUID_PROGRAM_DATA_CONTAINER_A = "09460c08ae1e4a4ea0f64aee7daa1e5a";
+	public const String GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A = "f4be92a4c777485e878e9421d53087db";
+	public const String GUID_NTDS_QUOTAS_CONTAINER_A = "6227f0af1fc2410d8e3bb10615bb5b0f";
+	public const String GUID_USERS_CONTAINER_W = "a9d1ca15768811d1aded00c04fd8d5cd";
+	public const String GUID_COMPUTRS_CONTAINER_W = "aa312825768811d1aded00c04fd8d5cd";
+	public const String GUID_SYSTEMS_CONTAINER_W = "ab1d30f3768811d1aded00c04fd8d5cd";
+	public const String GUID_DOMAIN_CONTROLLERS_CONTAINER_W = "a361b2ffffd211d1aa4b00c04fd7d83a";
+	public const String GUID_INFRASTRUCTURE_CONTAINER_W = "2fbac1870ade11d297c400c04fd8d5cd";
+	public const String GUID_DELETED_OBJECTS_CONTAINER_W = "18e2ea80684f11d2b9aa00c04f79f805";
+	public const String GUID_LOSTANDFOUND_CONTAINER_W = "ab8153b7768811d1aded00c04fd8d5cd";
+	public const String GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W = "22b70c67d56e4efb91e9300fca3dc1aa";
+	public const String GUID_PROGRAM_DATA_CONTAINER_W = "09460c08ae1e4a4ea0f64aee7daa1e5a";
+	public const String GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W = "f4be92a4c777485e878e9421d53087db";
+	public const String GUID_NTDS_QUOTAS_CONTAINER_W = "6227f0af1fc2410d8e3bb10615bb5b0f";
+	public const String GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W = "1EB93889E40C45DF9F0C64D23BBB6237";
+	public const String GUID_KEYS_CONTAINER_W = "683A24E2E8164BD3AF86AC3C2CF3F981";
 	public const uint32 DS_REPSYNCALL_NO_OPTIONS = 0;
 	public const uint32 DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE = 1;
 	public const uint32 DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY = 2;
@@ -395,6 +430,18 @@ public static
 	public const uint32 DS_REPL_NBR_COMPRESS_CHANGES = 268435456;
 	public const uint32 DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS = 536870912;
 	public const uint32 DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET = 1073741824;
+	public const String ADAM_SCP_SITE_NAME_STRING = "site:";
+	public const String ADAM_SCP_SITE_NAME_STRING_W = "site:";
+	public const String ADAM_SCP_PARTITION_STRING = "partition:";
+	public const String ADAM_SCP_PARTITION_STRING_W = "partition:";
+	public const String ADAM_SCP_INSTANCE_NAME_STRING = "instance:";
+	public const String ADAM_SCP_INSTANCE_NAME_STRING_W = "instance:";
+	public const String ADAM_SCP_FSMO_STRING = "fsmo:";
+	public const String ADAM_SCP_FSMO_STRING_W = "fsmo:";
+	public const String ADAM_SCP_FSMO_NAMING_STRING = "naming";
+	public const String ADAM_SCP_FSMO_NAMING_STRING_W = "naming";
+	public const String ADAM_SCP_FSMO_SCHEMA_STRING = "schema";
+	public const String ADAM_SCP_FSMO_SCHEMA_STRING_W = "schema";
 	public const uint32 ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH = 0;
 	public const uint32 ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE = 1;
 	public const uint32 ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED = 2;
@@ -402,6 +449,11 @@ public static
 	public const uint32 FLAG_DOMAIN_OPTIONAL_FEATURE = 2;
 	public const uint32 FLAG_DISABLABLE_OPTIONAL_FEATURE = 4;
 	public const uint32 FLAG_SERVER_OPTIONAL_FEATURE = 8;
+	public const String GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
+	public const String GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
+	public const String GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A = "73e843ece8cc4046b4ab07ffe4ab5bcd";
+	public const String GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W = "73e843ece8cc4046b4ab07ffe4ab5bcd";
+	public const String CFSTR_DSOP_DS_SELECTION_LIST = "CFSTR_DSOP_DS_SELECTION_LIST";
 	public const uint32 DSOP_SCOPE_TYPE_TARGET_COMPUTER = 1;
 	public const uint32 DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN = 2;
 	public const uint32 DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN = 4;
@@ -479,6 +531,192 @@ public static
 	public const uint32 STATUS_SEVERITY_INFORMATIONAL = 1;
 	public const uint32 STATUS_SEVERITY_WARNING = 2;
 	public const uint32 STATUS_SEVERITY_ERROR = 3;
+	public const HRESULT hrNone = 0;
+	public const HRESULT hrNyi = -1073741823;
+	public const HRESULT hrInvalidParam = -939589631;
+	public const HRESULT hrError = -939589630;
+	public const HRESULT hrInvalidHandle = -939589629;
+	public const HRESULT hrRestoreInProgress = -939589628;
+	public const HRESULT hrAlreadyOpen = -939589627;
+	public const HRESULT hrInvalidRecips = -939589626;
+	public const HRESULT hrCouldNotConnect = -939589625;
+	public const HRESULT hrRestoreMapExists = -939589624;
+	public const HRESULT hrIncrementalBackupDisabled = -939589623;
+	public const HRESULT hrLogFileNotFound = -939589622;
+	public const HRESULT hrCircularLogging = -939589621;
+	public const HRESULT hrNoFullRestore = -939589620;
+	public const HRESULT hrCommunicationError = -939589619;
+	public const HRESULT hrFullBackupNotTaken = -939589618;
+	public const HRESULT hrMissingExpiryToken = -939589617;
+	public const HRESULT hrUnknownExpiryTokenFormat = -939589616;
+	public const HRESULT hrContentsExpired = -939589615;
+	public const HRESULT hrFileClose = -939523994;
+	public const HRESULT hrOutOfThreads = -939523993;
+	public const HRESULT hrTooManyIO = -939523991;
+	public const HRESULT hrBFNotSynchronous = -2013265720;
+	public const HRESULT hrBFPageNotFound = -2013265719;
+	public const HRESULT hrBFInUse = -939523894;
+	public const HRESULT hrPMRecDeleted = -939523794;
+	public const HRESULT hrRemainingVersions = -2013265599;
+	public const HRESULT hrFLDKeyTooBig = -2013265520;
+	public const HRESULT hrFLDTooManySegments = -939523695;
+	public const HRESULT hrFLDNullKey = -2013265518;
+	public const HRESULT hrLogFileCorrupt = -939523595;
+	public const HRESULT hrNoBackupDirectory = -939523593;
+	public const HRESULT hrBackupDirectoryNotEmpty = -939523592;
+	public const HRESULT hrBackupInProgress = -939523591;
+	public const HRESULT hrMissingPreviousLogFile = -939523587;
+	public const HRESULT hrLogWriteFail = -939523586;
+	public const HRESULT hrBadLogVersion = -939523582;
+	public const HRESULT hrInvalidLogSequence = -939523581;
+	public const HRESULT hrLoggingDisabled = -939523580;
+	public const HRESULT hrLogBufferTooSmall = -939523579;
+	public const HRESULT hrLogSequenceEnd = -939523577;
+	public const HRESULT hrNoBackup = -939523576;
+	public const HRESULT hrInvalidBackupSequence = -939523575;
+	public const HRESULT hrBackupNotAllowedYet = -939523573;
+	public const HRESULT hrDeleteBackupFileFail = -939523572;
+	public const HRESULT hrMakeBackupDirectoryFail = -939523571;
+	public const HRESULT hrInvalidBackup = -939523570;
+	public const HRESULT hrRecoveredWithErrors = -939523569;
+	public const HRESULT hrMissingLogFile = -939523568;
+	public const HRESULT hrLogDiskFull = -939523567;
+	public const HRESULT hrBadLogSignature = -939523566;
+	public const HRESULT hrBadDbSignature = -939523565;
+	public const HRESULT hrBadCheckpointSignature = -939523564;
+	public const HRESULT hrCheckpointCorrupt = -939523563;
+	public const HRESULT hrDatabaseInconsistent = -939523546;
+	public const HRESULT hrConsistentTimeMismatch = -939523545;
+	public const HRESULT hrPatchFileMismatch = -939523544;
+	public const HRESULT hrRestoreLogTooLow = -939523543;
+	public const HRESULT hrRestoreLogTooHigh = -939523542;
+	public const HRESULT hrGivenLogFileHasBadSignature = -939523541;
+	public const HRESULT hrGivenLogFileIsNotContiguous = -939523540;
+	public const HRESULT hrMissingRestoreLogFiles = -939523539;
+	public const HRESULT hrExistingLogFileHasBadSignature = -2013265362;
+	public const HRESULT hrExistingLogFileIsNotContiguous = -2013265361;
+	public const HRESULT hrMissingFullBackup = -939523536;
+	public const HRESULT hrBadBackupDatabaseSize = -939523535;
+	public const HRESULT hrTermInProgress = -939523096;
+	public const HRESULT hrFeatureNotAvailable = -939523095;
+	public const HRESULT hrInvalidName = -939523094;
+	public const HRESULT hrInvalidParameter = -939523093;
+	public const HRESULT hrColumnNull = -2013264916;
+	public const HRESULT hrBufferTruncated = -2013264914;
+	public const HRESULT hrDatabaseAttached = -2013264913;
+	public const HRESULT hrInvalidDatabaseId = -939523086;
+	public const HRESULT hrOutOfMemory = -939523085;
+	public const HRESULT hrOutOfDatabaseSpace = -939523084;
+	public const HRESULT hrOutOfCursors = -939523083;
+	public const HRESULT hrOutOfBuffers = -939523082;
+	public const HRESULT hrTooManyIndexes = -939523081;
+	public const HRESULT hrTooManyKeys = -939523080;
+	public const HRESULT hrRecordDeleted = -939523079;
+	public const HRESULT hrReadVerifyFailure = -939523078;
+	public const HRESULT hrOutOfFileHandles = -939523076;
+	public const HRESULT hrDiskIO = -939523074;
+	public const HRESULT hrInvalidPath = -939523073;
+	public const HRESULT hrRecordTooBig = -939523070;
+	public const HRESULT hrTooManyOpenDatabases = -939523069;
+	public const HRESULT hrInvalidDatabase = -939523068;
+	public const HRESULT hrNotInitialized = -939523067;
+	public const HRESULT hrAlreadyInitialized = -939523066;
+	public const HRESULT hrFileAccessDenied = -939523064;
+	public const HRESULT hrBufferTooSmall = -939523058;
+	public const HRESULT hrSeekNotEqual = -2013264881;
+	public const HRESULT hrTooManyColumns = -939523056;
+	public const HRESULT hrContainerNotEmpty = -939523053;
+	public const HRESULT hrInvalidFilename = -939523052;
+	public const HRESULT hrInvalidBookmark = -939523051;
+	public const HRESULT hrColumnInUse = -939523050;
+	public const HRESULT hrInvalidBufferSize = -939523049;
+	public const HRESULT hrColumnNotUpdatable = -939523048;
+	public const HRESULT hrIndexInUse = -939523045;
+	public const HRESULT hrNullKeyDisallowed = -939523043;
+	public const HRESULT hrNotInTransaction = -939523042;
+	public const HRESULT hrNoIdleActivity = -2013264862;
+	public const HRESULT hrTooManyActiveUsers = -939523037;
+	public const HRESULT hrInvalidCountry = -939523035;
+	public const HRESULT hrInvalidLanguageId = -939523034;
+	public const HRESULT hrInvalidCodePage = -939523033;
+	public const HRESULT hrNoWriteLock = -2013264853;
+	public const HRESULT hrColumnSetNull = -2013264852;
+	public const HRESULT hrVersionStoreOutOfMemory = -939523027;
+	public const HRESULT hrCurrencyStackOutOfMemory = -939523026;
+	public const HRESULT hrOutOfSessions = -939522995;
+	public const HRESULT hrWriteConflict = -939522994;
+	public const HRESULT hrTransTooDeep = -939522993;
+	public const HRESULT hrInvalidSesid = -939522992;
+	public const HRESULT hrSessionWriteConflict = -939522989;
+	public const HRESULT hrInTransaction = -939522988;
+	public const HRESULT hrDatabaseDuplicate = -939522895;
+	public const HRESULT hrDatabaseInUse = -939522894;
+	public const HRESULT hrDatabaseNotFound = -939522893;
+	public const HRESULT hrDatabaseInvalidName = -939522892;
+	public const HRESULT hrDatabaseInvalidPages = -939522891;
+	public const HRESULT hrDatabaseCorrupted = -939522890;
+	public const HRESULT hrDatabaseLocked = -939522889;
+	public const HRESULT hrTableEmpty = -2013264619;
+	public const HRESULT hrTableLocked = -939522794;
+	public const HRESULT hrTableDuplicate = -939522793;
+	public const HRESULT hrTableInUse = -939522792;
+	public const HRESULT hrObjectNotFound = -939522791;
+	public const HRESULT hrCannotRename = -939522790;
+	public const HRESULT hrDensityInvalid = -939522789;
+	public const HRESULT hrTableNotEmpty = -939522788;
+	public const HRESULT hrInvalidTableId = -939522786;
+	public const HRESULT hrTooManyOpenTables = -939522785;
+	public const HRESULT hrIllegalOperation = -939522784;
+	public const HRESULT hrObjectDuplicate = -939522782;
+	public const HRESULT hrInvalidObject = -939522780;
+	public const HRESULT hrIndexCantBuild = -939522695;
+	public const HRESULT hrIndexHasPrimary = -939522694;
+	public const HRESULT hrIndexDuplicate = -939522693;
+	public const HRESULT hrIndexNotFound = -939522692;
+	public const HRESULT hrIndexMustStay = -939522691;
+	public const HRESULT hrIndexInvalidDef = -939522690;
+	public const HRESULT hrIndexHasClustered = -939522688;
+	public const HRESULT hrCreateIndexFailed = -2013264511;
+	public const HRESULT hrTooManyOpenIndexes = -939522686;
+	public const HRESULT hrColumnLong = -939522595;
+	public const HRESULT hrColumnDoesNotFit = -939522593;
+	public const HRESULT hrNullInvalid = -939522592;
+	public const HRESULT hrColumnIndexed = -939522591;
+	public const HRESULT hrColumnTooBig = -939522590;
+	public const HRESULT hrColumnNotFound = -939522589;
+	public const HRESULT hrColumnDuplicate = -939522588;
+	public const HRESULT hrColumn2ndSysMaint = -939522586;
+	public const HRESULT hrInvalidColumnType = -939522585;
+	public const HRESULT hrColumnMaxTruncated = -2013264408;
+	public const HRESULT hrColumnCannotIndex = -939522583;
+	public const HRESULT hrTaggedNotNULL = -939522582;
+	public const HRESULT hrNoCurrentIndex = -939522581;
+	public const HRESULT hrKeyIsMade = -939522580;
+	public const HRESULT hrBadColumnId = -939522579;
+	public const HRESULT hrBadItagSequence = -939522578;
+	public const HRESULT hrCannotBeTagged = -939522575;
+	public const HRESULT hrRecordNotFound = -939522495;
+	public const HRESULT hrNoCurrentRecord = -939522493;
+	public const HRESULT hrRecordClusteredChanged = -939522492;
+	public const HRESULT hrKeyDuplicate = -939522491;
+	public const HRESULT hrAlreadyPrepared = -939522489;
+	public const HRESULT hrKeyNotMade = -939522488;
+	public const HRESULT hrUpdateNotPrepared = -939522487;
+	public const HRESULT hrwrnDataHasChanged = -2013264310;
+	public const HRESULT hrerrDataHasChanged = -939522485;
+	public const HRESULT hrKeyChanged = -2013264302;
+	public const HRESULT hrTooManySorts = -939522395;
+	public const HRESULT hrInvalidOnSort = -939522394;
+	public const HRESULT hrTempFileOpenError = -939522293;
+	public const HRESULT hrTooManyAttachedDatabases = -939522291;
+	public const HRESULT hrDiskFull = -939522288;
+	public const HRESULT hrPermissionDenied = -939522287;
+	public const HRESULT hrFileNotFound = -939522285;
+	public const HRESULT hrFileOpenReadOnly = -2013264107;
+	public const HRESULT hrAfterInitialization = -939522246;
+	public const HRESULT hrLogCorrupted = -939522244;
+	public const HRESULT hrInvalidOperation = -939522190;
+	public const HRESULT hrAccessDenied = -939522189;
 	public const Guid CLSID_DsObjectPicker = .(0x17d6ccd8, 0x3b7b, 0x11d2, 0xb9, 0xe0, 0x00, 0xc0, 0x4f, 0xd8, 0xdb, 0xf7);
 }
 #endregion
@@ -486,13 +724,15 @@ public static
 #region TypeDefs
 typealias GetDcContextHandle = int;
 
+typealias ADS_SEARCH_HANDLE = int;
+
 #endregion
 
 
 #region Enums
 
 [AllowDuplicates]
-public enum ADSTYPEENUM : int32
+public enum ADSTYPE : int32
 {
 	ADSTYPE_INVALID = 0,
 	ADSTYPE_DN_STRING = 1,
@@ -1298,7 +1538,7 @@ public struct ADSVALUE
 		public ADS_DN_WITH_BINARY* pDNWithBinary;
 		public ADS_DN_WITH_STRING* pDNWithString;
 	}
-	public ADSTYPEENUM dwType;
+	public ADSTYPE dwType;
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -1307,7 +1547,7 @@ public struct ADS_ATTR_INFO
 {
 	public PWSTR pszAttrName;
 	public uint32 dwControlCode;
-	public ADSTYPEENUM dwADsType;
+	public ADSTYPE dwADsType;
 	public ADSVALUE* pADsValues;
 	public uint32 dwNumValues;
 }
@@ -1323,7 +1563,7 @@ public struct ADS_OBJECT_INFO
 }
 
 [CRepr]
-public struct ads_searchpref_info
+public struct ADS_SEARCHPREF_INFO
 {
 	public ADS_SEARCHPREF_ENUM dwSearchPref;
 	public ADSVALUE vValue;
@@ -1331,10 +1571,10 @@ public struct ads_searchpref_info
 }
 
 [CRepr]
-public struct ads_search_column
+public struct ADS_SEARCH_COLUMN
 {
 	public PWSTR pszAttrName;
-	public ADSTYPEENUM dwADsType;
+	public ADSTYPE dwADsType;
 	public ADSVALUE* pADsValues;
 	public uint32 dwNumValues;
 	public HANDLE hReserved;
@@ -1344,7 +1584,7 @@ public struct ads_search_column
 public struct ADS_ATTR_DEF
 {
 	public PWSTR pszAttrName;
-	public ADSTYPEENUM dwADsType;
+	public ADSTYPE dwADsType;
 	public uint32 dwMinRange;
 	public uint32 dwMaxRange;
 	public BOOL fMultiValued;
@@ -4224,38 +4464,38 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ads_searchpref_info* pSearchPrefs, uint32 dwNumPrefs) SetSearchPreference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszSearchFilter, PWSTR* pAttributeNames, uint32 dwNumberAttributes, int* phSearchResult) ExecuteSearch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int phSearchResult) AbandonSearch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hSearchResult) GetFirstRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hSearchResult) GetNextRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hSearchResult) GetPreviousRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hSearchHandle, PWSTR* ppszColumnName) GetNextColumnName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hSearchResult, PWSTR szColumnName, ads_search_column* pSearchColumn) GetColumn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ads_search_column* pSearchColumn) FreeColumn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hSearchResult) CloseSearchHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_SEARCHPREF_INFO* pSearchPrefs, uint32 dwNumPrefs) SetSearchPreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszSearchFilter, PWSTR* pAttributeNames, uint32 dwNumberAttributes, ADS_SEARCH_HANDLE* phSearchResult) ExecuteSearch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_SEARCH_HANDLE phSearchResult) AbandonSearch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_SEARCH_HANDLE hSearchResult) GetFirstRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_SEARCH_HANDLE hSearchResult) GetNextRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_SEARCH_HANDLE hSearchResult) GetPreviousRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_SEARCH_HANDLE hSearchHandle, PWSTR* ppszColumnName) GetNextColumnName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_SEARCH_HANDLE hSearchResult, PWSTR szColumnName, ADS_SEARCH_COLUMN* pSearchColumn) GetColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_SEARCH_COLUMN* pSearchColumn) FreeColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ADS_SEARCH_HANDLE hSearchResult) CloseSearchHandle;
 	}
 
 
-	public HRESULT SetSearchPreference(ads_searchpref_info* pSearchPrefs, uint32 dwNumPrefs) mut => VT.[Friend]SetSearchPreference(&this, pSearchPrefs, dwNumPrefs);
+	public HRESULT SetSearchPreference(ADS_SEARCHPREF_INFO* pSearchPrefs, uint32 dwNumPrefs) mut => VT.[Friend]SetSearchPreference(&this, pSearchPrefs, dwNumPrefs);
 
-	public HRESULT ExecuteSearch(PWSTR pszSearchFilter, PWSTR* pAttributeNames, uint32 dwNumberAttributes, int* phSearchResult) mut => VT.[Friend]ExecuteSearch(&this, pszSearchFilter, pAttributeNames, dwNumberAttributes, phSearchResult);
+	public HRESULT ExecuteSearch(PWSTR pszSearchFilter, PWSTR* pAttributeNames, uint32 dwNumberAttributes, ADS_SEARCH_HANDLE* phSearchResult) mut => VT.[Friend]ExecuteSearch(&this, pszSearchFilter, pAttributeNames, dwNumberAttributes, phSearchResult);
 
-	public HRESULT AbandonSearch(int phSearchResult) mut => VT.[Friend]AbandonSearch(&this, phSearchResult);
+	public HRESULT AbandonSearch(ADS_SEARCH_HANDLE phSearchResult) mut => VT.[Friend]AbandonSearch(&this, phSearchResult);
 
-	public HRESULT GetFirstRow(int hSearchResult) mut => VT.[Friend]GetFirstRow(&this, hSearchResult);
+	public HRESULT GetFirstRow(ADS_SEARCH_HANDLE hSearchResult) mut => VT.[Friend]GetFirstRow(&this, hSearchResult);
 
-	public HRESULT GetNextRow(int hSearchResult) mut => VT.[Friend]GetNextRow(&this, hSearchResult);
+	public HRESULT GetNextRow(ADS_SEARCH_HANDLE hSearchResult) mut => VT.[Friend]GetNextRow(&this, hSearchResult);
 
-	public HRESULT GetPreviousRow(int hSearchResult) mut => VT.[Friend]GetPreviousRow(&this, hSearchResult);
+	public HRESULT GetPreviousRow(ADS_SEARCH_HANDLE hSearchResult) mut => VT.[Friend]GetPreviousRow(&this, hSearchResult);
 
-	public HRESULT GetNextColumnName(int hSearchHandle, PWSTR* ppszColumnName) mut => VT.[Friend]GetNextColumnName(&this, hSearchHandle, ppszColumnName);
+	public HRESULT GetNextColumnName(ADS_SEARCH_HANDLE hSearchHandle, PWSTR* ppszColumnName) mut => VT.[Friend]GetNextColumnName(&this, hSearchHandle, ppszColumnName);
 
-	public HRESULT GetColumn(int hSearchResult, PWSTR szColumnName, ads_search_column* pSearchColumn) mut => VT.[Friend]GetColumn(&this, hSearchResult, szColumnName, pSearchColumn);
+	public HRESULT GetColumn(ADS_SEARCH_HANDLE hSearchResult, PWSTR szColumnName, ADS_SEARCH_COLUMN* pSearchColumn) mut => VT.[Friend]GetColumn(&this, hSearchResult, szColumnName, pSearchColumn);
 
-	public HRESULT FreeColumn(ads_search_column* pSearchColumn) mut => VT.[Friend]FreeColumn(&this, pSearchColumn);
+	public HRESULT FreeColumn(ADS_SEARCH_COLUMN* pSearchColumn) mut => VT.[Friend]FreeColumn(&this, pSearchColumn);
 
-	public HRESULT CloseSearchHandle(int hSearchResult) mut => VT.[Friend]CloseSearchHandle(&this, hSearchResult);
+	public HRESULT CloseSearchHandle(ADS_SEARCH_HANDLE hSearchResult) mut => VT.[Friend]CloseSearchHandle(&this, hSearchResult);
 }
 
 [CRepr]struct IDirectorySchemaMgmt : IUnknown
@@ -5149,7 +5389,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, PWSTR pszObjectClass, PWSTR pszADsPath, uint32 dwFlags) IsClassContainer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectClass, DSCLASSCREATIONINFO** ppdscci) GetClassCreationInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectClass, LPDSENUMATTRIBUTES pcbEnum, LPARAM lParam) EnumClassAttributes;
-		protected new function [CallingConvention(.Stdcall)] ADSTYPEENUM(SelfOuter* self, PWSTR pszAttributeName) GetAttributeADsType;
+		protected new function [CallingConvention(.Stdcall)] ADSTYPE(SelfOuter* self, PWSTR pszAttributeName) GetAttributeADsType;
 	}
 
 
@@ -5173,7 +5413,7 @@ public static
 
 	public HRESULT EnumClassAttributes(PWSTR pszObjectClass, LPDSENUMATTRIBUTES pcbEnum, LPARAM lParam) mut => VT.[Friend]EnumClassAttributes(&this, pszObjectClass, pcbEnum, lParam);
 
-	public ADSTYPEENUM GetAttributeADsType(PWSTR pszAttributeName) mut => VT.[Friend]GetAttributeADsType(&this, pszAttributeName);
+	public ADSTYPE GetAttributeADsType(PWSTR pszAttributeName) mut => VT.[Friend]GetAttributeADsType(&this, pszAttributeName);
 }
 
 [CRepr]struct IDsObjectPicker : IUnknown
@@ -5383,10 +5623,10 @@ public static
 	public static extern void AdsFreeAdsValues(ADSVALUE* pAdsValues, uint32 dwNumValues);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT BinarySDToSecurityDescriptor(SECURITY_DESCRIPTOR* pSecurityDescriptor, VARIANT* pVarsec, PWSTR pszServerName, PWSTR userName, PWSTR passWord, uint32 dwFlags);
+	public static extern HRESULT BinarySDToSecurityDescriptor(PSECURITY_DESCRIPTOR pSecurityDescriptor, VARIANT* pVarsec, PWSTR pszServerName, PWSTR userName, PWSTR passWord, uint32 dwFlags);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SecurityDescriptorToBinarySD(VARIANT vVarSecDes, SECURITY_DESCRIPTOR** ppSecurityDescriptor, uint32* pdwSDLength, PWSTR pszServerName, PWSTR userName, PWSTR passWord, uint32 dwFlags);
+	public static extern HRESULT SecurityDescriptorToBinarySD(VARIANT vVarSecDes, PSECURITY_DESCRIPTOR* ppSecurityDescriptor, uint32* pdwSDLength, PWSTR pszServerName, PWSTR userName, PWSTR passWord, uint32 dwFlags);
 
 	[Import("dsuiext.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DsBrowseForContainerW(DSBROWSEINFOW* pInfo);

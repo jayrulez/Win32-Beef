@@ -13,6 +13,10 @@ public static
 	public const uint32 BSM_VXDS = 1;
 	public const uint32 BSM_NETDRIVER = 2;
 	public const uint32 BSM_INSTALLABLEDRIVERS = 4;
+	public const uint32 WM_CONTEXTMENU = 123;
+	public const uint32 WM_UNICHAR = 265;
+	public const uint32 WM_PRINTCLIENT = 792;
+	public const uint32 WM_NOTIFY = 78;
 	public const PWSTR RT_CURSOR = (PWSTR)(void*)1;
 	public const PWSTR RT_BITMAP = (PWSTR)(void*)2;
 	public const PWSTR RT_ICON = (PWSTR)(void*)3;
@@ -38,21 +42,6 @@ public static
 	public const uint32 ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID = 5;
 	public const uint32 MINIMUM_RESERVED_MANIFEST_RESOURCE_ID = 1;
 	public const uint32 MAXIMUM_RESERVED_MANIFEST_RESOURCE_ID = 16;
-	public const uint32 SB_LINEUP = 0;
-	public const uint32 SB_LINELEFT = 0;
-	public const uint32 SB_LINEDOWN = 1;
-	public const uint32 SB_LINERIGHT = 1;
-	public const uint32 SB_PAGEUP = 2;
-	public const uint32 SB_PAGELEFT = 2;
-	public const uint32 SB_PAGEDOWN = 3;
-	public const uint32 SB_PAGERIGHT = 3;
-	public const uint32 SB_THUMBPOSITION = 4;
-	public const uint32 SB_THUMBTRACK = 5;
-	public const uint32 SB_TOP = 6;
-	public const uint32 SB_LEFT = 6;
-	public const uint32 SB_BOTTOM = 7;
-	public const uint32 SB_RIGHT = 7;
-	public const uint32 SB_ENDSCROLL = 8;
 	public const uint32 HIDE_WINDOW = 0;
 	public const uint32 SHOW_OPENWINDOW = 1;
 	public const uint32 SHOW_ICONWINDOW = 2;
@@ -132,16 +121,6 @@ public static
 	public const uint32 INPUTLANGCHANGE_FORWARD = 2;
 	public const uint32 INPUTLANGCHANGE_BACKWARD = 4;
 	public const uint32 KL_NAMELENGTH = 9;
-	public const int32 DESKTOP_READOBJECTS = 1;
-	public const int32 DESKTOP_CREATEWINDOW = 2;
-	public const int32 DESKTOP_CREATEMENU = 4;
-	public const int32 DESKTOP_HOOKCONTROL = 8;
-	public const int32 DESKTOP_JOURNALRECORD = 16;
-	public const int32 DESKTOP_JOURNALPLAYBACK = 32;
-	public const int32 DESKTOP_ENUMERATE = 64;
-	public const int32 DESKTOP_WRITEOBJECTS = 128;
-	public const int32 DESKTOP_SWITCHDESKTOP = 256;
-	public const int32 DF_ALLOWOTHERACCOUNTHOOK = 1;
 	public const int32 WINSTA_ENUMDESKTOPS = 1;
 	public const int32 WINSTA_READATTRIBUTES = 2;
 	public const int32 WINSTA_ACCESSCLIPBOARD = 4;
@@ -501,13 +480,6 @@ public static
 	public const uint32 WVR_HREDRAW = 256;
 	public const uint32 WVR_VREDRAW = 512;
 	public const uint32 WVR_VALIDRECTS = 1024;
-	public const uint32 MK_LBUTTON = 1;
-	public const uint32 MK_RBUTTON = 2;
-	public const uint32 MK_SHIFT = 4;
-	public const uint32 MK_CONTROL = 8;
-	public const uint32 MK_MBUTTON = 16;
-	public const uint32 MK_XBUTTON1 = 32;
-	public const uint32 MK_XBUTTON2 = 64;
 	public const int32 PRF_CHECKVISIBLE = 1;
 	public const int32 PRF_NONCLIENT = 2;
 	public const int32 PRF_CLIENT = 4;
@@ -516,25 +488,6 @@ public static
 	public const int32 PRF_OWNED = 32;
 	public const uint32 IDANI_OPEN = 1;
 	public const uint32 IDANI_CAPTION = 3;
-	public const uint32 FVIRTKEY = 1;
-	public const uint32 FNOINVERT = 2;
-	public const uint32 FSHIFT = 4;
-	public const uint32 FCONTROL = 8;
-	public const uint32 FALT = 16;
-	public const uint32 ODA_DRAWENTIRE = 1;
-	public const uint32 ODA_SELECT = 2;
-	public const uint32 ODA_FOCUS = 4;
-	public const uint32 ODS_SELECTED = 1;
-	public const uint32 ODS_GRAYED = 2;
-	public const uint32 ODS_DISABLED = 4;
-	public const uint32 ODS_CHECKED = 8;
-	public const uint32 ODS_FOCUS = 16;
-	public const uint32 ODS_DEFAULT = 32;
-	public const uint32 ODS_COMBOBOXEDIT = 4096;
-	public const uint32 ODS_HOTLIGHT = 64;
-	public const uint32 ODS_INACTIVE = 128;
-	public const uint32 ODS_NOACCEL = 256;
-	public const uint32 ODS_NOFOCUSRECT = 512;
 	public const int32 IDHOT_SNAPWINDOW = -1;
 	public const int32 IDHOT_SNAPDESKTOP = -2;
 	public const uint32 ENDSESSION_CLOSEAPP = 1;
@@ -617,7 +570,6 @@ public static
 	public const uint32 SM_RESERVED4 = 27;
 	public const uint32 SM_CMETRICS = 76;
 	public const uint32 SM_CARETBLINKINGENABLED = 8194;
-	public const uint32 SM_SYSTEMDOCKED = 8196;
 	public const uint32 PMB_ACTIVE = 1;
 	public const uint32 MNC_IGNORE = 0;
 	public const uint32 MNC_CLOSE = 1;
@@ -637,8 +589,6 @@ public static
 	public const int32 DO_PRINTFILE = 1414419024;
 	public const uint32 ASFW_ANY = 4294967295;
 	public const int32 DCX_EXCLUDEUPDATE = 256;
-	public const uint32 HELPINFO_WINDOW = 1;
-	public const uint32 HELPINFO_MENUITEM = 2;
 	public const uint32 CTLCOLOR_MSGBOX = 0;
 	public const uint32 CTLCOLOR_EDIT = 1;
 	public const uint32 CTLCOLOR_LISTBOX = 2;
@@ -647,8 +597,6 @@ public static
 	public const uint32 CTLCOLOR_SCROLLBAR = 5;
 	public const uint32 CTLCOLOR_STATIC = 6;
 	public const uint32 CTLCOLOR_MAX = 7;
-	public const uint32 COLOR_BTNHIGHLIGHT = 20;
-	public const uint32 COLOR_BTNHILIGHT = 20;
 	public const uint32 GW_MAX = 5;
 	public const uint32 SC_SIZE = 61440;
 	public const uint32 SC_MOVE = 61456;
@@ -837,38 +785,6 @@ public static
 	public const uint32 BM_SETDONTCLICK = 248;
 	public const uint32 BST_PUSHED = 4;
 	public const uint32 BST_FOCUS = 8;
-	public const int32 SS_LEFT = 0;
-	public const int32 SS_CENTER = 1;
-	public const int32 SS_RIGHT = 2;
-	public const int32 SS_ICON = 3;
-	public const int32 SS_BLACKRECT = 4;
-	public const int32 SS_GRAYRECT = 5;
-	public const int32 SS_WHITERECT = 6;
-	public const int32 SS_BLACKFRAME = 7;
-	public const int32 SS_GRAYFRAME = 8;
-	public const int32 SS_WHITEFRAME = 9;
-	public const int32 SS_USERITEM = 10;
-	public const int32 SS_SIMPLE = 11;
-	public const int32 SS_LEFTNOWORDWRAP = 12;
-	public const int32 SS_OWNERDRAW = 13;
-	public const int32 SS_BITMAP = 14;
-	public const int32 SS_ENHMETAFILE = 15;
-	public const int32 SS_ETCHEDHORZ = 16;
-	public const int32 SS_ETCHEDVERT = 17;
-	public const int32 SS_ETCHEDFRAME = 18;
-	public const int32 SS_TYPEMASK = 31;
-	public const int32 SS_REALSIZECONTROL = 64;
-	public const int32 SS_NOPREFIX = 128;
-	public const int32 SS_NOTIFY = 256;
-	public const int32 SS_CENTERIMAGE = 512;
-	public const int32 SS_RIGHTJUST = 1024;
-	public const int32 SS_REALSIZEIMAGE = 2048;
-	public const int32 SS_SUNKEN = 4096;
-	public const int32 SS_EDITCONTROL = 8192;
-	public const int32 SS_ENDELLIPSIS = 16384;
-	public const int32 SS_PATHELLIPSIS = 32768;
-	public const int32 SS_WORDELLIPSIS = 49152;
-	public const int32 SS_ELLIPSISMASK = 49152;
 	public const uint32 STM_SETICON = 368;
 	public const uint32 STM_GETICON = 369;
 	public const uint32 STM_SETIMAGE = 370;
@@ -2133,7 +2049,6 @@ public enum SET_WINDOW_POS_FLAGS : uint32
 	SWP_NOSIZE = 1,
 	SWP_NOZORDER = 4,
 	SWP_SHOWWINDOW = 64,
-	SWP__NOOWNERZORDER = 512,
 }
 
 
@@ -2216,48 +2131,6 @@ public enum PEEK_MESSAGE_REMOVE_TYPE : uint32
 	PM_QS_POSTMESSAGE = 9961472,
 	PM_QS_PAINT = 2097152,
 	PM_QS_SENDMESSAGE = 4194304,
-}
-
-
-[AllowDuplicates]
-public enum SYS_COLOR_INDEX : uint32
-{
-	COLOR_3DDKSHADOW = 21,
-	COLOR_3DFACE = 15,
-	COLOR_3DHIGHLIGHT = 20,
-	COLOR_3DHILIGHT = 20,
-	COLOR_3DLIGHT = 22,
-	COLOR_3DSHADOW = 16,
-	COLOR_ACTIVEBORDER = 10,
-	COLOR_ACTIVECAPTION = 2,
-	COLOR_APPWORKSPACE = 12,
-	COLOR_BACKGROUND = 1,
-	COLOR_BTNFACE = 15,
-	_COLOR_BTNHIGHLIGHT = 20,
-	_COLOR_BTNHILIGHT = 20,
-	COLOR_BTNSHADOW = 16,
-	COLOR_BTNTEXT = 18,
-	COLOR_CAPTIONTEXT = 9,
-	COLOR_DESKTOP = 1,
-	COLOR_GRADIENTACTIVECAPTION = 27,
-	COLOR_GRADIENTINACTIVECAPTION = 28,
-	COLOR_GRAYTEXT = 17,
-	COLOR_HIGHLIGHT = 13,
-	COLOR_HIGHLIGHTTEXT = 14,
-	COLOR_HOTLIGHT = 26,
-	COLOR_INACTIVEBORDER = 11,
-	COLOR_INACTIVECAPTION = 3,
-	COLOR_INACTIVECAPTIONTEXT = 19,
-	COLOR_INFOBK = 24,
-	COLOR_INFOTEXT = 23,
-	COLOR_MENU = 4,
-	COLOR_MENUHILIGHT = 29,
-	COLOR_MENUBAR = 30,
-	COLOR_MENUTEXT = 7,
-	COLOR_SCROLLBAR = 0,
-	COLOR_WINDOW = 5,
-	COLOR_WINDOWFRAME = 6,
-	COLOR_WINDOWTEXT = 8,
 }
 
 
@@ -2368,7 +2241,7 @@ public enum SYSTEM_METRICS_INDEX : uint32
 	SM_SLOWMACHINE = 73,
 	SM_STARTER = 88,
 	SM_SWAPBUTTON = 23,
-	SM_SYSTEMDOCKED_ = 8196,
+	SM_SYSTEMDOCKED = 8196,
 	SM_TABLETPC = 86,
 	SM_XVIRTUALSCREEN = 76,
 	SM_YVIRTUALSCREEN = 77,
@@ -2569,6 +2442,38 @@ public enum KBDLLHOOKSTRUCT_FLAGS : uint32
 	LLKHF_UP = 128,
 	LLKHF_INJECTED = 16,
 	LLKHF_LOWER_IL_INJECTED = 2,
+}
+
+
+[AllowDuplicates]
+public enum ACCEL_VIRT_FLAGS : uint8
+{
+	FVIRTKEY = 1,
+	FNOINVERT = 2,
+	FSHIFT = 4,
+	FCONTROL = 8,
+	FALT = 16,
+}
+
+
+[AllowDuplicates]
+public enum SCROLLBAR_COMMAND : int32
+{
+	SB_LINEUP = 0,
+	SB_LINELEFT = 0,
+	SB_LINEDOWN = 1,
+	SB_LINERIGHT = 1,
+	SB_PAGEUP = 2,
+	SB_PAGELEFT = 2,
+	SB_PAGEDOWN = 3,
+	SB_PAGERIGHT = 3,
+	SB_THUMBPOSITION = 4,
+	SB_THUMBTRACK = 5,
+	SB_TOP = 6,
+	SB_LEFT = 6,
+	SB_RIGHT = 7,
+	SB_BOTTOM = 7,
+	SB_ENDSCROLL = 8,
 }
 
 
@@ -2823,7 +2728,7 @@ public struct MOUSEHOOKSTRUCT
 [CRepr]
 public struct MOUSEHOOKSTRUCTEX
 {
-	public MOUSEHOOKSTRUCT __AnonymousBase_winuser_L1166_C46;
+	public MOUSEHOOKSTRUCT Base;
 	public MOUSEHOOKSTRUCTEX_MOUSE_DATA mouseData;
 }
 
@@ -2951,7 +2856,7 @@ public struct NCCALCSIZE_PARAMS
 [CRepr]
 public struct ACCEL
 {
-	public uint8 fVirt;
+	public ACCEL_VIRT_FLAGS fVirt;
 	public uint16 key;
 	public uint16 cmd;
 }
@@ -3017,7 +2922,7 @@ public struct UPDATELAYEREDWINDOWINFO
 	public SIZE* psize;
 	public HDC hdcSrc;
 	public POINT* pptSrc;
-	public uint32 crKey;
+	public COLORREF crKey;
 	public BLENDFUNCTION* pblend;
 	public UPDATE_LAYERED_WINDOW_FLAGS dwFlags;
 	public RECT* prcDirty;
@@ -3275,7 +3180,7 @@ public struct CLIENTCREATESTRUCT
 }
 
 [CRepr]
-public struct TouchPredictionParameters
+public struct TOUCHPREDICTIONPARAMETERS
 {
 	public uint32 cbSize;
 	public uint32 dwLatency;
@@ -3495,12 +3400,56 @@ public struct MrmResourceIndexerMessage
 public static
 {
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 LoadStringA(HINSTANCE hInstance, uint32 uID, uint8* lpBuffer, int32 cchBufferMax);
-	public static int32 LoadString(HINSTANCE hInstance, uint32 uID, uint8* lpBuffer, int32 cchBufferMax) => LoadStringA(hInstance, uID, lpBuffer, cchBufferMax);
+	public static extern int32 LoadStringA(HINSTANCE hInstance, uint32 uID, PSTR lpBuffer, int32 cchBufferMax);
+	public static int32 LoadString(HINSTANCE hInstance, uint32 uID, PSTR lpBuffer, int32 cchBufferMax) => LoadStringA(hInstance, uID, lpBuffer, cchBufferMax);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 LoadStringW(HINSTANCE hInstance, uint32 uID, char16* lpBuffer, int32 cchBufferMax);
+	public static extern int32 LoadStringW(HINSTANCE hInstance, uint32 uID, PWSTR lpBuffer, int32 cchBufferMax);
 
+#if BF_64_BIT || BF_ARM_64
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int GetWindowLongPtrA(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex);
+	public static int GetWindowLongPtr(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex) => GetWindowLongPtrA(hWnd, nIndex);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int GetWindowLongPtrW(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int SetWindowLongPtrA(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex, int dwNewLong);
+	public static int SetWindowLongPtr(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex, int dwNewLong) => SetWindowLongPtrA(hWnd, nIndex, dwNewLong);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int SetWindowLongPtrW(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex, int dwNewLong);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint GetClassLongPtrA(HWND hWnd, GET_CLASS_LONG_INDEX nIndex);
+	public static uint GetClassLongPtr(HWND hWnd, GET_CLASS_LONG_INDEX nIndex) => GetClassLongPtrA(hWnd, nIndex);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint GetClassLongPtrW(HWND hWnd, GET_CLASS_LONG_INDEX nIndex);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint SetClassLongPtrA(HWND hWnd, GET_CLASS_LONG_INDEX nIndex, int dwNewLong);
+	public static uint SetClassLongPtr(HWND hWnd, GET_CLASS_LONG_INDEX nIndex, int dwNewLong) => SetClassLongPtrA(hWnd, nIndex, dwNewLong);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern uint SetClassLongPtrW(HWND hWnd, GET_CLASS_LONG_INDEX nIndex, int dwNewLong);
+
+#endif
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wvsprintfA(PSTR param0, PSTR param1, int8* arglist);
 	public static int32 wvsprintf(PSTR param0, PSTR param1, int8* arglist) => wvsprintfA(param0, param1, arglist);
@@ -3709,16 +3658,16 @@ public static
 	public static extern BOOL AnimateWindow(HWND hWnd, uint32 dwTime, ANIMATE_WINDOW_FLAGS dwFlags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL UpdateLayeredWindow(HWND hWnd, HDC hdcDst, POINT* pptDst, SIZE* psize, HDC hdcSrc, POINT* pptSrc, uint32 crKey, BLENDFUNCTION* pblend, UPDATE_LAYERED_WINDOW_FLAGS dwFlags);
+	public static extern BOOL UpdateLayeredWindow(HWND hWnd, HDC hdcDst, POINT* pptDst, SIZE* psize, HDC hdcSrc, POINT* pptSrc, COLORREF crKey, BLENDFUNCTION* pblend, UPDATE_LAYERED_WINDOW_FLAGS dwFlags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UpdateLayeredWindowIndirect(HWND hWnd, UPDATELAYEREDWINDOWINFO* pULWInfo);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetLayeredWindowAttributes(HWND hwnd, uint32* pcrKey, uint8* pbAlpha, LAYERED_WINDOW_ATTRIBUTES_FLAGS* pdwFlags);
+	public static extern BOOL GetLayeredWindowAttributes(HWND hwnd, COLORREF* pcrKey, uint8* pbAlpha, LAYERED_WINDOW_ATTRIBUTES_FLAGS* pdwFlags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetLayeredWindowAttributes(HWND hwnd, uint32 crKey, uint8 bAlpha, LAYERED_WINDOW_ATTRIBUTES_FLAGS dwFlags);
+	public static extern BOOL SetLayeredWindowAttributes(HWND hwnd, COLORREF crKey, uint8 bAlpha, LAYERED_WINDOW_ATTRIBUTES_FLAGS dwFlags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ShowWindowAsync(HWND hWnd, SHOW_WINDOW_CMD nCmdShow);
@@ -4374,12 +4323,6 @@ public static
 	public static extern HWND ChildWindowFromPointEx(HWND hwnd, POINT pt, CWP_FLAGS flags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSysColor(SYS_COLOR_INDEX nIndex);
-
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetSysColors(int32 cElements, int32* lpaElements, uint32* lpaRgbValues);
-
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 GetWindowWord(HWND hWnd, int32 nIndex);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
@@ -4399,28 +4342,6 @@ public static
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetWindowLongW(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex, int32 dwNewLong);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int GetWindowLongPtrA(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex);
-	public static int GetWindowLongPtr(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex) => GetWindowLongPtrA(hWnd, nIndex);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int GetWindowLongPtrW(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int SetWindowLongPtrA(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex, int dwNewLong);
-	public static int SetWindowLongPtr(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex, int dwNewLong) => SetWindowLongPtrA(hWnd, nIndex, dwNewLong);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int SetWindowLongPtrW(HWND hWnd, WINDOW_LONG_PTR_INDEX nIndex, int dwNewLong);
-
-#endif
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 GetClassWord(HWND hWnd, int32 nIndex);
 
@@ -4441,28 +4362,6 @@ public static
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetClassLongW(HWND hWnd, GET_CLASS_LONG_INDEX nIndex, int32 dwNewLong);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint GetClassLongPtrA(HWND hWnd, GET_CLASS_LONG_INDEX nIndex);
-	public static uint GetClassLongPtr(HWND hWnd, GET_CLASS_LONG_INDEX nIndex) => GetClassLongPtrA(hWnd, nIndex);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint GetClassLongPtrW(HWND hWnd, GET_CLASS_LONG_INDEX nIndex);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint SetClassLongPtrA(HWND hWnd, GET_CLASS_LONG_INDEX nIndex, int dwNewLong);
-	public static uint SetClassLongPtr(HWND hWnd, GET_CLASS_LONG_INDEX nIndex, int dwNewLong) => SetClassLongPtrA(hWnd, nIndex, dwNewLong);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint SetClassLongPtrW(HWND hWnd, GET_CLASS_LONG_INDEX nIndex, int dwNewLong);
-
-#endif
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetProcessDefaultLayout(uint32* pdwDefaultLayout);
 

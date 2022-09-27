@@ -239,7 +239,7 @@ public enum RDPSRAPI_KBD_SYNC_FLAG : int32
 
 
 [AllowDuplicates]
-public enum __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 : int32
+public enum RDPENCOMAPI_CONSTANTS : int32
 {
 	CONST_MAX_CHANNEL_MESSAGE_SIZE = 1024,
 	CONST_MAX_CHANNEL_NAME_LEN = 8,

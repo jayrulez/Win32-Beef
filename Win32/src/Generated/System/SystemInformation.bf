@@ -146,6 +146,44 @@ public enum VER_FLAGS : uint32
 
 
 [AllowDuplicates]
+public enum IMAGE_FILE_MACHINE : uint16
+{
+	IMAGE_FILE_MACHINE_AXP64 = 644,
+	IMAGE_FILE_MACHINE_I386 = 332,
+	IMAGE_FILE_MACHINE_IA64 = 512,
+	IMAGE_FILE_MACHINE_AMD64 = 34404,
+	IMAGE_FILE_MACHINE_UNKNOWN = 0,
+	IMAGE_FILE_MACHINE_TARGET_HOST = 1,
+	IMAGE_FILE_MACHINE_R3000 = 354,
+	IMAGE_FILE_MACHINE_R4000 = 358,
+	IMAGE_FILE_MACHINE_R10000 = 360,
+	IMAGE_FILE_MACHINE_WCEMIPSV2 = 361,
+	IMAGE_FILE_MACHINE_ALPHA = 388,
+	IMAGE_FILE_MACHINE_SH3 = 418,
+	IMAGE_FILE_MACHINE_SH3DSP = 419,
+	IMAGE_FILE_MACHINE_SH3E = 420,
+	IMAGE_FILE_MACHINE_SH4 = 422,
+	IMAGE_FILE_MACHINE_SH5 = 424,
+	IMAGE_FILE_MACHINE_ARM = 448,
+	IMAGE_FILE_MACHINE_THUMB = 450,
+	IMAGE_FILE_MACHINE_ARMNT = 452,
+	IMAGE_FILE_MACHINE_AM33 = 467,
+	IMAGE_FILE_MACHINE_POWERPC = 496,
+	IMAGE_FILE_MACHINE_POWERPCFP = 497,
+	IMAGE_FILE_MACHINE_MIPS16 = 614,
+	IMAGE_FILE_MACHINE_ALPHA64 = 644,
+	IMAGE_FILE_MACHINE_MIPSFPU = 870,
+	IMAGE_FILE_MACHINE_MIPSFPU16 = 1126,
+	IMAGE_FILE_MACHINE_TRICORE = 1312,
+	IMAGE_FILE_MACHINE_CEF = 3311,
+	IMAGE_FILE_MACHINE_EBC = 3772,
+	IMAGE_FILE_MACHINE_M32R = 36929,
+	IMAGE_FILE_MACHINE_ARM64 = 43620,
+	IMAGE_FILE_MACHINE_CEE = 49390,
+}
+
+
+[AllowDuplicates]
 public enum FIRMWARE_TABLE_PROVIDER : uint32
 {
 	ACPI = 1094930505,
@@ -903,14 +941,14 @@ public static
 	public static extern uint32 GetSystemWow64DirectoryW(char16* lpBuffer, uint32 uSize);
 
 	[Import("api-ms-win-core-wow64-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSystemWow64Directory2A(uint8* lpBuffer, uint32 uSize, uint16 ImageFileMachineType);
-	public static uint32 GetSystemWow64Directory2(uint8* lpBuffer, uint32 uSize, uint16 ImageFileMachineType) => GetSystemWow64Directory2A(lpBuffer, uSize, ImageFileMachineType);
+	public static extern uint32 GetSystemWow64Directory2A(uint8* lpBuffer, uint32 uSize, IMAGE_FILE_MACHINE ImageFileMachineType);
+	public static uint32 GetSystemWow64Directory2(uint8* lpBuffer, uint32 uSize, IMAGE_FILE_MACHINE ImageFileMachineType) => GetSystemWow64Directory2A(lpBuffer, uSize, ImageFileMachineType);
 
 	[Import("api-ms-win-core-wow64-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSystemWow64Directory2W(char16* lpBuffer, uint32 uSize, uint16 ImageFileMachineType);
+	public static extern uint32 GetSystemWow64Directory2W(char16* lpBuffer, uint32 uSize, IMAGE_FILE_MACHINE ImageFileMachineType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT IsWow64GuestMachineSupported(uint16 WowGuestMachine, BOOL* MachineIsSupported);
+	public static extern HRESULT IsWow64GuestMachineSupported(IMAGE_FILE_MACHINE WowGuestMachine, BOOL* MachineIsSupported);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN RtlGetProductInfo(uint32 OSMajorVersion, uint32 OSMinorVersion, uint32 SpMajorVersion, uint32 SpMinorVersion, uint32* ReturnedProductType);

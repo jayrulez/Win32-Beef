@@ -263,14 +263,14 @@ public struct PRJ_NOTIFICATION_PARAMETERS
 		public PRJ_NOTIFY_TYPES NotificationMask;
 	}
 	[CRepr]
-	public struct _FileDeletedOnHandleClose_e__Struct
-	{
-		public BOOLEAN IsFileModified;
-	}
-	[CRepr]
 	public struct _PostCreate_e__Struct
 	{
 		public PRJ_NOTIFY_TYPES NotificationMask;
+	}
+	[CRepr]
+	public struct _FileDeletedOnHandleClose_e__Struct
+	{
+		public BOOLEAN IsFileModified;
 	}
 	public _PostCreate_e__Struct PostCreate;
 	public _FileRenamed_e__Struct FileRenamed;
@@ -297,14 +297,14 @@ public struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _Enumeration_e__Struct
-		{
-			public PRJ_DIR_ENTRY_BUFFER_HANDLE DirEntryBufferHandle;
-		}
-		[CRepr]
 		public struct _Notification_e__Struct
 		{
 			public PRJ_NOTIFY_TYPES NotificationMask;
+		}
+		[CRepr]
+		public struct _Enumeration_e__Struct
+		{
+			public PRJ_DIR_ENTRY_BUFFER_HANDLE DirEntryBufferHandle;
 		}
 		public _Notification_e__Struct Notification;
 		public _Enumeration_e__Struct Enumeration;

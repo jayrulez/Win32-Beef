@@ -249,7 +249,7 @@ public enum XACT_DTC_CONSTANTS : int32
 
 
 [AllowDuplicates]
-public enum _DtcLu_LocalRecovery_Work : int32
+public enum DTCINITIATEDRECOVERYWORK : int32
 {
 	DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS = 1,
 	DTCINITIATEDRECOVERYWORK_TRANS = 2,
@@ -258,7 +258,7 @@ public enum _DtcLu_LocalRecovery_Work : int32
 
 
 [AllowDuplicates]
-public enum _DtcLu_Xln : int32
+public enum DTCLUXLN : int32
 {
 	DTCLUXLN_COLD = 1,
 	DTCLUXLN_WARM = 2,
@@ -266,7 +266,7 @@ public enum _DtcLu_Xln : int32
 
 
 [AllowDuplicates]
-public enum _DtcLu_Xln_Confirmation : int32
+public enum DTCLUXLNCONFIRMATION : int32
 {
 	DTCLUXLNCONFIRMATION_CONFIRM = 1,
 	DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH = 2,
@@ -276,7 +276,7 @@ public enum _DtcLu_Xln_Confirmation : int32
 
 
 [AllowDuplicates]
-public enum _DtcLu_Xln_Response : int32
+public enum DTCLUXLNRESPONSE : int32
 {
 	DTCLUXLNRESPONSE_OK_SENDOURXLNBACK = 1,
 	DTCLUXLNRESPONSE_OK_SENDCONFIRMATION = 2,
@@ -286,7 +286,7 @@ public enum _DtcLu_Xln_Response : int32
 
 
 [AllowDuplicates]
-public enum _DtcLu_Xln_Error : int32
+public enum DTCLUXLNERROR : int32
 {
 	DTCLUXLNERROR_PROTOCOL = 1,
 	DTCLUXLNERROR_LOGNAMEMISMATCH = 2,
@@ -295,7 +295,7 @@ public enum _DtcLu_Xln_Error : int32
 
 
 [AllowDuplicates]
-public enum _DtcLu_CompareState : int32
+public enum DTCLUCOMPARESTATE : int32
 {
 	DTCLUCOMPARESTATE_COMMITTED = 1,
 	DTCLUCOMPARESTATE_HEURISTICCOMMITTED = 2,
@@ -307,7 +307,7 @@ public enum _DtcLu_CompareState : int32
 
 
 [AllowDuplicates]
-public enum _DtcLu_CompareStates_Confirmation : int32
+public enum DTCLUCOMPARESTATESCONFIRMATION : int32
 {
 	DTCLUCOMPARESTATESCONFIRMATION_CONFIRM = 1,
 	DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL = 2,
@@ -315,14 +315,14 @@ public enum _DtcLu_CompareStates_Confirmation : int32
 
 
 [AllowDuplicates]
-public enum _DtcLu_CompareStates_Error : int32
+public enum DTCLUCOMPARESTATESERROR : int32
 {
 	DTCLUCOMPARESTATESERROR_PROTOCOL = 1,
 }
 
 
 [AllowDuplicates]
-public enum _DtcLu_CompareStates_Response : int32
+public enum DTCLUCOMPARESTATESRESPONSE : int32
 {
 	DTCLUCOMPARESTATESRESPONSE_OK = 1,
 	DTCLUCOMPARESTATESRESPONSE_PROTOCOL = 2,
@@ -343,19 +343,19 @@ public function int32 XA_OPEN_EPT(PSTR param0, int32 param1, int32 param2);
 
 public function int32 XA_CLOSE_EPT(PSTR param0, int32 param1, int32 param2);
 
-public function int32 XA_START_EPT(xid_t* param0, int32 param1, int32 param2);
+public function int32 XA_START_EPT(XID* param0, int32 param1, int32 param2);
 
-public function int32 XA_END_EPT(xid_t* param0, int32 param1, int32 param2);
+public function int32 XA_END_EPT(XID* param0, int32 param1, int32 param2);
 
-public function int32 XA_ROLLBACK_EPT(xid_t* param0, int32 param1, int32 param2);
+public function int32 XA_ROLLBACK_EPT(XID* param0, int32 param1, int32 param2);
 
-public function int32 XA_PREPARE_EPT(xid_t* param0, int32 param1, int32 param2);
+public function int32 XA_PREPARE_EPT(XID* param0, int32 param1, int32 param2);
 
-public function int32 XA_COMMIT_EPT(xid_t* param0, int32 param1, int32 param2);
+public function int32 XA_COMMIT_EPT(XID* param0, int32 param1, int32 param2);
 
-public function int32 XA_RECOVER_EPT(xid_t* param0, int32 param1, int32 param2, int32 param3);
+public function int32 XA_RECOVER_EPT(XID* param0, int32 param1, int32 param2, int32 param3);
 
-public function int32 XA_FORGET_EPT(xid_t* param0, int32 param1, int32 param2);
+public function int32 XA_FORGET_EPT(XID* param0, int32 param1, int32 param2);
 
 public function int32 XA_COMPLETE_EPT(int32* param0, int32* param1, int32 param2, int32 param3);
 
@@ -401,7 +401,7 @@ public struct XACTOPT
 }
 
 [CRepr]
-public struct xid_t
+public struct XID
 {
 	public int32 formatID;
 	public int32 gtrid_length;
@@ -444,7 +444,7 @@ public struct OLE_TM_CONFIG_PARAMS_V2
 }
 
 [CRepr]
-public struct _ProxyConfigParams
+public struct PROXY_CONFIG_PARAMS
 {
 	public uint16 wcThreadsMax;
 }
@@ -929,7 +929,7 @@ public struct _ProxyConfigParams
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszDSN, PSTR pszClientDllName, uint32* pdwRMCookie) RequestNewResourceManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwITransaction, uint32 dwRMCookie, xid_t* pXid) TranslateTridToXid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwITransaction, uint32 dwRMCookie, XID* pXid) TranslateTridToXid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRMCookie, uint32* pdwITransaction) EnlistResourceManager;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRMCookie) ReleaseResourceManager;
 	}
@@ -937,7 +937,7 @@ public struct _ProxyConfigParams
 
 	public HRESULT RequestNewResourceManager(PSTR pszDSN, PSTR pszClientDllName, uint32* pdwRMCookie) mut => VT.[Friend]RequestNewResourceManager(&this, pszDSN, pszClientDllName, pdwRMCookie);
 
-	public HRESULT TranslateTridToXid(uint32* pdwITransaction, uint32 dwRMCookie, xid_t* pXid) mut => VT.[Friend]TranslateTridToXid(&this, pdwITransaction, dwRMCookie, pXid);
+	public HRESULT TranslateTridToXid(uint32* pdwITransaction, uint32 dwRMCookie, XID* pXid) mut => VT.[Friend]TranslateTridToXid(&this, pdwITransaction, dwRMCookie, pXid);
 
 	public HRESULT EnlistResourceManager(uint32 dwRMCookie, uint32* pdwITransaction) mut => VT.[Friend]EnlistResourceManager(&this, dwRMCookie, pdwITransaction);
 
@@ -968,13 +968,13 @@ public struct _ProxyConfigParams
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL i_fDoRecovery) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pITransaction, Guid* pguidBqual, xid_t* pXid) TranslateTridToXid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pITransaction, Guid* pguidBqual, XID* pXid) TranslateTridToXid;
 	}
 
 
 	public HRESULT Close(BOOL i_fDoRecovery) mut => VT.[Friend]Close(&this, i_fDoRecovery);
 
-	public HRESULT TranslateTridToXid(ITransaction* pITransaction, Guid* pguidBqual, xid_t* pXid) mut => VT.[Friend]TranslateTridToXid(&this, pITransaction, pguidBqual, pXid);
+	public HRESULT TranslateTridToXid(ITransaction* pITransaction, Guid* pguidBqual, XID* pXid) mut => VT.[Friend]TranslateTridToXid(&this, pITransaction, pguidBqual, pXid);
 }
 
 [CRepr]struct IDtcToXaHelperSinglePipe : IUnknown
@@ -986,7 +986,7 @@ public struct _ProxyConfigParams
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszDSN, PSTR pszClientDll, uint32* pdwRMCookie) XARMCreate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwITrans, uint32 dwRMCookie, xid_t* pxid) ConvertTridToXID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwITrans, uint32 dwRMCookie, XID* pxid) ConvertTridToXID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRMCookie, ITransaction* i_pITransaction, ITransactionResourceAsync* i_pITransRes, ITransactionEnlistmentAsync** o_ppITransEnslitment) EnlistWithRM;
 		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 i_dwRMCookie, BOOL i_fNormal) ReleaseRMCookie;
 	}
@@ -994,7 +994,7 @@ public struct _ProxyConfigParams
 
 	public HRESULT XARMCreate(PSTR pszDSN, PSTR pszClientDll, uint32* pdwRMCookie) mut => VT.[Friend]XARMCreate(&this, pszDSN, pszClientDll, pdwRMCookie);
 
-	public HRESULT ConvertTridToXID(uint32* pdwITrans, uint32 dwRMCookie, xid_t* pxid) mut => VT.[Friend]ConvertTridToXID(&this, pdwITrans, dwRMCookie, pxid);
+	public HRESULT ConvertTridToXID(uint32* pdwITrans, uint32 dwRMCookie, XID* pxid) mut => VT.[Friend]ConvertTridToXID(&this, pdwITrans, dwRMCookie, pxid);
 
 	public HRESULT EnlistWithRM(uint32 dwRMCookie, ITransaction* i_pITransaction, ITransactionResourceAsync* i_pITransRes, ITransactionEnlistmentAsync** o_ppITransEnslitment) mut => VT.[Friend]EnlistWithRM(&this, dwRMCookie, i_pITransaction, i_pITransRes, o_ppITransEnslitment);
 
@@ -1024,11 +1024,11 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, xid_t* pXID, ITransaction** ppTransaction) Lookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XID* pXID, ITransaction** ppTransaction) Lookup;
 	}
 
 
-	public HRESULT Lookup(xid_t* pXID, ITransaction** ppTransaction) mut => VT.[Friend]Lookup(&this, pXID, ppTransaction);
+	public HRESULT Lookup(XID* pXID, ITransaction** ppTransaction) mut => VT.[Friend]Lookup(&this, pXID, ppTransaction);
 }
 
 [CRepr]struct IResourceManagerSink : IUnknown
@@ -1096,14 +1096,14 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IResourceManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pTransaction, ITransactionResourceAsync* pResAsync, BOID* pUOW, int32* pisoLevel, xid_t* pXid, ITransactionEnlistmentAsync** ppEnlist) Enlist2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, xid_t* pXid, uint32 dwTimeout, XACTSTAT* pXactStat) Reenlist2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pTransaction, ITransactionResourceAsync* pResAsync, BOID* pUOW, int32* pisoLevel, XID* pXid, ITransactionEnlistmentAsync** ppEnlist) Enlist2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XID* pXid, uint32 dwTimeout, XACTSTAT* pXactStat) Reenlist2;
 	}
 
 
-	public HRESULT Enlist2(ITransaction* pTransaction, ITransactionResourceAsync* pResAsync, BOID* pUOW, int32* pisoLevel, xid_t* pXid, ITransactionEnlistmentAsync** ppEnlist) mut => VT.[Friend]Enlist2(&this, pTransaction, pResAsync, pUOW, pisoLevel, pXid, ppEnlist);
+	public HRESULT Enlist2(ITransaction* pTransaction, ITransactionResourceAsync* pResAsync, BOID* pUOW, int32* pisoLevel, XID* pXid, ITransactionEnlistmentAsync** ppEnlist) mut => VT.[Friend]Enlist2(&this, pTransaction, pResAsync, pUOW, pisoLevel, pXid, ppEnlist);
 
-	public HRESULT Reenlist2(xid_t* pXid, uint32 dwTimeout, XACTSTAT* pXactStat) mut => VT.[Friend]Reenlist2(&this, pXid, dwTimeout, pXactStat);
+	public HRESULT Reenlist2(XID* pXid, uint32 dwTimeout, XACTSTAT* pXactStat) mut => VT.[Friend]Reenlist2(&this, pXid, dwTimeout, pXactStat);
 }
 
 [CRepr]struct IResourceManagerRejoinable : IResourceManager2
@@ -1493,15 +1493,15 @@ public struct _ProxyConfigParams
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbOurLogName, uint32* pcbRemoteLogName) GetLogNameSizes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln* pXln, uint8* pOurLogName, uint8* pRemoteLogName, uint32* pdwProtocol) GetOurXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln_Confirmation Confirmation) HandleConfirmationFromOurXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint32 dwProtocol, _DtcLu_Xln_Confirmation* pConfirmation) HandleTheirXlnResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln_Error Error) HandleErrorFromOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUXLN* pXln, uint8* pOurLogName, uint8* pRemoteLogName, uint32* pdwProtocol) GetOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUXLNCONFIRMATION Confirmation) HandleConfirmationFromOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUXLN Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint32 dwProtocol, DTCLUXLNCONFIRMATION* pConfirmation) HandleTheirXlnResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUXLNERROR Error) HandleErrorFromOurXln;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* fCompareStates) CheckForCompareStates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbOurTransId) GetOurTransIdSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pOurTransId, _DtcLu_CompareState* pCompareState) GetOurCompareStates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_CompareState CompareState, _DtcLu_CompareStates_Confirmation* pConfirmation) HandleTheirCompareStatesResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_CompareStates_Error Error) HandleErrorFromOurCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pOurTransId, DTCLUCOMPARESTATE* pCompareState) GetOurCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUCOMPARESTATE CompareState, DTCLUCOMPARESTATESCONFIRMATION* pConfirmation) HandleTheirCompareStatesResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUCOMPARESTATESERROR Error) HandleErrorFromOurCompareStates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConversationLost;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRecoverySeqNum) GetRecoverySeqNum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lNewRecoverySeqNum) ObsoleteRecoverySeqNum;
@@ -1510,23 +1510,23 @@ public struct _ProxyConfigParams
 
 	public HRESULT GetLogNameSizes(uint32* pcbOurLogName, uint32* pcbRemoteLogName) mut => VT.[Friend]GetLogNameSizes(&this, pcbOurLogName, pcbRemoteLogName);
 
-	public HRESULT GetOurXln(_DtcLu_Xln* pXln, uint8* pOurLogName, uint8* pRemoteLogName, uint32* pdwProtocol) mut => VT.[Friend]GetOurXln(&this, pXln, pOurLogName, pRemoteLogName, pdwProtocol);
+	public HRESULT GetOurXln(DTCLUXLN* pXln, uint8* pOurLogName, uint8* pRemoteLogName, uint32* pdwProtocol) mut => VT.[Friend]GetOurXln(&this, pXln, pOurLogName, pRemoteLogName, pdwProtocol);
 
-	public HRESULT HandleConfirmationFromOurXln(_DtcLu_Xln_Confirmation Confirmation) mut => VT.[Friend]HandleConfirmationFromOurXln(&this, Confirmation);
+	public HRESULT HandleConfirmationFromOurXln(DTCLUXLNCONFIRMATION Confirmation) mut => VT.[Friend]HandleConfirmationFromOurXln(&this, Confirmation);
 
-	public HRESULT HandleTheirXlnResponse(_DtcLu_Xln Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint32 dwProtocol, _DtcLu_Xln_Confirmation* pConfirmation) mut => VT.[Friend]HandleTheirXlnResponse(&this, Xln, pRemoteLogName, cbRemoteLogName, dwProtocol, pConfirmation);
+	public HRESULT HandleTheirXlnResponse(DTCLUXLN Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint32 dwProtocol, DTCLUXLNCONFIRMATION* pConfirmation) mut => VT.[Friend]HandleTheirXlnResponse(&this, Xln, pRemoteLogName, cbRemoteLogName, dwProtocol, pConfirmation);
 
-	public HRESULT HandleErrorFromOurXln(_DtcLu_Xln_Error Error) mut => VT.[Friend]HandleErrorFromOurXln(&this, Error);
+	public HRESULT HandleErrorFromOurXln(DTCLUXLNERROR Error) mut => VT.[Friend]HandleErrorFromOurXln(&this, Error);
 
 	public HRESULT CheckForCompareStates(BOOL* fCompareStates) mut => VT.[Friend]CheckForCompareStates(&this, fCompareStates);
 
 	public HRESULT GetOurTransIdSize(uint32* pcbOurTransId) mut => VT.[Friend]GetOurTransIdSize(&this, pcbOurTransId);
 
-	public HRESULT GetOurCompareStates(uint8* pOurTransId, _DtcLu_CompareState* pCompareState) mut => VT.[Friend]GetOurCompareStates(&this, pOurTransId, pCompareState);
+	public HRESULT GetOurCompareStates(uint8* pOurTransId, DTCLUCOMPARESTATE* pCompareState) mut => VT.[Friend]GetOurCompareStates(&this, pOurTransId, pCompareState);
 
-	public HRESULT HandleTheirCompareStatesResponse(_DtcLu_CompareState CompareState, _DtcLu_CompareStates_Confirmation* pConfirmation) mut => VT.[Friend]HandleTheirCompareStatesResponse(&this, CompareState, pConfirmation);
+	public HRESULT HandleTheirCompareStatesResponse(DTCLUCOMPARESTATE CompareState, DTCLUCOMPARESTATESCONFIRMATION* pConfirmation) mut => VT.[Friend]HandleTheirCompareStatesResponse(&this, CompareState, pConfirmation);
 
-	public HRESULT HandleErrorFromOurCompareStates(_DtcLu_CompareStates_Error Error) mut => VT.[Friend]HandleErrorFromOurCompareStates(&this, Error);
+	public HRESULT HandleErrorFromOurCompareStates(DTCLUCOMPARESTATESERROR Error) mut => VT.[Friend]HandleErrorFromOurCompareStates(&this, Error);
 
 	public HRESULT ConversationLost() mut => VT.[Friend]ConversationLost(&this);
 
@@ -1558,11 +1558,11 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_LocalRecovery_Work* pWork, void** ppv) GetWork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCINITIATEDRECOVERYWORK* pWork, void** ppv) GetWork;
 	}
 
 
-	public HRESULT GetWork(_DtcLu_LocalRecovery_Work* pWork, void** ppv) mut => VT.[Friend]GetWork(&this, pWork, ppv);
+	public HRESULT GetWork(DTCINITIATEDRECOVERYWORK* pWork, void** ppv) mut => VT.[Friend]GetWork(&this, pWork, ppv);
 }
 
 [CRepr]struct IDtcLuRecoveryInitiatedByLuWork : IUnknown
@@ -1573,30 +1573,30 @@ public struct _ProxyConfigParams
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRecoverySeqNum, _DtcLu_Xln Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint8* pOurLogName, uint32 cbOurLogName, uint32 dwProtocol, _DtcLu_Xln_Response* pResponse) HandleTheirXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRecoverySeqNum, DTCLUXLN Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint8* pOurLogName, uint32 cbOurLogName, uint32 dwProtocol, DTCLUXLNRESPONSE* pResponse) HandleTheirXln;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbOurLogName) GetOurLogNameSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln* pXln, uint8* pOurLogName, uint32* pdwProtocol) GetOurXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln_Confirmation Confirmation) HandleConfirmationOfOurXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pRemoteTransId, uint32 cbRemoteTransId, _DtcLu_CompareState CompareState, _DtcLu_CompareStates_Response* pResponse, _DtcLu_CompareState* pCompareState) HandleTheirCompareStates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_CompareStates_Confirmation Confirmation) HandleConfirmationOfOurCompareStates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_CompareStates_Error Error) HandleErrorFromOurCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUXLN* pXln, uint8* pOurLogName, uint32* pdwProtocol) GetOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUXLNCONFIRMATION Confirmation) HandleConfirmationOfOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pRemoteTransId, uint32 cbRemoteTransId, DTCLUCOMPARESTATE CompareState, DTCLUCOMPARESTATESRESPONSE* pResponse, DTCLUCOMPARESTATE* pCompareState) HandleTheirCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUCOMPARESTATESCONFIRMATION Confirmation) HandleConfirmationOfOurCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DTCLUCOMPARESTATESERROR Error) HandleErrorFromOurCompareStates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConversationLost;
 	}
 
 
-	public HRESULT HandleTheirXln(int32 lRecoverySeqNum, _DtcLu_Xln Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint8* pOurLogName, uint32 cbOurLogName, uint32 dwProtocol, _DtcLu_Xln_Response* pResponse) mut => VT.[Friend]HandleTheirXln(&this, lRecoverySeqNum, Xln, pRemoteLogName, cbRemoteLogName, pOurLogName, cbOurLogName, dwProtocol, pResponse);
+	public HRESULT HandleTheirXln(int32 lRecoverySeqNum, DTCLUXLN Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint8* pOurLogName, uint32 cbOurLogName, uint32 dwProtocol, DTCLUXLNRESPONSE* pResponse) mut => VT.[Friend]HandleTheirXln(&this, lRecoverySeqNum, Xln, pRemoteLogName, cbRemoteLogName, pOurLogName, cbOurLogName, dwProtocol, pResponse);
 
 	public HRESULT GetOurLogNameSize(uint32* pcbOurLogName) mut => VT.[Friend]GetOurLogNameSize(&this, pcbOurLogName);
 
-	public HRESULT GetOurXln(_DtcLu_Xln* pXln, uint8* pOurLogName, uint32* pdwProtocol) mut => VT.[Friend]GetOurXln(&this, pXln, pOurLogName, pdwProtocol);
+	public HRESULT GetOurXln(DTCLUXLN* pXln, uint8* pOurLogName, uint32* pdwProtocol) mut => VT.[Friend]GetOurXln(&this, pXln, pOurLogName, pdwProtocol);
 
-	public HRESULT HandleConfirmationOfOurXln(_DtcLu_Xln_Confirmation Confirmation) mut => VT.[Friend]HandleConfirmationOfOurXln(&this, Confirmation);
+	public HRESULT HandleConfirmationOfOurXln(DTCLUXLNCONFIRMATION Confirmation) mut => VT.[Friend]HandleConfirmationOfOurXln(&this, Confirmation);
 
-	public HRESULT HandleTheirCompareStates(uint8* pRemoteTransId, uint32 cbRemoteTransId, _DtcLu_CompareState CompareState, _DtcLu_CompareStates_Response* pResponse, _DtcLu_CompareState* pCompareState) mut => VT.[Friend]HandleTheirCompareStates(&this, pRemoteTransId, cbRemoteTransId, CompareState, pResponse, pCompareState);
+	public HRESULT HandleTheirCompareStates(uint8* pRemoteTransId, uint32 cbRemoteTransId, DTCLUCOMPARESTATE CompareState, DTCLUCOMPARESTATESRESPONSE* pResponse, DTCLUCOMPARESTATE* pCompareState) mut => VT.[Friend]HandleTheirCompareStates(&this, pRemoteTransId, cbRemoteTransId, CompareState, pResponse, pCompareState);
 
-	public HRESULT HandleConfirmationOfOurCompareStates(_DtcLu_CompareStates_Confirmation Confirmation) mut => VT.[Friend]HandleConfirmationOfOurCompareStates(&this, Confirmation);
+	public HRESULT HandleConfirmationOfOurCompareStates(DTCLUCOMPARESTATESCONFIRMATION Confirmation) mut => VT.[Friend]HandleConfirmationOfOurCompareStates(&this, Confirmation);
 
-	public HRESULT HandleErrorFromOurCompareStates(_DtcLu_CompareStates_Error Error) mut => VT.[Friend]HandleErrorFromOurCompareStates(&this, Error);
+	public HRESULT HandleErrorFromOurCompareStates(DTCLUCOMPARESTATESERROR Error) mut => VT.[Friend]HandleErrorFromOurCompareStates(&this, Error);
 
 	public HRESULT ConversationLost() mut => VT.[Friend]ConversationLost(&this);
 }

@@ -1,5 +1,8 @@
 using Win32.Foundation;
 using Win32.System.Com;
+using Win32.System.Registry;
+using Win32.Security;
+using Win32.System.Threading;
 using Win32.UI.WindowsAndMessaging;
 using Win32.UI.Shell.Common;
 using Win32.Graphics.Gdi;
@@ -7,15 +10,13 @@ using Win32.UI.Shell.PropertiesSystem;
 using Win32.System.Ole;
 using Win32.UI.Controls;
 using Win32.System.Com.StructuredStorage;
+using Win32.System.SystemServices;
 using Win32.Storage.FileSystem;
-using Win32.System.Registry;
 using Win32.System.Search;
 using Win32.System.IO;
 using Win32.Data.Xml.MsXml;
 using Win32.System.Console;
 using Win32.NetworkManagement.WNet;
-using Win32.Security;
-using Win32.System.Threading;
 using Win32.Graphics.DirectComposition;
 using Win32.System.Com.Urlmon;
 using System;
@@ -195,6 +196,7 @@ public static
 	public const Guid CLSID_ControlPanel = .(0x21ec2020, 0x3aea, 0x1069, 0xa2, 0xdd, 0x08, 0x00, 0x2b, 0x30, 0x30, 0x9d);
 	public const Guid CLSID_Printers = .(0x2227a280, 0x3aea, 0x1069, 0xa2, 0xde, 0x08, 0x00, 0x2b, 0x30, 0x30, 0x9d);
 	public const Guid CLSID_MyDocuments = .(0x450d8fba, 0xad25, 0x11d0, 0x98, 0xa8, 0x08, 0x00, 0x36, 0x1b, 0x11, 0x03);
+	public const String STR_MYDOCS_CLSID = "{450D8FBA-AD25-11D0-98A8-0800361B1103}";
 	public const Guid CATID_BrowsableShellExt = .(0x00021490, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
 	public const Guid CATID_BrowseInPlace = .(0x00021491, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
 	public const Guid CATID_DeskBand = .(0x00021492, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
@@ -437,6 +439,7 @@ public static
 	public const uint32 SHPWHF_ANYLOCATION = 256;
 	public const uint32 SHPWHF_VALIDATEVIAWEBFOLDERS = 65536;
 	public const uint32 ACDD_VISIBLE = 1;
+	public const String PROPSTR_EXTENSIONCOMPLETIONSTATE = "ExtensionCompletionState";
 	public const Guid SID_SCommandBarState = .(0xb99eaa5c, 0x3850, 0x4400, 0xbc, 0x33, 0x2c, 0xe5, 0x34, 0x04, 0x8b, 0xf8);
 	public const int32 NSTCDHPOS_ONTOP = -1;
 	public const uint32 FVSIF_RECT = 1;
@@ -683,6 +686,8 @@ public static
 	public const uint32 BFFM_SETSELECTION = 1127;
 	public const uint32 BFFM_VALIDATEFAILED = 4;
 	public const int32 CMDID_INTSHORTCUTCREATE = 1;
+	public const String STR_PARSE_WITH_PROPERTIES = "ParseWithProperties";
+	public const String STR_PARSE_PARTIAL_IDLIST = "ParseOriginalItem";
 	public const uint32 PROGDLG_NORMAL = 0;
 	public const uint32 PROGDLG_MODAL = 1;
 	public const uint32 PROGDLG_AUTOTIME = 2;
@@ -740,6 +745,39 @@ public static
 	public const uint32 COMPONENT_DEFAULT_TOP = 65535;
 	public const uint32 MAX_COLUMN_NAME_LEN = 80;
 	public const uint32 MAX_COLUMN_DESC_LEN = 128;
+	public const String CFSTR_SHELLIDLIST = "Shell IDList Array";
+	public const String CFSTR_SHELLIDLISTOFFSET = "Shell Object Offsets";
+	public const String CFSTR_NETRESOURCES = "Net Resource";
+	public const String CFSTR_FILEDESCRIPTORA = "FileGroupDescriptor";
+	public const String CFSTR_FILEDESCRIPTORW = "FileGroupDescriptorW";
+	public const String CFSTR_FILECONTENTS = "FileContents";
+	public const String CFSTR_FILENAMEA = "FileName";
+	public const String CFSTR_FILENAMEW = "FileNameW";
+	public const String CFSTR_PRINTERGROUP = "PrinterFriendlyName";
+	public const String CFSTR_FILENAMEMAPA = "FileNameMap";
+	public const String CFSTR_FILENAMEMAPW = "FileNameMapW";
+	public const String CFSTR_SHELLURL = "UniformResourceLocator";
+	public const String CFSTR_INETURLA = "UniformResourceLocator";
+	public const String CFSTR_INETURLW = "UniformResourceLocatorW";
+	public const String CFSTR_PREFERREDDROPEFFECT = "Preferred DropEffect";
+	public const String CFSTR_PERFORMEDDROPEFFECT = "Performed DropEffect";
+	public const String CFSTR_PASTESUCCEEDED = "Paste Succeeded";
+	public const String CFSTR_INDRAGLOOP = "InShellDragLoop";
+	public const String CFSTR_MOUNTEDVOLUME = "MountedVolume";
+	public const String CFSTR_PERSISTEDDATAOBJECT = "PersistedDataObject";
+	public const String CFSTR_TARGETCLSID = "TargetCLSID";
+	public const String CFSTR_LOGICALPERFORMEDDROPEFFECT = "Logical Performed DropEffect";
+	public const String CFSTR_AUTOPLAY_SHELLIDLISTS = "Autoplay Enumerated IDList Array";
+	public const String CFSTR_UNTRUSTEDDRAGDROP = "UntrustedDragDrop";
+	public const String CFSTR_FILE_ATTRIBUTES_ARRAY = "File Attributes Array";
+	public const String CFSTR_INVOKECOMMAND_DROPPARAM = "InvokeCommand DropParam";
+	public const String CFSTR_SHELLDROPHANDLER = "DropHandlerCLSID";
+	public const String CFSTR_DROPDESCRIPTION = "DropDescription";
+	public const String CFSTR_ZONEIDENTIFIER = "ZoneIdentifier";
+	public const String CFSTR_FILEDESCRIPTOR = "FileGroupDescriptorW";
+	public const String CFSTR_FILENAME = "FileNameW";
+	public const String CFSTR_FILENAMEMAP = "FileNameMapW";
+	public const String CFSTR_INETURL = "UniformResourceLocatorW";
 	public const uint32 DVASPECT_SHORTNAME = 2;
 	public const uint32 DVASPECT_COPY = 3;
 	public const uint32 DVASPECT_LINK = 4;
@@ -795,6 +833,15 @@ public static
 	public const uint32 GCS_VERB = 4;
 	public const uint32 GCS_HELPTEXT = 5;
 	public const uint32 GCS_VALIDATE = 6;
+	public const String CMDSTR_NEWFOLDERA = "NewFolder";
+	public const String CMDSTR_VIEWLISTA = "ViewList";
+	public const String CMDSTR_VIEWDETAILSA = "ViewDetails";
+	public const String CMDSTR_NEWFOLDERW = "NewFolder";
+	public const String CMDSTR_VIEWLISTW = "ViewList";
+	public const String CMDSTR_VIEWDETAILSW = "ViewDetails";
+	public const String CMDSTR_NEWFOLDER = "NewFolder";
+	public const String CMDSTR_VIEWLIST = "ViewList";
+	public const String CMDSTR_VIEWDETAILS = "ViewDetails";
 	public const uint32 CMIC_MASK_SHIFT_DOWN = 268435456;
 	public const uint32 CMIC_MASK_CONTROL_DOWN = 1073741824;
 	public const uint32 CMIC_MASK_PTINVOKE = 536870912;
@@ -814,43 +861,36 @@ public static
 	public const int32 SHCIDS_CANONICALONLY = 268435456;
 	public const int32 SHCIDS_BITMASK = -65536;
 	public const int32 SHCIDS_COLUMNMASK = 65535;
-	public const uint32 SFGAO_CANCOPY = 1;
-	public const uint32 SFGAO_CANMOVE = 2;
-	public const uint32 SFGAO_CANLINK = 4;
-	public const int32 SFGAO_STORAGE = 8;
-	public const int32 SFGAO_CANRENAME = 16;
-	public const int32 SFGAO_CANDELETE = 32;
-	public const int32 SFGAO_HASPROPSHEET = 64;
-	public const int32 SFGAO_DROPTARGET = 256;
-	public const int32 SFGAO_CAPABILITYMASK = 375;
-	public const int32 SFGAO_PLACEHOLDER = 2048;
-	public const int32 SFGAO_SYSTEM = 4096;
-	public const int32 SFGAO_ENCRYPTED = 8192;
-	public const int32 SFGAO_ISSLOW = 16384;
-	public const int32 SFGAO_GHOSTED = 32768;
-	public const int32 SFGAO_LINK = 65536;
-	public const int32 SFGAO_SHARE = 131072;
-	public const int32 SFGAO_READONLY = 262144;
-	public const int32 SFGAO_HIDDEN = 524288;
-	public const int32 SFGAO_DISPLAYATTRMASK = 1032192;
-	public const int32 SFGAO_FILESYSANCESTOR = 268435456;
-	public const int32 SFGAO_FOLDER = 536870912;
-	public const int32 SFGAO_FILESYSTEM = 1073741824;
-	public const int32 SFGAO_HASSUBFOLDER = -2147483648;
-	public const int32 SFGAO_CONTENTSMASK = -2147483648;
-	public const int32 SFGAO_VALIDATE = 16777216;
-	public const int32 SFGAO_REMOVABLE = 33554432;
-	public const int32 SFGAO_COMPRESSED = 67108864;
-	public const int32 SFGAO_BROWSABLE = 134217728;
-	public const int32 SFGAO_NONENUMERATED = 1048576;
-	public const int32 SFGAO_NEWCONTENT = 2097152;
-	public const int32 SFGAO_CANMONIKER = 4194304;
-	public const int32 SFGAO_HASSTORAGE = 4194304;
-	public const int32 SFGAO_STREAM = 4194304;
-	public const int32 SFGAO_STORAGEANCESTOR = 8388608;
-	public const int32 SFGAO_STORAGECAPMASK = 1891958792;
-	public const int32 SFGAO_PKEYSFGAOMASK = -2130427904;
+	public const String CONFLICT_RESOLUTION_CLSID_KEY = "ConflictResolutionCLSID";
+	public const String STR_BIND_FORCE_FOLDER_SHORTCUT_RESOLVE = "Force Folder Shortcut Resolve";
+	public const String STR_AVOID_DRIVE_RESTRICTION_POLICY = "Avoid Drive Restriction Policy";
+	public const String STR_SKIP_BINDING_CLSID = "Skip Binding CLSID";
+	public const String STR_PARSE_PREFER_FOLDER_BROWSING = "Parse Prefer Folder Browsing";
+	public const String STR_DONT_PARSE_RELATIVE = "Don't Parse Relative";
+	public const String STR_PARSE_TRANSLATE_ALIASES = "Parse Translate Aliases";
+	public const String STR_PARSE_SKIP_NET_CACHE = "Skip Net Resource Cache";
+	public const String STR_PARSE_SHELL_PROTOCOL_TO_FILE_OBJECTS = "Parse Shell Protocol To File Objects";
+	public const String STR_TRACK_CLSID = "Track the CLSID";
+	public const String STR_INTERNAL_NAVIGATE = "Internal Navigation";
+	public const String STR_PARSE_PROPERTYSTORE = "DelegateNamedProperties";
+	public const String STR_NO_VALIDATE_FILENAME_CHARS = "NoValidateFilenameChars";
+	public const String STR_BIND_DELEGATE_CREATE_OBJECT = "Delegate Object Creation";
+	public const String STR_PARSE_ALLOW_INTERNET_SHELL_FOLDERS = "Allow binding to Internet shell folder handlers and negate STR_PARSE_PREFER_WEB_BROWSING";
+	public const String STR_PARSE_PREFER_WEB_BROWSING = "Do not bind to Internet shell folder handlers";
+	public const String STR_PARSE_SHOW_NET_DIAGNOSTICS_UI = "Show network diagnostics UI";
+	public const String STR_PARSE_DONT_REQUIRE_VALIDATED_URLS = "Do not require validated URLs";
+	public const String STR_INTERNETFOLDER_PARSE_ONLY_URLMON_BINDABLE = "Validate URL";
 	public const uint32 BIND_INTERRUPTABLE = 4294967295;
+	public const String STR_BIND_FOLDERS_READ_ONLY = "Folders As Read Only";
+	public const String STR_BIND_FOLDER_ENUM_MODE = "Folder Enum Mode";
+	public const String STR_PARSE_WITH_EXPLICIT_PROGID = "ExplicitProgid";
+	public const String STR_PARSE_WITH_EXPLICIT_ASSOCAPP = "ExplicitAssociationApp";
+	public const String STR_PARSE_EXPLICIT_ASSOCIATION_SUCCESSFUL = "ExplicitAssociationSuccessful";
+	public const String STR_PARSE_AND_CREATE_ITEM = "ParseAndCreateItem";
+	public const String STR_PROPERTYBAG_PARAM = "SHBindCtxPropertyBag";
+	public const String STR_ENUM_ITEMS_FLAGS = "SHCONTF";
+	public const String STR_STORAGEITEM_CREATION_FLAGS = "SHGETSTORAGEITEM";
+	public const String STR_ITEM_CACHE_CONTEXT = "ItemCacheContext";
 	public const uint32 CDBOSC_SETFOCUS = 0;
 	public const uint32 CDBOSC_KILLFOCUS = 1;
 	public const uint32 CDBOSC_SELCHANGE = 2;
@@ -901,6 +941,15 @@ public static
 	public const uint32 FCT_MERGE = 1;
 	public const uint32 FCT_CONFIGABLE = 2;
 	public const uint32 FCT_ADDTOEND = 4;
+	public const String STR_DONT_RESOLVE_LINK = "Don't Resolve Link";
+	public const String STR_GET_ASYNC_HANDLER = "GetAsyncHandler";
+	public const String STR_GPS_HANDLERPROPERTIESONLY = "GPS_HANDLERPROPERTIESONLY";
+	public const String STR_GPS_FASTPROPERTIESONLY = "GPS_FASTPROPERTIESONLY";
+	public const String STR_GPS_OPENSLOWITEM = "GPS_OPENSLOWITEM";
+	public const String STR_GPS_DELAYCREATION = "GPS_DELAYCREATION";
+	public const String STR_GPS_BESTEFFORT = "GPS_BESTEFFORT";
+	public const String STR_GPS_NO_OPLOCK = "GPS_NO_OPLOCK";
+	public const String DI_GETDRAGIMAGE = "ShellGetDragImage";
 	public const uint32 ARCONTENT_AUTORUNINF = 2;
 	public const uint32 ARCONTENT_AUDIOCD = 4;
 	public const uint32 ARCONTENT_DVDMOVIE = 8;
@@ -1051,7 +1100,14 @@ public static
 	public const HRESULT E_PREVIEWHANDLER_NOAUTH = -2042494974;
 	public const HRESULT E_PREVIEWHANDLER_NOTFOUND = -2042494973;
 	public const HRESULT E_PREVIEWHANDLER_CORRUPT = -2042494972;
+	public const String STR_FILE_SYS_BIND_DATA = "File System Bind Data";
+	public const String STR_FILE_SYS_BIND_DATA_WIN7_FORMAT = "Win7FileSystemIdList";
+	public const String HOMEGROUP_SECURITY_GROUP_MULTI = "HUG";
+	public const String HOMEGROUP_SECURITY_GROUP = "HomeUsers";
+	public const String PROP_CONTRACT_DELEGATE = "ContractDelegate";
 	public const Guid SID_URLExecutionContext = .(0xfb5f8ebc, 0xbbb6, 0x4d10, 0xa4, 0x61, 0x77, 0x72, 0x91, 0xa0, 0x90, 0x30);
+	public const String STR_TAB_REUSE_IDENTIFIER = "Tab Reuse Identifier";
+	public const String STR_REFERRER_IDENTIFIER = "Referrer Identifier";
 	public const Guid SID_LaunchSourceViewSizePreference = .(0x80605492, 0x67d9, 0x414f, 0xaf, 0x89, 0xa1, 0xcd, 0xf1, 0x24, 0x2b, 0xc1);
 	public const Guid SID_LaunchTargetViewSizePreference = .(0x26db2472, 0xb7b7, 0x406b, 0x97, 0x02, 0x73, 0x0a, 0x4e, 0x20, 0xd3, 0xbf);
 	public const Guid SID_LaunchSourceAppUserModelId = .(0x2ce78010, 0x74db, 0x48bc, 0x9c, 0x6a, 0x10, 0xf3, 0x72, 0x49, 0x57, 0x23);
@@ -1151,17 +1207,6 @@ public static
 	public const uint32 NIN_POPUPCLOSE = 1031;
 	public const uint32 NOTIFYICON_VERSION = 3;
 	public const uint32 NOTIFYICON_VERSION_4 = 4;
-	public const uint32 NIS_HIDDEN = 1;
-	public const uint32 NIS_SHAREDICON = 2;
-	public const uint32 NIIF_NONE = 0;
-	public const uint32 NIIF_INFO = 1;
-	public const uint32 NIIF_WARNING = 2;
-	public const uint32 NIIF_ERROR = 3;
-	public const uint32 NIIF_USER = 4;
-	public const uint32 NIIF_ICON_MASK = 15;
-	public const uint32 NIIF_NOSOUND = 16;
-	public const uint32 NIIF_LARGE_ICON = 32;
-	public const uint32 NIIF_RESPECT_QUIET_TIME = 128;
 	public const uint32 SHGSI_ICONLOCATION = 0;
 	public const uint64 SHGNLI_PIDL = 1;
 	public const uint64 SHGNLI_PREFIXNAME = 2;
@@ -1187,6 +1232,7 @@ public static
 	public const uint32 SHIL_SYSSMALL = 3;
 	public const uint32 SHIL_JUMBO = 4;
 	public const uint32 SHIL_LAST = 4;
+	public const String WC_NETADDRESS = "msctls_netaddress";
 	public const uint32 NCM_GETADDRESS = 1025;
 	public const uint32 NCM_SETALLOWTYPE = 1026;
 	public const uint32 NCM_GETALLOWTYPE = 1027;
@@ -1198,6 +1244,12 @@ public static
 	public const uint32 MAX_SYNCMGR_NAME = 128;
 	public const int32 STIF_DEFAULT = 0;
 	public const int32 STIF_SUPPORT_HEX = 1;
+	public const String SZ_CONTENTTYPE_HTMLA = "text/html";
+	public const String SZ_CONTENTTYPE_HTMLW = "text/html";
+	public const String SZ_CONTENTTYPE_CDFA = "application/x-cdf";
+	public const String SZ_CONTENTTYPE_CDFW = "application/x-cdf";
+	public const String SZ_CONTENTTYPE_HTML = "text/html";
+	public const String SZ_CONTENTTYPE_CDF = "application/x-cdf";
 	public const uint32 GCT_INVALID = 0;
 	public const uint32 GCT_LFNCHAR = 1;
 	public const uint32 GCT_SHORTCHAR = 2;
@@ -1288,18 +1340,6 @@ public static
 	public const uint32 PLATFORM_BROWSERONLY = 1;
 	public const uint32 PLATFORM_INTEGRATED = 2;
 	public const uint32 ILMM_IE4 = 0;
-	public const uint32 SHACF_DEFAULT = 0;
-	public const uint32 SHACF_FILESYSTEM = 1;
-	public const uint32 SHACF_URLHISTORY = 2;
-	public const uint32 SHACF_URLMRU = 4;
-	public const uint32 SHACF_USETAB = 8;
-	public const uint32 SHACF_FILESYS_ONLY = 16;
-	public const uint32 SHACF_FILESYS_DIRS = 32;
-	public const uint32 SHACF_VIRTUAL_NAMESPACE = 64;
-	public const uint32 SHACF_AUTOSUGGEST_FORCE_ON = 268435456;
-	public const uint32 SHACF_AUTOSUGGEST_FORCE_OFF = 536870912;
-	public const uint32 SHACF_AUTOAPPEND_FORCE_ON = 1073741824;
-	public const uint32 SHACF_AUTOAPPEND_FORCE_OFF = 2147483648;
 	public const uint32 DLLVER_PLATFORM_WINDOWS = 1;
 	public const uint32 DLLVER_PLATFORM_NT = 2;
 	public const uint64 DLLVER_MAJOR_MASK = 18446462598732840960;
@@ -1314,6 +1354,8 @@ public static
 	public const HRESULT WTS_E_EXTRACTIONPENDING = -2147175931;
 	public const HRESULT WTS_E_EXTRACTIONBLOCKED = -2147175930;
 	public const HRESULT WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER = -2147175929;
+	public const String SHIMGKEY_QUALITY = "Compression";
+	public const String SHIMGKEY_RAWFORMAT = "RawDataFormat";
 	public const uint32 SHIMGDEC_DEFAULT = 0;
 	public const uint32 SHIMGDEC_THUMBNAIL = 1;
 	public const uint32 SHIMGDEC_LOADFULL = 2;
@@ -1380,10 +1422,22 @@ public static
 	public const uint32 VIEW_PRIORITY_SHELLEXT_ASBACKUP = 21;
 	public const uint32 VIEW_PRIORITY_DESPERATE = 16;
 	public const uint32 VIEW_PRIORITY_NONE = 0;
+	public const String VOLUME_PREFIX = "\\\\?\\Volume";
 	public const uint32 PATHCCH_MAX_CCH = 32768;
 	public const uint32 IDS_DESCRIPTION = 1;
 	public const uint32 ID_APP = 100;
 	public const uint32 DLG_SCRNSAVECONFIGURE = 2003;
+	public const uint32 idsIsPassword = 1000;
+	public const uint32 idsIniFile = 1001;
+	public const uint32 idsScreenSaver = 1002;
+	public const uint32 idsPassword = 1003;
+	public const uint32 idsDifferentPW = 1004;
+	public const uint32 idsChangePW = 1005;
+	public const uint32 idsBadOldPW = 1006;
+	public const uint32 idsAppName = 1007;
+	public const uint32 idsNoHelpMemory = 1008;
+	public const uint32 idsHelpFile = 1009;
+	public const uint32 idsDefKeyword = 1010;
 	public const uint32 MAXFILELEN = 13;
 	public const uint32 TITLEBARNAMELEN = 40;
 	public const uint32 APPNAMEBUFFERLEN = 40;
@@ -1555,9 +1609,6 @@ public static
 	public const HRESULT E_TILE_NOTIFICATIONS_PLATFORM_FAILURE = -2144927159;
 	public const HRESULT E_SHELL_EXTENSION_BLOCKED = -2144926975;
 	public const HRESULT E_IMAGEFEED_CHANGEDISABLED = -2144926960;
-	public const int32 GPFIDL_DEFAULT = 0;
-	public const int32 GPFIDL_ALTNAME = 1;
-	public const int32 GPFIDL_UNCPRINTER = 2;
 	public const int32 ISHCUTCMDID_DOWNLOADICON = 0;
 	public const int32 ISHCUTCMDID_INTSHORTCUTCREATE = 1;
 	public const int32 ISHCUTCMDID_COMMITHISTORY = 2;
@@ -2089,7 +2140,66 @@ public enum OS : uint32
 
 
 [AllowDuplicates]
-public enum _SHGDNF : int32
+public enum SHELL_AUTOCOMPLETE_FLAGS : uint32
+{
+	SHACF_DEFAULT = 0,
+	SHACF_FILESYSTEM = 1,
+	SHACF_URLALL = 6,
+	SHACF_URLHISTORY = 2,
+	SHACF_URLMRU = 4,
+	SHACF_USETAB = 8,
+	SHACF_FILESYS_ONLY = 16,
+	SHACF_FILESYS_DIRS = 32,
+	SHACF_VIRTUAL_NAMESPACE = 64,
+	SHACF_AUTOSUGGEST_FORCE_ON = 268435456,
+	SHACF_AUTOSUGGEST_FORCE_OFF = 536870912,
+	SHACF_AUTOAPPEND_FORCE_ON = 1073741824,
+	SHACF_AUTOAPPEND_FORCE_OFF = 2147483648,
+}
+
+
+[AllowDuplicates]
+public enum HELP_INFO_TYPE : int32
+{
+	HELPINFO_WINDOW = 1,
+	HELPINFO_MENUITEM = 2,
+}
+
+
+[AllowDuplicates]
+public enum NOTIFY_ICON_INFOTIP_FLAGS : uint32
+{
+	NIIF_NONE = 0,
+	NIIF_INFO = 1,
+	NIIF_WARNING = 2,
+	NIIF_ERROR = 3,
+	NIIF_USER = 4,
+	NIIF_ICON_MASK = 15,
+	NIIF_NOSOUND = 16,
+	NIIF_LARGE_ICON = 32,
+	NIIF_RESPECT_QUIET_TIME = 128,
+}
+
+
+[AllowDuplicates]
+public enum NOTIFY_ICON_STATE : uint32
+{
+	NIS_HIDDEN = 1,
+	NIS_SHAREDICON = 2,
+}
+
+
+[AllowDuplicates]
+public enum GPFIDL_FLAGS : uint32
+{
+	GPFIDL_DEFAULT = 0,
+	GPFIDL_ALTNAME = 1,
+	GPFIDL_UNCPRINTER = 2,
+}
+
+
+[AllowDuplicates]
+public enum SHGDNF : uint32
 {
 	SHGDN_NORMAL = 0,
 	SHGDN_INFOLDER = 1,
@@ -2746,7 +2856,7 @@ public enum FDAP : int32
 
 
 [AllowDuplicates]
-public enum _FILEOPENDIALOGOPTIONS : int32
+public enum FILEOPENDIALOGOPTIONS : uint32
 {
 	FOS_OVERWRITEPROMPT = 2,
 	FOS_STRICTFILETYPES = 4,
@@ -2770,7 +2880,7 @@ public enum _FILEOPENDIALOGOPTIONS : int32
 	FOS_FORCESHOWHIDDEN = 268435456,
 	FOS_DEFAULTNOMINIMODE = 536870912,
 	FOS_FORCEPREVIEWPANEON = 1073741824,
-	FOS_SUPPORTSTREAMABLEITEMS = -2147483648,
+	FOS_SUPPORTSTREAMABLEITEMS = 2147483648,
 }
 
 
@@ -4972,7 +5082,7 @@ public enum TLENUMF : int32
 
 
 [AllowDuplicates]
-public enum _HLSR_NOREDEF10 : int32
+public enum HLSR : int32
 {
 	HLSR_HOME = 0,
 	HLSR_SEARCHPAGE = 1,
@@ -4981,7 +5091,7 @@ public enum _HLSR_NOREDEF10 : int32
 
 
 [AllowDuplicates]
-public enum _HLSHORTCUTF__NOREDEF10 : int32
+public enum HLSHORTCUTF : int32
 {
 	HLSHORTCUTF_DEFAULT = 0,
 	HLSHORTCUTF_DONTACTUALLYCREATE = 1,
@@ -4992,7 +5102,7 @@ public enum _HLSHORTCUTF__NOREDEF10 : int32
 
 
 [AllowDuplicates]
-public enum _HLTRANSLATEF_NOREDEF10 : int32
+public enum HLTRANSLATEF : int32
 {
 	HLTRANSLATEF_DEFAULT = 0,
 	HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX = 1,
@@ -5154,7 +5264,7 @@ public enum TI_FLAGS : int32
 
 
 [AllowDuplicates]
-public enum PATHCCH_OPTIONS : int32
+public enum PATHCCH_OPTIONS : uint32
 {
 	PATHCCH_NONE = 0,
 	PATHCCH_ALLOW_LONG_PATHS = 1,
@@ -5168,7 +5278,7 @@ public enum PATHCCH_OPTIONS : int32
 
 
 [AllowDuplicates]
-public enum iurl_seturl_flags : int32
+public enum IURL_SETURL_FLAGS : int32
 {
 	IURL_SETURL_FL_GUESS_PROTOCOL = 1,
 	IURL_SETURL_FL_USE_DEFAULT_PROTOCOL = 2,
@@ -5176,7 +5286,7 @@ public enum iurl_seturl_flags : int32
 
 
 [AllowDuplicates]
-public enum iurl_invokecommand_flags : int32
+public enum IURL_INVOKECOMMAND_FLAGS : int32
 {
 	IURL_INVOKECOMMAND_FL_ALLOW_UI = 1,
 	IURL_INVOKECOMMAND_FL_USE_DEFAULT_VERB = 2,
@@ -5187,7 +5297,7 @@ public enum iurl_invokecommand_flags : int32
 
 
 [AllowDuplicates]
-public enum translateurl_in_flags : int32
+public enum TRANSLATEURL_IN_FLAGS : int32
 {
 	TRANSLATEURL_FL_GUESS_PROTOCOL = 1,
 	TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL = 2,
@@ -5195,7 +5305,7 @@ public enum translateurl_in_flags : int32
 
 
 [AllowDuplicates]
-public enum urlassociationdialog_in_flags : int32
+public enum URLASSOCIATIONDIALOG_IN_FLAGS : int32
 {
 	URLASSOCDLG_FL_USE_DEFAULT_NAME = 1,
 	URLASSOCDLG_FL_REGISTER_ASSOC = 2,
@@ -5203,7 +5313,7 @@ public enum urlassociationdialog_in_flags : int32
 
 
 [AllowDuplicates]
-public enum mimeassociationdialog_in_flags : int32
+public enum MIMEASSOCIATIONDIALOG_IN_FLAGS : int32
 {
 	MIMEASSOCDLG_FL_REGISTER_ASSOC = 1,
 }
@@ -5259,11 +5369,323 @@ public struct APPCATEGORYINFOLIST
 	public APPCATEGORYINFO* pCategoryInfo;
 }
 
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DRAGINFOA
+{
+	public uint32 uSize;
+	public POINT pt;
+	public BOOL fNC;
+	public PSTR lpFileList;
+	public uint32 grfKeyState;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DRAGINFOW
+{
+	public uint32 uSize;
+	public POINT pt;
+	public BOOL fNC;
+	public PWSTR lpFileList;
+	public uint32 grfKeyState;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct APPBARDATA
+{
+	public uint32 cbSize;
+	public HWND hWnd;
+	public uint32 uCallbackMessage;
+	public uint32 uEdge;
+	public RECT rc;
+	public LPARAM lParam;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHFILEOPSTRUCTA
+{
+	public HWND hwnd;
+	public uint32 wFunc;
+	public int8* pFrom;
+	public int8* pTo;
+	public uint16 fFlags;
+	public BOOL fAnyOperationsAborted;
+	public void* hNameMappings;
+	public PSTR lpszProgressTitle;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHFILEOPSTRUCTW
+{
+	public HWND hwnd;
+	public uint32 wFunc;
+	public PWSTR pFrom;
+	public PWSTR pTo;
+	public uint16 fFlags;
+	public BOOL fAnyOperationsAborted;
+	public void* hNameMappings;
+	public PWSTR lpszProgressTitle;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHNAMEMAPPINGA
+{
+	public PSTR pszOldPath;
+	public PSTR pszNewPath;
+	public int32 cchOldPath;
+	public int32 cchNewPath;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHNAMEMAPPINGW
+{
+	public PWSTR pszOldPath;
+	public PWSTR pszNewPath;
+	public int32 cchOldPath;
+	public int32 cchNewPath;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHELLEXECUTEINFOA
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		public HANDLE hIcon;
+		public HANDLE hMonitor;
+	}
+	public uint32 cbSize;
+	public uint32 fMask;
+	public HWND hwnd;
+	public PSTR lpVerb;
+	public PSTR lpFile;
+	public PSTR lpParameters;
+	public PSTR lpDirectory;
+	public int32 nShow;
+	public HINSTANCE hInstApp;
+	public void* lpIDList;
+	public PSTR lpClass;
+	public HKEY hkeyClass;
+	public uint32 dwHotKey;
+	public using _Anonymous_e__Union Anonymous;
+	public HANDLE hProcess;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHELLEXECUTEINFOW
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		public HANDLE hIcon;
+		public HANDLE hMonitor;
+	}
+	public uint32 cbSize;
+	public uint32 fMask;
+	public HWND hwnd;
+	public PWSTR lpVerb;
+	public PWSTR lpFile;
+	public PWSTR lpParameters;
+	public PWSTR lpDirectory;
+	public int32 nShow;
+	public HINSTANCE hInstApp;
+	public void* lpIDList;
+	public PWSTR lpClass;
+	public HKEY hkeyClass;
+	public uint32 dwHotKey;
+	public using _Anonymous_e__Union Anonymous;
+	public HANDLE hProcess;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHCREATEPROCESSINFOW
+{
+	public uint32 cbSize;
+	public uint32 fMask;
+	public HWND hwnd;
+	public PWSTR pszFile;
+	public PWSTR pszParameters;
+	public PWSTR pszCurrentDirectory;
+	public HANDLE hUserToken;
+	public SECURITY_ATTRIBUTES* lpProcessAttributes;
+	public SECURITY_ATTRIBUTES* lpThreadAttributes;
+	public BOOL bInheritHandles;
+	public uint32 dwCreationFlags;
+	public STARTUPINFOW* lpStartupInfo;
+	public PROCESS_INFORMATION* lpProcessInformation;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct ASSOCIATIONELEMENT
+{
+	public ASSOCCLASS ac;
+	public HKEY hkClass;
+	public PWSTR pszClass;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHQUERYRBINFO
+{
+	public uint32 cbSize;
+	public int64 i64Size;
+	public int64 i64NumItems;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct NOTIFYICONDATAA
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		public uint32 uTimeout;
+		public uint32 uVersion;
+	}
+	public uint32 cbSize;
+	public HWND hWnd;
+	public uint32 uID;
+	public NOTIFY_ICON_DATA_FLAGS uFlags;
+	public uint32 uCallbackMessage;
+	public HICON hIcon;
+	public CHAR[128] szTip;
+	public NOTIFY_ICON_STATE dwState;
+	public uint32 dwStateMask;
+	public CHAR[256] szInfo;
+	public using _Anonymous_e__Union Anonymous;
+	public CHAR[64] szInfoTitle;
+	public NOTIFY_ICON_INFOTIP_FLAGS dwInfoFlags;
+	public Guid guidItem;
+	public HICON hBalloonIcon;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct NOTIFYICONDATAW
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		public uint32 uTimeout;
+		public uint32 uVersion;
+	}
+	public uint32 cbSize;
+	public HWND hWnd;
+	public uint32 uID;
+	public NOTIFY_ICON_DATA_FLAGS uFlags;
+	public uint32 uCallbackMessage;
+	public HICON hIcon;
+	public char16[128] szTip;
+	public NOTIFY_ICON_STATE dwState;
+	public uint32 dwStateMask;
+	public char16[256] szInfo;
+	public using _Anonymous_e__Union Anonymous;
+	public char16[64] szInfoTitle;
+	public NOTIFY_ICON_INFOTIP_FLAGS dwInfoFlags;
+	public Guid guidItem;
+	public HICON hBalloonIcon;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct NOTIFYICONIDENTIFIER
+{
+	public uint32 cbSize;
+	public HWND hWnd;
+	public uint32 uID;
+	public Guid guidItem;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHFILEINFOA
+{
+	public HICON hIcon;
+	public int32 iIcon;
+	public uint32 dwAttributes;
+	public CHAR[260] szDisplayName;
+	public CHAR[80] szTypeName;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHFILEINFOW
+{
+	public HICON hIcon;
+	public int32 iIcon;
+	public uint32 dwAttributes;
+	public char16[260] szDisplayName;
+	public char16[80] szTypeName;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SHSTOCKICONINFO
+{
+	public uint32 cbSize;
+	public HICON hIcon;
+	public int32 iSysImageIndex;
+	public int32 iIcon;
+	public char16[260] szPath;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct OPEN_PRINTER_PROPS_INFOA
+{
+	public uint32 dwSize;
+	public PSTR pszSheetName;
+	public uint32 uSheetIndex;
+	public uint32 dwFlags;
+	public BOOL bModal;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct OPEN_PRINTER_PROPS_INFOW
+{
+	public uint32 dwSize;
+	public PWSTR pszSheetName;
+	public uint32 uSheetIndex;
+	public uint32 dwFlags;
+	public BOOL bModal;
+}
+#endif
+
 [CRepr]
 public struct HELPINFO
 {
 	public uint32 cbSize;
-	public int32 iContextType;
+	public HELP_INFO_TYPE iContextType;
 	public int32 iCtrlId;
 	public HANDLE hItemHandle;
 	public uint dwContextId;
@@ -5443,7 +5865,7 @@ public struct SHDRAGIMAGE
 	public SIZE sizeDragImage;
 	public POINT ptOffset;
 	public HBITMAP hbmpDragImage;
-	public uint32 crColorKey;
+	public COLORREF crColorKey;
 }
 
 [CRepr]
@@ -5456,7 +5878,7 @@ public struct DESKBANDINFO
 	public POINTL ptActual;
 	public char16[256] wszTitle;
 	public uint32 dwModeFlags;
-	public uint32 crBkgnd;
+	public COLORREF crBkgnd;
 }
 
 [CRepr]
@@ -5598,7 +6020,7 @@ public struct NT_CONSOLE_PROPS
 	public uint32 uHistoryBufferSize;
 	public uint32 uNumberOfHistoryBuffers;
 	public BOOL bHistoryNoDup;
-	public uint32[16] ColorTable;
+	public COLORREF[16] ColorTable;
 }
 
 [CRepr, Packed(1)]
@@ -6007,9 +6429,9 @@ public struct BANDINFOSFB
 	public uint32 dwMask;
 	public uint32 dwStateMask;
 	public uint32 dwState;
-	public uint32 crBkgnd;
-	public uint32 crBtnLt;
-	public uint32 crBtnDk;
+	public COLORREF crBkgnd;
+	public COLORREF crBtnLt;
+	public COLORREF crBtnDk;
 	public uint16 wViewMode;
 	public uint16 wAlign;
 	public IShellFolder* psf;
@@ -6020,7 +6442,7 @@ public struct BANDINFOSFB
 public struct SHCOLUMNINFO
 {
 	public PROPERTYKEY scid;
-	public uint16 vt;
+	public VARENUM vt;
 	public uint32 fmt;
 	public uint32 cChars;
 	public uint32 csFlags;
@@ -6087,8 +6509,8 @@ public struct AASHELLMENUITEM
 	public PWSTR psz;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct DRAGINFOA
 {
 	public uint32 uSize;
@@ -6099,8 +6521,8 @@ public struct DRAGINFOA
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct DRAGINFOW
 {
 	public uint32 uSize;
@@ -6111,8 +6533,8 @@ public struct DRAGINFOW
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct APPBARDATA
 {
 	public uint32 cbSize;
@@ -6124,8 +6546,8 @@ public struct APPBARDATA
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHFILEOPSTRUCTA
 {
 	public HWND hwnd;
@@ -6139,8 +6561,8 @@ public struct SHFILEOPSTRUCTA
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHFILEOPSTRUCTW
 {
 	public HWND hwnd;
@@ -6154,8 +6576,8 @@ public struct SHFILEOPSTRUCTW
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHNAMEMAPPINGA
 {
 	public PSTR pszOldPath;
@@ -6165,8 +6587,8 @@ public struct SHNAMEMAPPINGA
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHNAMEMAPPINGW
 {
 	public PWSTR pszOldPath;
@@ -6176,11 +6598,11 @@ public struct SHNAMEMAPPINGW
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHELLEXECUTEINFOA
 {
-	[CRepr, Union]
+	[CRepr, Union, Packed(1)]
 	public struct _Anonymous_e__Union
 	{
 		public HANDLE hIcon;
@@ -6204,11 +6626,11 @@ public struct SHELLEXECUTEINFOA
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHELLEXECUTEINFOW
 {
-	[CRepr, Union]
+	[CRepr, Union, Packed(1)]
 	public struct _Anonymous_e__Union
 	{
 		public HANDLE hIcon;
@@ -6232,8 +6654,8 @@ public struct SHELLEXECUTEINFOW
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHCREATEPROCESSINFOW
 {
 	public uint32 cbSize;
@@ -6252,8 +6674,8 @@ public struct SHCREATEPROCESSINFOW
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct ASSOCIATIONELEMENT
 {
 	public ASSOCCLASS ac;
@@ -6262,8 +6684,8 @@ public struct ASSOCIATIONELEMENT
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHQUERYRBINFO
 {
 	public uint32 cbSize;
@@ -6272,11 +6694,11 @@ public struct SHQUERYRBINFO
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct NOTIFYICONDATAA
 {
-	[CRepr, Union]
+	[CRepr, Union, Packed(1)]
 	public struct _Anonymous_e__Union
 	{
 		public uint32 uTimeout;
@@ -6289,22 +6711,22 @@ public struct NOTIFYICONDATAA
 	public uint32 uCallbackMessage;
 	public HICON hIcon;
 	public CHAR[128] szTip;
-	public uint32 dwState;
+	public NOTIFY_ICON_STATE dwState;
 	public uint32 dwStateMask;
 	public CHAR[256] szInfo;
 	public using _Anonymous_e__Union Anonymous;
 	public CHAR[64] szInfoTitle;
-	public uint32 dwInfoFlags;
+	public NOTIFY_ICON_INFOTIP_FLAGS dwInfoFlags;
 	public Guid guidItem;
 	public HICON hBalloonIcon;
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct NOTIFYICONDATAW
 {
-	[CRepr, Union]
+	[CRepr, Union, Packed(1)]
 	public struct _Anonymous_e__Union
 	{
 		public uint32 uTimeout;
@@ -6317,19 +6739,19 @@ public struct NOTIFYICONDATAW
 	public uint32 uCallbackMessage;
 	public HICON hIcon;
 	public char16[128] szTip;
-	public uint32 dwState;
+	public NOTIFY_ICON_STATE dwState;
 	public uint32 dwStateMask;
 	public char16[256] szInfo;
 	public using _Anonymous_e__Union Anonymous;
 	public char16[64] szInfoTitle;
-	public uint32 dwInfoFlags;
+	public NOTIFY_ICON_INFOTIP_FLAGS dwInfoFlags;
 	public Guid guidItem;
 	public HICON hBalloonIcon;
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct NOTIFYICONIDENTIFIER
 {
 	public uint32 cbSize;
@@ -6339,8 +6761,8 @@ public struct NOTIFYICONIDENTIFIER
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHFILEINFOA
 {
 	public HICON hIcon;
@@ -6351,8 +6773,8 @@ public struct SHFILEINFOA
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHFILEINFOW
 {
 	public HICON hIcon;
@@ -6363,8 +6785,8 @@ public struct SHFILEINFOW
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct SHSTOCKICONINFO
 {
 	public uint32 cbSize;
@@ -6375,8 +6797,8 @@ public struct SHSTOCKICONINFO
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct OPEN_PRINTER_PROPS_INFOA
 {
 	public uint32 dwSize;
@@ -6387,8 +6809,8 @@ public struct OPEN_PRINTER_PROPS_INFOA
 }
 #endif
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
+#if BF_32_BIT
+[CRepr, Packed(1)]
 public struct OPEN_PRINTER_PROPS_INFOW
 {
 	public uint32 dwSize;
@@ -6773,7 +7195,7 @@ public struct PROFILEINFOW
 }
 
 [CRepr]
-public struct urlinvokecommandinfoA
+public struct URLINVOKECOMMANDINFOA
 {
 	public uint32 dwcbSize;
 	public uint32 dwFlags;
@@ -6782,325 +7204,13 @@ public struct urlinvokecommandinfoA
 }
 
 [CRepr]
-public struct urlinvokecommandinfoW
+public struct URLINVOKECOMMANDINFOW
 {
 	public uint32 dwcbSize;
 	public uint32 dwFlags;
 	public HWND hwndParent;
 	public PWSTR pcszVerb;
 }
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct DRAGINFOA
-{
-	public uint32 uSize;
-	public POINT pt;
-	public BOOL fNC;
-	public PSTR lpFileList;
-	public uint32 grfKeyState;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct DRAGINFOW
-{
-	public uint32 uSize;
-	public POINT pt;
-	public BOOL fNC;
-	public PWSTR lpFileList;
-	public uint32 grfKeyState;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct APPBARDATA
-{
-	public uint32 cbSize;
-	public HWND hWnd;
-	public uint32 uCallbackMessage;
-	public uint32 uEdge;
-	public RECT rc;
-	public LPARAM lParam;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHFILEOPSTRUCTA
-{
-	public HWND hwnd;
-	public uint32 wFunc;
-	public int8* pFrom;
-	public int8* pTo;
-	public uint16 fFlags;
-	public BOOL fAnyOperationsAborted;
-	public void* hNameMappings;
-	public PSTR lpszProgressTitle;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHFILEOPSTRUCTW
-{
-	public HWND hwnd;
-	public uint32 wFunc;
-	public PWSTR pFrom;
-	public PWSTR pTo;
-	public uint16 fFlags;
-	public BOOL fAnyOperationsAborted;
-	public void* hNameMappings;
-	public PWSTR lpszProgressTitle;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHNAMEMAPPINGA
-{
-	public PSTR pszOldPath;
-	public PSTR pszNewPath;
-	public int32 cchOldPath;
-	public int32 cchNewPath;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHNAMEMAPPINGW
-{
-	public PWSTR pszOldPath;
-	public PWSTR pszNewPath;
-	public int32 cchOldPath;
-	public int32 cchNewPath;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHELLEXECUTEINFOA
-{
-	[CRepr, Union, Packed(1)]
-	public struct _Anonymous_e__Union
-	{
-		public HANDLE hIcon;
-		public HANDLE hMonitor;
-	}
-	public uint32 cbSize;
-	public uint32 fMask;
-	public HWND hwnd;
-	public PSTR lpVerb;
-	public PSTR lpFile;
-	public PSTR lpParameters;
-	public PSTR lpDirectory;
-	public int32 nShow;
-	public HINSTANCE hInstApp;
-	public void* lpIDList;
-	public PSTR lpClass;
-	public HKEY hkeyClass;
-	public uint32 dwHotKey;
-	public using _Anonymous_e__Union Anonymous;
-	public HANDLE hProcess;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHELLEXECUTEINFOW
-{
-	[CRepr, Union, Packed(1)]
-	public struct _Anonymous_e__Union
-	{
-		public HANDLE hIcon;
-		public HANDLE hMonitor;
-	}
-	public uint32 cbSize;
-	public uint32 fMask;
-	public HWND hwnd;
-	public PWSTR lpVerb;
-	public PWSTR lpFile;
-	public PWSTR lpParameters;
-	public PWSTR lpDirectory;
-	public int32 nShow;
-	public HINSTANCE hInstApp;
-	public void* lpIDList;
-	public PWSTR lpClass;
-	public HKEY hkeyClass;
-	public uint32 dwHotKey;
-	public using _Anonymous_e__Union Anonymous;
-	public HANDLE hProcess;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHCREATEPROCESSINFOW
-{
-	public uint32 cbSize;
-	public uint32 fMask;
-	public HWND hwnd;
-	public PWSTR pszFile;
-	public PWSTR pszParameters;
-	public PWSTR pszCurrentDirectory;
-	public HANDLE hUserToken;
-	public SECURITY_ATTRIBUTES* lpProcessAttributes;
-	public SECURITY_ATTRIBUTES* lpThreadAttributes;
-	public BOOL bInheritHandles;
-	public uint32 dwCreationFlags;
-	public STARTUPINFOW* lpStartupInfo;
-	public PROCESS_INFORMATION* lpProcessInformation;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct ASSOCIATIONELEMENT
-{
-	public ASSOCCLASS ac;
-	public HKEY hkClass;
-	public PWSTR pszClass;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHQUERYRBINFO
-{
-	public uint32 cbSize;
-	public int64 i64Size;
-	public int64 i64NumItems;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct NOTIFYICONDATAA
-{
-	[CRepr, Union, Packed(1)]
-	public struct _Anonymous_e__Union
-	{
-		public uint32 uTimeout;
-		public uint32 uVersion;
-	}
-	public uint32 cbSize;
-	public HWND hWnd;
-	public uint32 uID;
-	public NOTIFY_ICON_DATA_FLAGS uFlags;
-	public uint32 uCallbackMessage;
-	public HICON hIcon;
-	public CHAR[128] szTip;
-	public uint32 dwState;
-	public uint32 dwStateMask;
-	public CHAR[256] szInfo;
-	public using _Anonymous_e__Union Anonymous;
-	public CHAR[64] szInfoTitle;
-	public uint32 dwInfoFlags;
-	public Guid guidItem;
-	public HICON hBalloonIcon;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct NOTIFYICONDATAW
-{
-	[CRepr, Union, Packed(1)]
-	public struct _Anonymous_e__Union
-	{
-		public uint32 uTimeout;
-		public uint32 uVersion;
-	}
-	public uint32 cbSize;
-	public HWND hWnd;
-	public uint32 uID;
-	public NOTIFY_ICON_DATA_FLAGS uFlags;
-	public uint32 uCallbackMessage;
-	public HICON hIcon;
-	public char16[128] szTip;
-	public uint32 dwState;
-	public uint32 dwStateMask;
-	public char16[256] szInfo;
-	public using _Anonymous_e__Union Anonymous;
-	public char16[64] szInfoTitle;
-	public uint32 dwInfoFlags;
-	public Guid guidItem;
-	public HICON hBalloonIcon;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct NOTIFYICONIDENTIFIER
-{
-	public uint32 cbSize;
-	public HWND hWnd;
-	public uint32 uID;
-	public Guid guidItem;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHFILEINFOA
-{
-	public HICON hIcon;
-	public int32 iIcon;
-	public uint32 dwAttributes;
-	public CHAR[260] szDisplayName;
-	public CHAR[80] szTypeName;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHFILEINFOW
-{
-	public HICON hIcon;
-	public int32 iIcon;
-	public uint32 dwAttributes;
-	public char16[260] szDisplayName;
-	public char16[80] szTypeName;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct SHSTOCKICONINFO
-{
-	public uint32 cbSize;
-	public HICON hIcon;
-	public int32 iSysImageIndex;
-	public int32 iIcon;
-	public char16[260] szPath;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct OPEN_PRINTER_PROPS_INFOA
-{
-	public uint32 dwSize;
-	public PSTR pszSheetName;
-	public uint32 uSheetIndex;
-	public uint32 dwFlags;
-	public BOOL bModal;
-}
-#endif
-
-#if BF_32_BIT
-[CRepr, Packed(1)]
-public struct OPEN_PRINTER_PROPS_INFOW
-{
-	public uint32 dwSize;
-	public PWSTR pszSheetName;
-	public uint32 uSheetIndex;
-	public uint32 dwFlags;
-	public BOOL bModal;
-}
-#endif
 
 #endregion
 
@@ -7805,8 +7915,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndOwner, in Guid riid, void** ppv) CreateViewObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cidl, ITEMIDLIST** apidl, uint32* rgfInOut) GetAttributesOf;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndOwner, uint32 cidl, ITEMIDLIST** apidl, in Guid riid, uint32* rgfReserved, void** ppv) GetUIObjectOf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITEMIDLIST* pidl, uint32 uFlags, STRRET* pName) GetDisplayNameOf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ITEMIDLIST* pidl, PWSTR pszName, uint32 uFlags, ITEMIDLIST** ppidlOut) SetNameOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITEMIDLIST* pidl, SHGDNF uFlags, STRRET* pName) GetDisplayNameOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ITEMIDLIST* pidl, PWSTR pszName, SHGDNF uFlags, ITEMIDLIST** ppidlOut) SetNameOf;
 	}
 
 
@@ -7826,9 +7936,9 @@ public static
 
 	public HRESULT GetUIObjectOf(HWND hwndOwner, uint32 cidl, ITEMIDLIST** apidl, in Guid riid, uint32* rgfReserved, void** ppv) mut => VT.[Friend]GetUIObjectOf(&this, hwndOwner, cidl, apidl, riid, rgfReserved, ppv);
 
-	public HRESULT GetDisplayNameOf(ITEMIDLIST* pidl, uint32 uFlags, STRRET* pName) mut => VT.[Friend]GetDisplayNameOf(&this, pidl, uFlags, pName);
+	public HRESULT GetDisplayNameOf(ITEMIDLIST* pidl, SHGDNF uFlags, STRRET* pName) mut => VT.[Friend]GetDisplayNameOf(&this, pidl, uFlags, pName);
 
-	public HRESULT SetNameOf(HWND hwnd, ITEMIDLIST* pidl, PWSTR pszName, uint32 uFlags, ITEMIDLIST** ppidlOut) mut => VT.[Friend]SetNameOf(&this, hwnd, pidl, pszName, uFlags, ppidlOut);
+	public HRESULT SetNameOf(HWND hwnd, ITEMIDLIST* pidl, PWSTR pszName, SHGDNF uFlags, ITEMIDLIST** ppidlOut) mut => VT.[Friend]SetNameOf(&this, hwnd, pidl, pszName, uFlags, ppidlOut);
 }
 
 [CRepr]struct IEnumExtraSearch : IUnknown
@@ -8175,17 +8285,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 color) SetBackgroundColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF color) SetBackgroundColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LOGFONTW* plf) SetFont;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 color) SetTextColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF color) SetTextColor;
 	}
 
 
-	public HRESULT SetBackgroundColor(uint32 color) mut => VT.[Friend]SetBackgroundColor(&this, color);
+	public HRESULT SetBackgroundColor(COLORREF color) mut => VT.[Friend]SetBackgroundColor(&this, color);
 
 	public HRESULT SetFont(LOGFONTW* plf) mut => VT.[Friend]SetFont(&this, plf);
 
-	public HRESULT SetTextColor(uint32 color) mut => VT.[Friend]SetTextColor(&this, color);
+	public HRESULT SetTextColor(COLORREF color) mut => VT.[Friend]SetTextColor(&this, color);
 }
 
 [CRepr]struct ICommDlgBrowser : IUnknown
@@ -8364,7 +8474,7 @@ public static
 
 	[CRepr]public struct VTable : IOleWindow.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMENU hmenuShared, OleMenuGroupWidths* lpMenuWidths) InsertMenusSB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMENU hmenuShared, OLEMENUGROUPWIDTHS* lpMenuWidths) InsertMenusSB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMENU hmenuShared, int holemenuRes, HWND hwndActiveObject) SetMenuSB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMENU hmenuShared) RemoveMenusSB;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStatusText) SetStatusTextSB;
@@ -8380,7 +8490,7 @@ public static
 	}
 
 
-	public HRESULT InsertMenusSB(HMENU hmenuShared, OleMenuGroupWidths* lpMenuWidths) mut => VT.[Friend]InsertMenusSB(&this, hmenuShared, lpMenuWidths);
+	public HRESULT InsertMenusSB(HMENU hmenuShared, OLEMENUGROUPWIDTHS* lpMenuWidths) mut => VT.[Friend]InsertMenusSB(&this, hmenuShared, lpMenuWidths);
 
 	public HRESULT SetMenuSB(HMENU hmenuShared, int holemenuRes, HWND hwndActiveObject) mut => VT.[Friend]SetMenuSB(&this, hmenuShared, holemenuRes, hwndActiveObject);
 
@@ -8451,7 +8561,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IBindCtx* pbc, in Guid bhid, in Guid riid, void** ppv) BindToHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IShellItem** ppsi) GetParent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SIGDN sigdnName, PWSTR* ppszName) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 sfgaoMask, uint32* psfgaoAttribs) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SFGAO_FLAGS sfgaoMask, SFGAO_FLAGS* psfgaoAttribs) GetAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IShellItem* psi, uint32 hint, int32* piOrder) Compare;
 	}
 
@@ -8462,7 +8572,7 @@ public static
 
 	public HRESULT GetDisplayName(SIGDN sigdnName, PWSTR* ppszName) mut => VT.[Friend]GetDisplayName(&this, sigdnName, ppszName);
 
-	public HRESULT GetAttributes(uint32 sfgaoMask, uint32* psfgaoAttribs) mut => VT.[Friend]GetAttributes(&this, sfgaoMask, psfgaoAttribs);
+	public HRESULT GetAttributes(SFGAO_FLAGS sfgaoMask, SFGAO_FLAGS* psfgaoAttribs) mut => VT.[Friend]GetAttributes(&this, sfgaoMask, psfgaoAttribs);
 
 	public HRESULT Compare(IShellItem* psi, uint32 hint, int32* piOrder) mut => VT.[Friend]Compare(&this, psi, hint, piOrder);
 }
@@ -8799,7 +8909,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IBindCtx* pbc, in Guid bhid, in Guid riid, void** ppvOut) BindToHandler;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GETPROPERTYSTOREFLAGS flags, in Guid riid, void** ppv) GetPropertyStore;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* keyType, in Guid riid, void** ppv) GetPropertyDescriptionList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SIATTRIBFLAGS AttribFlags, uint32 sfgaoMask, uint32* psfgaoAttribs) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SIATTRIBFLAGS AttribFlags, SFGAO_FLAGS sfgaoMask, SFGAO_FLAGS* psfgaoAttribs) GetAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwNumItems) GetCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IShellItem** ppsi) GetItemAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumShellItems** ppenumShellItems) EnumItems;
@@ -8812,7 +8922,7 @@ public static
 
 	public HRESULT GetPropertyDescriptionList(PROPERTYKEY* keyType, in Guid riid, void** ppv) mut => VT.[Friend]GetPropertyDescriptionList(&this, keyType, riid, ppv);
 
-	public HRESULT GetAttributes(SIATTRIBFLAGS AttribFlags, uint32 sfgaoMask, uint32* psfgaoAttribs) mut => VT.[Friend]GetAttributes(&this, AttribFlags, sfgaoMask, psfgaoAttribs);
+	public HRESULT GetAttributes(SIATTRIBFLAGS AttribFlags, SFGAO_FLAGS sfgaoMask, SFGAO_FLAGS* psfgaoAttribs) mut => VT.[Friend]GetAttributes(&this, AttribFlags, sfgaoMask, psfgaoAttribs);
 
 	public HRESULT GetCount(uint32* pdwNumItems) mut => VT.[Friend]GetCount(&this, pdwNumItems);
 
@@ -8931,21 +9041,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndTarget, IDataObject* pDataObject, POINT* ppt, uint32 dwEffect) DragEnter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndTarget, IDataObject* pDataObject, POINT* ppt, DROPEFFECT dwEffect) DragEnter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DragLeave;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POINT* ppt, uint32 dwEffect) DragOver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* pDataObject, POINT* ppt, uint32 dwEffect) Drop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POINT* ppt, DROPEFFECT dwEffect) DragOver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* pDataObject, POINT* ppt, DROPEFFECT dwEffect) Drop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fShow) Show;
 	}
 
 
-	public HRESULT DragEnter(HWND hwndTarget, IDataObject* pDataObject, POINT* ppt, uint32 dwEffect) mut => VT.[Friend]DragEnter(&this, hwndTarget, pDataObject, ppt, dwEffect);
+	public HRESULT DragEnter(HWND hwndTarget, IDataObject* pDataObject, POINT* ppt, DROPEFFECT dwEffect) mut => VT.[Friend]DragEnter(&this, hwndTarget, pDataObject, ppt, dwEffect);
 
 	public HRESULT DragLeave() mut => VT.[Friend]DragLeave(&this);
 
-	public HRESULT DragOver(POINT* ppt, uint32 dwEffect) mut => VT.[Friend]DragOver(&this, ppt, dwEffect);
+	public HRESULT DragOver(POINT* ppt, DROPEFFECT dwEffect) mut => VT.[Friend]DragOver(&this, ppt, dwEffect);
 
-	public HRESULT Drop(IDataObject* pDataObject, POINT* ppt, uint32 dwEffect) mut => VT.[Friend]Drop(&this, pDataObject, ppt, dwEffect);
+	public HRESULT Drop(IDataObject* pDataObject, POINT* ppt, DROPEFFECT dwEffect) mut => VT.[Friend]Drop(&this, pDataObject, ppt, dwEffect);
 
 	public HRESULT Show(BOOL fShow) mut => VT.[Friend]Show(&this, fShow);
 }
@@ -10127,8 +10237,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* piFileType) GetFileTypeIndex;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFileDialogEvents* pfde, uint32* pdwCookie) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCookie) Unadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fos) SetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pfos) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILEOPENDIALOGOPTIONS fos) SetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILEOPENDIALOGOPTIONS* pfos) GetOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IShellItem* psi) SetDefaultFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IShellItem* psi) SetFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IShellItem** ppsi) GetFolder;
@@ -10158,9 +10268,9 @@ public static
 
 	public HRESULT Unadvise(uint32 dwCookie) mut => VT.[Friend]Unadvise(&this, dwCookie);
 
-	public HRESULT SetOptions(uint32 fos) mut => VT.[Friend]SetOptions(&this, fos);
+	public HRESULT SetOptions(FILEOPENDIALOGOPTIONS fos) mut => VT.[Friend]SetOptions(&this, fos);
 
-	public HRESULT GetOptions(uint32* pfos) mut => VT.[Friend]GetOptions(&this, pfos);
+	public HRESULT GetOptions(FILEOPENDIALOGOPTIONS* pfos) mut => VT.[Friend]GetOptions(&this, pfos);
 
 	public HRESULT SetDefaultFolder(IShellItem* psi) mut => VT.[Friend]SetDefaultFolder(&this, psi);
 
@@ -11381,8 +11491,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 monitorIndex, PWSTR* monitorID) GetMonitorDevicePathAt;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetMonitorDevicePathCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR monitorID, RECT* displayRect) GetMonitorRECT;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 color) SetBackgroundColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* color) GetBackgroundColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF color) SetBackgroundColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF* color) GetBackgroundColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DESKTOP_WALLPAPER_POSITION position) SetPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DESKTOP_WALLPAPER_POSITION* position) GetPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IShellItemArray* items) SetSlideshow;
@@ -11405,9 +11515,9 @@ public static
 
 	public HRESULT GetMonitorRECT(PWSTR monitorID, RECT* displayRect) mut => VT.[Friend]GetMonitorRECT(&this, monitorID, displayRect);
 
-	public HRESULT SetBackgroundColor(uint32 color) mut => VT.[Friend]SetBackgroundColor(&this, color);
+	public HRESULT SetBackgroundColor(COLORREF color) mut => VT.[Friend]SetBackgroundColor(&this, color);
 
-	public HRESULT GetBackgroundColor(uint32* color) mut => VT.[Friend]GetBackgroundColor(&this, color);
+	public HRESULT GetBackgroundColor(COLORREF* color) mut => VT.[Friend]GetBackgroundColor(&this, color);
 
 	public HRESULT SetPosition(DESKTOP_WALLPAPER_POSITION position) mut => VT.[Friend]SetPosition(&this, position);
 
@@ -12331,8 +12441,8 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hbmp, VPWATERMARKFLAGS vpwf) SetWatermark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VPCOLORFLAGS vpcf, uint32 cr) SetColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VPCOLORFLAGS vpcf, uint32* pcr) GetColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VPCOLORFLAGS vpcf, COLORREF cr) SetColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VPCOLORFLAGS vpcf, COLORREF* pcr) GetColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cyItemInPixels) SetItemHeight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* cyItemInPixels) GetItemHeight;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LOGFONTW* plf, BOOL bRedraw) SetFont;
@@ -12343,9 +12453,9 @@ public static
 
 	public HRESULT SetWatermark(HBITMAP hbmp, VPWATERMARKFLAGS vpwf) mut => VT.[Friend]SetWatermark(&this, hbmp, vpwf);
 
-	public HRESULT SetColor(VPCOLORFLAGS vpcf, uint32 cr) mut => VT.[Friend]SetColor(&this, vpcf, cr);
+	public HRESULT SetColor(VPCOLORFLAGS vpcf, COLORREF cr) mut => VT.[Friend]SetColor(&this, vpcf, cr);
 
-	public HRESULT GetColor(VPCOLORFLAGS vpcf, uint32* pcr) mut => VT.[Friend]GetColor(&this, vpcf, pcr);
+	public HRESULT GetColor(VPCOLORFLAGS vpcf, COLORREF* pcr) mut => VT.[Friend]GetColor(&this, vpcf, pcr);
 
 	public HRESULT SetItemHeight(int32 cyItemInPixels) mut => VT.[Friend]SetItemHeight(&this, cyItemInPixels);
 
@@ -13124,7 +13234,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hdc, RECT* prc, LRESULT* plres) PrePaint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hdc, RECT* prc) PostPaint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem, uint32* pclrText, uint32* pclrTextBk, LRESULT* plres) ItemPrePaint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem, COLORREF* pclrText, COLORREF* pclrTextBk, LRESULT* plres) ItemPrePaint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem) ItemPostPaint;
 	}
 
@@ -13133,7 +13243,7 @@ public static
 
 	public HRESULT PostPaint(HDC hdc, RECT* prc) mut => VT.[Friend]PostPaint(&this, hdc, prc);
 
-	public HRESULT ItemPrePaint(HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem, uint32* pclrText, uint32* pclrTextBk, LRESULT* plres) mut => VT.[Friend]ItemPrePaint(&this, hdc, prc, pnstccdItem, pclrText, pclrTextBk, plres);
+	public HRESULT ItemPrePaint(HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem, COLORREF* pclrText, COLORREF* pclrTextBk, LRESULT* plres) mut => VT.[Friend]ItemPrePaint(&this, hdc, prc, pnstccdItem, pclrText, pclrTextBk, plres);
 
 	public HRESULT ItemPostPaint(HDC hdc, RECT* prc, NSTCCUSTOMDRAW* pnstccdItem) mut => VT.[Friend]ItemPostPaint(&this, hdc, prc, pnstccdItem);
 }
@@ -18177,7 +18287,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pcszURL, uint32 dwInFlags) SetURL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR* ppszURL) GetURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, urlinvokecommandinfoA* purlici) InvokeCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, URLINVOKECOMMANDINFOA* purlici) InvokeCommand;
 	}
 
 
@@ -18185,7 +18295,7 @@ public static
 
 	public HRESULT GetURL(PSTR* ppszURL) mut => VT.[Friend]GetURL(&this, ppszURL);
 
-	public HRESULT InvokeCommand(urlinvokecommandinfoA* purlici) mut => VT.[Friend]InvokeCommand(&this, purlici);
+	public HRESULT InvokeCommand(URLINVOKECOMMANDINFOA* purlici) mut => VT.[Friend]InvokeCommand(&this, purlici);
 }
 
 [CRepr]struct IUniformResourceLocatorW : IUnknown
@@ -18198,7 +18308,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pcszURL, uint32 dwInFlags) SetURL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszURL) GetURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, urlinvokecommandinfoW* purlici) InvokeCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, URLINVOKECOMMANDINFOW* purlici) InvokeCommand;
 	}
 
 
@@ -18206,7 +18316,7 @@ public static
 
 	public HRESULT GetURL(PWSTR* ppszURL) mut => VT.[Friend]GetURL(&this, ppszURL);
 
-	public HRESULT InvokeCommand(urlinvokecommandinfoW* purlici) mut => VT.[Friend]InvokeCommand(&this, purlici);
+	public HRESULT InvokeCommand(URLINVOKECOMMANDINFOW* purlici) mut => VT.[Friend]InvokeCommand(&this, purlici);
 }
 
 [CRepr]struct IInputPaneAnimationCoordinator : IUnknown
@@ -18482,7 +18592,7 @@ public static
 	public static extern ITEMIDLIST* ILAppendID(ITEMIDLIST* pidl, SHITEMID* pmkid, BOOL fAppend);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SHGetPathFromIDListEx(ITEMIDLIST* pidl, char16* pszPath, uint32 cchPath, int32 uOpts);
+	public static extern BOOL SHGetPathFromIDListEx(ITEMIDLIST* pidl, char16* pszPath, uint32 cchPath, GPFIDL_FLAGS uOpts);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetPathFromIDListA(ITEMIDLIST* pidl, uint8* pszPath);
@@ -18554,7 +18664,7 @@ public static
 	public static extern HRESULT SHSetKnownFolderPath(in Guid rfid, uint32 dwFlags, HANDLE hToken, PWSTR pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHGetKnownFolderPath(in Guid rfid, uint32 dwFlags, HANDLE hToken, PWSTR* ppszPath);
+	public static extern HRESULT SHGetKnownFolderPath(in Guid rfid, KNOWN_FOLDER_FLAG dwFlags, HANDLE hToken, PWSTR* ppszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHGetKnownFolderItem(in Guid rfid, KNOWN_FOLDER_FLAG flags, HANDLE hToken, in Guid riid, void** ppv);
@@ -18635,7 +18745,7 @@ public static
 	public static extern HRESULT SHCreateStdEnumFmtEtc(uint32 cfmt, FORMATETC* afmt, IEnumFORMATETC** ppenumFormatEtc);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHDoDragDrop(HWND hwnd, IDataObject* pdata, IDropSource* pdsrc, uint32 dwEffect, uint32* pdwEffect);
+	public static extern HRESULT SHDoDragDrop(HWND hwnd, IDataObject* pdata, IDropSource* pdsrc, DROPEFFECT dwEffect, DROPEFFECT* pdwEffect);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DAD_SetDragImage(HIMAGELIST him, POINT* pptOffset);
@@ -18903,11 +19013,11 @@ public static
 	public static extern void DragAcceptFiles(HWND hWnd, BOOL fAccept);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HINSTANCE ShellExecuteA(HWND hwnd, PSTR lpOperation, PSTR lpFile, PSTR lpParameters, PSTR lpDirectory, int32 nShowCmd);
-	public static HINSTANCE ShellExecute(HWND hwnd, PSTR lpOperation, PSTR lpFile, PSTR lpParameters, PSTR lpDirectory, int32 nShowCmd) => ShellExecuteA(hwnd, lpOperation, lpFile, lpParameters, lpDirectory, nShowCmd);
+	public static extern HINSTANCE ShellExecuteA(HWND hwnd, PSTR lpOperation, PSTR lpFile, PSTR lpParameters, PSTR lpDirectory, SHOW_WINDOW_CMD nShowCmd);
+	public static HINSTANCE ShellExecute(HWND hwnd, PSTR lpOperation, PSTR lpFile, PSTR lpParameters, PSTR lpDirectory, SHOW_WINDOW_CMD nShowCmd) => ShellExecuteA(hwnd, lpOperation, lpFile, lpParameters, lpDirectory, nShowCmd);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HINSTANCE ShellExecuteW(HWND hwnd, PWSTR lpOperation, PWSTR lpFile, PWSTR lpParameters, PWSTR lpDirectory, int32 nShowCmd);
+	public static extern HINSTANCE ShellExecuteW(HWND hwnd, PWSTR lpOperation, PWSTR lpFile, PWSTR lpParameters, PWSTR lpDirectory, SHOW_WINDOW_CMD nShowCmd);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE FindExecutableA(PSTR lpFile, PSTR lpDirectory, uint8* lpResult);
@@ -19895,184 +20005,184 @@ public static
 	public static extern HRESULT ParseURLW(PWSTR pcszURL, PARSEDURLW* ppu);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHDeleteEmptyKeyA(HKEY hkey, PSTR pszSubKey);
-	public static LSTATUS SHDeleteEmptyKey(HKEY hkey, PSTR pszSubKey) => SHDeleteEmptyKeyA(hkey, pszSubKey);
+	public static extern WIN32_ERROR SHDeleteEmptyKeyA(HKEY hkey, PSTR pszSubKey);
+	public static WIN32_ERROR SHDeleteEmptyKey(HKEY hkey, PSTR pszSubKey) => SHDeleteEmptyKeyA(hkey, pszSubKey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHDeleteEmptyKeyW(HKEY hkey, PWSTR pszSubKey);
+	public static extern WIN32_ERROR SHDeleteEmptyKeyW(HKEY hkey, PWSTR pszSubKey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHDeleteKeyA(HKEY hkey, PSTR pszSubKey);
-	public static LSTATUS SHDeleteKey(HKEY hkey, PSTR pszSubKey) => SHDeleteKeyA(hkey, pszSubKey);
+	public static extern WIN32_ERROR SHDeleteKeyA(HKEY hkey, PSTR pszSubKey);
+	public static WIN32_ERROR SHDeleteKey(HKEY hkey, PSTR pszSubKey) => SHDeleteKeyA(hkey, pszSubKey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHDeleteKeyW(HKEY hkey, PWSTR pszSubKey);
+	public static extern WIN32_ERROR SHDeleteKeyW(HKEY hkey, PWSTR pszSubKey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HKEY SHRegDuplicateHKey(HKEY hkey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHDeleteValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue);
-	public static LSTATUS SHDeleteValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue) => SHDeleteValueA(hkey, pszSubKey, pszValue);
+	public static extern WIN32_ERROR SHDeleteValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue);
+	public static WIN32_ERROR SHDeleteValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue) => SHDeleteValueA(hkey, pszSubKey, pszValue);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHDeleteValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue);
+	public static extern WIN32_ERROR SHDeleteValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData);
-	public static LSTATUS SHGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData) => SHGetValueA(hkey, pszSubKey, pszValue, pdwType, pvData, pcbData);
+	public static extern WIN32_ERROR SHGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static WIN32_ERROR SHGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData) => SHGetValueA(hkey, pszSubKey, pszValue, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern WIN32_ERROR SHGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHSetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData);
-	public static LSTATUS SHSetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData) => SHSetValueA(hkey, pszSubKey, pszValue, dwType, pvData, cbData);
+	public static extern int32 SHSetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData);
+	public static int32 SHSetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData) => SHSetValueA(hkey, pszSubKey, pszValue, dwType, pvData, cbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHSetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32 dwType, void* pvData, uint32 cbData);
+	public static extern int32 SHSetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32 dwType, void* pvData, uint32 cbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
-	public static LSTATUS SHRegGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData) => SHRegGetValueA(hkey, pszSubKey, pszValue, srrfFlags, pdwType, pvData, pcbData);
+	public static extern WIN32_ERROR SHRegGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static WIN32_ERROR SHRegGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData) => SHRegGetValueA(hkey, pszSubKey, pszValue, srrfFlags, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern WIN32_ERROR SHRegGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetValueFromHKCUHKLM(PWSTR pwszKey, PWSTR pwszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern WIN32_ERROR SHRegGetValueFromHKCUHKLM(PWSTR pwszKey, PWSTR pwszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHQueryValueExA(HKEY hkey, PSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData);
-	public static LSTATUS SHQueryValueEx(HKEY hkey, PSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData) => SHQueryValueExA(hkey, pszValue, pdwReserved, pdwType, pvData, pcbData);
+	public static extern WIN32_ERROR SHQueryValueExA(HKEY hkey, PSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static WIN32_ERROR SHQueryValueEx(HKEY hkey, PSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData) => SHQueryValueExA(hkey, pszValue, pdwReserved, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHQueryValueExW(HKEY hkey, PWSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern WIN32_ERROR SHQueryValueExW(HKEY hkey, PWSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumKeyExA(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32* pcchName);
-	public static LSTATUS SHEnumKeyEx(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32* pcchName) => SHEnumKeyExA(hkey, dwIndex, pszName, pcchName);
+	public static extern WIN32_ERROR SHEnumKeyExA(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32* pcchName);
+	public static WIN32_ERROR SHEnumKeyEx(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32* pcchName) => SHEnumKeyExA(hkey, dwIndex, pszName, pcchName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumKeyExW(HKEY hkey, uint32 dwIndex, char16* pszName, uint32* pcchName);
+	public static extern WIN32_ERROR SHEnumKeyExW(HKEY hkey, uint32 dwIndex, char16* pszName, uint32* pcchName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumValueA(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
-	public static LSTATUS SHEnumValue(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData) => SHEnumValueA(hkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData);
+	public static extern WIN32_ERROR SHEnumValueA(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static WIN32_ERROR SHEnumValue(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData) => SHEnumValueA(hkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHEnumValueW(HKEY hkey, uint32 dwIndex, char16* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static extern WIN32_ERROR SHEnumValueW(HKEY hkey, uint32 dwIndex, char16* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHQueryInfoKeyA(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen);
-	public static LSTATUS SHQueryInfoKey(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen) => SHQueryInfoKeyA(hkey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen);
+	public static extern WIN32_ERROR SHQueryInfoKeyA(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen);
+	public static WIN32_ERROR SHQueryInfoKey(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen) => SHQueryInfoKeyA(hkey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHQueryInfoKeyW(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen);
+	public static extern WIN32_ERROR SHQueryInfoKeyW(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHCopyKeyA(HKEY hkeySrc, PSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved);
-	public static LSTATUS SHCopyKey(HKEY hkeySrc, PSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved) => SHCopyKeyA(hkeySrc, pszSrcSubKey, hkeyDest, fReserved);
+	public static extern WIN32_ERROR SHCopyKeyA(HKEY hkeySrc, PSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved);
+	public static WIN32_ERROR SHCopyKey(HKEY hkeySrc, PSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved) => SHCopyKeyA(hkeySrc, pszSrcSubKey, hkeyDest, fReserved);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHCopyKeyW(HKEY hkeySrc, PWSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved);
+	public static extern WIN32_ERROR SHCopyKeyW(HKEY hkeySrc, PWSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetPathA(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, uint8* pszPath, uint32 dwFlags);
-	public static LSTATUS SHRegGetPath(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, uint8* pszPath, uint32 dwFlags) => SHRegGetPathA(hKey, pcszSubKey, pcszValue, pszPath, dwFlags);
+	public static extern WIN32_ERROR SHRegGetPathA(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, uint8* pszPath, uint32 dwFlags);
+	public static WIN32_ERROR SHRegGetPath(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, uint8* pszPath, uint32 dwFlags) => SHRegGetPathA(hKey, pcszSubKey, pcszValue, pszPath, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetPathW(HKEY hKey, PWSTR pcszSubKey, PWSTR pcszValue, char16* pszPath, uint32 dwFlags);
+	public static extern WIN32_ERROR SHRegGetPathW(HKEY hKey, PWSTR pcszSubKey, PWSTR pcszValue, char16* pszPath, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegSetPathA(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, PSTR pcszPath, uint32 dwFlags);
-	public static LSTATUS SHRegSetPath(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, PSTR pcszPath, uint32 dwFlags) => SHRegSetPathA(hKey, pcszSubKey, pcszValue, pcszPath, dwFlags);
+	public static extern WIN32_ERROR SHRegSetPathA(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, PSTR pcszPath, uint32 dwFlags);
+	public static WIN32_ERROR SHRegSetPath(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, PSTR pcszPath, uint32 dwFlags) => SHRegSetPathA(hKey, pcszSubKey, pcszValue, pcszPath, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegSetPathW(HKEY hKey, PWSTR pcszSubKey, PWSTR pcszValue, PWSTR pcszPath, uint32 dwFlags);
+	public static extern WIN32_ERROR SHRegSetPathW(HKEY hKey, PWSTR pcszSubKey, PWSTR pcszValue, PWSTR pcszPath, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegCreateUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags);
-	public static LSTATUS SHRegCreateUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags) => SHRegCreateUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, dwFlags);
+	public static extern WIN32_ERROR SHRegCreateUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags);
+	public static WIN32_ERROR SHRegCreateUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags) => SHRegCreateUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegCreateUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags);
+	public static extern WIN32_ERROR SHRegCreateUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegOpenUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU);
-	public static LSTATUS SHRegOpenUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU) => SHRegOpenUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, fIgnoreHKCU);
+	public static extern WIN32_ERROR SHRegOpenUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU);
+	public static WIN32_ERROR SHRegOpenUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU) => SHRegOpenUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, fIgnoreHKCU);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegOpenUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU);
+	public static extern WIN32_ERROR SHRegOpenUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegQueryUSValueA(int hUSKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
-	public static LSTATUS SHRegQueryUSValue(int hUSKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize) => SHRegQueryUSValueA(hUSKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
+	public static extern WIN32_ERROR SHRegQueryUSValueA(int hUSKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
+	public static WIN32_ERROR SHRegQueryUSValue(int hUSKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize) => SHRegQueryUSValueA(hUSKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegQueryUSValueW(int hUSKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
+	public static extern WIN32_ERROR SHRegQueryUSValueW(int hUSKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegWriteUSValueA(int hUSKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
-	public static LSTATUS SHRegWriteUSValue(int hUSKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags) => SHRegWriteUSValueA(hUSKey, pszValue, dwType, pvData, cbData, dwFlags);
+	public static extern WIN32_ERROR SHRegWriteUSValueA(int hUSKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
+	public static WIN32_ERROR SHRegWriteUSValue(int hUSKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags) => SHRegWriteUSValueA(hUSKey, pszValue, dwType, pvData, cbData, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegWriteUSValueW(int hUSKey, PWSTR pwzValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
+	public static extern WIN32_ERROR SHRegWriteUSValueW(int hUSKey, PWSTR pwzValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegDeleteUSValueA(int hUSKey, PSTR pszValue, SHREGDEL_FLAGS delRegFlags);
-	public static LSTATUS SHRegDeleteUSValue(int hUSKey, PSTR pszValue, SHREGDEL_FLAGS delRegFlags) => SHRegDeleteUSValueA(hUSKey, pszValue, delRegFlags);
+	public static extern WIN32_ERROR SHRegDeleteUSValueA(int hUSKey, PSTR pszValue, SHREGDEL_FLAGS delRegFlags);
+	public static WIN32_ERROR SHRegDeleteUSValue(int hUSKey, PSTR pszValue, SHREGDEL_FLAGS delRegFlags) => SHRegDeleteUSValueA(hUSKey, pszValue, delRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegDeleteUSValueW(int hUSKey, PWSTR pwzValue, SHREGDEL_FLAGS delRegFlags);
+	public static extern WIN32_ERROR SHRegDeleteUSValueW(int hUSKey, PWSTR pwzValue, SHREGDEL_FLAGS delRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegDeleteEmptyUSKeyW(int hUSKey, PWSTR pwzSubKey, SHREGDEL_FLAGS delRegFlags);
+	public static extern WIN32_ERROR SHRegDeleteEmptyUSKeyW(int hUSKey, PWSTR pwzSubKey, SHREGDEL_FLAGS delRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegDeleteEmptyUSKeyA(int hUSKey, PSTR pszSubKey, SHREGDEL_FLAGS delRegFlags);
-	public static LSTATUS SHRegDeleteEmptyUSKey(int hUSKey, PSTR pszSubKey, SHREGDEL_FLAGS delRegFlags) => SHRegDeleteEmptyUSKeyA(hUSKey, pszSubKey, delRegFlags);
+	public static extern WIN32_ERROR SHRegDeleteEmptyUSKeyA(int hUSKey, PSTR pszSubKey, SHREGDEL_FLAGS delRegFlags);
+	public static WIN32_ERROR SHRegDeleteEmptyUSKey(int hUSKey, PSTR pszSubKey, SHREGDEL_FLAGS delRegFlags) => SHRegDeleteEmptyUSKeyA(hUSKey, pszSubKey, delRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSKeyA(int hUSKey, uint32 dwIndex, uint8* pszName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
-	public static LSTATUS SHRegEnumUSKey(int hUSKey, uint32 dwIndex, uint8* pszName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSKeyA(hUSKey, dwIndex, pszName, pcchName, enumRegFlags);
+	public static extern WIN32_ERROR SHRegEnumUSKeyA(int hUSKey, uint32 dwIndex, uint8* pszName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
+	public static WIN32_ERROR SHRegEnumUSKey(int hUSKey, uint32 dwIndex, uint8* pszName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSKeyA(hUSKey, dwIndex, pszName, pcchName, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSKeyW(int hUSKey, uint32 dwIndex, char16* pwzName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
+	public static extern WIN32_ERROR SHRegEnumUSKeyW(int hUSKey, uint32 dwIndex, char16* pwzName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSValueA(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
-	public static LSTATUS SHRegEnumUSValue(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSValueA(hUSkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData, enumRegFlags);
+	public static extern WIN32_ERROR SHRegEnumUSValueA(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
+	public static WIN32_ERROR SHRegEnumUSValue(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSValueA(hUSkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegEnumUSValueW(int hUSkey, uint32 dwIndex, char16* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
+	public static extern WIN32_ERROR SHRegEnumUSValueW(int hUSkey, uint32 dwIndex, char16* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegQueryInfoUSKeyA(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
-	public static LSTATUS SHRegQueryInfoUSKey(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags) => SHRegQueryInfoUSKeyA(hUSKey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen, enumRegFlags);
+	public static extern WIN32_ERROR SHRegQueryInfoUSKeyA(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
+	public static WIN32_ERROR SHRegQueryInfoUSKey(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags) => SHRegQueryInfoUSKeyA(hUSKey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegQueryInfoUSKeyW(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
+	public static extern WIN32_ERROR SHRegQueryInfoUSKeyW(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegCloseUSKey(int hUSKey);
+	public static extern WIN32_ERROR SHRegCloseUSKey(int hUSKey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
-	public static LSTATUS SHRegGetUSValue(PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize) => SHRegGetUSValueA(pszSubKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
+	public static extern WIN32_ERROR SHRegGetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
+	public static WIN32_ERROR SHRegGetUSValue(PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize) => SHRegGetUSValueA(pszSubKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegGetUSValueW(PWSTR pszSubKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
+	public static extern WIN32_ERROR SHRegGetUSValueW(PWSTR pszSubKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegSetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
-	public static LSTATUS SHRegSetUSValue(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags) => SHRegSetUSValueA(pszSubKey, pszValue, dwType, pvData, cbData, dwFlags);
+	public static extern WIN32_ERROR SHRegSetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
+	public static WIN32_ERROR SHRegSetUSValue(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags) => SHRegSetUSValueA(pszSubKey, pszValue, dwType, pvData, cbData, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern LSTATUS SHRegSetUSValueW(PWSTR pwzSubKey, PWSTR pwzValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
+	public static extern WIN32_ERROR SHRegSetUSValueW(PWSTR pwzSubKey, PWSTR pwzValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SHRegGetIntW(HKEY hk, PWSTR pwzKey, int32 iDefault);
+	public static extern WIN32_ERROR SHRegGetIntW(HKEY hk, PWSTR pwzKey, int32 iDefault);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHRegGetBoolUSValueA(PSTR pszSubKey, PSTR pszValue, BOOL fIgnoreHKCU, BOOL fDefault);
@@ -20276,7 +20386,7 @@ public static
 	public static extern HRESULT SHGetInverseCMAP(uint8* pbMap, uint32 cbMap);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SHAutoComplete(HWND hwndEdit, uint32 dwFlags);
+	public static extern HRESULT SHAutoComplete(HWND hwndEdit, SHELL_AUTOCOMPLETE_FLAGS dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHCreateThreadRef(int32* pcRef, IUnknown** ppunk);
@@ -20303,13 +20413,13 @@ public static
 	public static extern HPALETTE SHCreateShellPalette(HDC hdc);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void ColorRGBToHLS(uint32 clrRGB, uint16* pwHue, uint16* pwLuminance, uint16* pwSaturation);
+	public static extern void ColorRGBToHLS(COLORREF clrRGB, uint16* pwHue, uint16* pwLuminance, uint16* pwSaturation);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ColorHLSToRGB(uint16 wHue, uint16 wLuminance, uint16 wSaturation);
+	public static extern COLORREF ColorHLSToRGB(uint16 wHue, uint16 wLuminance, uint16 wSaturation);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ColorAdjustLuma(uint32 clrRGB, int32 n, BOOL fScale);
+	public static extern COLORREF ColorAdjustLuma(COLORREF clrRGB, int32 n, BOOL fScale);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsInternetESCEnabled();
@@ -20438,19 +20548,19 @@ public static
 	public static extern HRESULT PathCchRemoveExtension(PWSTR pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchCanonicalizeEx(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn, uint32 dwFlags);
+	public static extern HRESULT PathCchCanonicalizeEx(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn, PATHCCH_OPTIONS dwFlags);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchCanonicalize(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchCombineEx(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn, PWSTR pszMore, uint32 dwFlags);
+	public static extern HRESULT PathCchCombineEx(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn, PWSTR pszMore, PATHCCH_OPTIONS dwFlags);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchCombine(char16* pszPathOut, uint cchPathOut, PWSTR pszPathIn, PWSTR pszMore);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathCchAppendEx(char16* pszPath, uint cchPath, PWSTR pszMore, uint32 dwFlags);
+	public static extern HRESULT PathCchAppendEx(char16* pszPath, uint cchPath, PWSTR pszMore, PATHCCH_OPTIONS dwFlags);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCchAppend(char16* pszPath, uint cchPath, PWSTR pszMore);
@@ -20459,10 +20569,10 @@ public static
 	public static extern HRESULT PathCchStripPrefix(char16* pszPath, uint cchPath);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathAllocCombine(PWSTR pszPathIn, PWSTR pszMore, uint32 dwFlags, PWSTR* ppszPathOut);
+	public static extern HRESULT PathAllocCombine(PWSTR pszPathIn, PWSTR pszMore, PATHCCH_OPTIONS dwFlags, PWSTR* ppszPathOut);
 
 	[Import("api-ms-win-core-path-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PathAllocCanonicalize(PWSTR pszPathIn, uint32 dwFlags, PWSTR* ppszPathOut);
+	public static extern HRESULT PathAllocCanonicalize(PWSTR pszPathIn, PATHCCH_OPTIONS dwFlags, PWSTR* ppszPathOut);
 
 	[Import("api-ms-win-core-psm-appnotify-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RegisterAppStateChangeNotification(PAPPSTATE_CHANGE_ROUTINE Routine, void* Context, _APPSTATE_REGISTRATION** Registration);

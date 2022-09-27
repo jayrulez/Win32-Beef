@@ -117,6 +117,16 @@ public enum ICM_COMMAND : uint32
 
 
 [AllowDuplicates]
+public enum ICM_MODE : int32
+{
+	ICM_OFF = 1,
+	ICM_ON = 2,
+	ICM_QUERY = 3,
+	ICM_DONE_OUTSIDEDC = 4,
+}
+
+
+[AllowDuplicates]
 public enum COLOR_MATCH_TO_TARGET_ACTION : int32
 {
 	CS_ENABLE = 1,
@@ -709,7 +719,7 @@ public struct WCS_DEVICE_MHC2_CAPABILITIES
 public static
 {
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SetICMMode(HDC hdc, int32 mode);
+	public static extern int32 SetICMMode(HDC hdc, ICM_MODE mode);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CheckColorsInGamut(HDC hdc, RGBTRIPLE* lpRGBTriple, void* dlpBuffer, uint32 nCount);
@@ -1032,7 +1042,7 @@ public static
 	public static extern BOOL CMCreateProfile(LOGCOLORSPACEA* lpColorSpace, void** lpProfileData);
 
 	[Import("ICM32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CMTranslateRGB(int hcmTransform, uint32 ColorRef, uint32* lpColorRef, uint32 dwFlags);
+	public static extern BOOL CMTranslateRGB(int hcmTransform, COLORREF ColorRef, uint32* lpColorRef, uint32 dwFlags);
 
 	[Import("ICM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CMTranslateRGBs(int hcmTransform, void* lpSrcBits, BMFORMAT bmInput, uint32 dwWidth, uint32 dwHeight, uint32 dwStride, void* lpDestBits, BMFORMAT bmOutput, uint32 dwTranslateDirection);

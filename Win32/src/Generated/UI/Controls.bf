@@ -21,208 +21,7 @@ public static
 	public const uint32 EM_GETLIMITTEXT = 213;
 	public const uint32 EM_POSFROMCHAR = 214;
 	public const uint32 EM_CHARFROMPOS = 215;
-	public const uint32 FILEOPENORD = 1536;
-	public const uint32 MULTIFILEOPENORD = 1537;
-	public const uint32 PRINTDLGORD = 1538;
-	public const uint32 PRNSETUPDLGORD = 1539;
-	public const uint32 FINDDLGORD = 1540;
-	public const uint32 REPLACEDLGORD = 1541;
-	public const uint32 FONTDLGORD = 1542;
-	public const uint32 FORMATDLGORD31 = 1543;
-	public const uint32 FORMATDLGORD30 = 1544;
-	public const uint32 RUNDLGORD = 1545;
-	public const uint32 PAGESETUPDLGORD = 1546;
-	public const uint32 NEWFILEOPENORD = 1547;
-	public const uint32 PRINTDLGEXORD = 1549;
-	public const uint32 PAGESETUPDLGORDMOTIF = 1550;
-	public const uint32 COLORMGMTDLGORD = 1551;
-	public const uint32 NEWFILEOPENV2ORD = 1552;
-	public const uint32 NEWFILEOPENV3ORD = 1553;
-	public const uint32 NEWFORMATDLGWITHLINK = 1591;
-	public const uint32 IDC_MANAGE_LINK = 1592;
 	public const uint32 WM_CTLCOLOR = 25;
-	public const uint32 ILDRF_IMAGELOWQUALITY = 1;
-	public const uint32 ILDRF_OVERLAYLOWQUALITY = 16;
-	public const uint32 ILR_DEFAULT = 0;
-	public const uint32 ILR_HORIZONTAL_LEFT = 0;
-	public const uint32 ILR_HORIZONTAL_CENTER = 1;
-	public const uint32 ILR_HORIZONTAL_RIGHT = 2;
-	public const uint32 ILR_VERTICAL_TOP = 0;
-	public const uint32 ILR_VERTICAL_CENTER = 16;
-	public const uint32 ILR_VERTICAL_BOTTOM = 32;
-	public const uint32 ILR_SCALE_CLIP = 0;
-	public const uint32 ILR_SCALE_ASPECTRATIO = 256;
-	public const uint32 ILGOS_ALWAYS = 0;
-	public const uint32 ILGOS_FROMSTANDBY = 1;
-	public const uint32 ILFIP_ALWAYS = 0;
-	public const uint32 ILFIP_FROMSTANDBY = 1;
-	public const uint32 ILDI_PURGE = 1;
-	public const uint32 ILDI_STANDBY = 2;
-	public const uint32 ILDI_RESETACCESS = 4;
-	public const uint32 ILDI_QUERYACCESS = 8;
-	public const uint32 MAXPROPPAGES = 100;
-	public const uint32 PSP_DEFAULT = 0;
-	public const uint32 PSP_DLGINDIRECT = 1;
-	public const uint32 PSP_USEHICON = 2;
-	public const uint32 PSP_USEICONID = 4;
-	public const uint32 PSP_USETITLE = 8;
-	public const uint32 PSP_RTLREADING = 16;
-	public const uint32 PSP_HASHELP = 32;
-	public const uint32 PSP_USEREFPARENT = 64;
-	public const uint32 PSP_USECALLBACK = 128;
-	public const uint32 PSP_PREMATURE = 1024;
-	public const uint32 PSP_HIDEHEADER = 2048;
-	public const uint32 PSP_USEHEADERTITLE = 4096;
-	public const uint32 PSP_USEHEADERSUBTITLE = 8192;
-	public const uint32 PSP_USEFUSIONCONTEXT = 16384;
-	public const uint32 PSH_DEFAULT = 0;
-	public const uint32 PSH_PROPTITLE = 1;
-	public const uint32 PSH_USEHICON = 2;
-	public const uint32 PSH_USEICONID = 4;
-	public const uint32 PSH_PROPSHEETPAGE = 8;
-	public const uint32 PSH_WIZARDHASFINISH = 16;
-	public const uint32 PSH_WIZARD = 32;
-	public const uint32 PSH_USEPSTARTPAGE = 64;
-	public const uint32 PSH_NOAPPLYNOW = 128;
-	public const uint32 PSH_USECALLBACK = 256;
-	public const uint32 PSH_HASHELP = 512;
-	public const uint32 PSH_MODELESS = 1024;
-	public const uint32 PSH_RTLREADING = 2048;
-	public const uint32 PSH_WIZARDCONTEXTHELP = 4096;
-	public const uint32 PSH_WIZARD97 = 8192;
-	public const uint32 PSH_WATERMARK = 32768;
-	public const uint32 PSH_USEHBMWATERMARK = 65536;
-	public const uint32 PSH_USEHPLWATERMARK = 131072;
-	public const uint32 PSH_STRETCHWATERMARK = 262144;
-	public const uint32 PSH_HEADER = 524288;
-	public const uint32 PSH_USEHBMHEADER = 1048576;
-	public const uint32 PSH_USEPAGELANG = 2097152;
-	public const uint32 PSH_WIZARD_LITE = 4194304;
-	public const uint32 PSH_NOCONTEXTHELP = 33554432;
-	public const uint32 PSH_AEROWIZARD = 16384;
-	public const uint32 PSH_RESIZABLE = 67108864;
-	public const uint32 PSH_HEADERBITMAP = 134217728;
-	public const uint32 PSH_NOMARGIN = 268435456;
-	public const uint32 PSCB_INITIALIZED = 1;
-	public const uint32 PSCB_PRECREATE = 2;
-	public const uint32 PSCB_BUTTONPRESSED = 3;
-	public const uint32 PSNRET_NOERROR = 0;
-	public const uint32 PSNRET_INVALID = 1;
-	public const uint32 PSNRET_INVALID_NOCHANGEPAGE = 2;
-	public const uint32 PSNRET_MESSAGEHANDLED = 3;
-	public const uint32 PSM_SETCURSEL = 1125;
-	public const uint32 PSM_REMOVEPAGE = 1126;
-	public const uint32 PSM_ADDPAGE = 1127;
-	public const uint32 PSM_CHANGED = 1128;
-	public const uint32 PSM_RESTARTWINDOWS = 1129;
-	public const uint32 PSM_REBOOTSYSTEM = 1130;
-	public const uint32 PSM_CANCELTOCLOSE = 1131;
-	public const uint32 PSM_QUERYSIBLINGS = 1132;
-	public const uint32 PSM_UNCHANGED = 1133;
-	public const uint32 PSM_APPLY = 1134;
-	public const uint32 PSM_SETTITLEA = 1135;
-	public const uint32 PSM_SETTITLEW = 1144;
-	public const uint32 PSM_SETTITLE = 1144;
-	public const uint32 PSM_SETWIZBUTTONS = 1136;
-	public const uint32 PSWIZB_BACK = 1;
-	public const uint32 PSWIZB_NEXT = 2;
-	public const uint32 PSWIZB_FINISH = 4;
-	public const uint32 PSWIZB_DISABLEDFINISH = 8;
-	public const uint32 PSWIZBF_ELEVATIONREQUIRED = 1;
-	public const uint32 PSWIZB_CANCEL = 16;
-	public const uint32 PSM_PRESSBUTTON = 1137;
-	public const uint32 PSBTN_BACK = 0;
-	public const uint32 PSBTN_NEXT = 1;
-	public const uint32 PSBTN_FINISH = 2;
-	public const uint32 PSBTN_OK = 3;
-	public const uint32 PSBTN_APPLYNOW = 4;
-	public const uint32 PSBTN_CANCEL = 5;
-	public const uint32 PSBTN_HELP = 6;
-	public const uint32 PSBTN_MAX = 6;
-	public const uint32 PSM_SETCURSELID = 1138;
-	public const uint32 PSM_SETFINISHTEXTA = 1139;
-	public const uint32 PSM_SETFINISHTEXTW = 1145;
-	public const uint32 PSM_SETFINISHTEXT = 1145;
-	public const uint32 PSM_GETTABCONTROL = 1140;
-	public const uint32 PSM_ISDIALOGMESSAGE = 1141;
-	public const uint32 PSM_GETCURRENTPAGEHWND = 1142;
-	public const uint32 PSM_INSERTPAGE = 1143;
-	public const uint32 PSM_SETHEADERTITLEA = 1149;
-	public const uint32 PSM_SETHEADERTITLEW = 1150;
-	public const uint32 PSM_SETHEADERTITLE = 1150;
-	public const uint32 PSM_SETHEADERSUBTITLEA = 1151;
-	public const uint32 PSM_SETHEADERSUBTITLEW = 1152;
-	public const uint32 PSM_SETHEADERSUBTITLE = 1152;
-	public const uint32 PSM_HWNDTOINDEX = 1153;
-	public const uint32 PSM_INDEXTOHWND = 1154;
-	public const uint32 PSM_PAGETOINDEX = 1155;
-	public const uint32 PSM_INDEXTOPAGE = 1156;
-	public const uint32 PSM_IDTOINDEX = 1157;
-	public const uint32 PSM_INDEXTOID = 1158;
-	public const uint32 PSM_GETRESULT = 1159;
-	public const uint32 PSM_RECALCPAGESIZES = 1160;
-	public const uint32 PSM_SETNEXTTEXTW = 1161;
-	public const uint32 PSM_SETNEXTTEXT = 1161;
-	public const uint32 PSWIZB_SHOW = 0;
-	public const uint32 PSWIZB_RESTORE = 1;
-	public const uint32 PSM_SHOWWIZBUTTONS = 1162;
-	public const uint32 PSM_ENABLEWIZBUTTONS = 1163;
-	public const uint32 PSM_SETBUTTONTEXTW = 1164;
-	public const uint32 PSM_SETBUTTONTEXT = 1164;
-	public const uint32 ID_PSRESTARTWINDOWS = 2;
-	public const uint32 WIZ_CXDLG = 276;
-	public const uint32 WIZ_CYDLG = 140;
-	public const uint32 WIZ_CXBMP = 80;
-	public const uint32 WIZ_BODYX = 92;
-	public const uint32 WIZ_BODYCX = 184;
-	public const uint32 PROP_SM_CXDLG = 212;
-	public const uint32 PROP_SM_CYDLG = 188;
-	public const uint32 PROP_MED_CXDLG = 227;
-	public const uint32 PROP_MED_CYDLG = 215;
-	public const uint32 PROP_LG_CXDLG = 252;
-	public const uint32 PROP_LG_CYDLG = 218;
-	public const uint32 DA_LAST = 2147483647;
-	public const int32 DA_ERR = -1;
-	public const uint32 DSA_APPEND = 2147483647;
-	public const int32 DSA_ERR = -1;
-	public const uint32 DPAM_SORTED = 1;
-	public const uint32 DPAM_NORMAL = 2;
-	public const uint32 DPAM_UNION = 4;
-	public const uint32 DPAM_INTERSECT = 8;
-	public const uint32 DPAS_SORTED = 1;
-	public const uint32 DPAS_INSERTBEFORE = 2;
-	public const uint32 DPAS_INSERTAFTER = 4;
-	public const uint32 DPA_APPEND = 2147483647;
-	public const int32 DPA_ERR = -1;
-	public const uint32 MAX_THEMECOLOR = 64;
-	public const uint32 MAX_THEMESIZE = 64;
-	public const uint32 DTBG_CLIPRECT = 1;
-	public const uint32 DTBG_DRAWSOLID = 2;
-	public const uint32 DTBG_OMITBORDER = 4;
-	public const uint32 DTBG_OMITCONTENT = 8;
-	public const uint32 DTBG_COMPUTINGREGION = 16;
-	public const uint32 DTBG_MIRRORDC = 32;
-	public const uint32 DTBG_NOMIRROR = 64;
-	public const uint32 DTT_GRAYED = 1;
-	public const uint32 DTT_FLAGS2VALIDBITS = 1;
-	public const uint32 HTTB_BACKGROUNDSEG = 0;
-	public const uint32 HTTB_FIXEDBORDER = 2;
-	public const uint32 HTTB_CAPTION = 4;
-	public const uint32 HTTB_RESIZINGBORDER_LEFT = 16;
-	public const uint32 HTTB_RESIZINGBORDER_TOP = 32;
-	public const uint32 HTTB_RESIZINGBORDER_RIGHT = 64;
-	public const uint32 HTTB_RESIZINGBORDER_BOTTOM = 128;
-	public const uint32 HTTB_SIZINGTEMPLATE = 256;
-	public const uint32 HTTB_SYSTEMSIZINGMARGINS = 512;
-	public const uint32 MAX_INTLIST_COUNT = 402;
-	public const uint32 ETDT_DISABLE = 1;
-	public const uint32 ETDT_ENABLE = 2;
-	public const uint32 ETDT_USETABTEXTURE = 4;
-	public const uint32 ETDT_USEAEROWIZARDTABTEXTURE = 8;
-	public const uint32 WTNCA_NODRAWCAPTION = 1;
-	public const uint32 WTNCA_NODRAWICON = 2;
-	public const uint32 WTNCA_NOSYSMENU = 4;
-	public const uint32 WTNCA_NOMIRRORHELP = 8;
 	public const uint32 ODT_HEADER = 100;
 	public const uint32 LVM_FIRST = 4096;
 	public const uint32 TV_FIRST = 4352;
@@ -262,19 +61,6 @@ public static
 	public const uint32 CDRF_NOTIFYPOSTERASE = 64;
 	public const uint32 CDDS_POSTERASE = 4;
 	public const uint32 CDDS_ITEM = 65536;
-	public const uint32 CDIS_SELECTED = 1;
-	public const uint32 CDIS_GRAYED = 2;
-	public const uint32 CDIS_DISABLED = 4;
-	public const uint32 CDIS_CHECKED = 8;
-	public const uint32 CDIS_FOCUS = 16;
-	public const uint32 CDIS_DEFAULT = 32;
-	public const uint32 CDIS_HOT = 64;
-	public const uint32 CDIS_MARKED = 128;
-	public const uint32 CDIS_INDETERMINATE = 256;
-	public const uint32 CDIS_SHOWKEYBOARDCUES = 512;
-	public const uint32 CDIS_NEARHOT = 1024;
-	public const uint32 CDIS_OTHERSIDEHOT = 2048;
-	public const uint32 CDIS_DROPHILITED = 4096;
 	public const uint32 NM_GETCUSTOMSPLITRECT = 4294966049;
 	public const int32 CLR_NONE = -1;
 	public const int32 CLR_DEFAULT = -16777216;
@@ -295,8 +81,9 @@ public static
 	public const uint32 ILS_ALPHA = 8;
 	public const uint32 ILGT_NORMAL = 0;
 	public const uint32 ILGT_ASYNC = 1;
-	public const uint32 ILP_NORMAL = 0;
-	public const uint32 ILP_DOWNLEVEL = 1;
+	public const String WC_HEADERA = "SysHeader32";
+	public const String WC_HEADERW = "SysHeader32";
+	public const String WC_HEADER = "SysHeader32";
 	public const uint32 HDS_HORZ = 0;
 	public const uint32 HDS_BUTTONS = 2;
 	public const uint32 HDS_HOTTRACK = 4;
@@ -308,27 +95,6 @@ public static
 	public const uint32 HDS_CHECKBOXES = 1024;
 	public const uint32 HDS_NOSIZING = 2048;
 	public const uint32 HDS_OVERFLOW = 4096;
-	public const uint32 HDFT_ISSTRING = 0;
-	public const uint32 HDFT_ISNUMBER = 1;
-	public const uint32 HDFT_ISDATE = 2;
-	public const uint32 HDFT_HASNOVALUE = 32768;
-	public const uint32 HDF_LEFT = 0;
-	public const uint32 HDF_RIGHT = 1;
-	public const uint32 HDF_CENTER = 2;
-	public const uint32 HDF_JUSTIFYMASK = 3;
-	public const uint32 HDF_RTLREADING = 4;
-	public const uint32 HDF_BITMAP = 8192;
-	public const uint32 HDF_STRING = 16384;
-	public const uint32 HDF_OWNERDRAW = 32768;
-	public const uint32 HDF_IMAGE = 2048;
-	public const uint32 HDF_BITMAP_ON_RIGHT = 4096;
-	public const uint32 HDF_SORTUP = 1024;
-	public const uint32 HDF_SORTDOWN = 512;
-	public const uint32 HDF_CHECKBOX = 64;
-	public const uint32 HDF_CHECKED = 128;
-	public const uint32 HDF_FIXEDWIDTH = 256;
-	public const uint32 HDF_SPLITBUTTON = 16777216;
-	public const uint32 HDIS_FOCUSED = 1;
 	public const uint32 HDM_GETITEMCOUNT = 4608;
 	public const uint32 HDM_INSERTITEMA = 4609;
 	public const uint32 HDM_INSERTITEMW = 4618;
@@ -341,19 +107,6 @@ public static
 	public const uint32 HDM_SETITEMW = 4620;
 	public const uint32 HDM_SETITEM = 4620;
 	public const uint32 HDM_LAYOUT = 4613;
-	public const uint32 HHT_NOWHERE = 1;
-	public const uint32 HHT_ONHEADER = 2;
-	public const uint32 HHT_ONDIVIDER = 4;
-	public const uint32 HHT_ONDIVOPEN = 8;
-	public const uint32 HHT_ONFILTER = 16;
-	public const uint32 HHT_ONFILTERBUTTON = 32;
-	public const uint32 HHT_ABOVE = 256;
-	public const uint32 HHT_BELOW = 512;
-	public const uint32 HHT_TORIGHT = 1024;
-	public const uint32 HHT_TOLEFT = 2048;
-	public const uint32 HHT_ONITEMSTATEICON = 4096;
-	public const uint32 HHT_ONDROPDOWN = 8192;
-	public const uint32 HHT_ONOVERFLOW = 16384;
 	public const uint32 HDSIL_NORMAL = 0;
 	public const uint32 HDSIL_STATE = 1;
 	public const uint32 HDM_HITTEST = 4614;
@@ -376,6 +129,9 @@ public static
 	public const uint32 HDM_GETOVERFLOWRECT = 4634;
 	public const uint32 HDM_GETFOCUSEDITEM = 4635;
 	public const uint32 HDM_SETFOCUSEDITEM = 4636;
+	public const String TOOLBARCLASSNAMEW = "ToolbarWindow32";
+	public const String TOOLBARCLASSNAMEA = "ToolbarWindow32";
+	public const String TOOLBARCLASSNAME = "ToolbarWindow32";
 	public const uint32 CMB_MASKED = 2;
 	public const uint32 TBSTATE_CHECKED = 1;
 	public const uint32 TBSTATE_PRESSED = 2;
@@ -586,6 +342,9 @@ public static
 	public const uint32 TBDDRET_DEFAULT = 0;
 	public const uint32 TBDDRET_NODEFAULT = 1;
 	public const uint32 TBDDRET_TREATPRESSED = 2;
+	public const String REBARCLASSNAMEW = "ReBarWindow32";
+	public const String REBARCLASSNAMEA = "ReBarWindow32";
+	public const String REBARCLASSNAME = "ReBarWindow32";
 	public const uint32 RBIM_IMAGELIST = 1;
 	public const uint32 RBS_TOOLTIPS = 256;
 	public const uint32 RBS_VARHEIGHT = 512;
@@ -678,6 +437,9 @@ public static
 	public const uint32 RBHT_GRABBER = 4;
 	public const uint32 RBHT_CHEVRON = 8;
 	public const uint32 RBHT_SPLITTER = 16;
+	public const String TOOLTIPS_CLASSW = "tooltips_class32";
+	public const String TOOLTIPS_CLASSA = "tooltips_class32";
+	public const String TOOLTIPS_CLASS = "tooltips_class32";
 	public const uint32 TTS_ALWAYSTIP = 1;
 	public const uint32 TTS_NOPREFIX = 2;
 	public const uint32 TTS_NOANIMATE = 16;
@@ -685,7 +447,6 @@ public static
 	public const uint32 TTS_BALLOON = 64;
 	public const uint32 TTS_CLOSE = 128;
 	public const uint32 TTS_USEVISUALSTYLE = 256;
-	public const uint32 TTF_DI_SETITEM = 32768;
 	public const uint32 TTDT_AUTOMATIC = 0;
 	public const uint32 TTDT_RESHOW = 1;
 	public const uint32 TTDT_AUTOPOP = 2;
@@ -749,6 +510,9 @@ public static
 	public const uint32 SBARS_SIZEGRIP = 256;
 	public const uint32 SBARS_TOOLTIPS = 2048;
 	public const uint32 SBT_TOOLTIPS = 2048;
+	public const String STATUSCLASSNAMEW = "msctls_statusbar32";
+	public const String STATUSCLASSNAMEA = "msctls_statusbar32";
+	public const String STATUSCLASSNAME = "msctls_statusbar32";
 	public const uint32 SB_SETTEXTA = 1025;
 	public const uint32 SB_SETTEXTW = 1035;
 	public const uint32 SB_GETTEXTA = 1026;
@@ -780,6 +544,9 @@ public static
 	public const uint32 SBT_NOTABPARSING = 2048;
 	public const uint32 SB_SETBKCOLOR = 8193;
 	public const uint32 SB_SIMPLEID = 255;
+	public const String TRACKBAR_CLASSA = "msctls_trackbar32";
+	public const String TRACKBAR_CLASSW = "msctls_trackbar32";
+	public const String TRACKBAR_CLASS = "msctls_trackbar32";
 	public const uint32 TBS_AUTOTICKS = 1;
 	public const uint32 TBS_VERT = 2;
 	public const uint32 TBS_HORZ = 0;
@@ -852,6 +619,10 @@ public static
 	public const uint32 DL_STOPCURSOR = 1;
 	public const uint32 DL_COPYCURSOR = 2;
 	public const uint32 DL_MOVECURSOR = 3;
+	public const String DRAGLISTMSGSTRING = "commctrl_DragListMsg";
+	public const String UPDOWN_CLASSA = "msctls_updown32";
+	public const String UPDOWN_CLASSW = "msctls_updown32";
+	public const String UPDOWN_CLASS = "msctls_updown32";
 	public const uint32 UD_MAXVAL = 32767;
 	public const uint32 UDS_WRAP = 1;
 	public const uint32 UDS_SETBUDDYINT = 2;
@@ -878,6 +649,9 @@ public static
 	public const uint32 UDM_GETUNICODEFORMAT = 8198;
 	public const uint32 UDM_SETPOS32 = 1137;
 	public const uint32 UDM_GETPOS32 = 1138;
+	public const String PROGRESS_CLASSA = "msctls_progress32";
+	public const String PROGRESS_CLASSW = "msctls_progress32";
+	public const String PROGRESS_CLASS = "msctls_progress32";
 	public const uint32 PBS_SMOOTH = 1;
 	public const uint32 PBS_VERTICAL = 4;
 	public const uint32 PBM_SETRANGE = 1025;
@@ -916,6 +690,9 @@ public static
 	public const uint32 HKM_SETHOTKEY = 1025;
 	public const uint32 HKM_GETHOTKEY = 1026;
 	public const uint32 HKM_SETRULES = 1027;
+	public const String HOTKEY_CLASSA = "msctls_hotkey32";
+	public const String HOTKEY_CLASSW = "msctls_hotkey32";
+	public const String HOTKEY_CLASS = "msctls_hotkey32";
 	public const int32 CCS_TOP = 1;
 	public const int32 CCS_NOMOVEY = 2;
 	public const int32 CCS_BOTTOM = 3;
@@ -926,26 +703,21 @@ public static
 	public const int32 CCS_VERT = 128;
 	public const int32 INVALID_LINK_INDEX = -1;
 	public const uint32 MAX_LINKID_TEXT = 48;
+	public const String WC_LINK = "SysLink";
 	public const uint32 LWS_TRANSPARENT = 1;
 	public const uint32 LWS_IGNORERETURN = 2;
 	public const uint32 LWS_NOPREFIX = 4;
 	public const uint32 LWS_USEVISUALSTYLE = 8;
 	public const uint32 LWS_USECUSTOMTEXT = 16;
 	public const uint32 LWS_RIGHT = 32;
-	public const uint32 LIF_ITEMINDEX = 1;
-	public const uint32 LIF_STATE = 2;
-	public const uint32 LIF_ITEMID = 4;
-	public const uint32 LIF_URL = 8;
-	public const uint32 LIS_FOCUSED = 1;
-	public const uint32 LIS_ENABLED = 2;
-	public const uint32 LIS_VISITED = 4;
-	public const uint32 LIS_HOTTRACK = 8;
-	public const uint32 LIS_DEFAULTCOLORS = 16;
 	public const uint32 LM_HITTEST = 1792;
 	public const uint32 LM_GETIDEALHEIGHT = 1793;
 	public const uint32 LM_SETITEM = 1794;
 	public const uint32 LM_GETITEM = 1795;
 	public const uint32 LM_GETIDEALSIZE = 1793;
+	public const String WC_LISTVIEWA = "SysListView32";
+	public const String WC_LISTVIEWW = "SysListView32";
+	public const String WC_LISTVIEW = "SysListView32";
 	public const uint32 LVS_ICON = 0;
 	public const uint32 LVS_REPORT = 1;
 	public const uint32 LVS_SMALLICON = 2;
@@ -979,23 +751,6 @@ public static
 	public const uint32 LVSIL_GROUPHEADER = 3;
 	public const uint32 LVM_SETIMAGELIST = 4099;
 	public const uint32 LVM_GETITEMCOUNT = 4100;
-	public const uint32 LVIF_TEXT = 1;
-	public const uint32 LVIF_IMAGE = 2;
-	public const uint32 LVIF_PARAM = 4;
-	public const uint32 LVIF_STATE = 8;
-	public const uint32 LVIF_INDENT = 16;
-	public const uint32 LVIF_NORECOMPUTE = 2048;
-	public const uint32 LVIF_GROUPID = 256;
-	public const uint32 LVIF_COLUMNS = 512;
-	public const uint32 LVIF_COLFMT = 65536;
-	public const uint32 LVIS_FOCUSED = 1;
-	public const uint32 LVIS_SELECTED = 2;
-	public const uint32 LVIS_CUT = 4;
-	public const uint32 LVIS_DROPHILITED = 8;
-	public const uint32 LVIS_GLOW = 16;
-	public const uint32 LVIS_ACTIVATING = 32;
-	public const uint32 LVIS_OVERLAYMASK = 3840;
-	public const uint32 LVIS_STATEIMAGEMASK = 61440;
 	public const int32 I_INDENTCALLBACK = -1;
 	public const int32 I_IMAGECALLBACK = -1;
 	public const int32 I_IMAGENONE = -2;
@@ -1052,10 +807,6 @@ public static
 	public const uint32 LVM_EDITLABELW = 4214;
 	public const uint32 LVM_EDITLABEL = 4214;
 	public const uint32 LVM_GETEDITCONTROL = 4120;
-	public const uint32 LVCFMT_LINE_BREAK = 1048576;
-	public const uint32 LVCFMT_FILL = 2097152;
-	public const uint32 LVCFMT_WRAP = 4194304;
-	public const uint32 LVCFMT_NO_TITLE = 8388608;
 	public const uint32 LVM_GETCOLUMNA = 4121;
 	public const uint32 LVM_GETCOLUMNW = 4191;
 	public const uint32 LVM_GETCOLUMN = 4191;
@@ -1064,6 +815,7 @@ public static
 	public const uint32 LVM_SETCOLUMN = 4192;
 	public const uint32 LVM_INSERTCOLUMNA = 4123;
 	public const uint32 LVM_INSERTCOLUMNW = 4193;
+	public const uint32 LVM_INSERTCOLUMN = 4193;
 	public const uint32 LVM_DELETECOLUMN = 4124;
 	public const uint32 LVM_GETCOLUMNWIDTH = 4125;
 	public const int32 LVSCW_AUTOSIZE = -1;
@@ -1151,16 +903,6 @@ public static
 	public const uint32 LVM_SETTOOLTIPS = 4170;
 	public const uint32 LVM_GETTOOLTIPS = 4174;
 	public const uint32 LVM_SORTITEMSEX = 4177;
-	public const uint32 LVBKIF_SOURCE_NONE = 0;
-	public const uint32 LVBKIF_SOURCE_HBITMAP = 1;
-	public const uint32 LVBKIF_SOURCE_URL = 2;
-	public const uint32 LVBKIF_SOURCE_MASK = 3;
-	public const uint32 LVBKIF_STYLE_NORMAL = 0;
-	public const uint32 LVBKIF_STYLE_TILE = 16;
-	public const uint32 LVBKIF_STYLE_MASK = 16;
-	public const uint32 LVBKIF_FLAG_TILEOFFSET = 256;
-	public const uint32 LVBKIF_TYPE_WATERMARK = 268435456;
-	public const uint32 LVBKIF_FLAG_ALPHABLEND = 536870912;
 	public const uint32 LVM_SETBKIMAGEA = 4164;
 	public const uint32 LVM_SETBKIMAGEW = 4234;
 	public const uint32 LVM_GETBKIMAGEA = 4165;
@@ -1185,18 +927,6 @@ public static
 	public const uint32 LVGF_ITEMS = 16384;
 	public const uint32 LVGF_SUBSET = 32768;
 	public const uint32 LVGF_SUBSETITEMS = 65536;
-	public const uint32 LVGS_NORMAL = 0;
-	public const uint32 LVGS_COLLAPSED = 1;
-	public const uint32 LVGS_HIDDEN = 2;
-	public const uint32 LVGS_NOHEADER = 4;
-	public const uint32 LVGS_COLLAPSIBLE = 8;
-	public const uint32 LVGS_FOCUSED = 16;
-	public const uint32 LVGS_SELECTED = 32;
-	public const uint32 LVGS_SUBSETED = 64;
-	public const uint32 LVGS_SUBSETLINKFOCUSED = 128;
-	public const uint32 LVGA_FOOTER_LEFT = 8;
-	public const uint32 LVGA_FOOTER_CENTER = 16;
-	public const uint32 LVGA_FOOTER_RIGHT = 32;
 	public const uint32 LVM_INSERTGROUP = 4241;
 	public const uint32 LVM_SETGROUPINFO = 4243;
 	public const uint32 LVM_GETGROUPINFO = 4245;
@@ -1223,18 +953,11 @@ public static
 	public const uint32 LVM_HASGROUP = 4257;
 	public const uint32 LVM_GETGROUPSTATE = 4188;
 	public const uint32 LVM_GETFOCUSEDGROUP = 4189;
-	public const uint32 LVTVIF_AUTOSIZE = 0;
-	public const uint32 LVTVIF_FIXEDWIDTH = 1;
-	public const uint32 LVTVIF_FIXEDHEIGHT = 2;
-	public const uint32 LVTVIF_FIXEDSIZE = 3;
-	public const uint32 LVTVIM_TILESIZE = 1;
-	public const uint32 LVTVIM_COLUMNS = 2;
-	public const uint32 LVTVIM_LABELMARGIN = 4;
+	public const uint32 LVTVIF_EXTENDED = 4;
 	public const uint32 LVM_SETTILEVIEWINFO = 4258;
 	public const uint32 LVM_GETTILEVIEWINFO = 4259;
 	public const uint32 LVM_SETTILEINFO = 4260;
 	public const uint32 LVM_GETTILEINFO = 4261;
-	public const uint32 LVIM_AFTER = 1;
 	public const uint32 LVM_SETINSERTMARK = 4262;
 	public const uint32 LVM_GETINSERTMARK = 4263;
 	public const uint32 LVM_INSERTMARKHITTEST = 4264;
@@ -1267,11 +990,12 @@ public static
 	public const uint32 LVKF_SHIFT = 4;
 	public const uint32 LVCDRF_NOSELECT = 65536;
 	public const uint32 LVCDRF_NOGROUPFRAME = 131072;
-	public const uint32 LVIF_DI_SETITEM = 4096;
-	public const uint32 LVGIT_UNFOLDED = 1;
 	public const int32 LVNSCH_DEFAULT = -1;
 	public const int32 LVNSCH_ERROR = -2;
 	public const int32 LVNSCH_IGNORE = -3;
+	public const String WC_TREEVIEWA = "SysTreeView32";
+	public const String WC_TREEVIEWW = "SysTreeView32";
+	public const String WC_TREEVIEW = "SysTreeView32";
 	public const uint32 TVS_HASBUTTONS = 1;
 	public const uint32 TVS_HASLINES = 2;
 	public const uint32 TVS_LINESATROOT = 4;
@@ -1299,29 +1023,11 @@ public static
 	public const uint32 TVS_EX_EXCLUSIONCHECKBOXES = 256;
 	public const uint32 TVS_EX_DIMMEDCHECKBOXES = 512;
 	public const uint32 TVS_EX_DRAWIMAGEASYNC = 1024;
-	public const uint32 TVIS_SELECTED = 2;
-	public const uint32 TVIS_CUT = 4;
-	public const uint32 TVIS_DROPHILITED = 8;
-	public const uint32 TVIS_BOLD = 16;
-	public const uint32 TVIS_EXPANDED = 32;
-	public const uint32 TVIS_EXPANDEDONCE = 64;
-	public const uint32 TVIS_EXPANDPARTIAL = 128;
-	public const uint32 TVIS_OVERLAYMASK = 3840;
-	public const uint32 TVIS_STATEIMAGEMASK = 61440;
-	public const uint32 TVIS_USERMASK = 61440;
-	public const uint32 TVIS_EX_FLAT = 1;
-	public const uint32 TVIS_EX_DISABLED = 2;
-	public const uint32 TVIS_EX_ALL = 2;
 	public const uint32 TVM_INSERTITEMA = 4352;
 	public const uint32 TVM_INSERTITEMW = 4402;
 	public const uint32 TVM_INSERTITEM = 4402;
 	public const uint32 TVM_DELETEITEM = 4353;
 	public const uint32 TVM_EXPAND = 4354;
-	public const uint32 TVE_COLLAPSE = 1;
-	public const uint32 TVE_EXPAND = 2;
-	public const uint32 TVE_TOGGLE = 3;
-	public const uint32 TVE_EXPANDPARTIAL = 16384;
-	public const uint32 TVE_COLLAPSERESET = 32768;
 	public const uint32 TVM_GETITEMRECT = 4356;
 	public const uint32 TVM_GETCOUNT = 4357;
 	public const uint32 TVM_GETINDENT = 4358;
@@ -1395,13 +1101,13 @@ public static
 	public const uint32 TVM_GETSELECTEDCOUNT = 4422;
 	public const uint32 TVM_SHOWINFOTIP = 4423;
 	public const uint32 TVM_GETITEMPARTRECT = 4424;
-	public const uint32 TVC_UNKNOWN = 0;
-	public const uint32 TVC_BYMOUSE = 1;
-	public const uint32 TVC_BYKEYBOARD = 2;
 	public const uint32 TVNRET_DEFAULT = 0;
 	public const uint32 TVNRET_SKIPOLD = 1;
 	public const uint32 TVNRET_SKIPNEW = 2;
 	public const uint32 TVCDRF_NOIMAGES = 65536;
+	public const String WC_COMBOBOXEXW = "ComboBoxEx32";
+	public const String WC_COMBOBOXEXA = "ComboBoxEx32";
+	public const String WC_COMBOBOXEX = "ComboBoxEx32";
 	public const uint32 CBEM_INSERTITEMA = 1025;
 	public const uint32 CBEM_SETIMAGELIST = 1026;
 	public const uint32 CBEM_GETIMAGELIST = 1027;
@@ -1434,6 +1140,9 @@ public static
 	public const uint32 CBENF_ESCAPE = 3;
 	public const uint32 CBENF_DROPDOWN = 4;
 	public const uint32 CBEMAXSTRLEN = 260;
+	public const String WC_TABCONTROLA = "SysTabControl32";
+	public const String WC_TABCONTROLW = "SysTabControl32";
+	public const String WC_TABCONTROL = "SysTabControl32";
 	public const uint32 TCS_SCROLLOPPOSITE = 1;
 	public const uint32 TCS_BOTTOM = 2;
 	public const uint32 TCS_RIGHT = 2;
@@ -1459,8 +1168,6 @@ public static
 	public const uint32 TCM_GETIMAGELIST = 4866;
 	public const uint32 TCM_SETIMAGELIST = 4867;
 	public const uint32 TCM_GETITEMCOUNT = 4868;
-	public const uint32 TCIS_BUTTONPRESSED = 1;
-	public const uint32 TCIS_HIGHLIGHTED = 2;
 	public const uint32 TCM_GETITEMA = 4869;
 	public const uint32 TCM_GETITEMW = 4924;
 	public const uint32 TCM_GETITEM = 4924;
@@ -1493,6 +1200,9 @@ public static
 	public const uint32 TCM_GETEXTENDEDSTYLE = 4917;
 	public const uint32 TCM_SETUNICODEFORMAT = 8197;
 	public const uint32 TCM_GETUNICODEFORMAT = 8198;
+	public const String ANIMATE_CLASSW = "SysAnimate32";
+	public const String ANIMATE_CLASSA = "SysAnimate32";
+	public const String ANIMATE_CLASS = "SysAnimate32";
 	public const uint32 ACS_CENTER = 1;
 	public const uint32 ACS_TRANSPARENT = 2;
 	public const uint32 ACS_AUTOPLAY = 4;
@@ -1505,6 +1215,9 @@ public static
 	public const uint32 ACM_ISPLAYING = 1128;
 	public const uint32 ACN_START = 1;
 	public const uint32 ACN_STOP = 2;
+	public const String MONTHCAL_CLASSW = "SysMonthCal32";
+	public const String MONTHCAL_CLASSA = "SysMonthCal32";
+	public const String MONTHCAL_CLASS = "SysMonthCal32";
 	public const uint32 MCM_FIRST = 4096;
 	public const uint32 MCM_GETCURSEL = 4097;
 	public const uint32 MCM_SETCURSEL = 4098;
@@ -1526,15 +1239,6 @@ public static
 	public const uint32 MCM_SETTODAY = 4108;
 	public const uint32 MCM_GETTODAY = 4109;
 	public const uint32 MCM_HITTEST = 4110;
-	public const uint32 MCHT_TITLE = 65536;
-	public const uint32 MCHT_CALENDAR = 131072;
-	public const uint32 MCHT_TODAYLINK = 196608;
-	public const uint32 MCHT_CALENDARCONTROL = 1048576;
-	public const uint32 MCHT_NEXT = 16777216;
-	public const uint32 MCHT_PREV = 33554432;
-	public const uint32 MCHT_NOWHERE = 0;
-	public const uint32 MCHT_TITLEBK = 65536;
-	public const uint32 MCHT_CALENDARBK = 131072;
 	public const uint32 MCM_SETFIRSTDAYOFWEEK = 4111;
 	public const uint32 MCM_GETFIRSTDAYOFWEEK = 4112;
 	public const uint32 MCM_GETRANGE = 4113;
@@ -1544,11 +1248,6 @@ public static
 	public const uint32 MCM_GETMAXTODAYWIDTH = 4117;
 	public const uint32 MCM_SETUNICODEFORMAT = 8197;
 	public const uint32 MCM_GETUNICODEFORMAT = 8198;
-	public const uint32 MCMV_MONTH = 0;
-	public const uint32 MCMV_YEAR = 1;
-	public const uint32 MCMV_DECADE = 2;
-	public const uint32 MCMV_CENTURY = 3;
-	public const uint32 MCMV_MAX = 3;
 	public const uint32 MCM_GETCURRENTVIEW = 4118;
 	public const uint32 MCM_GETCALENDARCOUNT = 4119;
 	public const uint32 MCM_GETCALENDARGRIDINFO = 4120;
@@ -1568,6 +1267,9 @@ public static
 	public const uint32 MCS_NOSELCHANGEONNAV = 256;
 	public const uint32 GMR_VISIBLE = 0;
 	public const uint32 GMR_DAYSTATE = 1;
+	public const String DATETIMEPICK_CLASSW = "SysDateTimePick32";
+	public const String DATETIMEPICK_CLASSA = "SysDateTimePick32";
+	public const String DATETIMEPICK_CLASS = "SysDateTimePick32";
 	public const uint32 DTM_FIRST = 4096;
 	public const uint32 DTM_GETSYSTEMTIME = 4097;
 	public const uint32 DTM_SETSYSTEMTIME = 4098;
@@ -1597,14 +1299,18 @@ public static
 	public const uint32 GDTR_MIN = 1;
 	public const uint32 GDTR_MAX = 2;
 	public const int32 GDT_ERROR = -1;
-	public const uint32 GDT_VALID = 0;
-	public const uint32 GDT_NONE = 1;
 	public const uint32 IPM_CLEARADDRESS = 1124;
 	public const uint32 IPM_SETADDRESS = 1125;
 	public const uint32 IPM_GETADDRESS = 1126;
 	public const uint32 IPM_SETRANGE = 1127;
 	public const uint32 IPM_SETFOCUS = 1128;
 	public const uint32 IPM_ISBLANK = 1129;
+	public const String WC_IPADDRESSW = "SysIPAddress32";
+	public const String WC_IPADDRESSA = "SysIPAddress32";
+	public const String WC_IPADDRESS = "SysIPAddress32";
+	public const String WC_PAGESCROLLERW = "SysPager";
+	public const String WC_PAGESCROLLERA = "SysPager";
+	public const String WC_PAGESCROLLER = "SysPager";
 	public const uint32 PGS_VERT = 0;
 	public const uint32 PGS_HORZ = 1;
 	public const uint32 PGS_AUTOSCROLL = 2;
@@ -1630,12 +1336,18 @@ public static
 	public const uint32 PGM_GETBUTTONSTATE = 5132;
 	public const uint32 PGM_GETDROPTARGET = 8196;
 	public const uint32 PGM_SETSCROLLINFO = 5133;
+	public const String WC_NATIVEFONTCTLW = "NativeFontCtl";
+	public const String WC_NATIVEFONTCTLA = "NativeFontCtl";
+	public const String WC_NATIVEFONTCTL = "NativeFontCtl";
 	public const uint32 NFS_EDIT = 1;
 	public const uint32 NFS_STATIC = 2;
 	public const uint32 NFS_LISTCOMBO = 4;
 	public const uint32 NFS_BUTTON = 8;
 	public const uint32 NFS_ALL = 16;
 	public const uint32 NFS_USEFONTASSOC = 32;
+	public const String WC_BUTTONA = "Button";
+	public const String WC_BUTTONW = "Button";
+	public const String WC_BUTTON = "Button";
 	public const uint32 BCM_GETIDEALSIZE = 5633;
 	public const uint32 BCM_SETIMAGELIST = 5634;
 	public const uint32 BCM_GETIMAGELIST = 5635;
@@ -1664,6 +1376,12 @@ public static
 	public const uint32 BCM_GETNOTELENGTH = 5643;
 	public const uint32 BCM_SETSHIELD = 5644;
 	public const uint32 BCN_DROPDOWN = 4294966048;
+	public const String WC_STATICA = "Static";
+	public const String WC_STATICW = "Static";
+	public const String WC_STATIC = "Static";
+	public const String WC_EDITA = "Edit";
+	public const String WC_EDITW = "Edit";
+	public const String WC_EDIT = "Edit";
 	public const int32 ES_EX_ALLOWEOL_CR = 1;
 	public const int32 ES_EX_ALLOWEOL_LF = 2;
 	public const int32 ES_EX_CONVERT_EOL_ON_PASTE = 4;
@@ -1689,10 +1407,23 @@ public static
 	public const uint32 EM_FILELINELENGTH = 5397;
 	public const uint32 EM_GETFILELINE = 5398;
 	public const uint32 EM_GETFILELINECOUNT = 5399;
+	public const String WC_LISTBOXA = "ListBox";
+	public const String WC_LISTBOXW = "ListBox";
+	public const String WC_LISTBOX = "ListBox";
+	public const String WC_COMBOBOXA = "ComboBox";
+	public const String WC_COMBOBOXW = "ComboBox";
+	public const String WC_COMBOBOX = "ComboBox";
 	public const uint32 CB_SETMINVISIBLE = 5889;
 	public const uint32 CB_GETMINVISIBLE = 5890;
 	public const uint32 CB_SETCUEBANNER = 5891;
 	public const uint32 CB_GETCUEBANNER = 5892;
+	public const String WC_SCROLLBARA = "ScrollBar";
+	public const String WC_SCROLLBARW = "ScrollBar";
+	public const String WC_SCROLLBAR = "ScrollBar";
+	public const PWSTR TD_WARNING_ICON = (PWSTR)(void*)-1;
+	public const PWSTR TD_ERROR_ICON = (PWSTR)(void*)-2;
+	public const PWSTR TD_INFORMATION_ICON = (PWSTR)(void*)-3;
+	public const PWSTR TD_SHIELD_ICON = (PWSTR)(void*)-4;
 	public const uint32 WM_MOUSEHOVER = 673;
 	public const uint32 WM_MOUSELEAVE = 675;
 	public const uint32 HOVER_DEFAULT = 4294967295;
@@ -1700,10 +1431,431 @@ public static
 	public const uint32 FSB_FLAT_MODE = 2;
 	public const uint32 FSB_ENCARTA_MODE = 1;
 	public const uint32 FSB_REGULAR_MODE = 0;
+	public const uint32 ILDRF_IMAGELOWQUALITY = 1;
+	public const uint32 ILDRF_OVERLAYLOWQUALITY = 16;
+	public const uint32 ILR_DEFAULT = 0;
+	public const uint32 ILR_HORIZONTAL_LEFT = 0;
+	public const uint32 ILR_HORIZONTAL_CENTER = 1;
+	public const uint32 ILR_HORIZONTAL_RIGHT = 2;
+	public const uint32 ILR_VERTICAL_TOP = 0;
+	public const uint32 ILR_VERTICAL_CENTER = 16;
+	public const uint32 ILR_VERTICAL_BOTTOM = 32;
+	public const uint32 ILR_SCALE_CLIP = 0;
+	public const uint32 ILR_SCALE_ASPECTRATIO = 256;
+	public const uint32 ILGOS_ALWAYS = 0;
+	public const uint32 ILGOS_FROMSTANDBY = 1;
+	public const uint32 ILFIP_ALWAYS = 0;
+	public const uint32 ILFIP_FROMSTANDBY = 1;
+	public const uint32 ILDI_PURGE = 1;
+	public const uint32 ILDI_STANDBY = 2;
+	public const uint32 ILDI_RESETACCESS = 4;
+	public const uint32 ILDI_QUERYACCESS = 8;
 	public const uint32 CCHCCCLASS = 32;
 	public const uint32 CCHCCDESC = 32;
 	public const uint32 CCHCCTEXT = 256;
 	public const uint32 CCF_NOTEXT = 1;
+	public const uint32 ctlFirst = 1024;
+	public const uint32 ctlLast = 1279;
+	public const uint32 psh1 = 1024;
+	public const uint32 psh2 = 1025;
+	public const uint32 psh3 = 1026;
+	public const uint32 psh4 = 1027;
+	public const uint32 psh5 = 1028;
+	public const uint32 psh6 = 1029;
+	public const uint32 psh7 = 1030;
+	public const uint32 psh8 = 1031;
+	public const uint32 psh9 = 1032;
+	public const uint32 psh10 = 1033;
+	public const uint32 psh11 = 1034;
+	public const uint32 psh12 = 1035;
+	public const uint32 psh13 = 1036;
+	public const uint32 psh14 = 1037;
+	public const uint32 psh15 = 1038;
+	public const uint32 pshHelp = 1038;
+	public const uint32 psh16 = 1039;
+	public const uint32 chx1 = 1040;
+	public const uint32 chx2 = 1041;
+	public const uint32 chx3 = 1042;
+	public const uint32 chx4 = 1043;
+	public const uint32 chx5 = 1044;
+	public const uint32 chx6 = 1045;
+	public const uint32 chx7 = 1046;
+	public const uint32 chx8 = 1047;
+	public const uint32 chx9 = 1048;
+	public const uint32 chx10 = 1049;
+	public const uint32 chx11 = 1050;
+	public const uint32 chx12 = 1051;
+	public const uint32 chx13 = 1052;
+	public const uint32 chx14 = 1053;
+	public const uint32 chx15 = 1054;
+	public const uint32 chx16 = 1055;
+	public const uint32 rad1 = 1056;
+	public const uint32 rad2 = 1057;
+	public const uint32 rad3 = 1058;
+	public const uint32 rad4 = 1059;
+	public const uint32 rad5 = 1060;
+	public const uint32 rad6 = 1061;
+	public const uint32 rad7 = 1062;
+	public const uint32 rad8 = 1063;
+	public const uint32 rad9 = 1064;
+	public const uint32 rad10 = 1065;
+	public const uint32 rad11 = 1066;
+	public const uint32 rad12 = 1067;
+	public const uint32 rad13 = 1068;
+	public const uint32 rad14 = 1069;
+	public const uint32 rad15 = 1070;
+	public const uint32 rad16 = 1071;
+	public const uint32 grp1 = 1072;
+	public const uint32 grp2 = 1073;
+	public const uint32 grp3 = 1074;
+	public const uint32 grp4 = 1075;
+	public const uint32 frm1 = 1076;
+	public const uint32 frm2 = 1077;
+	public const uint32 frm3 = 1078;
+	public const uint32 frm4 = 1079;
+	public const uint32 rct1 = 1080;
+	public const uint32 rct2 = 1081;
+	public const uint32 rct3 = 1082;
+	public const uint32 rct4 = 1083;
+	public const uint32 ico1 = 1084;
+	public const uint32 ico2 = 1085;
+	public const uint32 ico3 = 1086;
+	public const uint32 ico4 = 1087;
+	public const uint32 stc1 = 1088;
+	public const uint32 stc2 = 1089;
+	public const uint32 stc3 = 1090;
+	public const uint32 stc4 = 1091;
+	public const uint32 stc5 = 1092;
+	public const uint32 stc6 = 1093;
+	public const uint32 stc7 = 1094;
+	public const uint32 stc8 = 1095;
+	public const uint32 stc9 = 1096;
+	public const uint32 stc10 = 1097;
+	public const uint32 stc11 = 1098;
+	public const uint32 stc12 = 1099;
+	public const uint32 stc13 = 1100;
+	public const uint32 stc14 = 1101;
+	public const uint32 stc15 = 1102;
+	public const uint32 stc16 = 1103;
+	public const uint32 stc17 = 1104;
+	public const uint32 stc18 = 1105;
+	public const uint32 stc19 = 1106;
+	public const uint32 stc20 = 1107;
+	public const uint32 stc21 = 1108;
+	public const uint32 stc22 = 1109;
+	public const uint32 stc23 = 1110;
+	public const uint32 stc24 = 1111;
+	public const uint32 stc25 = 1112;
+	public const uint32 stc26 = 1113;
+	public const uint32 stc27 = 1114;
+	public const uint32 stc28 = 1115;
+	public const uint32 stc29 = 1116;
+	public const uint32 stc30 = 1117;
+	public const uint32 stc31 = 1118;
+	public const uint32 stc32 = 1119;
+	public const uint32 lst1 = 1120;
+	public const uint32 lst2 = 1121;
+	public const uint32 lst3 = 1122;
+	public const uint32 lst4 = 1123;
+	public const uint32 lst5 = 1124;
+	public const uint32 lst6 = 1125;
+	public const uint32 lst7 = 1126;
+	public const uint32 lst8 = 1127;
+	public const uint32 lst9 = 1128;
+	public const uint32 lst10 = 1129;
+	public const uint32 lst11 = 1130;
+	public const uint32 lst12 = 1131;
+	public const uint32 lst13 = 1132;
+	public const uint32 lst14 = 1133;
+	public const uint32 lst15 = 1134;
+	public const uint32 lst16 = 1135;
+	public const uint32 cmb1 = 1136;
+	public const uint32 cmb2 = 1137;
+	public const uint32 cmb3 = 1138;
+	public const uint32 cmb4 = 1139;
+	public const uint32 cmb5 = 1140;
+	public const uint32 cmb6 = 1141;
+	public const uint32 cmb7 = 1142;
+	public const uint32 cmb8 = 1143;
+	public const uint32 cmb9 = 1144;
+	public const uint32 cmb10 = 1145;
+	public const uint32 cmb11 = 1146;
+	public const uint32 cmb12 = 1147;
+	public const uint32 cmb13 = 1148;
+	public const uint32 cmb14 = 1149;
+	public const uint32 cmb15 = 1150;
+	public const uint32 cmb16 = 1151;
+	public const uint32 edt1 = 1152;
+	public const uint32 edt2 = 1153;
+	public const uint32 edt3 = 1154;
+	public const uint32 edt4 = 1155;
+	public const uint32 edt5 = 1156;
+	public const uint32 edt6 = 1157;
+	public const uint32 edt7 = 1158;
+	public const uint32 edt8 = 1159;
+	public const uint32 edt9 = 1160;
+	public const uint32 edt10 = 1161;
+	public const uint32 edt11 = 1162;
+	public const uint32 edt12 = 1163;
+	public const uint32 edt13 = 1164;
+	public const uint32 edt14 = 1165;
+	public const uint32 edt15 = 1166;
+	public const uint32 edt16 = 1167;
+	public const uint32 scr1 = 1168;
+	public const uint32 scr2 = 1169;
+	public const uint32 scr3 = 1170;
+	public const uint32 scr4 = 1171;
+	public const uint32 scr5 = 1172;
+	public const uint32 scr6 = 1173;
+	public const uint32 scr7 = 1174;
+	public const uint32 scr8 = 1175;
+	public const uint32 ctl1 = 1184;
+	public const uint32 FILEOPENORD = 1536;
+	public const uint32 MULTIFILEOPENORD = 1537;
+	public const uint32 PRINTDLGORD = 1538;
+	public const uint32 PRNSETUPDLGORD = 1539;
+	public const uint32 FINDDLGORD = 1540;
+	public const uint32 REPLACEDLGORD = 1541;
+	public const uint32 FONTDLGORD = 1542;
+	public const uint32 FORMATDLGORD31 = 1543;
+	public const uint32 FORMATDLGORD30 = 1544;
+	public const uint32 RUNDLGORD = 1545;
+	public const uint32 PAGESETUPDLGORD = 1546;
+	public const uint32 NEWFILEOPENORD = 1547;
+	public const uint32 PRINTDLGEXORD = 1549;
+	public const uint32 PAGESETUPDLGORDMOTIF = 1550;
+	public const uint32 COLORMGMTDLGORD = 1551;
+	public const uint32 NEWFILEOPENV2ORD = 1552;
+	public const uint32 NEWFILEOPENV3ORD = 1553;
+	public const uint32 NEWFORMATDLGWITHLINK = 1591;
+	public const uint32 IDC_MANAGE_LINK = 1592;
+	public const uint32 DA_LAST = 2147483647;
+	public const int32 DA_ERR = -1;
+	public const uint32 DSA_APPEND = 2147483647;
+	public const int32 DSA_ERR = -1;
+	public const uint32 DPAM_SORTED = 1;
+	public const uint32 DPAM_NORMAL = 2;
+	public const uint32 DPAM_UNION = 4;
+	public const uint32 DPAM_INTERSECT = 8;
+	public const uint32 DPAS_SORTED = 1;
+	public const uint32 DPAS_INSERTBEFORE = 2;
+	public const uint32 DPAS_INSERTAFTER = 4;
+	public const uint32 DPA_APPEND = 2147483647;
+	public const int32 DPA_ERR = -1;
+	public const uint32 MAXPROPPAGES = 100;
+	public const uint32 PSP_DEFAULT = 0;
+	public const uint32 PSP_DLGINDIRECT = 1;
+	public const uint32 PSP_USEHICON = 2;
+	public const uint32 PSP_USEICONID = 4;
+	public const uint32 PSP_USETITLE = 8;
+	public const uint32 PSP_RTLREADING = 16;
+	public const uint32 PSP_HASHELP = 32;
+	public const uint32 PSP_USEREFPARENT = 64;
+	public const uint32 PSP_USECALLBACK = 128;
+	public const uint32 PSP_PREMATURE = 1024;
+	public const uint32 PSP_HIDEHEADER = 2048;
+	public const uint32 PSP_USEHEADERTITLE = 4096;
+	public const uint32 PSP_USEHEADERSUBTITLE = 8192;
+	public const uint32 PSP_USEFUSIONCONTEXT = 16384;
+	public const uint32 PSH_DEFAULT = 0;
+	public const uint32 PSH_PROPTITLE = 1;
+	public const uint32 PSH_USEHICON = 2;
+	public const uint32 PSH_USEICONID = 4;
+	public const uint32 PSH_PROPSHEETPAGE = 8;
+	public const uint32 PSH_WIZARDHASFINISH = 16;
+	public const uint32 PSH_WIZARD = 32;
+	public const uint32 PSH_USEPSTARTPAGE = 64;
+	public const uint32 PSH_NOAPPLYNOW = 128;
+	public const uint32 PSH_USECALLBACK = 256;
+	public const uint32 PSH_HASHELP = 512;
+	public const uint32 PSH_MODELESS = 1024;
+	public const uint32 PSH_RTLREADING = 2048;
+	public const uint32 PSH_WIZARDCONTEXTHELP = 4096;
+	public const uint32 PSH_WIZARD97 = 8192;
+	public const uint32 PSH_WATERMARK = 32768;
+	public const uint32 PSH_USEHBMWATERMARK = 65536;
+	public const uint32 PSH_USEHPLWATERMARK = 131072;
+	public const uint32 PSH_STRETCHWATERMARK = 262144;
+	public const uint32 PSH_HEADER = 524288;
+	public const uint32 PSH_USEHBMHEADER = 1048576;
+	public const uint32 PSH_USEPAGELANG = 2097152;
+	public const uint32 PSH_WIZARD_LITE = 4194304;
+	public const uint32 PSH_NOCONTEXTHELP = 33554432;
+	public const uint32 PSH_AEROWIZARD = 16384;
+	public const uint32 PSH_RESIZABLE = 67108864;
+	public const uint32 PSH_HEADERBITMAP = 134217728;
+	public const uint32 PSH_NOMARGIN = 268435456;
+	public const uint32 PSCB_INITIALIZED = 1;
+	public const uint32 PSCB_PRECREATE = 2;
+	public const uint32 PSCB_BUTTONPRESSED = 3;
+	public const uint32 PSNRET_NOERROR = 0;
+	public const uint32 PSNRET_INVALID = 1;
+	public const uint32 PSNRET_INVALID_NOCHANGEPAGE = 2;
+	public const uint32 PSNRET_MESSAGEHANDLED = 3;
+	public const uint32 PSM_SETCURSEL = 1125;
+	public const uint32 PSM_REMOVEPAGE = 1126;
+	public const uint32 PSM_ADDPAGE = 1127;
+	public const uint32 PSM_CHANGED = 1128;
+	public const uint32 PSM_RESTARTWINDOWS = 1129;
+	public const uint32 PSM_REBOOTSYSTEM = 1130;
+	public const uint32 PSM_CANCELTOCLOSE = 1131;
+	public const uint32 PSM_QUERYSIBLINGS = 1132;
+	public const uint32 PSM_UNCHANGED = 1133;
+	public const uint32 PSM_APPLY = 1134;
+	public const uint32 PSM_SETTITLEA = 1135;
+	public const uint32 PSM_SETTITLEW = 1144;
+	public const uint32 PSM_SETTITLE = 1144;
+	public const uint32 PSM_SETWIZBUTTONS = 1136;
+	public const uint32 PSWIZB_BACK = 1;
+	public const uint32 PSWIZB_NEXT = 2;
+	public const uint32 PSWIZB_FINISH = 4;
+	public const uint32 PSWIZB_DISABLEDFINISH = 8;
+	public const uint32 PSWIZBF_ELEVATIONREQUIRED = 1;
+	public const uint32 PSWIZB_CANCEL = 16;
+	public const uint32 PSM_PRESSBUTTON = 1137;
+	public const uint32 PSBTN_BACK = 0;
+	public const uint32 PSBTN_NEXT = 1;
+	public const uint32 PSBTN_FINISH = 2;
+	public const uint32 PSBTN_OK = 3;
+	public const uint32 PSBTN_APPLYNOW = 4;
+	public const uint32 PSBTN_CANCEL = 5;
+	public const uint32 PSBTN_HELP = 6;
+	public const uint32 PSBTN_MAX = 6;
+	public const uint32 PSM_SETCURSELID = 1138;
+	public const uint32 PSM_SETFINISHTEXTA = 1139;
+	public const uint32 PSM_SETFINISHTEXTW = 1145;
+	public const uint32 PSM_SETFINISHTEXT = 1145;
+	public const uint32 PSM_GETTABCONTROL = 1140;
+	public const uint32 PSM_ISDIALOGMESSAGE = 1141;
+	public const uint32 PSM_GETCURRENTPAGEHWND = 1142;
+	public const uint32 PSM_INSERTPAGE = 1143;
+	public const uint32 PSM_SETHEADERTITLEA = 1149;
+	public const uint32 PSM_SETHEADERTITLEW = 1150;
+	public const uint32 PSM_SETHEADERTITLE = 1150;
+	public const uint32 PSM_SETHEADERSUBTITLEA = 1151;
+	public const uint32 PSM_SETHEADERSUBTITLEW = 1152;
+	public const uint32 PSM_SETHEADERSUBTITLE = 1152;
+	public const uint32 PSM_HWNDTOINDEX = 1153;
+	public const uint32 PSM_INDEXTOHWND = 1154;
+	public const uint32 PSM_PAGETOINDEX = 1155;
+	public const uint32 PSM_INDEXTOPAGE = 1156;
+	public const uint32 PSM_IDTOINDEX = 1157;
+	public const uint32 PSM_INDEXTOID = 1158;
+	public const uint32 PSM_GETRESULT = 1159;
+	public const uint32 PSM_RECALCPAGESIZES = 1160;
+	public const uint32 PSM_SETNEXTTEXTW = 1161;
+	public const uint32 PSM_SETNEXTTEXT = 1161;
+	public const uint32 PSWIZB_SHOW = 0;
+	public const uint32 PSWIZB_RESTORE = 1;
+	public const uint32 PSM_SHOWWIZBUTTONS = 1162;
+	public const uint32 PSM_ENABLEWIZBUTTONS = 1163;
+	public const uint32 PSM_SETBUTTONTEXTW = 1164;
+	public const uint32 PSM_SETBUTTONTEXT = 1164;
+	public const uint32 ID_PSRESTARTWINDOWS = 2;
+	public const uint32 WIZ_CXDLG = 276;
+	public const uint32 WIZ_CYDLG = 140;
+	public const uint32 WIZ_CXBMP = 80;
+	public const uint32 WIZ_BODYX = 92;
+	public const uint32 WIZ_BODYCX = 184;
+	public const uint32 PROP_SM_CXDLG = 212;
+	public const uint32 PROP_SM_CYDLG = 188;
+	public const uint32 PROP_MED_CXDLG = 227;
+	public const uint32 PROP_MED_CYDLG = 215;
+	public const uint32 PROP_LG_CXDLG = 252;
+	public const uint32 PROP_LG_CYDLG = 218;
+	public const uint32 MAX_THEMECOLOR = 64;
+	public const uint32 MAX_THEMESIZE = 64;
+	public const uint32 DTBG_CLIPRECT = 1;
+	public const uint32 DTBG_DRAWSOLID = 2;
+	public const uint32 DTBG_OMITBORDER = 4;
+	public const uint32 DTBG_OMITCONTENT = 8;
+	public const uint32 DTBG_COMPUTINGREGION = 16;
+	public const uint32 DTBG_MIRRORDC = 32;
+	public const uint32 DTBG_NOMIRROR = 64;
+	public const uint32 DTT_GRAYED = 1;
+	public const uint32 DTT_FLAGS2VALIDBITS = 1;
+	public const uint32 MAX_INTLIST_COUNT = 402;
+	public const uint32 ETDT_DISABLE = 1;
+	public const uint32 ETDT_ENABLE = 2;
+	public const uint32 ETDT_USETABTEXTURE = 4;
+	public const uint32 ETDT_USEAEROWIZARDTABTEXTURE = 8;
+	public const String SZ_THDOCPROP_DISPLAYNAME = "DisplayName";
+	public const String SZ_THDOCPROP_CANONICALNAME = "ThemeName";
+	public const String SZ_THDOCPROP_TOOLTIP = "ToolTip";
+	public const String SZ_THDOCPROP_AUTHOR = "author";
+	public const uint32 WTNCA_NODRAWCAPTION = 1;
+	public const uint32 WTNCA_NODRAWICON = 2;
+	public const uint32 WTNCA_NOSYSMENU = 4;
+	public const uint32 WTNCA_NOMIRRORHELP = 8;
+	public const uint32 TMTVS_RESERVEDLOW = 100000;
+	public const uint32 TMTVS_RESERVEDHIGH = 19999;
+	public const String VSCLASS_AEROWIZARDSTYLE = "AEROWIZARDSTYLE";
+	public const String VSCLASS_AEROWIZARD = "AEROWIZARD";
+	public const String VSCLASS_BUTTONSTYLE = "BUTTONSTYLE";
+	public const String VSCLASS_BUTTON = "BUTTON";
+	public const String VSCLASS_COMBOBOXSTYLE = "COMBOBOXSTYLE";
+	public const String VSCLASS_COMBOBOX = "COMBOBOX";
+	public const String VSCLASS_COMMUNICATIONSSTYLE = "COMMUNICATIONSSTYLE";
+	public const String VSCLASS_COMMUNICATIONS = "COMMUNICATIONS";
+	public const String VSCLASS_CONTROLPANELSTYLE = "CONTROLPANELSTYLE";
+	public const String VSCLASS_CONTROLPANEL = "CONTROLPANEL";
+	public const String VSCLASS_DATEPICKERSTYLE = "DATEPICKERSTYLE";
+	public const String VSCLASS_DATEPICKER = "DATEPICKER";
+	public const String VSCLASS_DRAGDROPSTYLE = "DRAGDROPSTYLE";
+	public const String VSCLASS_DRAGDROP = "DRAGDROP";
+	public const String VSCLASS_EDITSTYLE = "EDITSTYLE";
+	public const String VSCLASS_EDIT = "EDIT";
+	public const String VSCLASS_EXPLORERBARSTYLE = "EXPLORERBARSTYLE";
+	public const String VSCLASS_EXPLORERBAR = "EXPLORERBAR";
+	public const String VSCLASS_FLYOUTSTYLE = "FLYOUTSTYLE";
+	public const String VSCLASS_FLYOUT = "FLYOUT";
+	public const String VSCLASS_HEADERSTYLE = "HEADERSTYLE";
+	public const String VSCLASS_HEADER = "HEADER";
+	public const String VSCLASS_LISTBOXSTYLE = "LISTBOXSTYLE";
+	public const String VSCLASS_LISTBOX = "LISTBOX";
+	public const String VSCLASS_LISTVIEWSTYLE = "LISTVIEWSTYLE";
+	public const String VSCLASS_LISTVIEW = "LISTVIEW";
+	public const String VSCLASS_MENUSTYLE = "MENUSTYLE";
+	public const String VSCLASS_MENU = "MENU";
+	public const String VSCLASS_NAVIGATION = "NAVIGATION";
+	public const String VSCLASS_PROGRESSSTYLE = "PROGRESSSTYLE";
+	public const String VSCLASS_PROGRESS = "PROGRESS";
+	public const String VSCLASS_REBARSTYLE = "REBARSTYLE";
+	public const String VSCLASS_REBAR = "REBAR";
+	public const String VSCLASS_SCROLLBARSTYLE = "SCROLLBARSTYLE";
+	public const String VSCLASS_SCROLLBAR = "SCROLLBAR";
+	public const String VSCLASS_SPINSTYLE = "SPINSTYLE";
+	public const String VSCLASS_SPIN = "SPIN";
+	public const String VSCLASS_STATUSSTYLE = "STATUSSTYLE";
+	public const String VSCLASS_STATUS = "STATUS";
+	public const String VSCLASS_TABSTYLE = "TABSTYLE";
+	public const String VSCLASS_TAB = "TAB";
+	public const String VSCLASS_TASKDIALOGSTYLE = "TASKDIALOGSTYLE";
+	public const String VSCLASS_TASKDIALOG = "TASKDIALOG";
+	public const String VSCLASS_TEXTSTYLE = "TEXTSTYLE";
+	public const String VSCLASS_TOOLBARSTYLE = "TOOLBARSTYLE";
+	public const String VSCLASS_TOOLBAR = "TOOLBAR";
+	public const String VSCLASS_TOOLTIPSTYLE = "TOOLTIPSTYLE";
+	public const String VSCLASS_TOOLTIP = "TOOLTIP";
+	public const String VSCLASS_TRACKBARSTYLE = "TRACKBARSTYLE";
+	public const String VSCLASS_TRACKBAR = "TRACKBAR";
+	public const String VSCLASS_TREEVIEWSTYLE = "TREEVIEWSTYLE";
+	public const String VSCLASS_TREEVIEW = "TREEVIEW";
+	public const String VSCLASS_USERTILE = "USERTILE";
+	public const String VSCLASS_TEXTSELECTIONGRIPPER = "TEXTSELECTIONGRIPPER";
+	public const String VSCLASS_WINDOWSTYLE = "WINDOWSTYLE";
+	public const String VSCLASS_WINDOW = "WINDOW";
+	public const String VSCLASS_LINK = "LINK";
+	public const String VSCLASS_EMPTYMARKUP = "EMPTYMARKUP";
+	public const String VSCLASS_STATIC = "STATIC";
+	public const String VSCLASS_PAGE = "PAGE";
+	public const String VSCLASS_MONTHCAL = "MONTHCAL";
+	public const String VSCLASS_CLOCK = "CLOCK";
+	public const String VSCLASS_TRAYNOTIFY = "TRAYNOTIFY";
+	public const String VSCLASS_TASKBAR = "TASKBAR";
+	public const String VSCLASS_TASKBAND = "TASKBAND";
+	public const String VSCLASS_STARTPANEL = "STARTPANEL";
+	public const String VSCLASS_MENUBAND = "MENUBAND";
 	public const uint32 EM_GETSEL = 176;
 	public const uint32 EM_SETSEL = 177;
 	public const uint32 EM_GETRECT = 178;
@@ -2020,6 +2172,16 @@ public enum THEME_PROPERTY_SYMBOL_ID : uint32
 	TMT_ATLASIMAGE = 8000,
 	TMT_ATLASINPUTIMAGE = 8001,
 	TMT_ATLASRECT = 8002,
+}
+
+
+[AllowDuplicates]
+public enum SET_THEME_APP_PROPERTIES_FLAGS : uint32
+{
+	ALLOW_NONCLIENT = 1,
+	ALLOW_CONTROLS = 2,
+	ALLOW_WEBCONTENT = 4,
+	VALIDBITS = 7,
 }
 
 
@@ -2377,23 +2539,36 @@ public enum NMTBHOTITEM_FLAGS : uint32
 
 
 [AllowDuplicates]
-public enum TTTOOLINFO_FLAGS : uint32
+public enum TOOLTIP_FLAGS : uint32
 {
-	TTF_ABSOLUTE = 128,
-	TTF_CENTERTIP = 2,
 	TTF_IDISHWND = 1,
-	TTF_PARSELINKS = 4096,
+	TTF_CENTERTIP = 2,
 	TTF_RTLREADING = 4,
 	TTF_SUBCLASS = 16,
 	TTF_TRACK = 32,
+	TTF_ABSOLUTE = 128,
 	TTF_TRANSPARENT = 256,
+	TTF_PARSELINKS = 4096,
+	TTF_DI_SETITEM = 32768,
 }
 
 
 [AllowDuplicates]
 public enum LVTILEVIEWINFO_FLAGS : uint32
 {
-	LVTVIF_EXTENDED = 4,
+	LVTVIF_AUTOSIZE = 0,
+	LVTVIF_FIXEDWIDTH = 1,
+	LVTVIF_FIXEDHEIGHT = 2,
+	LVTVIF_FIXEDSIZE = 3,
+}
+
+
+[AllowDuplicates]
+public enum LVTILEVIEWINFO_MASK : uint32
+{
+	LVTVIM_TILESIZE = 1,
+	LVTVIM_COLUMNS = 2,
+	LVTVIM_LABELMARGIN = 4,
 }
 
 
@@ -2527,15 +2702,6 @@ public enum NMPGCALCSIZE_FLAGS : uint32
 
 
 [AllowDuplicates]
-public enum NMLVCUSTOMDRAW_ALIGN : uint32
-{
-	LVGA_HEADER_CENTER = 2,
-	LVGA_HEADER_LEFT = 1,
-	LVGA_HEADER_RIGHT = 4,
-}
-
-
-[AllowDuplicates]
 public enum MCGRIDINFO_FLAGS : uint32
 {
 	MCGIF_DATE = 1,
@@ -2639,6 +2805,360 @@ public enum IMAGELIST_CREATION_FLAGS : uint32
 	ILC_PERITEMMIRROR = 32768,
 	ILC_ORIGINALSIZE = 65536,
 	ILC_HIGHQUALITYSCALE = 131072,
+}
+
+
+[AllowDuplicates]
+public enum DTTOPTS_FLAGS : uint32
+{
+	DTT_TEXTCOLOR = 1,
+	DTT_BORDERCOLOR = 2,
+	DTT_SHADOWCOLOR = 4,
+	DTT_SHADOWTYPE = 8,
+	DTT_SHADOWOFFSET = 16,
+	DTT_BORDERSIZE = 32,
+	DTT_FONTPROP = 64,
+	DTT_COLORPROP = 128,
+	DTT_STATEID = 256,
+	DTT_CALCRECT = 512,
+	DTT_APPLYOVERLAY = 1024,
+	DTT_GLOWSIZE = 2048,
+	DTT_CALLBACK = 4096,
+	DTT_COMPOSITED = 8192,
+	DTT_VALIDBITS = 12287,
+}
+
+
+[AllowDuplicates]
+public enum NMLVGETINFOTIP_FLAGS : uint32
+{
+	LVGIT_UNFOLDED = 1,
+	LVGIT_ZERO = 0,
+}
+
+
+[AllowDuplicates]
+public enum LIST_VIEW_ITEM_STATE_FLAGS : uint32
+{
+	LVIS_FOCUSED = 1,
+	LVIS_SELECTED = 2,
+	LVIS_CUT = 4,
+	LVIS_DROPHILITED = 8,
+	LVIS_GLOW = 16,
+	LVIS_ACTIVATING = 32,
+	LVIS_OVERLAYMASK = 3840,
+	LVIS_STATEIMAGEMASK = 61440,
+}
+
+
+[AllowDuplicates]
+public enum NM_TREEVIEW_ACTION : uint32
+{
+	TVE_COLLAPSE = 1,
+	TVE_EXPAND = 2,
+	TVE_TOGGLE = 3,
+	TVE_EXPANDPARTIAL = 16384,
+	TVE_COLLAPSERESET = 32768,
+	TVC_UNKNOWN = 0,
+	TVC_BYMOUSE = 1,
+	TVC_BYKEYBOARD = 2,
+}
+
+
+[AllowDuplicates]
+public enum MONTH_CALDENDAR_MESSAGES_VIEW : uint32
+{
+	MCMV_MONTH = 0,
+	MCMV_YEAR = 1,
+	MCMV_DECADE = 2,
+	MCMV_CENTURY = 3,
+	MCMV_MAX = 3,
+}
+
+
+[AllowDuplicates]
+public enum TAB_CONTROL_ITEM_STATE : uint32
+{
+	TCIS_BUTTONPRESSED = 1,
+	TCIS_HIGHLIGHTED = 2,
+}
+
+
+[AllowDuplicates]
+public enum TREE_VIEW_ITEM_STATE_FLAGS : uint32
+{
+	TVIS_SELECTED = 2,
+	TVIS_CUT = 4,
+	TVIS_DROPHILITED = 8,
+	TVIS_BOLD = 16,
+	TVIS_EXPANDED = 32,
+	TVIS_EXPANDEDONCE = 64,
+	TVIS_EXPANDPARTIAL = 128,
+	TVIS_OVERLAYMASK = 3840,
+	TVIS_STATEIMAGEMASK = 61440,
+	TVIS_USERMASK = 61440,
+	TVIS_EX_FLAT = 1,
+	TVIS_EX_DISABLED = 2,
+	TVIS_EX_ALL = 2,
+}
+
+
+[AllowDuplicates]
+public enum HEADER_CONTROL_FORMAT_FLAGS : int32
+{
+	HDF_LEFT = 0,
+	HDF_RIGHT = 1,
+	HDF_CENTER = 2,
+	HDF_JUSTIFYMASK = 3,
+	HDF_RTLREADING = 4,
+	HDF_BITMAP = 8192,
+	HDF_STRING = 16384,
+	HDF_OWNERDRAW = 32768,
+	HDF_IMAGE = 2048,
+	HDF_BITMAP_ON_RIGHT = 4096,
+	HDF_SORTUP = 1024,
+	HDF_SORTDOWN = 512,
+	HDF_CHECKBOX = 64,
+	HDF_CHECKED = 128,
+	HDF_FIXEDWIDTH = 256,
+	HDF_SPLITBUTTON = 16777216,
+}
+
+
+[AllowDuplicates]
+public enum HEADER_CONTROL_FORMAT_TYPE : uint32
+{
+	HDFT_ISSTRING = 0,
+	HDFT_ISNUMBER = 1,
+	HDFT_ISDATE = 2,
+	HDFT_HASNOVALUE = 32768,
+}
+
+
+[AllowDuplicates]
+public enum HEADER_CONTROL_FORMAT_STATE : uint32
+{
+	HDIS_FOCUSED = 1,
+}
+
+
+[AllowDuplicates]
+public enum HEADER_HITTEST_INFO_FLAGS : uint32
+{
+	HHT_NOWHERE = 1,
+	HHT_ONHEADER = 2,
+	HHT_ONDIVIDER = 4,
+	HHT_ONDIVOPEN = 8,
+	HHT_ONFILTER = 16,
+	HHT_ONFILTERBUTTON = 32,
+	HHT_ABOVE = 256,
+	HHT_BELOW = 512,
+	HHT_TORIGHT = 1024,
+	HHT_TOLEFT = 2048,
+	HHT_ONITEMSTATEICON = 4096,
+	HHT_ONDROPDOWN = 8192,
+	HHT_ONOVERFLOW = 16384,
+}
+
+
+[AllowDuplicates]
+public enum IMAGE_LIST_WRITE_STREAM_FLAGS : uint32
+{
+	ILP_NORMAL = 0,
+	ILP_DOWNLEVEL = 1,
+}
+
+
+[AllowDuplicates]
+public enum LIST_ITEM_FLAGS : uint32
+{
+	LIF_ITEMINDEX = 1,
+	LIF_STATE = 2,
+	LIF_ITEMID = 4,
+	LIF_URL = 8,
+}
+
+
+[AllowDuplicates]
+public enum LIST_ITEM_STATE_FLAGS : uint32
+{
+	LIS_FOCUSED = 1,
+	LIS_ENABLED = 2,
+	LIS_VISITED = 4,
+	LIS_HOTTRACK = 8,
+	LIS_DEFAULTCOLORS = 16,
+}
+
+
+[AllowDuplicates]
+public enum LIST_VIEW_BACKGROUND_IMAGE_FLAGS : uint32
+{
+	LVBKIF_SOURCE_NONE = 0,
+	LVBKIF_SOURCE_HBITMAP = 1,
+	LVBKIF_SOURCE_URL = 2,
+	LVBKIF_SOURCE_MASK = 3,
+	LVBKIF_STYLE_NORMAL = 0,
+	LVBKIF_STYLE_TILE = 16,
+	LVBKIF_STYLE_MASK = 16,
+	LVBKIF_FLAG_TILEOFFSET = 256,
+	LVBKIF_TYPE_WATERMARK = 268435456,
+	LVBKIF_FLAG_ALPHABLEND = 536870912,
+}
+
+
+[AllowDuplicates]
+public enum LIST_VIEW_GROUP_STATE_FLAGS : uint32
+{
+	LVGS_NORMAL = 0,
+	LVGS_COLLAPSED = 1,
+	LVGS_HIDDEN = 2,
+	LVGS_NOHEADER = 4,
+	LVGS_COLLAPSIBLE = 8,
+	LVGS_FOCUSED = 16,
+	LVGS_SELECTED = 32,
+	LVGS_SUBSETED = 64,
+	LVGS_SUBSETLINKFOCUSED = 128,
+}
+
+
+[AllowDuplicates]
+public enum LIST_VIEW_GROUP_ALIGN_FLAGS : uint32
+{
+	LVGA_HEADER_LEFT = 1,
+	LVGA_HEADER_CENTER = 2,
+	LVGA_HEADER_RIGHT = 4,
+	LVGA_FOOTER_LEFT = 8,
+	LVGA_FOOTER_CENTER = 16,
+	LVGA_FOOTER_RIGHT = 32,
+}
+
+
+[AllowDuplicates]
+public enum LIST_VIEW_INSERT_MARK_FLAGS : uint32
+{
+	LVIM_AFTER = 1,
+}
+
+
+[AllowDuplicates]
+public enum LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS : int32
+{
+	LVCFMT_LINE_BREAK = 1048576,
+	LVCFMT_FILL = 2097152,
+	LVCFMT_WRAP = 4194304,
+	LVCFMT_NO_TITLE = 8388608,
+	LVCFMT_TILE_PLACEMENTMASK = 3145728,
+}
+
+
+[AllowDuplicates]
+public enum MCHITTESTINFO_HIT_FLAGS : uint32
+{
+	MCHT_TITLE = 65536,
+	MCHT_CALENDAR = 131072,
+	MCHT_TODAYLINK = 196608,
+	MCHT_CALENDARCONTROL = 1048576,
+	MCHT_NEXT = 16777216,
+	MCHT_PREV = 33554432,
+	MCHT_NOWHERE = 0,
+	MCHT_TITLEBK = 65536,
+	MCHT_TITLEMONTH = 65537,
+	MCHT_TITLEYEAR = 65538,
+	MCHT_TITLEBTNNEXT = 16842755,
+	MCHT_TITLEBTNPREV = 33619971,
+	MCHT_CALENDARBK = 131072,
+	MCHT_CALENDARDATE = 131073,
+	MCHT_CALENDARDATENEXT = 16908289,
+	MCHT_CALENDARDATEPREV = 33685505,
+	MCHT_CALENDARDAY = 131074,
+	MCHT_CALENDARWEEKNUM = 131075,
+	MCHT_CALENDARDATEMIN = 131076,
+	MCHT_CALENDARDATEMAX = 131077,
+}
+
+
+[AllowDuplicates]
+public enum NMCUSTOMDRAW_DRAW_STATE_FLAGS : uint32
+{
+	CDIS_SELECTED = 1,
+	CDIS_GRAYED = 2,
+	CDIS_DISABLED = 4,
+	CDIS_CHECKED = 8,
+	CDIS_FOCUS = 16,
+	CDIS_DEFAULT = 32,
+	CDIS_HOT = 64,
+	CDIS_MARKED = 128,
+	CDIS_INDETERMINATE = 256,
+	CDIS_SHOWKEYBOARDCUES = 512,
+	CDIS_NEARHOT = 1024,
+	CDIS_OTHERSIDEHOT = 2048,
+	CDIS_DROPHILITED = 4096,
+}
+
+
+[AllowDuplicates]
+public enum NMDATETIMECHANGE_FLAGS : uint32
+{
+	GDT_NONE = 1,
+	GDT_VALID = 0,
+}
+
+
+[AllowDuplicates]
+public enum LIST_VIEW_ITEM_FLAGS : uint32
+{
+	LVIF_TEXT = 1,
+	LVIF_IMAGE = 2,
+	LVIF_PARAM = 4,
+	LVIF_STATE = 8,
+	LVIF_INDENT = 16,
+	LVIF_NORECOMPUTE = 2048,
+	LVIF_GROUPID = 256,
+	LVIF_COLUMNS = 512,
+	LVIF_COLFMT = 65536,
+	LVIF_DI_SETITEM = 4096,
+}
+
+
+[AllowDuplicates]
+public enum ODA_FLAGS : uint32
+{
+	ODA_DRAWENTIRE = 1,
+	ODA_SELECT = 2,
+	ODA_FOCUS = 4,
+}
+
+
+[AllowDuplicates]
+public enum ODS_FLAGS : uint32
+{
+	ODS_SELECTED = 1,
+	ODS_GRAYED = 2,
+	ODS_DISABLED = 4,
+	ODS_CHECKED = 8,
+	ODS_FOCUS = 16,
+	ODS_DEFAULT = 32,
+	ODS_COMBOBOXEDIT = 4096,
+	ODS_HOTLIGHT = 64,
+	ODS_INACTIVE = 128,
+	ODS_NOACCEL = 256,
+	ODS_NOFOCUSRECT = 512,
+}
+
+
+[AllowDuplicates]
+public enum HIT_TEST_BACKGROUND_OPTIONS : uint32
+{
+	HTTB_BACKGROUNDSEG = 0,
+	HTTB_FIXEDBORDER = 2,
+	HTTB_CAPTION = 4,
+	HTTB_RESIZINGBORDER_LEFT = 16,
+	HTTB_RESIZINGBORDER_TOP = 32,
+	HTTB_RESIZINGBORDER_RIGHT = 64,
+	HTTB_RESIZINGBORDER_BOTTOM = 128,
+	HTTB_RESIZINGBORDER = 240,
+	HTTB_SIZINGTEMPLATE = 256,
+	HTTB_SYSTEMSIZINGMARGINS = 512,
 }
 
 
@@ -2863,6 +3383,2006 @@ public enum BP_ANIMATIONSTYLE : int32
 	BPAS_LINEAR = 1,
 	BPAS_CUBIC = 2,
 	BPAS_SINE = 3,
+}
+
+
+[AllowDuplicates]
+public enum AEROWIZARDPARTS : int32
+{
+	AW_TITLEBAR = 1,
+	AW_HEADERAREA = 2,
+	AW_CONTENTAREA = 3,
+	AW_COMMANDAREA = 4,
+	AW_BUTTON = 5,
+}
+
+
+[AllowDuplicates]
+public enum TITLEBARSTATES : int32
+{
+	AW_S_TITLEBAR_ACTIVE = 1,
+	AW_S_TITLEBAR_INACTIVE = 2,
+}
+
+
+[AllowDuplicates]
+public enum HEADERAREASTATES : int32
+{
+	AW_S_HEADERAREA_NOMARGIN = 1,
+}
+
+
+[AllowDuplicates]
+public enum CONTENTAREASTATES : int32
+{
+	AW_S_CONTENTAREA_NOMARGIN = 1,
+}
+
+
+[AllowDuplicates]
+public enum BUTTONPARTS : int32
+{
+	BP_PUSHBUTTON = 1,
+	BP_RADIOBUTTON = 2,
+	BP_CHECKBOX = 3,
+	BP_GROUPBOX = 4,
+	BP_USERBUTTON = 5,
+	BP_COMMANDLINK = 6,
+	BP_COMMANDLINKGLYPH = 7,
+	BP_RADIOBUTTON_HCDISABLED = 8,
+	BP_CHECKBOX_HCDISABLED = 9,
+	BP_GROUPBOX_HCDISABLED = 10,
+	BP_PUSHBUTTONDROPDOWN = 11,
+}
+
+
+[AllowDuplicates]
+public enum PUSHBUTTONSTATES : int32
+{
+	PBS_NORMAL = 1,
+	PBS_HOT = 2,
+	PBS_PRESSED = 3,
+	PBS_DISABLED = 4,
+	PBS_DEFAULTED = 5,
+	PBS_DEFAULTED_ANIMATING = 6,
+}
+
+
+[AllowDuplicates]
+public enum RADIOBUTTONSTATES : int32
+{
+	RBS_UNCHECKEDNORMAL = 1,
+	RBS_UNCHECKEDHOT = 2,
+	RBS_UNCHECKEDPRESSED = 3,
+	RBS_UNCHECKEDDISABLED = 4,
+	RBS_CHECKEDNORMAL = 5,
+	RBS_CHECKEDHOT = 6,
+	RBS_CHECKEDPRESSED = 7,
+	RBS_CHECKEDDISABLED = 8,
+}
+
+
+[AllowDuplicates]
+public enum CHECKBOXSTATES : int32
+{
+	CBS_UNCHECKEDNORMAL = 1,
+	CBS_UNCHECKEDHOT = 2,
+	CBS_UNCHECKEDPRESSED = 3,
+	CBS_UNCHECKEDDISABLED = 4,
+	CBS_CHECKEDNORMAL = 5,
+	CBS_CHECKEDHOT = 6,
+	CBS_CHECKEDPRESSED = 7,
+	CBS_CHECKEDDISABLED = 8,
+	CBS_MIXEDNORMAL = 9,
+	CBS_MIXEDHOT = 10,
+	CBS_MIXEDPRESSED = 11,
+	CBS_MIXEDDISABLED = 12,
+	CBS_IMPLICITNORMAL = 13,
+	CBS_IMPLICITHOT = 14,
+	CBS_IMPLICITPRESSED = 15,
+	CBS_IMPLICITDISABLED = 16,
+	CBS_EXCLUDEDNORMAL = 17,
+	CBS_EXCLUDEDHOT = 18,
+	CBS_EXCLUDEDPRESSED = 19,
+	CBS_EXCLUDEDDISABLED = 20,
+}
+
+
+[AllowDuplicates]
+public enum GROUPBOXSTATES : int32
+{
+	GBS_NORMAL = 1,
+	GBS_DISABLED = 2,
+}
+
+
+[AllowDuplicates]
+public enum COMMANDLINKSTATES : int32
+{
+	CMDLS_NORMAL = 1,
+	CMDLS_HOT = 2,
+	CMDLS_PRESSED = 3,
+	CMDLS_DISABLED = 4,
+	CMDLS_DEFAULTED = 5,
+	CMDLS_DEFAULTED_ANIMATING = 6,
+}
+
+
+[AllowDuplicates]
+public enum COMMANDLINKGLYPHSTATES : int32
+{
+	CMDLGS_NORMAL = 1,
+	CMDLGS_HOT = 2,
+	CMDLGS_PRESSED = 3,
+	CMDLGS_DISABLED = 4,
+	CMDLGS_DEFAULTED = 5,
+}
+
+
+[AllowDuplicates]
+public enum PUSHBUTTONDROPDOWNSTATES : int32
+{
+	PBDDS_NORMAL = 1,
+	PBDDS_DISABLED = 2,
+}
+
+
+[AllowDuplicates]
+public enum COMBOBOXPARTS : int32
+{
+	CP_DROPDOWNBUTTON = 1,
+	CP_BACKGROUND = 2,
+	CP_TRANSPARENTBACKGROUND = 3,
+	CP_BORDER = 4,
+	CP_READONLY = 5,
+	CP_DROPDOWNBUTTONRIGHT = 6,
+	CP_DROPDOWNBUTTONLEFT = 7,
+	CP_CUEBANNER = 8,
+	CP_DROPDOWNITEM = 9,
+}
+
+
+[AllowDuplicates]
+public enum COMBOBOXSTYLESTATES : int32
+{
+	CBXS_NORMAL = 1,
+	CBXS_HOT = 2,
+	CBXS_PRESSED = 3,
+	CBXS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum DROPDOWNBUTTONRIGHTSTATES : int32
+{
+	CBXSR_NORMAL = 1,
+	CBXSR_HOT = 2,
+	CBXSR_PRESSED = 3,
+	CBXSR_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum DROPDOWNBUTTONLEFTSTATES : int32
+{
+	CBXSL_NORMAL = 1,
+	CBXSL_HOT = 2,
+	CBXSL_PRESSED = 3,
+	CBXSL_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum TRANSPARENTBACKGROUNDSTATES : int32
+{
+	CBTBS_NORMAL = 1,
+	CBTBS_HOT = 2,
+	CBTBS_DISABLED = 3,
+	CBTBS_FOCUSED = 4,
+}
+
+
+[AllowDuplicates]
+public enum BORDERSTATES : int32
+{
+	CBB_NORMAL = 1,
+	CBB_HOT = 2,
+	CBB_FOCUSED = 3,
+	CBB_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum READONLYSTATES : int32
+{
+	CBRO_NORMAL = 1,
+	CBRO_HOT = 2,
+	CBRO_PRESSED = 3,
+	CBRO_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum CUEBANNERSTATES : int32
+{
+	CBCB_NORMAL = 1,
+	CBCB_HOT = 2,
+	CBCB_PRESSED = 3,
+	CBCB_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum DROPDOWNITEMSTATES : int32
+{
+	CBDI_NORMAL = 1,
+	CBDI_HIGHLIGHTED = 2,
+}
+
+
+[AllowDuplicates]
+public enum COMMUNICATIONSPARTS : int32
+{
+	CSST_TAB = 1,
+}
+
+
+[AllowDuplicates]
+public enum TABSTATES : int32
+{
+	CSTB_NORMAL = 1,
+	CSTB_HOT = 2,
+	CSTB_SELECTED = 3,
+}
+
+
+[AllowDuplicates]
+public enum CONTROLPANELPARTS : int32
+{
+	CPANEL_NAVIGATIONPANE = 1,
+	CPANEL_CONTENTPANE = 2,
+	CPANEL_NAVIGATIONPANELABEL = 3,
+	CPANEL_CONTENTPANELABEL = 4,
+	CPANEL_TITLE = 5,
+	CPANEL_BODYTEXT = 6,
+	CPANEL_HELPLINK = 7,
+	CPANEL_TASKLINK = 8,
+	CPANEL_GROUPTEXT = 9,
+	CPANEL_CONTENTLINK = 10,
+	CPANEL_SECTIONTITLELINK = 11,
+	CPANEL_LARGECOMMANDAREA = 12,
+	CPANEL_SMALLCOMMANDAREA = 13,
+	CPANEL_BUTTON = 14,
+	CPANEL_MESSAGETEXT = 15,
+	CPANEL_NAVIGATIONPANELINE = 16,
+	CPANEL_CONTENTPANELINE = 17,
+	CPANEL_BANNERAREA = 18,
+	CPANEL_BODYTITLE = 19,
+}
+
+
+[AllowDuplicates]
+public enum HELPLINKSTATES : int32
+{
+	CPHL_NORMAL = 1,
+	CPHL_HOT = 2,
+	CPHL_PRESSED = 3,
+	CPHL_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum TASKLINKSTATES : int32
+{
+	CPTL_NORMAL = 1,
+	CPTL_HOT = 2,
+	CPTL_PRESSED = 3,
+	CPTL_DISABLED = 4,
+	CPTL_PAGE = 5,
+}
+
+
+[AllowDuplicates]
+public enum CONTENTLINKSTATES : int32
+{
+	CPCL_NORMAL = 1,
+	CPCL_HOT = 2,
+	CPCL_PRESSED = 3,
+	CPCL_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum SECTIONTITLELINKSTATES : int32
+{
+	CPSTL_NORMAL = 1,
+	CPSTL_HOT = 2,
+}
+
+
+[AllowDuplicates]
+public enum DATEPICKERPARTS : int32
+{
+	DP_DATETEXT = 1,
+	DP_DATEBORDER = 2,
+	DP_SHOWCALENDARBUTTONRIGHT = 3,
+}
+
+
+[AllowDuplicates]
+public enum DATETEXTSTATES : int32
+{
+	DPDT_NORMAL = 1,
+	DPDT_DISABLED = 2,
+	DPDT_SELECTED = 3,
+}
+
+
+[AllowDuplicates]
+public enum DATEBORDERSTATES : int32
+{
+	DPDB_NORMAL = 1,
+	DPDB_HOT = 2,
+	DPDB_FOCUSED = 3,
+	DPDB_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum SHOWCALENDARBUTTONRIGHTSTATES : int32
+{
+	DPSCBR_NORMAL = 1,
+	DPSCBR_HOT = 2,
+	DPSCBR_PRESSED = 3,
+	DPSCBR_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum DRAGDROPPARTS : int32
+{
+	DD_COPY = 1,
+	DD_MOVE = 2,
+	DD_UPDATEMETADATA = 3,
+	DD_CREATELINK = 4,
+	DD_WARNING = 5,
+	DD_NONE = 6,
+	DD_IMAGEBG = 7,
+	DD_TEXTBG = 8,
+}
+
+
+[AllowDuplicates]
+public enum COPYSTATES : int32
+{
+	DDCOPY_HIGHLIGHT = 1,
+	DDCOPY_NOHIGHLIGHT = 2,
+}
+
+
+[AllowDuplicates]
+public enum MOVESTATES : int32
+{
+	DDMOVE_HIGHLIGHT = 1,
+	DDMOVE_NOHIGHLIGHT = 2,
+}
+
+
+[AllowDuplicates]
+public enum UPDATEMETADATASTATES : int32
+{
+	DDUPDATEMETADATA_HIGHLIGHT = 1,
+	DDUPDATEMETADATA_NOHIGHLIGHT = 2,
+}
+
+
+[AllowDuplicates]
+public enum CREATELINKSTATES : int32
+{
+	DDCREATELINK_HIGHLIGHT = 1,
+	DDCREATELINK_NOHIGHLIGHT = 2,
+}
+
+
+[AllowDuplicates]
+public enum WARNINGSTATES : int32
+{
+	DDWARNING_HIGHLIGHT = 1,
+	DDWARNING_NOHIGHLIGHT = 2,
+}
+
+
+[AllowDuplicates]
+public enum NONESTATES : int32
+{
+	DDNONE_HIGHLIGHT = 1,
+	DDNONE_NOHIGHLIGHT = 2,
+}
+
+
+[AllowDuplicates]
+public enum EDITPARTS : int32
+{
+	EP_EDITTEXT = 1,
+	EP_CARET = 2,
+	EP_BACKGROUND = 3,
+	EP_PASSWORD = 4,
+	EP_BACKGROUNDWITHBORDER = 5,
+	EP_EDITBORDER_NOSCROLL = 6,
+	EP_EDITBORDER_HSCROLL = 7,
+	EP_EDITBORDER_VSCROLL = 8,
+	EP_EDITBORDER_HVSCROLL = 9,
+}
+
+
+[AllowDuplicates]
+public enum EDITTEXTSTATES : int32
+{
+	ETS_NORMAL = 1,
+	ETS_HOT = 2,
+	ETS_SELECTED = 3,
+	ETS_DISABLED = 4,
+	ETS_FOCUSED = 5,
+	ETS_READONLY = 6,
+	ETS_ASSIST = 7,
+	ETS_CUEBANNER = 8,
+}
+
+
+[AllowDuplicates]
+public enum BACKGROUNDSTATES : int32
+{
+	EBS_NORMAL = 1,
+	EBS_HOT = 2,
+	EBS_DISABLED = 3,
+	EBS_FOCUSED = 4,
+	EBS_READONLY = 5,
+	EBS_ASSIST = 6,
+}
+
+
+[AllowDuplicates]
+public enum BACKGROUNDWITHBORDERSTATES : int32
+{
+	EBWBS_NORMAL = 1,
+	EBWBS_HOT = 2,
+	EBWBS_DISABLED = 3,
+	EBWBS_FOCUSED = 4,
+}
+
+
+[AllowDuplicates]
+public enum EDITBORDER_NOSCROLLSTATES : int32
+{
+	EPSN_NORMAL = 1,
+	EPSN_HOT = 2,
+	EPSN_FOCUSED = 3,
+	EPSN_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum EDITBORDER_HSCROLLSTATES : int32
+{
+	EPSH_NORMAL = 1,
+	EPSH_HOT = 2,
+	EPSH_FOCUSED = 3,
+	EPSH_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum EDITBORDER_VSCROLLSTATES : int32
+{
+	EPSV_NORMAL = 1,
+	EPSV_HOT = 2,
+	EPSV_FOCUSED = 3,
+	EPSV_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum EDITBORDER_HVSCROLLSTATES : int32
+{
+	EPSHV_NORMAL = 1,
+	EPSHV_HOT = 2,
+	EPSHV_FOCUSED = 3,
+	EPSHV_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum EXPLORERBARPARTS : int32
+{
+	EBP_HEADERBACKGROUND = 1,
+	EBP_HEADERCLOSE = 2,
+	EBP_HEADERPIN = 3,
+	EBP_IEBARMENU = 4,
+	EBP_NORMALGROUPBACKGROUND = 5,
+	EBP_NORMALGROUPCOLLAPSE = 6,
+	EBP_NORMALGROUPEXPAND = 7,
+	EBP_NORMALGROUPHEAD = 8,
+	EBP_SPECIALGROUPBACKGROUND = 9,
+	EBP_SPECIALGROUPCOLLAPSE = 10,
+	EBP_SPECIALGROUPEXPAND = 11,
+	EBP_SPECIALGROUPHEAD = 12,
+}
+
+
+[AllowDuplicates]
+public enum HEADERCLOSESTATES : int32
+{
+	EBHC_NORMAL = 1,
+	EBHC_HOT = 2,
+	EBHC_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum HEADERPINSTATES : int32
+{
+	EBHP_NORMAL = 1,
+	EBHP_HOT = 2,
+	EBHP_PRESSED = 3,
+	EBHP_SELECTEDNORMAL = 4,
+	EBHP_SELECTEDHOT = 5,
+	EBHP_SELECTEDPRESSED = 6,
+}
+
+
+[AllowDuplicates]
+public enum IEBARMENUSTATES : int32
+{
+	EBM_NORMAL = 1,
+	EBM_HOT = 2,
+	EBM_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum NORMALGROUPCOLLAPSESTATES : int32
+{
+	EBNGC_NORMAL = 1,
+	EBNGC_HOT = 2,
+	EBNGC_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum NORMALGROUPEXPANDSTATES : int32
+{
+	EBNGE_NORMAL = 1,
+	EBNGE_HOT = 2,
+	EBNGE_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum SPECIALGROUPCOLLAPSESTATES : int32
+{
+	EBSGC_NORMAL = 1,
+	EBSGC_HOT = 2,
+	EBSGC_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum SPECIALGROUPEXPANDSTATES : int32
+{
+	EBSGE_NORMAL = 1,
+	EBSGE_HOT = 2,
+	EBSGE_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum FLYOUTPARTS : int32
+{
+	FLYOUT_HEADER = 1,
+	FLYOUT_BODY = 2,
+	FLYOUT_LABEL = 3,
+	FLYOUT_LINK = 4,
+	FLYOUT_DIVIDER = 5,
+	FLYOUT_WINDOW = 6,
+	FLYOUT_LINKAREA = 7,
+	FLYOUT_LINKHEADER = 8,
+}
+
+
+[AllowDuplicates]
+public enum LABELSTATES : int32
+{
+	FLS_NORMAL = 1,
+	FLS_SELECTED = 2,
+	FLS_EMPHASIZED = 3,
+	FLS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum LINKSTATES : int32
+{
+	FLYOUTLINK_NORMAL = 1,
+	FLYOUTLINK_HOVER = 2,
+}
+
+
+[AllowDuplicates]
+public enum BODYSTATES : int32
+{
+	FBS_NORMAL = 1,
+	FBS_EMPHASIZED = 2,
+}
+
+
+[AllowDuplicates]
+public enum LINKHEADERSTATES : int32
+{
+	FLH_NORMAL = 1,
+	FLH_HOVER = 2,
+}
+
+
+[AllowDuplicates]
+public enum HEADERPARTS : int32
+{
+	HP_HEADERITEM = 1,
+	HP_HEADERITEMLEFT = 2,
+	HP_HEADERITEMRIGHT = 3,
+	HP_HEADERSORTARROW = 4,
+	HP_HEADERDROPDOWN = 5,
+	HP_HEADERDROPDOWNFILTER = 6,
+	HP_HEADEROVERFLOW = 7,
+}
+
+
+[AllowDuplicates]
+public enum HEADERSTYLESTATES : int32
+{
+	HBG_DETAILS = 1,
+	HBG_ICON = 2,
+}
+
+
+[AllowDuplicates]
+public enum HEADERITEMSTATES : int32
+{
+	HIS_NORMAL = 1,
+	HIS_HOT = 2,
+	HIS_PRESSED = 3,
+	HIS_SORTEDNORMAL = 4,
+	HIS_SORTEDHOT = 5,
+	HIS_SORTEDPRESSED = 6,
+	HIS_ICONNORMAL = 7,
+	HIS_ICONHOT = 8,
+	HIS_ICONPRESSED = 9,
+	HIS_ICONSORTEDNORMAL = 10,
+	HIS_ICONSORTEDHOT = 11,
+	HIS_ICONSORTEDPRESSED = 12,
+}
+
+
+[AllowDuplicates]
+public enum HEADERITEMLEFTSTATES : int32
+{
+	HILS_NORMAL = 1,
+	HILS_HOT = 2,
+	HILS_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum HEADERITEMRIGHTSTATES : int32
+{
+	HIRS_NORMAL = 1,
+	HIRS_HOT = 2,
+	HIRS_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum HEADERSORTARROWSTATES : int32
+{
+	HSAS_SORTEDUP = 1,
+	HSAS_SORTEDDOWN = 2,
+}
+
+
+[AllowDuplicates]
+public enum HEADERDROPDOWNSTATES : int32
+{
+	HDDS_NORMAL = 1,
+	HDDS_SOFTHOT = 2,
+	HDDS_HOT = 3,
+}
+
+
+[AllowDuplicates]
+public enum HEADERDROPDOWNFILTERSTATES : int32
+{
+	HDDFS_NORMAL = 1,
+	HDDFS_SOFTHOT = 2,
+	HDDFS_HOT = 3,
+}
+
+
+[AllowDuplicates]
+public enum HEADEROVERFLOWSTATES : int32
+{
+	HOFS_NORMAL = 1,
+	HOFS_HOT = 2,
+}
+
+
+[AllowDuplicates]
+public enum LISTBOXPARTS : int32
+{
+	LBCP_BORDER_HSCROLL = 1,
+	LBCP_BORDER_HVSCROLL = 2,
+	LBCP_BORDER_NOSCROLL = 3,
+	LBCP_BORDER_VSCROLL = 4,
+	LBCP_ITEM = 5,
+}
+
+
+[AllowDuplicates]
+public enum BORDER_HSCROLLSTATES : int32
+{
+	LBPSH_NORMAL = 1,
+	LBPSH_FOCUSED = 2,
+	LBPSH_HOT = 3,
+	LBPSH_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum BORDER_HVSCROLLSTATES : int32
+{
+	LBPSHV_NORMAL = 1,
+	LBPSHV_FOCUSED = 2,
+	LBPSHV_HOT = 3,
+	LBPSHV_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum BORDER_NOSCROLLSTATES : int32
+{
+	LBPSN_NORMAL = 1,
+	LBPSN_FOCUSED = 2,
+	LBPSN_HOT = 3,
+	LBPSN_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum BORDER_VSCROLLSTATES : int32
+{
+	LBPSV_NORMAL = 1,
+	LBPSV_FOCUSED = 2,
+	LBPSV_HOT = 3,
+	LBPSV_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum ITEMSTATES : int32
+{
+	LBPSI_HOT = 1,
+	LBPSI_HOTSELECTED = 2,
+	LBPSI_SELECTED = 3,
+	LBPSI_SELECTEDNOTFOCUS = 4,
+}
+
+
+[AllowDuplicates]
+public enum LISTVIEWPARTS : int32
+{
+	LVP_LISTITEM = 1,
+	LVP_LISTGROUP = 2,
+	LVP_LISTDETAIL = 3,
+	LVP_LISTSORTEDDETAIL = 4,
+	LVP_EMPTYTEXT = 5,
+	LVP_GROUPHEADER = 6,
+	LVP_GROUPHEADERLINE = 7,
+	LVP_EXPANDBUTTON = 8,
+	LVP_COLLAPSEBUTTON = 9,
+	LVP_COLUMNDETAIL = 10,
+}
+
+
+[AllowDuplicates]
+public enum LISTITEMSTATES : int32
+{
+	LISS_NORMAL = 1,
+	LISS_HOT = 2,
+	LISS_SELECTED = 3,
+	LISS_DISABLED = 4,
+	LISS_SELECTEDNOTFOCUS = 5,
+	LISS_HOTSELECTED = 6,
+}
+
+
+[AllowDuplicates]
+public enum GROUPHEADERSTATES : int32
+{
+	LVGH_OPEN = 1,
+	LVGH_OPENHOT = 2,
+	LVGH_OPENSELECTED = 3,
+	LVGH_OPENSELECTEDHOT = 4,
+	LVGH_OPENSELECTEDNOTFOCUSED = 5,
+	LVGH_OPENSELECTEDNOTFOCUSEDHOT = 6,
+	LVGH_OPENMIXEDSELECTION = 7,
+	LVGH_OPENMIXEDSELECTIONHOT = 8,
+	LVGH_CLOSE = 9,
+	LVGH_CLOSEHOT = 10,
+	LVGH_CLOSESELECTED = 11,
+	LVGH_CLOSESELECTEDHOT = 12,
+	LVGH_CLOSESELECTEDNOTFOCUSED = 13,
+	LVGH_CLOSESELECTEDNOTFOCUSEDHOT = 14,
+	LVGH_CLOSEMIXEDSELECTION = 15,
+	LVGH_CLOSEMIXEDSELECTIONHOT = 16,
+}
+
+
+[AllowDuplicates]
+public enum GROUPHEADERLINESTATES : int32
+{
+	LVGHL_OPEN = 1,
+	LVGHL_OPENHOT = 2,
+	LVGHL_OPENSELECTED = 3,
+	LVGHL_OPENSELECTEDHOT = 4,
+	LVGHL_OPENSELECTEDNOTFOCUSED = 5,
+	LVGHL_OPENSELECTEDNOTFOCUSEDHOT = 6,
+	LVGHL_OPENMIXEDSELECTION = 7,
+	LVGHL_OPENMIXEDSELECTIONHOT = 8,
+	LVGHL_CLOSE = 9,
+	LVGHL_CLOSEHOT = 10,
+	LVGHL_CLOSESELECTED = 11,
+	LVGHL_CLOSESELECTEDHOT = 12,
+	LVGHL_CLOSESELECTEDNOTFOCUSED = 13,
+	LVGHL_CLOSESELECTEDNOTFOCUSEDHOT = 14,
+	LVGHL_CLOSEMIXEDSELECTION = 15,
+	LVGHL_CLOSEMIXEDSELECTIONHOT = 16,
+}
+
+
+[AllowDuplicates]
+public enum EXPANDBUTTONSTATES : int32
+{
+	LVEB_NORMAL = 1,
+	LVEB_HOVER = 2,
+	LVEB_PUSHED = 3,
+}
+
+
+[AllowDuplicates]
+public enum COLLAPSEBUTTONSTATES : int32
+{
+	LVCB_NORMAL = 1,
+	LVCB_HOVER = 2,
+	LVCB_PUSHED = 3,
+}
+
+
+[AllowDuplicates]
+public enum MENUPARTS : int32
+{
+	MENU_MENUITEM_TMSCHEMA = 1,
+	MENU_MENUDROPDOWN_TMSCHEMA = 2,
+	MENU_MENUBARITEM_TMSCHEMA = 3,
+	MENU_MENUBARDROPDOWN_TMSCHEMA = 4,
+	MENU_CHEVRON_TMSCHEMA = 5,
+	MENU_SEPARATOR_TMSCHEMA = 6,
+	MENU_BARBACKGROUND = 7,
+	MENU_BARITEM = 8,
+	MENU_POPUPBACKGROUND = 9,
+	MENU_POPUPBORDERS = 10,
+	MENU_POPUPCHECK = 11,
+	MENU_POPUPCHECKBACKGROUND = 12,
+	MENU_POPUPGUTTER = 13,
+	MENU_POPUPITEM = 14,
+	MENU_POPUPSEPARATOR = 15,
+	MENU_POPUPSUBMENU = 16,
+	MENU_SYSTEMCLOSE = 17,
+	MENU_SYSTEMMAXIMIZE = 18,
+	MENU_SYSTEMMINIMIZE = 19,
+	MENU_SYSTEMRESTORE = 20,
+}
+
+
+[AllowDuplicates]
+public enum BARBACKGROUNDSTATES : int32
+{
+	MB_ACTIVE = 1,
+	MB_INACTIVE = 2,
+}
+
+
+[AllowDuplicates]
+public enum BARITEMSTATES : int32
+{
+	MBI_NORMAL = 1,
+	MBI_HOT = 2,
+	MBI_PUSHED = 3,
+	MBI_DISABLED = 4,
+	MBI_DISABLEDHOT = 5,
+	MBI_DISABLEDPUSHED = 6,
+}
+
+
+[AllowDuplicates]
+public enum POPUPCHECKSTATES : int32
+{
+	MC_CHECKMARKNORMAL = 1,
+	MC_CHECKMARKDISABLED = 2,
+	MC_BULLETNORMAL = 3,
+	MC_BULLETDISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum POPUPCHECKBACKGROUNDSTATES : int32
+{
+	MCB_DISABLED = 1,
+	MCB_NORMAL = 2,
+	MCB_BITMAP = 3,
+}
+
+
+[AllowDuplicates]
+public enum POPUPITEMSTATES : int32
+{
+	MPI_NORMAL = 1,
+	MPI_HOT = 2,
+	MPI_DISABLED = 3,
+	MPI_DISABLEDHOT = 4,
+}
+
+
+[AllowDuplicates]
+public enum POPUPSUBMENUSTATES : int32
+{
+	MSM_NORMAL = 1,
+	MSM_DISABLED = 2,
+}
+
+
+[AllowDuplicates]
+public enum SYSTEMCLOSESTATES : int32
+{
+	MSYSC_NORMAL = 1,
+	MSYSC_DISABLED = 2,
+}
+
+
+[AllowDuplicates]
+public enum SYSTEMMAXIMIZESTATES : int32
+{
+	MSYSMX_NORMAL = 1,
+	MSYSMX_DISABLED = 2,
+}
+
+
+[AllowDuplicates]
+public enum SYSTEMMINIMIZESTATES : int32
+{
+	MSYSMN_NORMAL = 1,
+	MSYSMN_DISABLED = 2,
+}
+
+
+[AllowDuplicates]
+public enum SYSTEMRESTORESTATES : int32
+{
+	MSYSR_NORMAL = 1,
+	MSYSR_DISABLED = 2,
+}
+
+
+[AllowDuplicates]
+public enum NAVIGATIONPARTS : int32
+{
+	NAV_BACKBUTTON = 1,
+	NAV_FORWARDBUTTON = 2,
+	NAV_MENUBUTTON = 3,
+}
+
+
+[AllowDuplicates]
+public enum NAV_BACKBUTTONSTATES : int32
+{
+	NAV_BB_NORMAL = 1,
+	NAV_BB_HOT = 2,
+	NAV_BB_PRESSED = 3,
+	NAV_BB_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum NAV_FORWARDBUTTONSTATES : int32
+{
+	NAV_FB_NORMAL = 1,
+	NAV_FB_HOT = 2,
+	NAV_FB_PRESSED = 3,
+	NAV_FB_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum NAV_MENUBUTTONSTATES : int32
+{
+	NAV_MB_NORMAL = 1,
+	NAV_MB_HOT = 2,
+	NAV_MB_PRESSED = 3,
+	NAV_MB_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum PROGRESSPARTS : int32
+{
+	PP_BAR = 1,
+	PP_BARVERT = 2,
+	PP_CHUNK = 3,
+	PP_CHUNKVERT = 4,
+	PP_FILL = 5,
+	PP_FILLVERT = 6,
+	PP_PULSEOVERLAY = 7,
+	PP_MOVEOVERLAY = 8,
+	PP_PULSEOVERLAYVERT = 9,
+	PP_MOVEOVERLAYVERT = 10,
+	PP_TRANSPARENTBAR = 11,
+	PP_TRANSPARENTBARVERT = 12,
+}
+
+
+[AllowDuplicates]
+public enum TRANSPARENTBARSTATES : int32
+{
+	PBBS_NORMAL = 1,
+	PBBS_PARTIAL = 2,
+}
+
+
+[AllowDuplicates]
+public enum TRANSPARENTBARVERTSTATES : int32
+{
+	PBBVS_NORMAL = 1,
+	PBBVS_PARTIAL = 2,
+}
+
+
+[AllowDuplicates]
+public enum FILLSTATES : int32
+{
+	PBFS_NORMAL = 1,
+	PBFS_ERROR = 2,
+	PBFS_PAUSED = 3,
+	PBFS_PARTIAL = 4,
+}
+
+
+[AllowDuplicates]
+public enum FILLVERTSTATES : int32
+{
+	PBFVS_NORMAL = 1,
+	PBFVS_ERROR = 2,
+	PBFVS_PAUSED = 3,
+	PBFVS_PARTIAL = 4,
+}
+
+
+[AllowDuplicates]
+public enum REBARPARTS : int32
+{
+	RP_GRIPPER = 1,
+	RP_GRIPPERVERT = 2,
+	RP_BAND = 3,
+	RP_CHEVRON = 4,
+	RP_CHEVRONVERT = 5,
+	RP_BACKGROUND = 6,
+	RP_SPLITTER = 7,
+	RP_SPLITTERVERT = 8,
+}
+
+
+[AllowDuplicates]
+public enum CHEVRONSTATES : int32
+{
+	CHEVS_NORMAL = 1,
+	CHEVS_HOT = 2,
+	CHEVS_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum CHEVRONVERTSTATES : int32
+{
+	CHEVSV_NORMAL = 1,
+	CHEVSV_HOT = 2,
+	CHEVSV_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum SPLITTERSTATES : int32
+{
+	SPLITS_NORMAL = 1,
+	SPLITS_HOT = 2,
+	SPLITS_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum SPLITTERVERTSTATES : int32
+{
+	SPLITSV_NORMAL = 1,
+	SPLITSV_HOT = 2,
+	SPLITSV_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum SCROLLBARPARTS : int32
+{
+	SBP_ARROWBTN = 1,
+	SBP_THUMBBTNHORZ = 2,
+	SBP_THUMBBTNVERT = 3,
+	SBP_LOWERTRACKHORZ = 4,
+	SBP_UPPERTRACKHORZ = 5,
+	SBP_LOWERTRACKVERT = 6,
+	SBP_UPPERTRACKVERT = 7,
+	SBP_GRIPPERHORZ = 8,
+	SBP_GRIPPERVERT = 9,
+	SBP_SIZEBOX = 10,
+	SBP_SIZEBOXBKGND = 11,
+}
+
+
+[AllowDuplicates]
+public enum ARROWBTNSTATES : int32
+{
+	ABS_UPNORMAL = 1,
+	ABS_UPHOT = 2,
+	ABS_UPPRESSED = 3,
+	ABS_UPDISABLED = 4,
+	ABS_DOWNNORMAL = 5,
+	ABS_DOWNHOT = 6,
+	ABS_DOWNPRESSED = 7,
+	ABS_DOWNDISABLED = 8,
+	ABS_LEFTNORMAL = 9,
+	ABS_LEFTHOT = 10,
+	ABS_LEFTPRESSED = 11,
+	ABS_LEFTDISABLED = 12,
+	ABS_RIGHTNORMAL = 13,
+	ABS_RIGHTHOT = 14,
+	ABS_RIGHTPRESSED = 15,
+	ABS_RIGHTDISABLED = 16,
+	ABS_UPHOVER = 17,
+	ABS_DOWNHOVER = 18,
+	ABS_LEFTHOVER = 19,
+	ABS_RIGHTHOVER = 20,
+}
+
+
+[AllowDuplicates]
+public enum SCROLLBARSTYLESTATES : int32
+{
+	SCRBS_NORMAL = 1,
+	SCRBS_HOT = 2,
+	SCRBS_PRESSED = 3,
+	SCRBS_DISABLED = 4,
+	SCRBS_HOVER = 5,
+}
+
+
+[AllowDuplicates]
+public enum SIZEBOXSTATES : int32
+{
+	SZB_RIGHTALIGN = 1,
+	SZB_LEFTALIGN = 2,
+	SZB_TOPRIGHTALIGN = 3,
+	SZB_TOPLEFTALIGN = 4,
+	SZB_HALFBOTTOMRIGHTALIGN = 5,
+	SZB_HALFBOTTOMLEFTALIGN = 6,
+	SZB_HALFTOPRIGHTALIGN = 7,
+	SZB_HALFTOPLEFTALIGN = 8,
+}
+
+
+[AllowDuplicates]
+public enum SPINPARTS : int32
+{
+	SPNP_UP = 1,
+	SPNP_DOWN = 2,
+	SPNP_UPHORZ = 3,
+	SPNP_DOWNHORZ = 4,
+}
+
+
+[AllowDuplicates]
+public enum UPSTATES : int32
+{
+	UPS_NORMAL = 1,
+	UPS_HOT = 2,
+	UPS_PRESSED = 3,
+	UPS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum DOWNSTATES : int32
+{
+	DNS_NORMAL = 1,
+	DNS_HOT = 2,
+	DNS_PRESSED = 3,
+	DNS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum UPHORZSTATES : int32
+{
+	UPHZS_NORMAL = 1,
+	UPHZS_HOT = 2,
+	UPHZS_PRESSED = 3,
+	UPHZS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum DOWNHORZSTATES : int32
+{
+	DNHZS_NORMAL = 1,
+	DNHZS_HOT = 2,
+	DNHZS_PRESSED = 3,
+	DNHZS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum STATUSPARTS : int32
+{
+	SP_PANE = 1,
+	SP_GRIPPERPANE = 2,
+	SP_GRIPPER = 3,
+}
+
+
+[AllowDuplicates]
+public enum TABPARTS : int32
+{
+	TABP_TABITEM = 1,
+	TABP_TABITEMLEFTEDGE = 2,
+	TABP_TABITEMRIGHTEDGE = 3,
+	TABP_TABITEMBOTHEDGE = 4,
+	TABP_TOPTABITEM = 5,
+	TABP_TOPTABITEMLEFTEDGE = 6,
+	TABP_TOPTABITEMRIGHTEDGE = 7,
+	TABP_TOPTABITEMBOTHEDGE = 8,
+	TABP_PANE = 9,
+	TABP_BODY = 10,
+	TABP_AEROWIZARDBODY = 11,
+}
+
+
+[AllowDuplicates]
+public enum TABITEMSTATES : int32
+{
+	TIS_NORMAL = 1,
+	TIS_HOT = 2,
+	TIS_SELECTED = 3,
+	TIS_DISABLED = 4,
+	TIS_FOCUSED = 5,
+}
+
+
+[AllowDuplicates]
+public enum TABITEMLEFTEDGESTATES : int32
+{
+	TILES_NORMAL = 1,
+	TILES_HOT = 2,
+	TILES_SELECTED = 3,
+	TILES_DISABLED = 4,
+	TILES_FOCUSED = 5,
+}
+
+
+[AllowDuplicates]
+public enum TABITEMRIGHTEDGESTATES : int32
+{
+	TIRES_NORMAL = 1,
+	TIRES_HOT = 2,
+	TIRES_SELECTED = 3,
+	TIRES_DISABLED = 4,
+	TIRES_FOCUSED = 5,
+}
+
+
+[AllowDuplicates]
+public enum TABITEMBOTHEDGESTATES : int32
+{
+	TIBES_NORMAL = 1,
+	TIBES_HOT = 2,
+	TIBES_SELECTED = 3,
+	TIBES_DISABLED = 4,
+	TIBES_FOCUSED = 5,
+}
+
+
+[AllowDuplicates]
+public enum TOPTABITEMSTATES : int32
+{
+	TTIS_NORMAL = 1,
+	TTIS_HOT = 2,
+	TTIS_SELECTED = 3,
+	TTIS_DISABLED = 4,
+	TTIS_FOCUSED = 5,
+}
+
+
+[AllowDuplicates]
+public enum TOPTABITEMLEFTEDGESTATES : int32
+{
+	TTILES_NORMAL = 1,
+	TTILES_HOT = 2,
+	TTILES_SELECTED = 3,
+	TTILES_DISABLED = 4,
+	TTILES_FOCUSED = 5,
+}
+
+
+[AllowDuplicates]
+public enum TOPTABITEMRIGHTEDGESTATES : int32
+{
+	TTIRES_NORMAL = 1,
+	TTIRES_HOT = 2,
+	TTIRES_SELECTED = 3,
+	TTIRES_DISABLED = 4,
+	TTIRES_FOCUSED = 5,
+}
+
+
+[AllowDuplicates]
+public enum TOPTABITEMBOTHEDGESTATES : int32
+{
+	TTIBES_NORMAL = 1,
+	TTIBES_HOT = 2,
+	TTIBES_SELECTED = 3,
+	TTIBES_DISABLED = 4,
+	TTIBES_FOCUSED = 5,
+}
+
+
+[AllowDuplicates]
+public enum TASKDIALOGPARTS : int32
+{
+	TDLG_PRIMARYPANEL = 1,
+	TDLG_MAININSTRUCTIONPANE = 2,
+	TDLG_MAINICON = 3,
+	TDLG_CONTENTPANE = 4,
+	TDLG_CONTENTICON = 5,
+	TDLG_EXPANDEDCONTENT = 6,
+	TDLG_COMMANDLINKPANE = 7,
+	TDLG_SECONDARYPANEL = 8,
+	TDLG_CONTROLPANE = 9,
+	TDLG_BUTTONSECTION = 10,
+	TDLG_BUTTONWRAPPER = 11,
+	TDLG_EXPANDOTEXT = 12,
+	TDLG_EXPANDOBUTTON = 13,
+	TDLG_VERIFICATIONTEXT = 14,
+	TDLG_FOOTNOTEPANE = 15,
+	TDLG_FOOTNOTEAREA = 16,
+	TDLG_FOOTNOTESEPARATOR = 17,
+	TDLG_EXPANDEDFOOTERAREA = 18,
+	TDLG_PROGRESSBAR = 19,
+	TDLG_IMAGEALIGNMENT = 20,
+	TDLG_RADIOBUTTONPANE = 21,
+}
+
+
+[AllowDuplicates]
+public enum CONTENTPANESTATES : int32
+{
+	TDLGCPS_STANDALONE = 1,
+}
+
+
+[AllowDuplicates]
+public enum EXPANDOBUTTONSTATES : int32
+{
+	TDLGEBS_NORMAL = 1,
+	TDLGEBS_HOVER = 2,
+	TDLGEBS_PRESSED = 3,
+	TDLGEBS_EXPANDEDNORMAL = 4,
+	TDLGEBS_EXPANDEDHOVER = 5,
+	TDLGEBS_EXPANDEDPRESSED = 6,
+	TDLGEBS_NORMALDISABLED = 7,
+	TDLGEBS_EXPANDEDDISABLED = 8,
+}
+
+
+[AllowDuplicates]
+public enum TEXTSTYLEPARTS : int32
+{
+	TEXT_MAININSTRUCTION = 1,
+	TEXT_INSTRUCTION = 2,
+	TEXT_BODYTITLE = 3,
+	TEXT_BODYTEXT = 4,
+	TEXT_SECONDARYTEXT = 5,
+	TEXT_HYPERLINKTEXT = 6,
+	TEXT_EXPANDED = 7,
+	TEXT_LABEL = 8,
+	TEXT_CONTROLLABEL = 9,
+}
+
+
+[AllowDuplicates]
+public enum HYPERLINKTEXTSTATES : int32
+{
+	TS_HYPERLINK_NORMAL = 1,
+	TS_HYPERLINK_HOT = 2,
+	TS_HYPERLINK_PRESSED = 3,
+	TS_HYPERLINK_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum CONTROLLABELSTATES : int32
+{
+	TS_CONTROLLABEL_NORMAL = 1,
+	TS_CONTROLLABEL_DISABLED = 2,
+}
+
+
+[AllowDuplicates]
+public enum TOOLBARPARTS : int32
+{
+	TP_BUTTON = 1,
+	TP_DROPDOWNBUTTON = 2,
+	TP_SPLITBUTTON = 3,
+	TP_SPLITBUTTONDROPDOWN = 4,
+	TP_SEPARATOR = 5,
+	TP_SEPARATORVERT = 6,
+	TP_DROPDOWNBUTTONGLYPH = 7,
+}
+
+
+[AllowDuplicates]
+public enum TOOLBARSTYLESTATES : int32
+{
+	TS_NORMAL = 1,
+	TS_HOT = 2,
+	TS_PRESSED = 3,
+	TS_DISABLED = 4,
+	TS_CHECKED = 5,
+	TS_HOTCHECKED = 6,
+	TS_NEARHOT = 7,
+	TS_OTHERSIDEHOT = 8,
+}
+
+
+[AllowDuplicates]
+public enum TOOLTIPPARTS : int32
+{
+	TTP_STANDARD = 1,
+	TTP_STANDARDTITLE = 2,
+	TTP_BALLOON = 3,
+	TTP_BALLOONTITLE = 4,
+	TTP_CLOSE = 5,
+	TTP_BALLOONSTEM = 6,
+	TTP_WRENCH = 7,
+}
+
+
+[AllowDuplicates]
+public enum CLOSESTATES : int32
+{
+	TTCS_NORMAL = 1,
+	TTCS_HOT = 2,
+	TTCS_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum STANDARDSTATES : int32
+{
+	TTSS_NORMAL = 1,
+	TTSS_LINK = 2,
+}
+
+
+[AllowDuplicates]
+public enum BALLOONSTATES : int32
+{
+	TTBS_NORMAL = 1,
+	TTBS_LINK = 2,
+}
+
+
+[AllowDuplicates]
+public enum BALLOONSTEMSTATES : int32
+{
+	TTBSS_POINTINGUPLEFTWALL = 1,
+	TTBSS_POINTINGUPCENTERED = 2,
+	TTBSS_POINTINGUPRIGHTWALL = 3,
+	TTBSS_POINTINGDOWNRIGHTWALL = 4,
+	TTBSS_POINTINGDOWNCENTERED = 5,
+	TTBSS_POINTINGDOWNLEFTWALL = 6,
+}
+
+
+[AllowDuplicates]
+public enum WRENCHSTATES : int32
+{
+	TTWS_NORMAL = 1,
+	TTWS_HOT = 2,
+	TTWS_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum TRACKBARPARTS : int32
+{
+	TKP_TRACK = 1,
+	TKP_TRACKVERT = 2,
+	TKP_THUMB = 3,
+	TKP_THUMBBOTTOM = 4,
+	TKP_THUMBTOP = 5,
+	TKP_THUMBVERT = 6,
+	TKP_THUMBLEFT = 7,
+	TKP_THUMBRIGHT = 8,
+	TKP_TICS = 9,
+	TKP_TICSVERT = 10,
+}
+
+
+[AllowDuplicates]
+public enum TRACKBARSTYLESTATES : int32
+{
+	TKS_NORMAL = 1,
+}
+
+
+[AllowDuplicates]
+public enum TRACKSTATES : int32
+{
+	TRS_NORMAL = 1,
+}
+
+
+[AllowDuplicates]
+public enum TRACKVERTSTATES : int32
+{
+	TRVS_NORMAL = 1,
+}
+
+
+[AllowDuplicates]
+public enum THUMBSTATES : int32
+{
+	TUS_NORMAL = 1,
+	TUS_HOT = 2,
+	TUS_PRESSED = 3,
+	TUS_FOCUSED = 4,
+	TUS_DISABLED = 5,
+}
+
+
+[AllowDuplicates]
+public enum THUMBBOTTOMSTATES : int32
+{
+	TUBS_NORMAL = 1,
+	TUBS_HOT = 2,
+	TUBS_PRESSED = 3,
+	TUBS_FOCUSED = 4,
+	TUBS_DISABLED = 5,
+}
+
+
+[AllowDuplicates]
+public enum THUMBTOPSTATES : int32
+{
+	TUTS_NORMAL = 1,
+	TUTS_HOT = 2,
+	TUTS_PRESSED = 3,
+	TUTS_FOCUSED = 4,
+	TUTS_DISABLED = 5,
+}
+
+
+[AllowDuplicates]
+public enum THUMBVERTSTATES : int32
+{
+	TUVS_NORMAL = 1,
+	TUVS_HOT = 2,
+	TUVS_PRESSED = 3,
+	TUVS_FOCUSED = 4,
+	TUVS_DISABLED = 5,
+}
+
+
+[AllowDuplicates]
+public enum THUMBLEFTSTATES : int32
+{
+	TUVLS_NORMAL = 1,
+	TUVLS_HOT = 2,
+	TUVLS_PRESSED = 3,
+	TUVLS_FOCUSED = 4,
+	TUVLS_DISABLED = 5,
+}
+
+
+[AllowDuplicates]
+public enum THUMBRIGHTSTATES : int32
+{
+	TUVRS_NORMAL = 1,
+	TUVRS_HOT = 2,
+	TUVRS_PRESSED = 3,
+	TUVRS_FOCUSED = 4,
+	TUVRS_DISABLED = 5,
+}
+
+
+[AllowDuplicates]
+public enum TICSSTATES : int32
+{
+	TSS_NORMAL = 1,
+}
+
+
+[AllowDuplicates]
+public enum TICSVERTSTATES : int32
+{
+	TSVS_NORMAL = 1,
+}
+
+
+[AllowDuplicates]
+public enum TREEVIEWPARTS : int32
+{
+	TVP_TREEITEM = 1,
+	TVP_GLYPH = 2,
+	TVP_BRANCH = 3,
+	TVP_HOTGLYPH = 4,
+}
+
+
+[AllowDuplicates]
+public enum TREEITEMSTATES : int32
+{
+	TREIS_NORMAL = 1,
+	TREIS_HOT = 2,
+	TREIS_SELECTED = 3,
+	TREIS_DISABLED = 4,
+	TREIS_SELECTEDNOTFOCUS = 5,
+	TREIS_HOTSELECTED = 6,
+}
+
+
+[AllowDuplicates]
+public enum GLYPHSTATES : int32
+{
+	GLPS_CLOSED = 1,
+	GLPS_OPENED = 2,
+}
+
+
+[AllowDuplicates]
+public enum HOTGLYPHSTATES : int32
+{
+	HGLPS_CLOSED = 1,
+	HGLPS_OPENED = 2,
+}
+
+
+[AllowDuplicates]
+public enum USERTILEPARTS : int32
+{
+	UTP_STROKEBACKGROUND = 1,
+	UTP_HOVERBACKGROUND = 2,
+}
+
+
+[AllowDuplicates]
+public enum HOVERBACKGROUNDSTATES : int32
+{
+	UTS_NORMAL = 1,
+	UTS_HOT = 2,
+	UTS_PRESSED = 3,
+}
+
+
+[AllowDuplicates]
+public enum TEXTSELECTIONGRIPPERPARTS : int32
+{
+	TSGP_GRIPPER = 1,
+}
+
+
+[AllowDuplicates]
+public enum GRIPPERSTATES : int32
+{
+	TSGS_NORMAL = 1,
+	TSGS_CENTERED = 2,
+}
+
+
+[AllowDuplicates]
+public enum WINDOWPARTS : int32
+{
+	WP_CAPTION = 1,
+	WP_SMALLCAPTION = 2,
+	WP_MINCAPTION = 3,
+	WP_SMALLMINCAPTION = 4,
+	WP_MAXCAPTION = 5,
+	WP_SMALLMAXCAPTION = 6,
+	WP_FRAMELEFT = 7,
+	WP_FRAMERIGHT = 8,
+	WP_FRAMEBOTTOM = 9,
+	WP_SMALLFRAMELEFT = 10,
+	WP_SMALLFRAMERIGHT = 11,
+	WP_SMALLFRAMEBOTTOM = 12,
+	WP_SYSBUTTON = 13,
+	WP_MDISYSBUTTON = 14,
+	WP_MINBUTTON = 15,
+	WP_MDIMINBUTTON = 16,
+	WP_MAXBUTTON = 17,
+	WP_CLOSEBUTTON = 18,
+	WP_SMALLCLOSEBUTTON = 19,
+	WP_MDICLOSEBUTTON = 20,
+	WP_RESTOREBUTTON = 21,
+	WP_MDIRESTOREBUTTON = 22,
+	WP_HELPBUTTON = 23,
+	WP_MDIHELPBUTTON = 24,
+	WP_HORZSCROLL = 25,
+	WP_HORZTHUMB = 26,
+	WP_VERTSCROLL = 27,
+	WP_VERTTHUMB = 28,
+	WP_DIALOG = 29,
+	WP_CAPTIONSIZINGTEMPLATE = 30,
+	WP_SMALLCAPTIONSIZINGTEMPLATE = 31,
+	WP_FRAMELEFTSIZINGTEMPLATE = 32,
+	WP_SMALLFRAMELEFTSIZINGTEMPLATE = 33,
+	WP_FRAMERIGHTSIZINGTEMPLATE = 34,
+	WP_SMALLFRAMERIGHTSIZINGTEMPLATE = 35,
+	WP_FRAMEBOTTOMSIZINGTEMPLATE = 36,
+	WP_SMALLFRAMEBOTTOMSIZINGTEMPLATE = 37,
+	WP_FRAME = 38,
+	WP_BORDER = 39,
+}
+
+
+[AllowDuplicates]
+public enum FRAMESTATES : int32
+{
+	FS_ACTIVE = 1,
+	FS_INACTIVE = 2,
+}
+
+
+[AllowDuplicates]
+public enum CAPTIONSTATES : int32
+{
+	CS_ACTIVE = 1,
+	CS_INACTIVE = 2,
+	CS_DISABLED = 3,
+}
+
+
+[AllowDuplicates]
+public enum MAXCAPTIONSTATES : int32
+{
+	MXCS_ACTIVE = 1,
+	MXCS_INACTIVE = 2,
+	MXCS_DISABLED = 3,
+}
+
+
+[AllowDuplicates]
+public enum MINCAPTIONSTATES : int32
+{
+	MNCS_ACTIVE = 1,
+	MNCS_INACTIVE = 2,
+	MNCS_DISABLED = 3,
+}
+
+
+[AllowDuplicates]
+public enum HORZSCROLLSTATES : int32
+{
+	HSS_NORMAL = 1,
+	HSS_HOT = 2,
+	HSS_PUSHED = 3,
+	HSS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum HORZTHUMBSTATES : int32
+{
+	HTS_NORMAL = 1,
+	HTS_HOT = 2,
+	HTS_PUSHED = 3,
+	HTS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum VERTSCROLLSTATES : int32
+{
+	VSS_NORMAL = 1,
+	VSS_HOT = 2,
+	VSS_PUSHED = 3,
+	VSS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum VERTTHUMBSTATES : int32
+{
+	VTS_NORMAL = 1,
+	VTS_HOT = 2,
+	VTS_PUSHED = 3,
+	VTS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum SYSBUTTONSTATES : int32
+{
+	SBS_NORMAL = 1,
+	SBS_HOT = 2,
+	SBS_PUSHED = 3,
+	SBS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum MINBUTTONSTATES : int32
+{
+	MINBS_NORMAL = 1,
+	MINBS_HOT = 2,
+	MINBS_PUSHED = 3,
+	MINBS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum MAXBUTTONSTATES : int32
+{
+	MAXBS_NORMAL = 1,
+	MAXBS_HOT = 2,
+	MAXBS_PUSHED = 3,
+	MAXBS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum RESTOREBUTTONSTATES : int32
+{
+	RBS_NORMAL = 1,
+	RBS_HOT = 2,
+	RBS_PUSHED = 3,
+	RBS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum HELPBUTTONSTATES : int32
+{
+	HBS_NORMAL = 1,
+	HBS_HOT = 2,
+	HBS_PUSHED = 3,
+	HBS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum CLOSEBUTTONSTATES : int32
+{
+	CBS_NORMAL = 1,
+	CBS_HOT = 2,
+	CBS_PUSHED = 3,
+	CBS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum SMALLCLOSEBUTTONSTATES : int32
+{
+	SCBS_NORMAL = 1,
+	SCBS_HOT = 2,
+	SCBS_PUSHED = 3,
+	SCBS_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum FRAMEBOTTOMSTATES : int32
+{
+	FRB_ACTIVE = 1,
+	FRB_INACTIVE = 2,
+}
+
+
+[AllowDuplicates]
+public enum FRAMELEFTSTATES : int32
+{
+	FRL_ACTIVE = 1,
+	FRL_INACTIVE = 2,
+}
+
+
+[AllowDuplicates]
+public enum FRAMERIGHTSTATES : int32
+{
+	FRR_ACTIVE = 1,
+	FRR_INACTIVE = 2,
+}
+
+
+[AllowDuplicates]
+public enum SMALLCAPTIONSTATES : int32
+{
+	SCS_ACTIVE = 1,
+	SCS_INACTIVE = 2,
+	SCS_DISABLED = 3,
+}
+
+
+[AllowDuplicates]
+public enum SMALLFRAMEBOTTOMSTATES : int32
+{
+	SFRB_ACTIVE = 1,
+	SFRB_INACTIVE = 2,
+}
+
+
+[AllowDuplicates]
+public enum SMALLFRAMELEFTSTATES : int32
+{
+	SFRL_ACTIVE = 1,
+	SFRL_INACTIVE = 2,
+}
+
+
+[AllowDuplicates]
+public enum SMALLFRAMERIGHTSTATES : int32
+{
+	SFRR_ACTIVE = 1,
+	SFRR_INACTIVE = 2,
+}
+
+
+[AllowDuplicates]
+public enum MDICLOSEBUTTONSTATES : int32
+{
+	MDCL_NORMAL = 1,
+	MDCL_HOT = 2,
+	MDCL_PUSHED = 3,
+	MDCL_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum MDIMINBUTTONSTATES : int32
+{
+	MDMI_NORMAL = 1,
+	MDMI_HOT = 2,
+	MDMI_PUSHED = 3,
+	MDMI_DISABLED = 4,
+}
+
+
+[AllowDuplicates]
+public enum MDIRESTOREBUTTONSTATES : int32
+{
+	MDRE_NORMAL = 1,
+	MDRE_HOT = 2,
+	MDRE_PUSHED = 3,
+	MDRE_DISABLED = 4,
 }
 
 
@@ -3414,20 +5934,34 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 #endregion
 
 #region Structs
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct TBBUTTON
+{
+	public int32 iBitmap;
+	public int32 idCommand;
+	public uint8 fsState;
+	public uint8 fsStyle;
+	public uint8[6] bReserved;
+	public uint dwData;
+	public int iString;
+}
+#endif
+
 [CRepr]
 public struct PROPSHEETPAGEA_V1
 {
-	[CRepr, Union]
-	public struct _Anonymous1_e__Union
-	{
-		public PSTR pszTemplate;
-		public DLGTEMPLATE* pResource;
-	}
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
+	}
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
+	{
+		public PSTR pszTemplate;
+		public DLGTEMPLATE* pResource;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3445,16 +5979,16 @@ public struct PROPSHEETPAGEA_V1
 public struct PROPSHEETPAGEA_V2
 {
 	[CRepr, Union]
-	public struct _Anonymous1_e__Union
-	{
-		public PSTR pszTemplate;
-		public DLGTEMPLATE* pResource;
-	}
-	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
+	}
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
+	{
+		public PSTR pszTemplate;
+		public DLGTEMPLATE* pResource;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3474,16 +6008,16 @@ public struct PROPSHEETPAGEA_V2
 public struct PROPSHEETPAGEA_V3
 {
 	[CRepr, Union]
-	public struct _Anonymous1_e__Union
-	{
-		public PSTR pszTemplate;
-		public DLGTEMPLATE* pResource;
-	}
-	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
+	}
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
+	{
+		public PSTR pszTemplate;
+		public DLGTEMPLATE* pResource;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3504,6 +6038,12 @@ public struct PROPSHEETPAGEA_V3
 public struct PROPSHEETPAGEA
 {
 	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		public HICON hIcon;
+		public PSTR pszIcon;
+	}
+	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
 		public HBITMAP hbmHeader;
@@ -3514,12 +6054,6 @@ public struct PROPSHEETPAGEA
 	{
 		public PSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
-	}
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		public HICON hIcon;
-		public PSTR pszIcon;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3541,16 +6075,16 @@ public struct PROPSHEETPAGEA
 public struct PROPSHEETPAGEW_V1
 {
 	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		public HICON hIcon;
-		public PWSTR pszIcon;
-	}
-	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
+	}
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		public HICON hIcon;
+		public PWSTR pszIcon;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3568,16 +6102,16 @@ public struct PROPSHEETPAGEW_V1
 public struct PROPSHEETPAGEW_V2
 {
 	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		public HICON hIcon;
-		public PWSTR pszIcon;
-	}
-	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
+	}
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		public HICON hIcon;
+		public PWSTR pszIcon;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3597,16 +6131,16 @@ public struct PROPSHEETPAGEW_V2
 public struct PROPSHEETPAGEW_V3
 {
 	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		public HICON hIcon;
-		public PWSTR pszIcon;
-	}
-	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
+	}
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		public HICON hIcon;
+		public PWSTR pszIcon;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3627,10 +6161,10 @@ public struct PROPSHEETPAGEW_V3
 public struct PROPSHEETPAGEW
 {
 	[CRepr, Union]
-	public struct _Anonymous2_e__Union
+	public struct _Anonymous3_e__Union
 	{
-		public HICON hIcon;
-		public PWSTR pszIcon;
+		public HBITMAP hbmHeader;
+		public PWSTR pszbmHeader;
 	}
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
@@ -3639,10 +6173,10 @@ public struct PROPSHEETPAGEW
 		public DLGTEMPLATE* pResource;
 	}
 	[CRepr, Union]
-	public struct _Anonymous3_e__Union
+	public struct _Anonymous2_e__Union
 	{
-		public HBITMAP hbmHeader;
-		public PWSTR pszbmHeader;
+		public HICON hIcon;
+		public PWSTR pszIcon;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3664,6 +6198,12 @@ public struct PROPSHEETPAGEW
 public struct PROPSHEETHEADERA_V1
 {
 	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		public uint32 nStartPage;
+		public PSTR pStartPage;
+	}
+	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
 		public PROPSHEETPAGEA* ppsp;
@@ -3674,12 +6214,6 @@ public struct PROPSHEETHEADERA_V1
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
-	}
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		public uint32 nStartPage;
-		public PSTR pStartPage;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3697,16 +6231,10 @@ public struct PROPSHEETHEADERA_V1
 public struct PROPSHEETHEADERA_V2
 {
 	[CRepr, Union]
-	public struct _Anonymous4_e__Union
+	public struct _Anonymous5_e__Union
 	{
-		public HBITMAP hbmWatermark;
-		public PSTR pszbmWatermark;
-	}
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		public uint32 nStartPage;
-		public PSTR pStartPage;
+		public HBITMAP hbmHeader;
+		public PSTR pszbmHeader;
 	}
 	[CRepr, Union]
 	public struct _Anonymous3_e__Union
@@ -3721,10 +6249,16 @@ public struct PROPSHEETHEADERA_V2
 		public PSTR pszIcon;
 	}
 	[CRepr, Union]
-	public struct _Anonymous5_e__Union
+	public struct _Anonymous4_e__Union
 	{
-		public HBITMAP hbmHeader;
-		public PSTR pszbmHeader;
+		public HBITMAP hbmWatermark;
+		public PSTR pszbmWatermark;
+	}
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		public uint32 nStartPage;
+		public PSTR pStartPage;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3745,6 +6279,12 @@ public struct PROPSHEETHEADERA_V2
 public struct PROPSHEETHEADERW_V1
 {
 	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		public uint32 nStartPage;
+		public PWSTR pStartPage;
+	}
+	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
 		public PROPSHEETPAGEW* ppsp;
@@ -3755,12 +6295,6 @@ public struct PROPSHEETHEADERW_V1
 	{
 		public HICON hIcon;
 		public PWSTR pszIcon;
-	}
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		public uint32 nStartPage;
-		public PWSTR pStartPage;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3778,16 +6312,10 @@ public struct PROPSHEETHEADERW_V1
 public struct PROPSHEETHEADERW_V2
 {
 	[CRepr, Union]
-	public struct _Anonymous4_e__Union
+	public struct _Anonymous5_e__Union
 	{
-		public HBITMAP hbmWatermark;
-		public PWSTR pszbmWatermark;
-	}
-	[CRepr, Union]
-	public struct _Anonymous2_e__Union
-	{
-		public uint32 nStartPage;
-		public PWSTR pStartPage;
+		public HBITMAP hbmHeader;
+		public PWSTR pszbmHeader;
 	}
 	[CRepr, Union]
 	public struct _Anonymous3_e__Union
@@ -3802,10 +6330,16 @@ public struct PROPSHEETHEADERW_V2
 		public PWSTR pszIcon;
 	}
 	[CRepr, Union]
-	public struct _Anonymous5_e__Union
+	public struct _Anonymous4_e__Union
 	{
-		public HBITMAP hbmHeader;
-		public PWSTR pszbmHeader;
+		public HBITMAP hbmWatermark;
+		public PWSTR pszbmWatermark;
+	}
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		public uint32 nStartPage;
+		public PWSTR pStartPage;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3840,8 +6374,8 @@ public struct INITCOMMONCONTROLSEX
 public struct COLORSCHEME
 {
 	public uint32 dwSize;
-	public uint32 clrBtnHighlight;
-	public uint32 clrBtnShadow;
+	public COLORREF clrBtnHighlight;
+	public COLORREF clrBtnShadow;
 }
 
 [CRepr]
@@ -3909,7 +6443,7 @@ public struct NMCUSTOMDRAW
 	public HDC hdc;
 	public RECT rc;
 	public uint dwItemSpec;
-	public uint32 uItemState;
+	public NMCUSTOMDRAW_DRAW_STATE_FLAGS uItemState;
 	public LPARAM lItemlParam;
 }
 
@@ -3942,13 +6476,13 @@ public struct IMAGELISTDRAWPARAMS
 	public int32 cy;
 	public int32 xBitmap;
 	public int32 yBitmap;
-	public uint32 rgbBk;
-	public uint32 rgbFg;
+	public COLORREF rgbBk;
+	public COLORREF rgbFg;
 	public uint32 fStyle;
 	public uint32 dwRop;
 	public uint32 fState;
 	public uint32 Frame;
-	public uint32 crEffect;
+	public COLORREF crEffect;
 }
 
 [CRepr]
@@ -3983,13 +6517,13 @@ public struct HDITEMA
 	public PSTR pszText;
 	public HBITMAP hbm;
 	public int32 cchTextMax;
-	public int32 fmt;
+	public HEADER_CONTROL_FORMAT_FLAGS fmt;
 	public LPARAM lParam;
 	public int32 iImage;
 	public int32 iOrder;
-	public uint32 type;
+	public HEADER_CONTROL_FORMAT_TYPE type;
 	public void* pvFilter;
-	public uint32 state;
+	public HEADER_CONTROL_FORMAT_STATE state;
 }
 
 [CRepr]
@@ -4000,13 +6534,13 @@ public struct HDITEMW
 	public PWSTR pszText;
 	public HBITMAP hbm;
 	public int32 cchTextMax;
-	public int32 fmt;
+	public HEADER_CONTROL_FORMAT_FLAGS fmt;
 	public LPARAM lParam;
 	public int32 iImage;
 	public int32 iOrder;
-	public uint32 type;
+	public HEADER_CONTROL_FORMAT_TYPE type;
 	public void* pvFilter;
-	public uint32 state;
+	public HEADER_CONTROL_FORMAT_STATE state;
 }
 
 [CRepr]
@@ -4020,7 +6554,7 @@ public struct HDLAYOUT
 public struct HDHITTESTINFO
 {
 	public POINT pt;
-	public uint32 flags;
+	public HEADER_HITTEST_INFO_FLAGS flags;
 	public int32 iItem;
 }
 
@@ -4074,7 +6608,7 @@ public struct NMHDFILTERBTNCLICK
 	public RECT rc;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
 public struct TBBUTTON
 {
@@ -4082,7 +6616,7 @@ public struct TBBUTTON
 	public int32 idCommand;
 	public uint8 fsState;
 	public uint8 fsStyle;
-	public uint8[6] bReserved;
+	public uint8[2] bReserved;
 	public uint dwData;
 	public int iString;
 }
@@ -4091,8 +6625,8 @@ public struct TBBUTTON
 [CRepr]
 public struct COLORMAP
 {
-	public uint32 from;
-	public uint32 to;
+	public COLORREF from;
+	public COLORREF to;
 }
 
 [CRepr]
@@ -4102,12 +6636,12 @@ public struct NMTBCUSTOMDRAW
 	public HBRUSH hbrMonoDither;
 	public HBRUSH hbrLines;
 	public HPEN hpenLines;
-	public uint32 clrText;
-	public uint32 clrMark;
-	public uint32 clrTextHighlight;
-	public uint32 clrBtnFace;
-	public uint32 clrBtnHighlight;
-	public uint32 clrHighlightHotTrack;
+	public COLORREF clrText;
+	public COLORREF clrMark;
+	public COLORREF clrTextHighlight;
+	public COLORREF clrBtnFace;
+	public COLORREF clrBtnHighlight;
+	public COLORREF clrHighlightHotTrack;
 	public RECT rcText;
 	public int32 nStringBkMode;
 	public int32 nHLStringBkMode;
@@ -4311,8 +6845,8 @@ public struct REBARBANDINFOA
 	public uint32 cbSize;
 	public uint32 fMask;
 	public uint32 fStyle;
-	public uint32 clrFore;
-	public uint32 clrBack;
+	public COLORREF clrFore;
+	public COLORREF clrBack;
 	public PSTR lpText;
 	public uint32 cch;
 	public int32 iImage;
@@ -4338,8 +6872,8 @@ public struct REBARBANDINFOW
 	public uint32 cbSize;
 	public uint32 fMask;
 	public uint32 fStyle;
-	public uint32 clrFore;
-	public uint32 clrBack;
+	public COLORREF clrFore;
+	public COLORREF clrBack;
 	public PWSTR lpText;
 	public uint32 cch;
 	public int32 iImage;
@@ -4431,7 +6965,7 @@ public struct RBHITTESTINFO
 public struct TTTOOLINFOA
 {
 	public uint32 cbSize;
-	public TTTOOLINFO_FLAGS uFlags;
+	public TOOLTIP_FLAGS uFlags;
 	public HWND hwnd;
 	public uint uId;
 	public RECT rect;
@@ -4445,7 +6979,7 @@ public struct TTTOOLINFOA
 public struct TTTOOLINFOW
 {
 	public uint32 cbSize;
-	public TTTOOLINFO_FLAGS uFlags;
+	public TOOLTIP_FLAGS uFlags;
 	public HWND hwnd;
 	public uint uId;
 	public RECT rect;
@@ -4487,7 +7021,7 @@ public struct NMTTDISPINFOA
 	public PSTR lpszText;
 	public CHAR[80] szText;
 	public HINSTANCE hinst;
-	public uint32 uFlags;
+	public TOOLTIP_FLAGS uFlags;
 	public LPARAM lParam;
 }
 
@@ -4498,7 +7032,7 @@ public struct NMTTDISPINFOW
 	public PWSTR lpszText;
 	public char16[80] szText;
 	public HINSTANCE hinst;
-	public uint32 uFlags;
+	public TOOLTIP_FLAGS uFlags;
 	public LPARAM lParam;
 }
 
@@ -4543,10 +7077,10 @@ public struct PBRANGE
 [CRepr]
 public struct LITEM
 {
-	public uint32 mask;
+	public LIST_ITEM_FLAGS mask;
 	public int32 iLink;
-	public uint32 state;
-	public uint32 stateMask;
+	public LIST_ITEM_STATE_FLAGS state;
+	public LIST_ITEM_STATE_FLAGS stateMask;
 	public char16[48] szID;
 	public char16[2084] szUrl;
 }
@@ -4568,11 +7102,11 @@ public struct NMLINK
 [CRepr]
 public struct LVITEMA
 {
-	public uint32 mask;
+	public LIST_VIEW_ITEM_FLAGS mask;
 	public int32 iItem;
 	public int32 iSubItem;
-	public uint32 state;
-	public uint32 stateMask;
+	public LIST_VIEW_ITEM_STATE_FLAGS state;
+	public LIST_VIEW_ITEM_STATE_FLAGS stateMask;
 	public PSTR pszText;
 	public int32 cchTextMax;
 	public int32 iImage;
@@ -4581,18 +7115,18 @@ public struct LVITEMA
 	public LVITEMA_GROUP_ID iGroupId;
 	public uint32 cColumns;
 	public uint32* puColumns;
-	public int32* piColFmt;
+	public LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS* piColFmt;
 	public int32 iGroup;
 }
 
 [CRepr]
 public struct LVITEMW
 {
-	public uint32 mask;
+	public LIST_VIEW_ITEM_FLAGS mask;
 	public int32 iItem;
 	public int32 iSubItem;
-	public uint32 state;
-	public uint32 stateMask;
+	public LIST_VIEW_ITEM_STATE_FLAGS state;
+	public LIST_VIEW_ITEM_STATE_FLAGS stateMask;
 	public PWSTR pszText;
 	public int32 cchTextMax;
 	public int32 iImage;
@@ -4601,7 +7135,7 @@ public struct LVITEMW
 	public LVITEMA_GROUP_ID iGroupId;
 	public uint32 cColumns;
 	public uint32* puColumns;
-	public int32* piColFmt;
+	public LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS* piColFmt;
 	public int32 iGroup;
 }
 
@@ -4670,7 +7204,7 @@ public struct LVCOLUMNW
 [CRepr]
 public struct LVBKIMAGEA
 {
-	public uint32 ulFlags;
+	public LIST_VIEW_BACKGROUND_IMAGE_FLAGS ulFlags;
 	public HBITMAP hbm;
 	public PSTR pszImage;
 	public uint32 cchImageMax;
@@ -4681,7 +7215,7 @@ public struct LVBKIMAGEA
 [CRepr]
 public struct LVBKIMAGEW
 {
-	public uint32 ulFlags;
+	public LIST_VIEW_BACKGROUND_IMAGE_FLAGS ulFlags;
 	public HBITMAP hbm;
 	public PWSTR pszImage;
 	public uint32 cchImageMax;
@@ -4699,9 +7233,9 @@ public struct LVGROUP
 	public PWSTR pszFooter;
 	public int32 cchFooter;
 	public int32 iGroupId;
-	public uint32 stateMask;
-	public uint32 state;
-	public uint32 uAlign;
+	public LIST_VIEW_GROUP_STATE_FLAGS stateMask;
+	public LIST_VIEW_GROUP_STATE_FLAGS state;
+	public LIST_VIEW_GROUP_ALIGN_FLAGS uAlign;
 	public PWSTR pszSubtitle;
 	public uint32 cchSubtitle;
 	public PWSTR pszTask;
@@ -4727,12 +7261,12 @@ public struct LVGROUPMETRICS
 	public uint32 Top;
 	public uint32 Right;
 	public uint32 Bottom;
-	public uint32 crLeft;
-	public uint32 crTop;
-	public uint32 crRight;
-	public uint32 crBottom;
-	public uint32 crHeader;
-	public uint32 crFooter;
+	public COLORREF crLeft;
+	public COLORREF crTop;
+	public COLORREF crRight;
+	public COLORREF crBottom;
+	public COLORREF crHeader;
+	public COLORREF crFooter;
 }
 
 [CRepr]
@@ -4747,7 +7281,7 @@ public struct LVINSERTGROUPSORTED
 public struct LVTILEVIEWINFO
 {
 	public uint32 cbSize;
-	public uint32 dwMask;
+	public LVTILEVIEWINFO_MASK dwMask;
 	public LVTILEVIEWINFO_FLAGS dwFlags;
 	public SIZE sizeTile;
 	public int32 cLines;
@@ -4768,7 +7302,7 @@ public struct LVTILEINFO
 public struct LVINSERTMARK
 {
 	public uint32 cbSize;
-	public uint32 dwFlags;
+	public LIST_VIEW_INSERT_MARK_FLAGS dwFlags;
 	public int32 iItem;
 	public uint32 dwReserved;
 }
@@ -4818,7 +7352,7 @@ public struct NMLISTVIEW
 	public int32 iSubItem;
 	public uint32 uNewState;
 	public uint32 uOldState;
-	public uint32 uChanged;
+	public LIST_VIEW_ITEM_FLAGS uChanged;
 	public POINT ptAction;
 	public LPARAM lParam;
 }
@@ -4841,17 +7375,17 @@ public struct NMITEMACTIVATE
 public struct NMLVCUSTOMDRAW
 {
 	public NMCUSTOMDRAW nmcd;
-	public uint32 clrText;
-	public uint32 clrTextBk;
+	public COLORREF clrText;
+	public COLORREF clrTextBk;
 	public int32 iSubItem;
 	public NMLVCUSTOMDRAW_ITEM_TYPE dwItemType;
-	public uint32 clrFace;
+	public COLORREF clrFace;
 	public int32 iIconEffect;
 	public int32 iIconPhase;
 	public int32 iPartId;
 	public int32 iStateId;
 	public RECT rcText;
-	public NMLVCUSTOMDRAW_ALIGN uAlign;
+	public LIST_VIEW_GROUP_ALIGN_FLAGS uAlign;
 }
 
 [CRepr]
@@ -4884,8 +7418,8 @@ public struct NMLVODSTATECHANGE
 	public NMHDR hdr;
 	public int32 iFrom;
 	public int32 iTo;
-	public uint32 uNewState;
-	public uint32 uOldState;
+	public LIST_VIEW_ITEM_STATE_FLAGS uNewState;
+	public LIST_VIEW_ITEM_STATE_FLAGS uOldState;
 }
 
 [CRepr]
@@ -4923,7 +7457,7 @@ public struct NMLVLINK
 public struct NMLVGETINFOTIPA
 {
 	public NMHDR hdr;
-	public uint32 dwFlags;
+	public NMLVGETINFOTIP_FLAGS dwFlags;
 	public PSTR pszText;
 	public int32 cchTextMax;
 	public int32 iItem;
@@ -4935,7 +7469,7 @@ public struct NMLVGETINFOTIPA
 public struct NMLVGETINFOTIPW
 {
 	public NMHDR hdr;
-	public uint32 dwFlags;
+	public NMLVGETINFOTIP_FLAGS dwFlags;
 	public PWSTR pszText;
 	public int32 cchTextMax;
 	public int32 iItem;
@@ -4973,8 +7507,8 @@ public struct TVITEMA
 {
 	public TVITEM_MASK mask;
 	public HTREEITEM hItem;
-	public uint32 state;
-	public uint32 stateMask;
+	public TREE_VIEW_ITEM_STATE_FLAGS state;
+	public TREE_VIEW_ITEM_STATE_FLAGS stateMask;
 	public PSTR pszText;
 	public int32 cchTextMax;
 	public int32 iImage;
@@ -4988,8 +7522,8 @@ public struct TVITEMW
 {
 	public TVITEM_MASK mask;
 	public HTREEITEM hItem;
-	public uint32 state;
-	public uint32 stateMask;
+	public TREE_VIEW_ITEM_STATE_FLAGS state;
+	public TREE_VIEW_ITEM_STATE_FLAGS stateMask;
 	public PWSTR pszText;
 	public int32 cchTextMax;
 	public int32 iImage;
@@ -5094,7 +7628,7 @@ public struct TVSORTCB
 public struct NMTREEVIEWA
 {
 	public NMHDR hdr;
-	public uint32 action;
+	public NM_TREEVIEW_ACTION action;
 	public TVITEMA itemOld;
 	public TVITEMA itemNew;
 	public POINT ptDrag;
@@ -5104,7 +7638,7 @@ public struct NMTREEVIEWA
 public struct NMTREEVIEWW
 {
 	public NMHDR hdr;
-	public uint32 action;
+	public NM_TREEVIEW_ACTION action;
 	public TVITEMW itemOld;
 	public TVITEMW itemNew;
 	public POINT ptDrag;
@@ -5150,8 +7684,8 @@ public struct NMTVKEYDOWN
 public struct NMTVCUSTOMDRAW
 {
 	public NMCUSTOMDRAW nmcd;
-	public uint32 clrText;
-	public uint32 clrTextBk;
+	public COLORREF clrText;
+	public COLORREF clrTextBk;
 	public int32 iLevel;
 }
 
@@ -5302,8 +7836,8 @@ public struct TCITEMHEADERW
 public struct TCITEMA
 {
 	public TCITEMHEADERA_MASK mask;
-	public uint32 dwState;
-	public uint32 dwStateMask;
+	public TAB_CONTROL_ITEM_STATE dwState;
+	public TAB_CONTROL_ITEM_STATE dwStateMask;
 	public PSTR pszText;
 	public int32 cchTextMax;
 	public int32 iImage;
@@ -5314,8 +7848,8 @@ public struct TCITEMA
 public struct TCITEMW
 {
 	public TCITEMHEADERA_MASK mask;
-	public uint32 dwState;
-	public uint32 dwStateMask;
+	public TAB_CONTROL_ITEM_STATE dwState;
+	public TAB_CONTROL_ITEM_STATE dwStateMask;
 	public PWSTR pszText;
 	public int32 cchTextMax;
 	public int32 iImage;
@@ -5342,7 +7876,7 @@ public struct MCHITTESTINFO
 {
 	public uint32 cbSize;
 	public POINT pt;
-	public uint32 uHit;
+	public MCHITTESTINFO_HIT_FLAGS uHit;
 	public SYSTEMTIME st;
 	public RECT rc;
 	public int32 iOffset;
@@ -5388,8 +7922,8 @@ public struct NMDAYSTATE
 public struct NMVIEWCHANGE
 {
 	public NMHDR nmhdr;
-	public uint32 dwOldView;
-	public uint32 dwNewView;
+	public MONTH_CALDENDAR_MESSAGES_VIEW dwOldView;
+	public MONTH_CALDENDAR_MESSAGES_VIEW dwNewView;
 }
 
 [CRepr]
@@ -5409,7 +7943,7 @@ public struct DATETIMEPICKERINFO
 public struct NMDATETIMECHANGE
 {
 	public NMHDR nmhdr;
-	public uint32 dwFlags;
+	public NMDATETIMECHANGE_FLAGS dwFlags;
 	public SYSTEMTIME st;
 }
 
@@ -5583,16 +8117,16 @@ public struct TASKDIALOG_BUTTON
 public struct TASKDIALOGCONFIG
 {
 	[CRepr, Union, Packed(1)]
-	public struct _Anonymous1_e__Union
-	{
-		public HICON hMainIcon;
-		public PWSTR pszMainIcon;
-	}
-	[CRepr, Union, Packed(1)]
 	public struct _Anonymous2_e__Union
 	{
 		public HICON hFooterIcon;
 		public PWSTR pszFooterIcon;
+	}
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous1_e__Union
+	{
+		public HICON hMainIcon;
+		public PWSTR pszMainIcon;
 	}
 	public uint32 cbSize;
 	public HWND hwndParent;
@@ -5731,10 +8265,10 @@ public struct WTA_OPTIONS
 public struct DTTOPTS
 {
 	public uint32 dwSize;
-	public uint32 dwFlags;
-	public uint32 crText;
-	public uint32 crBorder;
-	public uint32 crShadow;
+	public DTTOPTS_FLAGS dwFlags;
+	public COLORREF crText;
+	public COLORREF crBorder;
+	public COLORREF crShadow;
 	public int32 iTextShadowType;
 	public POINT ptShadowOffset;
 	public int32 iBorderSize;
@@ -5852,7 +8386,7 @@ public struct NMHDR
 [CRepr]
 public struct MEASUREITEMSTRUCT
 {
-	public uint32 CtlType;
+	public DRAWITEMSTRUCT_CTL_TYPE CtlType;
 	public uint32 CtlID;
 	public uint32 itemID;
 	public uint32 itemWidth;
@@ -5866,8 +8400,8 @@ public struct DRAWITEMSTRUCT
 	public DRAWITEMSTRUCT_CTL_TYPE CtlType;
 	public uint32 CtlID;
 	public uint32 itemID;
-	public uint32 itemAction;
-	public uint32 itemState;
+	public ODA_FLAGS itemAction;
+	public ODS_FLAGS itemState;
 	public HWND hwndItem;
 	public HDC hDC;
 	public RECT rcItem;
@@ -5887,7 +8421,7 @@ public struct DELETEITEMSTRUCT
 [CRepr]
 public struct COMPAREITEMSTRUCT
 {
-	public uint32 CtlType;
+	public DRAWITEMSTRUCT_CTL_TYPE CtlType;
 	public uint32 CtlID;
 	public HWND hwndItem;
 	public uint32 itemID1;
@@ -5986,20 +8520,6 @@ public struct POINTER_DEVICE_CURSOR_INFO
 	public POINTER_DEVICE_CURSOR_TYPE cursor;
 }
 
-#if BF_32_BIT
-[CRepr]
-public struct TBBUTTON
-{
-	public int32 iBitmap;
-	public int32 idCommand;
-	public uint8 fsState;
-	public uint8 fsStyle;
-	public uint8[2] bReserved;
-	public uint dwData;
-	public int iString;
-}
-#endif
-
 #endregion
 
 #region COM Class IDs
@@ -6024,7 +8544,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HICON hicon, int32* pi) ReplaceIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, int32 iOverlay) SetOverlayImage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HBITMAP hbmImage, HBITMAP hbmMask) Replace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hbmImage, uint32 crMask, int32* pi) AddMasked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hbmImage, COLORREF crMask, int32* pi) AddMasked;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAGELISTDRAWPARAMS* pimldp) Draw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, uint32 flags, HICON* picon) GetIcon;
@@ -6037,8 +8557,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cx, int32 cy) SetIconSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pi) GetImageCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uNewCount) SetImageCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 clrBk, uint32* pclr) SetBkColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pclr) GetBkColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF clrBk, COLORREF* pclr) SetBkColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COLORREF* pclr) GetBkColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iTrack, int32 dxHotspot, int32 dyHotspot) BeginDrag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndDrag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndLock, int32 x, int32 y) DragEnter;
@@ -6060,7 +8580,7 @@ public static
 
 	public HRESULT Replace(int32 i, HBITMAP hbmImage, HBITMAP hbmMask) mut => VT.[Friend]Replace(&this, i, hbmImage, hbmMask);
 
-	public HRESULT AddMasked(HBITMAP hbmImage, uint32 crMask, int32* pi) mut => VT.[Friend]AddMasked(&this, hbmImage, crMask, pi);
+	public HRESULT AddMasked(HBITMAP hbmImage, COLORREF crMask, int32* pi) mut => VT.[Friend]AddMasked(&this, hbmImage, crMask, pi);
 
 	public HRESULT Draw(IMAGELISTDRAWPARAMS* pimldp) mut => VT.[Friend]Draw(&this, pimldp);
 
@@ -6086,9 +8606,9 @@ public static
 
 	public HRESULT SetImageCount(uint32 uNewCount) mut => VT.[Friend]SetImageCount(&this, uNewCount);
 
-	public HRESULT SetBkColor(uint32 clrBk, uint32* pclr) mut => VT.[Friend]SetBkColor(&this, clrBk, pclr);
+	public HRESULT SetBkColor(COLORREF clrBk, COLORREF* pclr) mut => VT.[Friend]SetBkColor(&this, clrBk, pclr);
 
-	public HRESULT GetBkColor(uint32* pclr) mut => VT.[Friend]GetBkColor(&this, pclr);
+	public HRESULT GetBkColor(COLORREF* pclr) mut => VT.[Friend]GetBkColor(&this, pclr);
 
 	public HRESULT BeginDrag(int32 iTrack, int32 dxHotspot, int32 dyHotspot) mut => VT.[Friend]BeginDrag(&this, iTrack, dxHotspot, dyHotspot);
 
@@ -6130,7 +8650,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAGELISTSTATS* pils) GetStatistics;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cx, int32 cy, IMAGELIST_CREATION_FLAGS flags, int32 cInitial, int32 cGrow) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HBITMAP hbmImage, HBITMAP hbmMask, IUnknown* punk, uint32 dwFlags) Replace2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) ReplaceFromImageList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, Win32.UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) ReplaceFromImageList;
 	}
 
 
@@ -6156,7 +8676,7 @@ public static
 
 	public HRESULT Replace2(int32 i, HBITMAP hbmImage, HBITMAP hbmMask, IUnknown* punk, uint32 dwFlags) mut => VT.[Friend]Replace2(&this, i, hbmImage, hbmMask, punk, dwFlags);
 
-	public HRESULT ReplaceFromImageList(int32 i, UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) mut => VT.[Friend]ReplaceFromImageList(&this, i, pil, iSrc, punk, dwFlags);
+	public HRESULT ReplaceFromImageList(int32 i, Win32.UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) mut => VT.[Friend]ReplaceFromImageList(&this, i, pil, iSrc, punk, dwFlags);
 }
 
 #endregion
@@ -6206,10 +8726,10 @@ public static
 	public static extern int32 ImageList_ReplaceIcon(HIMAGELIST himl, int32 i, HICON hicon);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ImageList_SetBkColor(HIMAGELIST himl, uint32 clrBk);
+	public static extern COLORREF ImageList_SetBkColor(HIMAGELIST himl, COLORREF clrBk);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ImageList_GetBkColor(HIMAGELIST himl);
+	public static extern COLORREF ImageList_GetBkColor(HIMAGELIST himl);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImageList_SetOverlayImage(HIMAGELIST himl, int32 iImage, int32 iOverlay);
@@ -6221,10 +8741,10 @@ public static
 	public static extern BOOL ImageList_Replace(HIMAGELIST himl, int32 i, HBITMAP hbmImage, HBITMAP hbmMask);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ImageList_AddMasked(HIMAGELIST himl, HBITMAP hbmImage, uint32 crMask);
+	public static extern int32 ImageList_AddMasked(HIMAGELIST himl, HBITMAP hbmImage, COLORREF crMask);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ImageList_DrawEx(HIMAGELIST himl, int32 i, HDC hdcDst, int32 x, int32 y, int32 dx, int32 dy, uint32 rgbBk, uint32 rgbFg, IMAGE_LIST_DRAW_STYLE fStyle);
+	public static extern BOOL ImageList_DrawEx(HIMAGELIST himl, int32 i, HDC hdcDst, int32 x, int32 y, int32 dx, int32 dy, COLORREF rgbBk, COLORREF rgbFg, IMAGE_LIST_DRAW_STYLE fStyle);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImageList_DrawIndirect(IMAGELISTDRAWPARAMS* pimldp);
@@ -6236,11 +8756,11 @@ public static
 	public static extern HICON ImageList_GetIcon(HIMAGELIST himl, int32 i, uint32 flags);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HIMAGELIST ImageList_LoadImageA(HINSTANCE hi, PSTR lpbmp, int32 cx, int32 cGrow, uint32 crMask, uint32 uType, IMAGE_FLAGS uFlags);
-	public static HIMAGELIST ImageList_LoadImage(HINSTANCE hi, PSTR lpbmp, int32 cx, int32 cGrow, uint32 crMask, uint32 uType, IMAGE_FLAGS uFlags) => ImageList_LoadImageA(hi, lpbmp, cx, cGrow, crMask, uType, uFlags);
+	public static extern HIMAGELIST ImageList_LoadImageA(HINSTANCE hi, PSTR lpbmp, int32 cx, int32 cGrow, COLORREF crMask, uint32 uType, IMAGE_FLAGS uFlags);
+	public static HIMAGELIST ImageList_LoadImage(HINSTANCE hi, PSTR lpbmp, int32 cx, int32 cGrow, COLORREF crMask, uint32 uType, IMAGE_FLAGS uFlags) => ImageList_LoadImageA(hi, lpbmp, cx, cGrow, crMask, uType, uFlags);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HIMAGELIST ImageList_LoadImageW(HINSTANCE hi, PWSTR lpbmp, int32 cx, int32 cGrow, uint32 crMask, uint32 uType, IMAGE_FLAGS uFlags);
+	public static extern HIMAGELIST ImageList_LoadImageW(HINSTANCE hi, PWSTR lpbmp, int32 cx, int32 cGrow, COLORREF crMask, uint32 uType, IMAGE_FLAGS uFlags);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImageList_Copy(HIMAGELIST himlDst, int32 iDst, HIMAGELIST himlSrc, int32 iSrc, IMAGE_LIST_COPY_FLAGS uFlags);
@@ -6279,7 +8799,7 @@ public static
 	public static extern HRESULT ImageList_ReadEx(uint32 dwFlags, IStream* pstm, in Guid riid, void** ppv);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ImageList_WriteEx(HIMAGELIST himl, uint32 dwFlags, IStream* pstm);
+	public static extern HRESULT ImageList_WriteEx(HIMAGELIST himl, IMAGE_LIST_WRITE_STREAM_FLAGS dwFlags, IStream* pstm);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImageList_GetIconSize(HIMAGELIST himl, int32* cx, int32* cy);
@@ -6494,7 +9014,7 @@ public static
 	public static extern HRESULT LoadIconWithScaleDown(HINSTANCE hinst, PWSTR pszName, int32 cx, int32 cy, HICON* phico);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DrawShadowText(HDC hdc, char16* pszText, uint32 cch, RECT* prc, uint32 dwFlags, uint32 crText, uint32 crShadow, int32 ixOffset, int32 iyOffset);
+	public static extern int32 DrawShadowText(HDC hdc, char16* pszText, uint32 cch, RECT* prc, uint32 dwFlags, COLORREF crText, COLORREF crShadow, int32 ixOffset, int32 iyOffset);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ImageList_CoCreateInstance(in Guid rclsid, IUnknown* punkOuter, in Guid riid, void** ppv);
@@ -6533,7 +9053,7 @@ public static
 	public static extern HRESULT DrawThemeBackgroundEx(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* pRect, DTBGOPTS* pOptions);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DrawThemeText(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char16* pszText, int32 cchText, uint32 dwTextFlags, uint32 dwTextFlags2, RECT* pRect);
+	public static extern HRESULT DrawThemeText(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char16* pszText, int32 cchText, DRAW_TEXT_FORMAT dwTextFlags, uint32 dwTextFlags2, RECT* pRect);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeBackgroundContentRect(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* pBoundingRect, RECT* pContentRect);
@@ -6548,16 +9068,16 @@ public static
 	public static extern HRESULT GetThemePartSize(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* prc, THEMESIZE eSize, SIZE* psz);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeTextExtent(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char16* pszText, int32 cchCharCount, uint32 dwTextFlags, RECT* pBoundingRect, RECT* pExtentRect);
+	public static extern HRESULT GetThemeTextExtent(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char16* pszText, int32 cchCharCount, DRAW_TEXT_FORMAT dwTextFlags, RECT* pBoundingRect, RECT* pExtentRect);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeTextMetrics(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, TEXTMETRICW* ptm);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HitTestThemeBackground(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, uint32 dwOptions, RECT* pRect, HRGN hrgn, POINT ptTest, uint16* pwHitTestCode);
+	public static extern HRESULT HitTestThemeBackground(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, HIT_TEST_BACKGROUND_OPTIONS dwOptions, RECT* pRect, HRGN hrgn, POINT ptTest, uint16* pwHitTestCode);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DrawThemeEdge(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* pDestRect, uint32 uEdge, uint32 uFlags, RECT* pContentRect);
+	public static extern HRESULT DrawThemeEdge(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* pDestRect, DRAWEDGE_FLAGS uEdge, DRAW_EDGE_FLAGS uFlags, RECT* pContentRect);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DrawThemeIcon(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, RECT* pRect, HIMAGELIST himl, int32 iImageIndex);
@@ -6569,7 +9089,7 @@ public static
 	public static extern BOOL IsThemeBackgroundPartiallyTransparent(int hTheme, int32 iPartId, int32 iStateId);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeColor(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, uint32* pColor);
+	public static extern HRESULT GetThemeColor(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, COLORREF* pColor);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeMetric(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, int32* piVal);
@@ -6581,13 +9101,13 @@ public static
 	public static extern HRESULT GetThemeBool(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, BOOL* pfVal);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeInt(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, int32* piVal);
+	public static extern HRESULT GetThemeInt(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, int32* piVal);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeEnumValue(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, int32* piVal);
+	public static extern HRESULT GetThemeEnumValue(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, int32* piVal);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemePosition(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, POINT* pPoint);
+	public static extern HRESULT GetThemePosition(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, POINT* pPoint);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeFont(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, int32 iPropId, LOGFONTW* pFont);
@@ -6596,10 +9116,10 @@ public static
 	public static extern HRESULT GetThemeRect(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, RECT* pRect);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeMargins(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, int32 iPropId, RECT* prc, MARGINS* pMargins);
+	public static extern HRESULT GetThemeMargins(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, RECT* prc, MARGINS* pMargins);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeIntList(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, INTLIST* pIntList);
+	public static extern HRESULT GetThemeIntList(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, INTLIST* pIntList);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemePropertyOrigin(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, PROPERTYORIGIN* pOrigin);
@@ -6608,16 +9128,16 @@ public static
 	public static extern HRESULT SetWindowTheme(HWND hwnd, PWSTR pszSubAppName, PWSTR pszSubIdList);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeFilename(int hTheme, int32 iPartId, int32 iStateId, int32 iPropId, char16* pszThemeFileName, int32 cchMaxBuffChars);
+	public static extern HRESULT GetThemeFilename(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, char16* pszThemeFileName, int32 cchMaxBuffChars);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetThemeSysColor(int hTheme, int32 iColorId);
+	public static extern COLORREF GetThemeSysColor(int hTheme, int32 iColorId);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HBRUSH GetThemeSysColorBrush(int hTheme, THEME_PROPERTY_SYMBOL_ID iColorId);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL GetThemeSysBool(int hTheme, int32 iBoolId);
+	public static extern BOOL GetThemeSysBool(int hTheme, THEME_PROPERTY_SYMBOL_ID iBoolId);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetThemeSysSize(int hTheme, int32 iSizeId);
@@ -6629,7 +9149,7 @@ public static
 	public static extern HRESULT GetThemeSysString(int hTheme, THEME_PROPERTY_SYMBOL_ID iStringId, char16* pszStringBuff, int32 cchMaxStringChars);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetThemeSysInt(int hTheme, int32 iIntId, int32* piValue);
+	public static extern HRESULT GetThemeSysInt(int hTheme, THEME_PROPERTY_SYMBOL_ID iIntId, int32* piValue);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsThemeActive();
@@ -6647,10 +9167,10 @@ public static
 	public static extern BOOL IsThemeDialogTextureEnabled(HWND hwnd);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetThemeAppProperties();
+	public static extern SET_THEME_APP_PROPERTIES_FLAGS GetThemeAppProperties();
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void SetThemeAppProperties(uint32 dwFlags);
+	public static extern void SetThemeAppProperties(SET_THEME_APP_PROPERTIES_FLAGS dwFlags);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetCurrentThemeName(char16* pszThemeFileName, int32 cchMaxNameChars, char16* pszColorBuff, int32 cchMaxColorChars, char16* pszSizeBuff, int32 cchMaxSizeChars);
@@ -6671,7 +9191,7 @@ public static
 	public static extern HRESULT SetWindowThemeAttribute(HWND hwnd, WINDOWTHEMEATTRIBUTETYPE eAttribute, void* pvAttribute, uint32 cbAttribute);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DrawThemeTextEx(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char16* pszText, int32 cchText, uint32 dwTextFlags, RECT* pRect, DTTOPTS* pOptions);
+	public static extern HRESULT DrawThemeTextEx(int hTheme, HDC hdc, int32 iPartId, int32 iStateId, char16* pszText, int32 cchText, DRAW_TEXT_FORMAT dwTextFlags, RECT* pRect, DTTOPTS* pOptions);
 
 	[Import("UXTHEME.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetThemeBitmap(int hTheme, int32 iPartId, int32 iStateId, THEME_PROPERTY_SYMBOL_ID iPropId, GET_THEME_BITMAP_FLAGS dwFlags, HBITMAP* phBitmap);

@@ -1232,7 +1232,7 @@ public struct DWRITE_HIT_TEST_METRICS
 [CRepr]
 public struct DWRITE_FONT_METRICS1
 {
-	public DWRITE_FONT_METRICS __AnonymousBase_DWrite_1_L627_C38;
+	public DWRITE_FONT_METRICS Base;
 	public int16 glyphBoxLeft;
 	public int16 glyphBoxTop;
 	public int16 glyphBoxRight;
@@ -2189,7 +2189,7 @@ public struct DWRITE_FONT_AXIS_RANGE
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float baselineOriginX, float baselineOriginY, DWRITE_MEASURING_MODE measuringMode, DWRITE_GLYPH_RUN* glyphRun, IDWriteRenderingParams* renderingParams, uint32 textColor, RECT* blackBoxRect) DrawGlyphRun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float baselineOriginX, float baselineOriginY, DWRITE_MEASURING_MODE measuringMode, DWRITE_GLYPH_RUN* glyphRun, IDWriteRenderingParams* renderingParams, COLORREF textColor, RECT* blackBoxRect) DrawGlyphRun;
 		protected new function [CallingConvention(.Stdcall)] HDC(SelfOuter* self) GetMemoryDC;
 		protected new function [CallingConvention(.Stdcall)] float(SelfOuter* self) GetPixelsPerDip;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pixelsPerDip) SetPixelsPerDip;
@@ -2200,7 +2200,7 @@ public struct DWRITE_FONT_AXIS_RANGE
 	}
 
 
-	public HRESULT DrawGlyphRun(float baselineOriginX, float baselineOriginY, DWRITE_MEASURING_MODE measuringMode, DWRITE_GLYPH_RUN* glyphRun, IDWriteRenderingParams* renderingParams, uint32 textColor, RECT* blackBoxRect) mut => VT.[Friend]DrawGlyphRun(&this, baselineOriginX, baselineOriginY, measuringMode, glyphRun, renderingParams, textColor, blackBoxRect);
+	public HRESULT DrawGlyphRun(float baselineOriginX, float baselineOriginY, DWRITE_MEASURING_MODE measuringMode, DWRITE_GLYPH_RUN* glyphRun, IDWriteRenderingParams* renderingParams, COLORREF textColor, RECT* blackBoxRect) mut => VT.[Friend]DrawGlyphRun(&this, baselineOriginX, baselineOriginY, measuringMode, glyphRun, renderingParams, textColor, blackBoxRect);
 
 	public HDC GetMemoryDC() mut => VT.[Friend]GetMemoryDC(&this);
 

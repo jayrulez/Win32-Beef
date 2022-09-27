@@ -1,9 +1,7 @@
 using Win32.Foundation;
 using Win32.System.Kernel;
-using Win32.NetworkManagement.QoS;
 using Win32.System.IO;
 using Win32.System.Com;
-using Win32.NetworkManagement.WindowsFilteringPlatform;
 using System;
 
 namespace Win32.Networking.WinSock;
@@ -15,12 +13,48 @@ public static
 	public const Guid REAL_TIME_NOTIFICATION_CAPABILITY = .(0x6b59819a, 0x5cae, 0x492d, 0xa9, 0x01, 0x2a, 0x3c, 0x2c, 0x50, 0x16, 0x4f);
 	public const Guid REAL_TIME_NOTIFICATION_CAPABILITY_EX = .(0x6843da03, 0x154a, 0x4616, 0xa5, 0x08, 0x44, 0x37, 0x12, 0x95, 0xf9, 0x6b);
 	public const Guid ASSOCIATE_NAMERES_CONTEXT = .(0x59a38b67, 0xd4fe, 0x46e1, 0xba, 0x3c, 0x87, 0xea, 0x74, 0xca, 0x30, 0x49);
+	public const uint32 SIO_RCVALL = 2550136833;
+	public const uint32 SIO_RCVALL_MCAST = 2550136834;
+	public const uint32 SIO_RCVALL_IGMPMCAST = 2550136835;
+	public const uint32 SIO_KEEPALIVE_VALS = 2550136836;
+	public const uint32 SIO_ABSORB_RTRALERT = 2550136837;
+	public const uint32 SIO_UCAST_IF = 2550136838;
+	public const uint32 SIO_LIMIT_BROADCASTS = 2550136839;
+	public const uint32 SIO_INDEX_BIND = 2550136840;
+	public const uint32 SIO_INDEX_MCASTIF = 2550136841;
+	public const uint32 SIO_INDEX_ADD_MCAST = 2550136842;
+	public const uint32 SIO_INDEX_DEL_MCAST = 2550136843;
+	public const uint32 SIO_RCVALL_MCAST_IF = 2550136845;
+	public const uint32 SIO_RCVALL_IF = 2550136846;
+	public const uint32 SIO_LOOPBACK_FAST_PATH = 2550136848;
+	public const uint32 SIO_TCP_INITIAL_RTO = 2550136849;
+	public const uint32 SIO_APPLY_TRANSPORT_SETTING = 2550136851;
+	public const uint32 SIO_QUERY_TRANSPORT_SETTING = 2550136852;
+	public const uint32 SIO_TCP_SET_ICW = 2550136854;
+	public const uint32 SIO_TCP_SET_ACK_FREQUENCY = 2550136855;
+	public const uint32 SIO_SET_PRIORITY_HINT = 2550136856;
+	public const uint32 SIO_PRIORITY_HINT = 2550136856;
+	public const uint32 SIO_TCP_INFO = 3623878695;
+	public const uint32 SIO_CPU_AFFINITY = 2550136853;
+	public const uint32 SIO_TIMESTAMPING = 2550137067;
 	public const uint32 TIMESTAMPING_FLAG_RX = 1;
 	public const uint32 TIMESTAMPING_FLAG_TX = 2;
 	public const uint32 SO_TIMESTAMP = 12298;
 	public const uint32 SO_TIMESTAMP_ID = 12299;
+	public const uint32 SIO_GET_TX_TIMESTAMP = 2550137066;
 	public const uint32 TCP_INITIAL_RTO_DEFAULT_RTT = 0;
 	public const uint32 TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS = 0;
+	public const uint32 SIO_ACQUIRE_PORT_RESERVATION = 2550136932;
+	public const uint32 SIO_RELEASE_PORT_RESERVATION = 2550136933;
+	public const uint32 SIO_ASSOCIATE_PORT_RESERVATION = 2550136934;
+	public const uint32 SIO_SET_SECURITY = 2550137032;
+	public const uint32 SIO_QUERY_SECURITY = 3623878857;
+	public const uint32 SIO_SET_PEER_TARGET_NAME = 2550137034;
+	public const uint32 SIO_DELETE_PEER_TARGET_NAME = 2550137035;
+	public const uint32 SIO_QUERY_WFP_CONNECTION_REDIRECT_RECORDS = 2550137052;
+	public const uint32 SIO_QUERY_WFP_CONNECTION_REDIRECT_CONTEXT = 2550137053;
+	public const uint32 SIO_SET_WFP_CONNECTION_REDIRECT_RECORDS = 2550137054;
+	public const uint32 SIO_SOCKET_USAGE_NOTIFICATION = 2550137036;
 	public const uint32 SOCKET_SETTINGS_GUARANTEE_ENCRYPTION = 1;
 	public const uint32 SOCKET_SETTINGS_ALLOW_INSECURE = 2;
 	public const uint32 SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION = 1;
@@ -33,10 +67,13 @@ public static
 	public const uint32 SOCKET_INFO_CONNECTION_SECURED = 1;
 	public const uint32 SOCKET_INFO_CONNECTION_ENCRYPTED = 2;
 	public const uint32 SOCKET_INFO_CONNECTION_IMPERSONATED = 4;
+	public const uint32 SIO_QUERY_WFP_ALE_ENDPOINT_HANDLE = 1476395213;
+	public const uint32 SIO_QUERY_RSS_SCALABILITY_INFO = 1476395218;
 	public const uint32 IN4ADDR_LOOPBACK = 16777343;
 	public const uint32 IN4ADDR_LOOPBACKPREFIX_LENGTH = 8;
 	public const uint32 IN4ADDR_LINKLOCALPREFIX_LENGTH = 16;
 	public const uint32 IN4ADDR_MULTICASTPREFIX_LENGTH = 4;
+	public const uint32 SIO_SET_COMPATIBILITY_MODE = 2550137132;
 	public const uint32 RIO_MSG_DONT_NOTIFY = 1;
 	public const uint32 RIO_MSG_DEFER = 2;
 	public const uint32 RIO_MSG_WAITALL = 4;
@@ -119,6 +156,29 @@ public static
 	public const uint32 IOC_WS2 = 134217728;
 	public const uint32 IOC_PROTOCOL = 268435456;
 	public const uint32 IOC_VENDOR = 402653184;
+	public const uint32 SIO_ASSOCIATE_HANDLE = 2281701377;
+	public const uint32 SIO_ENABLE_CIRCULAR_QUEUEING = 671088642;
+	public const uint32 SIO_FIND_ROUTE = 1207959555;
+	public const uint32 SIO_FLUSH = 671088644;
+	public const uint32 SIO_GET_BROADCAST_ADDRESS = 1207959557;
+	public const uint32 SIO_GET_EXTENSION_FUNCTION_POINTER = 3355443206;
+	public const uint32 SIO_GET_QOS = 3355443207;
+	public const uint32 SIO_GET_GROUP_QOS = 3355443208;
+	public const uint32 SIO_MULTIPOINT_LOOPBACK = 2281701385;
+	public const uint32 SIO_MULTICAST_SCOPE = 2281701386;
+	public const uint32 SIO_SET_QOS = 2281701387;
+	public const uint32 SIO_SET_GROUP_QOS = 2281701388;
+	public const uint32 SIO_TRANSLATE_HANDLE = 3355443213;
+	public const uint32 SIO_ROUTING_INTERFACE_QUERY = 3355443220;
+	public const uint32 SIO_ROUTING_INTERFACE_CHANGE = 2281701397;
+	public const uint32 SIO_ADDRESS_LIST_QUERY = 1207959574;
+	public const uint32 SIO_ADDRESS_LIST_CHANGE = 671088663;
+	public const uint32 SIO_QUERY_TARGET_PNP_HANDLE = 1207959576;
+	public const uint32 SIO_QUERY_RSS_PROCESSOR_INFO = 1207959589;
+	public const uint32 SIO_ADDRESS_LIST_SORT = 3355443225;
+	public const uint32 SIO_RESERVED_1 = 2281701402;
+	public const uint32 SIO_RESERVED_2 = 2281701409;
+	public const uint32 SIO_GET_MULTIPLE_EXTENSION_FUNCTION_POINTER = 3355443236;
 	public const uint32 IPPROTO_IP = 0;
 	public const uint32 IPPORT_TCPMUX = 1;
 	public const uint32 IPPORT_ECHO = 7;
@@ -450,6 +510,9 @@ public static
 	public const uint32 SO_CONNECT_TIME = 28684;
 	public const uint32 SO_UPDATE_CONNECT_CONTEXT = 28688;
 	public const uint32 TCP_BSDURGENT = 28672;
+	public const uint32 SIO_UDP_CONNRESET = 2550136844;
+	public const uint32 SIO_SOCKET_CLOSE_NOTIFY = 2550136845;
+	public const uint32 SIO_UDP_NETRESET = 2550136847;
 	public const uint32 TF_DISCONNECT = 1;
 	public const uint32 TF_REUSE_SOCKET = 2;
 	public const uint32 TF_WRITE_BEHIND = 4;
@@ -467,6 +530,13 @@ public static
 	public const uint32 DE_REUSE_SOCKET = 2;
 	public const uint32 NLA_ALLUSERS_NETWORK = 1;
 	public const uint32 NLA_FRIENDLY_NAME = 2;
+	public const uint32 SIO_BSP_HANDLE = 1207959579;
+	public const uint32 SIO_BSP_HANDLE_SELECT = 1207959580;
+	public const uint32 SIO_BSP_HANDLE_POLL = 1207959581;
+	public const uint32 SIO_BASE_HANDLE = 1207959586;
+	public const uint32 SIO_EXT_SELECT = 3355443230;
+	public const uint32 SIO_EXT_POLL = 3355443231;
+	public const uint32 SIO_EXT_SENDMSG = 3355443232;
 	public const uint32 SERVICE_RESOURCE = 1;
 	public const uint32 SERVICE_SERVICE = 2;
 	public const uint32 SERVICE_LOCAL = 4;
@@ -507,6 +577,18 @@ public static
 	public const uint32 RES_SOFT_SEARCH = 1;
 	public const uint32 RES_FIND_MULTIPLE = 2;
 	public const uint32 RES_SERVICE = 4;
+	public const String SERVICE_TYPE_VALUE_SAPIDA = "SapId";
+	public const String SERVICE_TYPE_VALUE_SAPIDW = "SapId";
+	public const String SERVICE_TYPE_VALUE_CONNA = "ConnectionOriented";
+	public const String SERVICE_TYPE_VALUE_CONNW = "ConnectionOriented";
+	public const String SERVICE_TYPE_VALUE_TCPPORTA = "TcpPort";
+	public const String SERVICE_TYPE_VALUE_TCPPORTW = "TcpPort";
+	public const String SERVICE_TYPE_VALUE_UDPPORTA = "UdpPort";
+	public const String SERVICE_TYPE_VALUE_UDPPORTW = "UdpPort";
+	public const String SERVICE_TYPE_VALUE_SAPID = "SapId";
+	public const String SERVICE_TYPE_VALUE_CONN = "ConnectionOriented";
+	public const String SERVICE_TYPE_VALUE_TCPPORT = "TcpPort";
+	public const String SERVICE_TYPE_VALUE_UDPPORT = "UdpPort";
 	public const uint32 SET_SERVICE_PARTIAL_SUCCESS = 1;
 	public const uint32 FD_SETSIZE = 64;
 	public const uint32 IMPLINK_IP = 155;
@@ -541,7 +623,6 @@ public static
 	public const uint16 PF_BAN = 21;
 	public const uint16 PF_MAX = 29;
 	public const uint32 SOMAXCONN = 5;
-	public const uint32 MSG_PEEK = 2;
 	public const uint32 MSG_MAXIOVLEN = 16;
 	public const uint32 MSG_PARTIAL = 32768;
 	public const uint32 MAXGETHOSTSTRUCT = 1024;
@@ -559,8 +640,6 @@ public static
 	public const uint32 SO_PROTOCOL_INFO = 8197;
 	public const uint32 PVD_CONFIG = 12289;
 	public const uint16 PF_ATM = 22;
-	public const uint32 MSG_WAITALL = 8;
-	public const uint32 MSG_PUSH_IMMEDIATE = 32;
 	public const uint32 MSG_INTERRUPT = 16;
 	public const uint32 FD_READ_BIT = 0;
 	public const uint32 FD_WRITE_BIT = 1;
@@ -574,8 +653,6 @@ public static
 	public const uint32 FD_ADDRESS_LIST_CHANGE_BIT = 9;
 	public const uint32 FD_MAX_EVENTS = 10;
 	public const uint32 WSA_MAXIMUM_WAIT_EVENTS = 64;
-	public const uint32 WSA_WAIT_EVENT_0 = 0;
-	public const uint32 WSA_WAIT_IO_COMPLETION = 192;
 	public const uint32 WSA_WAIT_FAILED = 4294967295;
 	public const uint32 CF_ACCEPT = 0;
 	public const uint32 CF_REJECT = 1;
@@ -628,12 +705,18 @@ public static
 	public const uint32 WSA_FLAG_ACCESS_SYSTEM_SECURITY = 64;
 	public const uint32 WSA_FLAG_NO_HANDLE_INHERIT = 128;
 	public const uint32 WSA_FLAG_REGISTERED_IO = 256;
+	public const uint32 SIO_NSP_NOTIFY_CHANGE = 2281701401;
 	public const uint32 TH_NETDEV = 1;
 	public const uint32 TH_TAPI = 2;
 	public const uint32 SERVICE_MULTIPLE = 1;
 	public const uint32 NS_LOCALNAME = 19;
 	public const uint32 RES_UNUSED_1 = 1;
 	public const uint32 RES_FLUSH_CACHE = 2;
+	public const String SERVICE_TYPE_VALUE_IPXPORTA = "IpxSocket";
+	public const String SERVICE_TYPE_VALUE_IPXPORTW = "IpxSocket";
+	public const String SERVICE_TYPE_VALUE_OBJECTIDA = "ObjectId";
+	public const String SERVICE_TYPE_VALUE_OBJECTIDW = "ObjectId";
+	public const String SERVICE_TYPE_VALUE_OBJECTID = "ObjectId";
 	public const uint32 LUP_DEEP = 1;
 	public const uint32 LUP_CONTAINERS = 2;
 	public const uint32 LUP_NOCONTAINERS = 4;
@@ -671,15 +754,15 @@ public static
 	public const uint32 RESULT_IS_ADDED = 16;
 	public const uint32 RESULT_IS_CHANGED = 32;
 	public const uint32 RESULT_IS_DELETED = 64;
-	public const uint32 POLLRDNORM = 256;
-	public const uint32 POLLRDBAND = 512;
-	public const uint32 POLLPRI = 1024;
-	public const uint32 POLLWRNORM = 16;
-	public const uint32 POLLOUT = 16;
-	public const uint32 POLLWRBAND = 32;
-	public const uint32 POLLERR = 1;
-	public const uint32 POLLHUP = 2;
-	public const uint32 POLLNVAL = 4;
+	public const uint16 POLLRDNORM = 256;
+	public const uint16 POLLRDBAND = 512;
+	public const uint16 POLLPRI = 1024;
+	public const uint16 POLLWRNORM = 16;
+	public const uint16 POLLOUT = 16;
+	public const uint16 POLLWRBAND = 32;
+	public const uint16 POLLERR = 1;
+	public const uint16 POLLHUP = 2;
+	public const uint16 POLLNVAL = 4;
 	public const uint32 SOCK_NOTIFY_REGISTER_EVENT_NONE = 0;
 	public const uint32 SOCK_NOTIFY_REGISTER_EVENT_IN = 1;
 	public const uint32 SOCK_NOTIFY_REGISTER_EVENT_OUT = 2;
@@ -901,6 +984,9 @@ public static
 	public const uint32 BITS_PER_BYTE = 8;
 	public const uint32 LOG2_BITS_PER_BYTE = 3;
 	public const uint32 UNIX_PATH_MAX = 108;
+	public const uint32 SIO_AF_UNIX_GETPEERPID = 1476395264;
+	public const uint32 SIO_AF_UNIX_SETBINDPARENTPATH = 2550137089;
+	public const uint32 SIO_AF_UNIX_SETCONNPARENTPATH = 2550137090;
 	public const uint32 ISOPROTO_TP0 = 25;
 	public const uint32 ISOPROTO_TP1 = 26;
 	public const uint32 ISOPROTO_TP2 = 27;
@@ -929,6 +1015,105 @@ public static
 	public const uint32 VNSPROTO_IPC = 1;
 	public const uint32 VNSPROTO_RELIABLE_IPC = 2;
 	public const uint32 VNSPROTO_SPP = 3;
+	public const uint32 _LITTLE_ENDIAN = 1234;
+	public const uint32 _BIG_ENDIAN = 4321;
+	public const uint32 _PDP_ENDIAN = 3412;
+	public const uint32 BYTE_ORDER = 1234;
+	public const uint32 DL_ADDRESS_LENGTH_MAXIMUM = 32;
+	public const uint32 DL_HEADER_LENGTH_MAXIMUM = 64;
+	public const uint32 SNAP_DSAP = 170;
+	public const uint32 SNAP_SSAP = 170;
+	public const uint32 SNAP_CONTROL = 3;
+	public const uint32 SNAP_OUI = 0;
+	public const uint32 ETH_LENGTH_OF_HEADER = 14;
+	public const uint32 ETH_LENGTH_OF_VLAN_HEADER = 4;
+	public const uint32 ETH_LENGTH_OF_SNAP_HEADER = 8;
+	public const uint32 ETHERNET_TYPE_MINIMUM = 1536;
+	public const uint32 ETHERNET_TYPE_IPV4 = 2048;
+	public const uint32 ETHERNET_TYPE_ARP = 2054;
+	public const uint32 ETHERNET_TYPE_IPV6 = 34525;
+	public const uint32 ETHERNET_TYPE_802_1Q = 33024;
+	public const uint32 ETHERNET_TYPE_802_1AD = 34984;
+	public const uint32 IP_VER_MASK = 240;
+	public const uint32 IPV4_VERSION = 4;
+	public const uint32 MAX_IPV4_PACKET = 65535;
+	public const uint32 MAX_IPV4_HLEN = 60;
+	public const uint32 IPV4_MINIMUM_MTU = 576;
+	public const uint32 IPV4_MIN_MINIMUM_MTU = 352;
+	public const uint32 IPV4_MAX_MINIMUM_MTU = 576;
+	public const uint32 SIZEOF_IP_OPT_ROUTING_HEADER = 3;
+	public const uint32 SIZEOF_IP_OPT_TIMESTAMP_HEADER = 4;
+	public const uint32 SIZEOF_IP_OPT_SECURITY = 11;
+	public const uint32 SIZEOF_IP_OPT_STREAMIDENTIFIER = 4;
+	public const uint32 SIZEOF_IP_OPT_ROUTERALERT = 4;
+	public const uint32 IP4_OFF_MASK = 65311;
+	public const uint32 ICMPV4_INVALID_PREFERENCE_LEVEL = 2147483648;
+	public const uint32 IGMP_QUERY_TYPE = 17;
+	public const uint32 IGMP_VERSION1_REPORT_TYPE = 18;
+	public const uint32 IGMP_VERSION2_REPORT_TYPE = 22;
+	public const uint32 IGMP_LEAVE_GROUP_TYPE = 23;
+	public const uint32 IGMP_VERSION3_REPORT_TYPE = 34;
+	public const uint32 IPV6_VERSION = 96;
+	public const uint32 IPV6_TRAFFIC_CLASS_MASK = 49167;
+	public const uint32 IPV6_FULL_TRAFFIC_CLASS_MASK = 61455;
+	public const uint32 IPV6_ECN_MASK = 12288;
+	public const uint32 IPV6_FLOW_LABEL_MASK = 4294905600;
+	public const uint32 MAX_IPV6_PAYLOAD = 65535;
+	public const uint32 IPV6_ECN_SHIFT = 12;
+	public const uint32 IPV6_MINIMUM_MTU = 1280;
+	public const uint32 IP6F_OFF_MASK = 63743;
+	public const uint32 IP6F_RESERVED_MASK = 1536;
+	public const uint32 IP6F_MORE_FRAG = 256;
+	public const uint32 EXT_LEN_UNIT = 8;
+	public const uint32 IP6OPT_TYPE_SKIP = 0;
+	public const uint32 IP6OPT_TYPE_DISCARD = 64;
+	public const uint32 IP6OPT_TYPE_FORCEICMP = 128;
+	public const uint32 IP6OPT_TYPE_ICMP = 192;
+	public const uint32 IP6OPT_MUTABLE = 32;
+	public const uint32 ICMP6_DST_UNREACH_NOROUTE = 0;
+	public const uint32 ICMP6_DST_UNREACH_ADMIN = 1;
+	public const uint32 ICMP6_DST_UNREACH_BEYONDSCOPE = 2;
+	public const uint32 ICMP6_DST_UNREACH_ADDR = 3;
+	public const uint32 ICMP6_DST_UNREACH_NOPORT = 4;
+	public const uint32 ICMP6_TIME_EXCEED_TRANSIT = 0;
+	public const uint32 ICMP6_TIME_EXCEED_REASSEMBLY = 1;
+	public const uint32 ICMP6_PARAMPROB_HEADER = 0;
+	public const uint32 ICMP6_PARAMPROB_NEXTHEADER = 1;
+	public const uint32 ICMP6_PARAMPROB_OPTION = 2;
+	public const uint32 ICMPV6_ECHO_REQUEST_FLAG_REVERSE = 1;
+	public const uint32 ND_RA_FLAG_MANAGED = 128;
+	public const uint32 ND_RA_FLAG_OTHER = 64;
+	public const uint32 ND_RA_FLAG_HOME_AGENT = 32;
+	public const uint32 ND_RA_FLAG_PREFERENCE = 24;
+	public const uint32 ND_NA_FLAG_ROUTER = 2147483648;
+	public const uint32 ND_NA_FLAG_SOLICITED = 1073741824;
+	public const uint32 ND_NA_FLAG_OVERRIDE = 536870912;
+	public const uint32 ND_OPT_PI_FLAG_ONLINK = 128;
+	public const uint32 ND_OPT_PI_FLAG_AUTO = 64;
+	public const uint32 ND_OPT_PI_FLAG_ROUTER_ADDR = 32;
+	public const uint32 ND_OPT_PI_FLAG_SITE_PREFIX = 16;
+	public const uint32 ND_OPT_PI_FLAG_ROUTE = 1;
+	public const uint32 ND_OPT_RI_FLAG_PREFERENCE = 24;
+	public const uint32 ND_OPT_RDNSS_MIN_LEN = 24;
+	public const uint32 ND_OPT_DNSSL_MIN_LEN = 16;
+	public const uint32 IN6_EMBEDDEDV4_UOCTET_POSITION = 8;
+	public const uint32 IN6_EMBEDDEDV4_BITS_IN_BYTE = 8;
+	public const uint32 TH_FIN = 1;
+	public const uint32 TH_SYN = 2;
+	public const uint32 TH_RST = 4;
+	public const uint32 TH_PSH = 8;
+	public const uint32 TH_ACK = 16;
+	public const uint32 TH_URG = 32;
+	public const uint32 TH_ECE = 64;
+	public const uint32 TH_CWR = 128;
+	public const uint32 TH_OPT_EOL = 0;
+	public const uint32 TH_OPT_NOP = 1;
+	public const uint32 TH_OPT_MSS = 2;
+	public const uint32 TH_OPT_WS = 3;
+	public const uint32 TH_OPT_SACK_PERMITTED = 4;
+	public const uint32 TH_OPT_SACK = 5;
+	public const uint32 TH_OPT_TS = 8;
+	public const uint32 TH_OPT_FASTOPEN = 34;
 	public const SOCKET INVALID_SOCKET = SOCKET.MaxValue;
 	public const uint32 WSA_INFINITE = 4294967295;
 	public const uint32 IOC_INOUT = 3221225472;
@@ -940,6 +1125,7 @@ public static
 	public const int32 SIOCSLOWAT = -2147192062;
 	public const int32 SIOCGLOWAT = 1074033411;
 	public const int32 SIOCATMARK = 1074033415;
+	public const uint16 POLLIN = 768;
 	public const int32 LM_HB_Extension = 128;
 	public const int32 LM_HB1_PnP = 1;
 	public const int32 LM_HB1_PDA_Palmtop = 2;
@@ -972,6 +1158,8 @@ public enum WSA_ERROR : int32
 	WSA_INVALID_PARAMETER = 87,
 	WSA_NOT_ENOUGH_MEMORY = 8,
 	WSA_OPERATION_ABORTED = 995,
+	WSA_WAIT_EVENT_0 = 0,
+	WSA_WAIT_IO_COMPLETION = 192,
 	WSABASEERR = 10000,
 	WSAEINTR = 10004,
 	WSAEBADF = 10009,
@@ -1068,6 +1256,15 @@ public enum WSA_ERROR : int32
 
 
 [AllowDuplicates]
+public enum ADDRESS_FAMILY : uint32
+{
+	AF_INET = 2,
+	AF_INET6 = 23,
+	AF_UNSPEC = 0,
+}
+
+
+[AllowDuplicates]
 public enum SET_SERVICE_OPERATION : uint32
 {
 	SERVICE_REGISTER = 1,
@@ -1079,10 +1276,13 @@ public enum SET_SERVICE_OPERATION : uint32
 
 
 [AllowDuplicates]
-public enum SEND_FLAGS : uint32
+public enum SEND_RECV_FLAGS : int32
 {
-	MSG_DONTROUTE = 4,
 	MSG_OOB = 1,
+	MSG_PEEK = 2,
+	MSG_DONTROUTE = 4,
+	MSG_WAITALL = 8,
+	MSG_PUSH_IMMEDIATE = 32,
 }
 
 
@@ -1613,6 +1813,148 @@ public enum WSC_PROVIDER_INFO_TYPE : int32
 	ProviderInfoAudit = 1,
 }
 
+
+[AllowDuplicates]
+public enum IPV4_OPTION_TYPE : int32
+{
+	IP_OPT_EOL = 0,
+	IP_OPT_NOP = 1,
+	IP_OPT_SECURITY = 130,
+	IP_OPT_LSRR = 131,
+	IP_OPT_TS = 68,
+	IP_OPT_RR = 7,
+	IP_OPT_SSRR = 137,
+	IP_OPT_SID = 136,
+	IP_OPT_ROUTER_ALERT = 148,
+	IP_OPT_MULTIDEST = 149,
+}
+
+
+[AllowDuplicates]
+public enum IP_OPTION_TIMESTAMP_FLAGS : int32
+{
+	IP_OPTION_TIMESTAMP_ONLY = 0,
+	IP_OPTION_TIMESTAMP_ADDRESS = 1,
+	IP_OPTION_TIMESTAMP_SPECIFIC_ADDRESS = 3,
+}
+
+
+[AllowDuplicates]
+public enum ICMP4_UNREACH_CODE : int32
+{
+	ICMP4_UNREACH_NET = 0,
+	ICMP4_UNREACH_HOST = 1,
+	ICMP4_UNREACH_PROTOCOL = 2,
+	ICMP4_UNREACH_PORT = 3,
+	ICMP4_UNREACH_FRAG_NEEDED = 4,
+	ICMP4_UNREACH_SOURCEROUTE_FAILED = 5,
+	ICMP4_UNREACH_NET_UNKNOWN = 6,
+	ICMP4_UNREACH_HOST_UNKNOWN = 7,
+	ICMP4_UNREACH_ISOLATED = 8,
+	ICMP4_UNREACH_NET_ADMIN = 9,
+	ICMP4_UNREACH_HOST_ADMIN = 10,
+	ICMP4_UNREACH_NET_TOS = 11,
+	ICMP4_UNREACH_HOST_TOS = 12,
+	ICMP4_UNREACH_ADMIN = 13,
+}
+
+
+[AllowDuplicates]
+public enum ICMP4_TIME_EXCEED_CODE : int32
+{
+	ICMP4_TIME_EXCEED_TRANSIT = 0,
+	ICMP4_TIME_EXCEED_REASSEMBLY = 1,
+}
+
+
+[AllowDuplicates]
+public enum ARP_OPCODE : int32
+{
+	ARP_REQUEST = 1,
+	ARP_RESPONSE = 2,
+}
+
+
+[AllowDuplicates]
+public enum ARP_HARDWARE_TYPE : int32
+{
+	ARP_HW_ENET = 1,
+	ARP_HW_802 = 6,
+}
+
+
+[AllowDuplicates]
+public enum IGMP_MAX_RESP_CODE_TYPE : int32
+{
+	IGMP_MAX_RESP_CODE_TYPE_NORMAL = 0,
+	IGMP_MAX_RESP_CODE_TYPE_FLOAT = 1,
+}
+
+
+[AllowDuplicates]
+public enum IPV6_OPTION_TYPE : int32
+{
+	IP6OPT_PAD1 = 0,
+	IP6OPT_PADN = 1,
+	IP6OPT_TUNNEL_LIMIT = 4,
+	IP6OPT_ROUTER_ALERT = 5,
+	IP6OPT_JUMBO = 194,
+	IP6OPT_NSAP_ADDR = 195,
+}
+
+
+[AllowDuplicates]
+public enum ND_OPTION_TYPE : int32
+{
+	ND_OPT_SOURCE_LINKADDR = 1,
+	ND_OPT_TARGET_LINKADDR = 2,
+	ND_OPT_PREFIX_INFORMATION = 3,
+	ND_OPT_REDIRECTED_HEADER = 4,
+	ND_OPT_MTU = 5,
+	ND_OPT_NBMA_SHORTCUT_LIMIT = 6,
+	ND_OPT_ADVERTISEMENT_INTERVAL = 7,
+	ND_OPT_HOME_AGENT_INFORMATION = 8,
+	ND_OPT_SOURCE_ADDR_LIST = 9,
+	ND_OPT_TARGET_ADDR_LIST = 10,
+	ND_OPT_ROUTE_INFO = 24,
+	ND_OPT_RDNSS = 25,
+	ND_OPT_DNSSL = 31,
+}
+
+
+[AllowDuplicates]
+public enum MLD_MAX_RESP_CODE_TYPE : int32
+{
+	MLD_MAX_RESP_CODE_TYPE_NORMAL = 0,
+	MLD_MAX_RESP_CODE_TYPE_FLOAT = 1,
+}
+
+
+[AllowDuplicates]
+public enum TUNNEL_SUB_TYPE : int32
+{
+	TUNNEL_SUB_TYPE_NONE = 0,
+	TUNNEL_SUB_TYPE_CP = 1,
+	TUNNEL_SUB_TYPE_IPTLS = 2,
+	TUNNEL_SUB_TYPE_HA = 3,
+}
+
+
+[AllowDuplicates]
+public enum NPI_MODULEID_TYPE : int32
+{
+	MIT_GUID = 1,
+	MIT_IF_LUID = 2,
+}
+
+
+[AllowDuplicates]
+public enum FALLBACK_INDEX : int32
+{
+	FallbackIndexTcpFastopen = 0,
+	FallbackIndexMax = 1,
+}
+
 #endregion
 
 #region Function Pointers
@@ -1712,7 +2054,7 @@ public function int32 LPWSPRECVDISCONNECT(SOCKET s, WSABUF* lpInboundDisconnectD
 
 public function int32 LPWSPRECVFROM(SOCKET s, WSABUF* lpBuffers, uint32 dwBufferCount, uint32* lpNumberOfBytesRecvd, uint32* lpFlags, SOCKADDR* lpFrom, int32* lpFromlen, OVERLAPPED* lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine, WSATHREADID* lpThreadId, int32* lpErrno);
 
-public function int32 LPWSPSELECT(int32 nfds, fd_set* readfds, fd_set* writefds, fd_set* exceptfds, timeval* timeout, int32* lpErrno);
+public function int32 LPWSPSELECT(int32 nfds, FD_SET* readfds, FD_SET* writefds, FD_SET* exceptfds, TIMEVAL* timeout, int32* lpErrno);
 
 public function int32 LPWSPSEND(SOCKET s, WSABUF* lpBuffers, uint32 dwBufferCount, uint32* lpNumberOfBytesSent, uint32 dwFlags, OVERLAPPED* lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine, WSATHREADID* lpThreadId, int32* lpErrno);
 
@@ -1736,7 +2078,7 @@ public function HANDLE LPWPUCREATEEVENT(int32* lpErrno);
 
 public function SOCKET LPWPUCREATESOCKETHANDLE(uint32 dwCatalogEntryId, uint dwContext, int32* lpErrno);
 
-public function int32 LPWPUFDISSET(SOCKET s, fd_set* fdset);
+public function int32 LPWPUFDISSET(SOCKET s, FD_SET* fdset);
 
 public function int32 LPWPUGETPROVIDERPATH(Guid* lpProviderId, char16* lpszProviderDllPath, int32* lpProviderDllPathLen, int32* lpErrno);
 
@@ -1760,7 +2102,7 @@ public function int32 LPWPUCLOSETHREAD(WSATHREADID* lpThreadId, int32* lpErrno);
 
 public function int32 LPWPUCOMPLETEOVERLAPPEDREQUEST(SOCKET s, OVERLAPPED* lpOverlapped, uint32 dwError, uint32 cbTransferred, int32* lpErrno);
 
-public function int32 LPWSPSTARTUP(uint16 wVersionRequested, WSPData* lpWSPData, WSAPROTOCOL_INFOW* lpProtocolInfo, WSPUPCALLTABLE UpcallTable, WSPPROC_TABLE* lpProcTable);
+public function int32 LPWSPSTARTUP(uint16 wVersionRequested, WSPDATA* lpWSPData, WSAPROTOCOL_INFOW* lpProtocolInfo, WSPUPCALLTABLE UpcallTable, WSPPROC_TABLE* lpProcTable);
 
 public function int32 LPWSCENUMPROTOCOLS(int32* lpiProtocols, WSAPROTOCOL_INFOW* lpProtocolBuffer, uint32* lpdwBufferLength, int32* lpErrno);
 
@@ -1839,6 +2181,44 @@ public struct RIO_CQ_t
 public struct RIO_RQ_t
 {
 }
+
+[CRepr]
+public struct FLOWSPEC
+{
+	public uint32 TokenRate;
+	public uint32 TokenBucketSize;
+	public uint32 PeakBandwidth;
+	public uint32 Latency;
+	public uint32 DelayVariation;
+	public uint32 ServiceType;
+	public uint32 MaxSduSize;
+	public uint32 MinimumPolicedSize;
+}
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct SERVENT
+{
+	public PSTR s_name;
+	public int8** s_aliases;
+	public PSTR s_proto;
+	public int16 s_port;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct WSADATA
+{
+	public uint16 wVersion;
+	public uint16 wHighVersion;
+	public uint16 iMaxSockets;
+	public uint16 iMaxUdpDg;
+	public PSTR lpVendorInfo;
+	public CHAR[257] szDescription;
+	public CHAR[129] szSystemStatus;
+}
+#endif
 
 [CRepr]
 public struct IN_ADDR
@@ -1977,7 +2357,7 @@ public struct WSAMSG
 }
 
 [CRepr]
-public struct cmsghdr
+public struct CMSGHDR
 {
 	public uint cmsg_len;
 	public int32 cmsg_level;
@@ -1998,7 +2378,7 @@ public struct ADDRINFOA
 }
 
 [CRepr]
-public struct addrinfoW
+public struct ADDRINFOW
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2007,11 +2387,11 @@ public struct addrinfoW
 	public uint ai_addrlen;
 	public PWSTR ai_canonname;
 	public SOCKADDR* ai_addr;
-	public addrinfoW* ai_next;
+	public ADDRINFOW* ai_next;
 }
 
 [CRepr]
-public struct addrinfoexA
+public struct ADDRINFOEXA
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2023,11 +2403,11 @@ public struct addrinfoexA
 	public void* ai_blob;
 	public uint ai_bloblen;
 	public Guid* ai_provider;
-	public addrinfoexA* ai_next;
+	public ADDRINFOEXA* ai_next;
 }
 
 [CRepr]
-public struct addrinfoexW
+public struct ADDRINFOEXW
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2039,11 +2419,11 @@ public struct addrinfoexW
 	public void* ai_blob;
 	public uint ai_bloblen;
 	public Guid* ai_provider;
-	public addrinfoexW* ai_next;
+	public ADDRINFOEXW* ai_next;
 }
 
 [CRepr]
-public struct addrinfoex2A
+public struct ADDRINFOEX2A
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2055,13 +2435,13 @@ public struct addrinfoex2A
 	public void* ai_blob;
 	public uint ai_bloblen;
 	public Guid* ai_provider;
-	public addrinfoex2A* ai_next;
+	public ADDRINFOEX2A* ai_next;
 	public int32 ai_version;
 	public PSTR ai_fqdn;
 }
 
 [CRepr]
-public struct addrinfoex2W
+public struct ADDRINFOEX2W
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2073,13 +2453,13 @@ public struct addrinfoex2W
 	public void* ai_blob;
 	public uint ai_bloblen;
 	public Guid* ai_provider;
-	public addrinfoex2W* ai_next;
+	public ADDRINFOEX2W* ai_next;
 	public int32 ai_version;
 	public PWSTR ai_fqdn;
 }
 
 [CRepr]
-public struct addrinfoex3
+public struct ADDRINFOEX3
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2091,14 +2471,14 @@ public struct addrinfoex3
 	public void* ai_blob;
 	public uint ai_bloblen;
 	public Guid* ai_provider;
-	public addrinfoex3* ai_next;
+	public ADDRINFOEX3* ai_next;
 	public int32 ai_version;
 	public PWSTR ai_fqdn;
 	public int32 ai_interfaceindex;
 }
 
 [CRepr]
-public struct addrinfoex4
+public struct ADDRINFOEX4
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2110,7 +2490,7 @@ public struct addrinfoex4
 	public void* ai_blob;
 	public uint ai_bloblen;
 	public Guid* ai_provider;
-	public addrinfoex4* ai_next;
+	public ADDRINFOEX4* ai_next;
 	public int32 ai_version;
 	public PWSTR ai_fqdn;
 	public int32 ai_interfaceindex;
@@ -2118,7 +2498,7 @@ public struct addrinfoex4
 }
 
 [CRepr]
-public struct addrinfoex5
+public struct ADDRINFOEX5
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2130,7 +2510,7 @@ public struct addrinfoex5
 	public void* ai_blob;
 	public uint ai_bloblen;
 	public Guid* ai_provider;
-	public addrinfoex5* ai_next;
+	public ADDRINFOEX5* ai_next;
 	public int32 ai_version;
 	public PWSTR ai_fqdn;
 	public int32 ai_interfaceindex;
@@ -2139,7 +2519,7 @@ public struct addrinfoex5
 }
 
 [CRepr]
-public struct addrinfo_dns_server
+public struct ADDRINFO_DNS_SERVER
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
@@ -2154,7 +2534,7 @@ public struct addrinfo_dns_server
 }
 
 [CRepr]
-public struct addrinfoex6
+public struct ADDRINFOEX6
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2166,33 +2546,33 @@ public struct addrinfoex6
 	public void* ai_blob;
 	public uint ai_bloblen;
 	public Guid* ai_provider;
-	public addrinfoex5* ai_next;
+	public ADDRINFOEX5* ai_next;
 	public int32 ai_version;
 	public PWSTR ai_fqdn;
 	public int32 ai_interfaceindex;
 	public HANDLE ai_resolutionhandle;
 	public uint32 ai_ttl;
 	public uint32 ai_numservers;
-	public addrinfo_dns_server* ai_servers;
+	public ADDRINFO_DNS_SERVER* ai_servers;
 	public uint64 ai_responseflags;
 }
 
 [CRepr]
-public struct fd_set
+public struct FD_SET
 {
 	public uint32 fd_count;
 	public SOCKET[64] fd_array;
 }
 
 [CRepr]
-public struct timeval
+public struct TIMEVAL
 {
 	public int32 tv_sec;
 	public int32 tv_usec;
 }
 
 [CRepr]
-public struct hostent
+public struct HOSTENT
 {
 	public PSTR h_name;
 	public int8** h_aliases;
@@ -2210,36 +2590,36 @@ public struct netent
 	public uint32 n_net;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
-public struct servent
+public struct SERVENT
 {
 	public PSTR s_name;
 	public int8** s_aliases;
-	public PSTR s_proto;
 	public int16 s_port;
+	public PSTR s_proto;
 }
 #endif
 
 [CRepr]
-public struct protoent
+public struct PROTOENT
 {
 	public PSTR p_name;
 	public int8** p_aliases;
 	public int16 p_proto;
 }
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 [CRepr]
-public struct WSAData
+public struct WSADATA
 {
 	public uint16 wVersion;
 	public uint16 wHighVersion;
+	public CHAR[257] szDescription;
+	public CHAR[129] szSystemStatus;
 	public uint16 iMaxSockets;
 	public uint16 iMaxUdpDg;
 	public PSTR lpVendorInfo;
-	public CHAR[257] szDescription;
-	public CHAR[129] szSystemStatus;
 }
 #endif
 
@@ -2251,10 +2631,18 @@ public struct sockproto
 }
 
 [CRepr]
-public struct linger
+public struct LINGER
 {
 	public uint16 l_onoff;
 	public uint16 l_linger;
+}
+
+[CRepr]
+public struct QOS
+{
+	public FLOWSPEC SendingFlowspec;
+	public FLOWSPEC ReceivingFlowspec;
+	public WSABUF ProviderSpecific;
 }
 
 [CRepr]
@@ -2721,7 +3109,7 @@ public struct IN_PKTINFO_EX
 }
 
 [CRepr]
-public struct in6_pktinfo_ex
+public struct IN6_PKTINFO_EX
 {
 	public IN6_PKTINFO pkt_info;
 	public SCOPE_ID scope_id;
@@ -3297,7 +3685,7 @@ public struct ATM_BHLI
 }
 
 [CRepr]
-public struct sockaddr_atm
+public struct SOCKADDR_ATM
 {
 	public uint16 satm_family;
 	public ATM_ADDRESS satm_number;
@@ -3609,7 +3997,7 @@ public struct RIO_EXTENSION_FUNCTION_TABLE
 }
 
 [CRepr]
-public struct WSPData
+public struct WSPDATA
 {
 	public uint16 wVersion;
 	public uint16 wHighVersion;
@@ -3920,14 +4308,14 @@ public struct SERVICE_ASYNC_INFO
 }
 
 [CRepr]
-public struct sockaddr_un
+public struct SOCKADDR_UN
 {
 	public uint16 sun_family;
 	public CHAR[108] sun_path;
 }
 
 [CRepr]
-public struct sockaddr_ipx
+public struct SOCKADDR_IPX
 {
 	public int16 sa_family;
 	public CHAR[4] sa_netnum;
@@ -3936,7 +4324,7 @@ public struct sockaddr_ipx
 }
 
 [CRepr]
-public struct sockaddr_tp
+public struct SOCKADDR_TP
 {
 	public uint16 tp_family;
 	public uint16 tp_addr_type;
@@ -3946,7 +4334,7 @@ public struct sockaddr_tp
 }
 
 [CRepr]
-public struct sockaddr_nb
+public struct SOCKADDR_NB
 {
 	public int16 snb_family;
 	public uint16 snb_type;
@@ -3954,7 +4342,7 @@ public struct sockaddr_nb
 }
 
 [CRepr]
-public struct sockaddr_vns
+public struct SOCKADDR_VNS
 {
 	public uint16 sin_family;
 	public uint8[4] net_address;
@@ -3964,38 +4352,893 @@ public struct sockaddr_vns
 	public uint8[5] filler;
 }
 
-#if BF_32_BIT
-[CRepr]
-public struct servent
+[CRepr, Union]
+public struct DL_OUI
 {
-	public PSTR s_name;
-	public int8** s_aliases;
-	public int16 s_port;
-	public PSTR s_proto;
+	[CRepr]
+	public struct _Anonymous_e__Struct
+	{
+		public uint8 _bitfield;
+	}
+	public uint8[3] Byte;
+	public using _Anonymous_e__Struct Anonymous;
 }
-#endif
 
-#if BF_32_BIT
-[CRepr]
-public struct WSAData
+[CRepr, Union]
+public struct DL_EI48
 {
-	public uint16 wVersion;
-	public uint16 wHighVersion;
-	public CHAR[257] szDescription;
-	public CHAR[129] szSystemStatus;
-	public uint16 iMaxSockets;
-	public uint16 iMaxUdpDg;
-	public PSTR lpVendorInfo;
+	public uint8[3] Byte;
 }
-#endif
+
+[CRepr, Union]
+public struct DL_EUI48
+{
+	[CRepr]
+	public struct _Anonymous_e__Struct
+	{
+		public DL_OUI Oui;
+		public DL_EI48 Ei48;
+	}
+	public uint8[6] Byte;
+	public using _Anonymous_e__Struct Anonymous;
+}
+
+[CRepr, Union]
+public struct DL_EI64
+{
+	public uint8[5] Byte;
+}
+
+[CRepr, Union]
+public struct DL_EUI64
+{
+	[CRepr]
+	public struct _Anonymous_e__Struct
+	{
+		[CRepr, Union]
+		public struct _Anonymous_e__Union
+		{
+			[CRepr]
+			public struct _Anonymous_e__Struct
+			{
+				public uint8 Type;
+				public uint8 Tse;
+				public DL_EI48 Ei48;
+			}
+			public DL_EI64 Ei64;
+			public using _Anonymous_e__Struct Anonymous;
+		}
+		public DL_OUI Oui;
+		public using _Anonymous_e__Union Anonymous;
+	}
+	public uint8[8] Byte;
+	public uint64 Value;
+	public using _Anonymous_e__Struct Anonymous;
+}
+
+[CRepr]
+public struct SNAP_HEADER
+{
+	public uint8 Dsap;
+	public uint8 Ssap;
+	public uint8 Control;
+	public uint8[3] Oui;
+	public uint16 Type;
+}
+
+[CRepr]
+public struct ETHERNET_HEADER
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		public uint16 Type;
+		public uint16 Length;
+	}
+	public DL_EUI48 Destination;
+	public DL_EUI48 Source;
+	public using _Anonymous_e__Union Anonymous;
+}
+
+[CRepr]
+public struct VLAN_TAG
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint16 _bitfield;
+		}
+		public uint16 Tag;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	public using _Anonymous_e__Union Anonymous;
+	public uint16 Type;
+}
+
+[CRepr]
+public struct ICMP_HEADER
+{
+	public uint8 Type;
+	public uint8 Code;
+	public uint16 Checksum;
+}
+
+[CRepr]
+public struct ICMP_MESSAGE
+{
+	[CRepr, Union]
+	public struct _Data_e__Union
+	{
+		public uint32* Data32 mut => &Data32_impl;
+		private uint32[ANYSIZE_ARRAY] Data32_impl;
+		public uint16[2] Data16;
+		public uint8[4] Data8;
+	}
+	public ICMP_HEADER Header;
+	public _Data_e__Union Data;
+}
+
+[CRepr]
+public struct IPV4_HEADER
+{
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint16 _bitfield;
+		}
+		public uint16 FlagsAndOffset;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public uint8 TypeOfServiceAndEcnField;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public uint8 VersionAndHeaderLength;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	public _Anonymous1_e__Union Anonymous1;
+	public _Anonymous2_e__Union Anonymous2;
+	public uint16 TotalLength;
+	public uint16 Identification;
+	public _Anonymous3_e__Union Anonymous3;
+	public uint8 TimeToLive;
+	public uint8 Protocol;
+	public uint16 HeaderChecksum;
+	public IN_ADDR SourceAddress;
+	public IN_ADDR DestinationAddress;
+}
+
+[CRepr]
+public struct IPV4_OPTION_HEADER
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public uint8 OptionType;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	public using _Anonymous_e__Union Anonymous;
+	public uint8 OptionLength;
+}
+
+[CRepr]
+public struct IPV4_TIMESTAMP_OPTION
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public uint8 FlagsOverflow;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	public IPV4_OPTION_HEADER OptionHeader;
+	public uint8 Pointer;
+	public using _Anonymous_e__Union Anonymous;
+}
+
+[CRepr]
+public struct IPV4_ROUTING_HEADER
+{
+	public IPV4_OPTION_HEADER OptionHeader;
+	public uint8 Pointer;
+}
+
+[CRepr]
+public struct ICMPV4_ROUTER_SOLICIT
+{
+	public ICMP_MESSAGE RsHeader;
+}
+
+[CRepr]
+public struct ICMPV4_ROUTER_ADVERT_HEADER
+{
+	public ICMP_MESSAGE RaHeader;
+}
+
+[CRepr]
+public struct ICMPV4_ROUTER_ADVERT_ENTRY
+{
+	public IN_ADDR RouterAdvertAddr;
+	public int32 PreferenceLevel;
+}
+
+[CRepr]
+public struct ICMPV4_TIMESTAMP_MESSAGE
+{
+	public ICMP_MESSAGE Header;
+	public uint32 OriginateTimestamp;
+	public uint32 ReceiveTimestamp;
+	public uint32 TransmitTimestamp;
+}
+
+[CRepr]
+public struct ICMPV4_ADDRESS_MASK_MESSAGE
+{
+	public ICMP_MESSAGE Header;
+	public uint32 AddressMask;
+}
+
+[CRepr]
+public struct ARP_HEADER
+{
+	public uint16 HardwareAddressSpace;
+	public uint16 ProtocolAddressSpace;
+	public uint8 HardwareAddressLength;
+	public uint8 ProtocolAddressLength;
+	public uint16 Opcode;
+	public uint8* SenderHardwareAddress mut => &SenderHardwareAddress_impl;
+	private uint8[ANYSIZE_ARRAY] SenderHardwareAddress_impl;
+}
+
+[CRepr]
+public struct IGMP_HEADER
+{
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public using _Anonymous_e__Struct Anonymous;
+		public uint8 VersionType;
+	}
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		public uint8 Reserved;
+		public uint8 MaxRespTime;
+		public uint8 Code;
+	}
+	public _Anonymous1_e__Union Anonymous1;
+	public _Anonymous2_e__Union Anonymous2;
+	public uint16 Checksum;
+	public IN_ADDR MulticastAddress;
+}
+
+[CRepr]
+public struct IGMPV3_QUERY_HEADER
+{
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public uint8 QueriersQueryInterfaceCode;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public uint8 MaxRespCode;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	public uint8 Type;
+	public _Anonymous1_e__Union Anonymous1;
+	public uint16 Checksum;
+	public IN_ADDR MulticastAddress;
+	public uint8 _bitfield;
+	public _Anonymous2_e__Union Anonymous2;
+	public uint16 SourceCount;
+}
+
+[CRepr]
+public struct IGMPV3_REPORT_RECORD_HEADER
+{
+	public uint8 Type;
+	public uint8 AuxillaryDataLength;
+	public uint16 SourceCount;
+	public IN_ADDR MulticastAddress;
+}
+
+[CRepr]
+public struct IGMPV3_REPORT_HEADER
+{
+	public uint8 Type;
+	public uint8 Reserved;
+	public uint16 Checksum;
+	public uint16 Reserved2;
+	public uint16 RecordCount;
+}
+
+[CRepr]
+public struct IPV6_HEADER
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint32 _bitfield;
+		}
+		public uint32 VersionClassFlow;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	public using _Anonymous_e__Union Anonymous;
+	public uint16 PayloadLength;
+	public uint8 NextHeader;
+	public uint8 HopLimit;
+	public IN6_ADDR SourceAddress;
+	public IN6_ADDR DestinationAddress;
+}
+
+[CRepr]
+public struct IPV6_FRAGMENT_HEADER
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint16 _bitfield;
+		}
+		public using _Anonymous_e__Struct Anonymous;
+		public uint16 OffsetAndFlags;
+	}
+	public uint8 NextHeader;
+	public uint8 Reserved;
+	public using _Anonymous_e__Union Anonymous;
+	public uint32 Id;
+}
+
+[CRepr]
+public struct IPV6_EXTENSION_HEADER
+{
+	public uint8 NextHeader;
+	public uint8 Length;
+}
+
+[CRepr]
+public struct IPV6_OPTION_HEADER
+{
+	public uint8 Type;
+	public uint8 DataLength;
+}
+
+[CRepr]
+public struct IPV6_OPTION_JUMBOGRAM
+{
+	public IPV6_OPTION_HEADER Header;
+	public uint8[4] JumbogramLength;
+}
+
+[CRepr]
+public struct IPV6_OPTION_ROUTER_ALERT
+{
+	public IPV6_OPTION_HEADER Header;
+	public uint8[2] Value;
+}
+
+[CRepr]
+public struct IPV6_ROUTING_HEADER
+{
+	public uint8 NextHeader;
+	public uint8 Length;
+	public uint8 RoutingType;
+	public uint8 SegmentsLeft;
+	public uint8[4] Reserved;
+}
+
+[CRepr]
+public struct ND_ROUTER_SOLICIT_HEADER
+{
+	public ICMP_MESSAGE nd_rs_hdr;
+}
+
+[CRepr]
+public struct ND_ROUTER_ADVERT_HEADER
+{
+	public ICMP_MESSAGE nd_ra_hdr;
+	public uint32 nd_ra_reachable;
+	public uint32 nd_ra_retransmit;
+}
+
+[CRepr, Union]
+public struct IPV6_ROUTER_ADVERTISEMENT_FLAGS
+{
+	[CRepr]
+	public struct _Anonymous_e__Struct
+	{
+		public uint8 _bitfield;
+	}
+	public using _Anonymous_e__Struct Anonymous;
+	public uint8 Value;
+}
+
+[CRepr]
+public struct ND_NEIGHBOR_SOLICIT_HEADER
+{
+	public ICMP_MESSAGE nd_ns_hdr;
+	public IN6_ADDR nd_ns_target;
+}
+
+[CRepr]
+public struct ND_NEIGHBOR_ADVERT_HEADER
+{
+	public ICMP_MESSAGE nd_na_hdr;
+	public IN6_ADDR nd_na_target;
+}
+
+[CRepr, Union]
+public struct IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS
+{
+	[CRepr]
+	public struct _Anonymous_e__Struct
+	{
+		public uint8 _bitfield;
+		public uint8[3] Reserved2;
+	}
+	public using _Anonymous_e__Struct Anonymous;
+	public uint32 Value;
+}
+
+[CRepr]
+public struct ND_REDIRECT_HEADER
+{
+	public ICMP_MESSAGE nd_rd_hdr;
+	public IN6_ADDR nd_rd_target;
+	public IN6_ADDR nd_rd_dst;
+}
+
+[CRepr]
+public struct ND_OPTION_HDR
+{
+	public uint8 nd_opt_type;
+	public uint8 nd_opt_len;
+}
+
+[CRepr]
+public struct ND_OPTION_PREFIX_INFO
+{
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint8[3] nd_opt_pi_reserved3;
+			public uint8 nd_opt_pi_site_prefix_len;
+		}
+		public uint32 nd_opt_pi_reserved2;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
+	{
+		[CRepr]
+		public struct _Flags_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public uint8 nd_opt_pi_flags_reserved;
+		public _Flags_e__Struct Flags;
+	}
+	public uint8 nd_opt_pi_type;
+	public uint8 nd_opt_pi_len;
+	public uint8 nd_opt_pi_prefix_len;
+	public _Anonymous1_e__Union Anonymous1;
+	public uint32 nd_opt_pi_valid_time;
+	public uint32 nd_opt_pi_preferred_time;
+	public _Anonymous2_e__Union Anonymous2;
+	public IN6_ADDR nd_opt_pi_prefix;
+}
+
+[CRepr]
+public struct ND_OPTION_RD_HDR
+{
+	public uint8 nd_opt_rh_type;
+	public uint8 nd_opt_rh_len;
+	public uint16 nd_opt_rh_reserved1;
+	public uint32 nd_opt_rh_reserved2;
+}
+
+[CRepr]
+public struct ND_OPTION_MTU
+{
+	public uint8 nd_opt_mtu_type;
+	public uint8 nd_opt_mtu_len;
+	public uint16 nd_opt_mtu_reserved;
+	public uint32 nd_opt_mtu_mtu;
+}
+
+[CRepr]
+public struct ND_OPTION_ROUTE_INFO
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		[CRepr]
+		public struct _Flags_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public uint8 nd_opt_ri_flags_reserved;
+		public _Flags_e__Struct Flags;
+	}
+	public uint8 nd_opt_ri_type;
+	public uint8 nd_opt_ri_len;
+	public uint8 nd_opt_ri_prefix_len;
+	public using _Anonymous_e__Union Anonymous;
+	public uint32 nd_opt_ri_route_lifetime;
+	public IN6_ADDR nd_opt_ri_prefix;
+}
+
+[CRepr]
+public struct ND_OPTION_RDNSS
+{
+	public uint8 nd_opt_rdnss_type;
+	public uint8 nd_opt_rdnss_len;
+	public uint16 nd_opt_rdnss_reserved;
+	public uint32 nd_opt_rdnss_lifetime;
+}
+
+[CRepr]
+public struct ND_OPTION_DNSSL
+{
+	public uint8 nd_opt_dnssl_type;
+	public uint8 nd_opt_dnssl_len;
+	public uint16 nd_opt_dnssl_reserved;
+	public uint32 nd_opt_dnssl_lifetime;
+}
+
+[CRepr]
+public struct MLD_HEADER
+{
+	public ICMP_HEADER IcmpHeader;
+	public uint16 MaxRespTime;
+	public uint16 Reserved;
+	public IN6_ADDR MulticastAddress;
+}
+
+[CRepr]
+public struct MLDV2_QUERY_HEADER
+{
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint8 _bitfield;
+		}
+		public uint8 QueriersQueryInterfaceCode;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
+	{
+		[CRepr]
+		public struct _Anonymous_e__Struct
+		{
+			public uint16 _bitfield;
+		}
+		public uint16 MaxRespCode;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	public ICMP_HEADER IcmpHeader;
+	public _Anonymous1_e__Union Anonymous1;
+	public uint16 Reserved;
+	public IN6_ADDR MulticastAddress;
+	public uint8 _bitfield;
+	public _Anonymous2_e__Union Anonymous2;
+	public uint16 SourceCount;
+}
+
+[CRepr]
+public struct MLDV2_REPORT_RECORD_HEADER
+{
+	public uint8 Type;
+	public uint8 AuxillaryDataLength;
+	public uint16 SourceCount;
+	public IN6_ADDR MulticastAddress;
+}
+
+[CRepr]
+public struct MLDV2_REPORT_HEADER
+{
+	public ICMP_HEADER IcmpHeader;
+	public uint16 Reserved;
+	public uint16 RecordCount;
+}
+
+[CRepr, Packed(1)]
+public struct TCP_HDR
+{
+	public uint16 th_sport;
+	public uint16 th_dport;
+	public uint32 th_seq;
+	public uint32 th_ack;
+	public uint8 _bitfield;
+	public uint8 th_flags;
+	public uint16 th_win;
+	public uint16 th_sum;
+	public uint16 th_urp;
+}
+
+[CRepr, Packed(1)]
+public struct TCP_OPT_MSS
+{
+	public uint8 Kind;
+	public uint8 Length;
+	public uint16 Mss;
+}
+
+[CRepr, Packed(1)]
+public struct TCP_OPT_WS
+{
+	public uint8 Kind;
+	public uint8 Length;
+	public uint8 ShiftCnt;
+}
+
+[CRepr, Packed(1)]
+public struct TCP_OPT_SACK_PERMITTED
+{
+	public uint8 Kind;
+	public uint8 Length;
+}
+
+[CRepr, Packed(1)]
+public struct TCP_OPT_SACK
+{
+	[CRepr, Packed(1)]
+	public struct tcp_opt_sack_block
+	{
+		public uint32 Left;
+		public uint32 Right;
+	}
+	public uint8 Kind;
+	public uint8 Length;
+	public tcp_opt_sack_block* Block mut => &Block_impl;
+	private tcp_opt_sack_block[ANYSIZE_ARRAY] Block_impl;
+}
+
+[CRepr, Packed(1)]
+public struct TCP_OPT_TS
+{
+	public uint8 Kind;
+	public uint8 Length;
+	public uint32 Val;
+	public uint32 EcR;
+}
+
+[CRepr, Packed(1)]
+public struct TCP_OPT_UNKNOWN
+{
+	public uint8 Kind;
+	public uint8 Length;
+}
+
+[CRepr, Packed(1)]
+public struct TCP_OPT_FASTOPEN
+{
+	public uint8 Kind;
+	public uint8 Length;
+	public uint8* Cookie mut => &Cookie_impl;
+	private uint8[ANYSIZE_ARRAY] Cookie_impl;
+}
+
+[CRepr]
+public struct DL_TUNNEL_ADDRESS
+{
+	public COMPARTMENT_ID CompartmentId;
+	public SCOPE_ID ScopeId;
+	public uint8* IpAddress mut => &IpAddress_impl;
+	private uint8[ANYSIZE_ARRAY] IpAddress_impl;
+}
+
+[CRepr, Packed(1)]
+public struct DL_TEREDO_ADDRESS
+{
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
+	{
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
+		{
+			public uint16 Flags;
+			public uint16 MappedPort;
+			public IN_ADDR MappedAddress;
+		}
+		public DL_EUI64 Eui64;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	public uint8[6] Reserved;
+	public using _Anonymous_e__Union Anonymous;
+}
+
+[CRepr, Packed(1)]
+public struct DL_TEREDO_ADDRESS_PRV
+{
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
+	{
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
+		{
+			public uint16 Flags;
+			public uint16 MappedPort;
+			public IN_ADDR MappedAddress;
+			public IN_ADDR LocalAddress;
+			public uint32 InterfaceIndex;
+			public uint16 LocalPort;
+			public DL_EUI48 DlDestination;
+		}
+		public DL_EUI64 Eui64;
+		public using _Anonymous_e__Struct Anonymous;
+	}
+	public uint8[6] Reserved;
+	public using _Anonymous_e__Union Anonymous;
+}
+
+[CRepr, Packed(1)]
+public struct IPTLS_METADATA
+{
+	public uint64 SequenceNumber;
+}
+
+[CRepr]
+public struct NPI_MODULEID
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		public Guid Guid;
+		public LUID IfLuid;
+	}
+	public uint16 Length;
+	public NPI_MODULEID_TYPE Type;
+	public using _Anonymous_e__Union Anonymous;
+}
 
 #endregion
 
 #region Functions
 public static
 {
+#if BF_64_BIT || BF_ARM_64
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 __WSAFDIsSet(SOCKET fd, fd_set* param1);
+	public static extern int32 WSCEnumProtocols32(int32* lpiProtocols, WSAPROTOCOL_INFOW* lpProtocolBuffer, uint32* lpdwBufferLength, int32* lpErrno);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCDeinstallProvider32(Guid* lpProviderId, int32* lpErrno);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCInstallProvider64_32(Guid* lpProviderId, PWSTR lpszProviderDllPath, WSAPROTOCOL_INFOW* lpProtocolInfoList, uint32 dwNumberOfEntries, int32* lpErrno);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCGetProviderPath32(Guid* lpProviderId, char16* lpszProviderDllPath, int32* lpProviderDllPathLen, int32* lpErrno);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCUpdateProvider32(Guid* lpProviderId, PWSTR lpszProviderDllPath, WSAPROTOCOL_INFOW* lpProtocolInfoList, uint32 dwNumberOfEntries, int32* lpErrno);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCSetProviderInfo32(Guid* lpProviderId, WSC_PROVIDER_INFO_TYPE InfoType, uint8* Info, uint InfoSize, uint32 Flags, int32* lpErrno);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCGetProviderInfo32(Guid* lpProviderId, WSC_PROVIDER_INFO_TYPE InfoType, uint8* Info, uint* InfoSize, uint32 Flags, int32* lpErrno);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCEnumNameSpaceProviders32(uint32* lpdwBufferLength, WSANAMESPACE_INFOW* lpnspBuffer);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCEnumNameSpaceProvidersEx32(uint32* lpdwBufferLength, WSANAMESPACE_INFOEXW* lpnspBuffer);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCInstallNameSpace32(PWSTR lpszIdentifier, PWSTR lpszPathName, uint32 dwNameSpace, uint32 dwVersion, Guid* lpProviderId);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCInstallNameSpaceEx32(PWSTR lpszIdentifier, PWSTR lpszPathName, uint32 dwNameSpace, uint32 dwVersion, Guid* lpProviderId, BLOB* lpProviderSpecific);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCUnInstallNameSpace32(Guid* lpProviderId);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCEnableNSProvider32(Guid* lpProviderId, BOOL fEnable);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCInstallProviderAndChains64_32(Guid* lpProviderId, PWSTR lpszProviderDllPath, PWSTR lpszProviderDllPath32, PWSTR lpszLspName, uint32 dwServiceFlags, WSAPROTOCOL_INFOW* lpProtocolInfoList, uint32 dwNumberOfEntries, uint32* lpdwCatalogEntryId, int32* lpErrno);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCWriteProviderOrder32(uint32* lpwdCatalogEntryId, uint32 dwNumberOfEntries);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 WSCWriteNameSpaceOrder32(Guid* lpProviderId, uint32 dwNumberOfEntries);
+
+#endif
+	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern int32 __WSAFDIsSet(SOCKET fd, FD_SET* param1);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern SOCKET accept(SOCKET s, SOCKADDR* addr, int32* addrlen);
@@ -4043,16 +5286,16 @@ public static
 	public static extern uint16 ntohs(uint16 netshort);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 recv(SOCKET s, PSTR buf, int32 len, int32 flags);
+	public static extern int32 recv(SOCKET s, PSTR buf, int32 len, SEND_RECV_FLAGS flags);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 recvfrom(SOCKET s, PSTR buf, int32 len, int32 flags, SOCKADDR* from, int32* fromlen);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 select(int32 nfds, fd_set* readfds, fd_set* writefds, fd_set* exceptfds, timeval* timeout);
+	public static extern int32 select(int32 nfds, FD_SET* readfds, FD_SET* writefds, FD_SET* exceptfds, TIMEVAL* timeout);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 send(SOCKET s, PSTR buf, int32 len, SEND_FLAGS flags);
+	public static extern int32 send(SOCKET s, PSTR buf, int32 len, SEND_RECV_FLAGS flags);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 sendto(SOCKET s, PSTR buf, int32 len, int32 flags, SOCKADDR* to, int32 tolen);
@@ -4067,10 +5310,10 @@ public static
 	public static extern SOCKET socket(int32 af, int32 type, int32 protocol);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern hostent* gethostbyaddr(PSTR addr, int32 len, int32 type);
+	public static extern HOSTENT* gethostbyaddr(PSTR addr, int32 len, int32 type);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern hostent* gethostbyname(PSTR name);
+	public static extern HOSTENT* gethostbyname(PSTR name);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 gethostname(PSTR name, int32 namelen);
@@ -4079,19 +5322,19 @@ public static
 	public static extern int32 GetHostNameW(char16* name, int32 namelen);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern servent* getservbyport(int32 port, PSTR proto);
+	public static extern SERVENT* getservbyport(int32 port, PSTR proto);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern servent* getservbyname(PSTR name, PSTR proto);
+	public static extern SERVENT* getservbyname(PSTR name, PSTR proto);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern protoent* getprotobynumber(int32 number);
+	public static extern PROTOENT* getprotobynumber(int32 number);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern protoent* getprotobyname(PSTR name);
+	public static extern PROTOENT* getprotobyname(PSTR name);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSAStartup(uint16 wVersionRequested, WSAData* lpWSAData);
+	public static extern int32 WSAStartup(uint16 wVersionRequested, WSADATA* lpWSAData);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSACleanup();
@@ -4148,14 +5391,14 @@ public static
 	public static extern int32 WSAConnect(SOCKET s, SOCKADDR* name, int32 namelen, WSABUF* lpCallerData, WSABUF* lpCalleeData, QOS* lpSQOS, QOS* lpGQOS);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WSAConnectByNameW(SOCKET s, PWSTR nodename, PWSTR servicename, uint32* LocalAddressLength, SOCKADDR* LocalAddress, uint32* RemoteAddressLength, SOCKADDR* RemoteAddress, timeval* timeout, OVERLAPPED* Reserved);
+	public static extern BOOL WSAConnectByNameW(SOCKET s, PWSTR nodename, PWSTR servicename, uint32* LocalAddressLength, SOCKADDR* LocalAddress, uint32* RemoteAddressLength, SOCKADDR* RemoteAddress, TIMEVAL* timeout, OVERLAPPED* Reserved);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WSAConnectByNameA(SOCKET s, PSTR nodename, PSTR servicename, uint32* LocalAddressLength, SOCKADDR* LocalAddress, uint32* RemoteAddressLength, SOCKADDR* RemoteAddress, timeval* timeout, OVERLAPPED* Reserved);
-	public static BOOL WSAConnectByName(SOCKET s, PSTR nodename, PSTR servicename, uint32* LocalAddressLength, SOCKADDR* LocalAddress, uint32* RemoteAddressLength, SOCKADDR* RemoteAddress, timeval* timeout, OVERLAPPED* Reserved) => WSAConnectByNameA(s, nodename, servicename, LocalAddressLength, LocalAddress, RemoteAddressLength, RemoteAddress, timeout, Reserved);
+	public static extern BOOL WSAConnectByNameA(SOCKET s, PSTR nodename, PSTR servicename, uint32* LocalAddressLength, SOCKADDR* LocalAddress, uint32* RemoteAddressLength, SOCKADDR* RemoteAddress, TIMEVAL* timeout, OVERLAPPED* Reserved);
+	public static BOOL WSAConnectByName(SOCKET s, PSTR nodename, PSTR servicename, uint32* LocalAddressLength, SOCKADDR* LocalAddress, uint32* RemoteAddressLength, SOCKADDR* RemoteAddress, TIMEVAL* timeout, OVERLAPPED* Reserved) => WSAConnectByNameA(s, nodename, servicename, LocalAddressLength, LocalAddress, RemoteAddressLength, RemoteAddress, timeout, Reserved);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WSAConnectByList(SOCKET s, SOCKET_ADDRESS_LIST* SocketAddress, uint32* LocalAddressLength, SOCKADDR* LocalAddress, uint32* RemoteAddressLength, SOCKADDR* RemoteAddress, timeval* timeout, OVERLAPPED* Reserved);
+	public static extern BOOL WSAConnectByList(SOCKET s, SOCKET_ADDRESS_LIST* SocketAddress, uint32* LocalAddressLength, SOCKADDR* LocalAddress, uint32* RemoteAddressLength, SOCKADDR* RemoteAddress, TIMEVAL* timeout, OVERLAPPED* Reserved);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE WSACreateEvent();
@@ -4414,59 +5657,24 @@ public static
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCEnumProtocols(int32* lpiProtocols, WSAPROTOCOL_INFOW* lpProtocolBuffer, uint32* lpdwBufferLength, int32* lpErrno);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCEnumProtocols32(int32* lpiProtocols, WSAPROTOCOL_INFOW* lpProtocolBuffer, uint32* lpdwBufferLength, int32* lpErrno);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCDeinstallProvider(Guid* lpProviderId, int32* lpErrno);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCDeinstallProvider32(Guid* lpProviderId, int32* lpErrno);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCInstallProvider(Guid* lpProviderId, PWSTR lpszProviderDllPath, WSAPROTOCOL_INFOW* lpProtocolInfoList, uint32 dwNumberOfEntries, int32* lpErrno);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCInstallProvider64_32(Guid* lpProviderId, PWSTR lpszProviderDllPath, WSAPROTOCOL_INFOW* lpProtocolInfoList, uint32 dwNumberOfEntries, int32* lpErrno);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCGetProviderPath(Guid* lpProviderId, char16* lpszProviderDllPath, int32* lpProviderDllPathLen, int32* lpErrno);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCGetProviderPath32(Guid* lpProviderId, char16* lpszProviderDllPath, int32* lpProviderDllPathLen, int32* lpErrno);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCUpdateProvider(Guid* lpProviderId, PWSTR lpszProviderDllPath, WSAPROTOCOL_INFOW* lpProtocolInfoList, uint32 dwNumberOfEntries, int32* lpErrno);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCUpdateProvider32(Guid* lpProviderId, PWSTR lpszProviderDllPath, WSAPROTOCOL_INFOW* lpProtocolInfoList, uint32 dwNumberOfEntries, int32* lpErrno);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCSetProviderInfo(Guid* lpProviderId, WSC_PROVIDER_INFO_TYPE InfoType, uint8* Info, uint InfoSize, uint32 Flags, int32* lpErrno);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCGetProviderInfo(Guid* lpProviderId, WSC_PROVIDER_INFO_TYPE InfoType, uint8* Info, uint* InfoSize, uint32 Flags, int32* lpErrno);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCSetProviderInfo32(Guid* lpProviderId, WSC_PROVIDER_INFO_TYPE InfoType, uint8* Info, uint InfoSize, uint32 Flags, int32* lpErrno);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCGetProviderInfo32(Guid* lpProviderId, WSC_PROVIDER_INFO_TYPE InfoType, uint8* Info, uint* InfoSize, uint32 Flags, int32* lpErrno);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCSetApplicationCategory(char16* Path, uint32 PathLength, char16* Extra, uint32 ExtraLength, uint32 PermittedLspCategories, uint32* pPrevPermLspCat, int32* lpErrno);
 
@@ -4476,53 +5684,18 @@ public static
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WPUCompleteOverlappedRequest(SOCKET s, OVERLAPPED* lpOverlapped, uint32 dwError, uint32 cbTransferred, int32* lpErrno);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCEnumNameSpaceProviders32(uint32* lpdwBufferLength, WSANAMESPACE_INFOW* lpnspBuffer);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCEnumNameSpaceProvidersEx32(uint32* lpdwBufferLength, WSANAMESPACE_INFOEXW* lpnspBuffer);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCInstallNameSpace(PWSTR lpszIdentifier, PWSTR lpszPathName, uint32 dwNameSpace, uint32 dwVersion, Guid* lpProviderId);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCInstallNameSpace32(PWSTR lpszIdentifier, PWSTR lpszPathName, uint32 dwNameSpace, uint32 dwVersion, Guid* lpProviderId);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCUnInstallNameSpace(Guid* lpProviderId);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCInstallNameSpaceEx(PWSTR lpszIdentifier, PWSTR lpszPathName, uint32 dwNameSpace, uint32 dwVersion, Guid* lpProviderId, BLOB* lpProviderSpecific);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCInstallNameSpaceEx32(PWSTR lpszIdentifier, PWSTR lpszPathName, uint32 dwNameSpace, uint32 dwVersion, Guid* lpProviderId, BLOB* lpProviderSpecific);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCUnInstallNameSpace32(Guid* lpProviderId);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCEnableNSProvider(Guid* lpProviderId, BOOL fEnable);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCEnableNSProvider32(Guid* lpProviderId, BOOL fEnable);
-
-#endif
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCInstallProviderAndChains64_32(Guid* lpProviderId, PWSTR lpszProviderDllPath, PWSTR lpszProviderDllPath32, PWSTR lpszLspName, uint32 dwServiceFlags, WSAPROTOCOL_INFOW* lpProtocolInfoList, uint32 dwNumberOfEntries, uint32* lpdwCatalogEntryId, int32* lpErrno);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSAAdvertiseProvider(in Guid puuidProviderId, NSPV2_ROUTINE* pNSPv2Routine);
 
@@ -4578,14 +5751,14 @@ public static
 	public static extern int32 getaddrinfo(PSTR pNodeName, PSTR pServiceName, ADDRINFOA* pHints, ADDRINFOA** ppResult);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetAddrInfoW(PWSTR pNodeName, PWSTR pServiceName, addrinfoW* pHints, addrinfoW** ppResult);
+	public static extern int32 GetAddrInfoW(PWSTR pNodeName, PWSTR pServiceName, ADDRINFOW* pHints, ADDRINFOW** ppResult);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetAddrInfoExA(PSTR pName, PSTR pServiceName, uint32 dwNameSpace, Guid* lpNspId, addrinfoexA* hints, addrinfoexA** ppResult, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle);
-	public static int32 GetAddrInfoEx(PSTR pName, PSTR pServiceName, uint32 dwNameSpace, Guid* lpNspId, addrinfoexA* hints, addrinfoexA** ppResult, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle) => GetAddrInfoExA(pName, pServiceName, dwNameSpace, lpNspId, hints, ppResult, timeout, lpOverlapped, lpCompletionRoutine, lpNameHandle);
+	public static extern int32 GetAddrInfoExA(PSTR pName, PSTR pServiceName, uint32 dwNameSpace, Guid* lpNspId, ADDRINFOEXA* hints, ADDRINFOEXA** ppResult, TIMEVAL* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle);
+	public static int32 GetAddrInfoEx(PSTR pName, PSTR pServiceName, uint32 dwNameSpace, Guid* lpNspId, ADDRINFOEXA* hints, ADDRINFOEXA** ppResult, TIMEVAL* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle) => GetAddrInfoExA(pName, pServiceName, dwNameSpace, lpNspId, hints, ppResult, timeout, lpOverlapped, lpCompletionRoutine, lpNameHandle);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetAddrInfoExW(PWSTR pName, PWSTR pServiceName, uint32 dwNameSpace, Guid* lpNspId, addrinfoexW* hints, addrinfoexW** ppResult, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpHandle);
+	public static extern int32 GetAddrInfoExW(PWSTR pName, PWSTR pServiceName, uint32 dwNameSpace, Guid* lpNspId, ADDRINFOEXW* hints, ADDRINFOEXW** ppResult, TIMEVAL* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpHandle);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetAddrInfoExCancel(HANDLE* lpHandle);
@@ -4594,23 +5767,23 @@ public static
 	public static extern int32 GetAddrInfoExOverlappedResult(OVERLAPPED* lpOverlapped);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SetAddrInfoExA(PSTR pName, PSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, Guid* lpNspId, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle);
-	public static int32 SetAddrInfoEx(PSTR pName, PSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, Guid* lpNspId, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle) => SetAddrInfoExA(pName, pServiceName, pAddresses, dwAddressCount, lpBlob, dwFlags, dwNameSpace, lpNspId, timeout, lpOverlapped, lpCompletionRoutine, lpNameHandle);
+	public static extern int32 SetAddrInfoExA(PSTR pName, PSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, Guid* lpNspId, TIMEVAL* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle);
+	public static int32 SetAddrInfoEx(PSTR pName, PSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, Guid* lpNspId, TIMEVAL* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle) => SetAddrInfoExA(pName, pServiceName, pAddresses, dwAddressCount, lpBlob, dwFlags, dwNameSpace, lpNspId, timeout, lpOverlapped, lpCompletionRoutine, lpNameHandle);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SetAddrInfoExW(PWSTR pName, PWSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, Guid* lpNspId, timeval* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle);
+	public static extern int32 SetAddrInfoExW(PWSTR pName, PWSTR pServiceName, SOCKET_ADDRESS* pAddresses, uint32 dwAddressCount, BLOB* lpBlob, uint32 dwFlags, uint32 dwNameSpace, Guid* lpNspId, TIMEVAL* timeout, OVERLAPPED* lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, HANDLE* lpNameHandle);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void freeaddrinfo(ADDRINFOA* pAddrInfo);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FreeAddrInfoW(addrinfoW* pAddrInfo);
+	public static extern void FreeAddrInfoW(ADDRINFOW* pAddrInfo);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FreeAddrInfoEx(addrinfoexA* pAddrInfoEx);
+	public static extern void FreeAddrInfoEx(ADDRINFOEXA* pAddrInfoEx);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern void FreeAddrInfoExW(addrinfoexW* pAddrInfoEx);
+	public static extern void FreeAddrInfoExW(ADDRINFOEXW* pAddrInfoEx);
 
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 getnameinfo(SOCKADDR* pSockaddr, int32 SockaddrLength, uint8* pNodeBuffer, uint32 NodeBufferSize, uint8* pServiceBuffer, uint32 ServiceBufferSize, int32 Flags);
@@ -4654,18 +5827,8 @@ public static
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCWriteProviderOrder(uint32* lpwdCatalogEntryId, uint32 dwNumberOfEntries);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCWriteProviderOrder32(uint32* lpwdCatalogEntryId, uint32 dwNumberOfEntries);
-
-#endif
 	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 WSCWriteNameSpaceOrder(Guid* lpProviderId, uint32 dwNumberOfEntries);
 
-#if BF_64_BIT || BF_ARM_64
-	[Import("WS2_32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WSCWriteNameSpaceOrder32(Guid* lpProviderId, uint32 dwNumberOfEntries);
-
-#endif
 }
 #endregion

@@ -7,6 +7,7 @@ using Win32.UI.WindowsAndMessaging;
 using Win32.Globalization;
 using Win32.Graphics.Direct2D;
 using Win32.System.Com.StructuredStorage;
+using Win32.System.SystemServices;
 using System;
 
 namespace Win32.UI.Controls.RichEdit;
@@ -14,9 +15,14 @@ namespace Win32.UI.Controls.RichEdit;
 #region Constants
 public static
 {
-	public const uint32 WM_CONTEXTMENU = 123;
-	public const uint32 WM_UNICHAR = 265;
-	public const uint32 WM_PRINTCLIENT = 792;
+	public const uint32 cchTextLimitDefault = 32767;
+	public const String MSFTEDIT_CLASS = "RICHEDIT50W";
+	public const String CERICHEDIT_CLASSA = "RichEditCEA";
+	public const String CERICHEDIT_CLASSW = "RichEditCEW";
+	public const String RICHEDIT_CLASSA = "RichEdit20A";
+	public const String RICHEDIT_CLASS10A = "RICHEDIT";
+	public const String RICHEDIT_CLASSW = "RichEdit20W";
+	public const String RICHEDIT_CLASS = "RichEdit20W";
 	public const uint32 EM_CANPASTE = 1074;
 	public const uint32 EM_DISPLAYBAND = 1075;
 	public const uint32 EM_EXGETSEL = 1076;
@@ -332,6 +338,7 @@ public static
 	public const uint32 IMF_FORCEINACTIVE = 128;
 	public const uint32 IMF_FORCEREMEMBER = 256;
 	public const uint32 IMF_MULTIPLEEDIT = 1024;
+	public const uint32 yHeightCharPtsMost = 1638;
 	public const uint32 SCF_SELECTION = 1;
 	public const uint32 SCF_WORD = 2;
 	public const uint32 SCF_DEFAULT = 0;
@@ -359,6 +366,7 @@ public static
 	public const uint32 SFF_PWD = 2048;
 	public const uint32 SF_RTFVAL = 1792;
 	public const uint32 MAX_TAB_STOPS = 32;
+	public const uint32 lDefaultTab = 720;
 	public const uint32 MAX_TABLE_CELLS = 63;
 	public const uint32 PFM_SPACEBEFORE = 64;
 	public const uint32 PFM_SPACEAFTER = 128;
@@ -383,20 +391,16 @@ public static
 	public const uint32 PFM_TABLEROWDELIMITER = 268435456;
 	public const uint32 PFM_TEXTWRAPPINGBREAK = 536870912;
 	public const uint32 PFM_TABLE = 1073741824;
-	public const uint32 PFN_BULLET = 1;
-	public const uint32 PFN_ARABIC = 2;
-	public const uint32 PFN_LCLETTER = 3;
-	public const uint32 PFN_UCLETTER = 4;
-	public const uint32 PFN_LCROMAN = 5;
-	public const uint32 PFN_UCROMAN = 6;
 	public const uint32 PFA_JUSTIFY = 4;
 	public const uint32 PFA_FULL_INTERWORD = 4;
-	public const uint32 WM_NOTIFY = 78;
 	public const uint32 GCMF_GRIPPER = 1;
 	public const uint32 GCMF_SPELLING = 2;
 	public const uint32 GCMF_TOUCHMENU = 16384;
 	public const uint32 GCMF_MOUSEMENU = 8192;
 	public const uint32 OLEOP_DOVERB = 1;
+	public const String CF_RTF = "Rich Text Format";
+	public const String CF_RTFNOOBJS = "Rich Text Format Without Objects";
+	public const String CF_RETEXTOBJ = "RichEdit Text and Objects";
 	public const uint32 ST_DEFAULT = 0;
 	public const uint32 ST_KEEPUNDO = 1;
 	public const uint32 ST_SELECTION = 2;
@@ -420,6 +424,7 @@ public static
 	public const uint32 FR_MATCHDIAC = 536870912;
 	public const uint32 FR_MATCHKASHIDA = 1073741824;
 	public const uint32 FR_MATCHALEFHAMZA = 2147483648;
+	public const String RICHEDIT60_CLASS = "RICHEDIT60W";
 	public const uint32 PFA_FULL_NEWSPAPER = 5;
 	public const uint32 PFA_FULL_INTERLETTER = 6;
 	public const uint32 PFA_FULL_SCALED = 7;
@@ -461,11 +466,6 @@ public static
 	public const uint32 TXES_ISDIALOG = 1;
 	public const int32 REO_NULL = 0;
 	public const int32 REO_READWRITEMASK = 2047;
-	public const int32 RECO_PASTE = 0;
-	public const int32 RECO_DROP = 1;
-	public const int32 RECO_COPY = 2;
-	public const int32 RECO_CUT = 3;
-	public const int32 RECO_DRAG = 4;
 }
 #endregion
 
@@ -701,6 +701,18 @@ public enum PARAFORMAT_ALIGNMENT : uint16
 	PFA_CENTER = 3,
 	PFA_LEFT = 1,
 	PFA_RIGHT = 2,
+}
+
+
+[AllowDuplicates]
+public enum PARAFORMAT_NUMBERING : uint16
+{
+	PFN_BULLET = 1,
+	PFN_ARABIC = 2,
+	PFN_LCLETTER = 3,
+	PFN_UCLETTER = 4,
+	PFN_LCROMAN = 5,
+	PFN_UCROMAN = 6,
 }
 
 
@@ -1500,12 +1512,12 @@ public struct TABLECELLPARMS
 	public int16 dyBrdrTop;
 	public int16 dxBrdrRight;
 	public int16 dyBrdrBottom;
-	public uint32 crBrdrLeft;
-	public uint32 crBrdrTop;
-	public uint32 crBrdrRight;
-	public uint32 crBrdrBottom;
-	public uint32 crBackPat;
-	public uint32 crForePat;
+	public COLORREF crBrdrLeft;
+	public COLORREF crBrdrTop;
+	public COLORREF crBrdrRight;
+	public COLORREF crBrdrBottom;
+	public COLORREF crBackPat;
+	public COLORREF crForePat;
 }
 
 [CRepr, Packed(4)]
@@ -1534,8 +1546,8 @@ public struct CHARFORMATA
 	public CFE_EFFECTS dwEffects;
 	public int32 yHeight;
 	public int32 yOffset;
-	public uint32 crTextColor;
-	public uint8 bCharSet;
+	public COLORREF crTextColor;
+	public EMBED_FONT_CHARSET bCharSet;
 	public uint8 bPitchAndFamily;
 	public CHAR[32] szFaceName;
 }
@@ -1548,8 +1560,8 @@ public struct CHARFORMATW
 	public CFE_EFFECTS dwEffects;
 	public int32 yHeight;
 	public int32 yOffset;
-	public uint32 crTextColor;
-	public uint8 bCharSet;
+	public COLORREF crTextColor;
+	public EMBED_FONT_CHARSET bCharSet;
 	public uint8 bPitchAndFamily;
 	public char16[32] szFaceName;
 }
@@ -1563,10 +1575,10 @@ public struct CHARFORMAT2W
 		public uint32 dwReserved;
 		public uint32 dwCookie;
 	}
-	public CHARFORMATW __AnonymousBase_richedit_L711_C23;
+	public CHARFORMATW Base;
 	public uint16 wWeight;
 	public int16 sSpacing;
-	public uint32 crBackColor;
+	public COLORREF crBackColor;
 	public uint32 lcid;
 	public using _Anonymous_e__Union Anonymous;
 	public int16 sStyle;
@@ -1586,10 +1598,10 @@ public struct CHARFORMAT2A
 		public uint32 dwReserved;
 		public uint32 dwCookie;
 	}
-	public CHARFORMATA __AnonymousBase_richedit_L736_C23;
+	public CHARFORMATA Base;
 	public uint16 wWeight;
 	public int16 sSpacing;
-	public uint32 crBackColor;
+	public COLORREF crBackColor;
 	public uint32 lcid;
 	public using _Anonymous_e__Union Anonymous;
 	public int16 sStyle;
@@ -1680,7 +1692,7 @@ public struct PARAFORMAT
 	}
 	public uint32 cbSize;
 	public PARAFORMAT_MASK dwMask;
-	public uint16 wNumbering;
+	public PARAFORMAT_NUMBERING wNumbering;
 	public using _Anonymous_e__Union Anonymous;
 	public int32 dxStartIndent;
 	public int32 dxRightIndent;
@@ -1693,7 +1705,7 @@ public struct PARAFORMAT
 [CRepr]
 public struct PARAFORMAT2
 {
-	public PARAFORMAT __AnonymousBase_richedit_L1149_C22;
+	public PARAFORMAT Base;
 	public int32 dySpaceBefore;
 	public int32 dySpaceAfter;
 	public int32 dyLineSpacing;
@@ -1735,7 +1747,7 @@ public struct SELCHANGE
 }
 
 [CRepr, Packed(4)]
-public struct _grouptypingchange
+public struct GROUPTYPINGCHANGE
 {
 	public NMHDR nmhdr;
 	public BOOL fGroupTyping;
@@ -1836,8 +1848,8 @@ public struct PUNCTUATION
 [CRepr]
 public struct COMPCOLOR
 {
-	public uint32 crText;
-	public uint32 crBackground;
+	public COLORREF crText;
+	public COLORREF crBackground;
 	public uint32 dwEffects;
 }
 
@@ -1881,7 +1893,7 @@ public struct BIDIOPTIONS
 }
 
 [CRepr]
-public struct hyphresult
+public struct HYPHRESULT
 {
 	public KHYPH khyph;
 	public int32 ichHyph;
@@ -2023,7 +2035,7 @@ public struct REOBJECT
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* prc) TxGetViewInset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CHARFORMATW** ppCF) TxGetCharFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PARAFORMAT** ppPF) TxGetParaFormat;
-		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self, int32 nIndex) TxGetSysColor;
+		protected new function [CallingConvention(.Stdcall)] COLORREF(SelfOuter* self, SYS_COLOR_INDEX nIndex) TxGetSysColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TXTBACKSTYLE* pstyle) TxGetBackStyle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* plength) TxGetMaxLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwScrollBar) TxGetScrollBars;
@@ -2090,7 +2102,7 @@ public struct REOBJECT
 
 	public HRESULT TxGetParaFormat(PARAFORMAT** ppPF) mut => VT.[Friend]TxGetParaFormat(&this, ppPF);
 
-	public uint32 TxGetSysColor(int32 nIndex) mut => VT.[Friend]TxGetSysColor(&this, nIndex);
+	public COLORREF TxGetSysColor(SYS_COLOR_INDEX nIndex) mut => VT.[Friend]TxGetSysColor(&this, nIndex);
 
 	public HRESULT TxGetBackStyle(TXTBACKSTYLE* pstyle) mut => VT.[Friend]TxGetBackStyle(&this, pstyle);
 
@@ -2263,21 +2275,21 @@ public struct REOBJECT
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStorage** lplpstg) GetNewStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleInPlaceFrame** lplpFrame, IOleInPlaceUIWindow** lplpDoc, OIFI* lpFrameInfo) GetInPlaceContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleInPlaceFrame** lplpFrame, IOleInPlaceUIWindow** lplpDoc, OLEINPLACEFRAMEINFO* lpFrameInfo) GetInPlaceContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fShow) ShowContainerUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* lpclsid, IStorage* lpstg, int32 cp) QueryInsertObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleObject* lpoleobj) DeleteObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* lpdataobj, uint16* lpcfFormat, uint32 reco, BOOL fReally, int hMetaPict) QueryAcceptData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* lpdataobj, uint16* lpcfFormat, RECO_FLAGS reco, BOOL fReally, int hMetaPict) QueryAcceptData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnterMode) ContextSensitiveHelp;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CHARRANGE* lpchrg, uint32 reco, IDataObject** lplpdataobj) GetClipboardData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fDrag, uint32 grfKeyState, uint32* pdwEffect) GetDragDropEffect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fDrag, MODIFIERKEYS_FLAGS grfKeyState, DROPEFFECT* pdwEffect) GetDragDropEffect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE seltype, IOleObject* lpoleobj, CHARRANGE* lpchrg, HMENU* lphmenu) GetContextMenu;
 	}
 
 
 	public HRESULT GetNewStorage(IStorage** lplpstg) mut => VT.[Friend]GetNewStorage(&this, lplpstg);
 
-	public HRESULT GetInPlaceContext(IOleInPlaceFrame** lplpFrame, IOleInPlaceUIWindow** lplpDoc, OIFI* lpFrameInfo) mut => VT.[Friend]GetInPlaceContext(&this, lplpFrame, lplpDoc, lpFrameInfo);
+	public HRESULT GetInPlaceContext(IOleInPlaceFrame** lplpFrame, IOleInPlaceUIWindow** lplpDoc, OLEINPLACEFRAMEINFO* lpFrameInfo) mut => VT.[Friend]GetInPlaceContext(&this, lplpFrame, lplpDoc, lpFrameInfo);
 
 	public HRESULT ShowContainerUI(BOOL fShow) mut => VT.[Friend]ShowContainerUI(&this, fShow);
 
@@ -2285,13 +2297,13 @@ public struct REOBJECT
 
 	public HRESULT DeleteObject(IOleObject* lpoleobj) mut => VT.[Friend]DeleteObject(&this, lpoleobj);
 
-	public HRESULT QueryAcceptData(IDataObject* lpdataobj, uint16* lpcfFormat, uint32 reco, BOOL fReally, int hMetaPict) mut => VT.[Friend]QueryAcceptData(&this, lpdataobj, lpcfFormat, reco, fReally, hMetaPict);
+	public HRESULT QueryAcceptData(IDataObject* lpdataobj, uint16* lpcfFormat, RECO_FLAGS reco, BOOL fReally, int hMetaPict) mut => VT.[Friend]QueryAcceptData(&this, lpdataobj, lpcfFormat, reco, fReally, hMetaPict);
 
 	public HRESULT ContextSensitiveHelp(BOOL fEnterMode) mut => VT.[Friend]ContextSensitiveHelp(&this, fEnterMode);
 
 	public HRESULT GetClipboardData(CHARRANGE* lpchrg, uint32 reco, IDataObject** lplpdataobj) mut => VT.[Friend]GetClipboardData(&this, lpchrg, reco, lplpdataobj);
 
-	public HRESULT GetDragDropEffect(BOOL fDrag, uint32 grfKeyState, uint32* pdwEffect) mut => VT.[Friend]GetDragDropEffect(&this, fDrag, grfKeyState, pdwEffect);
+	public HRESULT GetDragDropEffect(BOOL fDrag, MODIFIERKEYS_FLAGS grfKeyState, DROPEFFECT* pdwEffect) mut => VT.[Friend]GetDragDropEffect(&this, fDrag, grfKeyState, pdwEffect);
 
 	public HRESULT GetContextMenu(RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE seltype, IOleObject* lpoleobj, CHARRANGE* lpchrg, HMENU* lphmenu) mut => VT.[Friend]GetContextMenu(&this, seltype, lpoleobj, lpchrg, lphmenu);
 }
@@ -2313,8 +2325,8 @@ public struct REOBJECT
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pValue) GetDefaultTabStop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) SetDefaultTabStop;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) New;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar, int32 Flags, int32 CodePage) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar, int32 Flags, int32 CodePage) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar, tomConstants Flags, int32 CodePage) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar, tomConstants Flags, int32 CodePage) Save;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) Freeze;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) Unfreeze;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BeginEditCollection;
@@ -2344,9 +2356,9 @@ public struct REOBJECT
 
 	public HRESULT New() mut => VT.[Friend]New(&this);
 
-	public HRESULT Open(VARIANT* pVar, int32 Flags, int32 CodePage) mut => VT.[Friend]Open(&this, pVar, Flags, CodePage);
+	public HRESULT Open(VARIANT* pVar, tomConstants Flags, int32 CodePage) mut => VT.[Friend]Open(&this, pVar, Flags, CodePage);
 
-	public HRESULT Save(VARIANT* pVar, int32 Flags, int32 CodePage) mut => VT.[Friend]Save(&this, pVar, Flags, CodePage);
+	public HRESULT Save(VARIANT* pVar, tomConstants Flags, int32 CodePage) mut => VT.[Friend]Save(&this, pVar, Flags, CodePage);
 
 	public HRESULT Freeze(int32* pCount) mut => VT.[Friend]Freeze(&this, pCount);
 
@@ -2410,18 +2422,18 @@ public struct REOBJECT
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Cset, int32 Count, int32* pDelta) MoveUntil;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Cset, int32 Count, int32* pDelta) MoveStartUntil;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Cset, int32 Count, int32* pDelta) MoveEndUntil;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstr, int32 Count, int32 Flags, int32* pLength) FindText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstr, int32 Count, int32 Flags, int32* pLength) FindTextStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstr, int32 Count, int32 Flags, int32* pLength) FindTextEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstr, int32 Count, tomConstants Flags, int32* pLength) FindText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstr, int32 Count, tomConstants Flags, int32* pLength) FindTextStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstr, int32 Count, tomConstants Flags, int32* pLength) FindTextEnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Unit, int32 Count, int32* pDelta) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar) Cut;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar) Copy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar, int32 Format) Paste;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar, int32 Format, int32* pValue) CanPaste;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pValue) CanEdit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Type) ChangeCase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Type, int32* px, int32* py) GetPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y, int32 Type, int32 Extend) SetPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, tomConstants Type) ChangeCase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, tomConstants Type, int32* px, int32* py) GetPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y, tomConstants Type, int32 Extend) SetPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Value) ScrollIntoView;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppObject) GetEmbeddedObject;
 	}
@@ -2501,11 +2513,11 @@ public struct REOBJECT
 
 	public HRESULT MoveEndUntil(VARIANT* Cset, int32 Count, int32* pDelta) mut => VT.[Friend]MoveEndUntil(&this, Cset, Count, pDelta);
 
-	public HRESULT FindText(BSTR bstr, int32 Count, int32 Flags, int32* pLength) mut => VT.[Friend]FindText(&this, bstr, Count, Flags, pLength);
+	public HRESULT FindText(BSTR bstr, int32 Count, tomConstants Flags, int32* pLength) mut => VT.[Friend]FindText(&this, bstr, Count, Flags, pLength);
 
-	public HRESULT FindTextStart(BSTR bstr, int32 Count, int32 Flags, int32* pLength) mut => VT.[Friend]FindTextStart(&this, bstr, Count, Flags, pLength);
+	public HRESULT FindTextStart(BSTR bstr, int32 Count, tomConstants Flags, int32* pLength) mut => VT.[Friend]FindTextStart(&this, bstr, Count, Flags, pLength);
 
-	public HRESULT FindTextEnd(BSTR bstr, int32 Count, int32 Flags, int32* pLength) mut => VT.[Friend]FindTextEnd(&this, bstr, Count, Flags, pLength);
+	public HRESULT FindTextEnd(BSTR bstr, int32 Count, tomConstants Flags, int32* pLength) mut => VT.[Friend]FindTextEnd(&this, bstr, Count, Flags, pLength);
 
 	public HRESULT Delete(int32 Unit, int32 Count, int32* pDelta) mut => VT.[Friend]Delete(&this, Unit, Count, pDelta);
 
@@ -2519,11 +2531,11 @@ public struct REOBJECT
 
 	public HRESULT CanEdit(int32* pValue) mut => VT.[Friend]CanEdit(&this, pValue);
 
-	public HRESULT ChangeCase(int32 Type) mut => VT.[Friend]ChangeCase(&this, Type);
+	public HRESULT ChangeCase(tomConstants Type) mut => VT.[Friend]ChangeCase(&this, Type);
 
-	public HRESULT GetPoint(int32 Type, int32* px, int32* py) mut => VT.[Friend]GetPoint(&this, Type, px, py);
+	public HRESULT GetPoint(tomConstants Type, int32* px, int32* py) mut => VT.[Friend]GetPoint(&this, Type, px, py);
 
-	public HRESULT SetPoint(int32 x, int32 y, int32 Type, int32 Extend) mut => VT.[Friend]SetPoint(&this, x, y, Type, Extend);
+	public HRESULT SetPoint(int32 x, int32 y, tomConstants Type, int32 Extend) mut => VT.[Friend]SetPoint(&this, x, y, Type, Extend);
 
 	public HRESULT ScrollIntoView(int32 Value) mut => VT.[Friend]ScrollIntoView(&this, Value);
 
@@ -3721,8 +3733,8 @@ public struct REOBJECT
 	[CRepr]public struct VTable : ITextDocument.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pFilter) AttachMsgFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, uint32 cr) SetEffectColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, uint32* pcr) GetEffectColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, COLORREF cr) SetEffectColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, COLORREF* pcr) GetEffectColor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCaretType) GetCaretType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 CaretType) SetCaretType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pContext) GetImmContext;
@@ -3749,9 +3761,9 @@ public struct REOBJECT
 
 	public HRESULT AttachMsgFilter(IUnknown* pFilter) mut => VT.[Friend]AttachMsgFilter(&this, pFilter);
 
-	public HRESULT SetEffectColor(int32 Index, uint32 cr) mut => VT.[Friend]SetEffectColor(&this, Index, cr);
+	public HRESULT SetEffectColor(int32 Index, COLORREF cr) mut => VT.[Friend]SetEffectColor(&this, Index, cr);
 
-	public HRESULT GetEffectColor(int32 Index, uint32* pcr) mut => VT.[Friend]GetEffectColor(&this, Index, pcr);
+	public HRESULT GetEffectColor(int32 Index, COLORREF* pcr) mut => VT.[Friend]GetEffectColor(&this, Index, pcr);
 
 	public HRESULT GetCaretType(int32* pCaretType) mut => VT.[Friend]GetCaretType(&this, pCaretType);
 

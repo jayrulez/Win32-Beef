@@ -18,7 +18,7 @@ public static
 #endregion
 
 #region TypeDefs
-typealias CF_CONNECTION_KEY = int;
+typealias CF_CONNECTION_KEY = int64;
 
 #endregion
 
@@ -703,6 +703,11 @@ public struct CF_CALLBACK_PARAMETERS
 			public PWSTR Pattern;
 		}
 		[CRepr]
+		public struct _CloseCompletion_e__Struct
+		{
+			public CF_CALLBACK_CLOSE_COMPLETION_FLAGS Flags;
+		}
+		[CRepr]
 		public struct _DeleteCompletion_e__Struct
 		{
 			public CF_CALLBACK_DELETE_COMPLETION_FLAGS Flags;
@@ -717,11 +722,6 @@ public struct CF_CALLBACK_PARAMETERS
 			public LARGE_INTEGER OptionalLength;
 			public LARGE_INTEGER LastDehydrationTime;
 			public CF_CALLBACK_DEHYDRATION_REASON LastDehydrationReason;
-		}
-		[CRepr]
-		public struct _CloseCompletion_e__Struct
-		{
-			public CF_CALLBACK_CLOSE_COMPLETION_FLAGS Flags;
 		}
 		public _Cancel_e__Struct Cancel;
 		public _FetchData_e__Struct FetchData;
@@ -824,14 +824,6 @@ public struct CF_OPERATION_PARAMETERS
 			public uint32 FileIdentityLength;
 		}
 		[CRepr]
-		public struct _AckDehydrate_e__Struct
-		{
-			public CF_OPERATION_ACK_DEHYDRATE_FLAGS Flags;
-			public NTSTATUS CompletionStatus;
-			public void* FileIdentity;
-			public uint32 FileIdentityLength;
-		}
-		[CRepr]
 		public struct _RetrieveData_e__Struct
 		{
 			public CF_OPERATION_RETRIEVE_DATA_FLAGS Flags;
@@ -839,6 +831,14 @@ public struct CF_OPERATION_PARAMETERS
 			public LARGE_INTEGER Offset;
 			public LARGE_INTEGER Length;
 			public LARGE_INTEGER ReturnedLength;
+		}
+		[CRepr]
+		public struct _AckDehydrate_e__Struct
+		{
+			public CF_OPERATION_ACK_DEHYDRATE_FLAGS Flags;
+			public NTSTATUS CompletionStatus;
+			public void* FileIdentity;
+			public uint32 FileIdentityLength;
 		}
 		public _TransferData_e__Struct TransferData;
 		public _RetrieveData_e__Struct RetrieveData;

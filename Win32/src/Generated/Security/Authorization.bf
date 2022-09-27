@@ -11,10 +11,161 @@ public static
 {
 	public const uint32 SDDL_REVISION_1 = 1;
 	public const uint32 SDDL_REVISION = 1;
+	public const String SDDL_OWNER = "O";
+	public const String SDDL_GROUP = "G";
+	public const String SDDL_DACL = "D";
+	public const String SDDL_SACL = "S";
+	public const String SDDL_PROTECTED = "P";
+	public const String SDDL_AUTO_INHERIT_REQ = "AR";
+	public const String SDDL_AUTO_INHERITED = "AI";
+	public const String SDDL_NULL_ACL = "NO_ACCESS_CONTROL";
+	public const String SDDL_ACCESS_ALLOWED = "A";
+	public const String SDDL_ACCESS_DENIED = "D";
+	public const String SDDL_OBJECT_ACCESS_ALLOWED = "OA";
+	public const String SDDL_OBJECT_ACCESS_DENIED = "OD";
+	public const String SDDL_AUDIT = "AU";
+	public const String SDDL_ALARM = "AL";
+	public const String SDDL_OBJECT_AUDIT = "OU";
+	public const String SDDL_OBJECT_ALARM = "OL";
+	public const String SDDL_MANDATORY_LABEL = "ML";
+	public const String SDDL_PROCESS_TRUST_LABEL = "TL";
+	public const String SDDL_CALLBACK_ACCESS_ALLOWED = "XA";
+	public const String SDDL_CALLBACK_ACCESS_DENIED = "XD";
+	public const String SDDL_RESOURCE_ATTRIBUTE = "RA";
+	public const String SDDL_SCOPED_POLICY_ID = "SP";
+	public const String SDDL_CALLBACK_AUDIT = "XU";
+	public const String SDDL_CALLBACK_OBJECT_ACCESS_ALLOWED = "ZA";
+	public const String SDDL_ACCESS_FILTER = "FL";
+	public const String SDDL_INT = "TI";
+	public const String SDDL_UINT = "TU";
+	public const String SDDL_WSTRING = "TS";
+	public const String SDDL_SID = "TD";
+	public const String SDDL_BLOB = "TX";
+	public const String SDDL_BOOLEAN = "TB";
+	public const String SDDL_CONTAINER_INHERIT = "CI";
+	public const String SDDL_OBJECT_INHERIT = "OI";
+	public const String SDDL_NO_PROPAGATE = "NP";
+	public const String SDDL_INHERIT_ONLY = "IO";
+	public const String SDDL_INHERITED = "ID";
+	public const String SDDL_CRITICAL = "CR";
+	public const String SDDL_TRUST_PROTECTED_FILTER = "TP";
+	public const String SDDL_AUDIT_SUCCESS = "SA";
+	public const String SDDL_AUDIT_FAILURE = "FA";
+	public const String SDDL_READ_PROPERTY = "RP";
+	public const String SDDL_WRITE_PROPERTY = "WP";
+	public const String SDDL_CREATE_CHILD = "CC";
+	public const String SDDL_DELETE_CHILD = "DC";
+	public const String SDDL_LIST_CHILDREN = "LC";
+	public const String SDDL_SELF_WRITE = "SW";
+	public const String SDDL_LIST_OBJECT = "LO";
+	public const String SDDL_DELETE_TREE = "DT";
+	public const String SDDL_CONTROL_ACCESS = "CR";
+	public const String SDDL_READ_CONTROL = "RC";
+	public const String SDDL_WRITE_DAC = "WD";
+	public const String SDDL_WRITE_OWNER = "WO";
+	public const String SDDL_STANDARD_DELETE = "SD";
+	public const String SDDL_GENERIC_ALL = "GA";
+	public const String SDDL_GENERIC_READ = "GR";
+	public const String SDDL_GENERIC_WRITE = "GW";
+	public const String SDDL_GENERIC_EXECUTE = "GX";
+	public const String SDDL_FILE_ALL = "FA";
+	public const String SDDL_FILE_READ = "FR";
+	public const String SDDL_FILE_WRITE = "FW";
+	public const String SDDL_FILE_EXECUTE = "FX";
+	public const String SDDL_KEY_ALL = "KA";
+	public const String SDDL_KEY_READ = "KR";
+	public const String SDDL_KEY_WRITE = "KW";
+	public const String SDDL_KEY_EXECUTE = "KX";
+	public const String SDDL_NO_WRITE_UP = "NW";
+	public const String SDDL_NO_READ_UP = "NR";
+	public const String SDDL_NO_EXECUTE_UP = "NX";
 	public const uint32 SDDL_ALIAS_SIZE = 2;
+	public const String SDDL_DOMAIN_ADMINISTRATORS = "DA";
+	public const String SDDL_DOMAIN_GUESTS = "DG";
+	public const String SDDL_DOMAIN_USERS = "DU";
+	public const String SDDL_ENTERPRISE_DOMAIN_CONTROLLERS = "ED";
+	public const String SDDL_DOMAIN_DOMAIN_CONTROLLERS = "DD";
+	public const String SDDL_DOMAIN_COMPUTERS = "DC";
+	public const String SDDL_BUILTIN_ADMINISTRATORS = "BA";
+	public const String SDDL_BUILTIN_GUESTS = "BG";
+	public const String SDDL_BUILTIN_USERS = "BU";
+	public const String SDDL_LOCAL_ADMIN = "LA";
+	public const String SDDL_LOCAL_GUEST = "LG";
+	public const String SDDL_ACCOUNT_OPERATORS = "AO";
+	public const String SDDL_BACKUP_OPERATORS = "BO";
+	public const String SDDL_PRINTER_OPERATORS = "PO";
+	public const String SDDL_SERVER_OPERATORS = "SO";
+	public const String SDDL_AUTHENTICATED_USERS = "AU";
+	public const String SDDL_PERSONAL_SELF = "PS";
+	public const String SDDL_CREATOR_OWNER = "CO";
+	public const String SDDL_CREATOR_GROUP = "CG";
+	public const String SDDL_LOCAL_SYSTEM = "SY";
+	public const String SDDL_POWER_USERS = "PU";
+	public const String SDDL_EVERYONE = "WD";
+	public const String SDDL_REPLICATOR = "RE";
+	public const String SDDL_INTERACTIVE = "IU";
+	public const String SDDL_NETWORK = "NU";
+	public const String SDDL_SERVICE = "SU";
+	public const String SDDL_RESTRICTED_CODE = "RC";
+	public const String SDDL_WRITE_RESTRICTED_CODE = "WR";
+	public const String SDDL_ANONYMOUS = "AN";
+	public const String SDDL_SCHEMA_ADMINISTRATORS = "SA";
+	public const String SDDL_CERT_SERV_ADMINISTRATORS = "CA";
+	public const String SDDL_RAS_SERVERS = "RS";
+	public const String SDDL_ENTERPRISE_ADMINS = "EA";
+	public const String SDDL_GROUP_POLICY_ADMINS = "PA";
+	public const String SDDL_ALIAS_PREW2KCOMPACC = "RU";
+	public const String SDDL_LOCAL_SERVICE = "LS";
+	public const String SDDL_NETWORK_SERVICE = "NS";
+	public const String SDDL_REMOTE_DESKTOP = "RD";
+	public const String SDDL_NETWORK_CONFIGURATION_OPS = "NO";
+	public const String SDDL_PERFMON_USERS = "MU";
+	public const String SDDL_PERFLOG_USERS = "LU";
+	public const String SDDL_IIS_USERS = "IS";
+	public const String SDDL_CRYPTO_OPERATORS = "CY";
+	public const String SDDL_OWNER_RIGHTS = "OW";
+	public const String SDDL_EVENT_LOG_READERS = "ER";
+	public const String SDDL_ENTERPRISE_RO_DCs = "RO";
+	public const String SDDL_CERTSVC_DCOM_ACCESS = "CD";
+	public const String SDDL_ALL_APP_PACKAGES = "AC";
+	public const String SDDL_RDS_REMOTE_ACCESS_SERVERS = "RA";
+	public const String SDDL_RDS_ENDPOINT_SERVERS = "ES";
+	public const String SDDL_RDS_MANAGEMENT_SERVERS = "MS";
+	public const String SDDL_USER_MODE_DRIVERS = "UD";
+	public const String SDDL_HYPER_V_ADMINS = "HA";
+	public const String SDDL_CLONEABLE_CONTROLLERS = "CN";
+	public const String SDDL_ACCESS_CONTROL_ASSISTANCE_OPS = "AA";
+	public const String SDDL_REMOTE_MANAGEMENT_USERS = "RM";
+	public const String SDDL_AUTHORITY_ASSERTED = "AS";
+	public const String SDDL_SERVICE_ASSERTED = "SS";
+	public const String SDDL_PROTECTED_USERS = "AP";
+	public const String SDDL_KEY_ADMINS = "KA";
+	public const String SDDL_ENTERPRISE_KEY_ADMINS = "EK";
+	public const String SDDL_ML_LOW = "LW";
+	public const String SDDL_ML_MEDIUM = "ME";
+	public const String SDDL_ML_MEDIUM_PLUS = "MP";
+	public const String SDDL_ML_HIGH = "HI";
+	public const String SDDL_ML_SYSTEM = "SI";
+	public const String SDDL_SEPERATOR = ";";
+	public const String SDDL_DELIMINATOR = ":";
+	public const String SDDL_ACE_BEGIN = "(";
+	public const String SDDL_ACE_END = ")";
+	public const String SDDL_ACE_COND_BEGIN = "(";
+	public const String SDDL_ACE_COND_END = ")";
+	public const String SDDL_SPACE = " ";
+	public const String SDDL_ACE_COND_BLOB_PREFIX = "#";
+	public const String SDDL_ACE_COND_SID_PREFIX = "SID";
+	public const String SDDL_ACE_COND_ATTRIBUTE_PREFIX = "@";
+	public const String SDDL_ACE_COND_USER_ATTRIBUTE_PREFIX = "@USER.";
+	public const String SDDL_ACE_COND_RESOURCE_ATTRIBUTE_PREFIX = "@RESOURCE.";
+	public const String SDDL_ACE_COND_DEVICE_ATTRIBUTE_PREFIX = "@DEVICE.";
+	public const String SDDL_ACE_COND_TOKEN_ATTRIBUTE_PREFIX = "@TOKEN.";
 	public const uint32 INHERITED_ACCESS_ENTRY = 16;
 	public const uint32 INHERITED_PARENT = 268435456;
 	public const uint32 INHERITED_GRANDPARENT = 536870912;
+	public const String ACCCTRL_DEFAULT_PROVIDERA = "Windows NT Access Provider";
+	public const String ACCCTRL_DEFAULT_PROVIDERW = "Windows NT Access Provider";
+	public const String ACCCTRL_DEFAULT_PROVIDER = "Windows NT Access Provider";
 	public const int32 TRUSTEE_ACCESS_ALLOWED = 1;
 	public const int32 TRUSTEE_ACCESS_READ = 2;
 	public const int32 TRUSTEE_ACCESS_WRITE = 4;
@@ -689,7 +840,7 @@ public struct ACTRL_CONTROL_INFOW
 }
 
 [CRepr]
-public struct FN_OBJECT_MGR_FUNCTIONS
+public struct FN_OBJECT_MGR_FUNCTS
 {
 	public uint32 Placeholder;
 }
@@ -2454,13 +2605,13 @@ public static
 public static
 {
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzAccessCheck(AUTHZ_ACCESS_CHECK_FLAGS Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_ACCESS_REQUEST* pRequest, AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent, SECURITY_DESCRIPTOR* pSecurityDescriptor, SECURITY_DESCRIPTOR** OptionalSecurityDescriptorArray, uint32 OptionalSecurityDescriptorCount, AUTHZ_ACCESS_REPLY* pReply, int* phAccessCheckResults);
+	public static extern BOOL AuthzAccessCheck(AUTHZ_ACCESS_CHECK_FLAGS Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_ACCESS_REQUEST* pRequest, AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent, PSECURITY_DESCRIPTOR pSecurityDescriptor, PSECURITY_DESCRIPTOR* OptionalSecurityDescriptorArray, uint32 OptionalSecurityDescriptorCount, AUTHZ_ACCESS_REPLY* pReply, int* phAccessCheckResults);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AuthzCachedAccessCheck(uint32 Flags, AUTHZ_ACCESS_CHECK_RESULTS_HANDLE hAccessCheckResults, AUTHZ_ACCESS_REQUEST* pRequest, AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent, AUTHZ_ACCESS_REPLY* pReply);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzOpenObjectAudit(uint32 Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_ACCESS_REQUEST* pRequest, AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent, SECURITY_DESCRIPTOR* pSecurityDescriptor, SECURITY_DESCRIPTOR** OptionalSecurityDescriptorArray, uint32 OptionalSecurityDescriptorCount, AUTHZ_ACCESS_REPLY* pReply);
+	public static extern BOOL AuthzOpenObjectAudit(uint32 Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_ACCESS_REQUEST* pRequest, AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent, PSECURITY_DESCRIPTOR pSecurityDescriptor, PSECURITY_DESCRIPTOR* OptionalSecurityDescriptorArray, uint32 OptionalSecurityDescriptorCount, AUTHZ_ACCESS_REPLY* pReply);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AuthzFreeHandle(AUTHZ_ACCESS_CHECK_RESULTS_HANDLE hAccessCheckResults);
@@ -2478,19 +2629,19 @@ public static
 	public static extern BOOL AuthzFreeResourceManager(AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeContextFromToken(uint32 Flags, HANDLE TokenHandle, AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, int* phAuthzClientContext);
+	public static extern BOOL AuthzInitializeContextFromToken(uint32 Flags, HANDLE TokenHandle, AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, AUTHZ_CLIENT_CONTEXT_HANDLE* phAuthzClientContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeContextFromSid(uint32 Flags, PSID UserSid, AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, int* phAuthzClientContext);
+	public static extern BOOL AuthzInitializeContextFromSid(uint32 Flags, PSID UserSid, AUTHZ_RESOURCE_MANAGER_HANDLE hAuthzResourceManager, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, AUTHZ_CLIENT_CONTEXT_HANDLE* phAuthzClientContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeContextFromAuthzContext(uint32 Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, int* phNewAuthzClientContext);
+	public static extern BOOL AuthzInitializeContextFromAuthzContext(uint32 Flags, AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, LARGE_INTEGER* pExpirationTime, LUID Identifier, void* DynamicGroupArgs, AUTHZ_CLIENT_CONTEXT_HANDLE* phNewAuthzClientContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzInitializeCompoundContext(AUTHZ_CLIENT_CONTEXT_HANDLE UserContext, AUTHZ_CLIENT_CONTEXT_HANDLE DeviceContext, int* phCompoundContext);
+	public static extern BOOL AuthzInitializeCompoundContext(AUTHZ_CLIENT_CONTEXT_HANDLE UserContext, AUTHZ_CLIENT_CONTEXT_HANDLE DeviceContext, AUTHZ_CLIENT_CONTEXT_HANDLE* phCompoundContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL AuthzAddSidsToContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, SID_AND_ATTRIBUTES* Sids, uint32 SidCount, SID_AND_ATTRIBUTES* RestrictedSids, uint32 RestrictedSidCount, int* phNewAuthzClientContext);
+	public static extern BOOL AuthzAddSidsToContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, SID_AND_ATTRIBUTES* Sids, uint32 SidCount, SID_AND_ATTRIBUTES* RestrictedSids, uint32 RestrictedSidCount, AUTHZ_CLIENT_CONTEXT_HANDLE* phNewAuthzClientContext);
 
 	[Import("AUTHZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AuthzModifySecurityAttributes(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext, AUTHZ_SECURITY_ATTRIBUTE_OPERATION* pOperations, AUTHZ_SECURITY_ATTRIBUTES_INFORMATION* pAttributes);
@@ -2581,14 +2732,14 @@ public static
 	public static extern uint32 GetAuditedPermissionsFromAclW(ACL* pacl, TRUSTEE_W* pTrustee, uint32* pSuccessfulAuditedRights, uint32* pFailedAuditRights);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetNamedSecurityInfoA(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, OBJECT_SECURITY_INFORMATION SecurityInfo, PSID* ppsidOwner, PSID* ppsidGroup, ACL** ppDacl, ACL** ppSacl, SECURITY_DESCRIPTOR** ppSecurityDescriptor);
-	public static uint32 GetNamedSecurityInfo(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, OBJECT_SECURITY_INFORMATION SecurityInfo, PSID* ppsidOwner, PSID* ppsidGroup, ACL** ppDacl, ACL** ppSacl, SECURITY_DESCRIPTOR** ppSecurityDescriptor) => GetNamedSecurityInfoA(pObjectName, ObjectType, SecurityInfo, ppsidOwner, ppsidGroup, ppDacl, ppSacl, ppSecurityDescriptor);
+	public static extern WIN32_ERROR GetNamedSecurityInfoA(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, OBJECT_SECURITY_INFORMATION SecurityInfo, PSID* ppsidOwner, PSID* ppsidGroup, ACL** ppDacl, ACL** ppSacl, PSECURITY_DESCRIPTOR* ppSecurityDescriptor);
+	public static WIN32_ERROR GetNamedSecurityInfo(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, OBJECT_SECURITY_INFORMATION SecurityInfo, PSID* ppsidOwner, PSID* ppsidGroup, ACL** ppDacl, ACL** ppSacl, PSECURITY_DESCRIPTOR* ppSecurityDescriptor) => GetNamedSecurityInfoA(pObjectName, ObjectType, SecurityInfo, ppsidOwner, ppsidGroup, ppDacl, ppSacl, ppSecurityDescriptor);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetNamedSecurityInfoW(PWSTR pObjectName, SE_OBJECT_TYPE ObjectType, OBJECT_SECURITY_INFORMATION SecurityInfo, PSID* ppsidOwner, PSID* ppsidGroup, ACL** ppDacl, ACL** ppSacl, SECURITY_DESCRIPTOR** ppSecurityDescriptor);
+	public static extern WIN32_ERROR GetNamedSecurityInfoW(PWSTR pObjectName, SE_OBJECT_TYPE ObjectType, OBJECT_SECURITY_INFORMATION SecurityInfo, PSID* ppsidOwner, PSID* ppsidGroup, ACL** ppDacl, ACL** ppSacl, PSECURITY_DESCRIPTOR* ppSecurityDescriptor);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetSecurityInfo(HANDLE handle, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, PSID* ppsidOwner, PSID* ppsidGroup, ACL** ppDacl, ACL** ppSacl, SECURITY_DESCRIPTOR** ppSecurityDescriptor);
+	public static extern WIN32_ERROR GetSecurityInfo(HANDLE handle, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, PSID* ppsidOwner, PSID* ppsidGroup, ACL** ppDacl, ACL** ppSacl, PSECURITY_DESCRIPTOR* ppSecurityDescriptor);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetNamedSecurityInfoA(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, OBJECT_SECURITY_INFORMATION SecurityInfo, PSID psidOwner, PSID psidGroup, ACL* pDacl, ACL* pSacl);
@@ -2601,14 +2752,14 @@ public static
 	public static extern uint32 SetSecurityInfo(HANDLE handle, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, PSID psidOwner, PSID psidGroup, ACL* pDacl, ACL* pSacl);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetInheritanceSourceA(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, Guid** pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTIONS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMA* pInheritArray);
-	public static uint32 GetInheritanceSource(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, Guid** pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTIONS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMA* pInheritArray) => GetInheritanceSourceA(pObjectName, ObjectType, SecurityInfo, Container, pObjectClassGuids, GuidCount, pAcl, pfnArray, pGenericMapping, pInheritArray);
+	public static extern uint32 GetInheritanceSourceA(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, Guid** pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMA* pInheritArray);
+	public static uint32 GetInheritanceSource(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, Guid** pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMA* pInheritArray) => GetInheritanceSourceA(pObjectName, ObjectType, SecurityInfo, Container, pObjectClassGuids, GuidCount, pAcl, pfnArray, pGenericMapping, pInheritArray);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetInheritanceSourceW(PWSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, Guid** pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTIONS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMW* pInheritArray);
+	public static extern uint32 GetInheritanceSourceW(PWSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, BOOL Container, Guid** pObjectClassGuids, uint32 GuidCount, ACL* pAcl, FN_OBJECT_MGR_FUNCTS* pfnArray, GENERIC_MAPPING* pGenericMapping, INHERITED_FROMW* pInheritArray);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 FreeInheritedFromArray(INHERITED_FROMW* pInheritArray, uint16 AceCnt, FN_OBJECT_MGR_FUNCTIONS* pfnArray);
+	public static extern uint32 FreeInheritedFromArray(INHERITED_FROMW* pInheritArray, uint16 AceCnt, FN_OBJECT_MGR_FUNCTS* pfnArray);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TreeResetNamedSecurityInfoA(PSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, PSID pOwner, PSID pGroup, ACL* pDacl, ACL* pSacl, BOOL KeepExplicit, FN_PROGRESS fnProgress, PROG_INVOKE_SETTING ProgressInvokeSetting, void* Args);
@@ -2625,18 +2776,18 @@ public static
 	public static extern uint32 TreeSetNamedSecurityInfoW(PWSTR pObjectName, SE_OBJECT_TYPE ObjectType, uint32 SecurityInfo, PSID pOwner, PSID pGroup, ACL* pDacl, ACL* pSacl, TREE_SEC_INFO dwAction, FN_PROGRESS fnProgress, PROG_INVOKE_SETTING ProgressInvokeSetting, void* Args);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 BuildSecurityDescriptorA(TRUSTEE_A* pOwner, TRUSTEE_A* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_A* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_A* pListOfAuditEntries, SECURITY_DESCRIPTOR* pOldSD, uint32* pSizeNewSD, SECURITY_DESCRIPTOR** pNewSD);
-	public static uint32 BuildSecurityDescriptor(TRUSTEE_A* pOwner, TRUSTEE_A* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_A* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_A* pListOfAuditEntries, SECURITY_DESCRIPTOR* pOldSD, uint32* pSizeNewSD, SECURITY_DESCRIPTOR** pNewSD) => BuildSecurityDescriptorA(pOwner, pGroup, cCountOfAccessEntries, pListOfAccessEntries, cCountOfAuditEntries, pListOfAuditEntries, pOldSD, pSizeNewSD, pNewSD);
+	public static extern uint32 BuildSecurityDescriptorA(TRUSTEE_A* pOwner, TRUSTEE_A* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_A* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_A* pListOfAuditEntries, PSECURITY_DESCRIPTOR pOldSD, uint32* pSizeNewSD, PSECURITY_DESCRIPTOR* pNewSD);
+	public static uint32 BuildSecurityDescriptor(TRUSTEE_A* pOwner, TRUSTEE_A* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_A* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_A* pListOfAuditEntries, PSECURITY_DESCRIPTOR pOldSD, uint32* pSizeNewSD, PSECURITY_DESCRIPTOR* pNewSD) => BuildSecurityDescriptorA(pOwner, pGroup, cCountOfAccessEntries, pListOfAccessEntries, cCountOfAuditEntries, pListOfAuditEntries, pOldSD, pSizeNewSD, pNewSD);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 BuildSecurityDescriptorW(TRUSTEE_W* pOwner, TRUSTEE_W* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_W* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_W* pListOfAuditEntries, SECURITY_DESCRIPTOR* pOldSD, uint32* pSizeNewSD, SECURITY_DESCRIPTOR** pNewSD);
+	public static extern uint32 BuildSecurityDescriptorW(TRUSTEE_W* pOwner, TRUSTEE_W* pGroup, uint32 cCountOfAccessEntries, EXPLICIT_ACCESS_W* pListOfAccessEntries, uint32 cCountOfAuditEntries, EXPLICIT_ACCESS_W* pListOfAuditEntries, PSECURITY_DESCRIPTOR pOldSD, uint32* pSizeNewSD, PSECURITY_DESCRIPTOR* pNewSD);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 LookupSecurityDescriptorPartsA(TRUSTEE_A** ppOwner, TRUSTEE_A** ppGroup, uint32* pcCountOfAccessEntries, EXPLICIT_ACCESS_A** ppListOfAccessEntries, uint32* pcCountOfAuditEntries, EXPLICIT_ACCESS_A** ppListOfAuditEntries, SECURITY_DESCRIPTOR* pSD);
-	public static uint32 LookupSecurityDescriptorParts(TRUSTEE_A** ppOwner, TRUSTEE_A** ppGroup, uint32* pcCountOfAccessEntries, EXPLICIT_ACCESS_A** ppListOfAccessEntries, uint32* pcCountOfAuditEntries, EXPLICIT_ACCESS_A** ppListOfAuditEntries, SECURITY_DESCRIPTOR* pSD) => LookupSecurityDescriptorPartsA(ppOwner, ppGroup, pcCountOfAccessEntries, ppListOfAccessEntries, pcCountOfAuditEntries, ppListOfAuditEntries, pSD);
+	public static extern uint32 LookupSecurityDescriptorPartsA(TRUSTEE_A** ppOwner, TRUSTEE_A** ppGroup, uint32* pcCountOfAccessEntries, EXPLICIT_ACCESS_A** ppListOfAccessEntries, uint32* pcCountOfAuditEntries, EXPLICIT_ACCESS_A** ppListOfAuditEntries, PSECURITY_DESCRIPTOR pSD);
+	public static uint32 LookupSecurityDescriptorParts(TRUSTEE_A** ppOwner, TRUSTEE_A** ppGroup, uint32* pcCountOfAccessEntries, EXPLICIT_ACCESS_A** ppListOfAccessEntries, uint32* pcCountOfAuditEntries, EXPLICIT_ACCESS_A** ppListOfAuditEntries, PSECURITY_DESCRIPTOR pSD) => LookupSecurityDescriptorPartsA(ppOwner, ppGroup, pcCountOfAccessEntries, ppListOfAccessEntries, pcCountOfAuditEntries, ppListOfAuditEntries, pSD);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 LookupSecurityDescriptorPartsW(TRUSTEE_W** ppOwner, TRUSTEE_W** ppGroup, uint32* pcCountOfAccessEntries, EXPLICIT_ACCESS_W** ppListOfAccessEntries, uint32* pcCountOfAuditEntries, EXPLICIT_ACCESS_W** ppListOfAuditEntries, SECURITY_DESCRIPTOR* pSD);
+	public static extern uint32 LookupSecurityDescriptorPartsW(TRUSTEE_W** ppOwner, TRUSTEE_W** ppGroup, uint32* pcCountOfAccessEntries, EXPLICIT_ACCESS_W** ppListOfAccessEntries, uint32* pcCountOfAuditEntries, EXPLICIT_ACCESS_W** ppListOfAuditEntries, PSECURITY_DESCRIPTOR pSD);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void BuildExplicitAccessWithNameA(EXPLICIT_ACCESS_A* pExplicitAccess, PSTR pTrusteeName, uint32 AccessPermissions, ACCESS_MODE AccessMode, ACE_FLAGS Inheritance);
@@ -2737,18 +2888,18 @@ public static
 	public static extern BOOL ConvertStringSidToSidW(PWSTR StringSid, PSID* Sid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ConvertStringSecurityDescriptorToSecurityDescriptorA(PSTR StringSecurityDescriptor, uint32 StringSDRevision, SECURITY_DESCRIPTOR** SecurityDescriptor, uint32* SecurityDescriptorSize);
-	public static BOOL ConvertStringSecurityDescriptorToSecurityDescriptor(PSTR StringSecurityDescriptor, uint32 StringSDRevision, SECURITY_DESCRIPTOR** SecurityDescriptor, uint32* SecurityDescriptorSize) => ConvertStringSecurityDescriptorToSecurityDescriptorA(StringSecurityDescriptor, StringSDRevision, SecurityDescriptor, SecurityDescriptorSize);
+	public static extern BOOL ConvertStringSecurityDescriptorToSecurityDescriptorA(PSTR StringSecurityDescriptor, uint32 StringSDRevision, PSECURITY_DESCRIPTOR* SecurityDescriptor, uint32* SecurityDescriptorSize);
+	public static BOOL ConvertStringSecurityDescriptorToSecurityDescriptor(PSTR StringSecurityDescriptor, uint32 StringSDRevision, PSECURITY_DESCRIPTOR* SecurityDescriptor, uint32* SecurityDescriptorSize) => ConvertStringSecurityDescriptorToSecurityDescriptorA(StringSecurityDescriptor, StringSDRevision, SecurityDescriptor, SecurityDescriptorSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ConvertStringSecurityDescriptorToSecurityDescriptorW(PWSTR StringSecurityDescriptor, uint32 StringSDRevision, SECURITY_DESCRIPTOR** SecurityDescriptor, uint32* SecurityDescriptorSize);
+	public static extern BOOL ConvertStringSecurityDescriptorToSecurityDescriptorW(PWSTR StringSecurityDescriptor, uint32 StringSDRevision, PSECURITY_DESCRIPTOR* SecurityDescriptor, uint32* SecurityDescriptorSize);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ConvertSecurityDescriptorToStringSecurityDescriptorA(SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PSTR* StringSecurityDescriptor, uint32* StringSecurityDescriptorLen);
-	public static BOOL ConvertSecurityDescriptorToStringSecurityDescriptor(SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PSTR* StringSecurityDescriptor, uint32* StringSecurityDescriptorLen) => ConvertSecurityDescriptorToStringSecurityDescriptorA(SecurityDescriptor, RequestedStringSDRevision, SecurityInformation, StringSecurityDescriptor, StringSecurityDescriptorLen);
+	public static extern BOOL ConvertSecurityDescriptorToStringSecurityDescriptorA(PSECURITY_DESCRIPTOR SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PSTR* StringSecurityDescriptor, uint32* StringSecurityDescriptorLen);
+	public static BOOL ConvertSecurityDescriptorToStringSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PSTR* StringSecurityDescriptor, uint32* StringSecurityDescriptorLen) => ConvertSecurityDescriptorToStringSecurityDescriptorA(SecurityDescriptor, RequestedStringSDRevision, SecurityInformation, StringSecurityDescriptor, StringSecurityDescriptorLen);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ConvertSecurityDescriptorToStringSecurityDescriptorW(SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PWSTR* StringSecurityDescriptor, uint32* StringSecurityDescriptorLen);
+	public static extern BOOL ConvertSecurityDescriptorToStringSecurityDescriptorW(PSECURITY_DESCRIPTOR SecurityDescriptor, uint32 RequestedStringSDRevision, uint32 SecurityInformation, PWSTR* StringSecurityDescriptor, uint32* StringSecurityDescriptorLen);
 
 }
 #endregion

@@ -5,6 +5,14 @@ using System;
 
 namespace Win32.Gaming;
 
+#region Constants
+public static
+{
+	public const String ID_GDF_XML_STR = "__GDF_XML";
+	public const String ID_GDF_THUMBNAIL_STR = "__GDF_THUMBNAIL";
+}
+#endregion
+
 #region Enums
 
 [AllowDuplicates]

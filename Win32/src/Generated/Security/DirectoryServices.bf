@@ -19,9 +19,9 @@ public static
 }
 #endregion
 #region Function Pointers
-public function HRESULT PFNREADOBJECTSECURITY(PWSTR param0, uint32 param1, SECURITY_DESCRIPTOR** param2, LPARAM param3);
+public function HRESULT PFNREADOBJECTSECURITY(PWSTR param0, uint32 param1, PSECURITY_DESCRIPTOR* param2, LPARAM param3);
 
-public function HRESULT PFNWRITEOBJECTSECURITY(PWSTR param0, uint32 param1, SECURITY_DESCRIPTOR* param2, LPARAM param3);
+public function HRESULT PFNWRITEOBJECTSECURITY(PWSTR param0, uint32 param1, PSECURITY_DESCRIPTOR param2, LPARAM param3);
 
 public function HRESULT PFNDSCREATEISECINFO(PWSTR param0, PWSTR param1, uint32 param2, ISecurityInformation** param3, PFNREADOBJECTSECURITY param4, PFNWRITEOBJECTSECURITY param5, LPARAM param6);
 

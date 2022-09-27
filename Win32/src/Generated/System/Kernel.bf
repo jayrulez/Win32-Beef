@@ -287,31 +287,6 @@ public struct OBJECTID
 	public uint32 Uniquifier;
 }
 
-[CRepr]
-public struct EXCEPTION_REGISTRATION_RECORD
-{
-	public EXCEPTION_REGISTRATION_RECORD* Next;
-	public EXCEPTION_ROUTINE Handler;
-}
-
-[CRepr]
-public struct NT_TIB
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		public void* FiberData;
-		public uint32 Version;
-	}
-	public EXCEPTION_REGISTRATION_RECORD* ExceptionList;
-	public void* StackBase;
-	public void* StackLimit;
-	public void* SubSystemTib;
-	public using _Anonymous_e__Union Anonymous;
-	public void* ArbitraryUserPointer;
-	public NT_TIB* Self;
-}
-
 #if BF_64_BIT
 [CRepr, Union]
 public struct SLIST_HEADER
@@ -364,6 +339,31 @@ public struct FLOATING_SAVE_AREA
 	public uint32 Spare0;
 }
 #endif
+
+[CRepr]
+public struct EXCEPTION_REGISTRATION_RECORD
+{
+	public EXCEPTION_REGISTRATION_RECORD* Next;
+	public EXCEPTION_ROUTINE Handler;
+}
+
+[CRepr]
+public struct NT_TIB
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		public void* FiberData;
+		public uint32 Version;
+	}
+	public EXCEPTION_REGISTRATION_RECORD* ExceptionList;
+	public void* StackBase;
+	public void* StackLimit;
+	public void* SubSystemTib;
+	public using _Anonymous_e__Union Anonymous;
+	public void* ArbitraryUserPointer;
+	public NT_TIB* Self;
+}
 
 #if BF_32_BIT
 [CRepr, Union]

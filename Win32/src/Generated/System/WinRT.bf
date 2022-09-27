@@ -145,23 +145,21 @@ public struct EventRegistrationToken
 }
 
 [CRepr]
+public struct HSTRING_HEADER
+{
+	public uint32 flags;
+	public uint32 length;
+	public uint32 padding1;
+	public uint32 padding2;
+	public int data;
+}
+
+[CRepr]
 public struct ServerInformation
 {
 	public uint32 dwServerPid;
 	public uint32 dwServerTid;
 	public uint64 ui64ServerAddress;
-}
-
-[CRepr]
-public struct HSTRING_HEADER
-{
-	[CRepr, Union]
-	public struct _Reserved_e__Union
-	{
-		public void* Reserved1;
-		public CHAR[24] Reserved2;
-	}
-	public _Reserved_e__Union Reserved;
 }
 
 [CRepr]
@@ -813,6 +811,96 @@ public struct _RO_REGISTRATION_COOKIE
 	public HRESULT PumpMessages() mut => VT.[Friend]PumpMessages(&this);
 }
 
+[CRepr]struct ICoreWindowInterop : IUnknown
+{
+	public new const Guid IID = .(0x45d64a29, 0xa63e, 0x4cb6, 0xb4, 0x98, 0x57, 0x81, 0xd2, 0x98, 0xcb, 0x4f);
+
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IUnknown.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* hwnd) get_WindowHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 value) put_MessageHandled;
+	}
+
+
+	public HRESULT get_WindowHandle(HWND* hwnd) mut => VT.[Friend]get_WindowHandle(&this, hwnd);
+
+	public HRESULT put_MessageHandled(uint8 value) mut => VT.[Friend]put_MessageHandled(&this, value);
+}
+
+[CRepr]struct ICoreInputInterop : IUnknown
+{
+	public new const Guid IID = .(0x40bfe3e3, 0xb75a, 0x4479, 0xac, 0x96, 0x47, 0x53, 0x65, 0x74, 0x9b, 0xb8);
+
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IUnknown.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* value) SetInputSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 value) put_MessageHandled;
+	}
+
+
+	public HRESULT SetInputSource(IUnknown* value) mut => VT.[Friend]SetInputSource(&this, value);
+
+	public HRESULT put_MessageHandled(uint8 value) mut => VT.[Friend]put_MessageHandled(&this, value);
+}
+
+[CRepr]struct ICoreWindowComponentInterop : IUnknown
+{
+	public new const Guid IID = .(0x0576ab31, 0xa310, 0x4c40, 0xba, 0x31, 0xfd, 0x37, 0xe0, 0x29, 0x8d, 0xfa);
+
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IUnknown.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 hostViewInstanceId, HWND hwndHost, IUnknown* inputSourceVisual) ConfigureComponentInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* componentViewInstanceId) GetViewInstanceId;
+	}
+
+
+	public HRESULT ConfigureComponentInput(uint32 hostViewInstanceId, HWND hwndHost, IUnknown* inputSourceVisual) mut => VT.[Friend]ConfigureComponentInput(&this, hostViewInstanceId, hwndHost, inputSourceVisual);
+
+	public HRESULT GetViewInstanceId(uint32* componentViewInstanceId) mut => VT.[Friend]GetViewInstanceId(&this, componentViewInstanceId);
+}
+
+[CRepr]struct ICoreWindowAdapterInterop : IInspectable
+{
+	public new const Guid IID = .(0x7a5b6fd1, 0xcd73, 0x4b6c, 0x9c, 0xf4, 0x2e, 0x86, 0x9e, 0xaf, 0x47, 0x0a);
+
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IInspectable.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** value) get_AppActivationClientAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** value) get_ApplicationViewClientAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** value) get_CoreApplicationViewClientAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** value) get_HoloViewClientAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** value) get_PositionerClientAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** value) get_SystemNavigationClientAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** value) get_TitleBarClientAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* value) SetWindowClientAdapter;
+	}
+
+
+	public HRESULT get_AppActivationClientAdapter(IUnknown** value) mut => VT.[Friend]get_AppActivationClientAdapter(&this, value);
+
+	public HRESULT get_ApplicationViewClientAdapter(IUnknown** value) mut => VT.[Friend]get_ApplicationViewClientAdapter(&this, value);
+
+	public HRESULT get_CoreApplicationViewClientAdapter(IUnknown** value) mut => VT.[Friend]get_CoreApplicationViewClientAdapter(&this, value);
+
+	public HRESULT get_HoloViewClientAdapter(IUnknown** value) mut => VT.[Friend]get_HoloViewClientAdapter(&this, value);
+
+	public HRESULT get_PositionerClientAdapter(IUnknown** value) mut => VT.[Friend]get_PositionerClientAdapter(&this, value);
+
+	public HRESULT get_SystemNavigationClientAdapter(IUnknown** value) mut => VT.[Friend]get_SystemNavigationClientAdapter(&this, value);
+
+	public HRESULT get_TitleBarClientAdapter(IUnknown** value) mut => VT.[Friend]get_TitleBarClientAdapter(&this, value);
+
+	public HRESULT SetWindowClientAdapter(IUnknown* value) mut => VT.[Friend]SetWindowClientAdapter(&this, value);
+}
+
 #endregion
 
 #region Functions
@@ -1021,6 +1109,12 @@ public static
 
 	[Import("api-ms-win-shcore-stream-winrt-l1-1-0.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateStreamOverRandomAccessStream(IUnknown* randomAccessStream, in Guid riid, void** ppv);
+
+	[Import("Windows.UI.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern HRESULT CreateControlInput(in Guid riid, void** ppv);
+
+	[Import("Windows.UI.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern HRESULT CreateControlInputEx(IUnknown* pCoreWindow, in Guid riid, void** ppv);
 
 }
 #endregion

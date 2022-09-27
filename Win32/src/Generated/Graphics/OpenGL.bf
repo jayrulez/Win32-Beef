@@ -718,6 +718,52 @@ typealias HGLRC = int;
 
 #endregion
 
+
+#region Enums
+
+[AllowDuplicates]
+public enum PFD_PIXEL_TYPE : int8
+{
+	PFD_TYPE_RGBA = 0,
+	PFD_TYPE_COLORINDEX = 1,
+}
+
+
+[AllowDuplicates]
+public enum PFD_LAYER_TYPE : int8
+{
+	PFD_UNDERLAY_PLANE = -1,
+	PFD_MAIN_PLANE = 0,
+	PFD_OVERLAY_PLANE = 1,
+}
+
+
+[AllowDuplicates]
+public enum PFD_FLAGS : uint32
+{
+	PFD_DOUBLEBUFFER = 1,
+	PFD_STEREO = 2,
+	PFD_DRAW_TO_WINDOW = 4,
+	PFD_DRAW_TO_BITMAP = 8,
+	PFD_SUPPORT_GDI = 16,
+	PFD_SUPPORT_OPENGL = 32,
+	PFD_GENERIC_FORMAT = 64,
+	PFD_NEED_PALETTE = 128,
+	PFD_NEED_SYSTEM_PALETTE = 256,
+	PFD_SWAP_EXCHANGE = 512,
+	PFD_SWAP_COPY = 1024,
+	PFD_SWAP_LAYER_BUFFERS = 2048,
+	PFD_GENERIC_ACCELERATED = 4096,
+	PFD_SUPPORT_DIRECTDRAW = 8192,
+	PFD_DIRECT3D_ACCELERATED = 16384,
+	PFD_SUPPORT_COMPOSITION = 32768,
+	PFD_DEPTH_DONTCARE = 536870912,
+	PFD_DOUBLEBUFFER_DONTCARE = 1073741824,
+	PFD_STEREO_DONTCARE = 2147483648,
+}
+
+#endregion
+
 #region Function Pointers
 public function void PFNGLARRAYELEMENTEXTPROC(int32 i);
 
@@ -789,8 +835,8 @@ public struct PIXELFORMATDESCRIPTOR
 {
 	public uint16 nSize;
 	public uint16 nVersion;
-	public uint32 dwFlags;
-	public uint8 iPixelType;
+	public PFD_FLAGS dwFlags;
+	public PFD_PIXEL_TYPE iPixelType;
 	public uint8 cColorBits;
 	public uint8 cRedBits;
 	public uint8 cRedShift;
@@ -808,7 +854,7 @@ public struct PIXELFORMATDESCRIPTOR
 	public uint8 cDepthBits;
 	public uint8 cStencilBits;
 	public uint8 cAuxBuffers;
-	public uint8 iLayerType;
+	public PFD_LAYER_TYPE iLayerType;
 	public uint8 bReserved;
 	public uint32 dwLayerMask;
 	public uint32 dwVisibleMask;
@@ -865,7 +911,7 @@ public struct LAYERPLANEDESCRIPTOR
 	public uint8 cAuxBuffers;
 	public uint8 iLayerPlane;
 	public uint8 bReserved;
-	public uint32 crTransparent;
+	public COLORREF crTransparent;
 }
 
 [CRepr]
@@ -892,7 +938,7 @@ public static
 	public static extern int32 ChoosePixelFormat(HDC hdc, PIXELFORMATDESCRIPTOR* ppfd);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 DescribePixelFormat(HDC hdc, int32 iPixelFormat, uint32 nBytes, PIXELFORMATDESCRIPTOR* ppfd);
+	public static extern int32 DescribePixelFormat(HDC hdc, PFD_PIXEL_TYPE iPixelFormat, uint32 nBytes, PIXELFORMATDESCRIPTOR* ppfd);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetPixelFormat(HDC hdc);
@@ -951,10 +997,10 @@ public static
 	public static extern BOOL wglDescribeLayerPlane(HDC param0, int32 param1, int32 param2, uint32 param3, LAYERPLANEDESCRIPTOR* param4);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wglSetLayerPaletteEntries(HDC param0, int32 param1, int32 param2, int32 param3, uint32* param4);
+	public static extern int32 wglSetLayerPaletteEntries(HDC param0, int32 param1, int32 param2, int32 param3, COLORREF* param4);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 wglGetLayerPaletteEntries(HDC param0, int32 param1, int32 param2, int32 param3, uint32* param4);
+	public static extern int32 wglGetLayerPaletteEntries(HDC param0, int32 param1, int32 param2, int32 param3, COLORREF* param4);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL wglRealizeLayerPalette(HDC param0, int32 param1, BOOL param2);

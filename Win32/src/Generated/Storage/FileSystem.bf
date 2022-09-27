@@ -10,6 +10,10 @@ namespace Win32.Storage.FileSystem;
 #region Constants
 public static
 {
+	public const uint32 MAXIMUM_REPARSE_DATA_BUFFER_SIZE = 16384;
+	public const String EA_CONTAINER_NAME = "ContainerName";
+	public const String EA_CONTAINER_SIZE = "ContainerSize";
+	public const String CLFS_BASELOG_EXTENSION = ".blf";
 	public const uint32 CLFS_FLAG_REENTRANT_FILE_SYSTEM = 8;
 	public const uint32 CLFS_FLAG_NON_REENTRANT_FILTER = 16;
 	public const uint32 CLFS_FLAG_REENTRANT_FILTER = 32;
@@ -21,6 +25,8 @@ public static
 	public const uint32 CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT = 1;
 	public const uint32 CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL = 16;
 	public const uint32 CLFS_FLAG_FILTER_TOP_LEVEL = 32;
+	public const String CLFS_CONTAINER_STREAM_PREFIX = "%BLF%:";
+	public const String CLFS_CONTAINER_RELATIVE_PREFIX = "%BLF%\\";
 	public const uint32 TRANSACTION_MANAGER_VOLATILE = 1;
 	public const uint32 TRANSACTION_MANAGER_COMMIT_DEFAULT = 0;
 	public const uint32 TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME = 2;
@@ -66,6 +72,10 @@ public static
 	public const uint32 TRANSACTION_NOTIFY_PROMOTE_NEW = 268435456;
 	public const uint32 TRANSACTION_NOTIFY_REQUEST_OUTCOME = 536870912;
 	public const uint32 TRANSACTION_NOTIFY_COMMIT_FINALIZE = 1073741824;
+	public const String TRANSACTIONMANAGER_OBJECT_PATH = "\\TransactionManager\\";
+	public const String TRANSACTION_OBJECT_PATH = "\\Transaction\\";
+	public const String ENLISTMENT_OBJECT_PATH = "\\Enlistment\\";
+	public const String RESOURCE_MANAGER_OBJECT_PATH = "\\ResourceManager\\";
 	public const uint32 TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED = 1;
 	public const uint32 KTM_MARSHAL_BLOB_VERSION_MAJOR = 1;
 	public const uint32 KTM_MARSHAL_BLOB_VERSION_MINOR = 1;
@@ -389,7 +399,10 @@ public enum FILE_ACCESS_FLAGS : uint32
 	FILE_DELETE_CHILD = 64,
 	FILE_READ_ATTRIBUTES = 128,
 	FILE_WRITE_ATTRIBUTES = 256,
+	DELETE = 65536,
 	READ_CONTROL = 131072,
+	WRITE_DAC = 262144,
+	WRITE_OWNER = 524288,
 	SYNCHRONIZE = 1048576,
 	STANDARD_RIGHTS_REQUIRED = 983040,
 	STANDARD_RIGHTS_READ = 131072,
@@ -607,7 +620,7 @@ public enum FILE_NAME : uint32
 
 
 [AllowDuplicates]
-public enum LZOPENFILE_STYLE : uint32
+public enum LZOPENFILE_STYLE : uint16
 {
 	OF_CANCEL = 2048,
 	OF_CREATE = 4096,
@@ -1675,7 +1688,7 @@ public function BOOL CACHE_READ_CALLBACK(uint32 cb, uint8* lpb, void* lpvContext
 
 public function void CACHE_DESTROY_CALLBACK(uint32 cb, uint8* lpb);
 
-public function BOOL CACHE_ACCESS_CHECK(SECURITY_DESCRIPTOR* pSecurityDescriptor, HANDLE hClientToken, uint32 dwDesiredAccess, GENERIC_MAPPING* GenericMapping, PRIVILEGE_SET* PrivilegeSet, uint32* PrivilegeSetLength, uint32* GrantedAccess, int32* AccessStatus);
+public function BOOL CACHE_ACCESS_CHECK(PSECURITY_DESCRIPTOR pSecurityDescriptor, HANDLE hClientToken, uint32 dwDesiredAccess, GENERIC_MAPPING* GenericMapping, PRIVILEGE_SET* PrivilegeSet, uint32* PrivilegeSetLength, uint32* GrantedAccess, int32* AccessStatus);
 
 public function uint32 PFE_EXPORT_FUNC(uint8* pbData, void* pvCallbackContext, uint32 ulLength);
 
@@ -1688,6 +1701,12 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 #endregion
 
 #region Structs
+[CRepr]
+public struct FILE_DISPOSITION_INFO
+{
+	public BOOLEAN DeleteFile;
+}
+
 [CRepr]
 public struct WIN32_FIND_DATAA
 {
@@ -2943,7 +2962,7 @@ public struct WOF_FILE_COMPRESSION_INFO_V1
 	public uint32 Flags;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct TXF_ID
 {
 	[CRepr, Packed(4)]
@@ -2955,7 +2974,7 @@ public struct TXF_ID
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct TXF_LOG_RECORD_BASE
 {
 	public uint16 Version;
@@ -2993,7 +3012,7 @@ public struct TXF_LOG_RECORD_TRUNCATE
 	public uint32 FileNameByteOffsetInStructure;
 }
 
-[CRepr]
+[CRepr, Packed(4)]
 public struct TXF_LOG_RECORD_AFFECTED_FILE
 {
 	public uint16 Version;
@@ -3188,7 +3207,7 @@ public struct SHARE_INFO_502
 	public PWSTR shi502_path;
 	public PWSTR shi502_passwd;
 	public uint32 shi502_reserved;
-	public SECURITY_DESCRIPTOR* shi502_security_descriptor;
+	public PSECURITY_DESCRIPTOR shi502_security_descriptor;
 }
 
 [CRepr]
@@ -3204,7 +3223,7 @@ public struct SHARE_INFO_503
 	public PWSTR shi503_passwd;
 	public PWSTR shi503_servername;
 	public uint32 shi503_reserved;
-	public SECURITY_DESCRIPTOR* shi503_security_descriptor;
+	public PSECURITY_DESCRIPTOR shi503_security_descriptor;
 }
 
 [CRepr]
@@ -3229,7 +3248,7 @@ public struct SHARE_INFO_1006
 public struct SHARE_INFO_1501
 {
 	public uint32 shi1501_reserved;
-	public SECURITY_DESCRIPTOR* shi1501_security_descriptor;
+	public PSECURITY_DESCRIPTOR shi1501_security_descriptor;
 }
 
 [CRepr]
@@ -3840,12 +3859,6 @@ public struct FILE_ATTRIBUTE_TAG_INFO
 }
 
 [CRepr]
-public struct FILE_DISPOSITION_INFO
-{
-	public BOOLEAN DeleteFileA;
-}
-
-[CRepr]
 public struct FILE_ID_BOTH_DIR_INFO
 {
 	public uint32 NextEntryOffset;
@@ -4274,7 +4287,7 @@ public static
 	public static BOOL FindNextFile(FindFileHandle hFindFile, WIN32_FIND_DATAA* lpFindFileData) => FindNextFileA(hFindFile, lpFindFileData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FindNextFileW(HANDLE hFindFile, WIN32_FIND_DATAW* lpFindFileData);
+	public static extern BOOL FindNextFileW(FindFileHandle hFindFile, WIN32_FIND_DATAW* lpFindFileData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FindNextVolumeW(FindVolumeHandle hFindVolume, char16* lpszVolumeName, uint32 cchBufferLength);
@@ -5232,7 +5245,7 @@ public static
 	public static extern void CloseEncryptedFileRaw(void* pvContext);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 OpenFile(PSTR lpFileName, OFSTRUCT* lpReOpenBuff, LZOPENFILE_STYLE uStyle);
+	public static extern int32 OpenFile(PSTR lpFileName, OFSTRUCT* lpReOpenBuff, uint32 uStyle);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BackupRead(HANDLE hFile, uint8* lpBuffer, uint32 nNumberOfBytesToRead, uint32* lpNumberOfBytesRead, BOOL bAbort, BOOL bProcessSecurity, void** lpContext);

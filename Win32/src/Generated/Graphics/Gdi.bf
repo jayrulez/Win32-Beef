@@ -7,11 +7,7 @@ namespace Win32.Graphics.Gdi;
 public static
 {
 	public const int32 GDI_ERROR = -1;
-	public const uint32 ERROR = 0;
-	public const uint32 NULLREGION = 1;
-	public const uint32 SIMPLEREGION = 2;
-	public const uint32 COMPLEXREGION = 3;
-	public const uint32 RGN_ERROR = 0;
+	public const int32 ERROR = 0;
 	public const uint32 MAXSTRETCHBLTMODE = 4;
 	public const uint32 POLYFILL_LAST = 2;
 	public const uint32 LAYOUT_BTT = 2;
@@ -207,16 +203,6 @@ public static
 	public const int32 LCS_GM_ABS_COLORIMETRIC = 8;
 	public const uint32 CM_OUT_OF_GAMUT = 255;
 	public const uint32 CM_IN_GAMUT = 0;
-	public const int32 BI_RGB = 0;
-	public const int32 BI_RLE8 = 1;
-	public const int32 BI_RLE4 = 2;
-	public const int32 BI_BITFIELDS = 3;
-	public const int32 BI_JPEG = 4;
-	public const int32 BI_PNG = 5;
-	public const uint32 TMPF_FIXED_PITCH = 1;
-	public const uint32 TMPF_VECTOR = 2;
-	public const uint32 TMPF_DEVICE = 8;
-	public const uint32 TMPF_TRUETYPE = 4;
 	public const int32 NTM_REGULAR = 64;
 	public const int32 NTM_BOLD = 32;
 	public const int32 NTM_ITALIC = 1;
@@ -228,32 +214,8 @@ public static
 	public const uint32 NTM_DSIG = 2097152;
 	public const uint32 LF_FACESIZE = 32;
 	public const uint32 LF_FULLFACESIZE = 64;
-	public const uint32 OUT_SCREEN_OUTLINE_PRECIS = 9;
 	public const uint32 CLEARTYPE_NATURAL_QUALITY = 6;
-	public const uint32 DEFAULT_PITCH = 0;
-	public const uint32 FIXED_PITCH = 1;
-	public const uint32 VARIABLE_PITCH = 2;
 	public const uint32 MONO_FONT = 8;
-	public const uint32 ANSI_CHARSET = 0;
-	public const uint32 DEFAULT_CHARSET = 1;
-	public const uint32 SYMBOL_CHARSET = 2;
-	public const uint32 SHIFTJIS_CHARSET = 128;
-	public const uint32 HANGEUL_CHARSET = 129;
-	public const uint32 HANGUL_CHARSET = 129;
-	public const uint32 GB2312_CHARSET = 134;
-	public const uint32 CHINESEBIG5_CHARSET = 136;
-	public const uint32 OEM_CHARSET = 255;
-	public const uint32 JOHAB_CHARSET = 130;
-	public const uint32 HEBREW_CHARSET = 177;
-	public const uint32 ARABIC_CHARSET = 178;
-	public const uint32 GREEK_CHARSET = 161;
-	public const uint32 TURKISH_CHARSET = 162;
-	public const uint32 VIETNAMESE_CHARSET = 163;
-	public const uint32 THAI_CHARSET = 222;
-	public const uint32 EASTEUROPE_CHARSET = 238;
-	public const uint32 RUSSIAN_CHARSET = 204;
-	public const uint32 MAC_CHARSET = 77;
-	public const uint32 BALTIC_CHARSET = 186;
 	public const int32 FS_LATIN1 = 1;
 	public const int32 FS_LATIN2 = 2;
 	public const int32 FS_CYRILLIC = 4;
@@ -270,128 +232,16 @@ public static
 	public const int32 FS_CHINESETRAD = 1048576;
 	public const int32 FS_JOHAB = 2097152;
 	public const int32 FS_SYMBOL = -2147483648;
-	public const uint32 FW_DONTCARE = 0;
-	public const uint32 FW_THIN = 100;
-	public const uint32 FW_EXTRALIGHT = 200;
-	public const uint32 FW_LIGHT = 300;
-	public const uint32 FW_NORMAL = 400;
-	public const uint32 FW_MEDIUM = 500;
-	public const uint32 FW_SEMIBOLD = 600;
-	public const uint32 FW_BOLD = 700;
-	public const uint32 FW_EXTRABOLD = 800;
-	public const uint32 FW_HEAVY = 900;
-	public const uint32 FW_ULTRALIGHT = 200;
-	public const uint32 FW_REGULAR = 400;
-	public const uint32 FW_DEMIBOLD = 600;
-	public const uint32 FW_ULTRABOLD = 800;
-	public const uint32 FW_BLACK = 900;
 	public const uint32 PANOSE_COUNT = 10;
 	public const uint32 PAN_FAMILYTYPE_INDEX = 0;
 	public const uint32 PAN_SERIFSTYLE_INDEX = 1;
-	public const uint32 PAN_WEIGHT_INDEX = 2;
 	public const uint32 PAN_PROPORTION_INDEX = 3;
-	public const uint32 PAN_CONTRAST_INDEX = 4;
 	public const uint32 PAN_STROKEVARIATION_INDEX = 5;
 	public const uint32 PAN_ARMSTYLE_INDEX = 6;
 	public const uint32 PAN_LETTERFORM_INDEX = 7;
-	public const uint32 PAN_MIDLINE_INDEX = 8;
-	public const uint32 PAN_XHEIGHT_INDEX = 9;
 	public const uint32 PAN_CULTURE_LATIN = 0;
 	public const uint32 PAN_ANY = 0;
 	public const uint32 PAN_NO_FIT = 1;
-	public const uint32 PAN_FAMILY_TEXT_DISPLAY = 2;
-	public const uint32 PAN_FAMILY_SCRIPT = 3;
-	public const uint32 PAN_FAMILY_DECORATIVE = 4;
-	public const uint32 PAN_FAMILY_PICTORIAL = 5;
-	public const uint32 PAN_SERIF_COVE = 2;
-	public const uint32 PAN_SERIF_OBTUSE_COVE = 3;
-	public const uint32 PAN_SERIF_SQUARE_COVE = 4;
-	public const uint32 PAN_SERIF_OBTUSE_SQUARE_COVE = 5;
-	public const uint32 PAN_SERIF_SQUARE = 6;
-	public const uint32 PAN_SERIF_THIN = 7;
-	public const uint32 PAN_SERIF_BONE = 8;
-	public const uint32 PAN_SERIF_EXAGGERATED = 9;
-	public const uint32 PAN_SERIF_TRIANGLE = 10;
-	public const uint32 PAN_SERIF_NORMAL_SANS = 11;
-	public const uint32 PAN_SERIF_OBTUSE_SANS = 12;
-	public const uint32 PAN_SERIF_PERP_SANS = 13;
-	public const uint32 PAN_SERIF_FLARED = 14;
-	public const uint32 PAN_SERIF_ROUNDED = 15;
-	public const uint32 PAN_WEIGHT_VERY_LIGHT = 2;
-	public const uint32 PAN_WEIGHT_LIGHT = 3;
-	public const uint32 PAN_WEIGHT_THIN = 4;
-	public const uint32 PAN_WEIGHT_BOOK = 5;
-	public const uint32 PAN_WEIGHT_MEDIUM = 6;
-	public const uint32 PAN_WEIGHT_DEMI = 7;
-	public const uint32 PAN_WEIGHT_BOLD = 8;
-	public const uint32 PAN_WEIGHT_HEAVY = 9;
-	public const uint32 PAN_WEIGHT_BLACK = 10;
-	public const uint32 PAN_WEIGHT_NORD = 11;
-	public const uint32 PAN_PROP_OLD_STYLE = 2;
-	public const uint32 PAN_PROP_MODERN = 3;
-	public const uint32 PAN_PROP_EVEN_WIDTH = 4;
-	public const uint32 PAN_PROP_EXPANDED = 5;
-	public const uint32 PAN_PROP_CONDENSED = 6;
-	public const uint32 PAN_PROP_VERY_EXPANDED = 7;
-	public const uint32 PAN_PROP_VERY_CONDENSED = 8;
-	public const uint32 PAN_PROP_MONOSPACED = 9;
-	public const uint32 PAN_CONTRAST_NONE = 2;
-	public const uint32 PAN_CONTRAST_VERY_LOW = 3;
-	public const uint32 PAN_CONTRAST_LOW = 4;
-	public const uint32 PAN_CONTRAST_MEDIUM_LOW = 5;
-	public const uint32 PAN_CONTRAST_MEDIUM = 6;
-	public const uint32 PAN_CONTRAST_MEDIUM_HIGH = 7;
-	public const uint32 PAN_CONTRAST_HIGH = 8;
-	public const uint32 PAN_CONTRAST_VERY_HIGH = 9;
-	public const uint32 PAN_STROKE_GRADUAL_DIAG = 2;
-	public const uint32 PAN_STROKE_GRADUAL_TRAN = 3;
-	public const uint32 PAN_STROKE_GRADUAL_VERT = 4;
-	public const uint32 PAN_STROKE_GRADUAL_HORZ = 5;
-	public const uint32 PAN_STROKE_RAPID_VERT = 6;
-	public const uint32 PAN_STROKE_RAPID_HORZ = 7;
-	public const uint32 PAN_STROKE_INSTANT_VERT = 8;
-	public const uint32 PAN_STRAIGHT_ARMS_HORZ = 2;
-	public const uint32 PAN_STRAIGHT_ARMS_WEDGE = 3;
-	public const uint32 PAN_STRAIGHT_ARMS_VERT = 4;
-	public const uint32 PAN_STRAIGHT_ARMS_SINGLE_SERIF = 5;
-	public const uint32 PAN_STRAIGHT_ARMS_DOUBLE_SERIF = 6;
-	public const uint32 PAN_BENT_ARMS_HORZ = 7;
-	public const uint32 PAN_BENT_ARMS_WEDGE = 8;
-	public const uint32 PAN_BENT_ARMS_VERT = 9;
-	public const uint32 PAN_BENT_ARMS_SINGLE_SERIF = 10;
-	public const uint32 PAN_BENT_ARMS_DOUBLE_SERIF = 11;
-	public const uint32 PAN_LETT_NORMAL_CONTACT = 2;
-	public const uint32 PAN_LETT_NORMAL_WEIGHTED = 3;
-	public const uint32 PAN_LETT_NORMAL_BOXED = 4;
-	public const uint32 PAN_LETT_NORMAL_FLATTENED = 5;
-	public const uint32 PAN_LETT_NORMAL_ROUNDED = 6;
-	public const uint32 PAN_LETT_NORMAL_OFF_CENTER = 7;
-	public const uint32 PAN_LETT_NORMAL_SQUARE = 8;
-	public const uint32 PAN_LETT_OBLIQUE_CONTACT = 9;
-	public const uint32 PAN_LETT_OBLIQUE_WEIGHTED = 10;
-	public const uint32 PAN_LETT_OBLIQUE_BOXED = 11;
-	public const uint32 PAN_LETT_OBLIQUE_FLATTENED = 12;
-	public const uint32 PAN_LETT_OBLIQUE_ROUNDED = 13;
-	public const uint32 PAN_LETT_OBLIQUE_OFF_CENTER = 14;
-	public const uint32 PAN_LETT_OBLIQUE_SQUARE = 15;
-	public const uint32 PAN_MIDLINE_STANDARD_TRIMMED = 2;
-	public const uint32 PAN_MIDLINE_STANDARD_POINTED = 3;
-	public const uint32 PAN_MIDLINE_STANDARD_SERIFED = 4;
-	public const uint32 PAN_MIDLINE_HIGH_TRIMMED = 5;
-	public const uint32 PAN_MIDLINE_HIGH_POINTED = 6;
-	public const uint32 PAN_MIDLINE_HIGH_SERIFED = 7;
-	public const uint32 PAN_MIDLINE_CONSTANT_TRIMMED = 8;
-	public const uint32 PAN_MIDLINE_CONSTANT_POINTED = 9;
-	public const uint32 PAN_MIDLINE_CONSTANT_SERIFED = 10;
-	public const uint32 PAN_MIDLINE_LOW_TRIMMED = 11;
-	public const uint32 PAN_MIDLINE_LOW_POINTED = 12;
-	public const uint32 PAN_MIDLINE_LOW_SERIFED = 13;
-	public const uint32 PAN_XHEIGHT_CONSTANT_SMALL = 2;
-	public const uint32 PAN_XHEIGHT_CONSTANT_STD = 3;
-	public const uint32 PAN_XHEIGHT_CONSTANT_LARGE = 4;
-	public const uint32 PAN_XHEIGHT_DUCKING_SMALL = 5;
-	public const uint32 PAN_XHEIGHT_DUCKING_STD = 6;
-	public const uint32 PAN_XHEIGHT_DUCKING_LARGE = 7;
 	public const uint32 ELF_VENDOR_SIZE = 4;
 	public const uint32 ELF_VERSION = 0;
 	public const uint32 ELF_CULTURE_LATIN = 0;
@@ -411,17 +261,6 @@ public static
 	public const uint32 RELATIVE = 2;
 	public const uint32 STOCK_LAST = 19;
 	public const uint32 CLR_INVALID = 4294967295;
-	public const uint32 BS_SOLID = 0;
-	public const uint32 BS_NULL = 1;
-	public const uint32 BS_HOLLOW = 1;
-	public const uint32 BS_HATCHED = 2;
-	public const uint32 BS_PATTERN = 3;
-	public const uint32 BS_INDEXED = 4;
-	public const uint32 BS_DIBPATTERN = 5;
-	public const uint32 BS_DIBPATTERNPT = 6;
-	public const uint32 BS_PATTERN8X8 = 7;
-	public const uint32 BS_DIBPATTERN8X8 = 8;
-	public const uint32 BS_MONOPATTERN = 9;
 	public const uint32 HS_API_MAX = 12;
 	public const uint32 DT_PLOTTER = 0;
 	public const uint32 DT_RASDISPLAY = 1;
@@ -509,37 +348,6 @@ public static
 	public const uint32 SYSPAL_ERROR = 0;
 	public const int32 CBM_INIT = 4;
 	public const uint32 CCHFORMNAME = 32;
-	public const uint32 DM_SPECVERSION = 1025;
-	public const int32 DM_ORIENTATION = 1;
-	public const int32 DM_PAPERSIZE = 2;
-	public const int32 DM_PAPERLENGTH = 4;
-	public const int32 DM_PAPERWIDTH = 8;
-	public const int32 DM_SCALE = 16;
-	public const int32 DM_POSITION = 32;
-	public const int32 DM_NUP = 64;
-	public const int32 DM_DISPLAYORIENTATION = 128;
-	public const int32 DM_COPIES = 256;
-	public const int32 DM_DEFAULTSOURCE = 512;
-	public const int32 DM_PRINTQUALITY = 1024;
-	public const int32 DM_COLOR = 2048;
-	public const int32 DM_DUPLEX = 4096;
-	public const int32 DM_YRESOLUTION = 8192;
-	public const int32 DM_TTOPTION = 16384;
-	public const int32 DM_COLLATE = 32768;
-	public const int32 DM_FORMNAME = 65536;
-	public const int32 DM_LOGPIXELS = 131072;
-	public const int32 DM_BITSPERPEL = 262144;
-	public const int32 DM_PELSWIDTH = 524288;
-	public const int32 DM_PELSHEIGHT = 1048576;
-	public const int32 DM_DISPLAYFLAGS = 2097152;
-	public const int32 DM_DISPLAYFREQUENCY = 4194304;
-	public const int32 DM_ICMMETHOD = 8388608;
-	public const int32 DM_ICMINTENT = 16777216;
-	public const int32 DM_MEDIATYPE = 33554432;
-	public const int32 DM_DITHERTYPE = 67108864;
-	public const int32 DM_PANNINGWIDTH = 134217728;
-	public const int32 DM_PANNINGHEIGHT = 268435456;
-	public const int32 DM_DISPLAYFIXEDOUTPUT = 536870912;
 	public const uint32 DMORIENT_PORTRAIT = 1;
 	public const uint32 DMORIENT_LANDSCAPE = 2;
 	public const uint32 DMPAPER_LETTER = 1;
@@ -682,17 +490,6 @@ public static
 	public const int32 DMRES_LOW = -2;
 	public const int32 DMRES_MEDIUM = -3;
 	public const int32 DMRES_HIGH = -4;
-	public const uint32 DMCOLOR_MONOCHROME = 1;
-	public const uint32 DMCOLOR_COLOR = 2;
-	public const uint32 DMDUP_SIMPLEX = 1;
-	public const uint32 DMDUP_VERTICAL = 2;
-	public const uint32 DMDUP_HORIZONTAL = 3;
-	public const uint32 DMTT_BITMAP = 1;
-	public const uint32 DMTT_DOWNLOAD = 2;
-	public const uint32 DMTT_SUBDEV = 3;
-	public const uint32 DMTT_DOWNLOAD_OUTLINE = 4;
-	public const uint32 DMCOLLATE_FALSE = 0;
-	public const uint32 DMCOLLATE_TRUE = 1;
 	public const uint32 DMDO_DEFAULT = 0;
 	public const uint32 DMDO_90 = 1;
 	public const uint32 DMDO_180 = 2;
@@ -700,7 +497,6 @@ public static
 	public const uint32 DMDFO_DEFAULT = 0;
 	public const uint32 DMDFO_STRETCH = 1;
 	public const uint32 DMDFO_CENTER = 2;
-	public const uint32 DM_INTERLACED = 2;
 	public const uint32 DMDISPLAYFLAGS_TEXTMODE = 4;
 	public const uint32 DMNUP_SYSTEM = 1;
 	public const uint32 DMNUP_ONEUP = 2;
@@ -811,30 +607,6 @@ public static
 	public const uint32 GCPGLYPH_LINKAFTER = 16384;
 	public const uint32 TT_AVAILABLE = 1;
 	public const uint32 TT_ENABLED = 2;
-	public const uint32 PFD_TYPE_RGBA = 0;
-	public const uint32 PFD_TYPE_COLORINDEX = 1;
-	public const uint32 PFD_MAIN_PLANE = 0;
-	public const uint32 PFD_OVERLAY_PLANE = 1;
-	public const int32 PFD_UNDERLAY_PLANE = -1;
-	public const uint32 PFD_DOUBLEBUFFER = 1;
-	public const uint32 PFD_STEREO = 2;
-	public const uint32 PFD_DRAW_TO_WINDOW = 4;
-	public const uint32 PFD_DRAW_TO_BITMAP = 8;
-	public const uint32 PFD_SUPPORT_GDI = 16;
-	public const uint32 PFD_SUPPORT_OPENGL = 32;
-	public const uint32 PFD_GENERIC_FORMAT = 64;
-	public const uint32 PFD_NEED_PALETTE = 128;
-	public const uint32 PFD_NEED_SYSTEM_PALETTE = 256;
-	public const uint32 PFD_SWAP_EXCHANGE = 512;
-	public const uint32 PFD_SWAP_COPY = 1024;
-	public const uint32 PFD_SWAP_LAYER_BUFFERS = 2048;
-	public const uint32 PFD_GENERIC_ACCELERATED = 4096;
-	public const uint32 PFD_SUPPORT_DIRECTDRAW = 8192;
-	public const uint32 PFD_DIRECT3D_ACCELERATED = 16384;
-	public const uint32 PFD_SUPPORT_COMPOSITION = 32768;
-	public const uint32 PFD_DEPTH_DONTCARE = 536870912;
-	public const uint32 PFD_DOUBLEBUFFER_DONTCARE = 1073741824;
-	public const uint32 PFD_STEREO_DONTCARE = 2147483648;
 	public const uint32 DC_BINADJUST = 19;
 	public const uint32 DC_EMF_COMPLIANT = 20;
 	public const uint32 DC_DATATYPE_PRODUCED = 21;
@@ -883,135 +655,8 @@ public static
 	public const uint32 DI_APPBANDING = 1;
 	public const uint32 DI_ROPS_READ_DESTINATION = 2;
 	public const uint32 FONTMAPPER_MAX = 10;
-	public const uint32 ICM_OFF = 1;
-	public const uint32 ICM_ON = 2;
-	public const uint32 ICM_QUERY = 3;
-	public const uint32 ICM_DONE_OUTSIDEDC = 4;
 	public const uint32 ENHMETA_SIGNATURE = 1179469088;
 	public const uint32 ENHMETA_STOCK_OBJECT = 2147483648;
-	public const uint32 EMR_HEADER = 1;
-	public const uint32 EMR_POLYBEZIER = 2;
-	public const uint32 EMR_POLYGON = 3;
-	public const uint32 EMR_POLYLINE = 4;
-	public const uint32 EMR_POLYBEZIERTO = 5;
-	public const uint32 EMR_POLYLINETO = 6;
-	public const uint32 EMR_POLYPOLYLINE = 7;
-	public const uint32 EMR_POLYPOLYGON = 8;
-	public const uint32 EMR_SETWINDOWEXTEX = 9;
-	public const uint32 EMR_SETWINDOWORGEX = 10;
-	public const uint32 EMR_SETVIEWPORTEXTEX = 11;
-	public const uint32 EMR_SETVIEWPORTORGEX = 12;
-	public const uint32 EMR_SETBRUSHORGEX = 13;
-	public const uint32 EMR_EOF = 14;
-	public const uint32 EMR_SETPIXELV = 15;
-	public const uint32 EMR_SETMAPPERFLAGS = 16;
-	public const uint32 EMR_SETMAPMODE = 17;
-	public const uint32 EMR_SETBKMODE = 18;
-	public const uint32 EMR_SETPOLYFILLMODE = 19;
-	public const uint32 EMR_SETROP2 = 20;
-	public const uint32 EMR_SETSTRETCHBLTMODE = 21;
-	public const uint32 EMR_SETTEXTALIGN = 22;
-	public const uint32 EMR_SETCOLORADJUSTMENT = 23;
-	public const uint32 EMR_SETTEXTCOLOR = 24;
-	public const uint32 EMR_SETBKCOLOR = 25;
-	public const uint32 EMR_OFFSETCLIPRGN = 26;
-	public const uint32 EMR_MOVETOEX = 27;
-	public const uint32 EMR_SETMETARGN = 28;
-	public const uint32 EMR_EXCLUDECLIPRECT = 29;
-	public const uint32 EMR_INTERSECTCLIPRECT = 30;
-	public const uint32 EMR_SCALEVIEWPORTEXTEX = 31;
-	public const uint32 EMR_SCALEWINDOWEXTEX = 32;
-	public const uint32 EMR_SAVEDC = 33;
-	public const uint32 EMR_RESTOREDC = 34;
-	public const uint32 EMR_SETWORLDTRANSFORM = 35;
-	public const uint32 EMR_MODIFYWORLDTRANSFORM = 36;
-	public const uint32 EMR_SELECTOBJECT = 37;
-	public const uint32 EMR_CREATEPEN = 38;
-	public const uint32 EMR_CREATEBRUSHINDIRECT = 39;
-	public const uint32 EMR_DELETEOBJECT = 40;
-	public const uint32 EMR_ANGLEARC = 41;
-	public const uint32 EMR_ELLIPSE = 42;
-	public const uint32 EMR_RECTANGLE = 43;
-	public const uint32 EMR_ROUNDRECT = 44;
-	public const uint32 EMR_ARC = 45;
-	public const uint32 EMR_CHORD = 46;
-	public const uint32 EMR_PIE = 47;
-	public const uint32 EMR_SELECTPALETTE = 48;
-	public const uint32 EMR_CREATEPALETTE = 49;
-	public const uint32 EMR_SETPALETTEENTRIES = 50;
-	public const uint32 EMR_RESIZEPALETTE = 51;
-	public const uint32 EMR_REALIZEPALETTE = 52;
-	public const uint32 EMR_EXTFLOODFILL = 53;
-	public const uint32 EMR_LINETO = 54;
-	public const uint32 EMR_ARCTO = 55;
-	public const uint32 EMR_POLYDRAW = 56;
-	public const uint32 EMR_SETARCDIRECTION = 57;
-	public const uint32 EMR_SETMITERLIMIT = 58;
-	public const uint32 EMR_BEGINPATH = 59;
-	public const uint32 EMR_ENDPATH = 60;
-	public const uint32 EMR_CLOSEFIGURE = 61;
-	public const uint32 EMR_FILLPATH = 62;
-	public const uint32 EMR_STROKEANDFILLPATH = 63;
-	public const uint32 EMR_STROKEPATH = 64;
-	public const uint32 EMR_FLATTENPATH = 65;
-	public const uint32 EMR_WIDENPATH = 66;
-	public const uint32 EMR_SELECTCLIPPATH = 67;
-	public const uint32 EMR_ABORTPATH = 68;
-	public const uint32 EMR_GDICOMMENT = 70;
-	public const uint32 EMR_FILLRGN = 71;
-	public const uint32 EMR_FRAMERGN = 72;
-	public const uint32 EMR_INVERTRGN = 73;
-	public const uint32 EMR_PAINTRGN = 74;
-	public const uint32 EMR_EXTSELECTCLIPRGN = 75;
-	public const uint32 EMR_BITBLT = 76;
-	public const uint32 EMR_STRETCHBLT = 77;
-	public const uint32 EMR_MASKBLT = 78;
-	public const uint32 EMR_PLGBLT = 79;
-	public const uint32 EMR_SETDIBITSTODEVICE = 80;
-	public const uint32 EMR_STRETCHDIBITS = 81;
-	public const uint32 EMR_EXTCREATEFONTINDIRECTW = 82;
-	public const uint32 EMR_EXTTEXTOUTA = 83;
-	public const uint32 EMR_EXTTEXTOUTW = 84;
-	public const uint32 EMR_POLYBEZIER16 = 85;
-	public const uint32 EMR_POLYGON16 = 86;
-	public const uint32 EMR_POLYLINE16 = 87;
-	public const uint32 EMR_POLYBEZIERTO16 = 88;
-	public const uint32 EMR_POLYLINETO16 = 89;
-	public const uint32 EMR_POLYPOLYLINE16 = 90;
-	public const uint32 EMR_POLYPOLYGON16 = 91;
-	public const uint32 EMR_POLYDRAW16 = 92;
-	public const uint32 EMR_CREATEMONOBRUSH = 93;
-	public const uint32 EMR_CREATEDIBPATTERNBRUSHPT = 94;
-	public const uint32 EMR_EXTCREATEPEN = 95;
-	public const uint32 EMR_POLYTEXTOUTA = 96;
-	public const uint32 EMR_POLYTEXTOUTW = 97;
-	public const uint32 EMR_SETICMMODE = 98;
-	public const uint32 EMR_CREATECOLORSPACE = 99;
-	public const uint32 EMR_SETCOLORSPACE = 100;
-	public const uint32 EMR_DELETECOLORSPACE = 101;
-	public const uint32 EMR_GLSRECORD = 102;
-	public const uint32 EMR_GLSBOUNDEDRECORD = 103;
-	public const uint32 EMR_PIXELFORMAT = 104;
-	public const uint32 EMR_RESERVED_105 = 105;
-	public const uint32 EMR_RESERVED_106 = 106;
-	public const uint32 EMR_RESERVED_107 = 107;
-	public const uint32 EMR_RESERVED_108 = 108;
-	public const uint32 EMR_RESERVED_109 = 109;
-	public const uint32 EMR_RESERVED_110 = 110;
-	public const uint32 EMR_COLORCORRECTPALETTE = 111;
-	public const uint32 EMR_SETICMPROFILEA = 112;
-	public const uint32 EMR_SETICMPROFILEW = 113;
-	public const uint32 EMR_ALPHABLEND = 114;
-	public const uint32 EMR_SETLAYOUT = 115;
-	public const uint32 EMR_TRANSPARENTBLT = 116;
-	public const uint32 EMR_RESERVED_117 = 117;
-	public const uint32 EMR_GRADIENTFILL = 118;
-	public const uint32 EMR_RESERVED_119 = 119;
-	public const uint32 EMR_RESERVED_120 = 120;
-	public const uint32 EMR_COLORMATCHTOTARGETW = 121;
-	public const uint32 EMR_CREATECOLORSPACEW = 122;
-	public const uint32 EMR_MIN = 1;
-	public const uint32 EMR_MAX = 122;
 	public const uint32 SETICMPROFILE_EMBEDED = 1;
 	public const uint32 CREATECOLORSPACE_EMBEDED = 1;
 	public const uint32 COLORMATCHTOTARGET_EMBEDED = 1;
@@ -1333,29 +978,6 @@ public enum OBJ_TYPE : int32
 	OBJ_ENHMETADC = 12,
 	OBJ_ENHMETAFILE = 13,
 	OBJ_COLORSPACE = 14,
-}
-
-
-[AllowDuplicates]
-public enum ROP_CODE : uint32
-{
-	SRCCOPY = 13369376,
-	SRCPAINT = 15597702,
-	SRCAND = 8913094,
-	SRCINVERT = 6684742,
-	SRCERASE = 4457256,
-	NOTSRCCOPY = 3342344,
-	NOTSRCERASE = 1114278,
-	MERGECOPY = 12583114,
-	MERGEPAINT = 12255782,
-	PATCOPY = 15728673,
-	PATPAINT = 16452105,
-	PATINVERT = 5898313,
-	DSTINVERT = 5570569,
-	BLACKNESS = 66,
-	WHITENESS = 16711778,
-	NOMIRRORBITMAP = 2147483648,
-	CAPTUREBLT = 1073741824,
 }
 
 
@@ -1682,16 +1304,17 @@ public enum MODIFY_WORLD_TRANSFORM_MODE : uint32
 
 
 [AllowDuplicates]
-public enum FONT_CLIP_PRECISION : uint32
+public enum FONT_CLIP_PRECISION : uint8
 {
-	CLIP_CHARACTER_PRECIS = 1,
 	CLIP_DEFAULT_PRECIS = 0,
+	CLIP_CHARACTER_PRECIS = 1,
+	CLIP_STROKE_PRECIS = 2,
+	CLIP_MASK = 15,
+	CLIP_LH_ANGLES = 16,
+	CLIP_TT_ALWAYS = 32,
 	CLIP_DFA_DISABLE = 64,
 	CLIP_EMBEDDED = 128,
-	CLIP_LH_ANGLES = 16,
-	CLIP_MASK = 15,
-	CLIP_STROKE_PRECIS = 2,
-	CLIP_TT_ALWAYS = 32,
+	CLIP_DFA_OVERRIDE = 64,
 }
 
 
@@ -1785,18 +1408,66 @@ public enum GET_DEVICE_CAPS_INDEX : uint32
 
 
 [AllowDuplicates]
-public enum FONT_OUTPUT_PRECISION : uint32
+public enum FONT_OUTPUT_PRECISION : uint8
 {
-	OUT_CHARACTER_PRECIS = 2,
 	OUT_DEFAULT_PRECIS = 0,
-	OUT_DEVICE_PRECIS = 5,
-	OUT_OUTLINE_PRECIS = 8,
-	OUT_PS_ONLY_PRECIS = 10,
-	OUT_RASTER_PRECIS = 6,
 	OUT_STRING_PRECIS = 1,
+	OUT_CHARACTER_PRECIS = 2,
 	OUT_STROKE_PRECIS = 3,
-	OUT_TT_ONLY_PRECIS = 7,
 	OUT_TT_PRECIS = 4,
+	OUT_DEVICE_PRECIS = 5,
+	OUT_RASTER_PRECIS = 6,
+	OUT_TT_ONLY_PRECIS = 7,
+	OUT_OUTLINE_PRECIS = 8,
+	OUT_SCREEN_OUTLINE_PRECIS = 9,
+	OUT_PS_ONLY_PRECIS = 10,
+}
+
+
+[AllowDuplicates]
+public enum FONT_WEIGHT : uint32
+{
+	FW_DONTCARE = 0,
+	FW_THIN = 100,
+	FW_EXTRALIGHT = 200,
+	FW_LIGHT = 300,
+	FW_NORMAL = 400,
+	FW_MEDIUM = 500,
+	FW_SEMIBOLD = 600,
+	FW_BOLD = 700,
+	FW_EXTRABOLD = 800,
+	FW_HEAVY = 900,
+	FW_ULTRALIGHT = 200,
+	FW_REGULAR = 400,
+	FW_DEMIBOLD = 600,
+	FW_ULTRABOLD = 800,
+	FW_BLACK = 900,
+}
+
+
+[AllowDuplicates]
+public enum FONT_CHARSET : uint8
+{
+	ANSI_CHARSET = 0,
+	DEFAULT_CHARSET = 1,
+	SYMBOL_CHARSET = 2,
+	SHIFTJIS_CHARSET = 128,
+	HANGEUL_CHARSET = 129,
+	HANGUL_CHARSET = 129,
+	GB2312_CHARSET = 134,
+	CHINESEBIG5_CHARSET = 136,
+	OEM_CHARSET = 255,
+	JOHAB_CHARSET = 130,
+	HEBREW_CHARSET = 177,
+	ARABIC_CHARSET = 178,
+	GREEK_CHARSET = 161,
+	TURKISH_CHARSET = 162,
+	VIETNAMESE_CHARSET = 163,
+	THAI_CHARSET = 222,
+	EASTEUROPE_CHARSET = 238,
+	RUSSIAN_CHARSET = 204,
+	MAC_CHARSET = 77,
+	BALTIC_CHARSET = 186,
 }
 
 
@@ -1831,14 +1502,14 @@ public enum STRETCH_BLT_MODE : uint32
 
 
 [AllowDuplicates]
-public enum FONT_QUALITY : uint32
+public enum FONT_QUALITY : uint8
 {
-	ANTIALIASED_QUALITY = 4,
-	CLEARTYPE_QUALITY = 5,
 	DEFAULT_QUALITY = 0,
 	DRAFT_QUALITY = 1,
-	NONANTIALIASED_QUALITY = 3,
 	PROOF_QUALITY = 2,
+	NONANTIALIASED_QUALITY = 3,
+	ANTIALIASED_QUALITY = 4,
+	CLEARTYPE_QUALITY = 5,
 }
 
 
@@ -1897,6 +1568,48 @@ public enum DRAW_EDGE_FLAGS : uint32
 
 
 [AllowDuplicates]
+public enum SYS_COLOR_INDEX : int32
+{
+	COLOR_SCROLLBAR = 0,
+	COLOR_BACKGROUND = 1,
+	COLOR_ACTIVECAPTION = 2,
+	COLOR_INACTIVECAPTION = 3,
+	COLOR_MENU = 4,
+	COLOR_WINDOW = 5,
+	COLOR_WINDOWFRAME = 6,
+	COLOR_MENUTEXT = 7,
+	COLOR_WINDOWTEXT = 8,
+	COLOR_CAPTIONTEXT = 9,
+	COLOR_ACTIVEBORDER = 10,
+	COLOR_INACTIVEBORDER = 11,
+	COLOR_APPWORKSPACE = 12,
+	COLOR_HIGHLIGHT = 13,
+	COLOR_HIGHLIGHTTEXT = 14,
+	COLOR_BTNFACE = 15,
+	COLOR_BTNSHADOW = 16,
+	COLOR_GRAYTEXT = 17,
+	COLOR_BTNTEXT = 18,
+	COLOR_INACTIVECAPTIONTEXT = 19,
+	COLOR_BTNHIGHLIGHT = 20,
+	COLOR_3DDKSHADOW = 21,
+	COLOR_3DLIGHT = 22,
+	COLOR_INFOTEXT = 23,
+	COLOR_INFOBK = 24,
+	COLOR_HOTLIGHT = 26,
+	COLOR_GRADIENTACTIVECAPTION = 27,
+	COLOR_GRADIENTINACTIVECAPTION = 28,
+	COLOR_MENUHILIGHT = 29,
+	COLOR_MENUBAR = 30,
+	COLOR_DESKTOP = 1,
+	COLOR_3DFACE = 15,
+	COLOR_3DSHADOW = 16,
+	COLOR_3DHIGHLIGHT = 20,
+	COLOR_3DHILIGHT = 20,
+	COLOR_BTNHILIGHT = 20,
+}
+
+
+[AllowDuplicates]
 public enum FONT_LICENSE_PRIVS : uint32
 {
 	LICENSE_PREVIEWPRINT = 4,
@@ -1917,7 +1630,7 @@ public enum GRADIENT_FILL : uint32
 
 
 [AllowDuplicates]
-public enum CREATE_FONT_PACKAGE_SUBSET_ENCODING : uint32
+public enum CREATE_FONT_PACKAGE_SUBSET_ENCODING : uint16
 {
 	TTFCFP_STD_MAC_CHAR_SET = 0,
 	TTFCFP_SYMBOL_CHAR_SET = 0,
@@ -1976,7 +1689,16 @@ public enum GRAPHICS_MODE : uint32
 
 
 [AllowDuplicates]
-public enum FONT_PITCH_AND_FAMILY : uint32
+public enum FONT_PITCH : uint8
+{
+	DEFAULT_PITCH = 0,
+	FIXED_PITCH = 1,
+	VARIABLE_PITCH = 2,
+}
+
+
+[AllowDuplicates]
+public enum FONT_FAMILY : uint8
 {
 	FF_DECORATIVE = 80,
 	FF_DONTCARE = 0,
@@ -1988,7 +1710,30 @@ public enum FONT_PITCH_AND_FAMILY : uint32
 
 
 [AllowDuplicates]
-public enum CREATE_FONT_PACKAGE_SUBSET_PLATFORM : uint32
+public enum ROP_CODE : uint32
+{
+	BLACKNESS = 66,
+	NOTSRCERASE = 1114278,
+	NOTSRCCOPY = 3342344,
+	SRCERASE = 4457256,
+	DSTINVERT = 5570569,
+	PATINVERT = 5898313,
+	SRCINVERT = 6684742,
+	SRCAND = 8913094,
+	MERGEPAINT = 12255782,
+	MERGECOPY = 12583114,
+	SRCCOPY = 13369376,
+	SRCPAINT = 15597702,
+	PATCOPY = 15728673,
+	PATPAINT = 16452105,
+	WHITENESS = 16711778,
+	CAPTUREBLT = 1073741824,
+	NOMIRRORBITMAP = 2147483648,
+}
+
+
+[AllowDuplicates]
+public enum CREATE_FONT_PACKAGE_SUBSET_PLATFORM : uint16
 {
 	TTFCFP_UNICODE_PLATFORMID = 0,
 	TTFCFP_ISO_PLATFORMID = 2,
@@ -2006,6 +1751,442 @@ public enum HDC_MAP_MODE : uint32
 	MM_LOMETRIC = 2,
 	MM_TEXT = 1,
 	MM_TWIPS = 6,
+}
+
+
+[AllowDuplicates]
+public enum GDI_REGION_TYPE : int32
+{
+	RGN_ERROR = 0,
+	NULLREGION = 1,
+	SIMPLEREGION = 2,
+	COMPLEXREGION = 3,
+}
+
+
+[AllowDuplicates]
+public enum BRUSH_STYLE : uint32
+{
+	BS_SOLID = 0,
+	BS_NULL = 1,
+	BS_HOLLOW = 1,
+	BS_HATCHED = 2,
+	BS_PATTERN = 3,
+	BS_INDEXED = 4,
+	BS_DIBPATTERN = 5,
+	BS_DIBPATTERNPT = 6,
+	BS_PATTERN8X8 = 7,
+	BS_DIBPATTERN8X8 = 8,
+	BS_MONOPATTERN = 9,
+}
+
+
+[AllowDuplicates]
+public enum TMPF_FLAGS : uint8
+{
+	TMPF_FIXED_PITCH = 1,
+	TMPF_VECTOR = 2,
+	TMPF_DEVICE = 8,
+	TMPF_TRUETYPE = 4,
+}
+
+
+[AllowDuplicates]
+public enum BI_COMPRESSION : int32
+{
+	BI_RGB = 0,
+	BI_RLE8 = 1,
+	BI_RLE4 = 2,
+	BI_BITFIELDS = 3,
+	BI_JPEG = 4,
+	BI_PNG = 5,
+}
+
+
+[AllowDuplicates]
+public enum ENHANCED_METAFILE_RECORD_TYPE : uint32
+{
+	EMR_HEADER = 1,
+	EMR_POLYBEZIER = 2,
+	EMR_POLYGON = 3,
+	EMR_POLYLINE = 4,
+	EMR_POLYBEZIERTO = 5,
+	EMR_POLYLINETO = 6,
+	EMR_POLYPOLYLINE = 7,
+	EMR_POLYPOLYGON = 8,
+	EMR_SETWINDOWEXTEX = 9,
+	EMR_SETWINDOWORGEX = 10,
+	EMR_SETVIEWPORTEXTEX = 11,
+	EMR_SETVIEWPORTORGEX = 12,
+	EMR_SETBRUSHORGEX = 13,
+	EMR_EOF = 14,
+	EMR_SETPIXELV = 15,
+	EMR_SETMAPPERFLAGS = 16,
+	EMR_SETMAPMODE = 17,
+	EMR_SETBKMODE = 18,
+	EMR_SETPOLYFILLMODE = 19,
+	EMR_SETROP2 = 20,
+	EMR_SETSTRETCHBLTMODE = 21,
+	EMR_SETTEXTALIGN = 22,
+	EMR_SETCOLORADJUSTMENT = 23,
+	EMR_SETTEXTCOLOR = 24,
+	EMR_SETBKCOLOR = 25,
+	EMR_OFFSETCLIPRGN = 26,
+	EMR_MOVETOEX = 27,
+	EMR_SETMETARGN = 28,
+	EMR_EXCLUDECLIPRECT = 29,
+	EMR_INTERSECTCLIPRECT = 30,
+	EMR_SCALEVIEWPORTEXTEX = 31,
+	EMR_SCALEWINDOWEXTEX = 32,
+	EMR_SAVEDC = 33,
+	EMR_RESTOREDC = 34,
+	EMR_SETWORLDTRANSFORM = 35,
+	EMR_MODIFYWORLDTRANSFORM = 36,
+	EMR_SELECTOBJECT = 37,
+	EMR_CREATEPEN = 38,
+	EMR_CREATEBRUSHINDIRECT = 39,
+	EMR_DELETEOBJECT = 40,
+	EMR_ANGLEARC = 41,
+	EMR_ELLIPSE = 42,
+	EMR_RECTANGLE = 43,
+	EMR_ROUNDRECT = 44,
+	EMR_ARC = 45,
+	EMR_CHORD = 46,
+	EMR_PIE = 47,
+	EMR_SELECTPALETTE = 48,
+	EMR_CREATEPALETTE = 49,
+	EMR_SETPALETTEENTRIES = 50,
+	EMR_RESIZEPALETTE = 51,
+	EMR_REALIZEPALETTE = 52,
+	EMR_EXTFLOODFILL = 53,
+	EMR_LINETO = 54,
+	EMR_ARCTO = 55,
+	EMR_POLYDRAW = 56,
+	EMR_SETARCDIRECTION = 57,
+	EMR_SETMITERLIMIT = 58,
+	EMR_BEGINPATH = 59,
+	EMR_ENDPATH = 60,
+	EMR_CLOSEFIGURE = 61,
+	EMR_FILLPATH = 62,
+	EMR_STROKEANDFILLPATH = 63,
+	EMR_STROKEPATH = 64,
+	EMR_FLATTENPATH = 65,
+	EMR_WIDENPATH = 66,
+	EMR_SELECTCLIPPATH = 67,
+	EMR_ABORTPATH = 68,
+	EMR_GDICOMMENT = 70,
+	EMR_FILLRGN = 71,
+	EMR_FRAMERGN = 72,
+	EMR_INVERTRGN = 73,
+	EMR_PAINTRGN = 74,
+	EMR_EXTSELECTCLIPRGN = 75,
+	EMR_BITBLT = 76,
+	EMR_STRETCHBLT = 77,
+	EMR_MASKBLT = 78,
+	EMR_PLGBLT = 79,
+	EMR_SETDIBITSTODEVICE = 80,
+	EMR_STRETCHDIBITS = 81,
+	EMR_EXTCREATEFONTINDIRECTW = 82,
+	EMR_EXTTEXTOUTA = 83,
+	EMR_EXTTEXTOUTW = 84,
+	EMR_POLYBEZIER16 = 85,
+	EMR_POLYGON16 = 86,
+	EMR_POLYLINE16 = 87,
+	EMR_POLYBEZIERTO16 = 88,
+	EMR_POLYLINETO16 = 89,
+	EMR_POLYPOLYLINE16 = 90,
+	EMR_POLYPOLYGON16 = 91,
+	EMR_POLYDRAW16 = 92,
+	EMR_CREATEMONOBRUSH = 93,
+	EMR_CREATEDIBPATTERNBRUSHPT = 94,
+	EMR_EXTCREATEPEN = 95,
+	EMR_POLYTEXTOUTA = 96,
+	EMR_POLYTEXTOUTW = 97,
+	EMR_SETICMMODE = 98,
+	EMR_CREATECOLORSPACE = 99,
+	EMR_SETCOLORSPACE = 100,
+	EMR_DELETECOLORSPACE = 101,
+	EMR_GLSRECORD = 102,
+	EMR_GLSBOUNDEDRECORD = 103,
+	EMR_PIXELFORMAT = 104,
+	EMR_RESERVED_105 = 105,
+	EMR_RESERVED_106 = 106,
+	EMR_RESERVED_107 = 107,
+	EMR_RESERVED_108 = 108,
+	EMR_RESERVED_109 = 109,
+	EMR_RESERVED_110 = 110,
+	EMR_COLORCORRECTPALETTE = 111,
+	EMR_SETICMPROFILEA = 112,
+	EMR_SETICMPROFILEW = 113,
+	EMR_ALPHABLEND = 114,
+	EMR_SETLAYOUT = 115,
+	EMR_TRANSPARENTBLT = 116,
+	EMR_RESERVED_117 = 117,
+	EMR_GRADIENTFILL = 118,
+	EMR_RESERVED_119 = 119,
+	EMR_RESERVED_120 = 120,
+	EMR_COLORMATCHTOTARGETW = 121,
+	EMR_CREATECOLORSPACEW = 122,
+	EMR_MIN = 1,
+	EMR_MAX = 122,
+}
+
+
+[AllowDuplicates]
+public enum DEVMODE_FIELD_FLAGS : uint32
+{
+	DM_SPECVERSION = 1025,
+	DM_ORIENTATION = 1,
+	DM_PAPERSIZE = 2,
+	DM_PAPERLENGTH = 4,
+	DM_PAPERWIDTH = 8,
+	DM_SCALE = 16,
+	DM_POSITION = 32,
+	DM_NUP = 64,
+	DM_DISPLAYORIENTATION = 128,
+	DM_COPIES = 256,
+	DM_DEFAULTSOURCE = 512,
+	DM_PRINTQUALITY = 1024,
+	DM_COLOR = 2048,
+	DM_DUPLEX = 4096,
+	DM_YRESOLUTION = 8192,
+	DM_TTOPTION = 16384,
+	DM_COLLATE = 32768,
+	DM_FORMNAME = 65536,
+	DM_LOGPIXELS = 131072,
+	DM_BITSPERPEL = 262144,
+	DM_PELSWIDTH = 524288,
+	DM_PELSHEIGHT = 1048576,
+	DM_DISPLAYFLAGS = 2097152,
+	DM_DISPLAYFREQUENCY = 4194304,
+	DM_ICMMETHOD = 8388608,
+	DM_ICMINTENT = 16777216,
+	DM_MEDIATYPE = 33554432,
+	DM_DITHERTYPE = 67108864,
+	DM_PANNINGWIDTH = 134217728,
+	DM_PANNINGHEIGHT = 268435456,
+	DM_DISPLAYFIXEDOUTPUT = 536870912,
+	DM_INTERLACED = 2,
+	DM_UPDATE = 1,
+	DM_COPY = 2,
+	DM_PROMPT = 4,
+	DM_MODIFY = 8,
+	DM_IN_BUFFER = 8,
+	DM_IN_PROMPT = 4,
+	DM_OUT_BUFFER = 2,
+	DM_OUT_DEFAULT = 1,
+}
+
+
+[AllowDuplicates]
+public enum DEVMODE_COLOR : uint32
+{
+	DMCOLOR_MONOCHROME = 1,
+	DMCOLOR_COLOR = 2,
+}
+
+
+[AllowDuplicates]
+public enum DEVMODE_DUPLEX : uint32
+{
+	DMDUP_SIMPLEX = 1,
+	DMDUP_VERTICAL = 2,
+	DMDUP_HORIZONTAL = 3,
+}
+
+
+[AllowDuplicates]
+public enum DEVMODE_COLLATE : uint32
+{
+	DMCOLLATE_FALSE = 0,
+	DMCOLLATE_TRUE = 1,
+}
+
+
+[AllowDuplicates]
+public enum DEVMODE_TRUETYPE_OPTION : uint32
+{
+	DMTT_BITMAP = 1,
+	DMTT_DOWNLOAD = 2,
+	DMTT_SUBDEV = 3,
+	DMTT_DOWNLOAD_OUTLINE = 4,
+}
+
+
+[AllowDuplicates]
+public enum PAN_FAMILY_TYPE : uint32
+{
+	PAN_FAMILY_ANY = 0,
+	PAN_FAMILY_NO_FIT = 1,
+	PAN_FAMILY_TEXT_DISPLAY = 2,
+	PAN_FAMILY_SCRIPT = 3,
+	PAN_FAMILY_DECORATIVE = 4,
+	PAN_FAMILY_PICTORIAL = 5,
+}
+
+
+[AllowDuplicates]
+public enum PAN_SERIF_STYLE : uint32
+{
+	PAN_SERIF_ANY = 0,
+	PAN_SERIF_NO_FIT = 1,
+	PAN_SERIF_COVE = 2,
+	PAN_SERIF_OBTUSE_COVE = 3,
+	PAN_SERIF_SQUARE_COVE = 4,
+	PAN_SERIF_OBTUSE_SQUARE_COVE = 5,
+	PAN_SERIF_SQUARE = 6,
+	PAN_SERIF_THIN = 7,
+	PAN_SERIF_BONE = 8,
+	PAN_SERIF_EXAGGERATED = 9,
+	PAN_SERIF_TRIANGLE = 10,
+	PAN_SERIF_NORMAL_SANS = 11,
+	PAN_SERIF_OBTUSE_SANS = 12,
+	PAN_SERIF_PERP_SANS = 13,
+	PAN_SERIF_FLARED = 14,
+	PAN_SERIF_ROUNDED = 15,
+}
+
+
+[AllowDuplicates]
+public enum PAN_WEIGHT : uint32
+{
+	PAN_WEIGHT_ANY = 0,
+	PAN_WEIGHT_NO_FIT = 1,
+	PAN_WEIGHT_INDEX = 2,
+	PAN_WEIGHT_VERY_LIGHT = 2,
+	PAN_WEIGHT_LIGHT = 3,
+	PAN_WEIGHT_THIN = 4,
+	PAN_WEIGHT_BOOK = 5,
+	PAN_WEIGHT_MEDIUM = 6,
+	PAN_WEIGHT_DEMI = 7,
+	PAN_WEIGHT_BOLD = 8,
+	PAN_WEIGHT_HEAVY = 9,
+	PAN_WEIGHT_BLACK = 10,
+	PAN_WEIGHT_NORD = 11,
+}
+
+
+[AllowDuplicates]
+public enum PAN_STROKE_VARIATION : uint32
+{
+	PAN_STROKE_ANY = 0,
+	PAN_STROKE_NO_FIT = 1,
+	PAN_STROKE_GRADUAL_DIAG = 2,
+	PAN_STROKE_GRADUAL_TRAN = 3,
+	PAN_STROKE_GRADUAL_VERT = 4,
+	PAN_STROKE_GRADUAL_HORZ = 5,
+	PAN_STROKE_RAPID_VERT = 6,
+	PAN_STROKE_RAPID_HORZ = 7,
+	PAN_STROKE_INSTANT_VERT = 8,
+}
+
+
+[AllowDuplicates]
+public enum PAN_PROPORTION : uint32
+{
+	PAN_PROP_ANY = 0,
+	PAN_PROP_NO_FIT = 1,
+	PAN_PROP_OLD_STYLE = 2,
+	PAN_PROP_MODERN = 3,
+	PAN_PROP_EVEN_WIDTH = 4,
+	PAN_PROP_EXPANDED = 5,
+	PAN_PROP_CONDENSED = 6,
+	PAN_PROP_VERY_EXPANDED = 7,
+	PAN_PROP_VERY_CONDENSED = 8,
+	PAN_PROP_MONOSPACED = 9,
+}
+
+
+[AllowDuplicates]
+public enum PAN_CONTRAST : uint32
+{
+	PAN_CONTRAST_ANY = 0,
+	PAN_CONTRAST_NO_FIT = 1,
+	PAN_CONTRAST_INDEX = 4,
+	PAN_CONTRAST_NONE = 2,
+	PAN_CONTRAST_VERY_LOW = 3,
+	PAN_CONTRAST_LOW = 4,
+	PAN_CONTRAST_MEDIUM_LOW = 5,
+	PAN_CONTRAST_MEDIUM = 6,
+	PAN_CONTRAST_MEDIUM_HIGH = 7,
+	PAN_CONTRAST_HIGH = 8,
+	PAN_CONTRAST_VERY_HIGH = 9,
+}
+
+
+[AllowDuplicates]
+public enum PAN_ARM_STYLE : uint32
+{
+	PAN_ARM_ANY = 0,
+	PAN_ARM_NO_FIT = 1,
+	PAN_STRAIGHT_ARMS_HORZ = 2,
+	PAN_STRAIGHT_ARMS_WEDGE = 3,
+	PAN_STRAIGHT_ARMS_VERT = 4,
+	PAN_STRAIGHT_ARMS_SINGLE_SERIF = 5,
+	PAN_STRAIGHT_ARMS_DOUBLE_SERIF = 6,
+	PAN_BENT_ARMS_HORZ = 7,
+	PAN_BENT_ARMS_WEDGE = 8,
+	PAN_BENT_ARMS_VERT = 9,
+	PAN_BENT_ARMS_SINGLE_SERIF = 10,
+	PAN_BENT_ARMS_DOUBLE_SERIF = 11,
+}
+
+
+[AllowDuplicates]
+public enum PAN_LETT_FORM : uint32
+{
+	PAN_LETT_FORM_ANY = 0,
+	PAN_LETT_FORM_NO_FIT = 1,
+	PAN_LETT_NORMAL_CONTACT = 2,
+	PAN_LETT_NORMAL_WEIGHTED = 3,
+	PAN_LETT_NORMAL_BOXED = 4,
+	PAN_LETT_NORMAL_FLATTENED = 5,
+	PAN_LETT_NORMAL_ROUNDED = 6,
+	PAN_LETT_NORMAL_OFF_CENTER = 7,
+	PAN_LETT_NORMAL_SQUARE = 8,
+	PAN_LETT_OBLIQUE_CONTACT = 9,
+	PAN_LETT_OBLIQUE_WEIGHTED = 10,
+	PAN_LETT_OBLIQUE_BOXED = 11,
+	PAN_LETT_OBLIQUE_FLATTENED = 12,
+	PAN_LETT_OBLIQUE_ROUNDED = 13,
+	PAN_LETT_OBLIQUE_OFF_CENTER = 14,
+	PAN_LETT_OBLIQUE_SQUARE = 15,
+}
+
+
+[AllowDuplicates]
+public enum PAN_MIDLINE : uint32
+{
+	PAN_MIDLINE_ANY = 0,
+	PAN_MIDLINE_NO_FIT = 1,
+	PAN_MIDLINE_INDEX = 8,
+	PAN_MIDLINE_STANDARD_TRIMMED = 2,
+	PAN_MIDLINE_STANDARD_POINTED = 3,
+	PAN_MIDLINE_STANDARD_SERIFED = 4,
+	PAN_MIDLINE_HIGH_TRIMMED = 5,
+	PAN_MIDLINE_HIGH_POINTED = 6,
+	PAN_MIDLINE_HIGH_SERIFED = 7,
+	PAN_MIDLINE_CONSTANT_TRIMMED = 8,
+	PAN_MIDLINE_CONSTANT_POINTED = 9,
+	PAN_MIDLINE_CONSTANT_SERIFED = 10,
+	PAN_MIDLINE_LOW_TRIMMED = 11,
+	PAN_MIDLINE_LOW_POINTED = 12,
+	PAN_MIDLINE_LOW_SERIFED = 13,
+}
+
+
+[AllowDuplicates]
+public enum PAN_XHEIGHT : uint32
+{
+	PAN_XHEIGHT_ANY = 0,
+	PAN_XHEIGHT_NO_FIT = 1,
+	PAN_XHEIGHT_INDEX = 9,
+	PAN_XHEIGHT_CONSTANT_SMALL = 2,
+	PAN_XHEIGHT_CONSTANT_STD = 3,
+	PAN_XHEIGHT_CONSTANT_LARGE = 4,
+	PAN_XHEIGHT_DUCKING_SMALL = 5,
+	PAN_XHEIGHT_DUCKING_STD = 6,
+	PAN_XHEIGHT_DUCKING_LARGE = 7,
 }
 
 
@@ -2058,6 +2239,20 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 #endregion
 
 #region Structs
+[CRepr]
+public struct MONITORINFOEXA
+{
+	public MONITORINFO monitorInfo;
+	public CHAR[32] szDevice;
+}
+
+[CRepr]
+public struct MONITORINFOEXW
+{
+	public MONITORINFO monitorInfo;
+	public char16[32] szDevice;
+}
+
 [CRepr]
 public struct XFORM
 {
@@ -2132,7 +2327,7 @@ public struct BITMAPINFOHEADER
 	public int32 biHeight;
 	public uint16 biPlanes;
 	public uint16 biBitCount;
-	public uint32 biCompression;
+	public BI_COMPRESSION biCompression;
 	public uint32 biSizeImage;
 	public int32 biXPelsPerMeter;
 	public int32 biYPelsPerMeter;
@@ -2148,7 +2343,7 @@ public struct BITMAPV4HEADER
 	public int32 bV4Height;
 	public uint16 bV4Planes;
 	public uint16 bV4BitCount;
-	public uint32 bV4V4Compression;
+	public BI_COMPRESSION bV4V4Compression;
 	public uint32 bV4SizeImage;
 	public int32 bV4XPelsPerMeter;
 	public int32 bV4YPelsPerMeter;
@@ -2173,7 +2368,7 @@ public struct BITMAPV5HEADER
 	public int32 bV5Height;
 	public uint16 bV5Planes;
 	public uint16 bV5BitCount;
-	public uint32 bV5Compression;
+	public BI_COMPRESSION bV5Compression;
 	public uint32 bV5SizeImage;
 	public int32 bV5XPelsPerMeter;
 	public int32 bV5YPelsPerMeter;
@@ -2251,7 +2446,7 @@ public struct METAHEADER
 [CRepr]
 public struct ENHMETARECORD
 {
-	public uint32 iType;
+	public ENHANCED_METAFILE_RECORD_TYPE iType;
 	public uint32 nSize;
 	public uint32* dParm mut => &dParm_impl;
 	private uint32[ANYSIZE_ARRAY] dParm_impl;
@@ -2302,7 +2497,7 @@ public struct TEXTMETRICA
 	public uint8 tmItalic;
 	public uint8 tmUnderlined;
 	public uint8 tmStruckOut;
-	public uint8 tmPitchAndFamily;
+	public TMPF_FLAGS tmPitchAndFamily;
 	public uint8 tmCharSet;
 }
 
@@ -2327,7 +2522,7 @@ public struct TEXTMETRICW
 	public uint8 tmItalic;
 	public uint8 tmUnderlined;
 	public uint8 tmStruckOut;
-	public uint8 tmPitchAndFamily;
+	public TMPF_FLAGS tmPitchAndFamily;
 	public uint8 tmCharSet;
 }
 
@@ -2352,7 +2547,7 @@ public struct NEWTEXTMETRICA
 	public uint8 tmItalic;
 	public uint8 tmUnderlined;
 	public uint8 tmStruckOut;
-	public uint8 tmPitchAndFamily;
+	public TMPF_FLAGS tmPitchAndFamily;
 	public uint8 tmCharSet;
 	public uint32 ntmFlags;
 	public uint32 ntmSizeEM;
@@ -2381,7 +2576,7 @@ public struct NEWTEXTMETRICW
 	public uint8 tmItalic;
 	public uint8 tmUnderlined;
 	public uint8 tmStruckOut;
-	public uint8 tmPitchAndFamily;
+	public TMPF_FLAGS tmPitchAndFamily;
 	public uint8 tmCharSet;
 	public uint32 ntmFlags;
 	public uint32 ntmSizeEM;
@@ -2402,34 +2597,34 @@ public struct PELARRAY
 [CRepr]
 public struct LOGBRUSH
 {
-	public uint32 lbStyle;
-	public uint32 lbColor;
+	public BRUSH_STYLE lbStyle;
+	public COLORREF lbColor;
 	public uint lbHatch;
 }
 
 [CRepr]
 public struct LOGBRUSH32
 {
-	public uint32 lbStyle;
-	public uint32 lbColor;
+	public BRUSH_STYLE lbStyle;
+	public COLORREF lbColor;
 	public uint32 lbHatch;
 }
 
 [CRepr]
 public struct LOGPEN
 {
-	public uint32 lopnStyle;
+	public PEN_STYLE lopnStyle;
 	public POINT lopnWidth;
-	public uint32 lopnColor;
+	public COLORREF lopnColor;
 }
 
 [CRepr]
 public struct EXTLOGPEN
 {
-	public uint32 elpPenStyle;
+	public PEN_STYLE elpPenStyle;
 	public uint32 elpWidth;
 	public uint32 elpBrushStyle;
-	public uint32 elpColor;
+	public COLORREF elpColor;
 	public uint elpHatch;
 	public uint32 elpNumEntries;
 	public uint32* elpStyleEntry mut => &elpStyleEntry_impl;
@@ -2439,10 +2634,10 @@ public struct EXTLOGPEN
 [CRepr]
 public struct EXTLOGPEN32
 {
-	public uint32 elpPenStyle;
+	public PEN_STYLE elpPenStyle;
 	public uint32 elpWidth;
 	public uint32 elpBrushStyle;
-	public uint32 elpColor;
+	public COLORREF elpColor;
 	public uint32 elpHatch;
 	public uint32 elpNumEntries;
 	public uint32* elpStyleEntry mut => &elpStyleEntry_impl;
@@ -2478,10 +2673,10 @@ public struct LOGFONTA
 	public uint8 lfItalic;
 	public uint8 lfUnderline;
 	public uint8 lfStrikeOut;
-	public uint8 lfCharSet;
-	public uint8 lfOutPrecision;
-	public uint8 lfClipPrecision;
-	public uint8 lfQuality;
+	public FONT_CHARSET lfCharSet;
+	public FONT_OUTPUT_PRECISION lfOutPrecision;
+	public FONT_CLIP_PRECISION lfClipPrecision;
+	public FONT_QUALITY lfQuality;
 	public uint8 lfPitchAndFamily;
 	public CHAR[32] lfFaceName;
 }
@@ -2497,10 +2692,10 @@ public struct LOGFONTW
 	public uint8 lfItalic;
 	public uint8 lfUnderline;
 	public uint8 lfStrikeOut;
-	public uint8 lfCharSet;
-	public uint8 lfOutPrecision;
-	public uint8 lfClipPrecision;
-	public uint8 lfQuality;
+	public FONT_CHARSET lfCharSet;
+	public FONT_OUTPUT_PRECISION lfOutPrecision;
+	public FONT_CLIP_PRECISION lfClipPrecision;
+	public FONT_QUALITY lfQuality;
 	public uint8 lfPitchAndFamily;
 	public char16[32] lfFaceName;
 }
@@ -2542,16 +2737,16 @@ public struct ENUMLOGFONTEXW
 [CRepr]
 public struct PANOSE
 {
-	public uint8 bFamilyType;
-	public uint8 bSerifStyle;
-	public uint8 bWeight;
-	public uint8 bProportion;
-	public uint8 bContrast;
-	public uint8 bStrokeVariation;
-	public uint8 bArmStyle;
-	public uint8 bLetterform;
-	public uint8 bMidline;
-	public uint8 bXHeight;
+	public PAN_FAMILY_TYPE bFamilyType;
+	public PAN_SERIF_STYLE bSerifStyle;
+	public PAN_WEIGHT bWeight;
+	public PAN_PROPORTION bProportion;
+	public PAN_CONTRAST bContrast;
+	public PAN_STROKE_VARIATION bStrokeVariation;
+	public PAN_ARM_STYLE bArmStyle;
+	public PAN_LETT_FORM bLetterform;
+	public PAN_MIDLINE bMidline;
+	public PAN_XHEIGHT bXHeight;
 }
 
 [CRepr]
@@ -2623,13 +2818,13 @@ public struct DEVMODEA
 	public uint16 dmDriverVersion;
 	public uint16 dmSize;
 	public uint16 dmDriverExtra;
-	public uint32 dmFields;
+	public DEVMODE_FIELD_FLAGS dmFields;
 	public _Anonymous1_e__Union Anonymous1;
-	public int16 dmColor;
+	public DEVMODE_COLOR dmColor;
 	public int16 dmDuplex;
 	public int16 dmYResolution;
-	public int16 dmTTOption;
-	public int16 dmCollate;
+	public DEVMODE_TRUETYPE_OPTION dmTTOption;
+	public DEVMODE_COLLATE dmCollate;
 	public uint8[32] dmFormName;
 	public uint16 dmLogPixels;
 	public uint32 dmBitsPerPel;
@@ -2686,13 +2881,13 @@ public struct DEVMODEW
 	public uint16 dmDriverVersion;
 	public uint16 dmSize;
 	public uint16 dmDriverExtra;
-	public uint32 dmFields;
+	public DEVMODE_FIELD_FLAGS dmFields;
 	public _Anonymous1_e__Union Anonymous1;
-	public int16 dmColor;
+	public DEVMODE_COLOR dmColor;
 	public int16 dmDuplex;
 	public int16 dmYResolution;
-	public int16 dmTTOption;
-	public int16 dmCollate;
+	public DEVMODE_TRUETYPE_OPTION dmTTOption;
+	public DEVMODE_COLLATE dmCollate;
 	public char16[32] dmFormName;
 	public uint16 dmLogPixels;
 	public uint32 dmBitsPerPel;
@@ -3095,7 +3290,7 @@ public struct KERNINGPAIR
 [CRepr]
 public struct EMR
 {
-	public uint32 iType;
+	public ENHANCED_METAFILE_RECORD_TYPE iType;
 	public uint32 nSize;
 }
 
@@ -3155,7 +3350,7 @@ public struct EMRSETMAPPERFLAGS
 public struct EMRSETTEXTCOLOR
 {
 	public EMR emr;
-	public uint32 crColor;
+	public COLORREF crColor;
 }
 
 [CRepr]
@@ -3280,7 +3475,7 @@ public struct EMRMODIFYWORLDTRANSFORM
 {
 	public EMR emr;
 	public XFORM xform;
-	public uint32 iMode;
+	public MODIFY_WORLD_TRANSFORM_MODE iMode;
 }
 
 [CRepr]
@@ -3288,7 +3483,7 @@ public struct EMRSETPIXELV
 {
 	public EMR emr;
 	public POINTL ptlPixel;
-	public uint32 crColor;
+	public COLORREF crColor;
 }
 
 [CRepr]
@@ -3296,7 +3491,7 @@ public struct EMREXTFLOODFILL
 {
 	public EMR emr;
 	public POINTL ptlStart;
-	public uint32 crColor;
+	public COLORREF crColor;
 	public uint32 iMode;
 }
 
@@ -3442,7 +3637,7 @@ public struct EMREXTSELECTCLIPRGN
 {
 	public EMR emr;
 	public uint32 cbRgnData;
-	public uint32 iMode;
+	public RGN_COMBINE_MODE iMode;
 	public uint8* RgnData mut => &RgnData_impl;
 	private uint8[ANYSIZE_ARRAY] RgnData_impl;
 }
@@ -3484,7 +3679,7 @@ public struct EMRBITBLT
 	public int32 xSrc;
 	public int32 ySrc;
 	public XFORM xformSrc;
-	public uint32 crBkColorSrc;
+	public COLORREF crBkColorSrc;
 	public uint32 iUsageSrc;
 	public uint32 offBmiSrc;
 	public uint32 cbBmiSrc;
@@ -3505,7 +3700,7 @@ public struct EMRSTRETCHBLT
 	public int32 xSrc;
 	public int32 ySrc;
 	public XFORM xformSrc;
-	public uint32 crBkColorSrc;
+	public COLORREF crBkColorSrc;
 	public uint32 iUsageSrc;
 	public uint32 offBmiSrc;
 	public uint32 cbBmiSrc;
@@ -3528,7 +3723,7 @@ public struct EMRMASKBLT
 	public int32 xSrc;
 	public int32 ySrc;
 	public XFORM xformSrc;
-	public uint32 crBkColorSrc;
+	public COLORREF crBkColorSrc;
 	public uint32 iUsageSrc;
 	public uint32 offBmiSrc;
 	public uint32 cbBmiSrc;
@@ -3554,7 +3749,7 @@ public struct EMRPLGBLT
 	public int32 cxSrc;
 	public int32 cySrc;
 	public XFORM xformSrc;
-	public uint32 crBkColorSrc;
+	public COLORREF crBkColorSrc;
 	public uint32 iUsageSrc;
 	public uint32 offBmiSrc;
 	public uint32 cbBmiSrc;
@@ -3746,7 +3941,7 @@ public struct EMRSETICMPROFILE
 }
 
 [CRepr]
-public struct COLORMATCHTOTARGET
+public struct EMRCOLORMATCHTOTARGET
 {
 	public EMR emr;
 	public uint32 dwAction;
@@ -3758,7 +3953,7 @@ public struct COLORMATCHTOTARGET
 }
 
 [CRepr]
-public struct COLORCORRECTPALETTE
+public struct EMRCOLORCORRECTPALETTE
 {
 	public EMR emr;
 	public uint32 ihPalette;
@@ -3780,7 +3975,7 @@ public struct EMRALPHABLEND
 	public int32 xSrc;
 	public int32 ySrc;
 	public XFORM xformSrc;
-	public uint32 crBkColorSrc;
+	public COLORREF crBkColorSrc;
 	public uint32 iUsageSrc;
 	public uint32 offBmiSrc;
 	public uint32 cbBmiSrc;
@@ -3815,7 +4010,7 @@ public struct EMRTRANSPARENTBLT
 	public int32 xSrc;
 	public int32 ySrc;
 	public XFORM xformSrc;
-	public uint32 crBkColorSrc;
+	public COLORREF crBkColorSrc;
 	public uint32 iUsageSrc;
 	public uint32 offBmiSrc;
 	public uint32 cbBmiSrc;
@@ -3902,20 +4097,6 @@ public struct MONITORINFO
 	public uint32 dwFlags;
 }
 
-[CRepr]
-public struct MONITORINFOEXA
-{
-	public MONITORINFO __AnonymousBase_winuser_L13567_C43;
-	public CHAR[32] szDevice;
-}
-
-[CRepr]
-public struct MONITORINFOEXW
-{
-	public MONITORINFO __AnonymousBase_winuser_L13571_C43;
-	public char16[32] szDevice;
-}
-
 #endregion
 
 #region Functions
@@ -3951,7 +4132,7 @@ public static
 	public static extern HMETAFILE CloseMetaFile(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 CombineRgn(HRGN hrgnDst, HRGN hrgnSrc1, HRGN hrgnSrc2, RGN_COMBINE_MODE iMode);
+	public static extern GDI_REGION_TYPE CombineRgn(HRGN hrgnDst, HRGN hrgnSrc1, HRGN hrgnSrc2, RGN_COMBINE_MODE iMode);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HMETAFILE CopyMetaFileA(HMETAFILE param0, PSTR param1);
@@ -4008,14 +4189,14 @@ public static
 	public static extern HFONT CreateFontIndirectW(LOGFONTW* lplf);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HFONT CreateFontA(int32 cHeight, int32 cWidth, int32 cEscapement, int32 cOrientation, int32 cWeight, uint32 bItalic, uint32 bUnderline, uint32 bStrikeOut, uint32 iCharSet, FONT_OUTPUT_PRECISION iOutPrecision, FONT_CLIP_PRECISION iClipPrecision, FONT_QUALITY iQuality, FONT_PITCH_AND_FAMILY iPitchAndFamily, PSTR pszFaceName);
-	public static HFONT CreateFont(int32 cHeight, int32 cWidth, int32 cEscapement, int32 cOrientation, int32 cWeight, uint32 bItalic, uint32 bUnderline, uint32 bStrikeOut, uint32 iCharSet, FONT_OUTPUT_PRECISION iOutPrecision, FONT_CLIP_PRECISION iClipPrecision, FONT_QUALITY iQuality, FONT_PITCH_AND_FAMILY iPitchAndFamily, PSTR pszFaceName) => CreateFontA(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pszFaceName);
+	public static extern HFONT CreateFontA(int32 cHeight, int32 cWidth, int32 cEscapement, int32 cOrientation, int32 cWeight, uint32 bItalic, uint32 bUnderline, uint32 bStrikeOut, uint32 iCharSet, uint32 iOutPrecision, uint32 iClipPrecision, uint32 iQuality, uint32 iPitchAndFamily, PSTR pszFaceName);
+	public static HFONT CreateFont(int32 cHeight, int32 cWidth, int32 cEscapement, int32 cOrientation, int32 cWeight, uint32 bItalic, uint32 bUnderline, uint32 bStrikeOut, uint32 iCharSet, uint32 iOutPrecision, uint32 iClipPrecision, uint32 iQuality, uint32 iPitchAndFamily, PSTR pszFaceName) => CreateFontA(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pszFaceName);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HFONT CreateFontW(int32 cHeight, int32 cWidth, int32 cEscapement, int32 cOrientation, int32 cWeight, uint32 bItalic, uint32 bUnderline, uint32 bStrikeOut, uint32 iCharSet, FONT_OUTPUT_PRECISION iOutPrecision, FONT_CLIP_PRECISION iClipPrecision, FONT_QUALITY iQuality, FONT_PITCH_AND_FAMILY iPitchAndFamily, PWSTR pszFaceName);
+	public static extern HFONT CreateFontW(int32 cHeight, int32 cWidth, int32 cEscapement, int32 cOrientation, int32 cWeight, uint32 bItalic, uint32 bUnderline, uint32 bStrikeOut, uint32 iCharSet, uint32 iOutPrecision, uint32 iClipPrecision, uint32 iQuality, uint32 iPitchAndFamily, PWSTR pszFaceName);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HBRUSH CreateHatchBrush(HATCH_BRUSH_STYLE iHatch, uint32 color);
+	public static extern HBRUSH CreateHatchBrush(HATCH_BRUSH_STYLE iHatch, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CreatedHDC CreateICA(PSTR pszDriver, PSTR pszDevice, PSTR pszPort, DEVMODEA* pdm);
@@ -4035,7 +4216,7 @@ public static
 	public static extern HPALETTE CreatePalette(LOGPALETTE* plpal);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HPEN CreatePen(PEN_STYLE iStyle, int32 cWidth, uint32 color);
+	public static extern HPEN CreatePen(PEN_STYLE iStyle, int32 cWidth, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HPEN CreatePenIndirect(LOGPEN* plpen);
@@ -4063,7 +4244,7 @@ public static
 	public static extern BOOL CreateScalableFontResourceW(uint32 fdwHidden, PWSTR lpszFont, PWSTR lpszFile, PWSTR lpszPath);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HBRUSH CreateSolidBrush(uint32 color);
+	public static extern HBRUSH CreateSolidBrush(COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteDC(CreatedHDC hdc);
@@ -4108,40 +4289,40 @@ public static
 	public static extern BOOL EqualRgn(HRGN hrgn1, HRGN hrgn2);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ExcludeClipRect(HDC hdc, int32 left, int32 top, int32 right, int32 bottom);
+	public static extern GDI_REGION_TYPE ExcludeClipRect(HDC hdc, int32 left, int32 top, int32 right, int32 bottom);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRGN ExtCreateRegion(XFORM* lpx, uint32 nCount, RGNDATA* lpData);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ExtFloodFill(HDC hdc, int32 x, int32 y, uint32 color, EXT_FLOOD_FILL_TYPE type);
+	public static extern BOOL ExtFloodFill(HDC hdc, int32 x, int32 y, COLORREF color, EXT_FLOOD_FILL_TYPE type);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FillRgn(HDC hdc, HRGN hrgn, HBRUSH hbr);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL FloodFill(HDC hdc, int32 x, int32 y, uint32 color);
+	public static extern BOOL FloodFill(HDC hdc, int32 x, int32 y, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FrameRgn(HDC hdc, HRGN hrgn, HBRUSH hbr, int32 w, int32 h);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetROP2(HDC hdc);
+	public static extern R2_MODE GetROP2(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetAspectRatioFilterEx(HDC hdc, SIZE* lpsize);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetBkColor(HDC hdc);
+	public static extern COLORREF GetBkColor(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetDCBrushColor(HDC hdc);
+	public static extern COLORREF GetDCBrushColor(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetDCPenColor(HDC hdc);
+	public static extern COLORREF GetDCPenColor(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetBkMode(HDC hdc);
+	public static extern BACKGROUND_MODE GetBkMode(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetBitmapBits(HBITMAP hbit, int32 cb, void* lpvBits);
@@ -4191,7 +4372,7 @@ public static
 	public static extern BOOL GetCharABCWidthsFloatW(HDC hdc, uint32 iFirst, uint32 iLast, ABCFLOAT* lpABC);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetClipBox(HDC hdc, RECT* lprect);
+	public static extern GDI_REGION_TYPE GetClipBox(HDC hdc, RECT* lprect);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetClipRgn(HDC hdc, HRGN hrgn);
@@ -4225,7 +4406,7 @@ public static
 	public static extern int32 GetGraphicsMode(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetMapMode(HDC hdc);
+	public static extern HDC_MAP_MODE GetMapMode(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetMetaFileBitsEx(HMETAFILE hMF, uint32 cbBuffer, void* lpData);
@@ -4238,10 +4419,10 @@ public static
 	public static extern HMETAFILE GetMetaFileW(PWSTR lpName);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetNearestColor(HDC hdc, uint32 color);
+	public static extern COLORREF GetNearestColor(HDC hdc, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetNearestPaletteIndex(HPALETTE h, uint32 color);
+	public static extern uint32 GetNearestPaletteIndex(HPALETTE h, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetObjectType(HGDIOBJ h);
@@ -4257,7 +4438,7 @@ public static
 	public static extern uint32 GetPaletteEntries(HPALETTE hpal, uint32 iStart, uint32 cEntries, PALETTEENTRY* pPalEntries);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetPixel(HDC hdc, int32 x, int32 y);
+	public static extern COLORREF GetPixel(HDC hdc, int32 x, int32 y);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetPolyFillMode(HDC hdc);
@@ -4272,7 +4453,7 @@ public static
 	public static extern uint32 GetRegionData(HRGN hrgn, uint32 nCount, RGNDATA* lpRgnData);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetRgnBox(HRGN hrgn, RECT* lprc);
+	public static extern GDI_REGION_TYPE GetRgnBox(HRGN hrgn, RECT* lprc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HGDIOBJ GetStockObject(GET_STOCK_OBJECT_FLAGS i);
@@ -4290,10 +4471,10 @@ public static
 	public static extern int32 GetTextCharacterExtra(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetTextAlign(HDC hdc);
+	public static extern TEXT_ALIGN_OPTIONS GetTextAlign(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 GetTextColor(HDC hdc);
+	public static extern COLORREF GetTextColor(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetTextExtentPointA(HDC hdc, uint8* lpString, int32 c, SIZE* lpsz);
@@ -4388,7 +4569,7 @@ public static
 	public static extern BOOL GetWindowOrgEx(HDC hdc, POINT* lppoint);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 IntersectClipRect(HDC hdc, int32 left, int32 top, int32 right, int32 bottom);
+	public static extern GDI_REGION_TYPE IntersectClipRect(HDC hdc, int32 left, int32 top, int32 right, int32 bottom);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InvertRgn(HDC hdc, HRGN hrgn);
@@ -4406,10 +4587,10 @@ public static
 	public static extern BOOL PlgBlt(HDC hdcDest, POINT* lpPoint, HDC hdcSrc, int32 xSrc, int32 ySrc, int32 width, int32 height, HBITMAP hbmMask, int32 xMask, int32 yMask);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 OffsetClipRgn(HDC hdc, int32 x, int32 y);
+	public static extern GDI_REGION_TYPE OffsetClipRgn(HDC hdc, int32 x, int32 y);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 OffsetRgn(HRGN hrgn, int32 x, int32 y);
+	public static extern GDI_REGION_TYPE OffsetRgn(HRGN hrgn, int32 x, int32 y);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PatBlt(HDC hdc, int32 x, int32 y, int32 w, int32 h, ROP_CODE rop);
@@ -4471,13 +4652,13 @@ public static
 	public static extern int32 SaveDC(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SelectClipRgn(HDC hdc, HRGN hrgn);
+	public static extern GDI_REGION_TYPE SelectClipRgn(HDC hdc, HRGN hrgn);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 ExtSelectClipRgn(HDC hdc, HRGN hrgn, RGN_COMBINE_MODE mode);
+	public static extern GDI_REGION_TYPE ExtSelectClipRgn(HDC hdc, HRGN hrgn, RGN_COMBINE_MODE mode);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SetMetaRgn(HDC hdc);
+	public static extern GDI_REGION_TYPE SetMetaRgn(HDC hdc);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HGDIOBJ SelectObject(HDC hdc, HGDIOBJ h);
@@ -4486,13 +4667,13 @@ public static
 	public static extern HPALETTE SelectPalette(HDC hdc, HPALETTE hPal, BOOL bForceBkgd);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetBkColor(HDC hdc, uint32 color);
+	public static extern COLORREF SetBkColor(HDC hdc, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetDCBrushColor(HDC hdc, uint32 color);
+	public static extern COLORREF SetDCBrushColor(HDC hdc, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetDCPenColor(HDC hdc, uint32 color);
+	public static extern COLORREF SetDCPenColor(HDC hdc, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetBkMode(HDC hdc, BACKGROUND_MODE mode);
@@ -4531,10 +4712,10 @@ public static
 	public static extern uint32 SetPaletteEntries(HPALETTE hpal, uint32 iStart, uint32 cEntries, PALETTEENTRY* pPalEntries);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetPixel(HDC hdc, int32 x, int32 y, uint32 color);
+	public static extern COLORREF SetPixel(HDC hdc, int32 x, int32 y, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetPixelV(HDC hdc, int32 x, int32 y, uint32 color);
+	public static extern BOOL SetPixelV(HDC hdc, int32 x, int32 y, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetPolyFillMode(HDC hdc, CREATE_POLYGON_RGN_MODE mode);
@@ -4561,7 +4742,7 @@ public static
 	public static extern int32 SetTextCharacterExtra(HDC hdc, int32 extra);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 SetTextColor(HDC hdc, uint32 color);
+	public static extern COLORREF SetTextColor(HDC hdc, COLORREF color);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetTextAlign(HDC hdc, TEXT_ALIGN_OPTIONS align);
@@ -5006,16 +5187,16 @@ public static
 	public static extern BOOL GetUpdateRect(HWND hWnd, RECT* lpRect, BOOL bErase);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetUpdateRgn(HWND hWnd, HRGN hRgn, BOOL bErase);
+	public static extern GDI_REGION_TYPE GetUpdateRgn(HWND hWnd, HRGN hRgn, BOOL bErase);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetWindowRgn(HWND hWnd, HRGN hRgn, BOOL bRedraw);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetWindowRgn(HWND hWnd, HRGN hRgn);
+	public static extern GDI_REGION_TYPE GetWindowRgn(HWND hWnd, HRGN hRgn);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 GetWindowRgnBox(HWND hWnd, RECT* lprc);
+	public static extern GDI_REGION_TYPE GetWindowRgnBox(HWND hWnd, RECT* lprc);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ExcludeUpdateRgn(HDC hDC, HWND hWnd);
@@ -5048,7 +5229,13 @@ public static
 	public static extern int32 MapWindowPoints(HWND hWndFrom, HWND hWndTo, POINT* lpPoints, uint32 cPoints);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HBRUSH GetSysColorBrush(int32 nIndex);
+	public static extern uint32 GetSysColor(SYS_COLOR_INDEX nIndex);
+
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern HBRUSH GetSysColorBrush(SYS_COLOR_INDEX nIndex);
+
+	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern BOOL SetSysColors(int32 cElements, int32* lpaElements, COLORREF* lpaRgbValues);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DrawFocusRect(HDC hDC, RECT* lprc);

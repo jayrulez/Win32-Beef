@@ -1,5 +1,5 @@
 using Win32.Foundation;
-using Win32.UI.Shell.PropertiesSystem;
+using Win32.Devices.Properties;
 using Win32.Graphics.Gdi;
 using Win32.UI.Controls;
 using Win32.System.Com;
@@ -12,6 +12,7 @@ namespace Win32.Devices.Fax;
 #region Constants
 public static
 {
+	public const uint32 prv_DEFAULT_PREFETCH_SIZE = 100;
 	public const uint32 FS_INITIALIZING = 536870912;
 	public const uint32 FS_DIALING = 536870913;
 	public const uint32 FS_TRANSMITTING = 536870914;
@@ -32,6 +33,9 @@ public static
 	public const uint32 FS_ANSWERED = 545259520;
 	public const uint32 FAXDEVRECEIVE_SIZE = 4096;
 	public const uint32 FAXDEVREPORTSTATUS_SIZE = 4096;
+	public const String MS_FAXROUTE_PRINTING_GUID = "{aec1b37c-9af2-11d0-abf7-00c04fd91a4e}";
+	public const String MS_FAXROUTE_FOLDER_GUID = "{92041a90-9af2-11d0-abf7-00c04fd91a4e}";
+	public const String MS_FAXROUTE_EMAIL_GUID = "{6bbf7bfe-9af2-11d0-abf7-00c04fd91a4e}";
 	public const int32 FAX_ERR_START = 7001;
 	public const int32 FAX_ERR_SRV_OUTOFMEMORY = 7001;
 	public const int32 FAX_ERR_GROUP_NOT_FOUND = 7002;
@@ -133,6 +137,11 @@ public static
 	public const uint32 FAX_PORT_QUERY = 16;
 	public const uint32 FAX_PORT_SET = 32;
 	public const uint32 FAX_JOB_MANAGE = 64;
+	public const String CF_MSFAXSRV_DEVICE_ID = "FAXSRV_DeviceID";
+	public const String CF_MSFAXSRV_FSP_GUID = "FAXSRV_FSPGuid";
+	public const String CF_MSFAXSRV_SERVER_NAME = "FAXSRV_ServerName";
+	public const String CF_MSFAXSRV_ROUTEEXT_NAME = "FAXSRV_RoutingExtName";
+	public const String CF_MSFAXSRV_ROUTING_METHOD_GUID = "FAXSRV_RoutingMethodGuid";
 	public const uint32 STI_UNICODE = 1;
 	public const Guid CLSID_Sti = .(0xb323f8e0, 0x2e68, 0x11d0, 0x90, 0xea, 0x00, 0xaa, 0x00, 0x60, 0xf8, 0x6c);
 	public const Guid GUID_DeviceArrivedLaunch = .(0x740d9ee6, 0x70f1, 0x11d1, 0xad, 0x10, 0x00, 0xa0, 0x24, 0x38, 0xad, 0x48);
@@ -186,6 +195,10 @@ public static
 	public const uint32 STI_SUBSCRIBE_FLAG_WINDOW = 1;
 	public const uint32 STI_SUBSCRIBE_FLAG_EVENT = 2;
 	public const uint32 MAX_NOTIFICATION_DATA = 64;
+	public const String STI_ADD_DEVICE_BROADCAST_ACTION = "Arrival";
+	public const String STI_REMOVE_DEVICE_BROADCAST_ACTION = "Removal";
+	public const String STI_ADD_DEVICE_BROADCAST_STRING = "STI\\";
+	public const String STI_REMOVE_DEVICE_BROADCAST_STRING = "STI\\";
 	public const uint32 STI_DEVICE_CREATE_STATUS = 1;
 	public const uint32 STI_DEVICE_CREATE_DATA = 2;
 	public const uint32 STI_DEVICE_CREATE_BOTH = 3;
@@ -219,10 +232,46 @@ public static
 	public const HRESULT STIERR_INVALID_HW_TYPE = -2147024883;
 	public const HRESULT STIERR_NOEVENTS = -2147024637;
 	public const HRESULT STIERR_DEVICE_NOTREADY = -2147024875;
+	public const String REGSTR_VAL_TYPE_W = "Type";
+	public const String REGSTR_VAL_VENDOR_NAME_W = "Vendor";
+	public const String REGSTR_VAL_DEVICETYPE_W = "DeviceType";
+	public const String REGSTR_VAL_DEVICESUBTYPE_W = "DeviceSubType";
+	public const String REGSTR_VAL_DEV_NAME_W = "DeviceName";
+	public const String REGSTR_VAL_DRIVER_DESC_W = "DriverDesc";
+	public const String REGSTR_VAL_FRIENDLY_NAME_W = "FriendlyName";
+	public const String REGSTR_VAL_GENERIC_CAPS_W = "Capabilities";
+	public const String REGSTR_VAL_HARDWARE_W = "HardwareConfig";
+	public const String REGSTR_VAL_HARDWARE = "HardwareConfig";
+	public const String REGSTR_VAL_DEVICE_NAME_W = "DriverDesc";
+	public const String REGSTR_VAL_DATA_W = "DeviceData";
+	public const String REGSTR_VAL_GUID_W = "GUID";
+	public const String REGSTR_VAL_GUID = "GUID";
+	public const String REGSTR_VAL_LAUNCH_APPS_W = "LaunchApplications";
+	public const String REGSTR_VAL_LAUNCH_APPS = "LaunchApplications";
+	public const String REGSTR_VAL_LAUNCHABLE_W = "Launchable";
+	public const String REGSTR_VAL_LAUNCHABLE = "Launchable";
+	public const String REGSTR_VAL_SHUTDOWNDELAY_W = "ShutdownIfUnusedDelay";
+	public const String REGSTR_VAL_SHUTDOWNDELAY = "ShutdownIfUnusedDelay";
+	public const String IS_DIGITAL_CAMERA_STR = "IsDigitalCamera";
 	public const uint32 IS_DIGITAL_CAMERA_VAL = 1;
+	public const String SUPPORTS_MSCPLUS_STR = "SupportsMSCPlus";
 	public const uint32 SUPPORTS_MSCPLUS_VAL = 1;
-	public const PROPERTYKEY DEVPKEY_WIA_DeviceType = .(.(0x6bdd1fc6, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f), 2);
-	public const PROPERTYKEY DEVPKEY_WIA_USDClassId = .(.(0x6bdd1fc6, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f), 3);
+	public const String STI_DEVICE_VALUE_TWAIN_NAME = "TwainDS";
+	public const String STI_DEVICE_VALUE_ISIS_NAME = "ISISDriverName";
+	public const String STI_DEVICE_VALUE_ICM_PROFILE = "ICMProfile";
+	public const String STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP = "DefaultLaunchApp";
+	public const String STI_DEVICE_VALUE_TIMEOUT = "PollTimeout";
+	public const String STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS = "DisableNotifications";
+	public const String REGSTR_VAL_BAUDRATE = "BaudRate";
+	public const String STI_DEVICE_VALUE_TWAIN_NAME_A = "TwainDS";
+	public const String STI_DEVICE_VALUE_ISIS_NAME_A = "ISISDriverName";
+	public const String STI_DEVICE_VALUE_ICM_PROFILE_A = "ICMProfile";
+	public const String STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP_A = "DefaultLaunchApp";
+	public const String STI_DEVICE_VALUE_TIMEOUT_A = "PollTimeout";
+	public const String STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS_A = "DisableNotifications";
+	public const String REGSTR_VAL_BAUDRATE_A = "BaudRate";
+	public const DEVPROPKEY DEVPKEY_WIA_DeviceType = .(.(0x6bdd1fc6, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f), 2);
+	public const DEVPROPKEY DEVPKEY_WIA_USDClassId = .(.(0x6bdd1fc6, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f), 3);
 	public const uint32 STI_USD_GENCAP_NATIVE_PUSHSUPPORT = 1;
 	public const uint32 STI_DEVICE_CREATE_FOR_MONITOR = 16777216;
 	public const int32 lDEFAULT_PREFETCH_SIZE = 100;
@@ -1321,11 +1370,6 @@ public struct STINOTIFY
 	public uint32 dwSize;
 	public Guid guidNotificationCode;
 	public uint8[64] abNotificationData;
-}
-
-[CRepr]
-public struct IStiDeviceW
-{
 }
 
 [CRepr]

@@ -113,6 +113,16 @@ public function void* JsNativeFunction(void* callee, bool isConstructCall, void*
 #region Functions
 public static
 {
+#if BF_64_BIT || BF_ARM_64
+	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern JsErrorCode JsCreateContext(void* runtime, IDebugApplication64* debugApplication, void** newContext);
+
+#endif
+#if BF_64_BIT || BF_ARM_64
+	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
+	public static extern JsErrorCode JsStartDebugging(IDebugApplication64* debugApplication);
+
+#endif
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern JsErrorCode JsCreateRuntime(JsRuntimeAttributes attributes, JsRuntimeVersion runtimeVersion, JsThreadServiceCallback threadService, void** runtime);
 
@@ -143,9 +153,9 @@ public static
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern JsErrorCode JsRelease(void* @ref, uint32* count);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern JsErrorCode JsCreateContext(void* runtime, IDebugApplication64* debugApplication, void** newContext);
+	public static extern JsErrorCode JsCreateContext(void* runtime, IDebugApplication32* debugApplication, void** newContext);
 
 #endif
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
@@ -157,9 +167,9 @@ public static
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern JsErrorCode JsGetRuntime(void* context, void** runtime);
 
-#if BF_64_BIT || BF_ARM_64
+#if BF_32_BIT
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern JsErrorCode JsStartDebugging(IDebugApplication64* debugApplication);
+	public static extern JsErrorCode JsStartDebugging(IDebugApplication32* debugApplication);
 
 #endif
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
@@ -372,15 +382,5 @@ public static
 	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern JsErrorCode JsIsEnumeratingHeap(bool* isEnumeratingHeap);
 
-#if BF_32_BIT
-	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern JsErrorCode JsCreateContext(void* runtime, IDebugApplication32* debugApplication, void** newContext);
-
-#endif
-#if BF_32_BIT
-	[Import("chakra.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern JsErrorCode JsStartDebugging(IDebugApplication32* debugApplication);
-
-#endif
 }
 #endregion

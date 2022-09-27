@@ -1,5 +1,5 @@
-using Win32.System.Com;
 using Win32.Foundation;
+using Win32.System.Com;
 using Win32.UI.WindowsAndMessaging;
 using System;
 
@@ -539,397 +539,6 @@ public static
 	public const uint32 UIA_PFIA_DEFAULT = 0;
 	public const uint32 UIA_PFIA_UNWRAP_BRIDGE = 1;
 	public const double UIA_ScrollPatternNoScroll = -1;
-	public const int32 UIA_InvokePatternId = 10000;
-	public const int32 UIA_SelectionPatternId = 10001;
-	public const int32 UIA_ValuePatternId = 10002;
-	public const int32 UIA_RangeValuePatternId = 10003;
-	public const int32 UIA_ScrollPatternId = 10004;
-	public const int32 UIA_ExpandCollapsePatternId = 10005;
-	public const int32 UIA_GridPatternId = 10006;
-	public const int32 UIA_GridItemPatternId = 10007;
-	public const int32 UIA_MultipleViewPatternId = 10008;
-	public const int32 UIA_WindowPatternId = 10009;
-	public const int32 UIA_SelectionItemPatternId = 10010;
-	public const int32 UIA_DockPatternId = 10011;
-	public const int32 UIA_TablePatternId = 10012;
-	public const int32 UIA_TableItemPatternId = 10013;
-	public const int32 UIA_TextPatternId = 10014;
-	public const int32 UIA_TogglePatternId = 10015;
-	public const int32 UIA_TransformPatternId = 10016;
-	public const int32 UIA_ScrollItemPatternId = 10017;
-	public const int32 UIA_LegacyIAccessiblePatternId = 10018;
-	public const int32 UIA_ItemContainerPatternId = 10019;
-	public const int32 UIA_VirtualizedItemPatternId = 10020;
-	public const int32 UIA_SynchronizedInputPatternId = 10021;
-	public const int32 UIA_ObjectModelPatternId = 10022;
-	public const int32 UIA_AnnotationPatternId = 10023;
-	public const int32 UIA_TextPattern2Id = 10024;
-	public const int32 UIA_StylesPatternId = 10025;
-	public const int32 UIA_SpreadsheetPatternId = 10026;
-	public const int32 UIA_SpreadsheetItemPatternId = 10027;
-	public const int32 UIA_TransformPattern2Id = 10028;
-	public const int32 UIA_TextChildPatternId = 10029;
-	public const int32 UIA_DragPatternId = 10030;
-	public const int32 UIA_DropTargetPatternId = 10031;
-	public const int32 UIA_TextEditPatternId = 10032;
-	public const int32 UIA_CustomNavigationPatternId = 10033;
-	public const int32 UIA_SelectionPattern2Id = 10034;
-	public const int32 UIA_ToolTipOpenedEventId = 20000;
-	public const int32 UIA_ToolTipClosedEventId = 20001;
-	public const int32 UIA_StructureChangedEventId = 20002;
-	public const int32 UIA_MenuOpenedEventId = 20003;
-	public const int32 UIA_AutomationPropertyChangedEventId = 20004;
-	public const int32 UIA_AutomationFocusChangedEventId = 20005;
-	public const int32 UIA_AsyncContentLoadedEventId = 20006;
-	public const int32 UIA_MenuClosedEventId = 20007;
-	public const int32 UIA_LayoutInvalidatedEventId = 20008;
-	public const int32 UIA_Invoke_InvokedEventId = 20009;
-	public const int32 UIA_SelectionItem_ElementAddedToSelectionEventId = 20010;
-	public const int32 UIA_SelectionItem_ElementRemovedFromSelectionEventId = 20011;
-	public const int32 UIA_SelectionItem_ElementSelectedEventId = 20012;
-	public const int32 UIA_Selection_InvalidatedEventId = 20013;
-	public const int32 UIA_Text_TextSelectionChangedEventId = 20014;
-	public const int32 UIA_Text_TextChangedEventId = 20015;
-	public const int32 UIA_Window_WindowOpenedEventId = 20016;
-	public const int32 UIA_Window_WindowClosedEventId = 20017;
-	public const int32 UIA_MenuModeStartEventId = 20018;
-	public const int32 UIA_MenuModeEndEventId = 20019;
-	public const int32 UIA_InputReachedTargetEventId = 20020;
-	public const int32 UIA_InputReachedOtherElementEventId = 20021;
-	public const int32 UIA_InputDiscardedEventId = 20022;
-	public const int32 UIA_SystemAlertEventId = 20023;
-	public const int32 UIA_LiveRegionChangedEventId = 20024;
-	public const int32 UIA_HostedFragmentRootsInvalidatedEventId = 20025;
-	public const int32 UIA_Drag_DragStartEventId = 20026;
-	public const int32 UIA_Drag_DragCancelEventId = 20027;
-	public const int32 UIA_Drag_DragCompleteEventId = 20028;
-	public const int32 UIA_DropTarget_DragEnterEventId = 20029;
-	public const int32 UIA_DropTarget_DragLeaveEventId = 20030;
-	public const int32 UIA_DropTarget_DroppedEventId = 20031;
-	public const int32 UIA_TextEdit_TextChangedEventId = 20032;
-	public const int32 UIA_TextEdit_ConversionTargetChangedEventId = 20033;
-	public const int32 UIA_ChangesEventId = 20034;
-	public const int32 UIA_NotificationEventId = 20035;
-	public const int32 UIA_ActiveTextPositionChangedEventId = 20036;
-	public const int32 UIA_RuntimeIdPropertyId = 30000;
-	public const int32 UIA_BoundingRectanglePropertyId = 30001;
-	public const int32 UIA_ProcessIdPropertyId = 30002;
-	public const int32 UIA_ControlTypePropertyId = 30003;
-	public const int32 UIA_LocalizedControlTypePropertyId = 30004;
-	public const int32 UIA_NamePropertyId = 30005;
-	public const int32 UIA_AcceleratorKeyPropertyId = 30006;
-	public const int32 UIA_AccessKeyPropertyId = 30007;
-	public const int32 UIA_HasKeyboardFocusPropertyId = 30008;
-	public const int32 UIA_IsKeyboardFocusablePropertyId = 30009;
-	public const int32 UIA_IsEnabledPropertyId = 30010;
-	public const int32 UIA_AutomationIdPropertyId = 30011;
-	public const int32 UIA_ClassNamePropertyId = 30012;
-	public const int32 UIA_HelpTextPropertyId = 30013;
-	public const int32 UIA_ClickablePointPropertyId = 30014;
-	public const int32 UIA_CulturePropertyId = 30015;
-	public const int32 UIA_IsControlElementPropertyId = 30016;
-	public const int32 UIA_IsContentElementPropertyId = 30017;
-	public const int32 UIA_LabeledByPropertyId = 30018;
-	public const int32 UIA_IsPasswordPropertyId = 30019;
-	public const int32 UIA_NativeWindowHandlePropertyId = 30020;
-	public const int32 UIA_ItemTypePropertyId = 30021;
-	public const int32 UIA_IsOffscreenPropertyId = 30022;
-	public const int32 UIA_OrientationPropertyId = 30023;
-	public const int32 UIA_FrameworkIdPropertyId = 30024;
-	public const int32 UIA_IsRequiredForFormPropertyId = 30025;
-	public const int32 UIA_ItemStatusPropertyId = 30026;
-	public const int32 UIA_IsDockPatternAvailablePropertyId = 30027;
-	public const int32 UIA_IsExpandCollapsePatternAvailablePropertyId = 30028;
-	public const int32 UIA_IsGridItemPatternAvailablePropertyId = 30029;
-	public const int32 UIA_IsGridPatternAvailablePropertyId = 30030;
-	public const int32 UIA_IsInvokePatternAvailablePropertyId = 30031;
-	public const int32 UIA_IsMultipleViewPatternAvailablePropertyId = 30032;
-	public const int32 UIA_IsRangeValuePatternAvailablePropertyId = 30033;
-	public const int32 UIA_IsScrollPatternAvailablePropertyId = 30034;
-	public const int32 UIA_IsScrollItemPatternAvailablePropertyId = 30035;
-	public const int32 UIA_IsSelectionItemPatternAvailablePropertyId = 30036;
-	public const int32 UIA_IsSelectionPatternAvailablePropertyId = 30037;
-	public const int32 UIA_IsTablePatternAvailablePropertyId = 30038;
-	public const int32 UIA_IsTableItemPatternAvailablePropertyId = 30039;
-	public const int32 UIA_IsTextPatternAvailablePropertyId = 30040;
-	public const int32 UIA_IsTogglePatternAvailablePropertyId = 30041;
-	public const int32 UIA_IsTransformPatternAvailablePropertyId = 30042;
-	public const int32 UIA_IsValuePatternAvailablePropertyId = 30043;
-	public const int32 UIA_IsWindowPatternAvailablePropertyId = 30044;
-	public const int32 UIA_ValueValuePropertyId = 30045;
-	public const int32 UIA_ValueIsReadOnlyPropertyId = 30046;
-	public const int32 UIA_RangeValueValuePropertyId = 30047;
-	public const int32 UIA_RangeValueIsReadOnlyPropertyId = 30048;
-	public const int32 UIA_RangeValueMinimumPropertyId = 30049;
-	public const int32 UIA_RangeValueMaximumPropertyId = 30050;
-	public const int32 UIA_RangeValueLargeChangePropertyId = 30051;
-	public const int32 UIA_RangeValueSmallChangePropertyId = 30052;
-	public const int32 UIA_ScrollHorizontalScrollPercentPropertyId = 30053;
-	public const int32 UIA_ScrollHorizontalViewSizePropertyId = 30054;
-	public const int32 UIA_ScrollVerticalScrollPercentPropertyId = 30055;
-	public const int32 UIA_ScrollVerticalViewSizePropertyId = 30056;
-	public const int32 UIA_ScrollHorizontallyScrollablePropertyId = 30057;
-	public const int32 UIA_ScrollVerticallyScrollablePropertyId = 30058;
-	public const int32 UIA_SelectionSelectionPropertyId = 30059;
-	public const int32 UIA_SelectionCanSelectMultiplePropertyId = 30060;
-	public const int32 UIA_SelectionIsSelectionRequiredPropertyId = 30061;
-	public const int32 UIA_GridRowCountPropertyId = 30062;
-	public const int32 UIA_GridColumnCountPropertyId = 30063;
-	public const int32 UIA_GridItemRowPropertyId = 30064;
-	public const int32 UIA_GridItemColumnPropertyId = 30065;
-	public const int32 UIA_GridItemRowSpanPropertyId = 30066;
-	public const int32 UIA_GridItemColumnSpanPropertyId = 30067;
-	public const int32 UIA_GridItemContainingGridPropertyId = 30068;
-	public const int32 UIA_DockDockPositionPropertyId = 30069;
-	public const int32 UIA_ExpandCollapseExpandCollapseStatePropertyId = 30070;
-	public const int32 UIA_MultipleViewCurrentViewPropertyId = 30071;
-	public const int32 UIA_MultipleViewSupportedViewsPropertyId = 30072;
-	public const int32 UIA_WindowCanMaximizePropertyId = 30073;
-	public const int32 UIA_WindowCanMinimizePropertyId = 30074;
-	public const int32 UIA_WindowWindowVisualStatePropertyId = 30075;
-	public const int32 UIA_WindowWindowInteractionStatePropertyId = 30076;
-	public const int32 UIA_WindowIsModalPropertyId = 30077;
-	public const int32 UIA_WindowIsTopmostPropertyId = 30078;
-	public const int32 UIA_SelectionItemIsSelectedPropertyId = 30079;
-	public const int32 UIA_SelectionItemSelectionContainerPropertyId = 30080;
-	public const int32 UIA_TableRowHeadersPropertyId = 30081;
-	public const int32 UIA_TableColumnHeadersPropertyId = 30082;
-	public const int32 UIA_TableRowOrColumnMajorPropertyId = 30083;
-	public const int32 UIA_TableItemRowHeaderItemsPropertyId = 30084;
-	public const int32 UIA_TableItemColumnHeaderItemsPropertyId = 30085;
-	public const int32 UIA_ToggleToggleStatePropertyId = 30086;
-	public const int32 UIA_TransformCanMovePropertyId = 30087;
-	public const int32 UIA_TransformCanResizePropertyId = 30088;
-	public const int32 UIA_TransformCanRotatePropertyId = 30089;
-	public const int32 UIA_IsLegacyIAccessiblePatternAvailablePropertyId = 30090;
-	public const int32 UIA_LegacyIAccessibleChildIdPropertyId = 30091;
-	public const int32 UIA_LegacyIAccessibleNamePropertyId = 30092;
-	public const int32 UIA_LegacyIAccessibleValuePropertyId = 30093;
-	public const int32 UIA_LegacyIAccessibleDescriptionPropertyId = 30094;
-	public const int32 UIA_LegacyIAccessibleRolePropertyId = 30095;
-	public const int32 UIA_LegacyIAccessibleStatePropertyId = 30096;
-	public const int32 UIA_LegacyIAccessibleHelpPropertyId = 30097;
-	public const int32 UIA_LegacyIAccessibleKeyboardShortcutPropertyId = 30098;
-	public const int32 UIA_LegacyIAccessibleSelectionPropertyId = 30099;
-	public const int32 UIA_LegacyIAccessibleDefaultActionPropertyId = 30100;
-	public const int32 UIA_AriaRolePropertyId = 30101;
-	public const int32 UIA_AriaPropertiesPropertyId = 30102;
-	public const int32 UIA_IsDataValidForFormPropertyId = 30103;
-	public const int32 UIA_ControllerForPropertyId = 30104;
-	public const int32 UIA_DescribedByPropertyId = 30105;
-	public const int32 UIA_FlowsToPropertyId = 30106;
-	public const int32 UIA_ProviderDescriptionPropertyId = 30107;
-	public const int32 UIA_IsItemContainerPatternAvailablePropertyId = 30108;
-	public const int32 UIA_IsVirtualizedItemPatternAvailablePropertyId = 30109;
-	public const int32 UIA_IsSynchronizedInputPatternAvailablePropertyId = 30110;
-	public const int32 UIA_OptimizeForVisualContentPropertyId = 30111;
-	public const int32 UIA_IsObjectModelPatternAvailablePropertyId = 30112;
-	public const int32 UIA_AnnotationAnnotationTypeIdPropertyId = 30113;
-	public const int32 UIA_AnnotationAnnotationTypeNamePropertyId = 30114;
-	public const int32 UIA_AnnotationAuthorPropertyId = 30115;
-	public const int32 UIA_AnnotationDateTimePropertyId = 30116;
-	public const int32 UIA_AnnotationTargetPropertyId = 30117;
-	public const int32 UIA_IsAnnotationPatternAvailablePropertyId = 30118;
-	public const int32 UIA_IsTextPattern2AvailablePropertyId = 30119;
-	public const int32 UIA_StylesStyleIdPropertyId = 30120;
-	public const int32 UIA_StylesStyleNamePropertyId = 30121;
-	public const int32 UIA_StylesFillColorPropertyId = 30122;
-	public const int32 UIA_StylesFillPatternStylePropertyId = 30123;
-	public const int32 UIA_StylesShapePropertyId = 30124;
-	public const int32 UIA_StylesFillPatternColorPropertyId = 30125;
-	public const int32 UIA_StylesExtendedPropertiesPropertyId = 30126;
-	public const int32 UIA_IsStylesPatternAvailablePropertyId = 30127;
-	public const int32 UIA_IsSpreadsheetPatternAvailablePropertyId = 30128;
-	public const int32 UIA_SpreadsheetItemFormulaPropertyId = 30129;
-	public const int32 UIA_SpreadsheetItemAnnotationObjectsPropertyId = 30130;
-	public const int32 UIA_SpreadsheetItemAnnotationTypesPropertyId = 30131;
-	public const int32 UIA_IsSpreadsheetItemPatternAvailablePropertyId = 30132;
-	public const int32 UIA_Transform2CanZoomPropertyId = 30133;
-	public const int32 UIA_IsTransformPattern2AvailablePropertyId = 30134;
-	public const int32 UIA_LiveSettingPropertyId = 30135;
-	public const int32 UIA_IsTextChildPatternAvailablePropertyId = 30136;
-	public const int32 UIA_IsDragPatternAvailablePropertyId = 30137;
-	public const int32 UIA_DragIsGrabbedPropertyId = 30138;
-	public const int32 UIA_DragDropEffectPropertyId = 30139;
-	public const int32 UIA_DragDropEffectsPropertyId = 30140;
-	public const int32 UIA_IsDropTargetPatternAvailablePropertyId = 30141;
-	public const int32 UIA_DropTargetDropTargetEffectPropertyId = 30142;
-	public const int32 UIA_DropTargetDropTargetEffectsPropertyId = 30143;
-	public const int32 UIA_DragGrabbedItemsPropertyId = 30144;
-	public const int32 UIA_Transform2ZoomLevelPropertyId = 30145;
-	public const int32 UIA_Transform2ZoomMinimumPropertyId = 30146;
-	public const int32 UIA_Transform2ZoomMaximumPropertyId = 30147;
-	public const int32 UIA_FlowsFromPropertyId = 30148;
-	public const int32 UIA_IsTextEditPatternAvailablePropertyId = 30149;
-	public const int32 UIA_IsPeripheralPropertyId = 30150;
-	public const int32 UIA_IsCustomNavigationPatternAvailablePropertyId = 30151;
-	public const int32 UIA_PositionInSetPropertyId = 30152;
-	public const int32 UIA_SizeOfSetPropertyId = 30153;
-	public const int32 UIA_LevelPropertyId = 30154;
-	public const int32 UIA_AnnotationTypesPropertyId = 30155;
-	public const int32 UIA_AnnotationObjectsPropertyId = 30156;
-	public const int32 UIA_LandmarkTypePropertyId = 30157;
-	public const int32 UIA_LocalizedLandmarkTypePropertyId = 30158;
-	public const int32 UIA_FullDescriptionPropertyId = 30159;
-	public const int32 UIA_FillColorPropertyId = 30160;
-	public const int32 UIA_OutlineColorPropertyId = 30161;
-	public const int32 UIA_FillTypePropertyId = 30162;
-	public const int32 UIA_VisualEffectsPropertyId = 30163;
-	public const int32 UIA_OutlineThicknessPropertyId = 30164;
-	public const int32 UIA_CenterPointPropertyId = 30165;
-	public const int32 UIA_RotationPropertyId = 30166;
-	public const int32 UIA_SizePropertyId = 30167;
-	public const int32 UIA_IsSelectionPattern2AvailablePropertyId = 30168;
-	public const int32 UIA_Selection2FirstSelectedItemPropertyId = 30169;
-	public const int32 UIA_Selection2LastSelectedItemPropertyId = 30170;
-	public const int32 UIA_Selection2CurrentSelectedItemPropertyId = 30171;
-	public const int32 UIA_Selection2ItemCountPropertyId = 30172;
-	public const int32 UIA_HeadingLevelPropertyId = 30173;
-	public const int32 UIA_IsDialogPropertyId = 30174;
-	public const int32 UIA_AnimationStyleAttributeId = 40000;
-	public const int32 UIA_BackgroundColorAttributeId = 40001;
-	public const int32 UIA_BulletStyleAttributeId = 40002;
-	public const int32 UIA_CapStyleAttributeId = 40003;
-	public const int32 UIA_CultureAttributeId = 40004;
-	public const int32 UIA_FontNameAttributeId = 40005;
-	public const int32 UIA_FontSizeAttributeId = 40006;
-	public const int32 UIA_FontWeightAttributeId = 40007;
-	public const int32 UIA_ForegroundColorAttributeId = 40008;
-	public const int32 UIA_HorizontalTextAlignmentAttributeId = 40009;
-	public const int32 UIA_IndentationFirstLineAttributeId = 40010;
-	public const int32 UIA_IndentationLeadingAttributeId = 40011;
-	public const int32 UIA_IndentationTrailingAttributeId = 40012;
-	public const int32 UIA_IsHiddenAttributeId = 40013;
-	public const int32 UIA_IsItalicAttributeId = 40014;
-	public const int32 UIA_IsReadOnlyAttributeId = 40015;
-	public const int32 UIA_IsSubscriptAttributeId = 40016;
-	public const int32 UIA_IsSuperscriptAttributeId = 40017;
-	public const int32 UIA_MarginBottomAttributeId = 40018;
-	public const int32 UIA_MarginLeadingAttributeId = 40019;
-	public const int32 UIA_MarginTopAttributeId = 40020;
-	public const int32 UIA_MarginTrailingAttributeId = 40021;
-	public const int32 UIA_OutlineStylesAttributeId = 40022;
-	public const int32 UIA_OverlineColorAttributeId = 40023;
-	public const int32 UIA_OverlineStyleAttributeId = 40024;
-	public const int32 UIA_StrikethroughColorAttributeId = 40025;
-	public const int32 UIA_StrikethroughStyleAttributeId = 40026;
-	public const int32 UIA_TabsAttributeId = 40027;
-	public const int32 UIA_TextFlowDirectionsAttributeId = 40028;
-	public const int32 UIA_UnderlineColorAttributeId = 40029;
-	public const int32 UIA_UnderlineStyleAttributeId = 40030;
-	public const int32 UIA_AnnotationTypesAttributeId = 40031;
-	public const int32 UIA_AnnotationObjectsAttributeId = 40032;
-	public const int32 UIA_StyleNameAttributeId = 40033;
-	public const int32 UIA_StyleIdAttributeId = 40034;
-	public const int32 UIA_LinkAttributeId = 40035;
-	public const int32 UIA_IsActiveAttributeId = 40036;
-	public const int32 UIA_SelectionActiveEndAttributeId = 40037;
-	public const int32 UIA_CaretPositionAttributeId = 40038;
-	public const int32 UIA_CaretBidiModeAttributeId = 40039;
-	public const int32 UIA_LineSpacingAttributeId = 40040;
-	public const int32 UIA_BeforeParagraphSpacingAttributeId = 40041;
-	public const int32 UIA_AfterParagraphSpacingAttributeId = 40042;
-	public const int32 UIA_SayAsInterpretAsAttributeId = 40043;
-	public const int32 UIA_ButtonControlTypeId = 50000;
-	public const int32 UIA_CalendarControlTypeId = 50001;
-	public const int32 UIA_CheckBoxControlTypeId = 50002;
-	public const int32 UIA_ComboBoxControlTypeId = 50003;
-	public const int32 UIA_EditControlTypeId = 50004;
-	public const int32 UIA_HyperlinkControlTypeId = 50005;
-	public const int32 UIA_ImageControlTypeId = 50006;
-	public const int32 UIA_ListItemControlTypeId = 50007;
-	public const int32 UIA_ListControlTypeId = 50008;
-	public const int32 UIA_MenuControlTypeId = 50009;
-	public const int32 UIA_MenuBarControlTypeId = 50010;
-	public const int32 UIA_MenuItemControlTypeId = 50011;
-	public const int32 UIA_ProgressBarControlTypeId = 50012;
-	public const int32 UIA_RadioButtonControlTypeId = 50013;
-	public const int32 UIA_ScrollBarControlTypeId = 50014;
-	public const int32 UIA_SliderControlTypeId = 50015;
-	public const int32 UIA_SpinnerControlTypeId = 50016;
-	public const int32 UIA_StatusBarControlTypeId = 50017;
-	public const int32 UIA_TabControlTypeId = 50018;
-	public const int32 UIA_TabItemControlTypeId = 50019;
-	public const int32 UIA_TextControlTypeId = 50020;
-	public const int32 UIA_ToolBarControlTypeId = 50021;
-	public const int32 UIA_ToolTipControlTypeId = 50022;
-	public const int32 UIA_TreeControlTypeId = 50023;
-	public const int32 UIA_TreeItemControlTypeId = 50024;
-	public const int32 UIA_CustomControlTypeId = 50025;
-	public const int32 UIA_GroupControlTypeId = 50026;
-	public const int32 UIA_ThumbControlTypeId = 50027;
-	public const int32 UIA_DataGridControlTypeId = 50028;
-	public const int32 UIA_DataItemControlTypeId = 50029;
-	public const int32 UIA_DocumentControlTypeId = 50030;
-	public const int32 UIA_SplitButtonControlTypeId = 50031;
-	public const int32 UIA_WindowControlTypeId = 50032;
-	public const int32 UIA_PaneControlTypeId = 50033;
-	public const int32 UIA_HeaderControlTypeId = 50034;
-	public const int32 UIA_HeaderItemControlTypeId = 50035;
-	public const int32 UIA_TableControlTypeId = 50036;
-	public const int32 UIA_TitleBarControlTypeId = 50037;
-	public const int32 UIA_SeparatorControlTypeId = 50038;
-	public const int32 UIA_SemanticZoomControlTypeId = 50039;
-	public const int32 UIA_AppBarControlTypeId = 50040;
-	public const int32 AnnotationType_Unknown = 60000;
-	public const int32 AnnotationType_SpellingError = 60001;
-	public const int32 AnnotationType_GrammarError = 60002;
-	public const int32 AnnotationType_Comment = 60003;
-	public const int32 AnnotationType_FormulaError = 60004;
-	public const int32 AnnotationType_TrackChanges = 60005;
-	public const int32 AnnotationType_Header = 60006;
-	public const int32 AnnotationType_Footer = 60007;
-	public const int32 AnnotationType_Highlighted = 60008;
-	public const int32 AnnotationType_Endnote = 60009;
-	public const int32 AnnotationType_Footnote = 60010;
-	public const int32 AnnotationType_InsertionChange = 60011;
-	public const int32 AnnotationType_DeletionChange = 60012;
-	public const int32 AnnotationType_MoveChange = 60013;
-	public const int32 AnnotationType_FormatChange = 60014;
-	public const int32 AnnotationType_UnsyncedChange = 60015;
-	public const int32 AnnotationType_EditingLockedChange = 60016;
-	public const int32 AnnotationType_ExternalChange = 60017;
-	public const int32 AnnotationType_ConflictingChange = 60018;
-	public const int32 AnnotationType_Author = 60019;
-	public const int32 AnnotationType_AdvancedProofingIssue = 60020;
-	public const int32 AnnotationType_DataValidationError = 60021;
-	public const int32 AnnotationType_CircularReferenceError = 60022;
-	public const int32 AnnotationType_Mathematics = 60023;
-	public const int32 AnnotationType_Sensitive = 60024;
-	public const int32 StyleId_Custom = 70000;
-	public const int32 StyleId_Heading1 = 70001;
-	public const int32 StyleId_Heading2 = 70002;
-	public const int32 StyleId_Heading3 = 70003;
-	public const int32 StyleId_Heading4 = 70004;
-	public const int32 StyleId_Heading5 = 70005;
-	public const int32 StyleId_Heading6 = 70006;
-	public const int32 StyleId_Heading7 = 70007;
-	public const int32 StyleId_Heading8 = 70008;
-	public const int32 StyleId_Heading9 = 70009;
-	public const int32 StyleId_Title = 70010;
-	public const int32 StyleId_Subtitle = 70011;
-	public const int32 StyleId_Normal = 70012;
-	public const int32 StyleId_Emphasis = 70013;
-	public const int32 StyleId_Quote = 70014;
-	public const int32 StyleId_BulletedList = 70015;
-	public const int32 StyleId_NumberedList = 70016;
-	public const int32 UIA_CustomLandmarkTypeId = 80000;
-	public const int32 UIA_FormLandmarkTypeId = 80001;
-	public const int32 UIA_MainLandmarkTypeId = 80002;
-	public const int32 UIA_NavigationLandmarkTypeId = 80003;
-	public const int32 UIA_SearchLandmarkTypeId = 80004;
-	public const int32 HeadingLevel_None = 80050;
-	public const int32 HeadingLevel1 = 80051;
-	public const int32 HeadingLevel2 = 80052;
-	public const int32 HeadingLevel3 = 80053;
-	public const int32 HeadingLevel4 = 80054;
-	public const int32 HeadingLevel5 = 80055;
-	public const int32 HeadingLevel6 = 80056;
-	public const int32 HeadingLevel7 = 80057;
-	public const int32 HeadingLevel8 = 80058;
-	public const int32 HeadingLevel9 = 80059;
-	public const int32 UIA_SummaryChangeId = 90000;
-	public const int32 UIA_SayAsInterpretAsMetadataId = 100000;
 }
 #endregion
 
@@ -948,6 +557,198 @@ typealias HUIAEVENT = int;
 
 
 #region Enums
+
+[AllowDuplicates]
+public enum UIA_TEXTATTRIBUTE_ID : uint32
+{
+	UIA_AnimationStyleAttributeId = 40000,
+	UIA_BackgroundColorAttributeId = 40001,
+	UIA_BulletStyleAttributeId = 40002,
+	UIA_CapStyleAttributeId = 40003,
+	UIA_CultureAttributeId = 40004,
+	UIA_FontNameAttributeId = 40005,
+	UIA_FontSizeAttributeId = 40006,
+	UIA_FontWeightAttributeId = 40007,
+	UIA_ForegroundColorAttributeId = 40008,
+	UIA_HorizontalTextAlignmentAttributeId = 40009,
+	UIA_IndentationFirstLineAttributeId = 40010,
+	UIA_IndentationLeadingAttributeId = 40011,
+	UIA_IndentationTrailingAttributeId = 40012,
+	UIA_IsHiddenAttributeId = 40013,
+	UIA_IsItalicAttributeId = 40014,
+	UIA_IsReadOnlyAttributeId = 40015,
+	UIA_IsSubscriptAttributeId = 40016,
+	UIA_IsSuperscriptAttributeId = 40017,
+	UIA_MarginBottomAttributeId = 40018,
+	UIA_MarginLeadingAttributeId = 40019,
+	UIA_MarginTopAttributeId = 40020,
+	UIA_MarginTrailingAttributeId = 40021,
+	UIA_OutlineStylesAttributeId = 40022,
+	UIA_OverlineColorAttributeId = 40023,
+	UIA_OverlineStyleAttributeId = 40024,
+	UIA_StrikethroughColorAttributeId = 40025,
+	UIA_StrikethroughStyleAttributeId = 40026,
+	UIA_TabsAttributeId = 40027,
+	UIA_TextFlowDirectionsAttributeId = 40028,
+	UIA_UnderlineColorAttributeId = 40029,
+	UIA_UnderlineStyleAttributeId = 40030,
+	UIA_AnnotationTypesAttributeId = 40031,
+	UIA_AnnotationObjectsAttributeId = 40032,
+	UIA_StyleNameAttributeId = 40033,
+	UIA_StyleIdAttributeId = 40034,
+	UIA_LinkAttributeId = 40035,
+	UIA_IsActiveAttributeId = 40036,
+	UIA_SelectionActiveEndAttributeId = 40037,
+	UIA_CaretPositionAttributeId = 40038,
+	UIA_CaretBidiModeAttributeId = 40039,
+	UIA_LineSpacingAttributeId = 40040,
+	UIA_BeforeParagraphSpacingAttributeId = 40041,
+	UIA_AfterParagraphSpacingAttributeId = 40042,
+	UIA_SayAsInterpretAsAttributeId = 40043,
+}
+
+
+[AllowDuplicates]
+public enum UIA_CONTROLTYPE_ID : uint32
+{
+	UIA_ButtonControlTypeId = 50000,
+	UIA_CalendarControlTypeId = 50001,
+	UIA_CheckBoxControlTypeId = 50002,
+	UIA_ComboBoxControlTypeId = 50003,
+	UIA_EditControlTypeId = 50004,
+	UIA_HyperlinkControlTypeId = 50005,
+	UIA_ImageControlTypeId = 50006,
+	UIA_ListItemControlTypeId = 50007,
+	UIA_ListControlTypeId = 50008,
+	UIA_MenuControlTypeId = 50009,
+	UIA_MenuBarControlTypeId = 50010,
+	UIA_MenuItemControlTypeId = 50011,
+	UIA_ProgressBarControlTypeId = 50012,
+	UIA_RadioButtonControlTypeId = 50013,
+	UIA_ScrollBarControlTypeId = 50014,
+	UIA_SliderControlTypeId = 50015,
+	UIA_SpinnerControlTypeId = 50016,
+	UIA_StatusBarControlTypeId = 50017,
+	UIA_TabControlTypeId = 50018,
+	UIA_TabItemControlTypeId = 50019,
+	UIA_TextControlTypeId = 50020,
+	UIA_ToolBarControlTypeId = 50021,
+	UIA_ToolTipControlTypeId = 50022,
+	UIA_TreeControlTypeId = 50023,
+	UIA_TreeItemControlTypeId = 50024,
+	UIA_CustomControlTypeId = 50025,
+	UIA_GroupControlTypeId = 50026,
+	UIA_ThumbControlTypeId = 50027,
+	UIA_DataGridControlTypeId = 50028,
+	UIA_DataItemControlTypeId = 50029,
+	UIA_DocumentControlTypeId = 50030,
+	UIA_SplitButtonControlTypeId = 50031,
+	UIA_WindowControlTypeId = 50032,
+	UIA_PaneControlTypeId = 50033,
+	UIA_HeaderControlTypeId = 50034,
+	UIA_HeaderItemControlTypeId = 50035,
+	UIA_TableControlTypeId = 50036,
+	UIA_TitleBarControlTypeId = 50037,
+	UIA_SeparatorControlTypeId = 50038,
+	UIA_SemanticZoomControlTypeId = 50039,
+	UIA_AppBarControlTypeId = 50040,
+}
+
+
+[AllowDuplicates]
+public enum UIA_ANNOTATIONTYPE : uint32
+{
+	AnnotationType_Unknown = 60000,
+	AnnotationType_SpellingError = 60001,
+	AnnotationType_GrammarError = 60002,
+	AnnotationType_Comment = 60003,
+	AnnotationType_FormulaError = 60004,
+	AnnotationType_TrackChanges = 60005,
+	AnnotationType_Header = 60006,
+	AnnotationType_Footer = 60007,
+	AnnotationType_Highlighted = 60008,
+	AnnotationType_Endnote = 60009,
+	AnnotationType_Footnote = 60010,
+	AnnotationType_InsertionChange = 60011,
+	AnnotationType_DeletionChange = 60012,
+	AnnotationType_MoveChange = 60013,
+	AnnotationType_FormatChange = 60014,
+	AnnotationType_UnsyncedChange = 60015,
+	AnnotationType_EditingLockedChange = 60016,
+	AnnotationType_ExternalChange = 60017,
+	AnnotationType_ConflictingChange = 60018,
+	AnnotationType_Author = 60019,
+	AnnotationType_AdvancedProofingIssue = 60020,
+	AnnotationType_DataValidationError = 60021,
+	AnnotationType_CircularReferenceError = 60022,
+	AnnotationType_Mathematics = 60023,
+	AnnotationType_Sensitive = 60024,
+}
+
+
+[AllowDuplicates]
+public enum UIA_STYLE_ID : uint32
+{
+	StyleId_Custom = 70000,
+	StyleId_Heading1 = 70001,
+	StyleId_Heading2 = 70002,
+	StyleId_Heading3 = 70003,
+	StyleId_Heading4 = 70004,
+	StyleId_Heading5 = 70005,
+	StyleId_Heading6 = 70006,
+	StyleId_Heading7 = 70007,
+	StyleId_Heading8 = 70008,
+	StyleId_Heading9 = 70009,
+	StyleId_Title = 70010,
+	StyleId_Subtitle = 70011,
+	StyleId_Normal = 70012,
+	StyleId_Emphasis = 70013,
+	StyleId_Quote = 70014,
+	StyleId_BulletedList = 70015,
+	StyleId_NumberedList = 70016,
+}
+
+
+[AllowDuplicates]
+public enum UIA_LANDMARKTYPE_ID : uint32
+{
+	UIA_CustomLandmarkTypeId = 80000,
+	UIA_FormLandmarkTypeId = 80001,
+	UIA_MainLandmarkTypeId = 80002,
+	UIA_NavigationLandmarkTypeId = 80003,
+	UIA_SearchLandmarkTypeId = 80004,
+}
+
+
+[AllowDuplicates]
+public enum UIA_HEADINGLEVEL_ID : uint32
+{
+	HeadingLevel_None = 80050,
+	HeadingLevel1 = 80051,
+	HeadingLevel2 = 80052,
+	HeadingLevel3 = 80053,
+	HeadingLevel4 = 80054,
+	HeadingLevel5 = 80055,
+	HeadingLevel6 = 80056,
+	HeadingLevel7 = 80057,
+	HeadingLevel8 = 80058,
+	HeadingLevel9 = 80059,
+}
+
+
+[AllowDuplicates]
+public enum UIA_CHANGE_ID : uint32
+{
+	UIA_SummaryChangeId = 90000,
+}
+
+
+[AllowDuplicates]
+public enum UIA_METADATA_ID : uint32
+{
+	UIA_SayAsInterpretAsMetadataId = 100000,
+}
+
 
 [AllowDuplicates]
 public enum STICKYKEYS_FLAGS : uint32
@@ -1048,6 +849,271 @@ public enum SOUNDSENTRY_WINDOWS_EFFECT : uint32
 	SSWF_NONE = 0,
 	SSWF_TITLE = 1,
 	SSWF_WINDOW = 2,
+}
+
+
+[AllowDuplicates]
+public enum UIA_PATTERN_ID : uint32
+{
+	UIA_InvokePatternId = 10000,
+	UIA_SelectionPatternId = 10001,
+	UIA_ValuePatternId = 10002,
+	UIA_RangeValuePatternId = 10003,
+	UIA_ScrollPatternId = 10004,
+	UIA_ExpandCollapsePatternId = 10005,
+	UIA_GridPatternId = 10006,
+	UIA_GridItemPatternId = 10007,
+	UIA_MultipleViewPatternId = 10008,
+	UIA_WindowPatternId = 10009,
+	UIA_SelectionItemPatternId = 10010,
+	UIA_DockPatternId = 10011,
+	UIA_TablePatternId = 10012,
+	UIA_TableItemPatternId = 10013,
+	UIA_TextPatternId = 10014,
+	UIA_TogglePatternId = 10015,
+	UIA_TransformPatternId = 10016,
+	UIA_ScrollItemPatternId = 10017,
+	UIA_LegacyIAccessiblePatternId = 10018,
+	UIA_ItemContainerPatternId = 10019,
+	UIA_VirtualizedItemPatternId = 10020,
+	UIA_SynchronizedInputPatternId = 10021,
+	UIA_ObjectModelPatternId = 10022,
+	UIA_AnnotationPatternId = 10023,
+	UIA_TextPattern2Id = 10024,
+	UIA_StylesPatternId = 10025,
+	UIA_SpreadsheetPatternId = 10026,
+	UIA_SpreadsheetItemPatternId = 10027,
+	UIA_TransformPattern2Id = 10028,
+	UIA_TextChildPatternId = 10029,
+	UIA_DragPatternId = 10030,
+	UIA_DropTargetPatternId = 10031,
+	UIA_TextEditPatternId = 10032,
+	UIA_CustomNavigationPatternId = 10033,
+	UIA_SelectionPattern2Id = 10034,
+}
+
+
+[AllowDuplicates]
+public enum UIA_EVENT_ID : uint32
+{
+	UIA_ToolTipOpenedEventId = 20000,
+	UIA_ToolTipClosedEventId = 20001,
+	UIA_StructureChangedEventId = 20002,
+	UIA_MenuOpenedEventId = 20003,
+	UIA_AutomationPropertyChangedEventId = 20004,
+	UIA_AutomationFocusChangedEventId = 20005,
+	UIA_AsyncContentLoadedEventId = 20006,
+	UIA_MenuClosedEventId = 20007,
+	UIA_LayoutInvalidatedEventId = 20008,
+	UIA_Invoke_InvokedEventId = 20009,
+	UIA_SelectionItem_ElementAddedToSelectionEventId = 20010,
+	UIA_SelectionItem_ElementRemovedFromSelectionEventId = 20011,
+	UIA_SelectionItem_ElementSelectedEventId = 20012,
+	UIA_Selection_InvalidatedEventId = 20013,
+	UIA_Text_TextSelectionChangedEventId = 20014,
+	UIA_Text_TextChangedEventId = 20015,
+	UIA_Window_WindowOpenedEventId = 20016,
+	UIA_Window_WindowClosedEventId = 20017,
+	UIA_MenuModeStartEventId = 20018,
+	UIA_MenuModeEndEventId = 20019,
+	UIA_InputReachedTargetEventId = 20020,
+	UIA_InputReachedOtherElementEventId = 20021,
+	UIA_InputDiscardedEventId = 20022,
+	UIA_SystemAlertEventId = 20023,
+	UIA_LiveRegionChangedEventId = 20024,
+	UIA_HostedFragmentRootsInvalidatedEventId = 20025,
+	UIA_Drag_DragStartEventId = 20026,
+	UIA_Drag_DragCancelEventId = 20027,
+	UIA_Drag_DragCompleteEventId = 20028,
+	UIA_DropTarget_DragEnterEventId = 20029,
+	UIA_DropTarget_DragLeaveEventId = 20030,
+	UIA_DropTarget_DroppedEventId = 20031,
+	UIA_TextEdit_TextChangedEventId = 20032,
+	UIA_TextEdit_ConversionTargetChangedEventId = 20033,
+	UIA_ChangesEventId = 20034,
+	UIA_NotificationEventId = 20035,
+	UIA_ActiveTextPositionChangedEventId = 20036,
+}
+
+
+[AllowDuplicates]
+public enum UIA_PROPERTY_ID : uint32
+{
+	UIA_RuntimeIdPropertyId = 30000,
+	UIA_BoundingRectanglePropertyId = 30001,
+	UIA_ProcessIdPropertyId = 30002,
+	UIA_ControlTypePropertyId = 30003,
+	UIA_LocalizedControlTypePropertyId = 30004,
+	UIA_NamePropertyId = 30005,
+	UIA_AcceleratorKeyPropertyId = 30006,
+	UIA_AccessKeyPropertyId = 30007,
+	UIA_HasKeyboardFocusPropertyId = 30008,
+	UIA_IsKeyboardFocusablePropertyId = 30009,
+	UIA_IsEnabledPropertyId = 30010,
+	UIA_AutomationIdPropertyId = 30011,
+	UIA_ClassNamePropertyId = 30012,
+	UIA_HelpTextPropertyId = 30013,
+	UIA_ClickablePointPropertyId = 30014,
+	UIA_CulturePropertyId = 30015,
+	UIA_IsControlElementPropertyId = 30016,
+	UIA_IsContentElementPropertyId = 30017,
+	UIA_LabeledByPropertyId = 30018,
+	UIA_IsPasswordPropertyId = 30019,
+	UIA_NativeWindowHandlePropertyId = 30020,
+	UIA_ItemTypePropertyId = 30021,
+	UIA_IsOffscreenPropertyId = 30022,
+	UIA_OrientationPropertyId = 30023,
+	UIA_FrameworkIdPropertyId = 30024,
+	UIA_IsRequiredForFormPropertyId = 30025,
+	UIA_ItemStatusPropertyId = 30026,
+	UIA_IsDockPatternAvailablePropertyId = 30027,
+	UIA_IsExpandCollapsePatternAvailablePropertyId = 30028,
+	UIA_IsGridItemPatternAvailablePropertyId = 30029,
+	UIA_IsGridPatternAvailablePropertyId = 30030,
+	UIA_IsInvokePatternAvailablePropertyId = 30031,
+	UIA_IsMultipleViewPatternAvailablePropertyId = 30032,
+	UIA_IsRangeValuePatternAvailablePropertyId = 30033,
+	UIA_IsScrollPatternAvailablePropertyId = 30034,
+	UIA_IsScrollItemPatternAvailablePropertyId = 30035,
+	UIA_IsSelectionItemPatternAvailablePropertyId = 30036,
+	UIA_IsSelectionPatternAvailablePropertyId = 30037,
+	UIA_IsTablePatternAvailablePropertyId = 30038,
+	UIA_IsTableItemPatternAvailablePropertyId = 30039,
+	UIA_IsTextPatternAvailablePropertyId = 30040,
+	UIA_IsTogglePatternAvailablePropertyId = 30041,
+	UIA_IsTransformPatternAvailablePropertyId = 30042,
+	UIA_IsValuePatternAvailablePropertyId = 30043,
+	UIA_IsWindowPatternAvailablePropertyId = 30044,
+	UIA_ValueValuePropertyId = 30045,
+	UIA_ValueIsReadOnlyPropertyId = 30046,
+	UIA_RangeValueValuePropertyId = 30047,
+	UIA_RangeValueIsReadOnlyPropertyId = 30048,
+	UIA_RangeValueMinimumPropertyId = 30049,
+	UIA_RangeValueMaximumPropertyId = 30050,
+	UIA_RangeValueLargeChangePropertyId = 30051,
+	UIA_RangeValueSmallChangePropertyId = 30052,
+	UIA_ScrollHorizontalScrollPercentPropertyId = 30053,
+	UIA_ScrollHorizontalViewSizePropertyId = 30054,
+	UIA_ScrollVerticalScrollPercentPropertyId = 30055,
+	UIA_ScrollVerticalViewSizePropertyId = 30056,
+	UIA_ScrollHorizontallyScrollablePropertyId = 30057,
+	UIA_ScrollVerticallyScrollablePropertyId = 30058,
+	UIA_SelectionSelectionPropertyId = 30059,
+	UIA_SelectionCanSelectMultiplePropertyId = 30060,
+	UIA_SelectionIsSelectionRequiredPropertyId = 30061,
+	UIA_GridRowCountPropertyId = 30062,
+	UIA_GridColumnCountPropertyId = 30063,
+	UIA_GridItemRowPropertyId = 30064,
+	UIA_GridItemColumnPropertyId = 30065,
+	UIA_GridItemRowSpanPropertyId = 30066,
+	UIA_GridItemColumnSpanPropertyId = 30067,
+	UIA_GridItemContainingGridPropertyId = 30068,
+	UIA_DockDockPositionPropertyId = 30069,
+	UIA_ExpandCollapseExpandCollapseStatePropertyId = 30070,
+	UIA_MultipleViewCurrentViewPropertyId = 30071,
+	UIA_MultipleViewSupportedViewsPropertyId = 30072,
+	UIA_WindowCanMaximizePropertyId = 30073,
+	UIA_WindowCanMinimizePropertyId = 30074,
+	UIA_WindowWindowVisualStatePropertyId = 30075,
+	UIA_WindowWindowInteractionStatePropertyId = 30076,
+	UIA_WindowIsModalPropertyId = 30077,
+	UIA_WindowIsTopmostPropertyId = 30078,
+	UIA_SelectionItemIsSelectedPropertyId = 30079,
+	UIA_SelectionItemSelectionContainerPropertyId = 30080,
+	UIA_TableRowHeadersPropertyId = 30081,
+	UIA_TableColumnHeadersPropertyId = 30082,
+	UIA_TableRowOrColumnMajorPropertyId = 30083,
+	UIA_TableItemRowHeaderItemsPropertyId = 30084,
+	UIA_TableItemColumnHeaderItemsPropertyId = 30085,
+	UIA_ToggleToggleStatePropertyId = 30086,
+	UIA_TransformCanMovePropertyId = 30087,
+	UIA_TransformCanResizePropertyId = 30088,
+	UIA_TransformCanRotatePropertyId = 30089,
+	UIA_IsLegacyIAccessiblePatternAvailablePropertyId = 30090,
+	UIA_LegacyIAccessibleChildIdPropertyId = 30091,
+	UIA_LegacyIAccessibleNamePropertyId = 30092,
+	UIA_LegacyIAccessibleValuePropertyId = 30093,
+	UIA_LegacyIAccessibleDescriptionPropertyId = 30094,
+	UIA_LegacyIAccessibleRolePropertyId = 30095,
+	UIA_LegacyIAccessibleStatePropertyId = 30096,
+	UIA_LegacyIAccessibleHelpPropertyId = 30097,
+	UIA_LegacyIAccessibleKeyboardShortcutPropertyId = 30098,
+	UIA_LegacyIAccessibleSelectionPropertyId = 30099,
+	UIA_LegacyIAccessibleDefaultActionPropertyId = 30100,
+	UIA_AriaRolePropertyId = 30101,
+	UIA_AriaPropertiesPropertyId = 30102,
+	UIA_IsDataValidForFormPropertyId = 30103,
+	UIA_ControllerForPropertyId = 30104,
+	UIA_DescribedByPropertyId = 30105,
+	UIA_FlowsToPropertyId = 30106,
+	UIA_ProviderDescriptionPropertyId = 30107,
+	UIA_IsItemContainerPatternAvailablePropertyId = 30108,
+	UIA_IsVirtualizedItemPatternAvailablePropertyId = 30109,
+	UIA_IsSynchronizedInputPatternAvailablePropertyId = 30110,
+	UIA_OptimizeForVisualContentPropertyId = 30111,
+	UIA_IsObjectModelPatternAvailablePropertyId = 30112,
+	UIA_AnnotationAnnotationTypeIdPropertyId = 30113,
+	UIA_AnnotationAnnotationTypeNamePropertyId = 30114,
+	UIA_AnnotationAuthorPropertyId = 30115,
+	UIA_AnnotationDateTimePropertyId = 30116,
+	UIA_AnnotationTargetPropertyId = 30117,
+	UIA_IsAnnotationPatternAvailablePropertyId = 30118,
+	UIA_IsTextPattern2AvailablePropertyId = 30119,
+	UIA_StylesStyleIdPropertyId = 30120,
+	UIA_StylesStyleNamePropertyId = 30121,
+	UIA_StylesFillColorPropertyId = 30122,
+	UIA_StylesFillPatternStylePropertyId = 30123,
+	UIA_StylesShapePropertyId = 30124,
+	UIA_StylesFillPatternColorPropertyId = 30125,
+	UIA_StylesExtendedPropertiesPropertyId = 30126,
+	UIA_IsStylesPatternAvailablePropertyId = 30127,
+	UIA_IsSpreadsheetPatternAvailablePropertyId = 30128,
+	UIA_SpreadsheetItemFormulaPropertyId = 30129,
+	UIA_SpreadsheetItemAnnotationObjectsPropertyId = 30130,
+	UIA_SpreadsheetItemAnnotationTypesPropertyId = 30131,
+	UIA_IsSpreadsheetItemPatternAvailablePropertyId = 30132,
+	UIA_Transform2CanZoomPropertyId = 30133,
+	UIA_IsTransformPattern2AvailablePropertyId = 30134,
+	UIA_LiveSettingPropertyId = 30135,
+	UIA_IsTextChildPatternAvailablePropertyId = 30136,
+	UIA_IsDragPatternAvailablePropertyId = 30137,
+	UIA_DragIsGrabbedPropertyId = 30138,
+	UIA_DragDropEffectPropertyId = 30139,
+	UIA_DragDropEffectsPropertyId = 30140,
+	UIA_IsDropTargetPatternAvailablePropertyId = 30141,
+	UIA_DropTargetDropTargetEffectPropertyId = 30142,
+	UIA_DropTargetDropTargetEffectsPropertyId = 30143,
+	UIA_DragGrabbedItemsPropertyId = 30144,
+	UIA_Transform2ZoomLevelPropertyId = 30145,
+	UIA_Transform2ZoomMinimumPropertyId = 30146,
+	UIA_Transform2ZoomMaximumPropertyId = 30147,
+	UIA_FlowsFromPropertyId = 30148,
+	UIA_IsTextEditPatternAvailablePropertyId = 30149,
+	UIA_IsPeripheralPropertyId = 30150,
+	UIA_IsCustomNavigationPatternAvailablePropertyId = 30151,
+	UIA_PositionInSetPropertyId = 30152,
+	UIA_SizeOfSetPropertyId = 30153,
+	UIA_LevelPropertyId = 30154,
+	UIA_AnnotationTypesPropertyId = 30155,
+	UIA_AnnotationObjectsPropertyId = 30156,
+	UIA_LandmarkTypePropertyId = 30157,
+	UIA_LocalizedLandmarkTypePropertyId = 30158,
+	UIA_FullDescriptionPropertyId = 30159,
+	UIA_FillColorPropertyId = 30160,
+	UIA_OutlineColorPropertyId = 30161,
+	UIA_FillTypePropertyId = 30162,
+	UIA_VisualEffectsPropertyId = 30163,
+	UIA_OutlineThicknessPropertyId = 30164,
+	UIA_CenterPointPropertyId = 30165,
+	UIA_RotationPropertyId = 30166,
+	UIA_SizePropertyId = 30167,
+	UIA_IsSelectionPattern2AvailablePropertyId = 30168,
+	UIA_Selection2FirstSelectedItemPropertyId = 30169,
+	UIA_Selection2LastSelectedItemPropertyId = 30170,
+	UIA_Selection2CurrentSelectedItemPropertyId = 30171,
+	UIA_Selection2ItemCountPropertyId = 30172,
+	UIA_HeadingLevelPropertyId = 30173,
+	UIA_IsDialogPropertyId = 30174,
 }
 
 
@@ -1733,7 +1799,7 @@ public struct UiaCondition
 public struct UiaPropertyCondition
 {
 	public ConditionType ConditionType;
-	public int32 PropertyId;
+	public UIA_PROPERTY_ID PropertyId;
 	public VARIANT Value;
 	public PropertyConditionFlags Flags;
 }
@@ -1785,7 +1851,7 @@ public struct UiaEventArgs
 public struct UiaPropertyChangedEventArgs
 {
 	public EventArgsType Type;
-	public int32 EventId;
+	public UIA_EVENT_ID EventId;
 	public int32 PropertyId;
 	public VARIANT OldValue;
 	public VARIANT NewValue;
@@ -1977,35 +2043,6 @@ public static
 #endregion
 
 #region COM Types
-[CRepr]struct IRicheditWindowlessAccessibility : IUnknown
-{
-	public new VTable* VT { get => (.)mVT; }
-
-	[CRepr]public struct VTable : IUnknown.VTable
-	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRawElementProviderWindowlessSite* pSite, IRawElementProviderSimple** ppProvider) CreateProvider;
-	}
-
-
-	public HRESULT CreateProvider(IRawElementProviderWindowlessSite* pSite, IRawElementProviderSimple** ppProvider) mut => VT.[Friend]CreateProvider(&this, pSite, ppProvider);
-}
-
-[CRepr]struct IRichEditUiaInformation : IUnknown
-{
-	public new VTable* VT { get => (.)mVT; }
-
-	[CRepr]public struct VTable : IUnknown.VTable
-	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UiaRect* pUiaRect) GetBoundaryRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsVisible;
-	}
-
-
-	public HRESULT GetBoundaryRectangle(UiaRect* pUiaRect) mut => VT.[Friend]GetBoundaryRectangle(&this, pUiaRect);
-
-	public HRESULT IsVisible() mut => VT.[Friend]IsVisible(&this);
-}
-
 [CRepr]struct IAccessible : IDispatch
 {
 	public new const Guid IID = .(0x618736e0, 0x3c3d, 0x11cf, 0x81, 0x0c, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
@@ -2216,17 +2253,17 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ProviderOptions* pRetVal) get_ProviderOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 patternId, IUnknown** pRetVal) GetPatternProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 propertyId, VARIANT* pRetVal) GetPropertyValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UIA_PATTERN_ID patternId, IUnknown** pRetVal) GetPatternProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UIA_PROPERTY_ID propertyId, VARIANT* pRetVal) GetPropertyValue;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRawElementProviderSimple** pRetVal) get_HostRawElementProvider;
 	}
 
 
 	public HRESULT get_ProviderOptions(ProviderOptions* pRetVal) mut => VT.[Friend]get_ProviderOptions(&this, pRetVal);
 
-	public HRESULT GetPatternProvider(int32 patternId, IUnknown** pRetVal) mut => VT.[Friend]GetPatternProvider(&this, patternId, pRetVal);
+	public HRESULT GetPatternProvider(UIA_PATTERN_ID patternId, IUnknown** pRetVal) mut => VT.[Friend]GetPatternProvider(&this, patternId, pRetVal);
 
-	public HRESULT GetPropertyValue(int32 propertyId, VARIANT* pRetVal) mut => VT.[Friend]GetPropertyValue(&this, propertyId, pRetVal);
+	public HRESULT GetPropertyValue(UIA_PROPERTY_ID propertyId, VARIANT* pRetVal) mut => VT.[Friend]GetPropertyValue(&this, propertyId, pRetVal);
 
 	public HRESULT get_HostRawElementProvider(IRawElementProviderSimple** pRetVal) mut => VT.[Friend]get_HostRawElementProvider(&this, pRetVal);
 }
@@ -3445,7 +3482,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* retVal) get_CurrentIsControlElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* retVal) get_CurrentIsContentElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* retVal) get_CurrentIsPassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND retVal) get_CurrentNativeWindowHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* retVal) get_CurrentNativeWindowHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retVal) get_CurrentItemType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* retVal) get_CurrentIsOffscreen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OrientationType* retVal) get_CurrentOrientation;
@@ -3477,7 +3514,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* retVal) get_CachedIsControlElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* retVal) get_CachedIsContentElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* retVal) get_CachedIsPassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND retVal) get_CachedNativeWindowHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* retVal) get_CachedNativeWindowHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* retVal) get_CachedItemType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* retVal) get_CachedIsOffscreen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OrientationType* retVal) get_CachedOrientation;
@@ -3563,7 +3600,7 @@ public static
 
 	public HRESULT get_CurrentIsPassword(BOOL* retVal) mut => VT.[Friend]get_CurrentIsPassword(&this, retVal);
 
-	public HRESULT get_CurrentNativeWindowHandle(HWND retVal) mut => VT.[Friend]get_CurrentNativeWindowHandle(&this, retVal);
+	public HRESULT get_CurrentNativeWindowHandle(HWND* retVal) mut => VT.[Friend]get_CurrentNativeWindowHandle(&this, retVal);
 
 	public HRESULT get_CurrentItemType(BSTR* retVal) mut => VT.[Friend]get_CurrentItemType(&this, retVal);
 
@@ -3627,7 +3664,7 @@ public static
 
 	public HRESULT get_CachedIsPassword(BOOL* retVal) mut => VT.[Friend]get_CachedIsPassword(&this, retVal);
 
-	public HRESULT get_CachedNativeWindowHandle(HWND retVal) mut => VT.[Friend]get_CachedNativeWindowHandle(&this, retVal);
+	public HRESULT get_CachedNativeWindowHandle(HWND* retVal) mut => VT.[Friend]get_CachedNativeWindowHandle(&this, retVal);
 
 	public HRESULT get_CachedItemType(BSTR* retVal) mut => VT.[Friend]get_CachedItemType(&this, retVal);
 
@@ -5825,6 +5862,35 @@ public static
 	public HRESULT RemoveActiveTextPositionChangedEventHandler(IUIAutomationElement* element, IUIAutomationActiveTextPositionChangedEventHandler* handler) mut => VT.[Friend]RemoveActiveTextPositionChangedEventHandler(&this, element, handler);
 }
 
+[CRepr]struct IRicheditWindowlessAccessibility : IUnknown
+{
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IUnknown.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRawElementProviderWindowlessSite* pSite, IRawElementProviderSimple** ppProvider) CreateProvider;
+	}
+
+
+	public HRESULT CreateProvider(IRawElementProviderWindowlessSite* pSite, IRawElementProviderSimple** ppProvider) mut => VT.[Friend]CreateProvider(&this, pSite, ppProvider);
+}
+
+[CRepr]struct IRichEditUiaInformation : IUnknown
+{
+	public new VTable* VT { get => (.)mVT; }
+
+	[CRepr]public struct VTable : IUnknown.VTable
+	{
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UiaRect* pUiaRect) GetBoundaryRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsVisible;
+	}
+
+
+	public HRESULT GetBoundaryRectangle(UiaRect* pUiaRect) mut => VT.[Friend]GetBoundaryRectangle(&this, pUiaRect);
+
+	public HRESULT IsVisible() mut => VT.[Friend]IsVisible(&this);
+}
+
 #endregion
 
 #region Functions
@@ -5951,10 +6017,10 @@ public static
 	public static extern BOOL UiaClientsAreListening();
 
 	[Import("UIAutomationCore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UiaRaiseAutomationPropertyChangedEvent(IRawElementProviderSimple* pProvider, int32 id, VARIANT oldValue, VARIANT newValue);
+	public static extern HRESULT UiaRaiseAutomationPropertyChangedEvent(IRawElementProviderSimple* pProvider, UIA_PROPERTY_ID id, VARIANT oldValue, VARIANT newValue);
 
 	[Import("UIAutomationCore.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT UiaRaiseAutomationEvent(IRawElementProviderSimple* pProvider, int32 id);
+	public static extern HRESULT UiaRaiseAutomationEvent(IRawElementProviderSimple* pProvider, UIA_EVENT_ID id);
 
 	[Import("UIAutomationCore.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UiaRaiseStructureChangedEvent(IRawElementProviderSimple* pProvider, StructureChangeType structureChangeType, int32* pRuntimeId, int32 cRuntimeIdLen);

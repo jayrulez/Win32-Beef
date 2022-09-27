@@ -435,7 +435,7 @@ public struct WDS_CLI_CRED
 	public PWSTR pwszPassword;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct PXE_DHCP_OPTION
 {
 	public uint8 OptionType;
@@ -480,7 +480,7 @@ public struct PXE_DHCPV6_OPTION
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct PXE_DHCPV6_MESSAGE_HEADER
 {
 	public uint8 MessageType;
@@ -488,7 +488,7 @@ public struct PXE_DHCPV6_MESSAGE_HEADER
 	private uint8[ANYSIZE_ARRAY] Message_impl;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct PXE_DHCPV6_MESSAGE
 {
 	public uint8 MessageType;
@@ -499,7 +499,7 @@ public struct PXE_DHCPV6_MESSAGE
 	private PXE_DHCPV6_OPTION[ANYSIZE_ARRAY] Options_impl;
 }
 
-[CRepr]
+[CRepr, Packed(1)]
 public struct PXE_DHCPV6_RELAY_MESSAGE
 {
 	public uint8 MessageType;

@@ -213,6 +213,7 @@ public static
 	public const uint32 TARGET_IS_NT50_OR_LATER = 1;
 	public const uint32 TARGET_IS_NT40_OR_LATER = 1;
 	public const uint32 TARGET_IS_NT351_OR_WIN95_OR_LATER = 1;
+	public const uint32 cbNDRContext = 20;
 	public const uint32 USER_CALL_IS_ASYNC = 256;
 	public const uint32 USER_CALL_NEW_CORRELATION_DESC = 512;
 	public const int32 MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION = 1;
@@ -449,7 +450,7 @@ public enum LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION : int32
 
 
 [AllowDuplicates]
-public enum RpcProxyPerfCounters : int32
+public enum RpcPerfCounters : int32
 {
 	RpcCurrentUniqueUser = 1,
 	RpcBackEndConnectionAttempts = 2,
@@ -687,7 +688,7 @@ public function RPC_STATUS I_RpcProxyGetClientSessionAndResourceUUID(void* Conte
 
 public function RPC_STATUS I_RpcProxyFilterIfFn(void* Context, Guid* IfUuid, uint16 IfMajorVersion, int32* fAllow);
 
-public function void I_RpcProxyUpdatePerfCounterFn(RpcProxyPerfCounters Counter, int32 ModifyTrend, uint32 Size);
+public function void I_RpcProxyUpdatePerfCounterFn(RpcPerfCounters Counter, int32 ModifyTrend, uint32 Size);
 
 public function void I_RpcProxyUpdatePerfCounterBackendServerFn(uint16* MachineName, int32 IsConnectEvent);
 
@@ -1323,12 +1324,10 @@ public struct I_RpcProxyCallbackInterface
 public struct RPC_ASYNC_NOTIFICATION_INFO
 {
 	[CRepr]
-	public struct _IOC_e__Struct
+	public struct _IntPtr_e__Struct
 	{
-		public HANDLE hIOPort;
-		public uint32 dwNumberOfBytesTransferred;
-		public uint dwCompletionKey;
-		public OVERLAPPED* lpOverlapped;
+		public HWND hWnd;
+		public uint32 Msg;
 	}
 	[CRepr]
 	public struct _APC_e__Struct
@@ -1337,10 +1336,12 @@ public struct RPC_ASYNC_NOTIFICATION_INFO
 		public HANDLE hThread;
 	}
 	[CRepr]
-	public struct _IntPtr_e__Struct
+	public struct _IOC_e__Struct
 	{
-		public HWND hWnd;
-		public uint32 Msg;
+		public HANDLE hIOPort;
+		public uint32 dwNumberOfBytesTransferred;
+		public uint dwCompletionKey;
+		public OVERLAPPED* lpOverlapped;
 	}
 	public _APC_e__Struct APC;
 	public _IOC_e__Struct IOC;

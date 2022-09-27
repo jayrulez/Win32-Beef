@@ -1,4 +1,4 @@
-using Win32.UI.Shell.PropertiesSystem;
+using Win32.Devices.Properties;
 using Win32.Foundation;
 using Win32.Storage.FileSystem;
 using Win32.Security;
@@ -34,14 +34,14 @@ public static
 	public const Guid GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB = .(0x27447c21, 0xbcc3, 0x4d07, 0xa0, 0x5b, 0xa3, 0x39, 0x5b, 0xb4, 0xee, 0xe7);
 	public const Guid GUID_DEVICEDUMP_STORAGE_DEVICE = .(0xd8e2592f, 0x1aab, 0x4d56, 0xa7, 0x46, 0x1f, 0x75, 0x85, 0xdf, 0x40, 0xf4);
 	public const Guid GUID_DEVICEDUMP_DRIVER_STORAGE_PORT = .(0xda82441d, 0x7142, 0x4bc1, 0xb8, 0x44, 0x08, 0x07, 0xc5, 0xa4, 0xb6, 0x7f);
-	public const PROPERTYKEY DEVPKEY_Storage_Portable = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 2);
-	public const PROPERTYKEY DEVPKEY_Storage_Removable_Media = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 3);
-	public const PROPERTYKEY DEVPKEY_Storage_System_Critical = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 4);
-	public const PROPERTYKEY DEVPKEY_Storage_Disk_Number = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 5);
-	public const PROPERTYKEY DEVPKEY_Storage_Partition_Number = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 6);
-	public const PROPERTYKEY DEVPKEY_Storage_Mbr_Type = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 7);
-	public const PROPERTYKEY DEVPKEY_Storage_Gpt_Type = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 8);
-	public const PROPERTYKEY DEVPKEY_Storage_Gpt_Name = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 9);
+	public const DEVPROPKEY DEVPKEY_Storage_Portable = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 2);
+	public const DEVPROPKEY DEVPKEY_Storage_Removable_Media = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 3);
+	public const DEVPROPKEY DEVPKEY_Storage_System_Critical = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 4);
+	public const DEVPROPKEY DEVPKEY_Storage_Disk_Number = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 5);
+	public const DEVPROPKEY DEVPKEY_Storage_Partition_Number = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 6);
+	public const DEVPROPKEY DEVPKEY_Storage_Mbr_Type = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 7);
+	public const DEVPROPKEY DEVPKEY_Storage_Gpt_Type = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 8);
+	public const DEVPROPKEY DEVPKEY_Storage_Gpt_Name = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 9);
 	public const uint32 IOCTL_STORAGE_CHECK_VERIFY = 2967552;
 	public const uint32 IOCTL_STORAGE_CHECK_VERIFY2 = 2951168;
 	public const uint32 IOCTL_STORAGE_MEDIA_REMOVAL = 2967556;
@@ -182,6 +182,8 @@ public static
 	public const uint32 DEVICEDUMP_STRUCTURE_VERSION_V1 = 1;
 	public const uint32 DEVICEDUMP_MAX_IDSTRING = 32;
 	public const uint32 MAX_FW_BUCKET_ID_LENGTH = 132;
+	public const String STORAGE_CRASH_TELEMETRY_REGKEY = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry";
+	public const String STORAGE_DEVICE_TELEMETRY_REGKEY = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry";
 	public const uint32 DDUMP_FLAG_DATA_READ_FROM_DEVICE = 1;
 	public const uint32 FW_ISSUEID_NO_ISSUE = 0;
 	public const uint32 FW_ISSUEID_UNKNOWN = 4294967295;
@@ -189,6 +191,8 @@ public static
 	public const uint32 TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG = 2;
 	public const uint32 TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG_MAX = 16;
 	public const uint32 TC_DEVICEDUMP_SUBSECTION_DESC_LENGTH = 16;
+	public const String TC_PUBLIC_DATA_TYPE_ATAGP = "ATAGPLogPages";
+	public const String TC_PUBLIC_DATA_TYPE_ATASMART = "ATASMARTPages";
 	public const uint32 CDB_SIZE = 16;
 	public const uint32 TELEMETRY_COMMAND_SIZE = 16;
 	public const uint32 DEVICEDUMP_CAP_PRIVATE_SECTION = 1;
@@ -1666,7 +1670,7 @@ public enum WRITE_THROUGH : int32
 
 
 [AllowDuplicates]
-public enum _DEVICEDUMP_COLLECTION_TYPE : int32
+public enum DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE : int32
 {
 	TCCollectionBugCheck = 1,
 	TCCollectionApplicationRequested = 2,
@@ -2186,6 +2190,57 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 #endregion
 
 #region Structs
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct MOVE_FILE_DATA32
+{
+	public uint32 FileHandle;
+	public LARGE_INTEGER StartingVcn;
+	public LARGE_INTEGER StartingLcn;
+	public uint32 ClusterCount;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct MARK_HANDLE_INFO32
+{
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
+	{
+		public uint32 UsnSourceInfo;
+		public uint32 CopyNumber;
+	}
+	public using _Anonymous_e__Union Anonymous;
+	public uint32 VolumeHandle;
+	public uint32 HandleInfo;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DUPLICATE_EXTENTS_DATA32
+{
+	public uint32 FileHandle;
+	public LARGE_INTEGER SourceFileOffset;
+	public LARGE_INTEGER TargetFileOffset;
+	public LARGE_INTEGER ByteCount;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DUPLICATE_EXTENTS_DATA_EX32
+{
+	public uint32 Size;
+	public uint32 FileHandle;
+	public LARGE_INTEGER SourceFileOffset;
+	public LARGE_INTEGER TargetFileOffset;
+	public LARGE_INTEGER ByteCount;
+	public uint32 Flags;
+}
+#endif
+
 [CRepr]
 public struct STORAGE_HOTPLUG_INFO
 {
@@ -2852,19 +2907,19 @@ public struct STORAGE_OPERATIONAL_REASON
 	public struct _RawBytes_e__Union
 	{
 		[CRepr]
+		public struct _NVDIMM_N_e__Struct
+		{
+			public uint8 CriticalHealth;
+			public uint8[2] ModuleHealth;
+			public uint8 ErrorThresholdStatus;
+		}
+		[CRepr]
 		public struct _ScsiSenseKey_e__Struct
 		{
 			public uint8 SenseKey;
 			public uint8 ASC;
 			public uint8 ASCQ;
 			public uint8 Reserved;
-		}
-		[CRepr]
-		public struct _NVDIMM_N_e__Struct
-		{
-			public uint8 CriticalHealth;
-			public uint8[2] ModuleHealth;
-			public uint8 ErrorThresholdStatus;
 		}
 		public _ScsiSenseKey_e__Struct ScsiSenseKey;
 		public _NVDIMM_N_e__Struct NVDIMM_N;
@@ -2912,17 +2967,17 @@ public struct STORAGE_ZONED_DEVICE_DESCRIPTOR
 	public struct _ZoneAttributes_e__Union
 	{
 		[CRepr]
+		public struct _SequentialPreferredZone_e__Struct
+		{
+			public uint32 OptimalOpenZoneCount;
+			public uint32 Reserved;
+		}
+		[CRepr]
 		public struct _SequentialRequiredZone_e__Struct
 		{
 			public uint32 MaxOpenZoneCount;
 			public BOOLEAN UnrestrictedRead;
 			public uint8[3] Reserved;
-		}
-		[CRepr]
-		public struct _SequentialPreferredZone_e__Struct
-		{
-			public uint32 OptimalOpenZoneCount;
-			public uint32 Reserved;
 		}
 		public _SequentialRequiredZone_e__Struct SequentialRequiredZone;
 		public _SequentialPreferredZone_e__Struct SequentialPreferredZone;
@@ -2944,16 +2999,16 @@ public struct DEVICE_LOCATION
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _Anonymous1_e__Struct
-		{
-			public uint32 Channel;
-			public uint32 Device;
-		}
-		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
 			public uint32 Target;
 			public uint32 Lun;
+		}
+		[CRepr]
+		public struct _Anonymous1_e__Struct
+		{
+			public uint32 Channel;
+			public uint32 Device;
 		}
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
@@ -3565,18 +3620,18 @@ public struct PERSISTENT_RESERVE_COMMAND
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _PR_IN_e__Struct
-		{
-			public uint8 _bitfield;
-			public uint16 AllocationLength;
-		}
-		[CRepr]
 		public struct _PR_OUT_e__Struct
 		{
 			public uint8 _bitfield1;
 			public uint8 _bitfield2;
 			public uint8* ParameterList mut => &ParameterList_impl;
 			private uint8[ANYSIZE_ARRAY] ParameterList_impl;
+		}
+		[CRepr]
+		public struct _PR_IN_e__Struct
+		{
+			public uint8 _bitfield;
+			public uint16 AllocationLength;
 		}
 		public _PR_IN_e__Struct PR_IN;
 		public _PR_OUT_e__Struct PR_OUT;
@@ -3668,6 +3723,11 @@ public struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD
 	public struct _StackSpecific_e__Union
 	{
 		[CRepr, Packed(1)]
+		public struct _AtaPort_e__Struct
+		{
+			public uint32 dwAtaPortSpecific;
+		}
+		[CRepr, Packed(1)]
 		public struct _StorPort_e__Struct
 		{
 			public uint32 SrbTag;
@@ -3676,11 +3736,6 @@ public struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD
 		public struct _ExternalStack_e__Struct
 		{
 			public uint32 dwReserved;
-		}
-		[CRepr, Packed(1)]
-		public struct _AtaPort_e__Struct
-		{
-			public uint32 dwAtaPortSpecific;
 		}
 		public _ExternalStack_e__Struct ExternalStack;
 		public _AtaPort_e__Struct AtaPort;
@@ -4541,15 +4596,15 @@ public struct DISK_PARTITION_INFO
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _Gpt_e__Struct
-		{
-			public Guid DiskId;
-		}
-		[CRepr]
 		public struct _Mbr_e__Struct
 		{
 			public uint32 Signature;
 			public uint32 CheckSum;
+		}
+		[CRepr]
+		public struct _Gpt_e__Struct
+		{
+			public Guid DiskId;
 		}
 		public _Mbr_e__Struct Mbr;
 		public _Gpt_e__Struct Gpt;
@@ -4582,17 +4637,17 @@ public struct DISK_CACHE_INFORMATION
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _BlockPrefetch_e__Struct
-		{
-			public uint16 Minimum;
-			public uint16 Maximum;
-		}
-		[CRepr]
 		public struct _ScalarPrefetch_e__Struct
 		{
 			public uint16 Minimum;
 			public uint16 Maximum;
 			public uint16 MaximumBlocks;
+		}
+		[CRepr]
+		public struct _BlockPrefetch_e__Struct
+		{
+			public uint16 Minimum;
+			public uint16 Maximum;
 		}
 		public _ScalarPrefetch_e__Struct ScalarPrefetch;
 		public _BlockPrefetch_e__Struct BlockPrefetch;
@@ -5097,17 +5152,6 @@ public struct MOVE_FILE_RECORD_DATA
 	public LARGE_INTEGER TargetFileRecord;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct MOVE_FILE_DATA32
-{
-	public uint32 FileHandle;
-	public LARGE_INTEGER StartingVcn;
-	public LARGE_INTEGER StartingLcn;
-	public uint32 ClusterCount;
-}
-#endif
-
 [CRepr]
 public struct FIND_BY_SID_DATA
 {
@@ -5340,22 +5384,6 @@ public struct MARK_HANDLE_INFO
 	public uint32 HandleInfo;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct MARK_HANDLE_INFO32
-{
-	[CRepr, Union]
-	public struct _Anonymous_e__Union
-	{
-		public uint32 UsnSourceInfo;
-		public uint32 CopyNumber;
-	}
-	public using _Anonymous_e__Union Anonymous;
-	public uint32 VolumeHandle;
-	public uint32 HandleInfo;
-}
-#endif
-
 [CRepr]
 public struct BULK_SECURITY_TEST_DATA
 {
@@ -5464,7 +5492,7 @@ public struct NTFS_STATISTICS
 		public uint16 Flush;
 	}
 	[CRepr]
-	public struct _MftBitmapWritesUserLevel_e__Struct
+	public struct _Mft2WritesUserLevel_e__Struct
 	{
 		public uint16 Write;
 		public uint16 Create;
@@ -5472,7 +5500,7 @@ public struct NTFS_STATISTICS
 		public uint16 Flush;
 	}
 	[CRepr]
-	public struct _Mft2WritesUserLevel_e__Struct
+	public struct _MftBitmapWritesUserLevel_e__Struct
 	{
 		public uint16 Write;
 		public uint16 Create;
@@ -5567,14 +5595,6 @@ public struct NTFS_STATISTICS_EX
 		public uint32 Flush;
 	}
 	[CRepr]
-	public struct _BitmapWritesUserLevel_e__Struct
-	{
-		public uint32 Write;
-		public uint32 Create;
-		public uint32 SetInfo;
-		public uint32 Flush;
-	}
-	[CRepr]
 	public struct _Allocate_e__Struct
 	{
 		public uint32 Calls;
@@ -5590,6 +5610,14 @@ public struct NTFS_STATISTICS_EX
 	}
 	[CRepr]
 	public struct _MftWritesUserLevel_e__Struct
+	{
+		public uint32 Write;
+		public uint32 Create;
+		public uint32 SetInfo;
+		public uint32 Flush;
+	}
+	[CRepr]
+	public struct _BitmapWritesUserLevel_e__Struct
 	{
 		public uint32 Write;
 		public uint32 Create;
@@ -6626,7 +6654,7 @@ public struct FILE_STORAGE_TIER
 	public Guid Id;
 	public char16[256] Name;
 	public char16[256] Description;
-	public FILE_STORAGE_TIER_FLAGS Flags;
+	public uint64 Flags;
 	public uint64 ProvisionedCapacity;
 	public FILE_STORAGE_TIER_MEDIA_TYPE MediaType;
 	public FILE_STORAGE_TIER_CLASS Class;
@@ -6651,18 +6679,12 @@ public struct STREAM_INFORMATION_ENTRY
 	public struct _StreamInformation
 	{
 		[CRepr]
-		public struct _Reparse
+		public struct _Ea
 		{
 			public uint16 Length;
 			public uint16 Flags;
-			public uint32 ReparseDataSize;
-			public uint32 ReparseDataOffset;
-		}
-		[CRepr]
-		public struct _DesiredStorageClass
-		{
-			public FILE_STORAGE_TIER_CLASS Class;
-			public uint32 Flags;
+			public uint32 EaSize;
+			public uint32 EaInformationOffset;
 		}
 		[CRepr]
 		public struct _DataStream
@@ -6673,12 +6695,18 @@ public struct STREAM_INFORMATION_ENTRY
 			public uint64 Vdl;
 		}
 		[CRepr]
-		public struct _Ea
+		public struct _DesiredStorageClass
+		{
+			public FILE_STORAGE_TIER_CLASS Class;
+			public uint32 Flags;
+		}
+		[CRepr]
+		public struct _Reparse
 		{
 			public uint16 Length;
 			public uint16 Flags;
-			public uint32 EaSize;
-			public uint32 EaInformationOffset;
+			public uint32 ReparseDataSize;
+			public uint32 ReparseDataOffset;
 		}
 		public _DesiredStorageClass DesiredStorageClass;
 		public _DataStream DataStream;
@@ -6739,17 +6767,6 @@ public struct DUPLICATE_EXTENTS_DATA
 	public LARGE_INTEGER ByteCount;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct DUPLICATE_EXTENTS_DATA32
-{
-	public uint32 FileHandle;
-	public LARGE_INTEGER SourceFileOffset;
-	public LARGE_INTEGER TargetFileOffset;
-	public LARGE_INTEGER ByteCount;
-}
-#endif
-
 [CRepr]
 public struct DUPLICATE_EXTENTS_DATA_EX
 {
@@ -6760,19 +6777,6 @@ public struct DUPLICATE_EXTENTS_DATA_EX
 	public LARGE_INTEGER ByteCount;
 	public uint32 Flags;
 }
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct DUPLICATE_EXTENTS_DATA_EX32
-{
-	public uint32 Size;
-	public uint32 FileHandle;
-	public LARGE_INTEGER SourceFileOffset;
-	public LARGE_INTEGER TargetFileOffset;
-	public LARGE_INTEGER ByteCount;
-	public uint32 Flags;
-}
-#endif
 
 [CRepr]
 public struct ASYNC_DUPLICATE_EXTENTS_STATUS

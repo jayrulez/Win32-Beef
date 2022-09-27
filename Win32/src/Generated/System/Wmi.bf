@@ -10,6 +10,7 @@ public static
 	public const uint32 MI_FLAG_ANY = 127;
 	public const uint32 MI_FLAG_VERSION = 469762048;
 	public const uint32 MI_FLAG_ADOPT = 2147483648;
+	public const uint32 MI_CHAR_TYPE = 2;
 	public const uint32 MI_FLAG_CLASS = 1;
 	public const uint32 MI_FLAG_METHOD = 2;
 	public const uint32 MI_FLAG_PROPERTY = 4;
@@ -60,6 +61,8 @@ public static
 	public const uint32 MI_OPERATIONFLAGS_POLYMORPHISM_SHALLOW = 128;
 	public const uint32 MI_OPERATIONFLAGS_POLYMORPHISM_DEEP_BASE_PROPS_ONLY = 384;
 	public const uint32 MI_OPERATIONFLAGS_REPORT_OPERATION_STARTED = 512;
+	public const String MI_SUBSCRIBE_BOOKMARK_OLDEST = "MI_SUBSCRIBE_BOOKMARK_OLDEST";
+	public const String MI_SUBSCRIBE_BOOKMARK_NEWEST = "MI_SUBSCRIBE_BOOKMARK_NEWEST";
 	public const uint32 MI_SERIALIZER_FLAGS_CLASS_DEEP = 1;
 	public const uint32 MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS = 1;
 	public const uint32 WBEMS_DISPID_DERIVATION = 23;
@@ -427,7 +430,7 @@ public enum WMIQ_LANGUAGE_FEATURES : int32
 
 
 [AllowDuplicates]
-public enum WMIQ_RPNQ_FEATURE : int32
+public enum WMIQ_RPNF_FEATURE : int32
 {
 	WMIQ_RPNF_WHERE_CLAUSE_PRESENT = 1,
 	WMIQ_RPNF_QUERY_IS_CONJUNCTIVE = 2,
@@ -605,7 +608,7 @@ public enum WBEM_COMPARISON_FLAG : int32
 
 
 [AllowDuplicates]
-public enum WBEM_LOCKING : int32
+public enum WBEM_LOCKING_FLAG_TYPE : int32
 {
 	WBEM_FLAG_ALLOW_READ = 1,
 }
@@ -1273,7 +1276,7 @@ public enum WbemConnectOptionsEnum : int32
 
 
 [AllowDuplicates]
-public enum tag_WBEM_LOGIN_TYPE : int32
+public enum WBEM_LOGIN_TYPE : int32
 {
 	WBEM_FLAG_INPROC_LOGIN = 0,
 	WBEM_FLAG_LOCAL_LOGIN = 1,

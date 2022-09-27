@@ -1,4 +1,4 @@
-using Win32.UI.Shell.PropertiesSystem;
+using Win32.Devices.Properties;
 using Win32.Foundation;
 using Win32.System.Registry;
 using Win32.System.Threading;
@@ -9,7 +9,7 @@ namespace Win32.System.Power;
 #region Constants
 public static
 {
-	public const PROPERTYKEY PROCESSOR_NUMBER_PKEY = .(.(0x5724c81d, 0xd5af, 0x4c1f, 0xa1, 0x03, 0xa0, 0x6e, 0x28, 0xf2, 0x04, 0xc6), 1);
+	public const DEVPROPKEY PROCESSOR_NUMBER_PKEY = .(.(0x5724c81d, 0xd5af, 0x4c1f, 0xa1, 0x03, 0xa0, 0x6e, 0x28, 0xf2, 0x04, 0xc6), 1);
 	public const Guid GUID_DEVICE_BATTERY = .(0x72631e54, 0x78a4, 0x11d0, 0xbc, 0xf7, 0x00, 0xaa, 0x00, 0xb7, 0xb3, 0x2a);
 	public const Guid GUID_DEVICE_APPLICATIONLAUNCH_BUTTON = .(0x629758ee, 0x986e, 0x4d9e, 0x8e, 0x47, 0xde, 0x27, 0xf8, 0xab, 0x05, 0x4d);
 	public const Guid GUID_DEVICE_SYS_BUTTON = .(0x4afa3d53, 0x74a7, 0x11d0, 0xbe, 0x5e, 0x00, 0xa0, 0xc9, 0x06, 0x28, 0x57);
@@ -153,6 +153,15 @@ typealias HPOWERNOTIFY = int;
 
 
 #region Enums
+
+[AllowDuplicates]
+public enum POWER_COOLING_MODE : uint16
+{
+	PO_TZ_ACTIVE = 0,
+	PO_TZ_PASSIVE = 1,
+	PO_TZ_INVALID_MODE = 2,
+}
+
 
 [AllowDuplicates]
 public enum POWER_PLATFORM_ROLE_VERSION : uint32
@@ -496,6 +505,26 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 #endregion
 
 #region Structs
+[CRepr]
+public struct PROCESSOR_POWER_INFORMATION
+{
+	public uint64 Number;
+	public uint64 MaxMhz;
+	public uint64 CurrentMhz;
+	public uint64 MhzLimit;
+	public uint64 MaxIdleState;
+	public uint64 CurrentIdleState;
+}
+
+[CRepr]
+public struct SYSTEM_POWER_INFORMATION
+{
+	public uint64 MaxIdlenessAllowed;
+	public uint64 Idleness;
+	public uint64 TimeRemaining;
+	public POWER_COOLING_MODE CoolingMode;
+}
+
 [CRepr]
 public struct GLOBAL_MACHINE_POWER_POLICY
 {
@@ -1032,7 +1061,7 @@ public struct SYSTEM_POWER_STATUS
 public static
 {
 	[Import("POWRPROF.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 CallNtPowerInformation(POWER_INFORMATION_LEVEL InformationLevel, void* InputBuffer, uint32 InputBufferLength, void* OutputBuffer, uint32 OutputBufferLength);
+	public static extern NTSTATUS CallNtPowerInformation(POWER_INFORMATION_LEVEL InformationLevel, void* InputBuffer, uint32 InputBufferLength, void* OutputBuffer, uint32 OutputBufferLength);
 
 	[Import("POWRPROF.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN GetPwrCapabilities(SYSTEM_POWER_CAPABILITIES* lpspc);

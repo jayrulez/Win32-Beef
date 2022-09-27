@@ -41,6 +41,18 @@ public static
 	public const uint32 GPO_LIST_FLAG_SITEONLY = 2;
 	public const uint32 GPO_LIST_FLAG_NO_WMIFILTERS = 4;
 	public const uint32 GPO_LIST_FLAG_NO_SECURITYFILTERS = 8;
+	public const String GP_DLLNAME = "DllName";
+	public const String GP_ENABLEASYNCHRONOUSPROCESSING = "EnableAsynchronousProcessing";
+	public const String GP_MAXNOGPOLISTCHANGESINTERVAL = "MaxNoGPOListChangesInterval";
+	public const String GP_NOBACKGROUNDPOLICY = "NoBackgroundPolicy";
+	public const String GP_NOGPOLISTCHANGES = "NoGPOListChanges";
+	public const String GP_NOMACHINEPOLICY = "NoMachinePolicy";
+	public const String GP_NOSLOWLINK = "NoSlowLink";
+	public const String GP_NOTIFYLINKTRANSITION = "NotifyLinkTransition";
+	public const String GP_NOUSERPOLICY = "NoUserPolicy";
+	public const String GP_PERUSERLOCALSETTINGS = "PerUserLocalSettings";
+	public const String GP_PROCESSGROUPPOLICY = "ProcessGroupPolicy";
+	public const String GP_REQUIRESSUCCESSFULREGISTRY = "RequiresSuccessfulRegistry";
 	public const uint32 GPO_INFO_FLAG_MACHINE = 1;
 	public const uint32 GPO_INFO_FLAG_BACKGROUND = 16;
 	public const uint32 GPO_INFO_FLAG_SLOWLINK = 32;
@@ -2236,7 +2248,7 @@ public static
 	public static extern uint32 ProcessGroupPolicyCompletedEx(Guid* extensionId, uint pAsyncHandle, uint32 dwStatus, HRESULT RsopStatus);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RsopAccessCheckByType(SECURITY_DESCRIPTOR* pSecurityDescriptor, PSID pPrincipalSelfSid, void* pRsopToken, uint32 dwDesiredAccessMask, OBJECT_TYPE_LIST* pObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* pGenericMapping, PRIVILEGE_SET* pPrivilegeSet, uint32* pdwPrivilegeSetLength, uint32* pdwGrantedAccessMask, int32* pbAccessStatus);
+	public static extern HRESULT RsopAccessCheckByType(PSECURITY_DESCRIPTOR pSecurityDescriptor, PSID pPrincipalSelfSid, void* pRsopToken, uint32 dwDesiredAccessMask, OBJECT_TYPE_LIST* pObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* pGenericMapping, PRIVILEGE_SET* pPrivilegeSet, uint32* pdwPrivilegeSetLength, uint32* pdwGrantedAccessMask, int32* pbAccessStatus);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RsopFileAccessCheck(PWSTR pszFileName, void* pRsopToken, uint32 dwDesiredAccessMask, uint32* pdwGrantedAccessMask, int32* pbAccessStatus);

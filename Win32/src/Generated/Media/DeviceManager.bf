@@ -1,6 +1,8 @@
 using Win32.Foundation;
 using Win32.System.Com.StructuredStorage;
 using Win32.System.Com;
+using Win32.Media.Audio;
+using Win32.Media.MediaFoundation;
 using Win32.System.Ole;
 using System;
 
@@ -457,49 +459,10 @@ public enum WMDMMessage : int32
 
 #region Structs
 [CRepr]
-public struct __MACINFO
+public struct MACINFO
 {
 	public BOOL fUsed;
 	public uint8[36] abMacState;
-}
-
-[CRepr]
-public struct _WAVEFORMATEX
-{
-	public uint16 wFormatTag;
-	public uint16 nChannels;
-	public uint32 nSamplesPerSec;
-	public uint32 nAvgBytesPerSec;
-	public uint16 nBlockAlign;
-	public uint16 wBitsPerSample;
-	public uint16 cbSize;
-}
-
-[CRepr]
-public struct _BITMAPINFOHEADER
-{
-	public uint32 biSize;
-	public int32 biWidth;
-	public int32 biHeight;
-	public uint16 biPlanes;
-	public uint16 biBitCount;
-	public uint32 biCompression;
-	public uint32 biSizeImage;
-	public int32 biXPelsPerMeter;
-	public int32 biYPelsPerMeter;
-	public uint32 biClrUsed;
-	public uint32 biClrImportant;
-}
-
-[CRepr]
-public struct _VIDEOINFOHEADER
-{
-	public RECT rcSource;
-	public RECT rcTarget;
-	public uint32 dwBitRate;
-	public uint32 dwBitErrorRate;
-	public int64 AvgTimePerFrame;
-	public _BITMAPINFOHEADER bmiHeader;
 }
 
 [CRepr]
@@ -867,9 +830,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, WAVEFORMATEX* pFormat) SetAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMStorageGlobals** ppStorageGlobals) GetStorageGlobals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, WAVEFORMATEX* pFormat) GetAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMDATETIME* pDateTimeUTC) GetDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwSizeLow, uint32* pdwSizeHigh) GetSize;
@@ -879,11 +842,11 @@ public static
 	}
 
 
-	public HRESULT SetAttributes(uint32 dwAttributes, _WAVEFORMATEX* pFormat) mut => VT.[Friend]SetAttributes(&this, dwAttributes, pFormat);
+	public HRESULT SetAttributes(uint32 dwAttributes, WAVEFORMATEX* pFormat) mut => VT.[Friend]SetAttributes(&this, dwAttributes, pFormat);
 
 	public HRESULT GetStorageGlobals(IWMDMStorageGlobals** ppStorageGlobals) mut => VT.[Friend]GetStorageGlobals(&this, ppStorageGlobals);
 
-	public HRESULT GetAttributes(uint32* pdwAttributes, _WAVEFORMATEX* pFormat) mut => VT.[Friend]GetAttributes(&this, pdwAttributes, pFormat);
+	public HRESULT GetAttributes(uint32* pdwAttributes, WAVEFORMATEX* pFormat) mut => VT.[Friend]GetAttributes(&this, pdwAttributes, pFormat);
 
 	public HRESULT GetName(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
 
@@ -907,16 +870,16 @@ public static
 	[CRepr]public struct VTable : IWMDMStorage.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStorageName, IWMDMStorage** ppStorage) GetStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pFormat, _VIDEOINFOHEADER* pVideoFormat) SetAttributes2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) GetAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, WAVEFORMATEX* pFormat, VIDEOINFOHEADER* pVideoFormat) SetAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat) GetAttributes2;
 	}
 
 
 	public HRESULT GetStorage(PWSTR pszStorageName, IWMDMStorage** ppStorage) mut => VT.[Friend]GetStorage(&this, pszStorageName, ppStorage);
 
-	public HRESULT SetAttributes2(uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pFormat, _VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]SetAttributes2(&this, dwAttributes, dwAttributesEx, pFormat, pVideoFormat);
+	public HRESULT SetAttributes2(uint32 dwAttributes, uint32 dwAttributesEx, WAVEFORMATEX* pFormat, VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]SetAttributes2(&this, dwAttributes, dwAttributesEx, pFormat, pVideoFormat);
 
-	public HRESULT GetAttributes2(uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]GetAttributes2(&this, pdwAttributes, pdwAttributesEx, pAudioFormat, pVideoFormat);
+	public HRESULT GetAttributes2(uint32* pdwAttributes, uint32* pdwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]GetAttributes2(&this, pdwAttributes, pdwAttributesEx, pAudioFormat, pVideoFormat);
 }
 
 [CRepr]struct IWMDMStorage3 : IWMDMStorage2
@@ -985,8 +948,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BeginWrite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetObjectName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) SetObjectName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetObjectAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetObjectAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, WAVEFORMATEX* pFormat) GetObjectAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, WAVEFORMATEX* pFormat) SetObjectAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwSize, uint32* pdwSizeHigh) GetObjectTotalSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSize, uint32 dwSizeHigh) SetObjectTotalSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32* pdwSize, uint8* abMac) TransferObjectData;
@@ -1002,9 +965,9 @@ public static
 
 	public HRESULT SetObjectName(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]SetObjectName(&this, pwszName, nMaxChars);
 
-	public HRESULT GetObjectAttributes(uint32* pdwAttributes, _WAVEFORMATEX* pFormat) mut => VT.[Friend]GetObjectAttributes(&this, pdwAttributes, pFormat);
+	public HRESULT GetObjectAttributes(uint32* pdwAttributes, WAVEFORMATEX* pFormat) mut => VT.[Friend]GetObjectAttributes(&this, pdwAttributes, pFormat);
 
-	public HRESULT SetObjectAttributes(uint32 dwAttributes, _WAVEFORMATEX* pFormat) mut => VT.[Friend]SetObjectAttributes(&this, dwAttributes, pFormat);
+	public HRESULT SetObjectAttributes(uint32 dwAttributes, WAVEFORMATEX* pFormat) mut => VT.[Friend]SetObjectAttributes(&this, dwAttributes, pFormat);
 
 	public HRESULT GetObjectTotalSize(uint32* pdwSize, uint32* pdwSizeHigh) mut => VT.[Friend]GetObjectTotalSize(&this, pdwSize, pdwSizeHigh);
 
@@ -1023,14 +986,14 @@ public static
 
 	[CRepr]public struct VTable : IWMDMOperation.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pFormat, _VIDEOINFOHEADER* pVideoFormat) SetObjectAttributes2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) GetObjectAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, WAVEFORMATEX* pFormat, VIDEOINFOHEADER* pVideoFormat) SetObjectAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat) GetObjectAttributes2;
 	}
 
 
-	public HRESULT SetObjectAttributes2(uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pFormat, _VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]SetObjectAttributes2(&this, dwAttributes, dwAttributesEx, pFormat, pVideoFormat);
+	public HRESULT SetObjectAttributes2(uint32 dwAttributes, uint32 dwAttributesEx, WAVEFORMATEX* pFormat, VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]SetObjectAttributes2(&this, dwAttributes, dwAttributesEx, pFormat, pVideoFormat);
 
-	public HRESULT GetObjectAttributes2(uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]GetObjectAttributes2(&this, pdwAttributes, pdwAttributesEx, pAudioFormat, pVideoFormat);
+	public HRESULT GetObjectAttributes2(uint32* pdwAttributes, uint32* pdwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]GetObjectAttributes2(&this, pdwAttributes, pdwAttributesEx, pAudioFormat, pVideoFormat);
 }
 
 [CRepr]struct IWMDMOperation3 : IWMDMOperation
@@ -1122,7 +1085,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* hIcon) GetDeviceIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMEnumStorage** ppEnumStorage) EnumStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
 	}
 
@@ -1145,7 +1108,7 @@ public static
 
 	public HRESULT EnumStorage(IWMDMEnumStorage** ppEnumStorage) mut => VT.[Friend]EnumStorage(&this, ppEnumStorage);
 
-	public HRESULT GetFormatSupport(_WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) mut => VT.[Friend]GetFormatSupport(&this, ppFormatEx, pnFormatCount, pppwszMimeType, pnMimeTypeCount);
+	public HRESULT GetFormatSupport(WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) mut => VT.[Friend]GetFormatSupport(&this, ppFormatEx, pnFormatCount, pppwszMimeType, pnMimeTypeCount);
 
 	public HRESULT SendOpaqueCommand(OPAQUECOMMAND* pCommand) mut => VT.[Friend]SendOpaqueCommand(&this, pCommand);
 }
@@ -1159,7 +1122,7 @@ public static
 	[CRepr]public struct VTable : IWMDMDevice.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStorageName, IWMDMStorage** ppStorage) GetStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) GetSpecifyPropertyPages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
 	}
@@ -1167,7 +1130,7 @@ public static
 
 	public HRESULT GetStorage(PWSTR pszStorageName, IWMDMStorage** ppStorage) mut => VT.[Friend]GetStorage(&this, pszStorageName, ppStorage);
 
-	public HRESULT GetFormatSupport2(uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) mut => VT.[Friend]GetFormatSupport2(&this, dwFlags, ppAudioFormatEx, pnAudioFormatCount, ppVideoFormatEx, pnVideoFormatCount, ppFileType, pnFileTypeCount);
+	public HRESULT GetFormatSupport2(uint32 dwFlags, WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) mut => VT.[Friend]GetFormatSupport2(&this, dwFlags, ppAudioFormatEx, pnAudioFormatCount, ppVideoFormatEx, pnVideoFormatCount, ppFileType, pnFileTypeCount);
 
 	public HRESULT GetSpecifyPropertyPages(ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) mut => VT.[Friend]GetSpecifyPropertyPages(&this, ppSpecifyPropPages, pppUnknowns, pcUnks);
 
@@ -1254,7 +1217,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCapabilitiesMask) GetCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Play;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _WAVEFORMATEX* pFormat) Record;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WAVEFORMATEX* pFormat) Record;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
@@ -1268,7 +1231,7 @@ public static
 
 	public HRESULT Play() mut => VT.[Friend]Play(&this);
 
-	public HRESULT Record(_WAVEFORMATEX* pFormat) mut => VT.[Friend]Record(&this, pFormat);
+	public HRESULT Record(WAVEFORMATEX* pFormat) mut => VT.[Friend]Record(&this, pFormat);
 
 	public HRESULT Pause() mut => VT.[Friend]Pause(&this);
 
@@ -1512,7 +1475,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* hIcon) GetDeviceIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPEnumStorage** ppEnumStorage) EnumStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
 	}
 
@@ -1535,7 +1498,7 @@ public static
 
 	public HRESULT EnumStorage(IMDSPEnumStorage** ppEnumStorage) mut => VT.[Friend]EnumStorage(&this, ppEnumStorage);
 
-	public HRESULT GetFormatSupport(_WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) mut => VT.[Friend]GetFormatSupport(&this, pFormatEx, pnFormatCount, pppwszMimeType, pnMimeTypeCount);
+	public HRESULT GetFormatSupport(WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) mut => VT.[Friend]GetFormatSupport(&this, pFormatEx, pnFormatCount, pppwszMimeType, pnMimeTypeCount);
 
 	public HRESULT SendOpaqueCommand(OPAQUECOMMAND* pCommand) mut => VT.[Friend]SendOpaqueCommand(&this, pCommand);
 }
@@ -1549,7 +1512,7 @@ public static
 	[CRepr]public struct VTable : IMDSPDevice.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStorageName, IMDSPStorage** ppStorage) GetStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) GetSpecifyPropertyPages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
 	}
@@ -1557,7 +1520,7 @@ public static
 
 	public HRESULT GetStorage(PWSTR pszStorageName, IMDSPStorage** ppStorage) mut => VT.[Friend]GetStorage(&this, pszStorageName, ppStorage);
 
-	public HRESULT GetFormatSupport2(uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) mut => VT.[Friend]GetFormatSupport2(&this, dwFlags, ppAudioFormatEx, pnAudioFormatCount, ppVideoFormatEx, pnVideoFormatCount, ppFileType, pnFileTypeCount);
+	public HRESULT GetFormatSupport2(uint32 dwFlags, WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) mut => VT.[Friend]GetFormatSupport2(&this, dwFlags, ppAudioFormatEx, pnAudioFormatCount, ppVideoFormatEx, pnVideoFormatCount, ppFileType, pnFileTypeCount);
 
 	public HRESULT GetSpecifyPropertyPages(ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) mut => VT.[Friend]GetSpecifyPropertyPages(&this, ppSpecifyPropPages, pppUnknowns, pcUnks);
 
@@ -1602,7 +1565,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetDCStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCapabilitiesMask) GetCapabilities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Play;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _WAVEFORMATEX* pFormat) Record;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WAVEFORMATEX* pFormat) Record;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
@@ -1616,7 +1579,7 @@ public static
 
 	public HRESULT Play() mut => VT.[Friend]Play(&this);
 
-	public HRESULT Record(_WAVEFORMATEX* pFormat) mut => VT.[Friend]Record(&this, pFormat);
+	public HRESULT Record(WAVEFORMATEX* pFormat) mut => VT.[Friend]Record(&this, pFormat);
 
 	public HRESULT Pause() mut => VT.[Friend]Pause(&this);
 
@@ -1659,24 +1622,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, WAVEFORMATEX* pFormat) SetAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPStorageGlobals** ppStorageGlobals) GetStorageGlobals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, WAVEFORMATEX* pFormat) GetAttributes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMDATETIME* pDateTimeUTC) GetDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwSizeLow, uint32* pdwSizeHigh) GetSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) GetRights;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat, PWSTR pwszName, IMDSPStorage** ppNewStorage) CreateStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, WAVEFORMATEX* pFormat, PWSTR pwszName, IMDSPStorage** ppNewStorage) CreateStorage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPEnumStorage** ppEnumStorage) EnumStorage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
 	}
 
 
-	public HRESULT SetAttributes(uint32 dwAttributes, _WAVEFORMATEX* pFormat) mut => VT.[Friend]SetAttributes(&this, dwAttributes, pFormat);
+	public HRESULT SetAttributes(uint32 dwAttributes, WAVEFORMATEX* pFormat) mut => VT.[Friend]SetAttributes(&this, dwAttributes, pFormat);
 
 	public HRESULT GetStorageGlobals(IMDSPStorageGlobals** ppStorageGlobals) mut => VT.[Friend]GetStorageGlobals(&this, ppStorageGlobals);
 
-	public HRESULT GetAttributes(uint32* pdwAttributes, _WAVEFORMATEX* pFormat) mut => VT.[Friend]GetAttributes(&this, pdwAttributes, pFormat);
+	public HRESULT GetAttributes(uint32* pdwAttributes, WAVEFORMATEX* pFormat) mut => VT.[Friend]GetAttributes(&this, pdwAttributes, pFormat);
 
 	public HRESULT GetName(char16* pwszName, uint32 nMaxChars) mut => VT.[Friend]GetName(&this, pwszName, nMaxChars);
 
@@ -1686,7 +1649,7 @@ public static
 
 	public HRESULT GetRights(WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) mut => VT.[Friend]GetRights(&this, ppRights, pnRightsCount, abMac);
 
-	public HRESULT CreateStorage(uint32 dwAttributes, _WAVEFORMATEX* pFormat, PWSTR pwszName, IMDSPStorage** ppNewStorage) mut => VT.[Friend]CreateStorage(&this, dwAttributes, pFormat, pwszName, ppNewStorage);
+	public HRESULT CreateStorage(uint32 dwAttributes, WAVEFORMATEX* pFormat, PWSTR pwszName, IMDSPStorage** ppNewStorage) mut => VT.[Friend]CreateStorage(&this, dwAttributes, pFormat, pwszName, ppNewStorage);
 
 	public HRESULT EnumStorage(IMDSPEnumStorage** ppEnumStorage) mut => VT.[Friend]EnumStorage(&this, ppEnumStorage);
 
@@ -1702,19 +1665,19 @@ public static
 	[CRepr]public struct VTable : IMDSPStorage.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStorageName, IMDSPStorage** ppStorage) GetStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat, PWSTR pwszName, uint64 qwFileSize, IMDSPStorage** ppNewStorage) CreateStorage2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) SetAttributes2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) GetAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat, PWSTR pwszName, uint64 qwFileSize, IMDSPStorage** ppNewStorage) CreateStorage2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat) SetAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat) GetAttributes2;
 	}
 
 
 	public HRESULT GetStorage(PWSTR pszStorageName, IMDSPStorage** ppStorage) mut => VT.[Friend]GetStorage(&this, pszStorageName, ppStorage);
 
-	public HRESULT CreateStorage2(uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat, PWSTR pwszName, uint64 qwFileSize, IMDSPStorage** ppNewStorage) mut => VT.[Friend]CreateStorage2(&this, dwAttributes, dwAttributesEx, pAudioFormat, pVideoFormat, pwszName, qwFileSize, ppNewStorage);
+	public HRESULT CreateStorage2(uint32 dwAttributes, uint32 dwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat, PWSTR pwszName, uint64 qwFileSize, IMDSPStorage** ppNewStorage) mut => VT.[Friend]CreateStorage2(&this, dwAttributes, dwAttributesEx, pAudioFormat, pVideoFormat, pwszName, qwFileSize, ppNewStorage);
 
-	public HRESULT SetAttributes2(uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]SetAttributes2(&this, dwAttributes, dwAttributesEx, pAudioFormat, pVideoFormat);
+	public HRESULT SetAttributes2(uint32 dwAttributes, uint32 dwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]SetAttributes2(&this, dwAttributes, dwAttributesEx, pAudioFormat, pVideoFormat);
 
-	public HRESULT GetAttributes2(uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]GetAttributes2(&this, pdwAttributes, pdwAttributesEx, pAudioFormat, pVideoFormat);
+	public HRESULT GetAttributes2(uint32* pdwAttributes, uint32* pdwAttributesEx, WAVEFORMATEX* pAudioFormat, VIDEOINFOHEADER* pVideoFormat) mut => VT.[Friend]GetAttributes2(&this, pdwAttributes, pdwAttributesEx, pAudioFormat, pVideoFormat);
 }
 
 [CRepr]struct IMDSPStorage3 : IMDSPStorage2

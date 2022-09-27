@@ -22,6 +22,8 @@ public static
 	public const uint32 HANGUP_PENDING = 4;
 	public const uint32 HANGUP_COMPLETE = 5;
 	public const uint32 SESSION_ABORTED = 6;
+	public const String ALL_TRANSPORTS = "M\u{0000}\u{0000}\u{0000}";
+	public const String MS_NBF = "MNBF";
 	public const uint32 NCBCALL = 16;
 	public const uint32 NCBLISTEN = 17;
 	public const uint32 NCBHANGUP = 18;
@@ -110,6 +112,28 @@ public struct NCB
 	public uint8 ncb_lana_num;
 	public uint8 ncb_cmd_cplt;
 	public uint8[18] ncb_reserve;
+	public HANDLE ncb_event;
+}
+#endif
+
+#if BF_32_BIT
+[CRepr]
+public struct NCB
+{
+	public uint8 ncb_command;
+	public uint8 ncb_retcode;
+	public uint8 ncb_lsn;
+	public uint8 ncb_num;
+	public uint8* ncb_buffer;
+	public uint16 ncb_length;
+	public uint8[16] ncb_callname;
+	public uint8[16] ncb_name;
+	public uint8 ncb_rto;
+	public uint8 ncb_sto;
+	public int ncb_post;
+	public uint8 ncb_lana_num;
+	public uint8 ncb_cmd_cplt;
+	public uint8[10] ncb_reserve;
 	public HANDLE ncb_event;
 }
 #endif
@@ -207,28 +231,6 @@ public struct ACTION_HEADER
 	public uint16 action_code;
 	public uint16 reserved;
 }
-
-#if BF_32_BIT
-[CRepr]
-public struct NCB
-{
-	public uint8 ncb_command;
-	public uint8 ncb_retcode;
-	public uint8 ncb_lsn;
-	public uint8 ncb_num;
-	public uint8* ncb_buffer;
-	public uint16 ncb_length;
-	public uint8[16] ncb_callname;
-	public uint8[16] ncb_name;
-	public uint8 ncb_rto;
-	public uint8 ncb_sto;
-	public int ncb_post;
-	public uint8 ncb_lana_num;
-	public uint8 ncb_cmd_cplt;
-	public uint8[10] ncb_reserve;
-	public HANDLE ncb_event;
-}
-#endif
 
 #endregion
 

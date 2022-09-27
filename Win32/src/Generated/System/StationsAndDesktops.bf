@@ -53,6 +53,13 @@ public enum USER_OBJECT_INFORMATION_INDEX : uint32
 	UOI_USER_SID = 4,
 }
 
+
+[AllowDuplicates]
+public enum DESKTOP_CONTROL_FLAGS : uint32
+{
+	DF_ALLOWOTHERACCOUNTHOOK = 1,
+}
+
 #endregion
 
 #region Function Pointers
@@ -90,28 +97,28 @@ public struct BSMINFO
 public static
 {
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK CreateDesktopA(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa);
-	public static HDESK CreateDesktop(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa) => CreateDesktopA(lpszDesktop, lpszDevice, pDevmode, dwFlags, dwDesiredAccess, lpsa);
+	public static extern HDESK CreateDesktopA(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, DESKTOP_CONTROL_FLAGS dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa);
+	public static HDESK CreateDesktop(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, DESKTOP_CONTROL_FLAGS dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa) => CreateDesktopA(lpszDesktop, lpszDevice, pDevmode, dwFlags, dwDesiredAccess, lpsa);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK CreateDesktopW(PWSTR lpszDesktop, PWSTR lpszDevice, DEVMODEW* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa);
+	public static extern HDESK CreateDesktopW(PWSTR lpszDesktop, PWSTR lpszDevice, DEVMODEW* pDevmode, DESKTOP_CONTROL_FLAGS dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK CreateDesktopExA(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa, uint32 ulHeapSize, void* pvoid);
-	public static HDESK CreateDesktopEx(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa, uint32 ulHeapSize, void* pvoid) => CreateDesktopExA(lpszDesktop, lpszDevice, pDevmode, dwFlags, dwDesiredAccess, lpsa, ulHeapSize, pvoid);
+	public static extern HDESK CreateDesktopExA(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, DESKTOP_CONTROL_FLAGS dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa, uint32 ulHeapSize, void* pvoid);
+	public static HDESK CreateDesktopEx(PSTR lpszDesktop, PSTR lpszDevice, DEVMODEA* pDevmode, DESKTOP_CONTROL_FLAGS dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa, uint32 ulHeapSize, void* pvoid) => CreateDesktopExA(lpszDesktop, lpszDevice, pDevmode, dwFlags, dwDesiredAccess, lpsa, ulHeapSize, pvoid);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK CreateDesktopExW(PWSTR lpszDesktop, PWSTR lpszDevice, DEVMODEW* pDevmode, uint32 dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa, uint32 ulHeapSize, void* pvoid);
+	public static extern HDESK CreateDesktopExW(PWSTR lpszDesktop, PWSTR lpszDevice, DEVMODEW* pDevmode, DESKTOP_CONTROL_FLAGS dwFlags, uint32 dwDesiredAccess, SECURITY_ATTRIBUTES* lpsa, uint32 ulHeapSize, void* pvoid);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK OpenDesktopA(PSTR lpszDesktop, uint32 dwFlags, BOOL fInherit, uint32 dwDesiredAccess);
-	public static HDESK OpenDesktop(PSTR lpszDesktop, uint32 dwFlags, BOOL fInherit, uint32 dwDesiredAccess) => OpenDesktopA(lpszDesktop, dwFlags, fInherit, dwDesiredAccess);
+	public static extern HDESK OpenDesktopA(PSTR lpszDesktop, DESKTOP_CONTROL_FLAGS dwFlags, BOOL fInherit, uint32 dwDesiredAccess);
+	public static HDESK OpenDesktop(PSTR lpszDesktop, DESKTOP_CONTROL_FLAGS dwFlags, BOOL fInherit, uint32 dwDesiredAccess) => OpenDesktopA(lpszDesktop, dwFlags, fInherit, dwDesiredAccess);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK OpenDesktopW(PWSTR lpszDesktop, uint32 dwFlags, BOOL fInherit, uint32 dwDesiredAccess);
+	public static extern HDESK OpenDesktopW(PWSTR lpszDesktop, DESKTOP_CONTROL_FLAGS dwFlags, BOOL fInherit, uint32 dwDesiredAccess);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HDESK OpenInputDesktop(uint32 dwFlags, BOOL fInherit, uint32 dwDesiredAccess);
+	public static extern HDESK OpenInputDesktop(DESKTOP_CONTROL_FLAGS dwFlags, BOOL fInherit, uint32 dwDesiredAccess);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumDesktopsA(HWINSTA hwinsta, DESKTOPENUMPROCA lpEnumFunc, LPARAM lParam);

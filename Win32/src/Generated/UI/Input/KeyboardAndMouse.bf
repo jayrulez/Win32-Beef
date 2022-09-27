@@ -36,6 +36,23 @@ public static
 	public const uint32 OGONEK = 808;
 	public const uint32 TONOS = 900;
 	public const uint32 DIARESIS_TONOS = 901;
+	public const String wszGRAVE = "̀";
+	public const String wszACUTE = "́";
+	public const String wszCIRCUMFLEX = "̂";
+	public const String wszTILDE = "̃";
+	public const String wszMACRON = "̄";
+	public const String wszOVERSCORE = "̅";
+	public const String wszBREVE = "̆";
+	public const String wszDOT_ABOVE = "̇";
+	public const String wszUMLAUT = "̈";
+	public const String wszHOOK_ABOVE = "̉";
+	public const String wszRING = "̊";
+	public const String wszDOUBLE_ACUTE = "̋";
+	public const String wszHACEK = "̌";
+	public const String wszCEDILLA = "̧";
+	public const String wszOGONEK = "̨";
+	public const String wszTONOS = "΄";
+	public const String wszDIARESIS_TONOS = "΅";
 	public const uint32 SHFT_INVALID = 15;
 	public const uint32 WCH_NONE = 61440;
 	public const uint32 WCH_DEAD = 61441;
@@ -643,7 +660,7 @@ public struct VSC_LPWSTR
 }
 
 [CRepr]
-public struct tagKbdLayer
+public struct KBDTABLES
 {
 	public MODIFIERS* pCharModifiers;
 	public VK_TO_WCHAR_TABLE* pVkToWcharTable;
@@ -664,30 +681,30 @@ public struct tagKbdLayer
 }
 
 [CRepr]
-public struct _VK_FUNCTION_PARAM
+public struct VK_FPARAM
 {
 	public uint8 NLSFEProcIndex;
 	public uint32 NLSFEProcParam;
 }
 
 [CRepr]
-public struct _VK_TO_FUNCTION_TABLE
+public struct VK_F
 {
 	public uint8 Vk;
 	public uint8 NLSFEProcType;
 	public uint8 NLSFEProcCurrent;
 	public uint8 NLSFEProcSwitch;
-	public _VK_FUNCTION_PARAM[8] NLSFEProc;
-	public _VK_FUNCTION_PARAM[8] NLSFEProcAlt;
+	public VK_FPARAM[8] NLSFEProc;
+	public VK_FPARAM[8] NLSFEProcAlt;
 }
 
 [CRepr]
-public struct tagKbdNlsLayer
+public struct KBDNLSTABLES
 {
 	public uint16 OEMIdentifier;
 	public uint16 LayoutInformation;
 	public uint32 NumOfVkToF;
-	public _VK_TO_FUNCTION_TABLE* pVkToF;
+	public VK_F* pVkToF;
 	public int32 NumOfMouseVKey;
 	public uint16* pusMouseVKey;
 }
@@ -738,7 +755,7 @@ public struct MOUSEINPUT
 {
 	public int32 dx;
 	public int32 dy;
-	public uint32 mouseData;
+	public int32 mouseData;
 	public MOUSE_EVENT_FLAGS dwFlags;
 	public uint32 time;
 	public uint dwExtraInfo;

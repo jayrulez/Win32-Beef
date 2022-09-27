@@ -81,12 +81,12 @@ public struct PSAPI_WORKING_SET_EX_BLOCK
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _Anonymous_e__Struct
+		public struct _Invalid_e__Struct
 		{
 			public uint _bitfield;
 		}
 		[CRepr]
-		public struct _Invalid_e__Struct
+		public struct _Anonymous_e__Struct
 		{
 			public uint _bitfield;
 		}

@@ -7,21 +7,21 @@ namespace Win32.System.TransactionServer;
 #region Enums
 
 [AllowDuplicates]
-public enum __MIDL___MIDL_itf_mtxadmin_0107_0001 : int32
+public enum MTSPackageInstallOptions : int32
 {
 	mtsInstallUsers = 1,
 }
 
 
 [AllowDuplicates]
-public enum __MIDL___MIDL_itf_mtxadmin_0107_0002 : int32
+public enum MTSPackageExportOptions : int32
 {
 	mtsExportUsers = 1,
 }
 
 
 [AllowDuplicates]
-public enum __MIDL___MIDL_itf_mtxadmin_0107_0003 : int32
+public enum MTSAdminErrorCodes : int32
 {
 	mtsErrObjectErrors = -2146368511,
 	mtsErrObjectInvalid = -2146368510,

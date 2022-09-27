@@ -53,6 +53,7 @@ public static
 	public const uint32 OFFLINEFILES_ENUM_FLAT_FILESONLY = 2;
 	public const uint32 OFFLINEFILES_SETTING_SCOPE_USER = 1;
 	public const uint32 OFFLINEFILES_SETTING_SCOPE_COMPUTER = 2;
+	public const String OFFLINEFILES_SETTING_PinLinkTargets = "LinkTargetCaching";
 	public const uint32 OFFLINEFILES_PINLINKTARGETS_NEVER = 0;
 	public const uint32 OFFLINEFILES_PINLINKTARGETS_EXPLICIT = 1;
 	public const uint32 OFFLINEFILES_PINLINKTARGETS_ALWAYS = 2;

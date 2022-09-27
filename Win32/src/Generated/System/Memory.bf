@@ -242,18 +242,18 @@ public struct PROCESS_HEAP_ENTRY
 	public struct _Anonymous_e__Union
 	{
 		[CRepr]
-		public struct _Block_e__Struct
-		{
-			public HANDLE hMem;
-			public uint32[3] dwReserved;
-		}
-		[CRepr]
 		public struct _Region_e__Struct
 		{
 			public uint32 dwCommittedSize;
 			public uint32 dwUnCommittedSize;
 			public void* lpFirstBlock;
 			public void* lpLastBlock;
+		}
+		[CRepr]
+		public struct _Block_e__Struct
+		{
+			public HANDLE hMem;
+			public uint32[3] dwReserved;
 		}
 		public _Block_e__Struct Block;
 		public _Region_e__Struct Region;
@@ -341,6 +341,20 @@ public struct MEMORY_BASIC_INFORMATION
 }
 #endif
 
+#if BF_32_BIT
+[CRepr]
+public struct MEMORY_BASIC_INFORMATION
+{
+	public void* BaseAddress;
+	public void* AllocationBase;
+	public PAGE_PROTECTION_FLAGS AllocationProtect;
+	public uint RegionSize;
+	public VIRTUAL_ALLOCATION_TYPE State;
+	public PAGE_PROTECTION_FLAGS Protect;
+	public PAGE_TYPE Type;
+}
+#endif
+
 [CRepr]
 public struct MEMORY_BASIC_INFORMATION32
 {
@@ -375,6 +389,14 @@ public struct CFG_CALL_TARGET_INFO
 }
 
 [CRepr]
+public struct MEM_ADDRESS_REQUIREMENTS
+{
+	public void* LowestStartingAddress;
+	public void* HighestEndingAddress;
+	public uint Alignment;
+}
+
+[CRepr]
 public struct MEM_EXTENDED_PARAMETER
 {
 	[CRepr, Union]
@@ -394,20 +416,6 @@ public struct MEM_EXTENDED_PARAMETER
 	public _Anonymous1_e__Struct Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
 }
-
-#if BF_32_BIT
-[CRepr]
-public struct MEMORY_BASIC_INFORMATION
-{
-	public void* BaseAddress;
-	public void* AllocationBase;
-	public PAGE_PROTECTION_FLAGS AllocationProtect;
-	public uint RegionSize;
-	public VIRTUAL_ALLOCATION_TYPE State;
-	public PAGE_PROTECTION_FLAGS Protect;
-	public PAGE_TYPE Type;
-}
-#endif
 
 #endregion
 

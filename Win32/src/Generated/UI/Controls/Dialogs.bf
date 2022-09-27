@@ -36,6 +36,27 @@ public static
 	public const uint32 WM_CHOOSEFONT_GETLOGFONT = 1025;
 	public const uint32 WM_CHOOSEFONT_SETLOGFONT = 1125;
 	public const uint32 WM_CHOOSEFONT_SETFLAGS = 1126;
+	public const String LBSELCHSTRINGA = "commdlg_LBSelChangedNotify";
+	public const String SHAREVISTRINGA = "commdlg_ShareViolation";
+	public const String FILEOKSTRINGA = "commdlg_FileNameOK";
+	public const String COLOROKSTRINGA = "commdlg_ColorOK";
+	public const String SETRGBSTRINGA = "commdlg_SetRGBColor";
+	public const String HELPMSGSTRINGA = "commdlg_help";
+	public const String FINDMSGSTRINGA = "commdlg_FindReplace";
+	public const String LBSELCHSTRINGW = "commdlg_LBSelChangedNotify";
+	public const String SHAREVISTRINGW = "commdlg_ShareViolation";
+	public const String FILEOKSTRINGW = "commdlg_FileNameOK";
+	public const String COLOROKSTRINGW = "commdlg_ColorOK";
+	public const String SETRGBSTRINGW = "commdlg_SetRGBColor";
+	public const String HELPMSGSTRINGW = "commdlg_help";
+	public const String FINDMSGSTRINGW = "commdlg_FindReplace";
+	public const String LBSELCHSTRING = "commdlg_LBSelChangedNotify";
+	public const String SHAREVISTRING = "commdlg_ShareViolation";
+	public const String FILEOKSTRING = "commdlg_FileNameOK";
+	public const String COLOROKSTRING = "commdlg_ColorOK";
+	public const String SETRGBSTRING = "commdlg_SetRGBColor";
+	public const String HELPMSGSTRING = "commdlg_help";
+	public const String FINDMSGSTRING = "commdlg_FindReplace";
 	public const int32 CD_LBSELNOITEMS = -1;
 	public const uint32 CD_LBSELCHANGE = 0;
 	public const uint32 CD_LBSELSUB = 1;
@@ -129,6 +150,21 @@ public enum COMMON_DLG_ERRORS : uint32
 	FRERR_FINDREPLACECODES = 16384,
 	FRERR_BUFFERLENGTHZERO = 16385,
 	CCERR_CHOOSECOLORCODES = 20480,
+}
+
+
+[AllowDuplicates]
+public enum CHOOSECOLOR_FLAGS : uint32
+{
+	CC_RGBINIT = 1,
+	CC_FULLOPEN = 2,
+	CC_PREVENTFULLOPEN = 4,
+	CC_SHOWHELP = 8,
+	CC_ENABLEHOOK = 16,
+	CC_ENABLETEMPLATE = 32,
+	CC_ENABLETEMPLATEHANDLE = 64,
+	CC_SOLIDCOLOR = 128,
+	CC_ANYCOLOR = 256,
 }
 
 
@@ -485,9 +521,9 @@ public struct CHOOSECOLORA
 	public uint32 lStructSize;
 	public HWND hwndOwner;
 	public HWND hInstance;
-	public uint32 rgbResult;
-	public uint32* lpCustColors;
-	public uint32 Flags;
+	public COLORREF rgbResult;
+	public COLORREF* lpCustColors;
+	public CHOOSECOLOR_FLAGS Flags;
 	public LPARAM lCustData;
 	public LPCCHOOKPROC lpfnHook;
 	public PSTR lpTemplateName;
@@ -501,9 +537,9 @@ public struct CHOOSECOLORW
 	public uint32 lStructSize;
 	public HWND hwndOwner;
 	public HWND hInstance;
-	public uint32 rgbResult;
-	public uint32* lpCustColors;
-	public uint32 Flags;
+	public COLORREF rgbResult;
+	public COLORREF* lpCustColors;
+	public CHOOSECOLOR_FLAGS Flags;
 	public LPARAM lCustData;
 	public LPCCHOOKPROC lpfnHook;
 	public PWSTR lpTemplateName;
@@ -556,7 +592,7 @@ public struct CHOOSEFONTA
 	public LOGFONTA* lpLogFont;
 	public int32 iPointSize;
 	public CHOOSEFONT_FLAGS Flags;
-	public uint32 rgbColors;
+	public COLORREF rgbColors;
 	public LPARAM lCustData;
 	public LPCFHOOKPROC lpfnHook;
 	public PSTR lpTemplateName;
@@ -579,7 +615,7 @@ public struct CHOOSEFONTW
 	public LOGFONTW* lpLogFont;
 	public int32 iPointSize;
 	public CHOOSEFONT_FLAGS Flags;
-	public uint32 rgbColors;
+	public COLORREF rgbColors;
 	public LPARAM lCustData;
 	public LPCFHOOKPROC lpfnHook;
 	public PWSTR lpTemplateName;
@@ -925,9 +961,9 @@ public struct CHOOSECOLORA
 	public uint32 lStructSize;
 	public HWND hwndOwner;
 	public HWND hInstance;
-	public uint32 rgbResult;
-	public uint32* lpCustColors;
-	public uint32 Flags;
+	public COLORREF rgbResult;
+	public COLORREF* lpCustColors;
+	public CHOOSECOLOR_FLAGS Flags;
 	public LPARAM lCustData;
 	public LPCCHOOKPROC lpfnHook;
 	public PSTR lpTemplateName;
@@ -941,9 +977,9 @@ public struct CHOOSECOLORW
 	public uint32 lStructSize;
 	public HWND hwndOwner;
 	public HWND hInstance;
-	public uint32 rgbResult;
-	public uint32* lpCustColors;
-	public uint32 Flags;
+	public COLORREF rgbResult;
+	public COLORREF* lpCustColors;
+	public CHOOSECOLOR_FLAGS Flags;
 	public LPARAM lCustData;
 	public LPCCHOOKPROC lpfnHook;
 	public PWSTR lpTemplateName;
@@ -996,7 +1032,7 @@ public struct CHOOSEFONTA
 	public LOGFONTA* lpLogFont;
 	public int32 iPointSize;
 	public CHOOSEFONT_FLAGS Flags;
-	public uint32 rgbColors;
+	public COLORREF rgbColors;
 	public LPARAM lCustData;
 	public LPCFHOOKPROC lpfnHook;
 	public PSTR lpTemplateName;
@@ -1019,7 +1055,7 @@ public struct CHOOSEFONTW
 	public LOGFONTW* lpLogFont;
 	public int32 iPointSize;
 	public CHOOSEFONT_FLAGS Flags;
-	public uint32 rgbColors;
+	public COLORREF rgbColors;
 	public LPARAM lCustData;
 	public LPCFHOOKPROC lpfnHook;
 	public PWSTR lpTemplateName;

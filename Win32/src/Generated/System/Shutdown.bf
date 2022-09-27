@@ -153,7 +153,7 @@ public static
 	public static extern uint32 CheckForHiberboot(BOOLEAN* pHiberboot, BOOLEAN bClearFlag);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ExitWindowsEx(EXIT_WINDOWS_FLAGS uFlags, uint32 dwReason);
+	public static extern BOOL ExitWindowsEx(EXIT_WINDOWS_FLAGS uFlags, SHUTDOWN_REASON dwReason);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LockWorkStation();

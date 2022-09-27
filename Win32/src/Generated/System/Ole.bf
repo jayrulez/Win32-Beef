@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.System.Com;
 using Win32.UI.WindowsAndMessaging;
 using Win32.Graphics.Gdi;
+using Win32.System.SystemServices;
 using Win32.System.Com.StructuredStorage;
 using Win32.Media;
 using Win32.UI.Controls.Dialogs;
@@ -56,12 +57,6 @@ public static
 	public const Guid GUID_FONTUNDERSCORE = .(0x66504311, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
 	public const Guid GUID_FONTSTRIKETHROUGH = .(0x66504312, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
 	public const Guid GUID_HANDLE = .(0x66504313, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-	public const int32 PICTYPE_UNINITIALIZED = -1;
-	public const uint32 PICTYPE_NONE = 0;
-	public const uint32 PICTYPE_BITMAP = 1;
-	public const uint32 PICTYPE_METAFILE = 2;
-	public const uint32 PICTYPE_ICON = 3;
-	public const uint32 PICTYPE_ENHMETAFILE = 4;
 	public const HRESULT CONNECT_E_LAST = -2147220977;
 	public const HRESULT CONNECT_S_FIRST = 262656;
 	public const HRESULT CONNECT_S_LAST = 262671;
@@ -77,10 +72,6 @@ public static
 	public const uint32 VT_BLOB_PROPSET = 75;
 	public const uint32 VT_VERBOSE_ENUM = 76;
 	public const uint32 OCM__BASE = 8192;
-	public const uint32 LP_DEFAULT = 0;
-	public const uint32 LP_MONOCHROME = 1;
-	public const uint32 LP_VGACOLOR = 2;
-	public const uint32 LP_COLOR = 4;
 	public const int32 DISPID_AUTOSIZE = -500;
 	public const int32 DISPID_BACKCOLOR = -501;
 	public const int32 DISPID_BACKSTYLE = -502;
@@ -189,6 +180,8 @@ public static
 	public const uint32 DISPID_PICT_WIDTH = 4;
 	public const uint32 DISPID_PICT_HEIGHT = 5;
 	public const uint32 DISPID_PICT_RENDER = 6;
+	public const String STDOLE_TLB = "stdole2.tlb";
+	public const String STDTYPE_TLB = "stdole2.tlb";
 	public const int32 GC_WCH_SIBLING = 1;
 	public const uint32 TIFLAGS_EXTENDDISPATCHONLY = 1;
 	public const int32 OLECMDERR_E_NOTSUPPORTED = -2147221248;
@@ -211,11 +204,6 @@ public static
 	public const uint32 INSTALL_SCOPE_MACHINE = 1;
 	public const uint32 INSTALL_SCOPE_USER = 2;
 	public const uint32 MK_ALT = 32;
-	public const uint32 DROPEFFECT_NONE = 0;
-	public const uint32 DROPEFFECT_COPY = 1;
-	public const uint32 DROPEFFECT_MOVE = 2;
-	public const uint32 DROPEFFECT_LINK = 4;
-	public const uint32 DROPEFFECT_SCROLL = 2147483648;
 	public const uint32 DD_DEFSCROLLINSET = 11;
 	public const uint32 DD_DEFSCROLLDELAY = 50;
 	public const uint32 DD_DEFSCROLLINTERVAL = 50;
@@ -236,11 +224,6 @@ public static
 	public const int32 OLEIVERB_UIACTIVATE = -4;
 	public const int32 OLEIVERB_INPLACEACTIVATE = -5;
 	public const int32 OLEIVERB_DISCARDUNDOSTATE = -6;
-	public const int32 EMBDHLP_INPROC_HANDLER = 0;
-	public const int32 EMBDHLP_INPROC_SERVER = 1;
-	public const int32 EMBDHLP_CREATENOW = 0;
-	public const int32 EMBDHLP_DELAYCREATE = 65536;
-	public const uint32 OLECREATE_LEAVERUNNING = 1;
 	public const uint32 IDC_OLEUIHELP = 99;
 	public const uint32 IDC_IO_CREATENEW = 2100;
 	public const uint32 IDC_IO_CREATEFROMFILE = 2101;
@@ -370,6 +353,16 @@ public static
 	public const uint32 IDD_LINKTYPECHANGEDA = 1026;
 	public const uint32 IDD_SERVERNOTREG = 1021;
 	public const uint32 IDD_LINKTYPECHANGED = 1022;
+	public const String OLESTDDELIM = "\\";
+	public const String SZOLEUI_MSG_HELP = "OLEUI_MSG_HELP";
+	public const String SZOLEUI_MSG_ENDDIALOG = "OLEUI_MSG_ENDDIALOG";
+	public const String SZOLEUI_MSG_BROWSE = "OLEUI_MSG_BROWSE";
+	public const String SZOLEUI_MSG_CHANGEICON = "OLEUI_MSG_CHANGEICON";
+	public const String SZOLEUI_MSG_CLOSEBUSYDIALOG = "OLEUI_MSG_CLOSEBUSYDIALOG";
+	public const String SZOLEUI_MSG_CONVERT = "OLEUI_MSG_CONVERT";
+	public const String SZOLEUI_MSG_CHANGESOURCE = "OLEUI_MSG_CHANGESOURCE";
+	public const String SZOLEUI_MSG_ADDCONTROL = "OLEUI_MSG_ADDCONTROL";
+	public const String SZOLEUI_MSG_BROWSE_OFN = "OLEUI_MSG_BROWSE_OFN";
 	public const uint32 ID_BROWSE_CHANGEICON = 1;
 	public const uint32 ID_BROWSE_INSERTFILE = 2;
 	public const uint32 ID_BROWSE_ADDCONTROL = 3;
@@ -396,20 +389,6 @@ public static
 	public const uint32 OLEUI_ERR_GLOBALMEMALLOC = 114;
 	public const uint32 OLEUI_ERR_LOADSTRING = 115;
 	public const uint32 OLEUI_ERR_STANDARDMAX = 116;
-	public const int32 IOF_SHOWHELP = 1;
-	public const int32 IOF_SELECTCREATENEW = 2;
-	public const int32 IOF_SELECTCREATEFROMFILE = 4;
-	public const int32 IOF_CHECKLINK = 8;
-	public const int32 IOF_CHECKDISPLAYASICON = 16;
-	public const int32 IOF_CREATENEWOBJECT = 32;
-	public const int32 IOF_CREATEFILEOBJECT = 64;
-	public const int32 IOF_CREATELINKOBJECT = 128;
-	public const int32 IOF_DISABLELINK = 256;
-	public const int32 IOF_VERIFYSERVERSEXIST = 512;
-	public const int32 IOF_DISABLEDISPLAYASICON = 1024;
-	public const int32 IOF_HIDECHANGEICON = 2048;
-	public const int32 IOF_SHOWINSERTCONTROL = 4096;
-	public const int32 IOF_SELECTCREATECONTROL = 8192;
 	public const uint32 OLEUI_IOERR_LPSZFILEINVALID = 116;
 	public const uint32 OLEUI_IOERR_LPSZLABELINVALID = 117;
 	public const uint32 OLEUI_IOERR_HICONINVALID = 118;
@@ -421,14 +400,6 @@ public static
 	public const uint32 OLEUI_IOERR_LPCLSIDEXCLUDEINVALID = 124;
 	public const uint32 OLEUI_IOERR_CCHFILEINVALID = 125;
 	public const uint32 PS_MAXLINKTYPES = 8;
-	public const int32 PSF_SHOWHELP = 1;
-	public const int32 PSF_SELECTPASTE = 2;
-	public const int32 PSF_SELECTPASTELINK = 4;
-	public const int32 PSF_CHECKDISPLAYASICON = 8;
-	public const int32 PSF_DISABLEDISPLAYASICON = 16;
-	public const int32 PSF_HIDECHANGEICON = 32;
-	public const int32 PSF_STAYONCLIPBOARDCHANGE = 64;
-	public const int32 PSF_NOREFRESHDATAOBJECT = 128;
 	public const uint32 OLEUI_IOERR_SRCDATAOBJECTINVALID = 116;
 	public const uint32 OLEUI_IOERR_ARRPASTEENTRIESINVALID = 117;
 	public const uint32 OLEUI_IOERR_ARRLINKTYPESINVALID = 118;
@@ -436,45 +407,19 @@ public static
 	public const uint32 OLEUI_PSERR_GETCLIPBOARDFAILED = 120;
 	public const uint32 OLEUI_ELERR_LINKCNTRNULL = 116;
 	public const uint32 OLEUI_ELERR_LINKCNTRINVALID = 117;
-	public const int32 ELF_SHOWHELP = 1;
-	public const int32 ELF_DISABLEUPDATENOW = 2;
-	public const int32 ELF_DISABLEOPENSOURCE = 4;
-	public const int32 ELF_DISABLECHANGESOURCE = 8;
-	public const int32 ELF_DISABLECANCELLINK = 16;
-	public const int32 CIF_SHOWHELP = 1;
-	public const int32 CIF_SELECTCURRENT = 2;
-	public const int32 CIF_SELECTDEFAULT = 4;
-	public const int32 CIF_SELECTFROMFILE = 8;
-	public const int32 CIF_USEICONEXE = 16;
 	public const uint32 OLEUI_CIERR_MUSTHAVECLSID = 116;
 	public const uint32 OLEUI_CIERR_MUSTHAVECURRENTMETAFILE = 117;
 	public const uint32 OLEUI_CIERR_SZICONEXEINVALID = 118;
-	public const int32 CF_SHOWHELPBUTTON = 1;
-	public const int32 CF_SETCONVERTDEFAULT = 2;
-	public const int32 CF_SETACTIVATEDEFAULT = 4;
-	public const int32 CF_SELECTCONVERTTO = 8;
-	public const int32 CF_SELECTACTIVATEAS = 16;
-	public const int32 CF_DISABLEDISPLAYASICON = 32;
-	public const int32 CF_DISABLEACTIVATEAS = 64;
-	public const int32 CF_HIDECHANGEICON = 128;
-	public const int32 CF_CONVERTONLY = 256;
+	public const String PROP_HWND_CHGICONDLG = "HWND_CIDLG";
 	public const uint32 OLEUI_CTERR_CLASSIDINVALID = 117;
 	public const uint32 OLEUI_CTERR_DVASPECTINVALID = 118;
 	public const uint32 OLEUI_CTERR_CBFORMATINVALID = 119;
 	public const uint32 OLEUI_CTERR_HMETAPICTINVALID = 120;
 	public const uint32 OLEUI_CTERR_STRINGINVALID = 121;
-	public const int32 BZ_DISABLECANCELBUTTON = 1;
-	public const int32 BZ_DISABLESWITCHTOBUTTON = 2;
-	public const int32 BZ_DISABLERETRYBUTTON = 4;
-	public const int32 BZ_NOTRESPONDINGDIALOG = 8;
 	public const uint32 OLEUI_BZERR_HTASKINVALID = 116;
 	public const uint32 OLEUI_BZ_SWITCHTOSELECTED = 117;
 	public const uint32 OLEUI_BZ_RETRYSELECTED = 118;
 	public const uint32 OLEUI_BZ_CALLUNBLOCKED = 119;
-	public const int32 CSF_SHOWHELP = 1;
-	public const int32 CSF_VALIDSOURCE = 2;
-	public const int32 CSF_ONLYGETSOURCE = 4;
-	public const int32 CSF_EXPLORER = 8;
 	public const uint32 OLEUI_CSERR_LINKCNTRNULL = 116;
 	public const uint32 OLEUI_CSERR_LINKCNTRINVALID = 117;
 	public const uint32 OLEUI_CSERR_FROMNOTNULL = 118;
@@ -483,13 +428,6 @@ public static
 	public const uint32 OLEUI_CSERR_SOURCEINVALID = 121;
 	public const uint32 OLEUI_CSERR_SOURCEPARSERROR = 122;
 	public const uint32 OLEUI_CSERR_SOURCEPARSEERROR = 122;
-	public const int32 VPF_SELECTRELATIVE = 1;
-	public const int32 VPF_DISABLERELATIVE = 2;
-	public const int32 VPF_DISABLESCALE = 4;
-	public const int32 OPF_OBJECTISLINK = 1;
-	public const int32 OPF_NOFILLDEFAULT = 2;
-	public const int32 OPF_SHOWHELP = 4;
-	public const int32 OPF_DISABLECONVERT = 8;
 	public const uint32 OLEUI_OPERR_SUBPROPNULL = 116;
 	public const uint32 OLEUI_OPERR_SUBPROPINVALID = 117;
 	public const uint32 OLEUI_OPERR_PROPSHEETNULL = 118;
@@ -514,35 +452,6 @@ public static
 	public const uint32 OLEUI_OPERR_LINKINFOINVALID = 137;
 	public const uint32 OLEUI_QUERY_GETCLASSID = 65280;
 	public const uint32 OLEUI_QUERY_LINKBROKEN = 65281;
-	public const uint32 FADF_AUTO = 1;
-	public const uint32 FADF_STATIC = 2;
-	public const uint32 FADF_EMBEDDED = 4;
-	public const uint32 FADF_FIXEDSIZE = 16;
-	public const uint32 FADF_RECORD = 32;
-	public const uint32 FADF_HAVEIID = 64;
-	public const uint32 FADF_HAVEVARTYPE = 128;
-	public const uint32 FADF_BSTR = 256;
-	public const uint32 FADF_UNKNOWN = 512;
-	public const uint32 FADF_DISPATCH = 1024;
-	public const uint32 FADF_VARIANT = 2048;
-	public const uint32 FADF_RESERVED = 61448;
-	public const uint32 PARAMFLAG_NONE = 0;
-	public const uint32 PARAMFLAG_FIN = 1;
-	public const uint32 PARAMFLAG_FOUT = 2;
-	public const uint32 PARAMFLAG_FLCID = 4;
-	public const uint32 PARAMFLAG_FRETVAL = 8;
-	public const uint32 PARAMFLAG_FOPT = 16;
-	public const uint32 PARAMFLAG_FHASDEFAULT = 32;
-	public const uint32 PARAMFLAG_FHASCUSTDATA = 64;
-	public const uint32 IDLFLAG_NONE = 0;
-	public const uint32 IDLFLAG_FIN = 1;
-	public const uint32 IDLFLAG_FOUT = 2;
-	public const uint32 IDLFLAG_FLCID = 4;
-	public const uint32 IDLFLAG_FRETVAL = 8;
-	public const uint32 IMPLTYPEFLAG_FDEFAULT = 1;
-	public const uint32 IMPLTYPEFLAG_FSOURCE = 2;
-	public const uint32 IMPLTYPEFLAG_FRESTRICTED = 4;
-	public const uint32 IMPLTYPEFLAG_FDEFAULTVTABLE = 8;
 	public const int32 DISPID_UNKNOWN = -1;
 	public const uint32 DISPID_VALUE = 0;
 	public const int32 DISPID_PROPERTYPUT = -3;
@@ -568,36 +477,18 @@ public static
 	public const uint32 LOCALE_USE_NLS = 268435456;
 	public const uint32 VTDATEGRE_MAX = 2958465;
 	public const int32 VTDATEGRE_MIN = -657434;
-	public const uint32 NUMPRS_LEADING_WHITE = 1;
-	public const uint32 NUMPRS_TRAILING_WHITE = 2;
-	public const uint32 NUMPRS_LEADING_PLUS = 4;
-	public const uint32 NUMPRS_TRAILING_PLUS = 8;
-	public const uint32 NUMPRS_LEADING_MINUS = 16;
-	public const uint32 NUMPRS_TRAILING_MINUS = 32;
-	public const uint32 NUMPRS_HEX_OCT = 64;
-	public const uint32 NUMPRS_PARENS = 128;
-	public const uint32 NUMPRS_DECIMAL = 256;
-	public const uint32 NUMPRS_THOUSANDS = 512;
-	public const uint32 NUMPRS_CURRENCY = 1024;
-	public const uint32 NUMPRS_EXPONENT = 2048;
-	public const uint32 NUMPRS_USE_ALL = 4096;
-	public const uint32 NUMPRS_STD = 8191;
-	public const uint32 NUMPRS_NEG = 65536;
-	public const uint32 NUMPRS_INEXACT = 131072;
-	public const uint32 VARCMP_LT = 0;
-	public const uint32 VARCMP_EQ = 1;
-	public const uint32 VARCMP_GT = 2;
-	public const uint32 VARCMP_NULL = 3;
 	public const int32 MEMBERID_NIL = -1;
 	public const int32 ID_DEFAULTINST = -2;
-	public const uint32 DISPATCH_METHOD = 1;
-	public const uint32 DISPATCH_PROPERTYGET = 2;
-	public const uint32 DISPATCH_PROPERTYPUT = 4;
-	public const uint32 DISPATCH_PROPERTYPUTREF = 8;
 	public const uint32 LOAD_TLB_AS_32BIT = 32;
 	public const uint32 LOAD_TLB_AS_64BIT = 64;
-	public const uint32 ACTIVEOBJECT_STRONG = 0;
-	public const uint32 ACTIVEOBJECT_WEAK = 1;
+	public const int32 fdexNameCaseSensitive = 1;
+	public const int32 fdexNameEnsure = 2;
+	public const int32 fdexNameImplicit = 4;
+	public const int32 fdexNameCaseInsensitive = 8;
+	public const int32 fdexNameInternal = 16;
+	public const int32 fdexNameNoDynamicProperties = 32;
+	public const int32 fdexEnumDefault = 1;
+	public const int32 fdexEnumAll = 2;
 	public const uint32 DISPATCH_CONSTRUCT = 16384;
 	public const int32 DISPID_STARTENUM = -1;
 	public const Guid SID_VariantConversion = .(0x1f101481, 0xbccd, 0x11d0, 0x93, 0x36, 0x00, 0xa0, 0xc9, 0x0d, 0xca, 0xa9);
@@ -648,60 +539,308 @@ public enum MULTICLASSINFO_FLAGS : uint32
 
 
 [AllowDuplicates]
-public enum VARENUM : int32
+public enum DROPEFFECT : uint32
 {
-	VT_EMPTY = 0,
-	VT_NULL = 1,
-	VT_I2 = 2,
-	VT_I4 = 3,
-	VT_R4 = 4,
-	VT_R8 = 5,
-	VT_CY = 6,
-	VT_DATE = 7,
-	VT_BSTR = 8,
-	VT_DISPATCH = 9,
-	VT_ERROR = 10,
-	VT_BOOL = 11,
-	VT_VARIANT = 12,
-	VT_UNKNOWN = 13,
-	VT_DECIMAL = 14,
-	VT_I1 = 16,
-	VT_UI1 = 17,
-	VT_UI2 = 18,
-	VT_UI4 = 19,
-	VT_I8 = 20,
-	VT_UI8 = 21,
-	VT_INT = 22,
-	VT_UINT = 23,
-	VT_VOID = 24,
-	VT_HRESULT = 25,
-	VT_PTR = 26,
-	VT_SAFEARRAY = 27,
-	VT_CARRAY = 28,
-	VT_USERDEFINED = 29,
-	VT_LPSTR = 30,
-	VT_LPWSTR = 31,
-	VT_RECORD = 36,
-	VT_INT_PTR = 37,
-	VT_UINT_PTR = 38,
-	VT_FILETIME = 64,
-	VT_BLOB = 65,
-	VT_STREAM = 66,
-	VT_STORAGE = 67,
-	VT_STREAMED_OBJECT = 68,
-	VT_STORED_OBJECT = 69,
-	VT_BLOB_OBJECT = 70,
-	VT_CF = 71,
-	VT_CLSID = 72,
-	VT_VERSIONED_STREAM = 73,
-	VT_BSTR_BLOB = 4095,
-	VT_VECTOR = 4096,
-	VT_ARRAY = 8192,
-	VT_BYREF = 16384,
-	VT_RESERVED = 32768,
-	VT_ILLEGAL = 65535,
-	VT_ILLEGALMASKED = 4095,
-	VT_TYPEMASK = 4095,
+	DROPEFFECT_NONE = 0,
+	DROPEFFECT_COPY = 1,
+	DROPEFFECT_MOVE = 2,
+	DROPEFFECT_LINK = 4,
+	DROPEFFECT_SCROLL = 2147483648,
+}
+
+
+[AllowDuplicates]
+public enum KEYMODIFIERS : uint32
+{
+	KEYMOD_SHIFT = 1,
+	KEYMOD_CONTROL = 2,
+	KEYMOD_ALT = 4,
+}
+
+
+[AllowDuplicates]
+public enum ACTIVEOBJECT_FLAGS : uint32
+{
+	ACTIVEOBJECT_STRONG = 0,
+	ACTIVEOBJECT_WEAK = 1,
+}
+
+
+[AllowDuplicates]
+public enum BUSY_DIALOG_FLAGS : uint32
+{
+	BZ_DISABLECANCELBUTTON = 1,
+	BZ_DISABLESWITCHTOBUTTON = 2,
+	BZ_DISABLERETRYBUTTON = 4,
+	BZ_NOTRESPONDINGDIALOG = 8,
+}
+
+
+[AllowDuplicates]
+public enum UI_CONVERT_FLAGS : uint32
+{
+	CF_SHOWHELPBUTTON = 1,
+	CF_SETCONVERTDEFAULT = 2,
+	CF_SETACTIVATEDEFAULT = 4,
+	CF_SELECTCONVERTTO = 8,
+	CF_SELECTACTIVATEAS = 16,
+	CF_DISABLEDISPLAYASICON = 32,
+	CF_DISABLEACTIVATEAS = 64,
+	CF_HIDECHANGEICON = 128,
+	CF_CONVERTONLY = 256,
+}
+
+
+[AllowDuplicates]
+public enum CHANGE_ICON_FLAGS : int32
+{
+	CIF_SHOWHELP = 1,
+	CIF_SELECTCURRENT = 2,
+	CIF_SELECTDEFAULT = 4,
+	CIF_SELECTFROMFILE = 8,
+	CIF_USEICONEXE = 16,
+}
+
+
+[AllowDuplicates]
+public enum CHANGE_SOURCE_FLAGS : uint32
+{
+	CSF_SHOWHELP = 1,
+	CSF_VALIDSOURCE = 2,
+	CSF_ONLYGETSOURCE = 4,
+	CSF_EXPLORER = 8,
+}
+
+
+[AllowDuplicates]
+public enum EDIT_LINKS_FLAGS : uint32
+{
+	ELF_SHOWHELP = 1,
+	ELF_DISABLEUPDATENOW = 2,
+	ELF_DISABLEOPENSOURCE = 4,
+	ELF_DISABLECHANGESOURCE = 8,
+	ELF_DISABLECANCELLINK = 16,
+}
+
+
+[AllowDuplicates]
+public enum INSERT_OBJECT_FLAGS : uint32
+{
+	IOF_SHOWHELP = 1,
+	IOF_SELECTCREATENEW = 2,
+	IOF_SELECTCREATEFROMFILE = 4,
+	IOF_CHECKLINK = 8,
+	IOF_CHECKDISPLAYASICON = 16,
+	IOF_CREATENEWOBJECT = 32,
+	IOF_CREATEFILEOBJECT = 64,
+	IOF_CREATELINKOBJECT = 128,
+	IOF_DISABLELINK = 256,
+	IOF_VERIFYSERVERSEXIST = 512,
+	IOF_DISABLEDISPLAYASICON = 1024,
+	IOF_HIDECHANGEICON = 2048,
+	IOF_SHOWINSERTCONTROL = 4096,
+	IOF_SELECTCREATECONTROL = 8192,
+}
+
+
+[AllowDuplicates]
+public enum OBJECT_PROPERTIES_FLAGS : uint32
+{
+	OPF_OBJECTISLINK = 1,
+	OPF_NOFILLDEFAULT = 2,
+	OPF_SHOWHELP = 4,
+	OPF_DISABLECONVERT = 8,
+}
+
+
+[AllowDuplicates]
+public enum VIEW_OBJECT_PROPERTIES_FLAGS : uint32
+{
+	VPF_SELECTRELATIVE = 1,
+	VPF_DISABLERELATIVE = 2,
+	VPF_DISABLESCALE = 4,
+}
+
+
+[AllowDuplicates]
+public enum PARAMFLAGS : uint16
+{
+	PARAMFLAG_NONE = 0,
+	PARAMFLAG_FIN = 1,
+	PARAMFLAG_FOUT = 2,
+	PARAMFLAG_FLCID = 4,
+	PARAMFLAG_FRETVAL = 8,
+	PARAMFLAG_FOPT = 16,
+	PARAMFLAG_FHASDEFAULT = 32,
+	PARAMFLAG_FHASCUSTDATA = 64,
+}
+
+
+[AllowDuplicates]
+public enum NUMPARSE_FLAGS : uint32
+{
+	NUMPRS_LEADING_WHITE = 1,
+	NUMPRS_TRAILING_WHITE = 2,
+	NUMPRS_LEADING_PLUS = 4,
+	NUMPRS_TRAILING_PLUS = 8,
+	NUMPRS_LEADING_MINUS = 16,
+	NUMPRS_TRAILING_MINUS = 32,
+	NUMPRS_HEX_OCT = 64,
+	NUMPRS_PARENS = 128,
+	NUMPRS_DECIMAL = 256,
+	NUMPRS_THOUSANDS = 512,
+	NUMPRS_CURRENCY = 1024,
+	NUMPRS_EXPONENT = 2048,
+	NUMPRS_USE_ALL = 4096,
+	NUMPRS_STD = 8191,
+	NUMPRS_NEG = 65536,
+	NUMPRS_INEXACT = 131072,
+}
+
+
+[AllowDuplicates]
+public enum PICTYPE : int32
+{
+	PICTYPE_UNINITIALIZED = -1,
+	PICTYPE_NONE = 0,
+	PICTYPE_BITMAP = 1,
+	PICTYPE_METAFILE = 2,
+	PICTYPE_ICON = 3,
+	PICTYPE_ENHMETAFILE = 4,
+}
+
+
+[AllowDuplicates]
+public enum VARCMP : uint32
+{
+	VARCMP_LT = 0,
+	VARCMP_EQ = 1,
+	VARCMP_GT = 2,
+	VARCMP_NULL = 3,
+}
+
+
+[AllowDuplicates]
+public enum PASTE_SPECIAL_FLAGS : uint32
+{
+	PSF_SHOWHELP = 1,
+	PSF_SELECTPASTE = 2,
+	PSF_SELECTPASTELINK = 4,
+	PSF_CHECKDISPLAYASICON = 8,
+	PSF_DISABLEDISPLAYASICON = 16,
+	PSF_HIDECHANGEICON = 32,
+	PSF_STAYONCLIPBOARDCHANGE = 64,
+	PSF_NOREFRESHDATAOBJECT = 128,
+}
+
+
+[AllowDuplicates]
+public enum EMBDHLP_FLAGS : uint32
+{
+	EMBDHLP_INPROC_HANDLER = 0,
+	EMBDHLP_INPROC_SERVER = 1,
+	EMBDHLP_CREATENOW = 0,
+	EMBDHLP_DELAYCREATE = 65536,
+}
+
+
+[AllowDuplicates]
+public enum FDEX_PROP_FLAGS : uint32
+{
+	fdexPropCanGet = 1,
+	fdexPropCannotGet = 2,
+	fdexPropCanPut = 4,
+	fdexPropCannotPut = 8,
+	fdexPropCanPutRef = 16,
+	fdexPropCannotPutRef = 32,
+	fdexPropNoSideEffects = 64,
+	fdexPropDynamicType = 128,
+	fdexPropCanCall = 256,
+	fdexPropCannotCall = 512,
+	fdexPropCanConstruct = 1024,
+	fdexPropCannotConstruct = 2048,
+	fdexPropCanSourceEvents = 4096,
+	fdexPropCannotSourceEvents = 8192,
+}
+
+
+[AllowDuplicates]
+public enum LOAD_PICTURE_FLAGS : uint32
+{
+	LP_DEFAULT = 0,
+	LP_MONOCHROME = 1,
+	LP_VGACOLOR = 2,
+	LP_COLOR = 4,
+}
+
+
+[AllowDuplicates]
+public enum OLECREATE : uint32
+{
+	OLECREATE_ZERO = 0,
+	OLECREATE_LEAVERUNNING = 1,
+}
+
+
+[AllowDuplicates]
+public enum VARFORMAT_FIRST_DAY : int32
+{
+	VARFORMAT_FIRST_DAY_SYSTEMDEFAULT = 0,
+	VARFORMAT_FIRST_DAY_MONDAY = 1,
+	VARFORMAT_FIRST_DAY_TUESDAY = 2,
+	VARFORMAT_FIRST_DAY_WEDNESDAY = 3,
+	VARFORMAT_FIRST_DAY_THURSDAY = 4,
+	VARFORMAT_FIRST_DAY_FRIDAY = 5,
+	VARFORMAT_FIRST_DAY_SATURDAY = 6,
+	VARFORMAT_FIRST_DAY_SUNDAY = 7,
+}
+
+
+[AllowDuplicates]
+public enum VARFORMAT_FIRST_WEEK : int32
+{
+	VARFORMAT_FIRST_WEEK_SYSTEMDEFAULT = 0,
+	VARFORMAT_FIRST_WEEK_CONTAINS_JANUARY_FIRST = 1,
+	VARFORMAT_FIRST_WEEK_LARGER_HALF_IN_CURRENT_YEAR = 2,
+	VARFORMAT_FIRST_WEEK_HAS_SEVEN_DAYS = 3,
+}
+
+
+[AllowDuplicates]
+public enum VARFORMAT_NAMED_FORMAT : int32
+{
+	VARFORMAT_NAMED_FORMAT_GENERALDATE = 0,
+	VARFORMAT_NAMED_FORMAT_LONGDATE = 1,
+	VARFORMAT_NAMED_FORMAT_SHORTDATE = 2,
+	VARFORMAT_NAMED_FORMAT_LONGTIME = 3,
+	VARFORMAT_NAMED_FORMAT_SHORTTIME = 4,
+}
+
+
+[AllowDuplicates]
+public enum VARFORMAT_LEADING_DIGIT : int32
+{
+	VARFORMAT_LEADING_DIGIT_SYSTEMDEFAULT = -2,
+	VARFORMAT_LEADING_DIGIT_INCLUDED = -1,
+	VARFORMAT_LEADING_DIGIT_NOTINCLUDED = 0,
+}
+
+
+[AllowDuplicates]
+public enum VARFORMAT_PARENTHESES : int32
+{
+	VARFORMAT_PARENTHESES_SYSTEMDEFAULT = -2,
+	VARFORMAT_PARENTHESES_USED = -1,
+	VARFORMAT_PARENTHESES_NOTUSED = 0,
+}
+
+
+[AllowDuplicates]
+public enum VARFORMAT_GROUP : int32
+{
+	VARFORMAT_GROUP_SYSTEMDEFAULT = -2,
+	VARFORMAT_GROUP_THOUSANDS = -1,
+	VARFORMAT_GROUP_NOTTHOUSANDS = 0,
 }
 
 
@@ -740,44 +879,6 @@ public enum TYPEFLAGS : int32
 	TYPEFLAG_FDISPATCHABLE = 4096,
 	TYPEFLAG_FREVERSEBIND = 8192,
 	TYPEFLAG_FPROXY = 16384,
-}
-
-
-[AllowDuplicates]
-public enum FUNCFLAGS : int32
-{
-	FUNCFLAG_FRESTRICTED = 1,
-	FUNCFLAG_FSOURCE = 2,
-	FUNCFLAG_FBINDABLE = 4,
-	FUNCFLAG_FREQUESTEDIT = 8,
-	FUNCFLAG_FDISPLAYBIND = 16,
-	FUNCFLAG_FDEFAULTBIND = 32,
-	FUNCFLAG_FHIDDEN = 64,
-	FUNCFLAG_FUSESGETLASTERROR = 128,
-	FUNCFLAG_FDEFAULTCOLLELEM = 256,
-	FUNCFLAG_FUIDEFAULT = 512,
-	FUNCFLAG_FNONBROWSABLE = 1024,
-	FUNCFLAG_FREPLACEABLE = 2048,
-	FUNCFLAG_FIMMEDIATEBIND = 4096,
-}
-
-
-[AllowDuplicates]
-public enum VARFLAGS : int32
-{
-	VARFLAG_FREADONLY = 1,
-	VARFLAG_FSOURCE = 2,
-	VARFLAG_FBINDABLE = 4,
-	VARFLAG_FREQUESTEDIT = 8,
-	VARFLAG_FDISPLAYBIND = 16,
-	VARFLAG_FDEFAULTBIND = 32,
-	VARFLAG_FHIDDEN = 64,
-	VARFLAG_FRESTRICTED = 128,
-	VARFLAG_FDEFAULTCOLLELEM = 256,
-	VARFLAG_FUIDEFAULT = 512,
-	VARFLAG_FNONBROWSABLE = 1024,
-	VARFLAG_FREPLACEABLE = 2048,
-	VARFLAG_FIMMEDIATEBIND = 4096,
 }
 
 
@@ -997,7 +1098,7 @@ public enum PROPPAGESTATUS : int32
 
 
 [AllowDuplicates]
-public enum PictureAttributes : int32
+public enum PICTUREATTRIBUTES : int32
 {
 	PICTURE_SCALABLE = 1,
 	PICTURE_TRANSPARENT = 2,
@@ -1043,15 +1144,7 @@ public enum HITRESULT : int32
 
 
 [AllowDuplicates]
-public enum DVASPECT2 : int32
-{
-	DVASPECT_OPAQUE = 16,
-	DVASPECT_TRANSPARENT = 32,
-}
-
-
-[AllowDuplicates]
-public enum ExtentMode : int32
+public enum DVEXTENTMODE : int32
 {
 	DVEXTENT_CONTENT = 0,
 	DVEXTENT_INTEGRAL = 1,
@@ -1059,7 +1152,7 @@ public enum ExtentMode : int32
 
 
 [AllowDuplicates]
-public enum AspectInfoFlag : int32
+public enum DVASPECTINFOFLAG : int32
 {
 	DVASPECTINFOFLAG_CANOPTIMIZE = 1,
 }
@@ -1426,42 +1519,42 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 
 #region Structs
 [CRepr]
-public struct _wireSAFEARR_BSTR
+public struct SAFEARR_BSTR
 {
 	public uint32 Size;
 	public FLAGGED_WORD_BLOB** aBstr;
 }
 
 [CRepr]
-public struct _wireSAFEARR_UNKNOWN
+public struct SAFEARR_UNKNOWN
 {
 	public uint32 Size;
 	public IUnknown** apUnknown;
 }
 
 [CRepr]
-public struct _wireSAFEARR_DISPATCH
+public struct SAFEARR_DISPATCH
 {
 	public uint32 Size;
 	public IDispatch** apDispatch;
 }
 
 [CRepr]
-public struct _wireSAFEARR_VARIANT
+public struct SAFEARR_VARIANT
 {
 	public uint32 Size;
 	public _wireVARIANT** aVariant;
 }
 
 [CRepr]
-public struct _wireSAFEARR_BRECORD
+public struct SAFEARR_BRECORD
 {
 	public uint32 Size;
 	public _wireBRECORD** aRecord;
 }
 
 [CRepr]
-public struct _wireSAFEARR_HAVEIID
+public struct SAFEARR_HAVEIID
 {
 	public uint32 Size;
 	public IUnknown** apUnknown;
@@ -1469,20 +1562,20 @@ public struct _wireSAFEARR_HAVEIID
 }
 
 [CRepr]
-public struct _wireSAFEARRAY_UNION
+public struct SAFEARRAYUNION
 {
 	[CRepr, Union]
 	public struct _u_e__Struct
 	{
-		public _wireSAFEARR_BSTR BstrStr;
-		public _wireSAFEARR_UNKNOWN UnknownStr;
-		public _wireSAFEARR_DISPATCH DispatchStr;
-		public _wireSAFEARR_VARIANT VariantStr;
-		public _wireSAFEARR_BRECORD RecordStr;
-		public _wireSAFEARR_HAVEIID HaveIidStr;
+		public SAFEARR_BSTR BstrStr;
+		public SAFEARR_UNKNOWN UnknownStr;
+		public SAFEARR_DISPATCH DispatchStr;
+		public SAFEARR_VARIANT VariantStr;
+		public SAFEARR_BRECORD RecordStr;
+		public SAFEARR_HAVEIID HaveIidStr;
 		public BYTE_SIZEDARR ByteStr;
-		public SHORT_SIZEDARR WordStr;
-		public LONG_SIZEDARR LongStr;
+		public WORD_SIZEDARR WordStr;
+		public DWORD_SIZEDARR LongStr;
 		public HYPER_SIZEDARR HyperStr;
 	}
 	public uint32 sfType;
@@ -1496,7 +1589,7 @@ public struct _wireSAFEARRAY
 	public uint16 fFeatures;
 	public uint32 cbElements;
 	public uint32 cLocks;
-	public _wireSAFEARRAY_UNION uArrayStructs;
+	public SAFEARRAYUNION uArrayStructs;
 	public SAFEARRAYBOUND* rgsabound mut => &rgsabound_impl;
 	private SAFEARRAYBOUND[ANYSIZE_ARRAY] rgsabound_impl;
 }
@@ -1590,7 +1683,7 @@ public struct PARAMDESCEX
 public struct PARAMDESC
 {
 	public PARAMDESCEX* pparamdescex;
-	public uint16 wParamFlags;
+	public PARAMFLAGS wParamFlags;
 }
 
 [CRepr]
@@ -1615,7 +1708,7 @@ public struct OBJECTDESCRIPTOR
 }
 
 [CRepr]
-public struct OIFI
+public struct OLEINPLACEFRAMEINFO
 {
 	public uint32 cb;
 	public BOOL fMDIApp;
@@ -1625,7 +1718,7 @@ public struct OIFI
 }
 
 [CRepr]
-public struct OleMenuGroupWidths
+public struct OLEMENUGROUPWIDTHS
 {
 	public int32[6] width;
 }
@@ -1635,16 +1728,16 @@ public struct OLEVERB
 {
 	public int32 lVerb;
 	public PWSTR lpszVerbName;
-	public uint32 fuFlags;
-	public uint32 grfAttribs;
+	public MENU_ITEM_FLAGS fuFlags;
+	public OLEVERBATTRIB grfAttribs;
 }
 
 [CRepr]
 public struct NUMPARSE
 {
 	public int32 cDig;
-	public uint32 dwInFlags;
-	public uint32 dwOutFlags;
+	public NUMPARSE_FLAGS dwInFlags;
+	public NUMPARSE_FLAGS dwOutFlags;
 	public int32 cchUsed;
 	public int32 nBaseShift;
 	public int32 nPwr10;
@@ -1661,7 +1754,7 @@ public struct UDATE
 public struct PARAMDATA
 {
 	public PWSTR szName;
-	public uint16 vt;
+	public VARENUM vt;
 }
 
 [CRepr]
@@ -1674,7 +1767,7 @@ public struct METHODDATA
 	public CALLCONV cc;
 	public uint32 cArgs;
 	public uint16 wFlags;
-	public uint16 vtReturn;
+	public VARENUM vtReturn;
 }
 
 [CRepr]
@@ -1698,7 +1791,7 @@ public struct CONTROLINFO
 	public uint32 cb;
 	public HACCEL hAccel;
 	public uint16 cAccel;
-	public uint32 dwFlags;
+	public CTRLINFO dwFlags;
 }
 
 [CRepr]
@@ -1727,7 +1820,7 @@ public struct CAUUID
 }
 
 [CRepr]
-public struct ExtentInfo
+public struct DVEXTENTINFO
 {
 	public uint32 cb;
 	public uint32 dwExtentMode;
@@ -1735,7 +1828,7 @@ public struct ExtentInfo
 }
 
 [CRepr]
-public struct AspectInfo
+public struct DVASPECTINFO
 {
 	public uint32 cb;
 	public uint32 dwFlags;
@@ -1763,7 +1856,7 @@ public struct QACONTAINER
 	public IAdviseSinkEx* pAdviseSink;
 	public IPropertyNotifySink* pPropertyNotifySink;
 	public IUnknown* pUnkEventSink;
-	public uint32 dwAmbientFlags;
+	public QACONTAINERFLAGS dwAmbientFlags;
 	public uint32 colorFore;
 	public uint32 colorBack;
 	public IFont* pFont;
@@ -1780,11 +1873,11 @@ public struct QACONTAINER
 public struct QACONTROL
 {
 	public uint32 cbSize;
-	public uint32 dwMiscStatus;
-	public uint32 dwViewStatus;
+	public OLEMISC dwMiscStatus;
+	public VIEWSTATUS dwViewStatus;
 	public uint32 dwEventCookie;
 	public uint32 dwPropNotifyCookie;
-	public uint32 dwPointerActivationPolicy;
+	public POINTERINACTIVE dwPointerActivationPolicy;
 }
 
 [CRepr]
@@ -1851,7 +1944,7 @@ public struct PICTDESC
 		public _emf_e__Struct emf;
 	}
 	public uint32 cbSizeofstruct;
-	public uint32 picType;
+	public PICTYPE picType;
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -1876,8 +1969,8 @@ public struct PAGESET
 [CRepr]
 public struct OLECMD
 {
-	public uint32 cmdID;
-	public uint32 cmdf;
+	public OLECMDID cmdID;
+	public OLECMDF cmdf;
 }
 
 [CRepr]
@@ -1894,7 +1987,7 @@ public struct OLECMDTEXT
 public struct OLEUIINSERTOBJECTW
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public INSERT_OBJECT_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PWSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -1921,7 +2014,7 @@ public struct OLEUIINSERTOBJECTW
 public struct OLEUIINSERTOBJECTA
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public INSERT_OBJECT_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -1968,7 +2061,7 @@ public struct OLEUIPASTEENTRYA
 public struct OLEUIPASTESPECIALW
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public PASTE_SPECIAL_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PWSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -1993,7 +2086,7 @@ public struct OLEUIPASTESPECIALW
 public struct OLEUIPASTESPECIALA
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public PASTE_SPECIAL_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -2018,7 +2111,7 @@ public struct OLEUIPASTESPECIALA
 public struct OLEUIEDITLINKSW
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public EDIT_LINKS_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PWSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -2033,7 +2126,7 @@ public struct OLEUIEDITLINKSW
 public struct OLEUIEDITLINKSA
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public EDIT_LINKS_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -2048,7 +2141,7 @@ public struct OLEUIEDITLINKSA
 public struct OLEUICHANGEICONW
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public CHANGE_ICON_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PWSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -2066,7 +2159,7 @@ public struct OLEUICHANGEICONW
 public struct OLEUICHANGEICONA
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public CHANGE_ICON_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -2084,7 +2177,7 @@ public struct OLEUICHANGEICONA
 public struct OLEUICONVERTW
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public UI_CONVERT_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PWSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -2111,7 +2204,7 @@ public struct OLEUICONVERTW
 public struct OLEUICONVERTA
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public UI_CONVERT_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -2170,7 +2263,7 @@ public struct OLEUIBUSYA
 public struct OLEUICHANGESOURCEW
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public CHANGE_SOURCE_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PWSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -2192,7 +2285,7 @@ public struct OLEUICHANGESOURCEW
 public struct OLEUICHANGESOURCEA
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public CHANGE_SOURCE_FLAGS dwFlags;
 	public HWND hWndOwner;
 	public PSTR lpszCaption;
 	public LPFNOLEUIHOOK lpfnHook;
@@ -2238,7 +2331,7 @@ public struct OLEUIGNRLPROPSA
 public struct OLEUIVIEWPROPSW
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public VIEW_OBJECT_PROPERTIES_FLAGS dwFlags;
 	public uint32[2] dwReserved1;
 	public LPFNOLEUIHOOK lpfnHook;
 	public LPARAM lCustData;
@@ -2252,7 +2345,7 @@ public struct OLEUIVIEWPROPSW
 public struct OLEUIVIEWPROPSA
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public VIEW_OBJECT_PROPERTIES_FLAGS dwFlags;
 	public uint32[2] dwReserved1;
 	public LPFNOLEUIHOOK lpfnHook;
 	public LPARAM lCustData;
@@ -2290,7 +2383,7 @@ public struct OLEUILINKPROPSA
 public struct OLEUIOBJECTPROPSW
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public OBJECT_PROPERTIES_FLAGS dwFlags;
 	public PROPSHEETHEADERW_V2* lpPS;
 	public uint32 dwObject;
 	public IOleUIObjInfoW* lpObjInfo;
@@ -2305,7 +2398,7 @@ public struct OLEUIOBJECTPROPSW
 public struct OLEUIOBJECTPROPSA
 {
 	public uint32 cbStruct;
-	public uint32 dwFlags;
+	public OBJECT_PROPERTIES_FLAGS dwFlags;
 	public PROPSHEETHEADERA_V2* lpPS;
 	public uint32 dwObject;
 	public IOleUIObjInfoA* lpObjInfo;
@@ -2648,8 +2741,8 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITypeInfo** ppTypeInfo) GetTypeInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvData, PWSTR szFieldName, VARIANT* pvarField) GetField;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvData, PWSTR szFieldName, VARIANT* pvarField, void** ppvDataCArray) GetFieldNoCopy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 wFlags, void* pvData, PWSTR szFieldName, VARIANT* pvarField) PutField;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 wFlags, void* pvData, PWSTR szFieldName, VARIANT* pvarField) PutFieldNoCopy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INVOKEKIND wFlags, void* pvData, PWSTR szFieldName, VARIANT* pvarField) PutField;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INVOKEKIND wFlags, void* pvData, PWSTR szFieldName, VARIANT* pvarField) PutFieldNoCopy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcNames, BSTR* rgBstrNames) GetFieldNames;
 		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, IRecordInfo* pRecordInfo) IsMatchingType;
 		protected new function [CallingConvention(.Stdcall)] void*(SelfOuter* self) RecordCreate;
@@ -2676,9 +2769,9 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT GetFieldNoCopy(void* pvData, PWSTR szFieldName, VARIANT* pvarField, void** ppvDataCArray) mut => VT.[Friend]GetFieldNoCopy(&this, pvData, szFieldName, pvarField, ppvDataCArray);
 
-	public HRESULT PutField(uint32 wFlags, void* pvData, PWSTR szFieldName, VARIANT* pvarField) mut => VT.[Friend]PutField(&this, wFlags, pvData, szFieldName, pvarField);
+	public HRESULT PutField(INVOKEKIND wFlags, void* pvData, PWSTR szFieldName, VARIANT* pvarField) mut => VT.[Friend]PutField(&this, wFlags, pvData, szFieldName, pvarField);
 
-	public HRESULT PutFieldNoCopy(uint32 wFlags, void* pvData, PWSTR szFieldName, VARIANT* pvarField) mut => VT.[Friend]PutFieldNoCopy(&this, wFlags, pvData, szFieldName, pvarField);
+	public HRESULT PutFieldNoCopy(INVOKEKIND wFlags, void* pvData, PWSTR szFieldName, VARIANT* pvarField) mut => VT.[Friend]PutFieldNoCopy(&this, wFlags, pvData, szFieldName, pvarField);
 
 	public HRESULT GetFieldNames(uint32* pcNames, BSTR* rgBstrNames) mut => VT.[Friend]GetFieldNames(&this, pcNames, rgBstrNames);
 
@@ -2807,12 +2900,12 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IParseDisplayName.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfFlags, IEnumUnknown** ppenum) EnumObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OLECONTF grfFlags, IEnumUnknown** ppenum) EnumObjects;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fLock) LockContainer;
 	}
 
 
-	public HRESULT EnumObjects(uint32 grfFlags, IEnumUnknown** ppenum) mut => VT.[Friend]EnumObjects(&this, grfFlags, ppenum);
+	public HRESULT EnumObjects(OLECONTF grfFlags, IEnumUnknown** ppenum) mut => VT.[Friend]EnumObjects(&this, grfFlags, ppenum);
 
 	public HRESULT LockContainer(BOOL fLock) mut => VT.[Friend]LockContainer(&this, fLock);
 }
@@ -2826,7 +2919,7 @@ public struct OLEUIOBJECTPROPSA
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SaveObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAssign, uint32 dwWhichMoniker, IMoniker** ppmk) GetMoniker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OLEGETMONIKER dwAssign, OLEWHICHMK dwWhichMoniker, IMoniker** ppmk) GetMoniker;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleContainer** ppContainer) GetContainer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ShowObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fShow) OnShowWindow;
@@ -2836,7 +2929,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT SaveObject() mut => VT.[Friend]SaveObject(&this);
 
-	public HRESULT GetMoniker(uint32 dwAssign, uint32 dwWhichMoniker, IMoniker** ppmk) mut => VT.[Friend]GetMoniker(&this, dwAssign, dwWhichMoniker, ppmk);
+	public HRESULT GetMoniker(OLEGETMONIKER dwAssign, OLEWHICHMK dwWhichMoniker, IMoniker** ppmk) mut => VT.[Friend]GetMoniker(&this, dwAssign, dwWhichMoniker, ppmk);
 
 	public HRESULT GetContainer(IOleContainer** ppContainer) mut => VT.[Friend]GetContainer(&this, ppContainer);
 
@@ -2858,9 +2951,9 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleClientSite* pClientSite) SetClientSite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleClientSite** ppClientSite) GetClientSite;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szContainerApp, PWSTR szContainerObj) SetHostNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSaveOption) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwWhichMoniker, IMoniker* pmk) SetMoniker;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAssign, uint32 dwWhichMoniker, IMoniker** ppmk) GetMoniker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OLECLOSE dwSaveOption) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OLEWHICHMK dwWhichMoniker, IMoniker* pmk) SetMoniker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OLEGETMONIKER dwAssign, OLEWHICHMK dwWhichMoniker, IMoniker** ppmk) GetMoniker;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* pDataObject, BOOL fCreation, uint32 dwReserved) InitFromData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwReserved, IDataObject** ppDataObject) GetClipboardData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iVerb, MSG* lpmsg, IOleClientSite* pActiveSite, int32 lindex, HWND hwndParent, RECT* lprcPosRect) DoVerb;
@@ -2868,13 +2961,13 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Update;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsUpToDate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid* pClsid) GetUserClassID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFormOfType, PWSTR* pszUserType) GetUserType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDrawAspect, SIZE* psizel) SetExtent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDrawAspect, SIZE* psizel) GetExtent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, USERCLASSTYPE dwFormOfType, PWSTR* pszUserType) GetUserType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT dwDrawAspect, SIZE* psizel) SetExtent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT dwDrawAspect, SIZE* psizel) GetExtent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAdviseSink* pAdvSink, uint32* pdwConnection) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwConnection) Unadvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumSTATDATA** ppenumAdvise) EnumAdvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAspect, uint32* pdwStatus) GetMiscStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT dwAspect, OLEMISC* pdwStatus) GetMiscStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LOGPALETTE* pLogpal) SetColorScheme;
 	}
 
@@ -2885,11 +2978,11 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT SetHostNames(PWSTR szContainerApp, PWSTR szContainerObj) mut => VT.[Friend]SetHostNames(&this, szContainerApp, szContainerObj);
 
-	public HRESULT Close(uint32 dwSaveOption) mut => VT.[Friend]Close(&this, dwSaveOption);
+	public HRESULT Close(OLECLOSE dwSaveOption) mut => VT.[Friend]Close(&this, dwSaveOption);
 
-	public HRESULT SetMoniker(uint32 dwWhichMoniker, IMoniker* pmk) mut => VT.[Friend]SetMoniker(&this, dwWhichMoniker, pmk);
+	public HRESULT SetMoniker(OLEWHICHMK dwWhichMoniker, IMoniker* pmk) mut => VT.[Friend]SetMoniker(&this, dwWhichMoniker, pmk);
 
-	public HRESULT GetMoniker(uint32 dwAssign, uint32 dwWhichMoniker, IMoniker** ppmk) mut => VT.[Friend]GetMoniker(&this, dwAssign, dwWhichMoniker, ppmk);
+	public HRESULT GetMoniker(OLEGETMONIKER dwAssign, OLEWHICHMK dwWhichMoniker, IMoniker** ppmk) mut => VT.[Friend]GetMoniker(&this, dwAssign, dwWhichMoniker, ppmk);
 
 	public HRESULT InitFromData(IDataObject* pDataObject, BOOL fCreation, uint32 dwReserved) mut => VT.[Friend]InitFromData(&this, pDataObject, fCreation, dwReserved);
 
@@ -2905,11 +2998,11 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT GetUserClassID(Guid* pClsid) mut => VT.[Friend]GetUserClassID(&this, pClsid);
 
-	public HRESULT GetUserType(uint32 dwFormOfType, PWSTR* pszUserType) mut => VT.[Friend]GetUserType(&this, dwFormOfType, pszUserType);
+	public HRESULT GetUserType(USERCLASSTYPE dwFormOfType, PWSTR* pszUserType) mut => VT.[Friend]GetUserType(&this, dwFormOfType, pszUserType);
 
-	public HRESULT SetExtent(uint32 dwDrawAspect, SIZE* psizel) mut => VT.[Friend]SetExtent(&this, dwDrawAspect, psizel);
+	public HRESULT SetExtent(DVASPECT dwDrawAspect, SIZE* psizel) mut => VT.[Friend]SetExtent(&this, dwDrawAspect, psizel);
 
-	public HRESULT GetExtent(uint32 dwDrawAspect, SIZE* psizel) mut => VT.[Friend]GetExtent(&this, dwDrawAspect, psizel);
+	public HRESULT GetExtent(DVASPECT dwDrawAspect, SIZE* psizel) mut => VT.[Friend]GetExtent(&this, dwDrawAspect, psizel);
 
 	public HRESULT Advise(IAdviseSink* pAdvSink, uint32* pdwConnection) mut => VT.[Friend]Advise(&this, pAdvSink, pdwConnection);
 
@@ -2917,7 +3010,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT EnumAdvise(IEnumSTATDATA** ppenumAdvise) mut => VT.[Friend]EnumAdvise(&this, ppenumAdvise);
 
-	public HRESULT GetMiscStatus(uint32 dwAspect, uint32* pdwStatus) mut => VT.[Friend]GetMiscStatus(&this, dwAspect, pdwStatus);
+	public HRESULT GetMiscStatus(DVASPECT dwAspect, OLEMISC* pdwStatus) mut => VT.[Friend]GetMiscStatus(&this, dwAspect, pdwStatus);
 
 	public HRESULT SetColorScheme(LOGPALETTE* pLogpal) mut => VT.[Friend]SetColorScheme(&this, pLogpal);
 }
@@ -3065,7 +3158,7 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IOleInPlaceUIWindow.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMENU hmenuShared, OleMenuGroupWidths* lpMenuWidths) InsertMenus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMENU hmenuShared, OLEMENUGROUPWIDTHS* lpMenuWidths) InsertMenus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMENU hmenuShared, int holemenu, HWND hwndActiveObject) SetMenu;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMENU hmenuShared) RemoveMenus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStatusText) SetStatusText;
@@ -3074,7 +3167,7 @@ public struct OLEUIOBJECTPROPSA
 	}
 
 
-	public HRESULT InsertMenus(HMENU hmenuShared, OleMenuGroupWidths* lpMenuWidths) mut => VT.[Friend]InsertMenus(&this, hmenuShared, lpMenuWidths);
+	public HRESULT InsertMenus(HMENU hmenuShared, OLEMENUGROUPWIDTHS* lpMenuWidths) mut => VT.[Friend]InsertMenus(&this, hmenuShared, lpMenuWidths);
 
 	public HRESULT SetMenu(HMENU hmenuShared, int holemenu, HWND hwndActiveObject) mut => VT.[Friend]SetMenu(&this, hmenuShared, holemenu, hwndActiveObject);
 
@@ -3122,7 +3215,7 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CanInPlaceActivate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnInPlaceActivate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnUIActivate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleInPlaceFrame** ppFrame, IOleInPlaceUIWindow** ppDoc, RECT* lprcPosRect, RECT* lprcClipRect, OIFI* lpFrameInfo) GetWindowContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleInPlaceFrame** ppFrame, IOleInPlaceUIWindow** ppDoc, RECT* lprcPosRect, RECT* lprcClipRect, OLEINPLACEFRAMEINFO* lpFrameInfo) GetWindowContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SIZE scrollExtant) Scroll;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fUndoable) OnUIDeactivate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnInPlaceDeactivate;
@@ -3138,7 +3231,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT OnUIActivate() mut => VT.[Friend]OnUIActivate(&this);
 
-	public HRESULT GetWindowContext(IOleInPlaceFrame** ppFrame, IOleInPlaceUIWindow** ppDoc, RECT* lprcPosRect, RECT* lprcClipRect, OIFI* lpFrameInfo) mut => VT.[Friend]GetWindowContext(&this, ppFrame, ppDoc, lprcPosRect, lprcClipRect, lpFrameInfo);
+	public HRESULT GetWindowContext(IOleInPlaceFrame** ppFrame, IOleInPlaceUIWindow** ppDoc, RECT* lprcPosRect, RECT* lprcClipRect, OLEINPLACEFRAMEINFO* lpFrameInfo) mut => VT.[Friend]GetWindowContext(&this, ppFrame, ppDoc, lprcPosRect, lprcClipRect, lpFrameInfo);
 
 	public HRESULT Scroll(SIZE scrollExtant) mut => VT.[Friend]Scroll(&this, scrollExtant);
 
@@ -3176,24 +3269,24 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDrawAspect, int32 lindex, void* pvAspect, DVTARGETDEVICE* ptd, HDC hdcTargetDev, HDC hdcDraw, RECTL* lprcBounds, RECTL* lprcWBounds, int pfnContinue, uint dwContinue) Draw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDrawAspect, int32 lindex, void* pvAspect, DVTARGETDEVICE* ptd, HDC hicTargetDev, LOGPALETTE** ppColorSet) GetColorSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDrawAspect, int32 lindex, void* pvAspect, uint32* pdwFreeze) Freeze;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT dwDrawAspect, int32 lindex, void* pvAspect, DVTARGETDEVICE* ptd, HDC hdcTargetDev, HDC hdcDraw, RECTL* lprcBounds, RECTL* lprcWBounds, int pfnContinue, uint dwContinue) Draw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT dwDrawAspect, int32 lindex, void* pvAspect, DVTARGETDEVICE* ptd, HDC hicTargetDev, LOGPALETTE** ppColorSet) GetColorSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT dwDrawAspect, int32 lindex, void* pvAspect, uint32* pdwFreeze) Freeze;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFreeze) Unfreeze;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 aspects, uint32 advf, IAdviseSink* pAdvSink) SetAdvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT aspects, ADVF advf, IAdviseSink* pAdvSink) SetAdvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pAspects, uint32* pAdvf, IAdviseSink** ppAdvSink) GetAdvise;
 	}
 
 
-	public HRESULT Draw(uint32 dwDrawAspect, int32 lindex, void* pvAspect, DVTARGETDEVICE* ptd, HDC hdcTargetDev, HDC hdcDraw, RECTL* lprcBounds, RECTL* lprcWBounds, int pfnContinue, uint dwContinue) mut => VT.[Friend]Draw(&this, dwDrawAspect, lindex, pvAspect, ptd, hdcTargetDev, hdcDraw, lprcBounds, lprcWBounds, pfnContinue, dwContinue);
+	public HRESULT Draw(DVASPECT dwDrawAspect, int32 lindex, void* pvAspect, DVTARGETDEVICE* ptd, HDC hdcTargetDev, HDC hdcDraw, RECTL* lprcBounds, RECTL* lprcWBounds, int pfnContinue, uint dwContinue) mut => VT.[Friend]Draw(&this, dwDrawAspect, lindex, pvAspect, ptd, hdcTargetDev, hdcDraw, lprcBounds, lprcWBounds, pfnContinue, dwContinue);
 
-	public HRESULT GetColorSet(uint32 dwDrawAspect, int32 lindex, void* pvAspect, DVTARGETDEVICE* ptd, HDC hicTargetDev, LOGPALETTE** ppColorSet) mut => VT.[Friend]GetColorSet(&this, dwDrawAspect, lindex, pvAspect, ptd, hicTargetDev, ppColorSet);
+	public HRESULT GetColorSet(DVASPECT dwDrawAspect, int32 lindex, void* pvAspect, DVTARGETDEVICE* ptd, HDC hicTargetDev, LOGPALETTE** ppColorSet) mut => VT.[Friend]GetColorSet(&this, dwDrawAspect, lindex, pvAspect, ptd, hicTargetDev, ppColorSet);
 
-	public HRESULT Freeze(uint32 dwDrawAspect, int32 lindex, void* pvAspect, uint32* pdwFreeze) mut => VT.[Friend]Freeze(&this, dwDrawAspect, lindex, pvAspect, pdwFreeze);
+	public HRESULT Freeze(DVASPECT dwDrawAspect, int32 lindex, void* pvAspect, uint32* pdwFreeze) mut => VT.[Friend]Freeze(&this, dwDrawAspect, lindex, pvAspect, pdwFreeze);
 
 	public HRESULT Unfreeze(uint32 dwFreeze) mut => VT.[Friend]Unfreeze(&this, dwFreeze);
 
-	public HRESULT SetAdvise(uint32 aspects, uint32 advf, IAdviseSink* pAdvSink) mut => VT.[Friend]SetAdvise(&this, aspects, advf, pAdvSink);
+	public HRESULT SetAdvise(DVASPECT aspects, ADVF advf, IAdviseSink* pAdvSink) mut => VT.[Friend]SetAdvise(&this, aspects, advf, pAdvSink);
 
 	public HRESULT GetAdvise(uint32* pAspects, uint32* pAdvf, IAdviseSink** ppAdvSink) mut => VT.[Friend]GetAdvise(&this, pAspects, pAdvf, ppAdvSink);
 }
@@ -3206,11 +3299,11 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IViewObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDrawAspect, int32 lindex, DVTARGETDEVICE* ptd, SIZE* lpsizel) GetExtent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT dwDrawAspect, int32 lindex, DVTARGETDEVICE* ptd, SIZE* lpsizel) GetExtent;
 	}
 
 
-	public HRESULT GetExtent(uint32 dwDrawAspect, int32 lindex, DVTARGETDEVICE* ptd, SIZE* lpsizel) mut => VT.[Friend]GetExtent(&this, dwDrawAspect, lindex, ptd, lpsizel);
+	public HRESULT GetExtent(DVASPECT dwDrawAspect, int32 lindex, DVTARGETDEVICE* ptd, SIZE* lpsizel) mut => VT.[Friend]GetExtent(&this, dwDrawAspect, lindex, ptd, lpsizel);
 }
 
 [CRepr]struct IDropSource : IUnknown
@@ -3221,14 +3314,14 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEscapePressed, uint32 grfKeyState) QueryContinueDrag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEffect) GiveFeedback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEscapePressed, MODIFIERKEYS_FLAGS grfKeyState) QueryContinueDrag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DROPEFFECT dwEffect) GiveFeedback;
 	}
 
 
-	public HRESULT QueryContinueDrag(BOOL fEscapePressed, uint32 grfKeyState) mut => VT.[Friend]QueryContinueDrag(&this, fEscapePressed, grfKeyState);
+	public HRESULT QueryContinueDrag(BOOL fEscapePressed, MODIFIERKEYS_FLAGS grfKeyState) mut => VT.[Friend]QueryContinueDrag(&this, fEscapePressed, grfKeyState);
 
-	public HRESULT GiveFeedback(uint32 dwEffect) mut => VT.[Friend]GiveFeedback(&this, dwEffect);
+	public HRESULT GiveFeedback(DROPEFFECT dwEffect) mut => VT.[Friend]GiveFeedback(&this, dwEffect);
 }
 
 [CRepr]struct IDropTarget : IUnknown
@@ -3239,20 +3332,20 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* pDataObj, uint32 grfKeyState, POINTL pt, uint32* pdwEffect) DragEnter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfKeyState, POINTL pt, uint32* pdwEffect) DragOver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* pDataObj, MODIFIERKEYS_FLAGS grfKeyState, POINTL pt, DROPEFFECT* pdwEffect) DragEnter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MODIFIERKEYS_FLAGS grfKeyState, POINTL pt, DROPEFFECT* pdwEffect) DragOver;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DragLeave;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* pDataObj, uint32 grfKeyState, POINTL pt, uint32* pdwEffect) Drop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* pDataObj, MODIFIERKEYS_FLAGS grfKeyState, POINTL pt, DROPEFFECT* pdwEffect) Drop;
 	}
 
 
-	public HRESULT DragEnter(IDataObject* pDataObj, uint32 grfKeyState, POINTL pt, uint32* pdwEffect) mut => VT.[Friend]DragEnter(&this, pDataObj, grfKeyState, pt, pdwEffect);
+	public HRESULT DragEnter(IDataObject* pDataObj, MODIFIERKEYS_FLAGS grfKeyState, POINTL pt, DROPEFFECT* pdwEffect) mut => VT.[Friend]DragEnter(&this, pDataObj, grfKeyState, pt, pdwEffect);
 
-	public HRESULT DragOver(uint32 grfKeyState, POINTL pt, uint32* pdwEffect) mut => VT.[Friend]DragOver(&this, grfKeyState, pt, pdwEffect);
+	public HRESULT DragOver(MODIFIERKEYS_FLAGS grfKeyState, POINTL pt, DROPEFFECT* pdwEffect) mut => VT.[Friend]DragOver(&this, grfKeyState, pt, pdwEffect);
 
 	public HRESULT DragLeave() mut => VT.[Friend]DragLeave(&this);
 
-	public HRESULT Drop(IDataObject* pDataObj, uint32 grfKeyState, POINTL pt, uint32* pdwEffect) mut => VT.[Friend]Drop(&this, pDataObj, grfKeyState, pt, pdwEffect);
+	public HRESULT Drop(IDataObject* pDataObj, MODIFIERKEYS_FLAGS grfKeyState, POINTL pt, DROPEFFECT* pdwEffect) mut => VT.[Friend]Drop(&this, pDataObj, grfKeyState, pt, pdwEffect);
 }
 
 [CRepr]struct IDropSourceNotify : IUnknown
@@ -3420,7 +3513,7 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fLock) LockInPlaceActive;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppDisp) GetExtendedControl;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POINTL* pPtlHimetric, POINTF* pPtfContainer, XFORMCOORDS dwFlags) TransformCoords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MSG* pMsg, uint32 grfModifiers) TranslateAccelerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MSG* pMsg, KEYMODIFIERS grfModifiers) TranslateAccelerator;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fGotFocus) OnFocus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ShowPropertyFrame;
 	}
@@ -3434,7 +3527,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT TransformCoords(POINTL* pPtlHimetric, POINTF* pPtfContainer, XFORMCOORDS dwFlags) mut => VT.[Friend]TransformCoords(&this, pPtlHimetric, pPtfContainer, dwFlags);
 
-	public HRESULT TranslateAccelerator(MSG* pMsg, uint32 grfModifiers) mut => VT.[Friend]TranslateAccelerator(&this, pMsg, grfModifiers);
+	public HRESULT TranslateAccelerator(MSG* pMsg, KEYMODIFIERS grfModifiers) mut => VT.[Friend]TranslateAccelerator(&this, pMsg, grfModifiers);
 
 	public HRESULT OnFocus(BOOL fGotFocus) mut => VT.[Friend]OnFocus(&this, fGotFocus);
 
@@ -3924,7 +4017,7 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetViewStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAspect, RECT* pRectBounds, POINT ptlLoc, int32 lCloseHint, uint32* pHitResult) QueryHitPoint;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAspect, RECT* pRectBounds, RECT* pRectLoc, int32 lCloseHint, uint32* pHitResult) QueryHitRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT dwAspect, int32 lindex, DVTARGETDEVICE* ptd, HDC hicTargetDev, ExtentInfo* pExtentInfo, SIZE* pSizel) GetNaturalExtent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DVASPECT dwAspect, int32 lindex, DVTARGETDEVICE* ptd, HDC hicTargetDev, DVEXTENTINFO* pExtentInfo, SIZE* pSizel) GetNaturalExtent;
 	}
 
 
@@ -3936,7 +4029,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT QueryHitRect(uint32 dwAspect, RECT* pRectBounds, RECT* pRectLoc, int32 lCloseHint, uint32* pHitResult) mut => VT.[Friend]QueryHitRect(&this, dwAspect, pRectBounds, pRectLoc, lCloseHint, pHitResult);
 
-	public HRESULT GetNaturalExtent(DVASPECT dwAspect, int32 lindex, DVTARGETDEVICE* ptd, HDC hicTargetDev, ExtentInfo* pExtentInfo, SIZE* pSizel) mut => VT.[Friend]GetNaturalExtent(&this, dwAspect, lindex, ptd, hicTargetDev, pExtentInfo, pSizel);
+	public HRESULT GetNaturalExtent(DVASPECT dwAspect, int32 lindex, DVTARGETDEVICE* ptd, HDC hicTargetDev, DVEXTENTINFO* pExtentInfo, SIZE* pSizel) mut => VT.[Friend]GetNaturalExtent(&this, dwAspect, lindex, ptd, hicTargetDev, pExtentInfo, pSizel);
 }
 
 [CRepr]struct IOleUndoUnit : IUnknown
@@ -4070,13 +4163,13 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwPolicy) GetActivationPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POINTERINACTIVE* pdwPolicy) GetActivationPolicy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* pRectBounds, int32 x, int32 y, uint32 grfKeyState) OnInactiveMouseMove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* pRectBounds, int32 x, int32 y, uint32 dwMouseMsg, BOOL fSetAlways) OnInactiveSetCursor;
 	}
 
 
-	public HRESULT GetActivationPolicy(uint32* pdwPolicy) mut => VT.[Friend]GetActivationPolicy(&this, pdwPolicy);
+	public HRESULT GetActivationPolicy(POINTERINACTIVE* pdwPolicy) mut => VT.[Friend]GetActivationPolicy(&this, pdwPolicy);
 
 	public HRESULT OnInactiveMouseMove(RECT* pRectBounds, int32 x, int32 y, uint32 grfKeyState) mut => VT.[Friend]OnInactiveMouseMove(&this, pRectBounds, x, y, grfKeyState);
 
@@ -4620,7 +4713,7 @@ public struct OLEUIOBJECTPROPSA
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 id, uint32 lcid, uint16 wFlags, DISPPARAMS* pdp, VARIANT* pvarRes, EXCEPINFO* pei, IServiceProvider* pspCaller) InvokeEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, uint32 grfdex) DeleteMemberByName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 id) DeleteMemberByDispID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 id, uint32 grfdexFetch, uint32* pgrfdex) GetMemberProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 id, uint32 grfdexFetch, FDEX_PROP_FLAGS* pgrfdex) GetMemberProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 id, BSTR* pbstrName) GetMemberName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfdex, int32 id, int32* pid) GetNextDispID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppunk) GetNameSpaceParent;
@@ -4635,7 +4728,7 @@ public struct OLEUIOBJECTPROPSA
 
 	public HRESULT DeleteMemberByDispID(int32 id) mut => VT.[Friend]DeleteMemberByDispID(&this, id);
 
-	public HRESULT GetMemberProperties(int32 id, uint32 grfdexFetch, uint32* pgrfdex) mut => VT.[Friend]GetMemberProperties(&this, id, grfdexFetch, pgrfdex);
+	public HRESULT GetMemberProperties(int32 id, uint32 grfdexFetch, FDEX_PROP_FLAGS* pgrfdex) mut => VT.[Friend]GetMemberProperties(&this, id, grfdexFetch, pgrfdex);
 
 	public HRESULT GetMemberName(int32 id, BSTR* pbstrName) mut => VT.[Friend]GetMemberName(&this, id, pbstrName);
 
@@ -4682,11 +4775,11 @@ public struct OLEUIOBJECTPROPSA
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarDst, VARIANT* pvarSrc, uint32 lcid, uint16 vtNew) ChangeType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarDst, VARIANT* pvarSrc, uint32 lcid, VARENUM vtNew) ChangeType;
 	}
 
 
-	public HRESULT ChangeType(VARIANT* pvarDst, VARIANT* pvarSrc, uint32 lcid, uint16 vtNew) mut => VT.[Friend]ChangeType(&this, pvarDst, pvarSrc, lcid, vtNew);
+	public HRESULT ChangeType(VARIANT* pvarDst, VARIANT* pvarSrc, uint32 lcid, VARENUM vtNew) mut => VT.[Friend]ChangeType(&this, pvarDst, pvarSrc, lcid, vtNew);
 }
 
 [CRepr]struct IObjectIdentity : IUnknown
@@ -4755,16 +4848,16 @@ public static
 	public static extern HRESULT SafeArrayAllocDescriptor(uint32 cDims, SAFEARRAY** ppsaOut);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SafeArrayAllocDescriptorEx(uint16 vt, uint32 cDims, SAFEARRAY** ppsaOut);
+	public static extern HRESULT SafeArrayAllocDescriptorEx(VARENUM vt, uint32 cDims, SAFEARRAY** ppsaOut);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SafeArrayAllocData(SAFEARRAY* psa);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SAFEARRAY* SafeArrayCreate(uint16 vt, uint32 cDims, SAFEARRAYBOUND* rgsabound);
+	public static extern SAFEARRAY* SafeArrayCreate(VARENUM vt, uint32 cDims, SAFEARRAYBOUND* rgsabound);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SAFEARRAY* SafeArrayCreateEx(uint16 vt, uint32 cDims, SAFEARRAYBOUND* rgsabound, void* pvExtra);
+	public static extern SAFEARRAY* SafeArrayCreateEx(VARENUM vt, uint32 cDims, SAFEARRAYBOUND* rgsabound, void* pvExtra);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SafeArrayCopyData(SAFEARRAY* psaSource, SAFEARRAY* psaTarget);
@@ -4839,13 +4932,13 @@ public static
 	public static extern HRESULT SafeArrayGetIID(SAFEARRAY* psa, Guid* pguid);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT SafeArrayGetVartype(SAFEARRAY* psa, uint16* pvt);
+	public static extern HRESULT SafeArrayGetVartype(SAFEARRAY* psa, VARENUM* pvt);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SAFEARRAY* SafeArrayCreateVector(uint16 vt, int32 lLbound, uint32 cElements);
+	public static extern SAFEARRAY* SafeArrayCreateVector(VARENUM vt, int32 lLbound, uint32 cElements);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern SAFEARRAY* SafeArrayCreateVectorEx(uint16 vt, int32 lLbound, uint32 cElements, void* pvExtra);
+	public static extern SAFEARRAY* SafeArrayCreateVectorEx(VARENUM vt, int32 lLbound, uint32 cElements, void* pvExtra);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void VariantInit(VARIANT* pvarg);
@@ -4860,10 +4953,10 @@ public static
 	public static extern HRESULT VariantCopyInd(VARIANT* pvarDest, VARIANT* pvargSrc);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VariantChangeType(VARIANT* pvargDest, VARIANT* pvarSrc, uint16 wFlags, uint16 vt);
+	public static extern HRESULT VariantChangeType(VARIANT* pvargDest, VARIANT* pvarSrc, uint16 wFlags, VARENUM vt);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VariantChangeTypeEx(VARIANT* pvargDest, VARIANT* pvarSrc, uint32 lcid, uint16 wFlags, uint16 vt);
+	public static extern HRESULT VariantChangeTypeEx(VARIANT* pvargDest, VARIANT* pvarSrc, uint32 lcid, uint16 wFlags, VARENUM vt);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT VectorFromBstr(BSTR bstr, SAFEARRAY** ppsa);
@@ -5604,7 +5697,7 @@ public static
 	public static extern HRESULT VarRound(VARIANT* pvarIn, int32 cDecimals, VARIANT* pvarResult);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarCmp(VARIANT* pvarLeft, VARIANT* pvarRight, uint32 lcid, uint32 dwFlags);
+	public static extern VARCMP VarCmp(VARIANT* pvarLeft, VARIANT* pvarRight, uint32 lcid, uint32 dwFlags);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT VarDecAdd(DECIMAL* pdecLeft, DECIMAL* pdecRight, DECIMAL* pdecResult);
@@ -5634,10 +5727,10 @@ public static
 	public static extern HRESULT VarDecRound(DECIMAL* pdecIn, int32 cDecimals, DECIMAL* pdecResult);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarDecCmp(DECIMAL* pdecLeft, DECIMAL* pdecRight);
+	public static extern VARCMP VarDecCmp(DECIMAL* pdecLeft, DECIMAL* pdecRight);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarDecCmpR8(DECIMAL* pdecLeft, double dblRight);
+	public static extern VARCMP VarDecCmpR8(DECIMAL* pdecLeft, double dblRight);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT VarCyAdd(CY cyLeft, CY cyRight, CY* pcyResult);
@@ -5670,10 +5763,10 @@ public static
 	public static extern HRESULT VarCyRound(CY cyIn, int32 cDecimals, CY* pcyResult);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarCyCmp(CY cyLeft, CY cyRight);
+	public static extern VARCMP VarCyCmp(CY cyLeft, CY cyRight);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarCyCmpR8(CY cyLeft, double dblRight);
+	public static extern VARCMP VarCyCmpR8(CY cyLeft, double dblRight);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT VarBstrCat(BSTR bstrLeft, BSTR bstrRight, uint16** pbstrResult);
@@ -5685,7 +5778,7 @@ public static
 	public static extern HRESULT VarR8Pow(double dblLeft, double dblRight, double* pdblResult);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarR4CmpR8(float fltLeft, double dblRight);
+	public static extern VARCMP VarR4CmpR8(float fltLeft, double dblRight);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT VarR8Round(double dblIn, int32 cDecimals, double* pdblResult);
@@ -5703,16 +5796,16 @@ public static
 	public static extern HRESULT GetAltMonthNames(uint32 lcid, PWSTR** prgp);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarFormat(VARIANT* pvarIn, PWSTR pstrFormat, int32 iFirstDay, int32 iFirstWeek, uint32 dwFlags, BSTR* pbstrOut);
+	public static extern HRESULT VarFormat(VARIANT* pvarIn, PWSTR pstrFormat, VARFORMAT_FIRST_DAY iFirstDay, VARFORMAT_FIRST_WEEK iFirstWeek, uint32 dwFlags, BSTR* pbstrOut);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarFormatDateTime(VARIANT* pvarIn, int32 iNamedFormat, uint32 dwFlags, BSTR* pbstrOut);
+	public static extern HRESULT VarFormatDateTime(VARIANT* pvarIn, VARFORMAT_NAMED_FORMAT iNamedFormat, uint32 dwFlags, BSTR* pbstrOut);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarFormatNumber(VARIANT* pvarIn, int32 iNumDig, int32 iIncLead, int32 iUseParens, int32 iGroup, uint32 dwFlags, BSTR* pbstrOut);
+	public static extern HRESULT VarFormatNumber(VARIANT* pvarIn, int32 iNumDig, VARFORMAT_LEADING_DIGIT iIncLead, VARFORMAT_PARENTHESES iUseParens, VARFORMAT_GROUP iGroup, uint32 dwFlags, BSTR* pbstrOut);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarFormatPercent(VARIANT* pvarIn, int32 iNumDig, int32 iIncLead, int32 iUseParens, int32 iGroup, uint32 dwFlags, BSTR* pbstrOut);
+	public static extern HRESULT VarFormatPercent(VARIANT* pvarIn, int32 iNumDig, VARFORMAT_LEADING_DIGIT iIncLead, VARFORMAT_PARENTHESES iUseParens, VARFORMAT_GROUP iGroup, uint32 dwFlags, BSTR* pbstrOut);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT VarFormatCurrency(VARIANT* pvarIn, int32 iNumDig, int32 iIncLead, int32 iUseParens, int32 iGroup, uint32 dwFlags, BSTR* pbstrOut);
@@ -5727,7 +5820,7 @@ public static
 	public static extern HRESULT VarFormatFromTokens(VARIANT* pvarIn, PWSTR pstrFormat, uint8* pbTokCur, uint32 dwFlags, BSTR* pbstrOut, uint32 lcid);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT VarTokenizeFormatString(PWSTR pstrFormat, uint8* rgbTok, int32 cbTok, int32 iFirstDay, int32 iFirstWeek, uint32 lcid, int32* pcbActual);
+	public static extern HRESULT VarTokenizeFormatString(PWSTR pstrFormat, uint8* rgbTok, int32 cbTok, VARFORMAT_FIRST_DAY iFirstDay, VARFORMAT_FIRST_WEEK iFirstWeek, uint32 lcid, int32* pcbActual);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 LHashValOfNameSysA(SYSKIND syskind, uint32 lcid, PSTR szName);
@@ -5766,7 +5859,7 @@ public static
 	public static extern HRESULT CreateTypeLib2(SYSKIND syskind, PWSTR szFile, ICreateTypeLib2** ppctlib);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DispGetParam(DISPPARAMS* pdispparams, uint32 position, uint16 vtTarg, VARIANT* pvarResult, uint32* puArgErr);
+	public static extern HRESULT DispGetParam(DISPPARAMS* pdispparams, uint32 position, VARENUM vtTarg, VARIANT* pvarResult, uint32* puArgErr);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DispGetIDsOfNames(ITypeInfo* ptinfo, PWSTR* rgszNames, uint32 cNames, int32* rgdispid);
@@ -5781,10 +5874,10 @@ public static
 	public static extern HRESULT CreateStdDispatch(IUnknown* punkOuter, void* pvThis, ITypeInfo* ptinfo, IUnknown** ppunkStdDisp);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DispCallFunc(void* pvInstance, uint oVft, CALLCONV cc, uint16 vtReturn, uint32 cActuals, uint16* prgvt, VARIANT** prgpvarg, VARIANT* pvargResult);
+	public static extern HRESULT DispCallFunc(void* pvInstance, uint oVft, CALLCONV cc, VARENUM vtReturn, uint32 cActuals, uint16* prgvt, VARIANT** prgpvarg, VARIANT* pvargResult);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT RegisterActiveObject(IUnknown* punk, in Guid rclsid, uint32 dwFlags, uint32* pdwRegister);
+	public static extern HRESULT RegisterActiveObject(IUnknown* punk, in Guid rclsid, ACTIVEOBJECT_FLAGS dwFlags, uint32* pdwRegister);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT RevokeActiveObject(uint32 dwRegister, void* pvReserved);
@@ -5826,43 +5919,43 @@ public static
 	public static extern HRESULT OleQueryCreateFromData(IDataObject* pSrcDataObject);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreate(in Guid rclsid, in Guid riid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreate(in Guid rclsid, in Guid riid, OLERENDER renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateEx(in Guid rclsid, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateEx(in Guid rclsid, in Guid riid, OLECREATE dwFlags, OLERENDER renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateFromData(IDataObject* pSrcDataObj, in Guid riid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateFromData(IDataObject* pSrcDataObj, in Guid riid, OLERENDER renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateFromDataEx(IDataObject* pSrcDataObj, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateFromDataEx(IDataObject* pSrcDataObj, in Guid riid, OLECREATE dwFlags, OLERENDER renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkFromData(IDataObject* pSrcDataObj, in Guid riid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkFromData(IDataObject* pSrcDataObj, in Guid riid, OLERENDER renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkFromDataEx(IDataObject* pSrcDataObj, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkFromDataEx(IDataObject* pSrcDataObj, in Guid riid, OLECREATE dwFlags, OLERENDER renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateStaticFromData(IDataObject* pSrcDataObj, in Guid iid, uint32 renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateStaticFromData(IDataObject* pSrcDataObj, in Guid iid, OLERENDER renderopt, FORMATETC* pFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLink(IMoniker* pmkLinkSrc, in Guid riid, uint32 renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLink(IMoniker* pmkLinkSrc, in Guid riid, OLERENDER renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkEx(IMoniker* pmkLinkSrc, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkEx(IMoniker* pmkLinkSrc, in Guid riid, OLECREATE dwFlags, OLERENDER renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkToFile(PWSTR lpszFileName, in Guid riid, uint32 renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkToFile(PWSTR lpszFileName, in Guid riid, OLERENDER renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateLinkToFileEx(PWSTR lpszFileName, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateLinkToFileEx(PWSTR lpszFileName, in Guid riid, OLECREATE dwFlags, OLERENDER renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateFromFile(in Guid rclsid, PWSTR lpszFileName, in Guid riid, uint32 renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateFromFile(in Guid rclsid, PWSTR lpszFileName, in Guid riid, OLERENDER renderopt, FORMATETC* lpFormatEtc, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateFromFileEx(in Guid rclsid, PWSTR lpszFileName, in Guid riid, uint32 dwFlags, uint32 renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
+	public static extern HRESULT OleCreateFromFileEx(in Guid rclsid, PWSTR lpszFileName, in Guid riid, OLECREATE dwFlags, OLERENDER renderopt, uint32 cFormats, uint32* rgAdvf, FORMATETC* rgFormatEtc, IAdviseSink* lpAdviseSink, uint32* rgdwConnection, IOleClientSite* pClientSite, IStorage* pStg, void** ppvObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleLoad(IStorage* pStg, in Guid riid, IOleClientSite* pClientSite, void** ppvObj);
@@ -5889,7 +5982,7 @@ public static
 	public static extern HRESULT RevokeDragDrop(HWND hwnd);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DoDragDrop(IDataObject* pDataObj, IDropSource* pDropSource, uint32 dwOKEffects, uint32* pdwEffect);
+	public static extern HRESULT DoDragDrop(IDataObject* pDataObj, IDropSource* pDropSource, DROPEFFECT dwOKEffects, DROPEFFECT* pdwEffect);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleSetClipboard(IDataObject* pDataObj);
@@ -5907,7 +6000,7 @@ public static
 	public static extern HRESULT OleIsCurrentClipboard(IDataObject* pDataObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int OleCreateMenuDescriptor(HMENU hmenuCombined, OleMenuGroupWidths* lpMenuWidths);
+	public static extern int OleCreateMenuDescriptor(HMENU hmenuCombined, OLEMENUGROUPWIDTHS* lpMenuWidths);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleSetMenuDescriptor(int holemenu, HWND hwndFrame, HWND hwndActiveObject, IOleInPlaceFrame* lpFrame, IOleInPlaceActiveObject* lpActiveObj);
@@ -5916,7 +6009,7 @@ public static
 	public static extern HRESULT OleDestroyMenuDescriptor(int holemenu);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleTranslateAccelerator(IOleInPlaceFrame* lpFrame, OIFI* lpFrameInfo, MSG* lpmsg);
+	public static extern HRESULT OleTranslateAccelerator(IOleInPlaceFrame* lpFrame, OLEINPLACEFRAMEINFO* lpFrameInfo, MSG* lpmsg);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE OleDuplicateData(HANDLE hSrc, uint16 cfFormat, uint32 uiFlags);
@@ -5943,7 +6036,7 @@ public static
 	public static extern HRESULT OleCreateDefaultHandler(in Guid clsid, IUnknown* pUnkOuter, in Guid riid, void** lplpObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleCreateEmbeddingHelper(in Guid clsid, IUnknown* pUnkOuter, uint32 flags, IClassFactory* pCF, in Guid riid, void** lplpObj);
+	public static extern HRESULT OleCreateEmbeddingHelper(in Guid clsid, IUnknown* pUnkOuter, EMBDHLP_FLAGS flags, IClassFactory* pCF, in Guid riid, void** lplpObj);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsAccelerator(HACCEL hAccel, int32 cAccelEntries, MSG* lpMsg, uint16* lpwCmd);
@@ -5958,7 +6051,7 @@ public static
 	public static extern int OleMetafilePictFromIconAndLabel(HICON hIcon, PWSTR lpszLabel, PWSTR lpszSourceFile, uint32 iIconIndex);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleRegGetUserType(in Guid clsid, uint32 dwFormOfType, PWSTR* pszUserType);
+	public static extern HRESULT OleRegGetUserType(in Guid clsid, USERCLASSTYPE dwFormOfType, PWSTR* pszUserType);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleRegGetMiscStatus(in Guid clsid, uint32 dwAspect, uint32* pdwStatus);
@@ -6009,7 +6102,7 @@ public static
 	public static extern HRESULT OleCreatePropertyFrameIndirect(OCPFIPARAMS* lpParams);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleTranslateColor(uint32 clr, HPALETTE hpal, uint32* lpcolorref);
+	public static extern HRESULT OleTranslateColor(uint32 clr, HPALETTE hpal, COLORREF* lpcolorref);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleCreateFontIndirect(FONTDESC* lpFontDesc, in Guid riid, void** lplpvObj);
@@ -6021,7 +6114,7 @@ public static
 	public static extern HRESULT OleLoadPicture(IStream* lpstream, int32 lSize, BOOL fRunmode, in Guid riid, void** lplpvObj);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleLoadPictureEx(IStream* lpstream, int32 lSize, BOOL fRunmode, in Guid riid, uint32 xSizeDesired, uint32 ySizeDesired, uint32 dwFlags, void** lplpvObj);
+	public static extern HRESULT OleLoadPictureEx(IStream* lpstream, int32 lSize, BOOL fRunmode, in Guid riid, uint32 xSizeDesired, uint32 ySizeDesired, LOAD_PICTURE_FLAGS dwFlags, void** lplpvObj);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleLoadPicturePath(PWSTR szURLorPath, IUnknown* punkCaller, uint32 dwReserved, uint32 clrReserved, in Guid riid, void** ppvRet);
@@ -6030,7 +6123,7 @@ public static
 	public static extern HRESULT OleLoadPictureFile(VARIANT varFileName, IDispatch** lplpdispPicture);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT OleLoadPictureFileEx(VARIANT varFileName, uint32 xSizeDesired, uint32 ySizeDesired, uint32 dwFlags, IDispatch** lplpdispPicture);
+	public static extern HRESULT OleLoadPictureFileEx(VARIANT varFileName, uint32 xSizeDesired, uint32 ySizeDesired, LOAD_PICTURE_FLAGS dwFlags, IDispatch** lplpdispPicture);
 
 	[Import("OLEAUT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT OleSavePictureFile(IDispatch* lpdispPicture, BSTR bstrFileName);

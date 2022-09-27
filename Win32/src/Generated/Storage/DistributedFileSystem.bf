@@ -69,6 +69,61 @@ public enum DFS_NAMESPACE_VERSION_ORIGIN : int32
 
 
 #region Structs
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DFS_INFO_1_32
+{
+	public uint32 EntryPath;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DFS_INFO_2_32
+{
+	public uint32 EntryPath;
+	public uint32 Comment;
+	public uint32 State;
+	public uint32 NumberOfStorages;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DFS_STORAGE_INFO_0_32
+{
+	public uint32 State;
+	public uint32 ServerName;
+	public uint32 ShareName;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DFS_INFO_3_32
+{
+	public uint32 EntryPath;
+	public uint32 Comment;
+	public uint32 State;
+	public uint32 NumberOfStorages;
+	public uint32 Storage;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct DFS_INFO_4_32
+{
+	public uint32 EntryPath;
+	public uint32 Comment;
+	public uint32 State;
+	public uint32 Timeout;
+	public Guid Guid;
+	public uint32 NumberOfStorages;
+	public uint32 Storage;
+}
+#endif
+
 [CRepr]
 public struct DFS_TARGET_PRIORITY
 {
@@ -83,14 +138,6 @@ public struct DFS_INFO_1
 	public PWSTR EntryPath;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct DFS_INFO_1_32
-{
-	public uint32 EntryPath;
-}
-#endif
-
 [CRepr]
 public struct DFS_INFO_2
 {
@@ -100,17 +147,6 @@ public struct DFS_INFO_2
 	public uint32 NumberOfStorages;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct DFS_INFO_2_32
-{
-	public uint32 EntryPath;
-	public uint32 Comment;
-	public uint32 State;
-	public uint32 NumberOfStorages;
-}
-#endif
-
 [CRepr]
 public struct DFS_STORAGE_INFO
 {
@@ -118,16 +154,6 @@ public struct DFS_STORAGE_INFO
 	public PWSTR ServerName;
 	public PWSTR ShareName;
 }
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct DFS_STORAGE_INFO_0_32
-{
-	public uint32 State;
-	public uint32 ServerName;
-	public uint32 ShareName;
-}
-#endif
 
 [CRepr]
 public struct DFS_STORAGE_INFO_1
@@ -148,18 +174,6 @@ public struct DFS_INFO_3
 	public DFS_STORAGE_INFO* Storage;
 }
 
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct DFS_INFO_3_32
-{
-	public uint32 EntryPath;
-	public uint32 Comment;
-	public uint32 State;
-	public uint32 NumberOfStorages;
-	public uint32 Storage;
-}
-#endif
-
 [CRepr]
 public struct DFS_INFO_4
 {
@@ -171,20 +185,6 @@ public struct DFS_INFO_4
 	public uint32 NumberOfStorages;
 	public DFS_STORAGE_INFO* Storage;
 }
-
-#if BF_64_BIT || BF_ARM_64
-[CRepr]
-public struct DFS_INFO_4_32
-{
-	public uint32 EntryPath;
-	public uint32 Comment;
-	public uint32 State;
-	public uint32 Timeout;
-	public Guid Guid;
-	public uint32 NumberOfStorages;
-	public uint32 Storage;
-}
-#endif
 
 [CRepr]
 public struct DFS_INFO_5
@@ -230,7 +230,7 @@ public struct DFS_INFO_8
 	public uint32 PropertyFlags;
 	public uint32 MetadataSize;
 	public uint32 SdLengthReserved;
-	public SECURITY_DESCRIPTOR* pSecurityDescriptor;
+	public PSECURITY_DESCRIPTOR pSecurityDescriptor;
 	public uint32 NumberOfStorages;
 }
 
@@ -245,7 +245,7 @@ public struct DFS_INFO_9
 	public uint32 PropertyFlags;
 	public uint32 MetadataSize;
 	public uint32 SdLengthReserved;
-	public SECURITY_DESCRIPTOR* pSecurityDescriptor;
+	public PSECURITY_DESCRIPTOR pSecurityDescriptor;
 	public uint32 NumberOfStorages;
 	public DFS_STORAGE_INFO_1* Storage;
 }
@@ -315,14 +315,14 @@ public struct DFS_INFO_107
 	public uint32 PropertyFlagMask;
 	public uint32 PropertyFlags;
 	public uint32 SdLengthReserved;
-	public SECURITY_DESCRIPTOR* pSecurityDescriptor;
+	public PSECURITY_DESCRIPTOR pSecurityDescriptor;
 }
 
 [CRepr]
 public struct DFS_INFO_150
 {
 	public uint32 SdLengthReserved;
-	public SECURITY_DESCRIPTOR* pSecurityDescriptor;
+	public PSECURITY_DESCRIPTOR pSecurityDescriptor;
 }
 
 [CRepr]
@@ -426,22 +426,22 @@ public static
 	public static extern uint32 NetDfsRemoveRootTarget(PWSTR pDfsPath, PWSTR pTargetPath, uint32 Flags);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetDfsGetSecurity(PWSTR DfsEntryPath, uint32 SecurityInformation, SECURITY_DESCRIPTOR** ppSecurityDescriptor, uint32* lpcbSecurityDescriptor);
+	public static extern uint32 NetDfsGetSecurity(PWSTR DfsEntryPath, uint32 SecurityInformation, PSECURITY_DESCRIPTOR* ppSecurityDescriptor, uint32* lpcbSecurityDescriptor);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetDfsSetSecurity(PWSTR DfsEntryPath, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
+	public static extern uint32 NetDfsSetSecurity(PWSTR DfsEntryPath, uint32 SecurityInformation, PSECURITY_DESCRIPTOR pSecurityDescriptor);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetDfsGetStdContainerSecurity(PWSTR MachineName, uint32 SecurityInformation, SECURITY_DESCRIPTOR** ppSecurityDescriptor, uint32* lpcbSecurityDescriptor);
+	public static extern uint32 NetDfsGetStdContainerSecurity(PWSTR MachineName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR* ppSecurityDescriptor, uint32* lpcbSecurityDescriptor);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetDfsSetStdContainerSecurity(PWSTR MachineName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
+	public static extern uint32 NetDfsSetStdContainerSecurity(PWSTR MachineName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR pSecurityDescriptor);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetDfsGetFtContainerSecurity(PWSTR DomainName, uint32 SecurityInformation, SECURITY_DESCRIPTOR** ppSecurityDescriptor, uint32* lpcbSecurityDescriptor);
+	public static extern uint32 NetDfsGetFtContainerSecurity(PWSTR DomainName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR* ppSecurityDescriptor, uint32* lpcbSecurityDescriptor);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 NetDfsSetFtContainerSecurity(PWSTR DomainName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
+	public static extern uint32 NetDfsSetFtContainerSecurity(PWSTR DomainName, uint32 SecurityInformation, PSECURITY_DESCRIPTOR pSecurityDescriptor);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 NetDfsGetSupportedNamespaceVersion(DFS_NAMESPACE_VERSION_ORIGIN Origin, PWSTR pName, DFS_SUPPORTED_NAMESPACE_VERSION_INFO** ppVersionInfo);

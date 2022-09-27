@@ -226,6 +226,7 @@ public static
 	public const Guid DLSID_ManufacturersID = .(0xb03e1181, 0x8095, 0x11d2, 0xa1, 0xef, 0x00, 0x60, 0x08, 0x33, 0xdb, 0xd8);
 	public const Guid DLSID_ProductID = .(0xb03e1182, 0x8095, 0x11d2, 0xa1, 0xef, 0x00, 0x60, 0x08, 0x33, 0xdb, 0xd8);
 	public const Guid DLSID_SamplePlaybackRate = .(0x2a91f713, 0xa4bf, 0x11d2, 0xbb, 0xdf, 0x00, 0x60, 0x08, 0x33, 0xdb, 0xd8);
+	public const String REGSTR_PATH_SOFTWARESYNTHS = "Software\\Microsoft\\DirectMusic\\SoftwareSynths";
 	public const uint32 REFRESH_F_LASTBUFFER = 1;
 	public const Guid CLSID_DirectMusicSynthSink = .(0xaec17ce3, 0xa514, 0x11d1, 0xaf, 0xa6, 0x00, 0xaa, 0x00, 0x24, 0xd8, 0xb6);
 	public const Guid GUID_DMUS_PROP_SetSynthSink = .(0x0a3a5ba5, 0x37b6, 0x11d2, 0xb9, 0xf9, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
@@ -395,7 +396,7 @@ public struct POOLTABLE
 }
 
 [CRepr]
-public struct _rwsmp
+public struct WSMPL
 {
 	public uint32 cbSize;
 	public uint16 usUnityNote;
@@ -406,7 +407,7 @@ public struct _rwsmp
 }
 
 [CRepr]
-public struct _rloop
+public struct WLOOP
 {
 	public uint32 cbSize;
 	public uint32 ulType;
@@ -452,9 +453,9 @@ public struct DMUS_REGION
 	public uint32 ulNextRegionIdx;
 	public uint32 ulFirstExtCkIdx;
 	public WAVELINK WaveLink;
-	public _rwsmp WSMP;
-	public _rloop* WLOOP mut => &WLOOP_impl;
-	private _rloop[ANYSIZE_ARRAY] WLOOP_impl;
+	public WSMPL WSMP;
+	public WLOOP* WLOOP mut => &WLOOP_impl;
+	private WLOOP[ANYSIZE_ARRAY] WLOOP_impl;
 }
 
 [CRepr]
@@ -611,7 +612,7 @@ public struct DMUS_PORTCAPS
 }
 
 [CRepr]
-public struct _DMUS_PORTPARAMS
+public struct DMUS_PORTPARAMS7
 {
 	public uint32 dwSize;
 	public uint32 dwValidParams;
@@ -775,7 +776,7 @@ public struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA
 }
 
 [CRepr]
-public struct Tag_DVAudInfo
+public struct DVAudInfo
 {
 	public uint8[2] bAudStyle;
 	public uint8[2] bAudQu;
