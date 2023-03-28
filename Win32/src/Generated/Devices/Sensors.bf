@@ -549,8 +549,8 @@ public struct MATRIX3X3
 			public VEC3D V2;
 			public VEC3D V3;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 		public float[9] M;
 	}
 	public using _Anonymous_e__Union Anonymous;

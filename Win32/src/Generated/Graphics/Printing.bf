@@ -1882,9 +1882,9 @@ public struct EXTPUSH
 	public uint16 cbSize;
 	public uint16 Flags;
 	public int8* pTitle;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint IconID;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint[3] dwReserved;
 }
 
@@ -1932,8 +1932,8 @@ public struct OPTITEM
 	public uint32 Flags;
 	public uint UserData;
 	public int8* pName;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public OPTTYPE* pOptType;
 	public uint32 HelpIndex;
 	public uint8 DMPubID;

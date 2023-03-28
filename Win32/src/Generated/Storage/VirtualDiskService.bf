@@ -1568,9 +1568,9 @@ public struct VDS_PATH_INFO
 	public VDS_PATH_ID pathId;
 	public VDS_HWPROVIDER_TYPE type;
 	public VDS_PATH_STATUS status;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 }
 
 [CRepr]

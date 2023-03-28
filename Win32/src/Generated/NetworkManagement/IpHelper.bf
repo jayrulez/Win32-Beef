@@ -1413,8 +1413,8 @@ public struct MIB_IPFORWARDROW
 	public uint32 dwForwardPolicy;
 	public uint32 dwForwardNextHop;
 	public uint32 dwForwardIfIndex;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 dwForwardAge;
 	public uint32 dwForwardNextHopAS;
 	public uint32 dwForwardMetric1;
@@ -2548,7 +2548,7 @@ public struct IP_ADAPTER_ADDRESSES_LH
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public IP_ADAPTER_ADDRESSES_LH* Next;
 	public PSTR AdapterName;
 	public IP_ADAPTER_UNICAST_ADDRESS_LH* FirstUnicastAddress;
@@ -2560,7 +2560,7 @@ public struct IP_ADAPTER_ADDRESSES_LH
 	public PWSTR FriendlyName;
 	public uint8[8] PhysicalAddress;
 	public uint32 PhysicalAddressLength;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 Mtu;
 	public uint32 IfType;
 	public IF_OPER_STATUS OperStatus;

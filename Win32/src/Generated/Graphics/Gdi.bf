@@ -2804,8 +2804,8 @@ public struct DEVMODEA
 			public int16 dmDefaultSource;
 			public int16 dmPrintQuality;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
@@ -2819,7 +2819,7 @@ public struct DEVMODEA
 	public uint16 dmSize;
 	public uint16 dmDriverExtra;
 	public DEVMODE_FIELD_FLAGS dmFields;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public DEVMODE_COLOR dmColor;
 	public int16 dmDuplex;
 	public int16 dmYResolution;
@@ -2830,7 +2830,7 @@ public struct DEVMODEA
 	public uint32 dmBitsPerPel;
 	public uint32 dmPelsWidth;
 	public uint32 dmPelsHeight;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 dmDisplayFrequency;
 	public uint32 dmICMMethod;
 	public uint32 dmICMIntent;
@@ -2867,8 +2867,8 @@ public struct DEVMODEW
 			public uint32 dmDisplayOrientation;
 			public uint32 dmDisplayFixedOutput;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
@@ -2882,7 +2882,7 @@ public struct DEVMODEW
 	public uint16 dmSize;
 	public uint16 dmDriverExtra;
 	public DEVMODE_FIELD_FLAGS dmFields;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public DEVMODE_COLOR dmColor;
 	public int16 dmDuplex;
 	public int16 dmYResolution;
@@ -2893,7 +2893,7 @@ public struct DEVMODEW
 	public uint32 dmBitsPerPel;
 	public uint32 dmPelsWidth;
 	public uint32 dmPelsHeight;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 dmDisplayFrequency;
 	public uint32 dmICMMethod;
 	public uint32 dmICMIntent;

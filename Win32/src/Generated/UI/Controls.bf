@@ -5966,8 +5966,8 @@ public struct PROPSHEETPAGEA_V1
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PSTR pszTitle;
 	public DLGPROC pfnDlgProc;
 	public LPARAM lParam;
@@ -5993,8 +5993,8 @@ public struct PROPSHEETPAGEA_V2
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PSTR pszTitle;
 	public DLGPROC pfnDlgProc;
 	public LPARAM lParam;
@@ -6022,8 +6022,8 @@ public struct PROPSHEETPAGEA_V3
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PSTR pszTitle;
 	public DLGPROC pfnDlgProc;
 	public LPARAM lParam;
@@ -6058,8 +6058,8 @@ public struct PROPSHEETPAGEA
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PSTR pszTitle;
 	public DLGPROC pfnDlgProc;
 	public LPARAM lParam;
@@ -6068,7 +6068,7 @@ public struct PROPSHEETPAGEA
 	public PSTR pszHeaderTitle;
 	public PSTR pszHeaderSubTitle;
 	public HANDLE hActCtx;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 }
 
 [CRepr]
@@ -6089,8 +6089,8 @@ public struct PROPSHEETPAGEW_V1
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PWSTR pszTitle;
 	public DLGPROC pfnDlgProc;
 	public LPARAM lParam;
@@ -6116,8 +6116,8 @@ public struct PROPSHEETPAGEW_V2
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PWSTR pszTitle;
 	public DLGPROC pfnDlgProc;
 	public LPARAM lParam;
@@ -6145,8 +6145,8 @@ public struct PROPSHEETPAGEW_V3
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PWSTR pszTitle;
 	public DLGPROC pfnDlgProc;
 	public LPARAM lParam;
@@ -6181,8 +6181,8 @@ public struct PROPSHEETPAGEW
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PWSTR pszTitle;
 	public DLGPROC pfnDlgProc;
 	public LPARAM lParam;
@@ -6191,7 +6191,7 @@ public struct PROPSHEETPAGEW
 	public PWSTR pszHeaderTitle;
 	public PWSTR pszHeaderSubTitle;
 	public HANDLE hActCtx;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 }
 
 [CRepr]
@@ -6219,11 +6219,11 @@ public struct PROPSHEETHEADERA_V1
 	public uint32 dwFlags;
 	public HWND hwndParent;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public PSTR pszCaption;
 	public uint32 nPages;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 	public PFNPROPSHEETCALLBACK pfnCallback;
 }
 
@@ -6264,15 +6264,15 @@ public struct PROPSHEETHEADERA_V2
 	public uint32 dwFlags;
 	public HWND hwndParent;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public PSTR pszCaption;
 	public uint32 nPages;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 	public PFNPROPSHEETCALLBACK pfnCallback;
-	public _Anonymous4_e__Union Anonymous4;
+	public using _Anonymous4_e__Union Anonymous4;
 	public HPALETTE hplWatermark;
-	public _Anonymous5_e__Union Anonymous5;
+	public using _Anonymous5_e__Union Anonymous5;
 }
 
 [CRepr]
@@ -6300,11 +6300,11 @@ public struct PROPSHEETHEADERW_V1
 	public uint32 dwFlags;
 	public HWND hwndParent;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public PWSTR pszCaption;
 	public uint32 nPages;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 	public PFNPROPSHEETCALLBACK pfnCallback;
 }
 
@@ -6345,15 +6345,15 @@ public struct PROPSHEETHEADERW_V2
 	public uint32 dwFlags;
 	public HWND hwndParent;
 	public HINSTANCE hInstance;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public PWSTR pszCaption;
 	public uint32 nPages;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 	public PFNPROPSHEETCALLBACK pfnCallback;
-	public _Anonymous4_e__Union Anonymous4;
+	public using _Anonymous4_e__Union Anonymous4;
 	public HPALETTE hplWatermark;
-	public _Anonymous5_e__Union Anonymous5;
+	public using _Anonymous5_e__Union Anonymous5;
 }
 
 [CRepr]
@@ -8134,7 +8134,7 @@ public struct TASKDIALOGCONFIG
 	public TASKDIALOG_FLAGS dwFlags;
 	public TASKDIALOG_COMMON_BUTTON_FLAGS dwCommonButtons;
 	public PWSTR pszWindowTitle;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public PWSTR pszMainInstruction;
 	public PWSTR pszContent;
 	public uint32 cButtons;
@@ -8147,7 +8147,7 @@ public struct TASKDIALOGCONFIG
 	public PWSTR pszExpandedInformation;
 	public PWSTR pszExpandedControlText;
 	public PWSTR pszCollapsedControlText;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PWSTR pszFooter;
 	public PFTASKDIALOGCALLBACK pfCallback;
 	public int lpCallbackData;

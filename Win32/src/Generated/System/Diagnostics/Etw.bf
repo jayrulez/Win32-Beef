@@ -912,8 +912,8 @@ public struct WNODE_HEADER
 	}
 	public uint32 BufferSize;
 	public uint32 ProviderId;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public Guid Guid;
 	public uint32 ClientContext;
 	public uint32 Flags;
@@ -1057,9 +1057,9 @@ public struct EVENT_TRACE_HEADER
 			public uint32 KernelTime;
 			public uint32 UserTime;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous1_e__Struct Anonymous1;
 		public uint64 ProcessorTime;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
@@ -1093,13 +1093,13 @@ public struct EVENT_TRACE_HEADER
 		public uint64 GuidPtr;
 	}
 	public uint16 Size;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 ThreadId;
 	public uint32 ProcessId;
 	public LARGE_INTEGER TimeStamp;
-	public _Anonymous3_e__Union Anonymous3;
-	public _Anonymous4_e__Union Anonymous4;
+	public using _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous4_e__Union Anonymous4;
 }
 
 [CRepr]
@@ -1120,9 +1120,9 @@ public struct EVENT_INSTANCE_HEADER
 			public uint32 KernelTime;
 			public uint32 UserTime;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous1_e__Struct Anonymous1;
 		public uint64 ProcessorTime;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
@@ -1150,15 +1150,15 @@ public struct EVENT_INSTANCE_HEADER
 		public using _Anonymous_e__Struct Anonymous;
 	}
 	public uint16 Size;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 ThreadId;
 	public uint32 ProcessId;
 	public LARGE_INTEGER TimeStamp;
 	public uint64 RegHandle;
 	public uint32 InstanceId;
 	public uint32 ParentInstanceId;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 	public uint64 ParentRegHandle;
 }
 
@@ -1202,7 +1202,7 @@ public struct TRACE_LOGFILE_HEADER
 		public _VersionDetail_e__Struct VersionDetail;
 	}
 	public uint32 BufferSize;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 ProviderVersion;
 	public uint32 NumberOfProcessors;
 	public LARGE_INTEGER EndTime;
@@ -1210,7 +1210,7 @@ public struct TRACE_LOGFILE_HEADER
 	public uint32 MaximumFileSize;
 	public uint32 LogFileMode;
 	public uint32 BuffersWritten;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PWSTR LoggerName;
 	public PWSTR LogFileName;
 	public TIME_ZONE_INFORMATION TimeZone;
@@ -1253,7 +1253,7 @@ public struct TRACE_LOGFILE_HEADER32
 		public _VersionDetail_e__Struct VersionDetail;
 	}
 	public uint32 BufferSize;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 ProviderVersion;
 	public uint32 NumberOfProcessors;
 	public LARGE_INTEGER EndTime;
@@ -1261,7 +1261,7 @@ public struct TRACE_LOGFILE_HEADER32
 	public uint32 MaximumFileSize;
 	public uint32 LogFileMode;
 	public uint32 BuffersWritten;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 LoggerName;
 	public uint32 LogFileName;
 	public TIME_ZONE_INFORMATION TimeZone;
@@ -1304,7 +1304,7 @@ public struct TRACE_LOGFILE_HEADER64
 		public _VersionDetail_e__Struct VersionDetail;
 	}
 	public uint32 BufferSize;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 ProviderVersion;
 	public uint32 NumberOfProcessors;
 	public LARGE_INTEGER EndTime;
@@ -1312,7 +1312,7 @@ public struct TRACE_LOGFILE_HEADER64
 	public uint32 MaximumFileSize;
 	public uint32 LogFileMode;
 	public uint32 BuffersWritten;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint64 LoggerName;
 	public uint64 LogFileName;
 	public TIME_ZONE_INFORMATION TimeZone;
@@ -1398,7 +1398,7 @@ public struct EVENT_TRACE_PROPERTIES_V2
 	public uint32 LogFileMode;
 	public uint32 FlushTimer;
 	public EVENT_TRACE_FLAG EnableFlags;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 NumberOfBuffers;
 	public uint32 FreeBuffers;
 	public uint32 EventsLost;
@@ -1408,10 +1408,10 @@ public struct EVENT_TRACE_PROPERTIES_V2
 	public HANDLE LoggerThreadId;
 	public uint32 LogFileNameOffset;
 	public uint32 LoggerNameOffset;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 FilterDescCount;
 	public EVENT_FILTER_DESCRIPTOR* FilterDesc;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 }
 
 [CRepr]
@@ -1546,14 +1546,14 @@ public struct EVENT_TRACE_LOGFILEW
 	public PWSTR LoggerName;
 	public int64 CurrentTime;
 	public uint32 BuffersRead;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public EVENT_TRACE CurrentEvent;
 	public TRACE_LOGFILE_HEADER LogfileHeader;
 	public PEVENT_TRACE_BUFFER_CALLBACKW BufferCallback;
 	public uint32 BufferSize;
 	public uint32 Filled;
 	public uint32 EventsLost;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 IsKernelTrace;
 	public void* Context;
 }
@@ -1577,14 +1577,14 @@ public struct EVENT_TRACE_LOGFILEA
 	public PSTR LoggerName;
 	public int64 CurrentTime;
 	public uint32 BuffersRead;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public EVENT_TRACE CurrentEvent;
 	public TRACE_LOGFILE_HEADER LogfileHeader;
 	public PEVENT_TRACE_BUFFER_CALLBACKA BufferCallback;
 	public uint32 BufferSize;
 	public uint32 Filled;
 	public uint32 EventsLost;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 IsKernelTrace;
 	public void* Context;
 }
@@ -1966,10 +1966,10 @@ public struct EVENT_PROPERTY_INFO
 	}
 	public PROPERTY_FLAGS Flags;
 	public uint32 NameOffset;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
-	public _Anonymous4_e__Union Anonymous4;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous4_e__Union Anonymous4;
 }
 
 [CRepr]
@@ -2012,11 +2012,11 @@ public struct TRACE_EVENT_INFO
 	public uint32 ProviderMessageOffset;
 	public uint32 BinaryXMLOffset;
 	public uint32 BinaryXMLSize;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 PropertyCount;
 	public uint32 TopLevelPropertyCount;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 	public EVENT_PROPERTY_INFO* EventPropertyInfoArray mut => &EventPropertyInfoArray_impl;
 	private EVENT_PROPERTY_INFO[ANYSIZE_ARRAY] EventPropertyInfoArray_impl;
 }

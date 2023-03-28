@@ -1478,8 +1478,8 @@ public struct JET_INDEXCREATE_A
 	public uint32 cbKey;
 	public uint32 grbit;
 	public uint32 ulDensity;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public JET_CONDITIONALCOLUMN_A* rgconditionalcolumn;
 	public uint32 cConditionalColumn;
 	public int32 err;
@@ -1507,8 +1507,8 @@ public struct JET_INDEXCREATE_W
 	public uint32 cbKey;
 	public uint32 grbit;
 	public uint32 ulDensity;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public JET_CONDITIONALCOLUMN_W* rgconditionalcolumn;
 	public uint32 cConditionalColumn;
 	public int32 err;
@@ -1536,8 +1536,8 @@ public struct JET_INDEXCREATE2_A
 	public uint32 cbKey;
 	public uint32 grbit;
 	public uint32 ulDensity;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public JET_CONDITIONALCOLUMN_A* rgconditionalcolumn;
 	public uint32 cConditionalColumn;
 	public int32 err;
@@ -1566,8 +1566,8 @@ public struct JET_INDEXCREATE2_W
 	public uint32 cbKey;
 	public uint32 grbit;
 	public uint32 ulDensity;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public JET_CONDITIONALCOLUMN_W* rgconditionalcolumn;
 	public uint32 cConditionalColumn;
 	public int32 err;
@@ -1904,8 +1904,8 @@ public struct JET_LOGTIME
 	public CHAR bDay;
 	public CHAR bMonth;
 	public CHAR bYear;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
@@ -1939,8 +1939,8 @@ public struct JET_BKLOGTIME
 	public CHAR bDay;
 	public CHAR bMonth;
 	public CHAR bYear;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr, Packed(1)]
@@ -2316,8 +2316,8 @@ public struct JET_ENUMCOLUMN
 			public uint32 cEnumColumnValue;
 			public JET_ENUMCOLUMNVALUE* rgEnumColumnValue;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	public uint32 columnid;
 	public int32 err;

@@ -3334,8 +3334,8 @@ public struct D3D11_BUFFER_SRV
 		public uint32 NumElements;
 		public uint32 ElementWidth;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
@@ -3452,8 +3452,8 @@ public struct D3D11_BUFFER_RTV
 		public uint32 FirstElement;
 		public uint32 ElementOffset;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]

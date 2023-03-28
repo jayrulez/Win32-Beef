@@ -3248,8 +3248,8 @@ public struct COLORSPACE_TRANSFORM_DATA_CAP
 		{
 			public uint32 _bitfield;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 		public uint32 Value;
 	}
 	public COLORSPACE_TRANSFORM_DATA_TYPE DataType;
@@ -3421,8 +3421,8 @@ public struct MIPI_DSI_PACKET
 		public uint8 DataId;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint8 EccFiller;
 	public uint8[8] Payload;
 }

@@ -272,8 +272,8 @@ public struct D2D_MATRIX_3X2_F
 			public float _31;
 			public float _32;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 		public float[6] m;
 	}
 	public using _Anonymous_e__Union Anonymous;

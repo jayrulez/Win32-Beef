@@ -687,8 +687,8 @@ public struct SYSTEM_CPU_SET_INFORMATION
 			public uint8 LastLevelCacheIndex;
 			public uint8 NumaNodeIndex;
 			public uint8 EfficiencyClass;
-			public _Anonymous1_e__Union Anonymous1;
-			public _Anonymous2_e__Union Anonymous2;
+			public using _Anonymous1_e__Union Anonymous1;
+			public using _Anonymous2_e__Union Anonymous2;
 			public uint64 AllocationTag;
 		}
 		public _CpuSet_e__Struct CpuSet;

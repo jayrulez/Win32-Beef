@@ -507,9 +507,9 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO
 	}
 	public uint32 dwSize;
 	public CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT dwSubjectChoice;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public CRYPTUI_WIZ_DIGITAL_SIGN dwSigningCertChoice;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public PWSTR pwszTimestampURL;
 	public CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE dwAdditionalCertChoice;
 	public CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO* pSignExtInfo;

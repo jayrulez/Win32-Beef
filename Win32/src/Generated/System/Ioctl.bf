@@ -3010,8 +3010,8 @@ public struct DEVICE_LOCATION
 			public uint32 Channel;
 			public uint32 Device;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	public uint32 Socket;
 	public uint32 Slot;

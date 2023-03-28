@@ -5178,8 +5178,8 @@ public struct REGFILTER2
 			public uint32 cPins2;
 			public REGFILTERPINS2* rgPins2;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	public uint32 dwVersion;
 	public uint32 dwMerit;
@@ -7428,8 +7428,8 @@ public struct KSM_BDA_PIN_PAIR
 		public uint32 OutputPinType;
 	}
 	public KSIDENTIFIER Method;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]

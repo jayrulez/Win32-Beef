@@ -5525,8 +5525,8 @@ public struct KNONVOLATILE_CONTEXT_POINTERS
 		public M128A*[16] FloatingContext;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 #endif
 
@@ -6452,13 +6452,13 @@ public struct MINIDUMP_SYSTEM_INFO
 	public PROCESSOR_ARCHITECTURE ProcessorArchitecture;
 	public uint16 ProcessorLevel;
 	public uint16 ProcessorRevision;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 MajorVersion;
 	public uint32 MinorVersion;
 	public uint32 BuildNumber;
 	public VER_PLATFORM PlatformId;
 	public uint32 CSDVersionRva;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public CPU_INFORMATION Cpu;
 }
 
@@ -7210,12 +7210,12 @@ public struct MINIDUMP_CALLBACK_OUTPUT
 		public uint32 ModuleWriteFlags;
 		public uint32 ThreadWriteFlags;
 		public uint32 SecondaryFlags;
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 		public HANDLE Handle;
-		public _Anonymous3_e__Struct Anonymous3;
-		public _Anonymous4_e__Struct Anonymous4;
-		public _Anonymous5_e__Struct Anonymous5;
+		public using _Anonymous3_e__Struct Anonymous3;
+		public using _Anonymous4_e__Struct Anonymous4;
+		public using _Anonymous5_e__Struct Anonymous5;
 		public HRESULT Status;
 	}
 	public using _Anonymous_e__Union Anonymous;

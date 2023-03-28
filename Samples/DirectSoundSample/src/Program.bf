@@ -284,7 +284,7 @@ class Program
 		}
 		// Wait for notifications.  In this case, we only have one notification so we could use WaitForSingleObject,
 		// but for the assignment you will need more than one notification, so you will need WaitForMultipleObjects
-		result = (int32)WaitForMultipleObjects(1u, &playEventHandles, (.)FALSE, INFINITE);
+		result = (int32)WaitForMultipleObjects(1, &playEventHandles, (.)FALSE, INFINITE);
 		// In this case, we have been notified that playback has finished so we can just finish. In the assignment,
 		// you should use the appropriate notification to determine which part of the secondary buffer needs to be
 		// filled and handle it accordingly.

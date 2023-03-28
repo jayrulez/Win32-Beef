@@ -1028,8 +1028,8 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_A
 			public FILETIME PdlLogStartTime;
 			public FILETIME PdlLogEndTime;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -1074,8 +1074,8 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_W
 			public FILETIME PdlLogStartTime;
 			public FILETIME PdlLogEndTime;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	public uint32 dwSize;
 	public uint32 dwFlags;

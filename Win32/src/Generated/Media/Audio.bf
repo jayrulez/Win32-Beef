@@ -1466,8 +1466,8 @@ public struct MIXERCONTROLA
 			public int32 lMinimum;
 			public int32 lMaximum;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 		public uint32[6] dwReserved;
 	}
 	[CRepr, Union, Packed(1)]
@@ -1506,8 +1506,8 @@ public struct MIXERCONTROLW
 			public uint32 dwMinimum;
 			public uint32 dwMaximum;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 		public uint32[6] dwReserved;
 	}
 	[CRepr, Union, Packed(1)]
