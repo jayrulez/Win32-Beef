@@ -212,8 +212,8 @@ public struct RTL_BALANCED_NODE
 		public RTL_BALANCED_NODE*[2] Children;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]

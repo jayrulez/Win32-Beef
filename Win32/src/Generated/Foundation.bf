@@ -9907,9 +9907,9 @@ public struct DECIMAL
 		public uint16 signscale;
 	}
 	public uint16 wReserved;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 Hi32;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]

@@ -1314,8 +1314,8 @@ public struct DNS_CUSTOM_SERVER
 	}
 	public uint32 dwServerType;
 	public uint64 ullFlags;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]

@@ -6527,8 +6527,8 @@ public struct CERT_SYSTEM_STORE_RELOCATE_PARA
 		public HKEY hKeyBase;
 		public void* pvBase;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]

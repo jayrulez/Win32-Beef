@@ -6320,8 +6320,8 @@ public struct ODBC_VS_ARGS
 	}
 	public Guid* pguidEvent;
 	public uint32 dwFlags;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public int16 RetCode;
 }
 

@@ -2583,8 +2583,8 @@ public struct KSPROPERTY_BOUNDS_LONG
 		public uint32 UnsignedMinimum;
 		public uint32 UnsignedMaximum;
 	}
-	public _Anonymous1_e__Struct Anonymous1;
-	public _Anonymous2_e__Struct Anonymous2;
+	public using _Anonymous1_e__Struct Anonymous1;
+	public using _Anonymous2_e__Struct Anonymous2;
 }
 
 [CRepr, Union]
@@ -2602,8 +2602,8 @@ public struct KSPROPERTY_BOUNDS_LONGLONG
 		public uint64 UnsignedMinimum;
 		public uint64 UnsignedMaximum;
 	}
-	public _Anonymous1_e__Struct Anonymous1;
-	public _Anonymous2_e__Struct Anonymous2;
+	public using _Anonymous1_e__Struct Anonymous1;
+	public using _Anonymous2_e__Struct Anonymous2;
 }
 
 [CRepr]
@@ -2855,11 +2855,11 @@ public struct KSALLOCATOR_FRAMING
 		public uint32 OptionsFlags;
 		public uint32 RequirementsFlags;
 	}
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 PoolType;
 	public uint32 Frames;
 	public uint32 FrameSize;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 Reserved;
 }
 
@@ -3206,9 +3206,9 @@ public struct DS3DVECTOR
 		public float x;
 		public float dvX;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 }
 
 [CRepr]
@@ -4502,9 +4502,9 @@ public struct KS_FRAME_INFO
 	public HANDLE hDirectDraw;
 	public HANDLE hSurfaceHandle;
 	public RECT DirectDrawRect;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 Reserved2;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]

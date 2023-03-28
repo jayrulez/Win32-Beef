@@ -1029,9 +1029,9 @@ public struct WDD
 		public uint16 wCompPos;
 	}
 	public uint16 wDispPos;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint16 cchDisp;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 WDD_nReserve1;
 	public uint16 nPos;
 	public uint16 _bitfield;
@@ -1062,11 +1062,11 @@ public struct MORRSLT
 	public uint32 dwSize;
 	public PWSTR pwchOutput;
 	public uint16 cchOutput;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint16* pchInputPos;
 	public uint16* pchOutputIdxWDD;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 	public uint16* paMonoRubyPos;
 	public WDD* pWDD;
 	public int32 cWDD;
@@ -1149,8 +1149,8 @@ public struct IMEKMSKEY
 	public uint32 dwStatus;
 	public uint32 dwCompStatus;
 	public uint32 dwVKEY;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr, Packed(1)]

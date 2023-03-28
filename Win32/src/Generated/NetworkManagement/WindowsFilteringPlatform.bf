@@ -1445,9 +1445,9 @@ public struct IKEEXT_CERTIFICATE_AUTHENTICATION0
 		public IKEEXT_CERT_ROOT_CONFIG0* inboundTrustedRootStoreConfig;
 	}
 	public IKEEXT_CERT_CONFIG_TYPE inboundConfigType;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public IKEEXT_CERT_CONFIG_TYPE outboundConfigType;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public IKEEXT_CERT_AUTH flags;
 }
 
@@ -1481,9 +1481,9 @@ public struct IKEEXT_CERTIFICATE_AUTHENTICATION1
 		public IKEEXT_CERT_ROOT_CONFIG0* inboundTrustedRootStoreConfig;
 	}
 	public IKEEXT_CERT_CONFIG_TYPE inboundConfigType;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public IKEEXT_CERT_CONFIG_TYPE outboundConfigType;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public IKEEXT_CERT_AUTH flags;
 	public FWP_BYTE_BLOB localCertLocationUrl;
 }
@@ -1536,9 +1536,9 @@ public struct IKEEXT_CERTIFICATE_AUTHENTICATION2
 			public uint32 outboundRootArraySize;
 			public IKEEXT_CERTIFICATE_CRITERIA0* outboundRootCriteria;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
-		public _Anonymous3_e__Struct Anonymous3;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous3_e__Struct Anonymous3;
 	}
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
@@ -1561,14 +1561,14 @@ public struct IKEEXT_CERTIFICATE_AUTHENTICATION2
 			public uint32 inboundEnterpriseStoreArraySize;
 			public IKEEXT_CERTIFICATE_CRITERIA0* inboundEnterpriseStoreCriteria;
 		}
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
-		public _Anonymous3_e__Struct Anonymous3;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous3_e__Struct Anonymous3;
 	}
 	public IKEEXT_CERT_CONFIG_TYPE inboundConfigType;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public IKEEXT_CERT_CONFIG_TYPE outboundConfigType;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public IKEEXT_CERT_AUTH flags;
 	public FWP_BYTE_BLOB localCertLocationUrl;
 }
@@ -1892,8 +1892,8 @@ public struct IKEEXT_TRAFFIC0
 		public uint8[16] localV6Address;
 	}
 	public FWP_IP_VERSION ipVersion;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint64 authIpFilterId;
 }
 
@@ -2178,8 +2178,8 @@ public struct IPSEC_TRAFFIC_SELECTOR0
 	public uint16 portStart;
 	public uint16 portEnd;
 	public FWP_IP_VERSION ipVersion;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
@@ -2241,8 +2241,8 @@ public struct IPSEC_TUNNEL_ENDPOINTS0
 		public uint8[16] remoteV6Address;
 	}
 	public FWP_IP_VERSION ipVersion;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
@@ -2274,8 +2274,8 @@ public struct IPSEC_TUNNEL_ENDPOINTS2
 		public uint8[16] localV6Address;
 	}
 	public FWP_IP_VERSION ipVersion;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint64 localIfLuid;
 	public PWSTR remoteFqdn;
 	public uint32 numAddresses;
@@ -2298,8 +2298,8 @@ public struct IPSEC_TUNNEL_ENDPOINTS1
 		public uint8[16] localV6Address;
 	}
 	public FWP_IP_VERSION ipVersion;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint64 localIfLuid;
 }
 
@@ -2609,10 +2609,10 @@ public struct IPSEC_TRAFFIC0
 		public uint8[16] remoteV6Address;
 	}
 	public FWP_IP_VERSION ipVersion;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public IPSEC_TRAFFIC_TYPE trafficType;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 	public uint16 remotePort;
 }
 
@@ -2638,10 +2638,10 @@ public struct IPSEC_TRAFFIC1
 		public uint8[16] localV6Address;
 	}
 	public FWP_IP_VERSION ipVersion;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public IPSEC_TRAFFIC_TYPE trafficType;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 	public uint16 remotePort;
 	public uint16 localPort;
 	public uint8 ipProtocol;
@@ -3288,8 +3288,8 @@ public struct FWPM_NET_EVENT_HEADER0
 	public uint32 flags;
 	public FWP_IP_VERSION ipVersion;
 	public uint8 ipProtocol;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint16 localPort;
 	public uint16 remotePort;
 	public uint32 scopeId;
@@ -3345,14 +3345,14 @@ public struct FWPM_NET_EVENT_HEADER1
 	public uint32 flags;
 	public FWP_IP_VERSION ipVersion;
 	public uint8 ipProtocol;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint16 localPort;
 	public uint16 remotePort;
 	public uint32 scopeId;
 	public FWP_BYTE_BLOB appId;
 	public SID* userId;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 }
 
 [CRepr]
@@ -3374,8 +3374,8 @@ public struct FWPM_NET_EVENT_HEADER2
 	public uint32 flags;
 	public FWP_IP_VERSION ipVersion;
 	public uint8 ipProtocol;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint16 localPort;
 	public uint16 remotePort;
 	public uint32 scopeId;
@@ -3404,8 +3404,8 @@ public struct FWPM_NET_EVENT_HEADER3
 	public uint32 flags;
 	public FWP_IP_VERSION ipVersion;
 	public uint8 ipProtocol;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint16 localPort;
 	public uint16 remotePort;
 	public uint32 scopeId;
@@ -3495,8 +3495,8 @@ public struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0
 	public IKEEXT_QM_SA_STATE qmState;
 	public IKEEXT_SA_ROLE saRole;
 	public IPSEC_TRAFFIC_TYPE saTrafficType;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint64 qmFilterId;
 }
 
@@ -3519,8 +3519,8 @@ public struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1
 	public IKEEXT_QM_SA_STATE qmState;
 	public IKEEXT_SA_ROLE saRole;
 	public IPSEC_TRAFFIC_TYPE saTrafficType;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint64 qmFilterId;
 	public uint64 mmSaLuid;
 	public Guid mmProviderContextKey;
@@ -3657,8 +3657,8 @@ public struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0
 		public uint8[16] internalHostV6Addr;
 	}
 	public FWP_IP_VERSION ipVersion;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public int32 failureStatus;
 	public FWP_DIRECTION direction;
 }
@@ -3859,8 +3859,8 @@ public struct FWPM_CONNECTION0
 	}
 	public uint64 connectionId;
 	public FWP_IP_VERSION ipVersion;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public Guid* providerKey;
 	public IPSEC_TRAFFIC_TYPE ipsecTrafficModeType;
 	public IKEEXT_KEY_MODULE_TYPE keyModuleType;

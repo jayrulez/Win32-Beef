@@ -1347,17 +1347,17 @@ public struct DDBLTFX
 	public uint32 dwZBufferHigh;
 	public uint32 dwZBufferBaseDest;
 	public uint32 dwZDestConstBitDepth;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 dwZSrcConstBitDepth;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 dwAlphaEdgeBlendBitDepth;
 	public uint32 dwAlphaEdgeBlend;
 	public uint32 dwReserved;
 	public uint32 dwAlphaDestConstBitDepth;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 	public uint32 dwAlphaSrcConstBitDepth;
-	public _Anonymous4_e__Union Anonymous4;
-	public _Anonymous5_e__Union Anonymous5;
+	public using _Anonymous4_e__Union Anonymous4;
+	public using _Anonymous5_e__Union Anonymous5;
 	public DDCOLORKEY ddckDestColorkey;
 	public DDCOLORKEY ddckSrcColorkey;
 }
@@ -1744,11 +1744,11 @@ public struct DDPIXELFORMAT
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public uint32 dwFourCC;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
-	public _Anonymous4_e__Union Anonymous4;
-	public _Anonymous5_e__Union Anonymous5;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous4_e__Union Anonymous4;
+	public using _Anonymous5_e__Union Anonymous5;
 }
 
 [CRepr]
@@ -1771,9 +1771,9 @@ public struct DDOVERLAYFX
 	public uint32 dwAlphaEdgeBlend;
 	public uint32 dwReserved;
 	public uint32 dwAlphaDestConstBitDepth;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 dwAlphaSrcConstBitDepth;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public DDCOLORKEY dckDestColorkey;
 	public DDCOLORKEY dckSrcColorkey;
 	public uint32 dwDDFX;
@@ -1845,9 +1845,9 @@ public struct DDSURFACEDESC
 	public uint32 dwFlags;
 	public uint32 dwHeight;
 	public uint32 dwWidth;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 dwBackBufferCount;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 dwAlphaBitDepth;
 	public uint32 dwReserved;
 	public void* lpSurface;
@@ -1897,17 +1897,17 @@ public struct DDSURFACEDESC2
 	public uint32 dwFlags;
 	public uint32 dwHeight;
 	public uint32 dwWidth;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 	public uint32 dwAlphaBitDepth;
 	public uint32 dwReserved;
 	public void* lpSurface;
-	public _Anonymous4_e__Union Anonymous4;
+	public using _Anonymous4_e__Union Anonymous4;
 	public DDCOLORKEY ddckCKDestBlt;
 	public DDCOLORKEY ddckCKSrcOverlay;
 	public DDCOLORKEY ddckCKSrcBlt;
-	public _Anonymous5_e__Union Anonymous5;
+	public using _Anonymous5_e__Union Anonymous5;
 	public DDSCAPS2 ddsCaps;
 	public uint32 dwTextureStage;
 }
@@ -2212,10 +2212,10 @@ public struct VIDMEM
 	}
 	public uint32 dwFlags;
 	public uint fpStart;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public DDSCAPS ddsCaps;
 	public DDSCAPS ddsCapsAlt;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
@@ -2583,11 +2583,11 @@ public struct DDRAWI_DDRAWSURFACE_GBL
 	}
 	public uint32 dwRefCnt;
 	public uint32 dwGlobalFlags;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 	public uint fpVidMem;
-	public _Anonymous4_e__Union Anonymous4;
+	public using _Anonymous4_e__Union Anonymous4;
 	public uint16 wHeight;
 	public uint16 wWidth;
 	public uint32 dwUsageCount;
@@ -2685,8 +2685,8 @@ public struct DDRAWI_DDRAWSURFACE_LCL
 	public uint32 dwProcessId;
 	public uint32 dwFlags;
 	public DDSCAPS ddsCaps;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint32 dwModeCreatedIn;
 	public uint32 dwBackBufferCount;
 	public DDCOLORKEY ddckCKDestBlt;
@@ -3758,10 +3758,10 @@ public struct VIDEOMEMORY
 	}
 	public uint32 dwFlags;
 	public uint fpStart;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public DDSCAPS ddsCaps;
 	public DDSCAPS ddsCapsAlt;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
@@ -3984,10 +3984,10 @@ public struct DD_SURFACE_GLOBAL
 		public uint32 dwBlockSizeX;
 		public uint32 dwUserMemSize;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint fpVidMem;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 	public int32 yHint;
 	public int32 xHint;
 	public uint32 wHeight;
@@ -4027,8 +4027,8 @@ public struct DD_SURFACE_LOCAL
 	public uint32 dwFlags;
 	public DDSCAPS ddsCaps;
 	public uint dwReserved1;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public DD_SURFACE_MORE* lpSurfMore;
 	public DD_ATTACHLIST* lpAttachList;
 	public DD_ATTACHLIST* lpAttachListFrom;

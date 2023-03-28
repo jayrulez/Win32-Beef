@@ -413,8 +413,8 @@ public struct MEM_EXTENDED_PARAMETER
 	{
 		public uint64 _bitfield;
 	}
-	public _Anonymous1_e__Struct Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Struct Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 #endregion

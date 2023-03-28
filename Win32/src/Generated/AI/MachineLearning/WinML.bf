@@ -191,9 +191,9 @@ public struct WINML_MAP_BINDING_DESC
 	}
 	public uint32 ElementCount;
 	public WINML_TENSOR_DATA_TYPE KeyType;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public WINML_TENSOR_DATA_TYPE Fields;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]

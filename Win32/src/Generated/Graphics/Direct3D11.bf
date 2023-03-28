@@ -3334,8 +3334,8 @@ public struct D3D11_BUFFER_SRV
 		public uint32 NumElements;
 		public uint32 ElementWidth;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
@@ -3452,8 +3452,8 @@ public struct D3D11_BUFFER_RTV
 		public uint32 FirstElement;
 		public uint32 ElementOffset;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
@@ -7763,7 +7763,7 @@ public static
 	[Import("d3d11.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT D3D11CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, D3D_DRIVER_TYPE DriverType, HINSTANCE Software, D3D11_CREATE_DEVICE_FLAG Flags, D3D_FEATURE_LEVEL* pFeatureLevels, uint32 FeatureLevels, uint32 SDKVersion, DXGI_SWAP_CHAIN_DESC* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, D3D_FEATURE_LEVEL* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext);
 
-	[Import("D3DCOMPILER_47.lib"), CLink, CallingConvention(.Stdcall)]
+	[Import("D3DCOMPILER_47.dll"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT D3DDisassemble11Trace(void* pSrcData, uint SrcDataSize, ID3D11ShaderTrace* pTrace, uint32 StartStep, uint32 NumSteps, uint32 Flags, ID3DBlob** ppDisassembly);
 
 	[Import("d3dcsx.lib"), CLink, CallingConvention(.Stdcall)]

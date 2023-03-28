@@ -4517,11 +4517,11 @@ public struct IPV4_HEADER
 		public uint8 VersionAndHeaderLength;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint16 TotalLength;
 	public uint16 Identification;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous3_e__Union Anonymous3;
 	public uint8 TimeToLive;
 	public uint8 Protocol;
 	public uint16 HeaderChecksum;
@@ -4641,8 +4641,8 @@ public struct IGMP_HEADER
 		public uint8 MaxRespTime;
 		public uint8 Code;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint16 Checksum;
 	public IN_ADDR MulticastAddress;
 }
@@ -4673,11 +4673,11 @@ public struct IGMPV3_QUERY_HEADER
 		public using _Anonymous_e__Struct Anonymous;
 	}
 	public uint8 Type;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint16 Checksum;
 	public IN_ADDR MulticastAddress;
 	public uint8 _bitfield;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint16 SourceCount;
 }
 
@@ -4877,10 +4877,10 @@ public struct ND_OPTION_PREFIX_INFO
 	public uint8 nd_opt_pi_type;
 	public uint8 nd_opt_pi_len;
 	public uint8 nd_opt_pi_prefix_len;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 nd_opt_pi_valid_time;
 	public uint32 nd_opt_pi_preferred_time;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public IN6_ADDR nd_opt_pi_prefix;
 }
 
@@ -4977,11 +4977,11 @@ public struct MLDV2_QUERY_HEADER
 		public using _Anonymous_e__Struct Anonymous;
 	}
 	public ICMP_HEADER IcmpHeader;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint16 Reserved;
 	public IN6_ADDR MulticastAddress;
 	public uint8 _bitfield;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public uint16 SourceCount;
 }
 

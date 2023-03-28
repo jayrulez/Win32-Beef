@@ -5525,8 +5525,112 @@ public struct KNONVOLATILE_CONTEXT_POINTERS
 		public M128A*[16] FloatingContext;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
+}
+#endif
+
+#if BF_64_BIT
+[CRepr]
+public struct UNWIND_HISTORY_TABLE_ENTRY
+{
+	public uint ImageBase;
+	public IMAGE_RUNTIME_FUNCTION_ENTRY* FunctionEntry;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct UNWIND_HISTORY_TABLE
+{
+	public uint32 Count;
+	public uint8 LocalHint;
+	public uint8 GlobalHint;
+	public uint8 Search;
+	public uint8 Once;
+	public uint LowAddress;
+	public uint HighAddress;
+	public UNWIND_HISTORY_TABLE_ENTRY[12] Entry;
+}
+#endif
+
+#if BF_64_BIT || BF_ARM_64
+[CRepr]
+public struct LOADED_IMAGE
+{
+	public PSTR ModuleName;
+	public HANDLE hFile;
+	public uint8* MappedAddress;
+	public IMAGE_NT_HEADERS64* FileHeader;
+	public IMAGE_SECTION_HEADER* LastRvaSection;
+	public uint32 NumberOfSections;
+	public IMAGE_SECTION_HEADER* Sections;
+	public IMAGE_FILE_CHARACTERISTICS2 Characteristics;
+	public BOOLEAN fSystemImage;
+	public BOOLEAN fDOSImage;
+	public BOOLEAN fReadOnly;
+	public uint8 Version;
+	public LIST_ENTRY Links;
+	public uint32 SizeOfImage;
+}
+#endif
+
+[CRepr]
+public struct M128A
+{
+	public uint64 Low;
+	public int64 High;
+}
+
+#if BF_32_BIT
+[CRepr]
+public struct XSAVE_FORMAT
+{
+	public uint16 ControlWord;
+	public uint16 StatusWord;
+	public uint8 TagWord;
+	public uint8 Reserved1;
+	public uint16 ErrorOpcode;
+	public uint32 ErrorOffset;
+	public uint16 ErrorSelector;
+	public uint16 Reserved2;
+	public uint32 DataOffset;
+	public uint16 DataSelector;
+	public uint16 Reserved3;
+	public uint32 MxCsr;
+	public uint32 MxCsr_Mask;
+	public M128A[8] FloatRegisters;
+	public M128A[8] XmmRegisters;
+	public uint8[224] Reserved4;
+}
+#endif
+
+[CRepr]
+public struct XSAVE_AREA_HEADER
+{
+	public uint64 Mask;
+	public uint64 CompactionMask;
+	public uint64[6] Reserved2;
+}
+
+[CRepr]
+public struct XSAVE_AREA
+{
+	public XSAVE_FORMAT LegacyState;
+	public XSAVE_AREA_HEADER Header;
+}
+
+#if BF_32_BIT
+[CRepr]
+public struct XSTATE_CONTEXT
+{
+	public uint64 Mask;
+	public uint32 Length;
+	public uint32 Reserved1;
+	public XSAVE_AREA* Area;
+	public uint32 Reserved2;
+	public void* Buffer;
+	public uint32 Reserved3;
 }
 #endif
 
@@ -6452,13 +6556,13 @@ public struct MINIDUMP_SYSTEM_INFO
 	public PROCESSOR_ARCHITECTURE ProcessorArchitecture;
 	public uint16 ProcessorLevel;
 	public uint16 ProcessorRevision;
-	public _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous1_e__Union Anonymous1;
 	public uint32 MajorVersion;
 	public uint32 MinorVersion;
 	public uint32 BuildNumber;
 	public VER_PLATFORM PlatformId;
 	public uint32 CSDVersionRva;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous2_e__Union Anonymous2;
 	public CPU_INFORMATION Cpu;
 }
 
@@ -7210,12 +7314,12 @@ public struct MINIDUMP_CALLBACK_OUTPUT
 		public uint32 ModuleWriteFlags;
 		public uint32 ThreadWriteFlags;
 		public uint32 SecondaryFlags;
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 		public HANDLE Handle;
-		public _Anonymous3_e__Struct Anonymous3;
-		public _Anonymous4_e__Struct Anonymous4;
-		public _Anonymous5_e__Struct Anonymous5;
+		public using _Anonymous3_e__Struct Anonymous3;
+		public using _Anonymous4_e__Struct Anonymous4;
+		public using _Anonymous5_e__Struct Anonymous5;
 		public HRESULT Status;
 	}
 	public using _Anonymous_e__Union Anonymous;

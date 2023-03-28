@@ -4614,8 +4614,8 @@ public struct SE_TOKEN_USER
 		public TOKEN_USER TokenUser;
 		public SID_AND_ATTRIBUTES User;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
@@ -6011,8 +6011,8 @@ public struct IMAGE_RESOURCE_DIRECTORY_ENTRY
 		public uint32 Name;
 		public uint16 Id;
 	}
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]

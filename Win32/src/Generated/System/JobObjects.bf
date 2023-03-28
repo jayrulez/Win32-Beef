@@ -335,9 +335,9 @@ public struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2
 	public uint64 IoReadBytesLimit;
 	public uint64 IoWriteBytesLimit;
 	public LARGE_INTEGER PerJobUserTimeLimit;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 	public JOB_OBJECT_LIMIT LimitFlags;
 	public JOBOBJECT_RATE_CONTROL_TOLERANCE IoRateControlTolerance;
 	public uint64 JobLowMemoryLimit;
@@ -393,9 +393,9 @@ public struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2
 	public LARGE_INTEGER PerJobUserTime;
 	public LARGE_INTEGER PerJobUserTimeLimit;
 	public uint64 JobMemory;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
-	public _Anonymous3_e__Union Anonymous3;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous3_e__Union Anonymous3;
 	public uint64 JobLowMemoryLimit;
 	public JOBOBJECT_RATE_CONTROL_TOLERANCE IoRateControlTolerance;
 	public JOBOBJECT_RATE_CONTROL_TOLERANCE IoRateControlToleranceLimit;

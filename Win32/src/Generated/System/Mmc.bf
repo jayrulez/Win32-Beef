@@ -665,8 +665,8 @@ public struct RESULT_VIEW_TYPE_INFO
 			public PWSTR pstrURL;
 		}
 		public uint32 dwListOptions;
-		public _Anonymous1_e__Struct Anonymous1;
-		public _Anonymous2_e__Struct Anonymous2;
+		public using _Anonymous1_e__Struct Anonymous1;
+		public using _Anonymous2_e__Struct Anonymous2;
 	}
 	public PWSTR pstrPersistableViewDescription;
 	public MMC_VIEW_TYPE eViewType;

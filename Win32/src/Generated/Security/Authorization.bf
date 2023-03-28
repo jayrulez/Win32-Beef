@@ -906,8 +906,8 @@ public struct AUDIT_PARAM
 	public AUDIT_PARAM_TYPE Type;
 	public uint32 Length;
 	public uint32 Flags;
-	public _Anonymous1_e__Union Anonymous1;
-	public _Anonymous2_e__Union Anonymous2;
+	public using _Anonymous1_e__Union Anonymous1;
+	public using _Anonymous2_e__Union Anonymous2;
 }
 
 [CRepr]
