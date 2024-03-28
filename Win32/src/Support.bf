@@ -91,6 +91,17 @@ namespace Win32.Foundation
 	{
 		public static implicit operator uint64(Self self) => (uint64)self.Underlying;
 	}
+
+	extension RECT
+	{
+		public this(int32 left, int32 top, int32 right, int32 bottom)
+		{
+			this.left = left;
+			this.top = top;
+			this.right = right;
+			this.bottom = bottom;
+		}
+	}
 }
 
 namespace Win32.Networking.WinSock
@@ -170,6 +181,44 @@ namespace Win32.Graphics.Direct3D11
 			back = @back;
 		}
 	}
+
+	extension D3D11_VIEWPORT
+	{
+		public this(float topLeftX,
+			float topLeftY,
+			float width,
+			float height,
+			float minDepth,
+			float maxDepth)
+		{
+			this.TopLeftX = topLeftX;
+			this.TopLeftY = topLeftY;
+			this.Width = width;
+			this.Height = height;
+			this.MinDepth = minDepth;
+			this.MaxDepth = maxDepth;
+		}
+	}
+
+	extension D3D11_INPUT_ELEMENT_DESC
+	{
+		public this(PSTR semanticName,
+			uint32 semanticIndex,
+			DXGI_FORMAT format,
+			uint32 inputSlot,
+			uint32 alignedByteOffset,
+			D3D11_INPUT_CLASSIFICATION inputSlotClass,
+			uint32 instanceDataStepRate)
+		{
+			this.SemanticName = semanticName;
+			this.SemanticIndex = semanticIndex;
+			this.Format = format;
+			this.InputSlot = inputSlot;
+			this.AlignedByteOffset = alignedByteOffset;
+			this.InputSlotClass = inputSlotClass;
+			this.InstanceDataStepRate = instanceDataStepRate;
+		}
+	}
 }
 
 namespace Win32.Graphics.Direct3D12
@@ -178,7 +227,6 @@ namespace Win32.Graphics.Direct3D12
 	{
 		public this(D3D12_DESCRIPTOR_RANGE_TYPE rangeType, int32 numDescriptors, int32 baseShaderRegister, int32 registerSpace = 0, int32 offsetInDescriptorsFromTableStart = -1)
 		{
-			
 			RangeType = rangeType;
 			NumDescriptors = (.)numDescriptors;
 			BaseShaderRegister = (.)baseShaderRegister;
@@ -188,7 +236,6 @@ namespace Win32.Graphics.Direct3D12
 
 		public this(D3D12_DESCRIPTOR_RANGE1 other)
 		{
-			
 			RangeType = other.RangeType;
 			NumDescriptors = other.NumDescriptors;
 			BaseShaderRegister = other.BaseShaderRegister;
@@ -211,7 +258,6 @@ namespace Win32.Graphics.Direct3D12
 	{
 		public this(params D3D12_DESCRIPTOR_RANGE[] ranges)
 		{
-			
 			NumDescriptorRanges = (.)ranges.Count;
 			pDescriptorRanges = ranges.Ptr;
 		}
@@ -221,7 +267,6 @@ namespace Win32.Graphics.Direct3D12
 	{
 		public this(D3D12_ROOT_SIGNATURE_FLAGS flags, D3D12_ROOT_PARAMETER[] parameters = null, D3D12_STATIC_SAMPLER_DESC[] samplers = null)
 		{
-			
 			NumParameters = (.)(parameters?.Count ?? 0);
 			pParameters = parameters?.Ptr ?? null;
 			NumStaticSamplers = (.)(samplers?.Count ?? 0);
@@ -234,7 +279,6 @@ namespace Win32.Graphics.Direct3D12
 	{
 		public this(String semanticName, int32 semanticIndex, DXGI_FORMAT format, int32 offset, int32 slot, D3D12_INPUT_CLASSIFICATION slotClass, int32 stepRate)
 		{
-			
 			SemanticName = (.)semanticName.CStr();
 			SemanticIndex = (.)semanticIndex;
 			Format = format;
@@ -264,7 +308,6 @@ namespace Win32.Graphics.Direct3D12
 	{
 		public this(D3D12_RESOURCE_TRANSITION_BARRIER transition, D3D12_RESOURCE_BARRIER_FLAGS flags = .D3D12_RESOURCE_BARRIER_FLAG_NONE)
 		{
-			
 			Type = .D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 			Flags = flags;
 			Transition = transition;
@@ -272,7 +315,6 @@ namespace Win32.Graphics.Direct3D12
 
 		public this(D3D12_RESOURCE_UAV_BARRIER unorderedAccessView)
 		{
-			
 			Type = .D3D12_RESOURCE_BARRIER_TYPE_UAV;
 			Flags = .D3D12_RESOURCE_BARRIER_FLAG_NONE;
 			UAV = unorderedAccessView;
@@ -283,7 +325,6 @@ namespace Win32.Graphics.Direct3D12
 	{
 		public this(ID3D12Resource* resource, D3D12_RESOURCE_STATES stateBefore, D3D12_RESOURCE_STATES stateAfter, int32 subresource = -1)
 		{
-			
 			pResource = resource;
 			Subresource = (.)subresource;
 			StateBefore = stateBefore;
@@ -295,7 +336,6 @@ namespace Win32.Graphics.Direct3D12
 	{
 		public this(ID3D12Resource* resource)
 		{
-			
 			pResource = ((resource != null) ? resource : null);
 		}
 	}
@@ -323,7 +363,6 @@ namespace Win32.Graphics.Direct3D12
 	{
 		public this(D3D12_RESOURCE_DIMENSION dimension, uint64 alignment, uint64 width, int32 height, uint16 depthOrArraySize, uint16 mipLevels, DXGI_FORMAT format, int32 sampleCount, int32 sampleQuality, D3D12_TEXTURE_LAYOUT layout, D3D12_RESOURCE_FLAGS flags)
 		{
-			
 			Dimension = dimension;
 			Alignment = alignment;
 			Width = width;
