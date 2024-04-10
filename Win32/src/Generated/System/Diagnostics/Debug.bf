@@ -15083,7 +15083,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, uint64* Bases, uint32 Start, DEBUG_MODULE_PARAMETERS* Params) GetModuleParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint64* Base) GetSymbolModule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) GetTypeId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) COM_GetTypeId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint32* Size) GetTypeSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, PSTR Field, uint32* Offset) GetFieldOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint32* TypeId, uint64* Module) GetSymbolTypeId;
@@ -15152,7 +15152,7 @@ public static
 
 	public HRESULT GetTypeName(uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeName(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
 
-	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]GetTypeId(&this, Module, Name, TypeId);
+	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]COM_GetTypeId(&this, Module, Name, TypeId);
 
 	public HRESULT GetTypeSize(uint64 Module, uint32 TypeId, uint32* Size) mut => VT.[Friend]GetTypeSize(&this, Module, TypeId, Size);
 
@@ -15242,7 +15242,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, uint64* Bases, uint32 Start, DEBUG_MODULE_PARAMETERS* Params) GetModuleParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint64* Base) GetSymbolModule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) GetTypeId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) COM_GetTypeId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint32* Size) GetTypeSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, PSTR Field, uint32* Offset) GetFieldOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint32* TypeId, uint64* Module) GetSymbolTypeId;
@@ -15319,7 +15319,7 @@ public static
 
 	public HRESULT GetTypeName(uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeName(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
 
-	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]GetTypeId(&this, Module, Name, TypeId);
+	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]COM_GetTypeId(&this, Module, Name, TypeId);
 
 	public HRESULT GetTypeSize(uint64 Module, uint32 TypeId, uint32* Size) mut => VT.[Friend]GetTypeSize(&this, Module, TypeId, Size);
 
@@ -15425,7 +15425,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, uint64* Bases, uint32 Start, DEBUG_MODULE_PARAMETERS* Params) GetModuleParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint64* Base) GetSymbolModule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) GetTypeId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) COM_GetTypeId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint32* Size) GetTypeSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, PSTR Field, uint32* Offset) GetFieldOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint32* TypeId, uint64* Module) GetSymbolTypeId;
@@ -15568,7 +15568,7 @@ public static
 
 	public HRESULT GetTypeName(uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeName(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
 
-	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]GetTypeId(&this, Module, Name, TypeId);
+	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]COM_GetTypeId(&this, Module, Name, TypeId);
 
 	public HRESULT GetTypeSize(uint64 Module, uint32 TypeId, uint32* Size) mut => VT.[Friend]GetTypeSize(&this, Module, TypeId, Size);
 
@@ -15806,7 +15806,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, uint64* Bases, uint32 Start, DEBUG_MODULE_PARAMETERS* Params) GetModuleParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint64* Base) GetSymbolModule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) GetTypeId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) COM_GetTypeId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint32* Size) GetTypeSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, PSTR Field, uint32* Offset) GetFieldOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint32* TypeId, uint64* Module) GetSymbolTypeId;
@@ -15956,7 +15956,7 @@ public static
 
 	public HRESULT GetTypeName(uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeName(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
 
-	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]GetTypeId(&this, Module, Name, TypeId);
+	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]COM_GetTypeId(&this, Module, Name, TypeId);
 
 	public HRESULT GetTypeSize(uint64 Module, uint32 TypeId, uint32* Size) mut => VT.[Friend]GetTypeSize(&this, Module, TypeId, Size);
 
@@ -16208,7 +16208,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, uint64* Bases, uint32 Start, DEBUG_MODULE_PARAMETERS* Params) GetModuleParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint64* Base) GetSymbolModule;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) GetTypeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) GetTypeId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, PSTR Name, uint32* TypeId) COM_GetTypeId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, uint32* Size) GetTypeSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Module, uint32 TypeId, PSTR Field, uint32* Offset) GetFieldOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Symbol, uint32* TypeId, uint64* Module) GetSymbolTypeId;
@@ -16360,7 +16360,7 @@ public static
 
 	public HRESULT GetTypeName(uint64 Module, uint32 TypeId, uint8* NameBuffer, uint32 NameBufferSize, uint32* NameSize) mut => VT.[Friend]GetTypeName(&this, Module, TypeId, NameBuffer, NameBufferSize, NameSize);
 
-	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]GetTypeId(&this, Module, Name, TypeId);
+	public HRESULT GetTypeId(uint64 Module, PSTR Name, uint32* TypeId) mut => VT.[Friend]COM_GetTypeId(&this, Module, Name, TypeId);
 
 	public HRESULT GetTypeSize(uint64 Module, uint32 TypeId, uint32* Size) mut => VT.[Friend]GetTypeSize(&this, Module, TypeId, Size);
 
